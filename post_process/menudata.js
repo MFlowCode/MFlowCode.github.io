@@ -1,8 +1,8 @@
 var menudata={children:[
-{text:"Home page",url:"https://mfc-caltech.github.io/index.html"},
-{text:"Pre_process",url:"https://mfc-caltech.github.io/pre_process/index.html"},
-{text:"Simulation",url:"https://mfc-caltech.github.io/simulation/index.html"},
-{text:"Post_process",url:"https://mfc-caltech.github.io/post_process/index.html"},
+{text:"Home page",url:"https://mflowcode.github.io/index.html"},
+{text:"Pre_process",url:"https://mflowcode.github.io/pre_process/index.html"},
+{text:"Simulation",url:"https://mflowcode.github.io/simulation/index.html"},
+{text:"Post_process",url:"https://mflowcode.github.io/post_process/index.html"},
 {text:"Modules",url:"namespaces.html",children:[
 {text:"Modules List",url:"namespaces.html"},
 {text:"Module Members",url:"namespacemembers.html",children:[

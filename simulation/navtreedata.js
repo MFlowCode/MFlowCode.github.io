@@ -2,10 +2,10 @@ var NAVTREE =
 [
   [ "MFC:Simulation", "index.html", [
     [ "MFC documentation", "index.html", null ],
-    [ "Home page", "^https://mfc-caltech.github.io/index.html", null ],
-    [ "Pre_process", "^https://mfc-caltech.github.io/pre_process/index.html", null ],
-    [ "Simulation", "^https://mfc-caltech.github.io/simulation/index.html", null ],
-    [ "Post_process", "^https://mfc-caltech.github.io/post_process/index.html", null ],
+    [ "Home page", "^https://mflowcode.github.io/index.html", null ],
+    [ "Pre_process", "^https://mflowcode.github.io/pre_process/index.html", null ],
+    [ "Simulation", "^https://mflowcode.github.io/simulation/index.html", null ],
+    [ "Post_process", "^https://mflowcode.github.io/post_process/index.html", null ],
     [ "Modules", null, [
       [ "Modules List", "namespaces.html", "namespaces" ],
       [ "Module Members", "namespacemembers.html", [
