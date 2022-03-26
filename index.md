@@ -34,12 +34,12 @@ Now it is developed and maintained by the groups of Professors <a href="https://
 ### Cite me!
 
 ```
-@article{Bryngelson_2020,
+@article{Bryngelson_2021,
 	title = {MFC: An open-source high-order multi-component, multi-phase, and multi-scale compressible flow solver},
 	author = {Spencer H. Bryngelson and Kevin Schmidmayer and Vedran Coralic and Jomela C. Meng and Kazuki Maeda and Tim Colonius},
 	journal = {Computer Physics Communications},
 	doi = {10.1016/j.cpc.2020.107396},
-	year = 2020,
+	year = 2021,
 	month = {may},
 	publisher = {Elsevier {BV}},
 	pages = {107396},
@@ -48,8 +48,8 @@ Now it is developed and maintained by the groups of Professors <a href="https://
 
 ## Related publications
  
-  Several publications have used the MFC in various stages of its 
-  development. A partial list is included here.
+Several publications have used the MFC in various stages of its 
+development. A partial list is included here.
  
   Select refereed journal publications:
 * <a href="https://asa.scitation.org/doi/full/10.1121/10.0000746">
