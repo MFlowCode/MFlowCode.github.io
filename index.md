@@ -35,7 +35,7 @@ Now it is developed and maintained by the groups of Professors <a href="https://
 
 ```
 @article{Bryngelson_2021,
-	title = {{MFC: A}n open-source high-order multi-component, multi-phase, and multi-scale compressible flow solver},
+	title = {MFC: An open-source high-order multi-component, multi-phase, and multi-scale compressible flow solver},
 	author = {Spencer H. Bryngelson and Kevin Schmidmayer and Vedran Coralic and Jomela C. Meng and Kazuki Maeda and Tim Colonius},
 	journal = {Computer Physics Communications},
 	doi = {10.1016/j.cpc.2020.107396},
