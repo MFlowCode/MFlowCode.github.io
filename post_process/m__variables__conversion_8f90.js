@@ -8,8 +8,9 @@ var m__variables__conversion_8f90 =
     [ "s_finalize_variables_conversion_module", "m__variables__conversion_8f90.html#a6a3f90e69ef4dea304495d0f7c068de2", null ],
     [ "s_initialize_variables_conversion_module", "m__variables__conversion_8f90.html#ac006af9a5403b2fdad7f81ce0a67ecec", null ],
     [ "flg", "m__variables__conversion_8f90.html#adcf907c5965b8d933e502c0a7878709b", null ],
-    [ "gamma_sf", "m__variables__conversion_8f90.html#a3a21cf2a54ae67e6a2e22f6cffb97c75", null ],
-    [ "pi_inf_sf", "m__variables__conversion_8f90.html#a364012a38a5ba3bcb14bbb6084206fae", null ],
-    [ "rho_sf", "m__variables__conversion_8f90.html#a8c8453ac97029955f5a3d1247c37059d", null ],
+    [ "flg_2d", "m__variables__conversion_8f90.html#ac9692dca718a7cae50fd28cfff7947ad", null ],
+    [ "gamma_sf", "m__variables__conversion_8f90.html#a0043b018970eb4da381b5f9f0c1a1f53", null ],
+    [ "pi_inf_sf", "m__variables__conversion_8f90.html#a65314ff6a82a99676df79684a2ec870f", null ],
+    [ "rho_sf", "m__variables__conversion_8f90.html#a6e656215dbc78f3364e10007b9a41f19", null ],
     [ "s_convert_to_mixture_variables", "m__variables__conversion_8f90.html#a13c16c62aae8663c39c82c23cff0e84a", null ]
 ];

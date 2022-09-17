@@ -1,22 +1,11 @@
 var searchData=
 [
-  ['m',['m',['../namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33',1,'m_global_parameters']]],
-  ['m_5fglb',['m_glb',['../namespacem__global__parameters.html#ad4e160df8d0de7ea1801a1ca29f8e9b0',1,'m_global_parameters']]],
-  ['m_5froot',['m_root',['../namespacem__global__parameters.html#afabaedf16b26e327635e956d13b45086',1,'m_global_parameters']]],
-  ['m_5fv',['m_v',['../structm__derived__types_1_1physical__parameters.html#a746535809605882bd17638e8c5b091da',1,'m_derived_types::physical_parameters']]],
-  ['mass_5fn0',['mass_n0',['../namespacem__global__parameters.html#ae3701f74c9487c9e56c2a11fb6a52e40',1,'m_global_parameters']]],
-  ['mass_5fv0',['mass_v0',['../namespacem__global__parameters.html#a6a06981be6cdab78452a106009022aa4',1,'m_global_parameters']]],
-  ['meshnames',['meshnames',['../m__data__output_8f90.html#a6072065026442573b37ac7e4bbd0bc25',1,'m_data_output.f90']]],
-  ['meshtypes',['meshtypes',['../m__data__output_8f90.html#ab445dfab128e2e9f8b7e51f51f54c095',1,'m_data_output.f90']]],
-  ['mixture_5ferr',['mixture_err',['../namespacem__global__parameters.html#a3981c7e6886ba3cde245ce4dcc6ca664',1,'m_global_parameters']]],
-  ['model_5feqns',['model_eqns',['../namespacem__global__parameters.html#a6cf2e92cfc3b519fb6da6fe9e88fab31',1,'m_global_parameters']]],
-  ['mom_5fidx',['mom_idx',['../namespacem__global__parameters.html#ad138d35528cf27ff42dba00d13c269be',1,'m_global_parameters']]],
-  ['mom_5fwrt',['mom_wrt',['../namespacem__global__parameters.html#a5d11d820127525a02b4c6f9d09fad258',1,'m_global_parameters']]],
-  ['mpi_5finfo_5fint',['mpi_info_int',['../namespacem__global__parameters.html#a2663d07998d11d25e223cd7ad0bbd748',1,'m_global_parameters']]],
-  ['mpi_5fio_5fdata',['mpi_io_data',['../namespacem__global__parameters.html#ad80f68aac31aa898ab2d7729f60e375f',1,'m_global_parameters']]],
-  ['mpiiofs',['mpiiofs',['../namespacem__global__parameters.html#ad4713c1e89eaa8fac3bb2181ba87b192',1,'m_global_parameters']]],
-  ['mpp_5flim',['mpp_lim',['../namespacem__global__parameters.html#adc35ba450a192812db36f1d6659d64e6',1,'m_global_parameters']]],
-  ['ms',['ms',['../structm__derived__types_1_1bub__bounds__info.html#a0aeed04f8b8072c124ed2cec4e23e78c',1,'m_derived_types::bub_bounds_info']]],
-  ['mu_5fv',['mu_v',['../structm__derived__types_1_1physical__parameters.html#ae4f670160d4e4effb657407407fd33e8',1,'m_derived_types::physical_parameters']]],
-  ['mul0',['mul0',['../structm__derived__types_1_1physical__parameters.html#ac33958817dd32ef7a5536d2d1c81875f',1,'m_derived_types::physical_parameters']]]
+  ['n_409',['n',['../namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544',1,'m_global_parameters']]],
+  ['n_5fglb_410',['n_glb',['../namespacem__global__parameters.html#adab11dab474410541d4c37725bea01e1',1,'m_global_parameters']]],
+  ['name_5flen_411',['name_len',['../namespacem__global__parameters.html#ac8252b115e717c6f1c8595be6f897df7',1,'m_global_parameters']]],
+  ['nb_412',['nb',['../namespacem__global__parameters.html#ad76c4758994b52559f478d251dc0cba5',1,'m_global_parameters']]],
+  ['num_5fdims_413',['num_dims',['../namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b',1,'m_global_parameters']]],
+  ['num_5ffluids_414',['num_fluids',['../namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e',1,'m_global_parameters']]],
+  ['num_5fprocs_415',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
+  ['num_5fstcls_5fmin_416',['num_stcls_min',['../namespacem__global__parameters.html#a71f091e6074e6c248fd7e03218b89218',1,'m_global_parameters']]]
 ];

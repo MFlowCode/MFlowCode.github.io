@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['n',['n',['../namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544',1,'m_global_parameters']]],
-  ['n_5fglb',['n_glb',['../namespacem__global__parameters.html#adab11dab474410541d4c37725bea01e1',1,'m_global_parameters']]],
-  ['name_5flen',['name_len',['../namespacem__global__parameters.html#ac8252b115e717c6f1c8595be6f897df7',1,'m_global_parameters']]],
-  ['nb',['nb',['../namespacem__global__parameters.html#ad76c4758994b52559f478d251dc0cba5',1,'m_global_parameters']]],
-  ['num_5fdims',['num_dims',['../namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b',1,'m_global_parameters']]],
-  ['num_5ffluids',['num_fluids',['../namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e',1,'m_global_parameters']]],
-  ['num_5ffluids_5fmax',['num_fluids_max',['../namespacem__derived__types.html#a3dde07670ef3e164534aa68c1830ff62',1,'m_derived_types']]],
-  ['num_5fprocs',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
-  ['num_5fstcls_5fmin',['num_stcls_min',['../namespacem__global__parameters.html#a71f091e6074e6c248fd7e03218b89218',1,'m_global_parameters']]]
+  ['offset_5fx_417',['offset_x',['../namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e',1,'m_global_parameters']]],
+  ['offset_5fy_418',['offset_y',['../namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036',1,'m_global_parameters']]],
+  ['offset_5fz_419',['offset_z',['../namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06',1,'m_global_parameters']]],
+  ['omega_5fwrt_420',['omega_wrt',['../namespacem__global__parameters.html#aaf0ab8b40d717a67662251516870b1a6',1,'m_global_parameters']]],
+  ['omegan_421',['omegan',['../namespacem__global__parameters.html#ae152b49c742928bc52f6da61dd805693',1,'m_global_parameters']]],
+  ['optlist_422',['optlist',['../namespacem__data__output.html#a21c768216c63e43ea9e1f13e498a3558',1,'m_data_output']]]
 ];

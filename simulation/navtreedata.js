@@ -1,13 +1,31 @@
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this file.
+
+Copyright (C) 1997-2019 by Dimitri van Heesch
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of version 2 of the GNU General Public License as published by
+the Free Software Foundation
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along
+with this program; if not, write to the Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+@licend  The above is the entire license notice
+for the JavaScript code in this file
+*/
 var NAVTREE =
 [
-  [ "MFC:Simulation", "index.html", [
-    [ "MFC documentation", "index.html", null ],
-    [ "Home page", "^https://mflowcode.github.io/index.html", null ],
-    [ "Pre_process", "^https://mflowcode.github.io/pre_process/index.html", null ],
-    [ "Simulation", "^https://mflowcode.github.io/simulation/index.html", null ],
-    [ "Post_process", "^https://mflowcode.github.io/post_process/index.html", null ],
-    [ "Modules", null, [
-      [ "Modules List", "namespaces.html", "namespaces" ],
+  [ "MFC: Simulation", "index.html", [
+    [ "MFC Simulation", "index.html", null ],
+    [ "Modules", "namespaces.html", [
+      [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions/Subroutines", "namespacemembers_func.html", null ],
@@ -23,8 +41,8 @@ var NAVTREE =
         [ "Variables", "functions_vars.html", null ]
       ] ]
     ] ],
-    [ "Files", null, [
-      [ "File List", "files.html", "files" ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions/Subroutines", "globals_func.html", null ],
@@ -37,9 +55,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"m__global__parameters_8f90.html#a62b213889b2dc5da7d81e7fa636231f6",
-"m__rhs_8f90.html#afa742a72b96bfdbfa7d4ed2702f9d5f1",
-"m__variables__conversion_8f90_source.html"
+"m__global__parameters_8f90.html#a1943ea5a5127e94a197afae57be95758",
+"m__rhs_8f90.html#a554e70ae8c4fa1b4991e50c2db802a4e",
+"m__time__steppers_8f90.html#ae08efa7df1f8efae0f726dd5114176a8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['y',['y',['../structm__derived__types_1_1probe__parameters.html#a47d35ecfdaff4ad8b95c9aaf29724ee1',1,'m_derived_types::probe_parameters']]],
-  ['y_5faccel',['y_accel',['../namespacem__data__output.html#a9170ca95f1f4493fd30a48052ed214a7',1,'m_data_output']]],
-  ['y_5fcb',['y_cb',['../namespacem__global__parameters.html#a4bb8b661a170fc6ccd9fa3cc4b32c960',1,'m_global_parameters']]],
-  ['y_5fcc',['y_cc',['../namespacem__global__parameters.html#aaa584e01b4153d246d84eef286482632',1,'m_global_parameters']]],
-  ['y_5fl',['y_l',['../namespacem__riemann__solvers.html#ad79d372c1bc1971b870ab2c455d9ff90',1,'m_riemann_solvers']]],
-  ['y_5fr',['y_r',['../namespacem__riemann__solvers.html#aef2c7eeabded0734aaa0cd95adac91ab',1,'m_riemann_solvers']]],
-  ['ymax',['ymax',['../structm__derived__types_1_1integral__parameters.html#a7056df1729145289920886e3764b8489',1,'m_derived_types::integral_parameters']]],
-  ['ymin',['ymin',['../structm__derived__types_1_1integral__parameters.html#a65f9263ae3565577571efb3d8c58a18c',1,'m_derived_types::integral_parameters']]]
+  ['z_5faccel_766',['z_accel',['../namespacem__data__output.html#a69ef22a762715ad72320dc7bdce28bf5',1,'m_data_output']]],
+  ['z_5fcb_767',['z_cb',['../namespacem__global__parameters.html#aa75fcd53fdc4fb58ca0fbc2cc9678673',1,'m_global_parameters']]],
+  ['z_5fcc_768',['z_cc',['../namespacem__global__parameters.html#a9fef803dde37fd067fd4b2215df851b9',1,'m_global_parameters']]]
 ];

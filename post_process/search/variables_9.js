@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['j',['j',['../m__data__output_8f90.html#aeadbc0ce9b66517f8fde156199772ec1',1,'m_data_output.f90']]]
+  ['k_5fn_393',['k_n',['../namespacem__global__parameters.html#a555eda1318a218d37d1bdd8f4d57eaf2',1,'m_global_parameters']]],
+  ['k_5fv_394',['k_v',['../namespacem__global__parameters.html#a1943ea5a5127e94a197afae57be95758',1,'m_global_parameters']]]
 ];

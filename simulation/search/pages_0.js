@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mfc_20documentation',['MFC documentation',['../index.html',1,'']]]
+  ['mfc_20simulation_1546',['MFC Simulation',['../index.html',1,'']]]
 ];
