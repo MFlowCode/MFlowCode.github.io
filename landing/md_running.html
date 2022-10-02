@@ -613,16 +613,16 @@ Running</h1>
 </div><!-- fragment --><p>Thus, you can run your case file with Python to view the computed case dictionary that will be processed by MFC when you run. This is particularly useful when computations are done in Python to generate the case.</p>
 <h2><a class="anchor" id="autotoc_md40"></a>
 Interactive Execution</h2>
-<p>To run all stages of MFC, that is <a href="src/pre_process_code/">pre_process</a>, <a href="src/simulation_code/">simulation</a>, and <a href="src/post_process_code/">post_process</a> on the sample case <a href="examples/2D_shockbubble/">2D_shockbubble</a>,</p>
+<p>To run all stages of MFC, that is <a href="src/pre_process/">pre_process</a>, <a href="src/simulation/">simulation</a>, and <a href="src/post_process/">post_process</a> on the sample case <a href="examples/2D_shockbubble/">2D_shockbubble</a>,</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py</div>
 </div><!-- fragment --><p>If you want to run a subset of the available stages, you can use the <code>-t</code> argument. To use multiple threads, use the <code>-n</code> option along with the number of threads you wish to use. If a (re)build is required, it will be done automatically, with the number of threads specified with the <code>-j</code> option.</p>
 <p>For example,</p>
 <ul>
-<li>Running <a href="src/pre_process_code/">pre_process</a> with 2 cores:</li>
+<li>Running <a href="src/pre_process/">pre_process</a> with 2 cores:</li>
 </ul>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -t pre_process -n 2</div>
 </div><!-- fragment --><ul>
-<li>Running <a href="src/simulation_code/">simulation</a> and <a href="src/post_process_code/">post_process</a> using 4 cores:</li>
+<li>Running <a href="src/simulation/">simulation</a> and <a href="src/post_process/">post_process</a> using 4 cores:</li>
 </ul>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -t simulation post_process -n 4</div>
 </div><!-- fragment --><p>Most parameters have sensible defaults which can be overridden in <a href="defaults.yaml">defaults.yaml</a>:</p>

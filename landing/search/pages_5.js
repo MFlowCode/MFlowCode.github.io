@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['testing_27',['Testing',['../md_testing.html',1,'']]]
+  ['welcome_20to_20mfc_21_27',['Welcome to MFC!',['../index.html',1,'']]]
 ];

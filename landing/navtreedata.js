@@ -23,7 +23,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "MFC", "index.html", [
-    [ "Presentation & User Guide", "index.html", [
+    [ "Welcome to MFC!", "index.html", [
       [ "Code Documentation", "index.html#autotoc_md12", null ],
       [ "Publications", "index.html#autotoc_md13", [
         [ "Primary Paper", "index.html#autotoc_md14", null ],
