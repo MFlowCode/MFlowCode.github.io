@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('md_running.html',''); initResizable();
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Python input file <code>input.py</code> defines dependencies and logistics, and input parameters for each simulation case. In this section, details of the input file and how to edit it are described. The user can also leverage the example input files as necessary.</p>
-<h1><a class="anchor" id="autotoc_md26"></a>
+<h1><a class="anchor" id="autotoc_md38"></a>
 Parameters</h1>
 <p>There are multiple sets of parameters that must be specified in the python input file:</p><ol type="1">
 <li><a href="#1-runtime">Runtime Parameters</a></li>
@@ -125,7 +125,7 @@ Parameters</h1>
 <li><a href="#8-ensemble-averaged-bubble-model">(Optional) Ensemble-Averaged Bubble Model Parameters</a></li>
 </ol>
 <p>Items 7 and 8 are optional sets of parameters that activate the acoustic source model and ensemble-averaged bubble model, respectively. Definition of the parameters is described in the following subsections.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 1. Runtime</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -139,7 +139,7 @@ Parameters</h1>
 <li><code>case_dir</code> specifies the directory where the python input file is located.</li>
 <li><code>run_time_info</code> generates a text file that includes run-time information including the CFL number(s) at each time-step.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 2. Computational Domain</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -188,7 +188,7 @@ Parameters</h1>
 <li><code>dt</code> specifies the constant time step size that is used in simulation. The value of <code>dt</code> needs to be sufficiently small such that the Courant-Friedrichs-Lewy (CFL) condition is satisfied.</li>
 <li><code>t_step_start</code> and <code>t_step_end</code> define the time steps at which simulation starts and ends, respectively. <code>t_step_save</code> is the time step interval for data output during simulation. To newly start simulation, set <code>t_step_start</code>=0. To restart simulation from $k$-th time step, set <code>t_step_start</code>=k.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 3. Patches</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -238,7 +238,7 @@ Parameters</h1>
 <li><code>smoothen</code> activates smoothening of the boundary of the patch that alters the existing patch. When smoothening occurs, fluids of the two patches are mixed in the region of the boundary. For instance, in the aforementioned case of the cylindrical patch immersed in the rectangular patch, smoothening occurs when <code>patch_icpp(2)smoothen</code>=TRUE. <code>smooth_coeff</code> controls the thickness of the region of smoothening (sharpness of the mixture region). The default value of <code>smooth_coeff</code> is unity. The region of smoothening is thickened with decreasing the value. Optimal choice of the value of <code>smooth_coeff</code> is case-dependent and left to the user.</li>
 <li><code>patch_icpp(j)alpha(i)</code>, <code>patch_icpp(j)alpha_rho(i)</code>, <code>patch_icpp(j)pres</code>, and <code>texttt{patch_icpp(j)vel(i)</code> define for $j$-th patch the void fraction of <code>fluid(i)</code>, partial density of <code>fluid(i)</code>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection. See also <code>adv_alphan</code> in table <a href="#5-simulation-algorithm">Simulation Algorithm Parameters</a>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 4. Fluid Material’s</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -259,7 +259,7 @@ Parameters</h1>
 <li><code>fluid_pp(i)gamma</code> and <code>fluid_pp(i)pi_inf</code> define $\Gamma$ and $\Pi$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
 <li><code>fluid_pp(i)Re(1)</code> and <code>fluid_pp(i)Re(2)</code> define the shear and volume viscosities of $i$-th fluid, respectively. When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 5. Simulation Algorithm</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -349,7 +349,7 @@ Parameters</h1>
 <li><code>tvd_riemann_flux</code> activate a specified flux limiter to cell edges inside the Riemann solver. <code>tvd_rhs_flux</code> and <code>tvd_riemann_flux</code> are mutually exclusive.</li>
 <li><code>tvd_wave_speeds</code> activates the use of the TVD wave speeds for flux computation inside the Riemann solver when <code>tvd_riemann_flux</code> is set <code>True</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 6. Formatted Output</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -422,7 +422,7 @@ Parameters</h1>
 <li><code>com_wrt(i)</code> activates output of the center of mass of $i$-th fluid component into the database.</li>
 <li><code>cb_wrt(i)</code> activates output of the coherent body mass of $i$-th fluid component in the domain into the database.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md45"></a>
 7. Acoustic Source</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -456,7 +456,7 @@ Parameters</h1>
 <li><code>Mono(i)length</code> defines the characteristic wavelength of the acoustic wave generated from $i$-th source plane.</li>
 <li><code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support</code> $=1$ specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support</code> $=2$ specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support</code> $=3$ specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 8. Ensemble-Averaged Bubble Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -510,9 +510,9 @@ Parameters</h1>
 <li><code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</li>
 <li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify the specific heat ratio, molecular weight, viscosity, and thermal conductivity of a chosen component. Implementation of the parameterse into the model follow <a href="references.md#Ando10">Ando (2010)</a>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<h1><a class="anchor" id="autotoc_md47"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -543,7 +543,7 @@ Boundary conditions</h2>
 <td class="markdownTableBodyRight">-12 </td><td class="markdownTableBodyCenter">Characteristic </td><td class="markdownTableBodyLeft">Supersonic outflow  </td></tr>
 </table>
 <p>The boundary condition supported by the MFC are listed in table <a href="#boundary-conditions">Boundary Conditions</a>. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table <a href="#5-simulation-algorithm">Simulation Algorithm Parameters</a>). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -576,7 +576,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">13 </td><td class="markdownTableBodyCenter">3D analytical </td><td class="markdownTableBodyCenter">3 </td><td class="markdownTableBodyCenter">N </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions  </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table <a href="#patch-types">Patch Types</a>. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Flux limiters</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -597,7 +597,7 @@ Flux limiters</h2>
 <td class="markdownTableBodyRight">7 </td><td class="markdownTableBodyLeft">van Leer  </td></tr>
 </table>
 <p>The flux limiters supported by the MFC are listed in table <a href="#flux-limiters">Flux Limiters</a>. Each limiter can be specified by specifying the value of <code>flux_lim</code>. Details of their implementations can be found in <a href="references.md#Meng16">Meng (2016)</a>.</p>
-<h1><a class="anchor" id="autotoc_md39"></a>
+<h1><a class="anchor" id="autotoc_md51"></a>
 Running</h1>
 <p>MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports both interactive and batch execution, the latter being designed for multi-socket systems, namely supercomputers, equipped with a scheduler such as PBS, SLURM, and LSF. A full (and updated) list of available arguments can be acquired with <code>./mfc.sh run -h</code>. Example Python input files can be found in the <a href="examples/">examples/</a> directory. They print a Python dictionary containing input parameters for MFC. Their contents, and a guide to filling them out, are documented in the user manual. A commented, tutorial script can also be found in <a href="examples/3D_sphbubcollapse/case.py">examples/3d_sphbubcollapse/</a>.</p>
 <p>The skeleton for an input file may look like the following:</p>
@@ -611,7 +611,7 @@ Running</h1>
 <div class="line">  ...</div>
 <div class="line">}))</div>
 </div><!-- fragment --><p>Thus, you can run your case file with Python to view the computed case dictionary that will be processed by MFC when you run. This is particularly useful when computations are done in Python to generate the case.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md52"></a>
 Interactive Execution</h2>
 <p>To run all stages of MFC, that is <a href="src/pre_process/">pre_process</a>, <a href="src/simulation/">simulation</a>, and <a href="src/post_process/">post_process</a> on the sample case <a href="examples/2D_shockbubble/">2D_shockbubble</a>,</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py</div>
@@ -630,7 +630,7 @@ Interactive Execution</h2>
 <p>On some computer clusters, MFC might select the wrong MPI program to execute your application because it uses a general heuristic for its selection. Notably, <code>srun</code> is known to fail on some SLURM systems when using GPUs or MPI implementations from different vendors, whereas <code>mpirun</code> functions properly. To override and manually specify which MPI program you wish to run your application with, please use the <code>-b &lt;program name&gt;</code> option (i.e <code>--binary</code>).</p>
 <p>Additional flags can be appended to the MPI executable call using the <code>-f</code> (i.e <code>--flags</code>) option.</p>
 <p>Please refer to <code>./mfc.sh run -h</code> for a complete list of arguments and options, along with their defaults.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md53"></a>
 Batch Execution</h2>
 <p>The MFC detects which scheduler your system is using and handles the creation and execution of batch scripts. The batch engine is requested with the <code>-e batch</code> option. Whereas the interactive engine can execute all of MFC's codes in succession, the batch engine requires you to only specify one target with the <code>-t</code> option. The number of nodes and GPUs can, respectively be specified with the <code>-N</code> (i.e <code>--nodes</code>) and <code>-g</code> (i.e <code>--gpus-per-node</code>) options.</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -e batch -N 2 -n 4 -g 4 -t simulation</div>
@@ -653,7 +653,7 @@ Batch Execution</h2>
 <li>Statements of the form <code>{MFC::expression}</code> tell MFC where to place the common code, across all batch files, that is required for proper execution. They are not intended to be modified by users.</li>
 </ul>
 <p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource-sets in task and GPU count.</p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md54"></a>
 Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>

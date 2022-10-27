@@ -1,28 +1,6 @@
 var searchData=
 [
-  ['p_478',['p',['../namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7',1,'m_global_parameters']]],
-  ['p_5fglb_479',['p_glb',['../namespacem__global__parameters.html#a1072f221ca8e41b0ea3240b33374cc1e',1,'m_global_parameters']]],
-  ['parallel_5fio_480',['parallel_io',['../namespacem__global__parameters.html#ac127ac2a9036e1cdb7e6c41159cacdfb',1,'m_global_parameters']]],
-  ['patch_5ficpp_481',['patch_icpp',['../namespacem__global__parameters.html#ab5fc97fce88eefa124865cab08aa2250',1,'m_global_parameters']]],
-  ['patch_5fid_5ffp_482',['patch_id_fp',['../namespacem__initial__condition.html#a5d331c773a88029795462ae22c20d6c8',1,'m_initial_condition']]],
-  ['path_5flen_483',['path_len',['../namespacem__global__parameters.html#aa9d578c318044b2f2ec990b5fc0dfab9',1,'m_global_parameters']]],
-  ['pb0_484',['pb0',['../namespacem__global__parameters.html#a1097b95561b65a9035e5f9218de577f9',1,'m_global_parameters']]],
-  ['pe_5fc_485',['pe_c',['../namespacem__global__parameters.html#ac1375e5145e018847d9025e83e58b49d',1,'m_global_parameters']]],
-  ['pe_5ft_486',['pe_t',['../namespacem__global__parameters.html#a8a75928178eef1550c6a0389ff12b44a',1,'m_global_parameters']]],
-  ['perturb_5fflow_487',['perturb_flow',['../namespacem__global__parameters.html#add2d4033abdced8536200ef739ab379b',1,'m_global_parameters']]],
-  ['perturb_5fflow_5ffluid_488',['perturb_flow_fluid',['../namespacem__global__parameters.html#a1c242fb70db5a2c91c0997b37bcffd6a',1,'m_global_parameters']]],
-  ['perturb_5fsph_489',['perturb_sph',['../namespacem__global__parameters.html#a98ddabe1c45996064589ca24ce5d8fe3',1,'m_global_parameters']]],
-  ['perturb_5fsph_5ffluid_490',['perturb_sph_fluid',['../namespacem__global__parameters.html#a90f36c0b74894ddd901534dd4efccfc8',1,'m_global_parameters']]],
-  ['phi_5fnv_491',['phi_nv',['../namespacem__global__parameters.html#a7dbd1ec1fd1ece4e997a825fa07785eb',1,'m_global_parameters']]],
-  ['phi_5fvn_492',['phi_vn',['../namespacem__global__parameters.html#acc6771df62005731bbec282b0c9a5659',1,'m_global_parameters']]],
-  ['pi_493',['pi',['../namespacem__global__parameters.html#a21765a90c01d221524670d1344b126cd',1,'m_global_parameters']]],
-  ['pi_5finf_5fidx_494',['pi_inf_idx',['../namespacem__global__parameters.html#a7db1a23566279bdbc7da68850c596c69',1,'m_global_parameters']]],
-  ['poly_5fsigma_495',['poly_sigma',['../namespacem__global__parameters.html#a29164826db891e5662ce2bccdbc57d3c',1,'m_global_parameters']]],
-  ['polydisperse_496',['polydisperse',['../namespacem__global__parameters.html#a32791d9d5fef0213f01fc31713b17ae8',1,'m_global_parameters']]],
-  ['polytropic_497',['polytropic',['../namespacem__global__parameters.html#a8d670f2f984167bae71b7b3f12d0908a',1,'m_global_parameters']]],
-  ['precision_498',['precision',['../namespacem__global__parameters.html#a6ed5e5561c16f30a4010f6612877029d',1,'m_global_parameters']]],
-  ['pref_499',['pref',['../namespacem__global__parameters.html#aae2170af8a68c7dcdd91910aad867ef4',1,'m_global_parameters']]],
-  ['proc_5fcoords_500',['proc_coords',['../namespacem__global__parameters.html#a48dea2bc17c5e4465a444c926070ae9b',1,'m_global_parameters']]],
-  ['proc_5frank_501',['proc_rank',['../namespacem__global__parameters.html#a383c6ff025d4ea09ddd4e2356042d86b',1,'m_global_parameters']]],
-  ['proc_5frank_5fdir_502',['proc_rank_dir',['../namespacem__start__up.html#a653ba8302e02e2c348dd9cd7cc81e761',1,'m_start_up']]]
+  ['old_5fgrid_478',['old_grid',['../namespacem__global__parameters.html#a971692c50b4725d4724238b8a01a722e',1,'m_global_parameters']]],
+  ['old_5fic_479',['old_ic',['../namespacem__global__parameters.html#ae83688439601a9ff9bad58f09357a721',1,'m_global_parameters']]],
+  ['omegan_480',['omegan',['../namespacem__global__parameters.html#ae152b49c742928bc52f6da61dd805693',1,'m_global_parameters']]]
 ];

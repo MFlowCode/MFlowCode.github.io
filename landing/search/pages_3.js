@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['references_24',['References',['../md_references.html',1,'']]],
-  ['running_25',['Running',['../md_running.html',1,'']]]
+  ['flow_20visualization_27',['Flow visualization',['../md_visualisation.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flow_20visualization_23',['Flow visualization',['../md_visualisation.html',1,'']]]
+  ['contributor_20covenant_20code_20of_20conduct_26',['Contributor Covenant Code of Conduct',['../md_CODE_OF_CONDUCT.html',1,'']]]
 ];

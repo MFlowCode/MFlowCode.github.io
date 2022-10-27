@@ -7,6 +7,7 @@ var files_dup =
     [ "m_derived_variables.f90", "m__derived__variables_8f90.html", "m__derived__variables_8f90" ],
     [ "m_fftw.f90", "m__fftw_8f90.html", "m__fftw_8f90" ],
     [ "m_global_parameters.f90", "m__global__parameters_8f90.html", "m__global__parameters_8f90" ],
+    [ "m_hypoelastic.f90", "m__hypoelastic_8f90.html", "m__hypoelastic_8f90" ],
     [ "m_mpi_proxy.f90", "m__mpi__proxy_8f90.html", "m__mpi__proxy_8f90" ],
     [ "m_qbmm.f90", "m__qbmm_8f90.html", "m__qbmm_8f90" ],
     [ "m_rhs.f90", "m__rhs_8f90.html", "m__rhs_8f90" ],

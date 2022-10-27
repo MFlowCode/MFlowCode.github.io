@@ -1,13 +1,10 @@
 var searchData=
 [
-  ['m_454',['m',['../namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33',1,'m_global_parameters']]],
-  ['m_5fglb_455',['m_glb',['../namespacem__global__parameters.html#ad4e160df8d0de7ea1801a1ca29f8e9b0',1,'m_global_parameters']]],
-  ['mass_5fn0_456',['mass_n0',['../namespacem__global__parameters.html#ae3701f74c9487c9e56c2a11fb6a52e40',1,'m_global_parameters']]],
-  ['mass_5fv0_457',['mass_v0',['../namespacem__global__parameters.html#a6a06981be6cdab78452a106009022aa4',1,'m_global_parameters']]],
-  ['model_5feqns_458',['model_eqns',['../namespacem__global__parameters.html#a6cf2e92cfc3b519fb6da6fe9e88fab31',1,'m_global_parameters']]],
-  ['mom_5fidx_459',['mom_idx',['../namespacem__global__parameters.html#a293bc6a9ccf7a197d8a5f0cfc3988584',1,'m_global_parameters']]],
-  ['mpi_5finfo_5fint_460',['mpi_info_int',['../namespacem__global__parameters.html#a2663d07998d11d25e223cd7ad0bbd748',1,'m_global_parameters']]],
-  ['mpi_5fio_5fdata_461',['mpi_io_data',['../namespacem__global__parameters.html#ad80f68aac31aa898ab2d7729f60e375f',1,'m_global_parameters']]],
-  ['mpiiofs_462',['mpiiofs',['../namespacem__global__parameters.html#a4bca716b2500286d98ec40aef2f258f2',1,'m_global_parameters']]],
-  ['mpp_5flim_463',['mpp_lim',['../namespacem__global__parameters.html#adc35ba450a192812db36f1d6659d64e6',1,'m_global_parameters']]]
+  ['length_5fx_450',['length_x',['../namespacem__initial__condition.html#ab59e590873d32a54651ac60af6b1a6e4',1,'m_initial_condition']]],
+  ['length_5fy_451',['length_y',['../namespacem__initial__condition.html#a49ed82b4f9548cd8166844888028c8cd',1,'m_initial_condition']]],
+  ['length_5fz_452',['length_z',['../namespacem__initial__condition.html#a0d9d1bcde238177f0beb7684e252aa69',1,'m_initial_condition']]],
+  ['logic_5fgrid_453',['logic_grid',['../namespacem__global__parameters.html#a5b6232ffcb06cb4763438c9c5b545b5f',1,'m_global_parameters']]],
+  ['loops_5fx_454',['loops_x',['../namespacem__global__parameters.html#a35f17d72a6c9e18aae51a5131d2c9303',1,'m_global_parameters']]],
+  ['loops_5fy_455',['loops_y',['../namespacem__global__parameters.html#af8c939272b6741337359fd99e419fba1',1,'m_global_parameters']]],
+  ['loops_5fz_456',['loops_z',['../namespacem__global__parameters.html#a5cfb837ca862adc01d2ba0dce83fbd17',1,'m_global_parameters']]]
 ];
