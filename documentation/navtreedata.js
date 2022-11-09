@@ -28,7 +28,7 @@ var NAVTREE =
       [ "Publications", "index.html#autotoc_md25", [
         [ "Primary Paper", "index.html#autotoc_md26", null ],
         [ "Related publications", "index.html#autotoc_md27", null ],
-        [ "User Configuration (<tt>defaults.yaml</tt>)", "index.html#autotoc_md28", null ]
+        [ "User Configuration", "index.html#autotoc_md28", null ]
       ] ],
       [ "Development", "index.html#autotoc_md29", [
         [ "Fypp", "index.html#autotoc_md30", null ]
