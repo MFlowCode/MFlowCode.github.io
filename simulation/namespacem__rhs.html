@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('namespacem__rhs.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>The module contains the subroutines used to calculate the right- hand-side (RHS) in the quasi-conservative, shock- and interface- capturing finite-volume framework for the multicomponent Navier- f Stokes equations supplemented by appropriate advection equations used to capture the material interfaces. The system of equations is closed by the stiffened gas equation of state, as well as any required mixture relationships. Capillarity effects are included and are modeled by the means of a volume force acting across the diffuse material interface region. The implementation details of surface tension may be found in Perigaud and Saurel (2005). Note that both viscous and surface tension effects are only available in the volume fraction model.  
+<p>The module contains the subroutines used to calculate the right- hand-side (RHS) in the quasi-conservative, shock- and interface- capturing finite-volume framework for the multicomponent Navier- Stokes equations supplemented by appropriate advection equations used to capture the material interfaces. The system of equations is closed by the stiffened gas equation of state, as well as any required mixture relationships. Capillarity effects are included and are modeled by the means of a volume force acting across the diffuse material interface region. The implementation details of surface tension may be found in Perigaud and Saurel (2005). Note that both viscous and surface tension effects are only available in the volume fraction model.  
 <a href="namespacem__rhs.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -124,20 +124,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ae6f7edb814859919c5d1f739574155bd"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae6f7edb814859919c5d1f739574155bd">s_initialize_rhs_module</a> ()</td></tr>
 <tr class="memdesc:ae6f7edb814859919c5d1f739574155bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <a href="namespacem__rhs.html#ae6f7edb814859919c5d1f739574155bd">More...</a><br /></td></tr>
 <tr class="separator:ae6f7edb814859919c5d1f739574155bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a361f0038973069452cc88430c49bcfe8"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a361f0038973069452cc88430c49bcfe8">s_compute_rhs</a> (q_cons_vf, q_prim_vf, rhs_vf, t_step)</td></tr>
+<tr class="memitem:a361f0038973069452cc88430c49bcfe8"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a361f0038973069452cc88430c49bcfe8">s_compute_rhs</a> (q_cons_vf, q_prim_vf, rhs_vf, <a class="el" href="m__monopole_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>)</td></tr>
 <tr class="separator:a361f0038973069452cc88430c49bcfe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2da1b596b26740b8edff160297676447"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2da1b596b26740b8edff160297676447">s_compute_viscous_stress_tensor</a> (q_prim_vf, grad_x_vf, grad_y_vf, grad_z_vf)</td></tr>
-<tr class="memdesc:a2da1b596b26740b8edff160297676447"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to compute the viscous stress tensor for the cells directly next to the axis in cylindrical coordinates. This is necessary to avoid the 1/r singularity that arises at the cell boundary coinciding with the axis, i.e., y_cb(-1) = 0.  <a href="namespacem__rhs.html#a2da1b596b26740b8edff160297676447">More...</a><br /></td></tr>
-<tr class="separator:a2da1b596b26740b8edff160297676447"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a642873683995e4b85749c56f3365a96a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a642873683995e4b85749c56f3365a96a">f_g</a> (mytime, sos, mysos, nm, term_index)</td></tr>
-<tr class="memdesc:a642873683995e4b85749c56f3365a96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function gives the temporally varying amplitude of the pulse.  <a href="namespacem__rhs.html#a642873683995e4b85749c56f3365a96a">More...</a><br /></td></tr>
-<tr class="separator:a642873683995e4b85749c56f3365a96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a505bdec14965140a760442507b2a4b04"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a505bdec14965140a760442507b2a4b04">f_delta</a> (<a class="el" href="m__rhs_8f90.html#aeadbc0ce9b66517f8fde156199772ec1">j</a>, <a class="el" href="m__rhs_8f90.html#af22c486581933c52df7d4aa306382074">k</a>, <a class="el" href="m__rhs_8f90.html#a2ac747380de0e6e5e11b01f4137fb75c">l</a>, mono_loc, mono_leng, nm, angle, angle_z)</td></tr>
-<tr class="memdesc:a505bdec14965140a760442507b2a4b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function give the spatial support of the acoustic source.  <a href="namespacem__rhs.html#a505bdec14965140a760442507b2a4b04">More...</a><br /></td></tr>
-<tr class="separator:a505bdec14965140a760442507b2a4b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf11c6f8bb16f3c74cc0205b16d31e96"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#abf11c6f8bb16f3c74cc0205b16d31e96">s_compute_fd_gradient</a> (var, grad_x, grad_y, grad_z, norm)</td></tr>
-<tr class="memdesc:abf11c6f8bb16f3c74cc0205b16d31e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the scalar gradient fields via finite differences.  <a href="namespacem__rhs.html#abf11c6f8bb16f3c74cc0205b16d31e96">More...</a><br /></td></tr>
-<tr class="separator:abf11c6f8bb16f3c74cc0205b16d31e96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -163,6 +151,12 @@ Variables</h2></td></tr>
 <tr class="separator:a7aedb3f27c7049af9c52f5d3003cf103"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a733fc02b7dd6d2292a63e6b1c07c7309"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a733fc02b7dd6d2292a63e6b1c07c7309">is3</a></td></tr>
 <tr class="separator:a733fc02b7dd6d2292a63e6b1c07c7309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a592754d410808442cbe9d883cd6dea8e"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a592754d410808442cbe9d883cd6dea8e">ixt</a></td></tr>
+<tr class="separator:a592754d410808442cbe9d883cd6dea8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8f4d6a3e40a7d38ef2fc3a302bb073"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ace8f4d6a3e40a7d38ef2fc3a302bb073">iyt</a></td></tr>
+<tr class="separator:ace8f4d6a3e40a7d38ef2fc3a302bb073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4a4dddceb007eb304c31a25f56558b"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a0e4a4dddceb007eb304c31a25f56558b">izt</a></td></tr>
+<tr class="separator:a0e4a4dddceb007eb304c31a25f56558b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae30ff07135bcc61e7fdd38a2d8e4df3e"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae30ff07135bcc61e7fdd38a2d8e4df3e">blkmod1</a></td></tr>
 <tr class="separator:ae30ff07135bcc61e7fdd38a2d8e4df3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b60e9d7e93fa744da5e8e3baf669f6d"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2b60e9d7e93fa744da5e8e3baf669f6d">blkmod2</a></td></tr>
@@ -173,367 +167,46 @@ Variables</h2></td></tr>
 <tr class="separator:a54a336d2be7186f6cc141e38f7edd506"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52761ad7def1abff07beaaedb4323f6c"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a52761ad7def1abff07beaaedb4323f6c">kterm</a></td></tr>
 <tr class="separator:a52761ad7def1abff07beaaedb4323f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab11ff4fb4890476761ace86dab8df8c1"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ab11ff4fb4890476761ace86dab8df8c1">ql_rsx_vf_flat</a></td></tr>
-<tr class="separator:ab11ff4fb4890476761ace86dab8df8c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab09d18ae4bbafa3a216232de2db75676"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ab09d18ae4bbafa3a216232de2db75676">ql_rsy_vf_flat</a></td></tr>
-<tr class="separator:ab09d18ae4bbafa3a216232de2db75676"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7098b1f52d58cc1436a17d3a6d384f50"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a7098b1f52d58cc1436a17d3a6d384f50">ql_rsz_vf_flat</a></td></tr>
-<tr class="separator:a7098b1f52d58cc1436a17d3a6d384f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38fd0d3efbf139ac827916f809ce6e4d"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a38fd0d3efbf139ac827916f809ce6e4d">qr_rsx_vf_flat</a></td></tr>
-<tr class="separator:a38fd0d3efbf139ac827916f809ce6e4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2b748ee3c65c6fd574216c9572f29c2"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ac2b748ee3c65c6fd574216c9572f29c2">qr_rsy_vf_flat</a></td></tr>
-<tr class="separator:ac2b748ee3c65c6fd574216c9572f29c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a931a54d37afaf1733fe8b02ae151fb14"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a931a54d37afaf1733fe8b02ae151fb14">qr_rsz_vf_flat</a></td></tr>
-<tr class="separator:a931a54d37afaf1733fe8b02ae151fb14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ff03f031208ab29d559caeff721d608"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2ff03f031208ab29d559caeff721d608">dql_rsx_vf_flat</a></td></tr>
-<tr class="separator:a2ff03f031208ab29d559caeff721d608"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95cecb45ac2ed98bfca38d98e57ee022"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a95cecb45ac2ed98bfca38d98e57ee022">dql_rsy_vf_flat</a></td></tr>
-<tr class="separator:a95cecb45ac2ed98bfca38d98e57ee022"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a45c4083711d722d54080ed4dabec87"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a7a45c4083711d722d54080ed4dabec87">dql_rsz_vf_flat</a></td></tr>
-<tr class="separator:a7a45c4083711d722d54080ed4dabec87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba817fe9e0392acfa36d0ae966f510d4"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aba817fe9e0392acfa36d0ae966f510d4">dqr_rsx_vf_flat</a></td></tr>
-<tr class="separator:aba817fe9e0392acfa36d0ae966f510d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c6d8892339820d55d02d6fa8d946431"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a8c6d8892339820d55d02d6fa8d946431">dqr_rsy_vf_flat</a></td></tr>
-<tr class="separator:a8c6d8892339820d55d02d6fa8d946431"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a891f51ea9b4490f8665ff8eb57cf119a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a891f51ea9b4490f8665ff8eb57cf119a">dqr_rsz_vf_flat</a></td></tr>
-<tr class="separator:a891f51ea9b4490f8665ff8eb57cf119a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c9e2f780e67c28fda12f274f93a5440"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a9c9e2f780e67c28fda12f274f93a5440">momxb</a></td></tr>
-<tr class="separator:a9c9e2f780e67c28fda12f274f93a5440"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3423d40514d18d889413d8bdfbfd1a0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ab3423d40514d18d889413d8bdfbfd1a0">momxe</a></td></tr>
-<tr class="separator:ab3423d40514d18d889413d8bdfbfd1a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac304e7578f54ea9def350e101798f71f"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ac304e7578f54ea9def350e101798f71f">contxb</a></td></tr>
-<tr class="separator:ac304e7578f54ea9def350e101798f71f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aa9e8fb5af0fd310600f54bd1290d9e"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a8aa9e8fb5af0fd310600f54bd1290d9e">contxe</a></td></tr>
-<tr class="separator:a8aa9e8fb5af0fd310600f54bd1290d9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a633fb2be8454eabd9f91a05970c922d6"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a633fb2be8454eabd9f91a05970c922d6">advxb</a></td></tr>
-<tr class="separator:a633fb2be8454eabd9f91a05970c922d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a3d38fe1c64083a1db524f06fe2f8da"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a9a3d38fe1c64083a1db524f06fe2f8da">advxe</a></td></tr>
-<tr class="separator:a9a3d38fe1c64083a1db524f06fe2f8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63e84a52fa76f4d9cdba5fce7991635c"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a63e84a52fa76f4d9cdba5fce7991635c">intxb</a></td></tr>
-<tr class="separator:a63e84a52fa76f4d9cdba5fce7991635c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb95f3d88a1127fd9e7641ccb5dfccf7"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aeb95f3d88a1127fd9e7641ccb5dfccf7">intxe</a></td></tr>
-<tr class="separator:aeb95f3d88a1127fd9e7641ccb5dfccf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa57450021168543af7002776786c3e74"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aa57450021168543af7002776786c3e74">bubxb</a></td></tr>
-<tr class="separator:aa57450021168543af7002776786c3e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56b9c2e321892673b369bba835bbd0f0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a56b9c2e321892673b369bba835bbd0f0">bubxe</a></td></tr>
-<tr class="separator:a56b9c2e321892673b369bba835bbd0f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad44f2434838c4219caed9d71c52971c"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aad44f2434838c4219caed9d71c52971c">strxb</a></td></tr>
-<tr class="separator:aad44f2434838c4219caed9d71c52971c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e2ab1b7a2a7cfcd80493da246179b57"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a4e2ab1b7a2a7cfcd80493da246179b57">strxe</a></td></tr>
-<tr class="separator:a4e2ab1b7a2a7cfcd80493da246179b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ee66aa918e36ec9c345ab1f96213e14"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a4ee66aa918e36ec9c345ab1f96213e14">gammas</a></td></tr>
-<tr class="separator:a4ee66aa918e36ec9c345ab1f96213e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bf3d142a34152410bf886f26ef841d0"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a5bf3d142a34152410bf886f26ef841d0">pi_infs</a></td></tr>
-<tr class="separator:a5bf3d142a34152410bf886f26ef841d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07cbf528d5e5eaf73cf42d4fdbf52481"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a07cbf528d5e5eaf73cf42d4fdbf52481">ql_rsx_vf</a></td></tr>
+<tr class="separator:a07cbf528d5e5eaf73cf42d4fdbf52481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4e6f7c67799c233a25bf2a6c949bd8"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a0e4e6f7c67799c233a25bf2a6c949bd8">ql_rsy_vf</a></td></tr>
+<tr class="separator:a0e4e6f7c67799c233a25bf2a6c949bd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1165b4d67400222b6d6102aeec8fb6b3"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a1165b4d67400222b6d6102aeec8fb6b3">ql_rsz_vf</a></td></tr>
+<tr class="separator:a1165b4d67400222b6d6102aeec8fb6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b811e1d29fb646a404b2643d2252f32"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a5b811e1d29fb646a404b2643d2252f32">qr_rsx_vf</a></td></tr>
+<tr class="separator:a5b811e1d29fb646a404b2643d2252f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7951f276fafe8920590544264448c5a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ab7951f276fafe8920590544264448c5a">qr_rsy_vf</a></td></tr>
+<tr class="separator:ab7951f276fafe8920590544264448c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71640c36f6b03570507f3cf8efe132c9"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a71640c36f6b03570507f3cf8efe132c9">qr_rsz_vf</a></td></tr>
+<tr class="separator:a71640c36f6b03570507f3cf8efe132c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcd0745f5d0daab441a4fb6fd897bb24"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#abcd0745f5d0daab441a4fb6fd897bb24">dql_rsx_vf</a></td></tr>
+<tr class="separator:abcd0745f5d0daab441a4fb6fd897bb24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a609ba3f0529c1cffdfd229427d1f08"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a8a609ba3f0529c1cffdfd229427d1f08">dql_rsy_vf</a></td></tr>
+<tr class="separator:a8a609ba3f0529c1cffdfd229427d1f08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c9460de3b4984f85f7c0904693087ce"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a6c9460de3b4984f85f7c0904693087ce">dql_rsz_vf</a></td></tr>
+<tr class="separator:a6c9460de3b4984f85f7c0904693087ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d945dc1ffc17142e96ccc5b86cf92e3"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a6d945dc1ffc17142e96ccc5b86cf92e3">dqr_rsx_vf</a></td></tr>
+<tr class="separator:a6d945dc1ffc17142e96ccc5b86cf92e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc0484b9a4e7f3b6afe28c41e4c8c4a6"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#adc0484b9a4e7f3b6afe28c41e4c8c4a6">dqr_rsy_vf</a></td></tr>
+<tr class="separator:adc0484b9a4e7f3b6afe28c41e4c8c4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05e8222febb4edc579f4135c12e409ff"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a05e8222febb4edc579f4135c12e409ff">dqr_rsz_vf</a></td></tr>
+<tr class="separator:a05e8222febb4edc579f4135c12e409ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea213d619f540b9746381587001e6427"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aea213d619f540b9746381587001e6427">gamma_min</a></td></tr>
 <tr class="separator:aea213d619f540b9746381587001e6427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b96f4e232a0efb815f720bb9f5c805a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a9b96f4e232a0efb815f720bb9f5c805a">pres_inf</a></td></tr>
 <tr class="separator:a9b96f4e232a0efb815f720bb9f5c805a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb7d43a2b1a88f5d7200c1ad6926a11"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#afbb7d43a2b1a88f5d7200c1ad6926a11">res</a></td></tr>
 <tr class="separator:afbb7d43a2b1a88f5d7200c1ad6926a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae896433188b1dad564bf5ffcc4f8238a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae896433188b1dad564bf5ffcc4f8238a">mag</a></td></tr>
-<tr class="separator:ae896433188b1dad564bf5ffcc4f8238a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad782ca3963dbe4bf53c68288f601c58d"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ad782ca3963dbe4bf53c68288f601c58d">length</a></td></tr>
-<tr class="separator:ad782ca3963dbe4bf53c68288f601c58d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6045b22514a074a051dc2fe71a9085a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ad6045b22514a074a051dc2fe71a9085a">npulse</a></td></tr>
-<tr class="separator:ad6045b22514a074a051dc2fe71a9085a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc540da9a7f44b9c57649e8f68d6572d"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#acc540da9a7f44b9c57649e8f68d6572d">dir</a></td></tr>
-<tr class="separator:acc540da9a7f44b9c57649e8f68d6572d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f5f81786bde7e5c6dedcfa17bf029be"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a0f5f81786bde7e5c6dedcfa17bf029be">delay</a></td></tr>
-<tr class="separator:a0f5f81786bde7e5c6dedcfa17bf029be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa61cd08b09dfb51ac674e09804f87ca2"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aa61cd08b09dfb51ac674e09804f87ca2">pulse</a></td></tr>
-<tr class="separator:aa61cd08b09dfb51ac674e09804f87ca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9b253b2417f80edbc19ba777cf8d6a"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#afb9b253b2417f80edbc19ba777cf8d6a">support</a></td></tr>
-<tr class="separator:afb9b253b2417f80edbc19ba777cf8d6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64e626c6ce39fac48a4db10019c9f5bb"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a64e626c6ce39fac48a4db10019c9f5bb">loc_mono</a></td></tr>
-<tr class="separator:a64e626c6ce39fac48a4db10019c9f5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80a42b3a550b886f7faa77e065cc4a3e"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a80a42b3a550b886f7faa77e065cc4a3e">foc_length</a></td></tr>
-<tr class="separator:a80a42b3a550b886f7faa77e065cc4a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a957eeda7b657f10fa76cd6722e3ee45f"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a957eeda7b657f10fa76cd6722e3ee45f">aperture</a></td></tr>
-<tr class="separator:a957eeda7b657f10fa76cd6722e3ee45f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="memItemLeft" align="right" valign="top">character(50)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a31f27cef4252ee5a36802fd02b3f8ac9">file_path</a></td></tr>
 <tr class="memdesc:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local file path for saving debug files.  <a href="namespacem__rhs.html#a31f27cef4252ee5a36802fd02b3f8ac9">More...</a><br /></td></tr>
 <tr class="separator:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d795dd93ba08b82dacdcf96bcb60278"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2d795dd93ba08b82dacdcf96bcb60278">nbub</a></td></tr>
 <tr class="memdesc:a2d795dd93ba08b82dacdcf96bcb60278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble number density.  <a href="namespacem__rhs.html#a2d795dd93ba08b82dacdcf96bcb60278">More...</a><br /></td></tr>
 <tr class="separator:a2d795dd93ba08b82dacdcf96bcb60278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a349c415d2a5bf49b0f45ccea7ddd85a9"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a349c415d2a5bf49b0f45ccea7ddd85a9">rs</a></td></tr>
-<tr class="separator:a349c415d2a5bf49b0f45ccea7ddd85a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac724bcfdf79c6b03c225434e9edfc10c"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ac724bcfdf79c6b03c225434e9edfc10c">vs</a></td></tr>
-<tr class="separator:ac724bcfdf79c6b03c225434e9edfc10c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a311554b5ce89a379316222137a129761"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a311554b5ce89a379316222137a129761">ps</a></td></tr>
-<tr class="separator:a311554b5ce89a379316222137a129761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8148030119001515db770aae59b82c3d"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a8148030119001515db770aae59b82c3d">ms</a></td></tr>
-<tr class="separator:a8148030119001515db770aae59b82c3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The module contains the subroutines used to calculate the right- hand-side (RHS) in the quasi-conservative, shock- and interface- capturing finite-volume framework for the multicomponent Navier- f Stokes equations supplemented by appropriate advection equations used to capture the material interfaces. The system of equations is closed by the stiffened gas equation of state, as well as any required mixture relationships. Capillarity effects are included and are modeled by the means of a volume force acting across the diffuse material interface region. The implementation details of surface tension may be found in Perigaud and Saurel (2005). Note that both viscous and surface tension effects are only available in the volume fraction model. </p>
+<div class="textblock"><p>The module contains the subroutines used to calculate the right- hand-side (RHS) in the quasi-conservative, shock- and interface- capturing finite-volume framework for the multicomponent Navier- Stokes equations supplemented by appropriate advection equations used to capture the material interfaces. The system of equations is closed by the stiffened gas equation of state, as well as any required mixture relationships. Capillarity effects are included and are modeled by the means of a volume force acting across the diffuse material interface region. The implementation details of surface tension may be found in Perigaud and Saurel (2005). Note that both viscous and surface tension effects are only available in the volume fraction model. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a505bdec14965140a760442507b2a4b04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a505bdec14965140a760442507b2a4b04">&#9670;&nbsp;</a></span>f_delta()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)) function m_rhs::f_delta </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(3), intent(in)&#160;</td>
-          <td class="paramname"><em>mono_loc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>mono_leng</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>nm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0))&#160;</td>
-          <td class="paramname"><em>angle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0))&#160;</td>
-          <td class="paramname"><em>angle_z</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function give the spatial support of the acoustic source. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">j</td><td>First coordinate-direction location index </td></tr>
-    <tr><td class="paramname">k</td><td>Second coordinate-direction location index </td></tr>
-    <tr><td class="paramname">l</td><td>Third coordinate-direction location index </td></tr>
-    <tr><td class="paramname">mono_loc</td><td>Nominal source term location </td></tr>
-    <tr><td class="paramname">mono_leng</td><td>Length of source term in space </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a505bdec14965140a760442507b2a4b04_icgraph.svg" width="659" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a642873683995e4b85749c56f3365a96a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a642873683995e4b85749c56f3365a96a">&#9670;&nbsp;</a></span>f_g()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)) function m_rhs::f_g </td>
-          <td>(</td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>mytime</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>sos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>mysos</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>nm</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer&#160;</td>
-          <td class="paramname"><em>term_index</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function gives the temporally varying amplitude of the pulse. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mytime</td><td>Simulation time </td></tr>
-    <tr><td class="paramname">sos</td><td>Sound speed </td></tr>
-    <tr><td class="paramname">mysos</td><td>Alternative speed of sound for testing </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a642873683995e4b85749c56f3365a96a_icgraph.svg" width="635" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="ac7d49938e97f8843c84f335ff0f6cceb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7d49938e97f8843c84f335ff0f6cceb">&#9670;&nbsp;</a></span>s_apply_scalar_divergence_theorem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_rhs::s_apply_scalar_divergence_theorem </td>
-          <td>(</td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(in)&#160;</td>
-          <td class="paramname"><em>vL_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(in)&#160;</td>
-          <td class="paramname"><em>vR_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(inout)&#160;</td>
-          <td class="paramname"><em>dv_ds_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>norm_dir</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The purpose of this subroutine is to employ the inputted left and right cell-boundary integral-averaged variables to compute the relevant cell-average first-order spatial derivatives in the x-, y- or z-direction by means of the scalar divergence theorem. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">vL_vf</td><td>Left cell-boundary integral averages </td></tr>
-    <tr><td class="paramname">vR_vf</td><td>Right cell-boundary integral averages </td></tr>
-    <tr><td class="paramname">dv_ds_vf</td><td>Cell-average first-order spatial derivatives </td></tr>
-    <tr><td class="paramname">norm_dir</td><td>Splitting coordinate direction </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_ac7d49938e97f8843c84f335ff0f6cceb_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-
-</div>
-</div>
-<a id="abf11c6f8bb16f3c74cc0205b16d31e96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf11c6f8bb16f3c74cc0205b16d31e96">&#9670;&nbsp;</a></span>s_compute_fd_gradient()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_rhs::s_compute_fd_gradient </td>
-          <td>(</td>
-          <td class="paramtype">type(scalar_field), intent(in)&#160;</td>
-          <td class="paramname"><em>var</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), intent(inout)&#160;</td>
-          <td class="paramname"><em>grad_x</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), intent(inout)&#160;</td>
-          <td class="paramname"><em>grad_y</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), intent(inout)&#160;</td>
-          <td class="paramname"><em>grad_z</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), intent(inout)&#160;</td>
-          <td class="paramname"><em>norm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Computes the scalar gradient fields via finite differences. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">var</td><td>Variable to compute derivative of </td></tr>
-    <tr><td class="paramname">grad_x</td><td>First coordinate direction component of the derivative </td></tr>
-    <tr><td class="paramname">grad_y</td><td>Second coordinate direction component of the derivative </td></tr>
-    <tr><td class="paramname">grad_z</td><td>Third coordinate direction component of the derivative </td></tr>
-    <tr><td class="paramname">norm</td><td>Norm of the gradient vector </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_abf11c6f8bb16f3c74cc0205b16d31e96_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-
-</div>
-</div>
 <a id="a361f0038973069452cc88430c49bcfe8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a361f0038973069452cc88430c49bcfe8">&#9670;&nbsp;</a></span>s_compute_rhs()</h2>
 
@@ -574,70 +247,13 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a361f0038973069452cc88430c49bcfe8_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a361f0038973069452cc88430c49bcfe8_cgraph.svg" width="459" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a361f0038973069452cc88430c49bcfe8_icgraph.svg" width="496" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a2da1b596b26740b8edff160297676447"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2da1b596b26740b8edff160297676447">&#9670;&nbsp;</a></span>s_compute_viscous_stress_tensor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_rhs::s_compute_viscous_stress_tensor </td>
-          <td>(</td>
-          <td class="paramtype">type(scalar_field), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>q_prim_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(num_dims), intent(in)&#160;</td>
-          <td class="paramname"><em>grad_x_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(num_dims), intent(in)&#160;</td>
-          <td class="paramname"><em>grad_y_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(num_dims), intent(in)&#160;</td>
-          <td class="paramname"><em>grad_z_vf</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The purpose of this subroutine is to compute the viscous stress tensor for the cells directly next to the axis in cylindrical coordinates. This is necessary to avoid the 1/r singularity that arises at the cell boundary coinciding with the axis, i.e., y_cb(-1) = 0. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-average primitive variables </td></tr>
-    <tr><td class="paramname">grad_x_vf</td><td>Cell-average primitive variable derivatives, x-dir </td></tr>
-    <tr><td class="paramname">grad_y_vf</td><td>Cell-average primitive variable derivatives, y-dir </td></tr>
-    <tr><td class="paramname">grad_z_vf</td><td>Cell-average primitive variable derivatives, z-dir </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a2da1b596b26740b8edff160297676447_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -660,46 +276,6 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a73fc1430500bdd1786b121a9ed08a107_icgraph.svg" width="288" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="af3a790f913beb679bf0cf9d6c8c15fda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3a790f913beb679bf0cf9d6c8c15fda">&#9670;&nbsp;</a></span>s_get_viscous()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_rhs::s_get_viscous</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This subroutine compute the TVD flux function. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-averaged conservative variables </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-averaged primitive variables </td></tr>
-    <tr><td class="paramname">rhs_vf</td><td>Cell-averaged RHS variables </td></tr>
-    <tr><td class="paramname">i</td><td>Dimensional splitting index Computes viscous terms </td></tr>
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-averaged conservative variables </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-averaged primitive variables </td></tr>
-    <tr><td class="paramname">rhs_vf</td><td>Cell-averaged RHS variables </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_af3a790f913beb679bf0cf9d6c8c15fda_cgraph.svg" width="423" height="183"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_af3a790f913beb679bf0cf9d6c8c15fda_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -749,34 +325,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5735aa0dc9d5759c2056a79d4a8c484b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5735aa0dc9d5759c2056a79d4a8c484b">&#9670;&nbsp;</a></span>s_populate_variables_buffers()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_rhs::s_populate_variables_buffers </td>
-          <td>(</td>
-          <td class="paramtype">type(scalar_field), dimension(sys_size), intent(inout)&#160;</td>
-          <td class="paramname"><em>v_vf</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The purpose of this procedure is to populate the buffers of the conservative variables, depending on the selected boundary conditions. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v_vf</td><td>Scalar field for which buffers are populated </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac98547abe0a985a2a135c3eb5fb2a5a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac98547abe0a985a2a135c3eb5fb2a5a1">&#9670;&nbsp;</a></span>s_reconstruct_cell_boundary_values()</h2>
+<a id="aa93d7b4162d84118e54c739f626a2f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa93d7b4162d84118e54c739f626a2f16">&#9670;&nbsp;</a></span>s_reconstruct_cell_boundary_values()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -790,78 +340,38 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(vector_field), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_qp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(vector_field), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_qp</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>norm_dir</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0cee7fe1eb9823ae4c595fdcf20d1f98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cee7fe1eb9823ae4c595fdcf20d1f98">&#9670;&nbsp;</a></span>s_reconstruct_cell_boundary_values_alt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_rhs::s_reconstruct_cell_boundary_values_alt </td>
-          <td>(</td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(in)&#160;</td>
-          <td class="paramname"><em>v_vf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vL_x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_x_flat</em>, </td>
+          <td class="paramname"><em>vL_y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_y_flat</em>, </td>
+          <td class="paramname"><em>vL_z</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_z_flat</em>, </td>
+          <td class="paramname"><em>vR_x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_x_flat</em>, </td>
+          <td class="paramname"><em>vR_y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_y_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_z_flat</em>, </td>
+          <td class="paramname"><em>vR_z</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -890,96 +400,14 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a0cee7fe1eb9823ae4c595fdcf20d1f98_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_aa93d7b4162d84118e54c739f626a2f16_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a7c15c57e0519165ffc491b7cd81cebb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c15c57e0519165ffc491b7cd81cebb4">&#9670;&nbsp;</a></span>s_reconstruct_cell_boundary_values_visc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_rhs::s_reconstruct_cell_boundary_values_visc </td>
-          <td>(</td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(in)&#160;</td>
-          <td class="paramname"><em>v_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_x_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_y_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_z_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_x_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_y_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_z_flat</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>norm_dir</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_prim_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:iv%end), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_prim_vf</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a7c15c57e0519165ffc491b7cd81cebb4_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a25bdc177e6dcc53cb266cdaf75b5bdb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25bdc177e6dcc53cb266cdaf75b5bdb6">&#9670;&nbsp;</a></span>s_reconstruct_cell_boundary_values_visc_deriv()</h2>
+<a id="a632ecd6c105557ce459ab8bd686f9fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a632ecd6c105557ce459ab8bd686f9fd5">&#9670;&nbsp;</a></span>s_reconstruct_cell_boundary_values_visc_deriv()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -994,37 +422,37 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, <a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_x_flat</em>, </td>
+          <td class="paramname"><em>vL_x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, <a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_y_flat</em>, </td>
+          <td class="paramname"><em>vL_y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, <a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vL_z_flat</em>, </td>
+          <td class="paramname"><em>vL_z</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, <a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_x_flat</em>, </td>
+          <td class="paramname"><em>vR_x</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, <a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_y_flat</em>, </td>
+          <td class="paramname"><em>vR_y</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, <a class="el" href="namespacem__rhs.html#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a>%beg:), intent(inout)&#160;</td>
-          <td class="paramname"><em>vR_z_flat</em>, </td>
+          <td class="paramname"><em>vR_z</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1054,41 +482,13 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a25bdc177e6dcc53cb266cdaf75b5bdb6_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a632ecd6c105557ce459ab8bd686f9fd5_icgraph.svg" width="100%" height="437"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a633fb2be8454eabd9f91a05970c922d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a633fb2be8454eabd9f91a05970c922d6">&#9670;&nbsp;</a></span>advxb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::advxb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9a3d38fe1c64083a1db524f06fe2f8da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a3d38fe1c64083a1db524f06fe2f8da">&#9670;&nbsp;</a></span>advxe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::advxe</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aaaecb99341e4534ec839e9356bf90536"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaaecb99341e4534ec839e9356bf90536">&#9670;&nbsp;</a></span>alf_sum</h2>
 
@@ -1125,20 +525,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(kind(0d0)), dimension(:, :, :), allocatable m_rhs::alpha2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a957eeda7b657f10fa76cd6722e3ee45f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a957eeda7b657f10fa76cd6722e3ee45f">&#9670;&nbsp;</a></span>aperture</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::aperture</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1257,90 +643,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aa57450021168543af7002776786c3e74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa57450021168543af7002776786c3e74">&#9670;&nbsp;</a></span>bubxb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::bubxb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a56b9c2e321892673b369bba835bbd0f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56b9c2e321892673b369bba835bbd0f0">&#9670;&nbsp;</a></span>bubxe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::bubxe</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac304e7578f54ea9def350e101798f71f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac304e7578f54ea9def350e101798f71f">&#9670;&nbsp;</a></span>contxb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::contxb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8aa9e8fb5af0fd310600f54bd1290d9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8aa9e8fb5af0fd310600f54bd1290d9e">&#9670;&nbsp;</a></span>contxe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::contxe</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0f5f81786bde7e5c6dedcfa17bf029be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f5f81786bde7e5c6dedcfa17bf029be">&#9670;&nbsp;</a></span>delay</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::delay</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acc540da9a7f44b9c57649e8f68d6572d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc540da9a7f44b9c57649e8f68d6572d">&#9670;&nbsp;</a></span>dir</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::dir</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="abf83c819d81616e9342f773a4067938c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf83c819d81616e9342f773a4067938c">&#9670;&nbsp;</a></span>divu</h2>
 
@@ -1441,42 +743,42 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2ff03f031208ab29d559caeff721d608"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ff03f031208ab29d559caeff721d608">&#9670;&nbsp;</a></span>dql_rsx_vf_flat</h2>
+<a id="abcd0745f5d0daab441a4fb6fd897bb24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd0745f5d0daab441a4fb6fd897bb24">&#9670;&nbsp;</a></span>dql_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dql_rsx_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dql_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a95cecb45ac2ed98bfca38d98e57ee022"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95cecb45ac2ed98bfca38d98e57ee022">&#9670;&nbsp;</a></span>dql_rsy_vf_flat</h2>
+<a id="a8a609ba3f0529c1cffdfd229427d1f08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a609ba3f0529c1cffdfd229427d1f08">&#9670;&nbsp;</a></span>dql_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dql_rsy_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dql_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7a45c4083711d722d54080ed4dabec87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a45c4083711d722d54080ed4dabec87">&#9670;&nbsp;</a></span>dql_rsz_vf_flat</h2>
+<a id="a6c9460de3b4984f85f7c0904693087ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c9460de3b4984f85f7c0904693087ce">&#9670;&nbsp;</a></span>dql_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dql_rsz_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dql_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1525,42 +827,42 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aba817fe9e0392acfa36d0ae966f510d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba817fe9e0392acfa36d0ae966f510d4">&#9670;&nbsp;</a></span>dqr_rsx_vf_flat</h2>
+<a id="a6d945dc1ffc17142e96ccc5b86cf92e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d945dc1ffc17142e96ccc5b86cf92e3">&#9670;&nbsp;</a></span>dqr_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dqr_rsx_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dqr_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8c6d8892339820d55d02d6fa8d946431"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c6d8892339820d55d02d6fa8d946431">&#9670;&nbsp;</a></span>dqr_rsy_vf_flat</h2>
+<a id="adc0484b9a4e7f3b6afe28c41e4c8c4a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc0484b9a4e7f3b6afe28c41e4c8c4a6">&#9670;&nbsp;</a></span>dqr_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dqr_rsy_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dqr_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a891f51ea9b4490f8665ff8eb57cf119a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a891f51ea9b4490f8665ff8eb57cf119a">&#9670;&nbsp;</a></span>dqr_rsz_vf_flat</h2>
+<a id="a05e8222febb4edc579f4135c12e409ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e8222febb4edc579f4135c12e409ff">&#9670;&nbsp;</a></span>dqr_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dqr_rsz_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::dqr_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1625,20 +927,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a80a42b3a550b886f7faa77e065cc4a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80a42b3a550b886f7faa77e065cc4a3e">&#9670;&nbsp;</a></span>foc_length</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::foc_length</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="aea213d619f540b9746381587001e6427"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea213d619f540b9746381587001e6427">&#9670;&nbsp;</a></span>gamma_min</h2>
 
@@ -1647,20 +935,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::gamma_min</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4ee66aa918e36ec9c345ab1f96213e14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ee66aa918e36ec9c345ab1f96213e14">&#9670;&nbsp;</a></span>gammas</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::gammas</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1719,34 +993,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">type(vector_field) m_rhs::gm_vel_qp</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a63e84a52fa76f4d9cdba5fce7991635c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63e84a52fa76f4d9cdba5fce7991635c">&#9670;&nbsp;</a></span>intxb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::intxb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aeb95f3d88a1127fd9e7641ccb5dfccf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb95f3d88a1127fd9e7641ccb5dfccf7">&#9670;&nbsp;</a></span>intxe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::intxe</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1825,6 +1071,20 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a592754d410808442cbe9d883cd6dea8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592754d410808442cbe9d883cd6dea8e">&#9670;&nbsp;</a></span>ixt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(int_bounds_info) m_rhs::ixt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abd59ad65c7990ace2a602a173c6348a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abd59ad65c7990ace2a602a173c6348a8">&#9670;&nbsp;</a></span>iy</h2>
 
@@ -1833,6 +1093,20 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">type(int_bounds_info) m_rhs::iy</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace8f4d6a3e40a7d38ef2fc3a302bb073"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace8f4d6a3e40a7d38ef2fc3a302bb073">&#9670;&nbsp;</a></span>iyt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(int_bounds_info) m_rhs::iyt</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1853,6 +1127,20 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a0e4a4dddceb007eb304c31a25f56558b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4a4dddceb007eb304c31a25f56558b">&#9670;&nbsp;</a></span>izt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(int_bounds_info) m_rhs::izt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a52761ad7def1abff07beaaedb4323f6c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a52761ad7def1abff07beaaedb4323f6c">&#9670;&nbsp;</a></span>kterm</h2>
 
@@ -1861,76 +1149,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(kind(0d0)), dimension(:, :, :), allocatable m_rhs::kterm</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad782ca3963dbe4bf53c68288f601c58d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad782ca3963dbe4bf53c68288f601c58d">&#9670;&nbsp;</a></span>length</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::length</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a64e626c6ce39fac48a4db10019c9f5bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64e626c6ce39fac48a4db10019c9f5bb">&#9670;&nbsp;</a></span>loc_mono</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :), allocatable m_rhs::loc_mono</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae896433188b1dad564bf5ffcc4f8238a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae896433188b1dad564bf5ffcc4f8238a">&#9670;&nbsp;</a></span>mag</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::mag</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9c9e2f780e67c28fda12f274f93a5440"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c9e2f780e67c28fda12f274f93a5440">&#9670;&nbsp;</a></span>momxb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::momxb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab3423d40514d18d889413d8bdfbfd1a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3423d40514d18d889413d8bdfbfd1a0">&#9670;&nbsp;</a></span>momxe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::momxe</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1973,20 +1191,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::mono_mom_src</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8148030119001515db770aae59b82c3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8148030119001515db770aae59b82c3d">&#9670;&nbsp;</a></span>ms</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_rhs::ms</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2037,34 +1241,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad6045b22514a074a051dc2fe71a9085a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6045b22514a074a051dc2fe71a9085a">&#9670;&nbsp;</a></span>npulse</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::npulse</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5bf3d142a34152410bf886f26ef841d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bf3d142a34152410bf886f26ef841d0">&#9670;&nbsp;</a></span>pi_infs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::pi_infs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a9b96f4e232a0efb815f720bb9f5c805a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9b96f4e232a0efb815f720bb9f5c805a">&#9670;&nbsp;</a></span>pres_inf</h2>
 
@@ -2073,34 +1249,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(kind(0d0)), dimension(:), allocatable m_rhs::pres_inf</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a311554b5ce89a379316222137a129761"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a311554b5ce89a379316222137a129761">&#9670;&nbsp;</a></span>ps</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_rhs::ps</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa61cd08b09dfb51ac674e09804f87ca2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa61cd08b09dfb51ac674e09804f87ca2">&#9670;&nbsp;</a></span>pulse</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_rhs::pulse</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2181,42 +1329,42 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ab11ff4fb4890476761ace86dab8df8c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab11ff4fb4890476761ace86dab8df8c1">&#9670;&nbsp;</a></span>ql_rsx_vf_flat</h2>
+<a id="a07cbf528d5e5eaf73cf42d4fdbf52481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07cbf528d5e5eaf73cf42d4fdbf52481">&#9670;&nbsp;</a></span>ql_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::ql_rsx_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::ql_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ab09d18ae4bbafa3a216232de2db75676"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab09d18ae4bbafa3a216232de2db75676">&#9670;&nbsp;</a></span>ql_rsy_vf_flat</h2>
+<a id="a0e4e6f7c67799c233a25bf2a6c949bd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4e6f7c67799c233a25bf2a6c949bd8">&#9670;&nbsp;</a></span>ql_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::ql_rsy_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::ql_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a7098b1f52d58cc1436a17d3a6d384f50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7098b1f52d58cc1436a17d3a6d384f50">&#9670;&nbsp;</a></span>ql_rsz_vf_flat</h2>
+<a id="a1165b4d67400222b6d6102aeec8fb6b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1165b4d67400222b6d6102aeec8fb6b3">&#9670;&nbsp;</a></span>ql_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::ql_rsz_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::ql_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2265,42 +1413,42 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a38fd0d3efbf139ac827916f809ce6e4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38fd0d3efbf139ac827916f809ce6e4d">&#9670;&nbsp;</a></span>qr_rsx_vf_flat</h2>
+<a id="a5b811e1d29fb646a404b2643d2252f32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b811e1d29fb646a404b2643d2252f32">&#9670;&nbsp;</a></span>qr_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::qr_rsx_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::qr_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac2b748ee3c65c6fd574216c9572f29c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2b748ee3c65c6fd574216c9572f29c2">&#9670;&nbsp;</a></span>qr_rsy_vf_flat</h2>
+<a id="ab7951f276fafe8920590544264448c5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7951f276fafe8920590544264448c5a">&#9670;&nbsp;</a></span>qr_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::qr_rsy_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::qr_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a931a54d37afaf1733fe8b02ae151fb14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a931a54d37afaf1733fe8b02ae151fb14">&#9670;&nbsp;</a></span>qr_rsz_vf_flat</h2>
+<a id="a71640c36f6b03570507f3cf8efe132c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71640c36f6b03570507f3cf8efe132c9">&#9670;&nbsp;</a></span>qr_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::qr_rsz_vf_flat</td>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :, :), allocatable m_rhs::qr_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2321,62 +1469,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a349c415d2a5bf49b0f45ccea7ddd85a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a349c415d2a5bf49b0f45ccea7ddd85a9">&#9670;&nbsp;</a></span>rs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_rhs::rs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aad44f2434838c4219caed9d71c52971c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad44f2434838c4219caed9d71c52971c">&#9670;&nbsp;</a></span>strxb</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::strxb</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4e2ab1b7a2a7cfcd80493da246179b57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e2ab1b7a2a7cfcd80493da246179b57">&#9670;&nbsp;</a></span>strxe</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_rhs::strxe</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afb9b253b2417f80edbc19ba777cf8d6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb9b253b2417f80edbc19ba777cf8d6a">&#9670;&nbsp;</a></span>support</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_rhs::support</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a7e3b4d8f32649ff607c52440009f903f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7e3b4d8f32649ff607c52440009f903f">&#9670;&nbsp;</a></span>tau_re_vf</h2>
 
@@ -2385,20 +1477,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">type(scalar_field), dimension(:), allocatable m_rhs::tau_re_vf</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac724bcfdf79c6b03c225434e9edfc10c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac724bcfdf79c6b03c225434e9edfc10c">&#9670;&nbsp;</a></span>vs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_rhs::vs</td>
         </tr>
       </table>
 </div><div class="memdoc">
