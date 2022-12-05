@@ -5,7 +5,6 @@ var m__rhs_8f90 =
     [ "s_initialize_rhs_module", "m__rhs_8f90.html#ae6f7edb814859919c5d1f739574155bd", null ],
     [ "s_populate_conservative_variables_buffers", "m__rhs_8f90.html#a2647dbdf6b09315564ef060e1f49df0d", null ],
     [ "s_reconstruct_cell_boundary_values", "m__rhs_8f90.html#aa93d7b4162d84118e54c739f626a2f16", null ],
-    [ "s_reconstruct_cell_boundary_values_visc_deriv", "m__rhs_8f90.html#a632ecd6c105557ce459ab8bd686f9fd5", null ],
     [ "alf_sum", "m__rhs_8f90.html#aaaecb99341e4534ec839e9356bf90536", null ],
     [ "alpha", "m__rhs_8f90.html#a8947fb914dfe4c2f0e688f4061e802ee", null ],
     [ "alpha1", "m__rhs_8f90.html#a223a31f12e9632e10523cf4e4e6d4953", null ],

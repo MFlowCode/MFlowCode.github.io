@@ -13,7 +13,7 @@ var searchData=
   ['nmomsp_415',['nmomsp',['../namespacem__global__parameters.html#a05611379b68a394593875c335c83f9fd',1,'m_global_parameters']]],
   ['nmomtot_416',['nmomtot',['../namespacem__global__parameters.html#a5830be31eeea7772648f76792d3c7376',1,'m_global_parameters']]],
   ['nnode_417',['nnode',['../namespacem__global__parameters.html#a8d40907ae6d5df21e0e510717bf196aa',1,'m_global_parameters']]],
-  ['norm_5fvf_418',['norm_vf',['../namespacem__start__up.html#ae380781597535aa125ff18847b85a206',1,'m_start_up::norm_vf()'],['../namespacem__data__output.html#ae17a432fc2e0bc9f3a0c0614ea1cd6f8',1,'m_data_output::norm_vf()']]],
+  ['norm_5fvf_418',['norm_vf',['../namespacem__data__output.html#ae17a432fc2e0bc9f3a0c0614ea1cd6f8',1,'m_data_output::norm_vf()'],['../namespacem__start__up.html#ae380781597535aa125ff18847b85a206',1,'m_start_up::norm_vf()']]],
   ['npulse_419',['npulse',['../namespacem__monopole.html#aa1e28945f87daa9f185f34b9ec5c9209',1,'m_monopole']]],
   ['nterms_420',['nterms',['../namespacem__qbmm.html#a5b1f3128a74558c0c782697a7393b5b1',1,'m_qbmm']]],
   ['null_5fweights_421',['null_weights',['../namespacem__global__parameters.html#a04b52ed3df1c7aac47f18748b3cdddc5',1,'m_global_parameters']]],

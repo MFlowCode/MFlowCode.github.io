@@ -7,6 +7,7 @@ var m__viscous_8f90 =
     [ "s_get_viscous", "m__viscous_8f90.html#af773354ab827db325ff69118c6e36423", null ],
     [ "s_initialize_viscous_module", "m__viscous_8f90.html#ac9d773d791f0157062a5e07c79b9ae32", null ],
     [ "s_reconstruct_cell_boundary_values_visc", "m__viscous_8f90.html#a5444ae18cefee9f89a50427b2c0be45b", null ],
+    [ "s_reconstruct_cell_boundary_values_visc_deriv", "m__viscous_8f90.html#a43537e37310e460ebbbc966628aaae0e", null ],
     [ "is1", "m__viscous_8f90.html#aea2c48d7f42c883a4b19aa4074a4ccf1", null ],
     [ "is2", "m__viscous_8f90.html#a31978cc280c391fed6df1f5df8b25a6b", null ],
     [ "is3", "m__viscous_8f90.html#ad510a399a27f473c41d38f23487b4d6c", null ],
