@@ -432,7 +432,6 @@ var namespaces_dup =
       [ "q_prim_vf", "namespacem__time__steppers.html#a10a568906592e51b56cf5dbfba0d9edb", null ],
       [ "rhs_vf", "namespacem__time__steppers.html#a3d0867c3c2572c712d2aed6d677e6fc2", null ]
     ] ],
-    [ "m_variables_conversion", "namespacem__variables__conversion.html", "namespacem__variables__conversion" ],
     [ "m_viscous", "namespacem__viscous.html", [
       [ "s_apply_scalar_divergence_theorem", "namespacem__viscous.html#aa03e4755149c3afe7501cf859719bc97", null ],
       [ "s_compute_fd_gradient", "namespacem__viscous.html#a7e34fc1e886ecabc9717580c082d9661", null ],

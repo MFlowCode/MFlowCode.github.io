@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nvtx_841',['nvtx',['../namespacenvtx.html',1,'']]]
+  ['nvtx_808',['nvtx',['../namespacenvtx.html',1,'']]]
 ];

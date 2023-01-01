@@ -15,10 +15,6 @@ var annotated_dup =
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_read_abstract_data_files", "interfacem__start__up_1_1s__read__abstract__data__files.html", "interfacem__start__up_1_1s__read__abstract__data__files" ]
     ] ],
-    [ "m_variables_conversion", "namespacem__variables__conversion.html", [
-      [ "s_convert_abstract_to_mixture_variables", "interfacem__variables__conversion_1_1s__convert__abstract__to__mixture__variables.html", "interfacem__variables__conversion_1_1s__convert__abstract__to__mixture__variables" ],
-      [ "s_compute_abstract_average_state", "interfacem__variables__conversion_1_1s__compute__abstract__average__state.html", "interfacem__variables__conversion_1_1s__compute__abstract__average__state" ]
-    ] ],
     [ "nvtx", "namespacenvtx.html", [
       [ "nvtxeventattributes", "structnvtx_1_1nvtxeventattributes.html", "structnvtx_1_1nvtxeventattributes" ],
       [ "nvtxrangepush", "interfacenvtx_1_1nvtxrangepush.html", "interfacenvtx_1_1nvtxrangepush" ],

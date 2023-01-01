@@ -64,6 +64,8 @@ var namespaces_dup =
       [ "s_transcoeff", "namespacem__global__parameters.html#af52b102f1c17e28aa4ca3070f8806ca6", null ],
       [ "adv_alphan", "namespacem__global__parameters.html#abebd95d9d0271fbda40f47f75a2d829b", null ],
       [ "adv_idx", "namespacem__global__parameters.html#ae8e6c40b6ec73cb126b0cce7496e0057", null ],
+      [ "advxb", "namespacem__global__parameters.html#af4751a18db30b97d83e7f0372182a18d", null ],
+      [ "advxe", "namespacem__global__parameters.html#a4ea7c4ff7f9fc3debe3111bdd5aa6300", null ],
       [ "alf_idx", "namespacem__global__parameters.html#af451fa7762c859ef20552498fa6edb16", null ],
       [ "alpha_rho_wrt", "namespacem__global__parameters.html#a629b922f4d06112a6d03d7864872990f", null ],
       [ "alpha_wrt", "namespacem__global__parameters.html#a61f570bcde70f7013523e11d93c66929", null ],
@@ -73,6 +75,8 @@ var namespaces_dup =
       [ "bc_z", "namespacem__global__parameters.html#a2d3a5d211f996a1fff3238a8b7fe5fe7", null ],
       [ "bub_idx", "namespacem__global__parameters.html#a9a425d1bd91d1765043adf8410b98bf7", null ],
       [ "bubbles", "namespacem__global__parameters.html#a4a22ed160838f8fbe6bd506f334b8815", null ],
+      [ "bubxb", "namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341", null ],
+      [ "bubxe", "namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70", null ],
       [ "buff_size", "namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92", null ],
       [ "c_wrt", "namespacem__global__parameters.html#a56a071ae0b79b39a826646ace37972eb", null ],
       [ "ca", "namespacem__global__parameters.html#a1fcd6cc13ad7f604ef81708716a1feac", null ],
@@ -83,6 +87,8 @@ var namespaces_dup =
       [ "coarsen_silo", "namespacem__global__parameters.html#a2db51a0beed308d7a3c51c5c0ed45609", null ],
       [ "cons_vars_wrt", "namespacem__global__parameters.html#ad23223100223bdb6d7f59fed5ec7bbb9", null ],
       [ "cont_idx", "namespacem__global__parameters.html#adefe3b78bf286d73a56aef49880dfb0d", null ],
+      [ "contxb", "namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b", null ],
+      [ "contxe", "namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497", null ],
       [ "cyl_coord", "namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c", null ],
       [ "dflt_int", "namespacem__global__parameters.html#a4e4e3806190a62a77cf6542f6d07dbbd", null ],
       [ "dflt_real", "namespacem__global__parameters.html#a99ba7e33a1870ac89386d376e0d20526", null ],
@@ -108,6 +114,8 @@ var namespaces_dup =
       [ "im_trans_c", "namespacem__global__parameters.html#aa93addd83f0134aaaf319ca2b743233c", null ],
       [ "im_trans_t", "namespacem__global__parameters.html#a62b213889b2dc5da7d81e7fa636231f6", null ],
       [ "internalenergies_idx", "namespacem__global__parameters.html#aac5ed9f316eeebbe04258bb1120cbea4", null ],
+      [ "intxb", "namespacem__global__parameters.html#ace71c8ec227d7c6364893107bc131dae", null ],
+      [ "intxe", "namespacem__global__parameters.html#af08928c5b9bde727869334ee7067e89c", null ],
       [ "k_n", "namespacem__global__parameters.html#a555eda1318a218d37d1bdd8f4d57eaf2", null ],
       [ "k_v", "namespacem__global__parameters.html#a1943ea5a5127e94a197afae57be95758", null ],
       [ "m", "namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33", null ],
@@ -119,6 +127,8 @@ var namespaces_dup =
       [ "model_eqns", "namespacem__global__parameters.html#a6cf2e92cfc3b519fb6da6fe9e88fab31", null ],
       [ "mom_idx", "namespacem__global__parameters.html#ad138d35528cf27ff42dba00d13c269be", null ],
       [ "mom_wrt", "namespacem__global__parameters.html#a5d11d820127525a02b4c6f9d09fad258", null ],
+      [ "momxb", "namespacem__global__parameters.html#afdd8068b11c6a5c3ce3615e7ba256bf9", null ],
+      [ "momxe", "namespacem__global__parameters.html#a36964b5437c2dc2f04569f7029f460ee", null ],
       [ "mpi_info_int", "namespacem__global__parameters.html#a2663d07998d11d25e223cd7ad0bbd748", null ],
       [ "mpi_io_data", "namespacem__global__parameters.html#ad80f68aac31aa898ab2d7729f60e375f", null ],
       [ "mpiiofs", "namespacem__global__parameters.html#a4bca716b2500286d98ec40aef2f258f2", null ],
@@ -172,6 +182,8 @@ var namespaces_dup =
       [ "sgm_eps", "namespacem__global__parameters.html#aec97838cc58623019b07ae47da7f4c1c", null ],
       [ "start_idx", "namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d", null ],
       [ "stress_idx", "namespacem__global__parameters.html#a413f3447516f02810f57b796f40b142f", null ],
+      [ "strxb", "namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f", null ],
+      [ "strxe", "namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9", null ],
       [ "sys_size", "namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b", null ],
       [ "t_step_save", "namespacem__global__parameters.html#a98b51eda2c46660b439c0a8375385165", null ],
       [ "t_step_start", "namespacem__global__parameters.html#ace0c8a67825d0dccd2e23b5d0f9985c0", null ],
@@ -219,6 +231,5 @@ var namespaces_dup =
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_check_input_file", "namespacem__start__up.html#ad77478b402c186b1f620b7d14aab9123", null ],
       [ "s_read_input_file", "namespacem__start__up.html#a3a19eb11ae434dc590a1bd7835442891", null ]
-    ] ],
-    [ "m_variables_conversion", "namespacem__variables__conversion.html", "namespacem__variables__conversion" ]
+    ] ]
 ];

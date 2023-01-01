@@ -15,7 +15,6 @@ var files_dup =
     [ "m_riemann_solvers.f90", "m__riemann__solvers_8f90.html", "m__riemann__solvers_8f90" ],
     [ "m_start_up.f90", "m__start__up_8f90.html", "m__start__up_8f90" ],
     [ "m_time_steppers.f90", "m__time__steppers_8f90.html", "m__time__steppers_8f90" ],
-    [ "m_variables_conversion.f90", "m__variables__conversion_8f90.html", "m__variables__conversion_8f90" ],
     [ "m_viscous.f90", "m__viscous_8f90.html", "m__viscous_8f90" ],
     [ "m_weno.f90", "m__weno_8f90.html", "m__weno_8f90" ],
     [ "nvtx.f90", "nvtx_8f90.html", "nvtx_8f90" ],

@@ -7,6 +7,5 @@ var files_dup =
     [ "m_initial_condition.f90", "m__initial__condition_8f90.html", "m__initial__condition_8f90" ],
     [ "m_mpi_proxy.f90", "m__mpi__proxy_8f90.html", "m__mpi__proxy_8f90" ],
     [ "m_start_up.f90", "m__start__up_8f90.html", "m__start__up_8f90" ],
-    [ "m_variables_conversion.f90", "m__variables__conversion_8f90.html", "m__variables__conversion_8f90" ],
     [ "p_main.f90", "p__main_8f90.html", "p__main_8f90" ]
 ];
