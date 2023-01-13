@@ -1,6 +1,5 @@
 var files_dup =
 [
-    [ "case.f90", "case_8f90.html", null ],
     [ "m_data_input.f90", "m__data__input_8f90.html", "m__data__input_8f90" ],
     [ "m_data_output.f90", "m__data__output_8f90.html", "m__data__output_8f90" ],
     [ "m_derived_variables.f90", "m__derived__variables_8f90.html", "m__derived__variables_8f90" ],

@@ -34,9 +34,9 @@ var NAVTREE =
         [ "Variables", "namespacemembers_vars.html", null ]
       ] ]
     ] ],
-    [ "Data Types List", "annotated.html", [
+    [ "Data Types", "annotated.html", [
       [ "Data Types List", "annotated.html", "annotated_dup" ],
-      [ "Data Types", "classes.html", null ],
+      [ "Data Type Index", "classes.html", null ],
       [ "Data Fields", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions/Subroutines", "functions_func.html", null ]
@@ -55,8 +55,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__data__input.html#a464b144d544f769a0d9a1b549c510e1f",
-"namespacemembers_p.html"
+"namespacem__data__input.html#a0dd37369dd52b1299b06563f96c25805",
+"namespacemembers_o.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

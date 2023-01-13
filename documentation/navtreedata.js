@@ -25,79 +25,57 @@
 var NAVTREE =
 [
   [ "MFC", "index.html", [
-    [ "Welcome to MFC!", "index.html", [
-      [ "Code Documentation", "index.html#autotoc_md24", null ],
-      [ "Publications", "index.html#autotoc_md25", [
-        [ "Primary Paper", "index.html#autotoc_md26", null ],
-        [ "Related publications", "index.html#autotoc_md27", null ],
-        [ "User Configuration", "index.html#autotoc_md28", null ]
-      ] ],
-      [ "Development", "index.html#autotoc_md29", [
-        [ "Fypp", "index.html#autotoc_md30", null ]
-      ] ],
-      [ "Useful Scripts", "index.html#autotoc_md31", [
-        [ "Loading Modules", "index.html#autotoc_md32", null ],
-        [ "OpenACC Memory Profiling", "index.html#autotoc_md33", null ]
-      ] ],
-      [ "License", "index.html#autotoc_md34", null ],
-      [ "Acknowledgements", "index.html#autotoc_md35", null ]
-    ] ],
+    [ "Documentation", "index.html", "index" ],
     [ "Authors", "md_authors.html", null ],
-    [ "Building", "md_building.html", [
-      [ "Build Environment", "md_building.html#autotoc_md2", [
-        [ "*nix", "md_building.html#autotoc_md3", null ],
-        [ "Windows", "md_building.html#autotoc_md4", [
-          [ "Windows + Intel (Native)", "md_building.html#autotoc_md5", null ],
-          [ "Windows + Docker", "md_building.html#autotoc_md6", null ],
-          [ "Windows + WSL", "md_building.html#autotoc_md7", null ]
-        ] ],
-        [ "MacOS (x86 and Apple Silicon)", "md_building.html#autotoc_md8", null ],
-        [ "Docker (Cross-Platform)", "md_building.html#autotoc_md9", null ]
-      ] ],
-      [ "Fetch & Build", "md_building.html#autotoc_md10", null ]
-    ] ],
     [ "Contributor Covenant Code of Conduct", "md_CODE_OF_CONDUCT.html", [
-      [ "Our Pledge", "md_CODE_OF_CONDUCT.html#autotoc_md12", null ],
-      [ "Our Standards", "md_CODE_OF_CONDUCT.html#autotoc_md13", null ],
-      [ "Enforcement Responsibilities", "md_CODE_OF_CONDUCT.html#autotoc_md14", null ],
-      [ "Scope", "md_CODE_OF_CONDUCT.html#autotoc_md15", null ],
-      [ "Enforcement", "md_CODE_OF_CONDUCT.html#autotoc_md16", null ],
-      [ "Enforcement Guidelines", "md_CODE_OF_CONDUCT.html#autotoc_md17", [
-        [ "1. Correction", "md_CODE_OF_CONDUCT.html#autotoc_md18", null ],
-        [ "2. Warning", "md_CODE_OF_CONDUCT.html#autotoc_md19", null ],
-        [ "3. Temporary Ban", "md_CODE_OF_CONDUCT.html#autotoc_md20", null ],
-        [ "4. Permanent Ban", "md_CODE_OF_CONDUCT.html#autotoc_md21", null ]
+      [ "Our Pledge", "md_CODE_OF_CONDUCT.html#autotoc_md2", null ],
+      [ "Our Standards", "md_CODE_OF_CONDUCT.html#autotoc_md3", null ],
+      [ "Enforcement Responsibilities", "md_CODE_OF_CONDUCT.html#autotoc_md4", null ],
+      [ "Scope", "md_CODE_OF_CONDUCT.html#autotoc_md5", null ],
+      [ "Enforcement", "md_CODE_OF_CONDUCT.html#autotoc_md6", null ],
+      [ "Enforcement Guidelines", "md_CODE_OF_CONDUCT.html#autotoc_md7", [
+        [ "1. Correction", "md_CODE_OF_CONDUCT.html#autotoc_md8", null ],
+        [ "2. Warning", "md_CODE_OF_CONDUCT.html#autotoc_md9", null ],
+        [ "3. Temporary Ban", "md_CODE_OF_CONDUCT.html#autotoc_md10", null ],
+        [ "4. Permanent Ban", "md_CODE_OF_CONDUCT.html#autotoc_md11", null ]
       ] ],
-      [ "Attribution", "md_CODE_OF_CONDUCT.html#autotoc_md22", null ]
+      [ "Attribution", "md_CODE_OF_CONDUCT.html#autotoc_md12", null ]
+    ] ],
+    [ "Getting Started", "md_getting_started.html", [
+      [ "Build Environment", "md_getting_started.html#autotoc_md14", null ],
+      [ "Fetching MFC", "md_getting_started.html#autotoc_md15", null ],
+      [ "Building MFC", "md_getting_started.html#autotoc_md16", null ],
+      [ "Running the Test Suite", "md_getting_started.html#autotoc_md17", null ],
+      [ "Running an Example Case", "md_getting_started.html#autotoc_md18", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Parameters", "md_running.html#autotoc_md38", [
-        [ "1. Runtime", "md_running.html#autotoc_md39", null ],
-        [ "2. Computational Domain", "md_running.html#autotoc_md40", null ],
-        [ "3. Patches", "md_running.html#autotoc_md41", null ],
-        [ "4. Fluid Material’s", "md_running.html#autotoc_md42", null ],
-        [ "5. Simulation Algorithm", "md_running.html#autotoc_md43", null ],
-        [ "6. Formatted Output", "md_running.html#autotoc_md44", null ],
-        [ "7. Acoustic Source", "md_running.html#autotoc_md45", null ],
-        [ "8. Ensemble-Averaged Bubble Model", "md_running.html#autotoc_md46", null ]
+      [ "Parameters", "md_running.html#autotoc_md24", [
+        [ "1. Runtime", "md_running.html#autotoc_md25", null ],
+        [ "2. Computational Domain", "md_running.html#autotoc_md26", null ],
+        [ "3. Patches", "md_running.html#autotoc_md27", null ],
+        [ "4. Fluid Material’s", "md_running.html#autotoc_md28", null ],
+        [ "5. Simulation Algorithm", "md_running.html#autotoc_md29", null ],
+        [ "6. Formatted Output", "md_running.html#autotoc_md30", null ],
+        [ "7. Acoustic Source", "md_running.html#autotoc_md31", null ],
+        [ "8. Ensemble-Averaged Bubble Model", "md_running.html#autotoc_md32", null ]
       ] ],
-      [ "Enumerations", "md_running.html#autotoc_md47", [
-        [ "Boundary conditions", "md_running.html#autotoc_md48", null ],
-        [ "Patch types", "md_running.html#autotoc_md49", null ],
-        [ "Flux limiters", "md_running.html#autotoc_md50", null ],
-        [ "Monopole supports", "md_running.html#autotoc_md51", null ]
+      [ "Enumerations", "md_running.html#autotoc_md33", [
+        [ "Boundary conditions", "md_running.html#autotoc_md34", null ],
+        [ "Patch types", "md_running.html#autotoc_md35", null ],
+        [ "Flux limiters", "md_running.html#autotoc_md36", null ],
+        [ "Monopole supports", "md_running.html#autotoc_md37", null ]
       ] ],
-      [ "Running", "md_running.html#autotoc_md52", [
-        [ "Interactive Execution", "md_running.html#autotoc_md53", null ],
-        [ "Batch Execution", "md_running.html#autotoc_md54", null ],
-        [ "Example Runs", "md_running.html#autotoc_md55", null ]
+      [ "Running", "md_running.html#autotoc_md38", [
+        [ "Interactive Execution", "md_running.html#autotoc_md39", null ],
+        [ "Batch Execution", "md_running.html#autotoc_md40", null ],
+        [ "Example Runs", "md_running.html#autotoc_md41", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md59", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md60", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md45", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md46", null ]
     ] ]
   ] ]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['building_2',['Building',['../md_building.html',1,'']]],
-  ['building_2emd_3',['building.md',['../building_8md.html',1,'']]]
+  ['code_5fof_5fconduct_2emd_0',['CODE_OF_CONDUCT.md',['../CODE__OF__CONDUCT_8md.html',1,'']]],
+  ['contributor_20covenant_20code_20of_20conduct_1',['Contributor Covenant Code of Conduct',['../md_CODE_OF_CONDUCT.html',1,'']]]
 ];
