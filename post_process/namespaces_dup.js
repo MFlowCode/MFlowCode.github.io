@@ -34,13 +34,11 @@ var namespaces_dup =
     ] ],
     [ "m_derived_variables", "namespacem__derived__variables.html", [
       [ "s_compute_finite_difference_coefficients", "namespacem__derived__variables.html#acf313542c783139e0798f2097d1f68fc", null ],
-      [ "s_derive_curvature", "namespacem__derived__variables.html#a2c43e6d73417e237731fdad2eea07b22", null ],
       [ "s_derive_flux_limiter", "namespacem__derived__variables.html#ac85e77b0312f21389eb166960446f6ec", null ],
       [ "s_derive_liquid_stiffness", "namespacem__derived__variables.html#a02166198be4da04f6b6ce69fd432910d", null ],
       [ "s_derive_numerical_schlieren_function", "namespacem__derived__variables.html#af816bc88ed55a050bfe8f2ab94d89cba", null ],
       [ "s_derive_sound_speed", "namespacem__derived__variables.html#a51eb66162227584de46a25cac55b5b6b", null ],
       [ "s_derive_specific_heat_ratio", "namespacem__derived__variables.html#aab235aa45c622ecf7f387cbf7994387d", null ],
-      [ "s_derive_unadvected_volume_fraction", "namespacem__derived__variables.html#a7fadac6924cf61654373f9f334106001", null ],
       [ "s_derive_vorticity_component", "namespacem__derived__variables.html#aa038ec37a8a0c8fe8d7185b9ef6d54a9", null ],
       [ "s_finalize_derived_variables_module", "namespacem__derived__variables.html#a735665bf598281689158d9d6e075f3d4", null ],
       [ "s_initialize_derived_variables_module", "namespacem__derived__variables.html#a15a6d70e2bd1c9b7001c753ca1f2ee27", null ],
