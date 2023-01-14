@@ -8,8 +8,7 @@ var searchData=
   ['re_5ftrans_5fc_5',['re_trans_c',['../namespacem__global__parameters.html#a666c8f5f6663ab81f55c2298e642a3a9',1,'m_global_parameters']]],
   ['re_5ftrans_5ft_6',['re_trans_t',['../namespacem__global__parameters.html#ae0e61a10cd5b33db394052fbefee2681',1,'m_global_parameters']]],
   ['readme_2emd_7',['readme.md',['../readme_8md.html',1,'']]],
-  ['recvcounts_8',['recvcounts',['../namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee',1,'m_mpi_proxy']]],
-  ['rho_5fwrt_9',['rho_wrt',['../namespacem__global__parameters.html#aabc3362b8f53b08f4f113e699d449754',1,'m_global_parameters']]],
-  ['rhoref_10',['rhoref',['../namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534',1,'m_global_parameters']]],
-  ['rootdir_11',['rootdir',['../namespacem__data__output.html#afe3f36ee866946447f08d94c4bdaa6de',1,'m_data_output']]]
+  ['rho_5fwrt_8',['rho_wrt',['../namespacem__global__parameters.html#aabc3362b8f53b08f4f113e699d449754',1,'m_global_parameters']]],
+  ['rhoref_9',['rhoref',['../namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534',1,'m_global_parameters']]],
+  ['rootdir_10',['rootdir',['../namespacem__data__output.html#afe3f36ee866946447f08d94c4bdaa6de',1,'m_data_output']]]
 ];

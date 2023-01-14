@@ -204,30 +204,6 @@ var namespaces_dup =
       [ "z_cb", "namespacem__global__parameters.html#a1f932e794cad6291b2e6c62b93dcf533", null ],
       [ "z_cc", "namespacem__global__parameters.html#a2c4b9e99b981dc55cccf0b153159404e", null ]
     ] ],
-    [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
-      [ "s_finalize_mpi_proxy_module", "namespacem__mpi__proxy.html#ac984c84fe4140876d6600250af9807da", null ],
-      [ "s_initialize_mpi_data", "namespacem__mpi__proxy.html#a2ff35ede51e90c483969e44c31303415", null ],
-      [ "s_initialize_mpi_proxy_module", "namespacem__mpi__proxy.html#a015ee2c0892e9cfcb858da8f27b646d5", null ],
-      [ "s_mpi_abort", "namespacem__mpi__proxy.html#a04ac565bad2b22dc045a5eeb4f516e2e", null ],
-      [ "s_mpi_barrier", "namespacem__mpi__proxy.html#abfbc42cea69273bc9fa4a2d78f636eb1", null ],
-      [ "s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#a69660c5fe9302a8c0496b622fa3b5286", null ],
-      [ "s_mpi_decompose_computational_domain", "namespacem__mpi__proxy.html#a80c5e235786545276fe6ffa06965017f", null ],
-      [ "s_mpi_defragment_1d_flow_variable", "namespacem__mpi__proxy.html#ae5286531f6390643aad1e4db5d5f6d91", null ],
-      [ "s_mpi_defragment_1d_grid_variable", "namespacem__mpi__proxy.html#ac15a15ba12e6110bb015af0ece5bba47", null ],
-      [ "s_mpi_finalize", "namespacem__mpi__proxy.html#a43fbda10c02ec8bc1fc572c83090f2e5", null ],
-      [ "s_mpi_gather_data_extents", "namespacem__mpi__proxy.html#a0b226acd5a9097566685604292c3ae0d", null ],
-      [ "s_mpi_gather_spatial_extents", "namespacem__mpi__proxy.html#ab2ced8f095b812fcc355539c2c5fa162", null ],
-      [ "s_mpi_initialize", "namespacem__mpi__proxy.html#a9bc4c617505152d3cc553e5bc25c1ee1", null ],
-      [ "s_mpi_reduce_maxloc", "namespacem__mpi__proxy.html#adaa028bb99f844487de8d6e4507e7734", null ],
-      [ "s_mpi_sendrecv_cons_vars_buffer_regions", "namespacem__mpi__proxy.html#a4d7ec0d1976967504babdf44ec83c1b1", null ],
-      [ "s_mpi_sendrecv_grid_vars_buffer_regions", "namespacem__mpi__proxy.html#a8e48d59a04981a6594f25ad7a7562492", null ],
-      [ "displs", "namespacem__mpi__proxy.html#aebaa6e3cc66d2431c5fb49896d40d7e6", null ],
-      [ "err_code", "namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982", null ],
-      [ "ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ],
-      [ "q_cons_buffer_in", "namespacem__mpi__proxy.html#af08f3246d9efac15d6391dc4205d4611", null ],
-      [ "q_cons_buffer_out", "namespacem__mpi__proxy.html#a3d449655a88a9e5248af35a82caf877a", null ],
-      [ "recvcounts", "namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee", null ]
-    ] ],
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_check_input_file", "namespacem__start__up.html#ad77478b402c186b1f620b7d14aab9123", null ],
       [ "s_read_input_file", "namespacem__start__up.html#a3a19eb11ae434dc590a1bd7835442891", null ]

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['err_5fcode_0',['err_code',['../namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982',1,'m_mpi_proxy']]]
+  ['restart_5fdir_0',['restart_dir',['../namespacem__data__output.html#abf7d1457ca6b2fe8c5165f6cebc4b258',1,'m_data_output']]]
 ];
