@@ -163,6 +163,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa038ec37a8a0c8fe8d7185b9ef6d54a9"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#aa038ec37a8a0c8fe8d7185b9ef6d54a9">s_derive_vorticity_component</a> (i, q_prim_vf, q_sf)</td></tr>
 <tr class="memdesc:aa038ec37a8a0c8fe8d7185b9ef6d54a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine receives as inputs the indicator of the component of the vorticity that should be outputted and the primitive variables. From those inputs, it proceeds to calculate values of the desired vorticity component, which are subsequently stored in derived flow quantity storage variable, q_sf.  <br /></td></tr>
 <tr class="separator:aa038ec37a8a0c8fe8d7185b9ef6d54a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ac63f6066331314e3ff19a123deaa1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#ae0ac63f6066331314e3ff19a123deaa1">s_derive_qm</a> (q_prim_vf, q_sf)</td></tr>
+<tr class="memdesc:ae0ac63f6066331314e3ff19a123deaa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gets as inputs the primitive variables. From those inputs, it proceeds to calculate the value of the Q_M function, which are subsequently stored in the derived flow quantity storage variable, q_sf.  <br /></td></tr>
+<tr class="separator:ae0ac63f6066331314e3ff19a123deaa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af816bc88ed55a050bfe8f2ab94d89cba"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#af816bc88ed55a050bfe8f2ab94d89cba">s_derive_numerical_schlieren_function</a> (q_cons_vf, rho_sf, q_sf)</td></tr>
 <tr class="memdesc:af816bc88ed55a050bfe8f2ab94d89cba"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gets as inputs the conservative variables and density. From those inputs, it proceeds to calculate the values of the numerical Schlieren function, which are subsequently stored in the derived flow quantity storage variable, q_sf.  <br /></td></tr>
 <tr class="separator:af816bc88ed55a050bfe8f2ab94d89cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -379,6 +382,48 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_af816bc88ed55a050bfe8f2ab94d89cba_icgraph.svg" width="288" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae0ac63f6066331314e3ff19a123deaa1" name="ae0ac63f6066331314e3ff19a123deaa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ac63f6066331314e3ff19a123deaa1">&#9670;&#160;</a></span>s_derive_qm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_derived_variables::s_derive_qm </td>
+          <td>(</td>
+          <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>q_prim_vf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(-<a class="el" href="namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e">offset_x</a>%beg:m + <a class="el" href="namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e">offset_x</a>%end,                       -<a class="el" href="namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036">offset_y</a>%beg:n + <a class="el" href="namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036">offset_y</a>%end,                       -<a class="el" href="namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06">offset_z</a>%beg:p + <a class="el" href="namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06">offset_z</a>%end), intent(inout)&#160;</td>
+          <td class="paramname"><em>q_sf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This subroutine gets as inputs the primitive variables. From those inputs, it proceeds to calculate the value of the Q_M function, which are subsequently stored in the derived flow quantity storage variable, q_sf. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">q_sf</td><td>Q_M </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_ae0ac63f6066331314e3ff19a123deaa1_icgraph.svg" width="288" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

@@ -116,6 +116,7 @@ var m__global__parameters_8f90 =
     [ "prim_vars_wrt", "m__global__parameters_8f90.html#a795878d693cec161db5f5c06aea7331e", null ],
     [ "proc_coords", "m__global__parameters_8f90.html#a48dea2bc17c5e4465a444c926070ae9b", null ],
     [ "proc_rank", "m__global__parameters_8f90.html#a383c6ff025d4ea09ddd4e2356042d86b", null ],
+    [ "qm_wrt", "m__global__parameters_8f90.html#aeb332a499ed778d200d1caa2abe19782", null ],
     [ "r0", "m__global__parameters_8f90.html#a585a72037bbffe12e8d4512a57f52418", null ],
     [ "r0ref", "m__global__parameters_8f90.html#a24492f9b474683476a342e7ee42c1c6d", null ],
     [ "r_n", "m__global__parameters_8f90.html#ae818e88601b1dc579a87e7c0c8cd87cb", null ],

@@ -4,6 +4,7 @@ var m__derived__variables_8f90 =
     [ "s_derive_flux_limiter", "m__derived__variables_8f90.html#ac85e77b0312f21389eb166960446f6ec", null ],
     [ "s_derive_liquid_stiffness", "m__derived__variables_8f90.html#a02166198be4da04f6b6ce69fd432910d", null ],
     [ "s_derive_numerical_schlieren_function", "m__derived__variables_8f90.html#af816bc88ed55a050bfe8f2ab94d89cba", null ],
+    [ "s_derive_qm", "m__derived__variables_8f90.html#ae0ac63f6066331314e3ff19a123deaa1", null ],
     [ "s_derive_sound_speed", "m__derived__variables_8f90.html#a51eb66162227584de46a25cac55b5b6b", null ],
     [ "s_derive_specific_heat_ratio", "m__derived__variables_8f90.html#aab235aa45c622ecf7f387cbf7994387d", null ],
     [ "s_derive_vorticity_component", "m__derived__variables_8f90.html#aa038ec37a8a0c8fe8d7185b9ef6d54a9", null ],
