@@ -1,8 +1,18 @@
 var searchData=
 [
-  ['nvtxendrange_0',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
-  ['nvtxrangepop_1',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop']]],
-  ['nvtxrangepusha_2',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxrangepushex_3',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxstartrange_4',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]]
+  ['f_5fbpres_5fdot_0',['f_bpres_dot',['../namespacem__bubbles.html#a72fb89c8208c4b41dc359c32b3571ee3',1,'m_bubbles']]],
+  ['f_5fcgas_1',['f_cgas',['../namespacem__bubbles.html#a81cb346f2ae0e0c90219e1196f481456',1,'m_bubbles']]],
+  ['f_5fcpbw_2',['f_cpbw',['../namespacem__bubbles.html#a0d4adb894043511bdf7c6520f07e9f7d',1,'m_bubbles']]],
+  ['f_5fcpbw_5fkm_3',['f_cpbw_km',['../namespacem__bubbles.html#a3b5690b07dda1b3660cb5539ec5fd920',1,'m_bubbles']]],
+  ['f_5fcpinfdot_4',['f_cpinfdot',['../namespacem__bubbles.html#a0e9bc22d189d831ac91a316c623a2feb',1,'m_bubbles']]],
+  ['f_5fdelta_5',['f_delta',['../namespacem__monopole.html#a821a51f9156445461ea31134cd7950c8',1,'m_monopole']]],
+  ['f_5fg_6',['f_g',['../namespacem__monopole.html#a18b912a6ac4164f02943b0e9912a078b',1,'m_monopole']]],
+  ['f_5fh_7',['f_h',['../namespacem__bubbles.html#ad41c0b4da52277dce20b3e43eddc78fc',1,'m_bubbles']]],
+  ['f_5fhdot_8',['f_hdot',['../namespacem__bubbles.html#a1ec957437a9b3c599baac8c3ccc3ce0b',1,'m_bubbles']]],
+  ['f_5fquad_9',['f_quad',['../namespacem__qbmm.html#ad6cef7c87a7d6d9a57a05ffd8329261c',1,'m_qbmm']]],
+  ['f_5fquad2d_10',['f_quad2d',['../namespacem__qbmm.html#a68d3cfeeb869a9183bd3105db5bea82b',1,'m_qbmm']]],
+  ['f_5frddot_11',['f_rddot',['../namespacem__bubbles.html#a2e92bf3d7990dbf5cfd48541311006c1',1,'m_bubbles']]],
+  ['f_5frddot_5fkm_12',['f_rddot_km',['../namespacem__bubbles.html#acfb77ea808337db0ffb43389ea2128b4',1,'m_bubbles']]],
+  ['f_5frddot_5frp_13',['f_rddot_rp',['../namespacem__bubbles.html#a24d9a4649a22feeb7958b123edf4a379',1,'m_bubbles']]],
+  ['f_5fvflux_14',['f_vflux',['../namespacem__bubbles.html#a564093eeea024ad535bda26e6c5f5037',1,'m_bubbles']]]
 ];

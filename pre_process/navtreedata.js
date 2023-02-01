@@ -29,7 +29,7 @@ var NAVTREE =
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions/Subroutines", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ]
       ] ]
@@ -54,7 +54,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html"
+"annotated.html",
+"m__global__parameters_8fpp_8f90.html#ad76c4758994b52559f478d251dc0cba5",
+"namespacem__global__parameters.html#a6cf2e92cfc3b519fb6da6fe9e88fab31"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
