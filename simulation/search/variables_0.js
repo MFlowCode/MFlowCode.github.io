@@ -16,7 +16,7 @@ var searchData=
   ['alpha_5fic_13',['alpha_ic',['../namespacem__riemann__solvers.html#a0e605952054968421a3e444c8ba71063',1,'m_riemann_solvers']]],
   ['alpha_5fl_14',['alpha_l',['../namespacem__riemann__solvers.html#a485dc456f00eaa35c862ca3a2daa3d8c',1,'m_riemann_solvers']]],
   ['alpha_5fr_15',['alpha_r',['../namespacem__riemann__solvers.html#abdd33525dd128beda2d0c33454e0d9de',1,'m_riemann_solvers']]],
-  ['alpha_5frho_16',['alpha_rho',['../namespacem__cbc.html#a23d4bcbedc528222237094361a4ff43f',1,'m_cbc::alpha_rho()'],['../m__rhs_8fpp_8f90.html#a811c16d33272b2c75d7a75f24c675795',1,'alpha_rho():&#160;m_rhs.fpp.f90']]],
+  ['alpha_5frho_16',['alpha_rho',['../namespacem__cbc.html#a23d4bcbedc528222237094361a4ff43f',1,'m_cbc::alpha_rho'],['../m__rhs_8fpp_8f90.html#a811c16d33272b2c75d7a75f24c675795',1,'alpha_rho:&#160;m_rhs.fpp.f90']]],
   ['alpha_5frho_5fic_17',['alpha_rho_ic',['../namespacem__riemann__solvers.html#a5f6f2613083fc30ff684c4183014a67c',1,'m_riemann_solvers']]],
   ['alpha_5frho_5fl_18',['alpha_rho_l',['../namespacem__riemann__solvers.html#acfbe99c9151b71dadc19e80851d33bfe',1,'m_riemann_solvers']]],
   ['alpha_5frho_5fr_19',['alpha_rho_r',['../namespacem__riemann__solvers.html#a2d815c8ccf9b96727876621c46f3da00',1,'m_riemann_solvers']]],
