@@ -581,7 +581,19 @@ Patch types</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">12   </td><td class="markdownTableBodyCenter">Ellipsoid   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code> and <code>radii(i)</code>.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">13   </td><td class="markdownTableBodyCenter">3D analytical   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions   </td></tr>
+<td class="markdownTableBodyRight">13   </td><td class="markdownTableBodyCenter">3D analytical   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">14   </td><td class="markdownTableBodyCenter">Spherical Harmonic   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code>, <code>radius</code>, <code>epsilon</code>, <code>beta</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">15   </td><td class="markdownTableBodyCenter">1D analytical   </td><td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">16   </td><td class="markdownTableBodyCenter">1D bubble pulse   </td><td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Requires <code>x_centroid</code>, <code>length_x</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">17   </td><td class="markdownTableBodyCenter">Spiral   </td><td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Requires <code>[x,y]_centroid</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">18   </td><td class="markdownTableBodyCenter">2D Varcircle   </td><td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y]_centroid</code>, <code>radius</code>, and <code>thickness</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">19   </td><td class="markdownTableBodyCenter">3D Varcircle   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code>, <code>length_z</code>, <code>radius</code>, and <code>thickness</code>   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
 <h2><a class="anchor" id="autotoc_md36"></a>
@@ -609,22 +621,74 @@ Flux limiters</h2>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadRight">#   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<th class="markdownTableHeadNone">#   </th><th class="markdownTableHeadNone">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">1   </td><td class="markdownTableBodyLeft">1D normal to x-axis    </td></tr>
+<td class="markdownTableBodyNone">1   </td><td class="markdownTableBodyNone">1D normal to x-axis    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyLeft">2D semi-infinite source plane    </td></tr>
+<td class="markdownTableBodyNone">2   </td><td class="markdownTableBodyNone">2D semi-infinite source plane    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">3   </td><td class="markdownTableBodyLeft">3D semi-infinite source plane along some lines    </td></tr>
+<td class="markdownTableBodyNone">3   </td><td class="markdownTableBodyNone">3D semi-infinite source plane along some lines    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">4   </td><td class="markdownTableBodyLeft">3D semi-infinite source plane    </td></tr>
+<td class="markdownTableBodyNone">4   </td><td class="markdownTableBodyNone">3D semi-infinite source plane    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">5   </td><td class="markdownTableBodyLeft">Transducer    </td></tr>
+<td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone">Transducer    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyLeft">Cyl_coord along axial-dir   </td></tr>
+<td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special souce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h1><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md38"></a>
+Conservative Variables Ordering</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">5-eqn   </th><th class="markdownTableHeadNone">6-eqn    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">num_fluids continuity variables   </td><td class="markdownTableBodyNone">num_fluids continuity variables    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">num_dims momentum variables   </td><td class="markdownTableBodyNone">num_dims momentum variables    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">1 energy variable   </td><td class="markdownTableBodyNone">1 energy variable    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">num_fluids advection variables   </td><td class="markdownTableBodyNone">num_fluids advection variables    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">N/A   </td><td class="markdownTableBodyNone">num_fluids internal energy variables   </td></tr>
+</table>
+<p>The above variables are used for all simulations:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">5-eqn   </th><th class="markdownTableHeadNone">6-eqn    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">sub-grid bubble variables   </td><td class="markdownTableBodyNone">N/A    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
+</table>
+<p>The above variables correspond to optional physics:</p>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Primitive Variables Ordering</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">5-eqn   </th><th class="markdownTableHeadNone">6-eqn    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">num_fluids densities   </td><td class="markdownTableBodyNone">num_fluids densities    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">num_dims velocities   </td><td class="markdownTableBodyNone">num_dims velocities    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">1 pressure   </td><td class="markdownTableBodyNone">1 pressure    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">num_fluids volume fractions   </td><td class="markdownTableBodyNone">num_fluids volume fractions    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">N/A   </td><td class="markdownTableBodyNone">num_fluids partial pressures   </td></tr>
+</table>
+<p>The above variables are used for all simualtions:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">5-eqn   </th><th class="markdownTableHeadNone">6-eqn    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">sub-grid bubble variables   </td><td class="markdownTableBodyNone">N/A    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
+</table>
+<p>The above variables correspond to optional physics:</p>
+<h1><a class="anchor" id="autotoc_md40"></a>
 Running</h1>
 <p>MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports both interactive and batch execution, the latter being designed for multi-socket systems, namely supercomputers, equipped with a scheduler such as PBS, SLURM, and LSF. A full (and updated) list of available arguments can be acquired with <code>./mfc.sh run -h</code>. Example Python input files can be found in the <a href="examples/">examples/</a> directory. They print a Python dictionary containing input parameters for MFC. Their contents, and a guide to filling them out, are documented in the user manual. A commented, tutorial script can also be found in <a href="examples/3D_sphbubcollapse/case.py">examples/3d_sphbubcollapse/</a>.</p>
 <p>The skeleton for an input file may look like the following:</p>
@@ -638,7 +702,7 @@ Running</h1>
 <div class="line">  ...</div>
 <div class="line">}))</div>
 </div><!-- fragment --><p>Thus, you can run your case file with Python to view the computed case dictionary that will be processed by MFC when you run. This is particularly useful when computations are done in Python to generate the case.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Interactive Execution</h2>
 <p>To run all stages of MFC, that is <a href="src/pre_process/">pre_process</a>, <a href="src/simulation/">simulation</a>, and <a href="src/post_process/">post_process</a> on the sample case <a href="examples/2D_shockbubble/">2D_shockbubble</a>,</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py</div>
@@ -657,7 +721,7 @@ Interactive Execution</h2>
 <p>On some computer clusters, MFC might select the wrong MPI program to execute your application because it uses a general heuristic for its selection. Notably, <code>srun</code> is known to fail on some SLURM systems when using GPUs or MPI implementations from different vendors, whereas <code>mpirun</code> functions properly. To override and manually specify which MPI program you wish to run your application with, please use the <code>-b &lt;program name&gt;</code> option (i.e <code>--binary</code>).</p>
 <p>Additional flags can be appended to the MPI executable call using the <code>-f</code> (i.e <code>--flags</code>) option.</p>
 <p>Please refer to <code>./mfc.sh run -h</code> for a complete list of arguments and options, along with their defaults.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Batch Execution</h2>
 <p>The MFC detects which scheduler your system is using and handles the creation and execution of batch scripts. The batch engine is requested with the <code>-e batch</code> option. Whereas the interactive engine can execute all of MFC's codes in succession, the batch engine requires you to only specify one target with the <code>-t</code> option. The number of nodes and GPUs can, respectively be specified with the <code>-N</code> (i.e <code>--nodes</code>) and <code>-g</code> (i.e <code>--gpus-per-node</code>) options.</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -e batch -N 2 -n 4 -g 4 -t simulation</div>
@@ -680,7 +744,7 @@ Batch Execution</h2>
 <li>Statements of the form <code>{MFC::expression}</code> tell MFC where to place the common code, across all batch files, that is required for proper execution. They are not intended to be modified by users.</li>
 </ul>
 <p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource-sets in task and GPU count.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>
