@@ -3,6 +3,7 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::s_write_abstract_data_files", "interfacem__data__output_1_1s__write__abstract__data__files.html", "interfacem__data__output_1_1s__write__abstract__data__files" ],
     [ "s_close_probe_files", "m__data__output_8fpp_8f90.html#a4036cc239adda35d59422a3e61bb657e", null ],
     [ "s_close_run_time_information_file", "m__data__output_8fpp_8f90.html#a390239a7390ec5d07e31298573bf09bf", null ],
+    [ "s_compute_speed_of_sound", "m__data__output_8fpp_8f90.html#abbc9b3b285171712d268ae3f77c79381", null ],
     [ "s_finalize_data_output_module", "m__data__output_8fpp_8f90.html#a02f2b04a434c1f0ebf9156147d0f976e", null ],
     [ "s_initialize_data_output_module", "m__data__output_8fpp_8f90.html#ab65b312ef83adb104cafafada9c998b6", null ],
     [ "s_open_probe_files", "m__data__output_8fpp_8f90.html#af469c3d867d96eb1ca255832e586ec97", null ],

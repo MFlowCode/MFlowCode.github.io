@@ -10,6 +10,7 @@ var namespacem__cbc =
     [ "s_compute_nonreflecting_subsonic_inflow_l", "namespacem__cbc.html#a1ae81f8dc6b690e6c02fb4a5959c05bd", null ],
     [ "s_compute_nonreflecting_subsonic_outflow_l", "namespacem__cbc.html#a6593a73287a3070feda85f3bda95874c", null ],
     [ "s_compute_slip_wall_l", "namespacem__cbc.html#a1b93131a7db68e57ac83a34fdc9ab8f3", null ],
+    [ "s_compute_speed_of_sound", "namespacem__cbc.html#ab28553bfffb2974f19d2dc68847ae8d4", null ],
     [ "s_compute_supersonic_inflow_l", "namespacem__cbc.html#a742d36b1db502ee5ca3d5a4faa1e3ac5", null ],
     [ "s_compute_supersonic_outflow_l", "namespacem__cbc.html#a3073f3308365f0c6c425a33237d825f8", null ],
     [ "s_finalize_cbc", "namespacem__cbc.html#a8d4bf0d35fea6a2aed9771ce39dc651c", null ],

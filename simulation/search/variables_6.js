@@ -31,7 +31,7 @@ var searchData=
   ['gamma_5fr_28',['gamma_r',['../namespacem__riemann__solvers.html#ac422e0817e2011364cc6fc9c9a56b82b',1,'m_riemann_solvers']]],
   ['gamma_5fsf_29',['gamma_sf',['../namespacem__variables__conversion.html#a0043b018970eb4da381b5f9f0c1a1f53',1,'m_variables_conversion']]],
   ['gamma_5fv_30',['gamma_v',['../namespacem__global__parameters.html#a50ba6999521354a380afd6317de95303',1,'m_global_parameters']]],
-  ['gammas_31',['gammas',['../namespacem__variables__conversion.html#a626dfb304eaa32894c52002717ebb4c9',1,'m_variables_conversion::gammas'],['../namespacem__global__parameters.html#a12f3b21e7590d66a6ebea73e192b03ea',1,'m_global_parameters::gammas']]],
+  ['gammas_31',['gammas',['../namespacem__variables__conversion.html#ad43f5ea8ca3cf80574ab3c452d606aac',1,'m_variables_conversion::gammas'],['../namespacem__global__parameters.html#a12f3b21e7590d66a6ebea73e192b03ea',1,'m_global_parameters::gammas']]],
   ['gm_5falpha_5fqp_32',['gm_alpha_qp',['../namespacem__rhs.html#a30cdd58b3ecd244f33894975f161f756',1,'m_rhs']]],
   ['gm_5falphal_5fn_33',['gm_alphal_n',['../namespacem__rhs.html#a9cc8013f02f7d8ec52cdcaed4b1ea463',1,'m_rhs']]],
   ['gm_5falphar_5fn_34',['gm_alphar_n',['../namespacem__rhs.html#a8bf36ad3264e93579aa229376590cc28',1,'m_rhs']]],

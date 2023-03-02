@@ -124,7 +124,7 @@ $(document).ready(function(){initNavTree('namespacem__data__output.html',''); in
 </div><!--header-->
 <div class="contents">
 
-<p>This procedure calculates the speed of sound.  
+<p>The primary purpose of this module is to output the grid and the conservative variables data at the chosen time-step interval. In addition, this module is also in charge of outputting a run-time information file which summarizes the time-dependent behavior !of the stability criteria. The latter include the inviscid Courant– Friedrichs–Lewy (ICFL), viscous CFL (VCFL), capillary CFL (CCFL) and cell Reynolds (Rc) numbers.  
 <a href="namespacem__data__output.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -153,6 +153,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a29f34883bc8e9d895dbb4232493397a1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a29f34883bc8e9d895dbb4232493397a1">s_write_probe_files</a> (<a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>, q_cons_vf, <a class="el" href="namespacem__data__output.html#a7e34daec4511ee5f05f3b3ab6073768b">accel_mag</a>)</td></tr>
 <tr class="memdesc:a29f34883bc8e9d895dbb4232493397a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file for the flow probe information.  <br /></td></tr>
 <tr class="separator:a29f34883bc8e9d895dbb4232493397a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbc9b3b285171712d268ae3f77c79381"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#abbc9b3b285171712d268ae3f77c79381">s_compute_speed_of_sound</a> (pres, <a class="el" href="m__rhs_8fpp_8f90.html#a340bafa0c8d745c3060facd9cfef7ec4">rho</a>, <a class="el" href="m__rhs_8fpp_8f90.html#a298183e270a405e0f180d45940bb6f8a">gamma</a>, <a class="el" href="m__rhs_8fpp_8f90.html#aeed4eb93ccb2725da7a4756e510dda03">pi_inf</a>, h, adv, vel_sum, c)</td></tr>
+<tr class="separator:abbc9b3b285171712d268ae3f77c79381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a390239a7390ec5d07e31298573bf09bf"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a390239a7390ec5d07e31298573bf09bf">s_close_run_time_information_file</a> ()</td></tr>
 <tr class="memdesc:a390239a7390ec5d07e31298573bf09bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to write to the run-time information file basic footer information applicable to the current computation and to close the file when done. The footer contains the stability criteria extrema over all of the time-steps and the simulation run-time.  <br /></td></tr>
 <tr class="separator:a390239a7390ec5d07e31298573bf09bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,22 +228,7 @@ Variables</h2></td></tr>
 <tr class="separator:a69ef22a762715ad72320dc7bdce28bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This procedure calculates the speed of sound. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pres</td><td>Pressure </td></tr>
-    <tr><td class="paramname">rho</td><td>Cell averaged density </td></tr>
-    <tr><td class="paramname">pi_inf</td><td>Cell averaged liquid stiffness </td></tr>
-    <tr><td class="paramname">gamma</td><td>Cell averaged specific heat ratio </td></tr>
-    <tr><td class="paramname">H</td><td>Cell averaged enthalpy </td></tr>
-    <tr><td class="paramname">adv</td><td>Advection Variables </td></tr>
-    <tr><td class="paramname">vel_sum</td><td>Sum of all velocities </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive vars in 1 direction </td></tr>
-    <tr><td class="paramname">flg</td><td>Helps determine which conditionals to be called.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>The primary purpose of this module is to output the grid and the conservative variables data at the chosen time-step interval. In addition, this module is also in charge of outputting a run-time information file which summarizes the time-dependent behavior !of the stability criteria. The latter include the inviscid Courant– Friedrichs–Lewy (ICFL), viscous CFL (VCFL), capillary CFL (CCFL) and cell Reynolds (Rc) numbers. </p>
+<div class="textblock"><p>The primary purpose of this module is to output the grid and the conservative variables data at the chosen time-step interval. In addition, this module is also in charge of outputting a run-time information file which summarizes the time-dependent behavior !of the stability criteria. The latter include the inviscid Courant– Friedrichs–Lewy (ICFL), viscous CFL (VCFL), capillary CFL (CCFL) and cell Reynolds (Rc) numbers. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a4036cc239adda35d59422a3e61bb657e" name="a4036cc239adda35d59422a3e61bb657e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4036cc239adda35d59422a3e61bb657e">&#9670;&#160;</a></span>s_close_probe_files()</h2>
@@ -281,6 +268,75 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a390239a7390ec5d07e31298573bf09bf_icgraph.svg" width="551" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abbc9b3b285171712d268ae3f77c79381" name="abbc9b3b285171712d268ae3f77c79381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbc9b3b285171712d268ae3f77c79381">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_data_output::s_compute_speed_of_sound </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>pres</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>rho</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>pi_inf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>adv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>vel_sum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(out)&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_abbc9b3b285171712d268ae3f77c79381_icgraph.svg" width="100%" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -466,7 +522,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a29f34883bc8e9d895dbb4232493397a1_cgraph.svg" width="414" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a29f34883bc8e9d895dbb4232493397a1_cgraph.svg" width="432" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -513,7 +569,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a33a72559ec5cfdedf7162a8269d41201_cgraph.svg" width="468" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a33a72559ec5cfdedf7162a8269d41201_cgraph.svg" width="468" height="210"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

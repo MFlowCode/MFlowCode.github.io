@@ -28,7 +28,7 @@ var searchData=
   ['pi_5finf_5fl_25',['pi_inf_l',['../namespacem__riemann__solvers.html#ac90ee6bf146aa47944bb11cd5de0a580',1,'m_riemann_solvers']]],
   ['pi_5finf_5fr_26',['pi_inf_r',['../namespacem__riemann__solvers.html#a925187e709792a5fcfa80daebd568e8f',1,'m_riemann_solvers']]],
   ['pi_5finf_5fsf_27',['pi_inf_sf',['../namespacem__variables__conversion.html#a65314ff6a82a99676df79684a2ec870f',1,'m_variables_conversion']]],
-  ['pi_5finfs_28',['pi_infs',['../namespacem__global__parameters.html#add8301a735bf3be368c5e526c9bb69b5',1,'m_global_parameters::pi_infs'],['../namespacem__variables__conversion.html#a34346f713a1c1c38ebb6e8dc49ecee73',1,'m_variables_conversion::pi_infs']]],
+  ['pi_5finfs_28',['pi_infs',['../namespacem__global__parameters.html#add8301a735bf3be368c5e526c9bb69b5',1,'m_global_parameters::pi_infs'],['../namespacem__variables__conversion.html#a6eaeb927a111fa1ca17b8542bd9f3049',1,'m_variables_conversion::pi_infs']]],
   ['poly_5fcoef_5fcbl_5fx_29',['poly_coef_cbl_x',['../namespacem__weno.html#a78adf130dd2030c54de407c4ef3edbb4',1,'m_weno']]],
   ['poly_5fcoef_5fcbl_5fy_30',['poly_coef_cbl_y',['../namespacem__weno.html#af7d06474961b446088c62977fbbdebdd',1,'m_weno']]],
   ['poly_5fcoef_5fcbl_5fz_31',['poly_coef_cbl_z',['../namespacem__weno.html#ab75af95862b25ec419fe8782306bd80c',1,'m_weno']]],

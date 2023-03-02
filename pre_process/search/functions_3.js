@@ -38,7 +38,7 @@ var searchData=
   ['s_5fcircle_35',['s_circle',['../namespacem__create__patches.html#a31853a2226699ec3e77f25d28c9ef97a',1,'m_create_patches']]],
   ['s_5fcomp_5fn_5ffrom_5fcons_36',['s_comp_n_from_cons',['../namespacem__global__parameters.html#ad6c69097a0e9f5acf637c6b49e0bd1ea',1,'m_global_parameters']]],
   ['s_5fcomp_5fn_5ffrom_5fprim_37',['s_comp_n_from_prim',['../namespacem__global__parameters.html#a39ce2449992dc4d113a1098e01d35efb',1,'m_global_parameters']]],
-  ['s_5fcompute_5fpressure_38',['s_compute_pressure',['../namespacem__variables__conversion.html#a0d8355cfe5f7428da40115584f9eb3bd',1,'m_variables_conversion']]],
+  ['s_5fcompute_5fpressure_38',['s_compute_pressure',['../namespacem__variables__conversion.html#a1be52cb9db2d49f8f256b226d72b8d4c',1,'m_variables_conversion']]],
   ['s_5fconvert_5fconservative_5fto_5fprimitive_5fvariables_39',['s_convert_conservative_to_primitive_variables',['../namespacem__variables__conversion.html#a86ac76fa70eabaede1b0f3a4af740560',1,'m_variables_conversion']]],
   ['s_5fconvert_5fcylindrical_5fto_5fcartesian_5fcoord_40',['s_convert_cylindrical_to_cartesian_coord',['../namespacem__create__patches.html#ac0ec43616a83e56977993a1380a1452a',1,'m_create_patches']]],
   ['s_5fconvert_5fcylindrical_5fto_5fspherical_5fcoord_41',['s_convert_cylindrical_to_spherical_coord',['../namespacem__create__patches.html#a6ae150ea6bf9fd6689c0dff9ef500449',1,'m_create_patches']]],

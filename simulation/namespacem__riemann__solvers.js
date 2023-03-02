@@ -5,6 +5,7 @@ var namespacem__riemann__solvers =
     [ "s_compute_abstract_wave_speeds", "interfacem__riemann__solvers_1_1s__compute__abstract__wave__speeds.html", "interfacem__riemann__solvers_1_1s__compute__abstract__wave__speeds" ],
     [ "s_compute_cartesian_viscous_source_flux", "namespacem__riemann__solvers.html#a67523a29805d4128431484ca49de1068", null ],
     [ "s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__solvers.html#a225f72f7e466dad77766ea2fe27a7a05", null ],
+    [ "s_compute_speed_of_sound", "namespacem__riemann__solvers.html#a1f08e0b3e2808819c1331e41c99f5bbf", null ],
     [ "s_finalize_riemann_solver", "namespacem__riemann__solvers.html#ab679d890c95c6cb1ee3dc5e5a9ae1c19", null ],
     [ "s_finalize_riemann_solvers_module", "namespacem__riemann__solvers.html#a5bd1ce6fbbb840b5b1c6dd97ccb8d674", null ],
     [ "s_hll_riemann_solver", "namespacem__riemann__solvers.html#a1b018ebed82e499a0589925651bba7a7", null ],

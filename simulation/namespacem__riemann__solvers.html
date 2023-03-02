@@ -161,6 +161,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a67523a29805d4128431484ca49de1068"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__riemann__solvers.html#a67523a29805d4128431484ca49de1068">s_compute_cartesian_viscous_source_flux</a> (vell_vf, dvell_dx_vf, dvell_dy_vf, dvell_dz_vf, velr_vf, dvelr_dx_vf, dvelr_dy_vf, dvelr_dz_vf, flux_src_vf, norm_dir, ix, iy, iz)</td></tr>
 <tr class="memdesc:a67523a29805d4128431484ca49de1068"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to evaluate and account for the contribution of viscous stresses in the source flux for the momentum and energy.  <br /></td></tr>
 <tr class="separator:a67523a29805d4128431484ca49de1068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f08e0b3e2808819c1331e41c99f5bbf"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__riemann__solvers.html#a1f08e0b3e2808819c1331e41c99f5bbf">s_compute_speed_of_sound</a> (pres, <a class="el" href="m__rhs_8fpp_8f90.html#a340bafa0c8d745c3060facd9cfef7ec4">rho</a>, <a class="el" href="m__rhs_8fpp_8f90.html#a298183e270a405e0f180d45940bb6f8a">gamma</a>, <a class="el" href="m__rhs_8fpp_8f90.html#aeed4eb93ccb2725da7a4756e510dda03">pi_inf</a>, h, adv, vel_sum, c)</td></tr>
+<tr class="separator:a1f08e0b3e2808819c1331e41c99f5bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab679d890c95c6cb1ee3dc5e5a9ae1c19"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__riemann__solvers.html#ab679d890c95c6cb1ee3dc5e5a9ae1c19">s_finalize_riemann_solver</a> (flux_vf, flux_src_vf, flux_gsrc_vf, norm_dir, ix, iy, iz)</td></tr>
 <tr class="memdesc:ab679d890c95c6cb1ee3dc5e5a9ae1c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or disassociation procedures that are needed to finalize the selected Riemann problem solver.  <br /></td></tr>
 <tr class="separator:ab679d890c95c6cb1ee3dc5e5a9ae1c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -430,20 +432,6 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module features a database of approximate and exact Riemann problem solvers for the Navier-Stokes system of equations, which is supplemented by appropriate advection equations that are used to capture the material interfaces. The closure of the system is achieved by the stiffened gas equation of state and any required mixture relations. Surface tension effects are accounted for and are modeled by means of a volume force acting across the diffuse material interface region. The implementation details of viscous and capillary effects, into the Riemann solvers, may be found in Perigaud and Saurel (2005). Note that both effects are available only in the volume fraction model. At this time, the approximate and exact Riemann solvers that are listed below are available: 1) Harten-Lax-van Leer (HLL) 2) Harten-Lax-van Leer-Contact (HLLC) 3) Exact. </p>
-<p>This procedure calculates the speed of sound </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pres</td><td>Pressure </td></tr>
-    <tr><td class="paramname">rho</td><td>Cell averaged density </td></tr>
-    <tr><td class="paramname">pi_inf</td><td>Cell averaged liquid stiffness </td></tr>
-    <tr><td class="paramname">gamma</td><td>Cell averaged specific heat ratio </td></tr>
-    <tr><td class="paramname">H</td><td>Cell averaged enthalpy </td></tr>
-    <tr><td class="paramname">adv</td><td>Advection Variables </td></tr>
-    <tr><td class="paramname">vel_sum</td><td>Sum of all velocities </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive vars in 1 direction </td></tr>
-    <tr><td class="paramname">flg</td><td>Helps determine which conditionals to be called. </td></tr>
-  </table>
-  </dd>
-</dl>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a67523a29805d4128431484ca49de1068" name="a67523a29805d4128431484ca49de1068"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67523a29805d4128431484ca49de1068">&#9670;&#160;</a></span>s_compute_cartesian_viscous_source_flux()</h2>
@@ -679,6 +667,75 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__riemann__solvers_a225f72f7e466dad77766ea2fe27a7a05_icgraph.svg" width="503" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1f08e0b3e2808819c1331e41c99f5bbf" name="a1f08e0b3e2808819c1331e41c99f5bbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f08e0b3e2808819c1331e41c99f5bbf">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_riemann_solvers::s_compute_speed_of_sound </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>pres</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>rho</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>gamma</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>pi_inf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>h</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>adv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>vel_sum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(out)&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__riemann__solvers_a1f08e0b3e2808819c1331e41c99f5bbf_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -932,7 +989,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__riemann__solvers_a1b018ebed82e499a0589925651bba7a7_cgraph.svg" width="420" height="210"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__riemann__solvers_a1b018ebed82e499a0589925651bba7a7_cgraph.svg" width="424" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1127,7 +1184,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__riemann__solvers_a6c9d70572e9b98586bab20b028557a5a_cgraph.svg" width="427" height="283"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__riemann__solvers_a6c9d70572e9b98586bab20b028557a5a_cgraph.svg" width="431" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

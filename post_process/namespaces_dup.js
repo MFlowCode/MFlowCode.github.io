@@ -34,6 +34,7 @@ var namespaces_dup =
     ] ],
     [ "m_derived_variables", "namespacem__derived__variables.html", [
       [ "s_compute_finite_difference_coefficients", "namespacem__derived__variables.html#acf313542c783139e0798f2097d1f68fc", null ],
+      [ "s_compute_speed_of_sound", "namespacem__derived__variables.html#aa428d100adab2acbbba6b31faad19b42", null ],
       [ "s_derive_flux_limiter", "namespacem__derived__variables.html#ac85e77b0312f21389eb166960446f6ec", null ],
       [ "s_derive_liquid_stiffness", "namespacem__derived__variables.html#a02166198be4da04f6b6ce69fd432910d", null ],
       [ "s_derive_numerical_schlieren_function", "namespacem__derived__variables.html#af816bc88ed55a050bfe8f2ab94d89cba", null ],
@@ -61,6 +62,7 @@ var namespaces_dup =
       [ "s_quad", "namespacem__global__parameters.html#aa5a48fa9cc196136634022cfa6708213", null ],
       [ "s_simpson", "namespacem__global__parameters.html#ac21a4e6384ff730c1abc5440ac403d16", null ],
       [ "s_transcoeff", "namespacem__global__parameters.html#a24562c7cd90c1d827ca9f8779328cfbf", null ],
+      [ "adv", "namespacem__global__parameters.html#ab08373aff5e7867fd0d6a24f4eb1238d", null ],
       [ "adv_alphan", "namespacem__global__parameters.html#abebd95d9d0271fbda40f47f75a2d829b", null ],
       [ "adv_idx", "namespacem__global__parameters.html#ab73a1c5c3f6815695771323454db2a81", null ],
       [ "advxb", "namespacem__global__parameters.html#af4751a18db30b97d83e7f0372182a18d", null ],

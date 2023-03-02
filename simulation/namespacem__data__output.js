@@ -3,6 +3,7 @@ var namespacem__data__output =
     [ "s_write_abstract_data_files", "interfacem__data__output_1_1s__write__abstract__data__files.html", "interfacem__data__output_1_1s__write__abstract__data__files" ],
     [ "s_close_probe_files", "namespacem__data__output.html#a4036cc239adda35d59422a3e61bb657e", null ],
     [ "s_close_run_time_information_file", "namespacem__data__output.html#a390239a7390ec5d07e31298573bf09bf", null ],
+    [ "s_compute_speed_of_sound", "namespacem__data__output.html#abbc9b3b285171712d268ae3f77c79381", null ],
     [ "s_finalize_data_output_module", "namespacem__data__output.html#a02f2b04a434c1f0ebf9156147d0f976e", null ],
     [ "s_initialize_data_output_module", "namespacem__data__output.html#ab65b312ef83adb104cafafada9c998b6", null ],
     [ "s_open_probe_files", "namespacem__data__output.html#af469c3d867d96eb1ca255832e586ec97", null ],
