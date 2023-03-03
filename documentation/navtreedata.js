@@ -76,8 +76,8 @@ var NAVTREE =
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md47", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md48", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md48", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md49", null ]
     ] ]
   ] ]
 ];

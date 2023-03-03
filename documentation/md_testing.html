@@ -164,7 +164,11 @@ Creating Tests</h2>
 <li>(Optional) <code>ppn</code>: The number of processes per node to use (default is 1).</li>
 </ul>
 <p>If a trace is empty (that is, the empty string <code>""</code>), it will not appear in the final trace, but any case parameter variations associated with it will still be applied.</p>
-<p>Finally, the case is appended to the <code>cases</code> list, which will be returned by the <code>generate_cases</code> function. </p>
+<p>Finally, the case is appended to the <code>cases</code> list, which will be returned by the <code>generate_cases</code> function.</p>
+<h2><a class="anchor" id="autotoc_md46"></a>
+Testing Post Process</h2>
+<p>To test updated post process code, append the <code>-a</code> or <code>--test-all</code> option: </p><div class="fragment"><div class="line">$ ./mfc.sh test -a -j 8</div>
+</div><!-- fragment --><p>This argument will re-run the test stack with <code>parallel_io=True</code>, which generates silo_hdf5 files. It will also turn most write parameters (<code>*_wrt</code>) on. Then, it uses the <a href="https://www.h5py.org/">h5py</a> library to ensure that there are no NaNs or Infinity's written to the silo files. Although adding this option does not guarantee that accurate silo files are generated, it does ensure that post process does not fail or produce malformed data. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
