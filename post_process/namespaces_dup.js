@@ -53,7 +53,6 @@ var namespaces_dup =
       [ "spatial_extents", "namespacem__data__output.html#a60fd667edc741b8cb7dcb08d05f67462", null ]
     ] ],
     [ "m_derived_variables", "namespacem__derived__variables.html", [
-      [ "s_compute_finite_difference_coefficients", "namespacem__derived__variables.html#acf313542c783139e0798f2097d1f68fc", null ],
       [ "s_compute_speed_of_sound", "namespacem__derived__variables.html#aa428d100adab2acbbba6b31faad19b42", null ],
       [ "s_derive_flux_limiter", "namespacem__derived__variables.html#ac85e77b0312f21389eb166960446f6ec", null ],
       [ "s_derive_liquid_stiffness", "namespacem__derived__variables.html#a02166198be4da04f6b6ce69fd432910d", null ],
@@ -73,13 +72,10 @@ var namespaces_dup =
     ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
       [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a433eac37597eb46a3cac84ca0471f5d3", null ],
-      [ "s_comp_n_from_cons", "namespacem__global__parameters.html#ad6c69097a0e9f5acf637c6b49e0bd1ea", null ],
-      [ "s_comp_n_from_prim", "namespacem__global__parameters.html#a39ce2449992dc4d113a1098e01d35efb", null ],
       [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#aa2237c2ed3662bbd69ef39e2e92af7bf", null ],
       [ "s_initialize_global_parameters_module", "namespacem__global__parameters.html#a8a76198d180cb9736c21dde108cb0dbf", null ],
       [ "s_initialize_nonpoly", "namespacem__global__parameters.html#a1611e2cf82243c04b04a11281ef67993", null ],
       [ "s_initialize_parallel_io", "namespacem__global__parameters.html#a54905a7a2ce9e15fc33ebac52c0d3c27", null ],
-      [ "s_quad", "namespacem__global__parameters.html#aa5a48fa9cc196136634022cfa6708213", null ],
       [ "s_simpson", "namespacem__global__parameters.html#ac21a4e6384ff730c1abc5440ac403d16", null ],
       [ "s_transcoeff", "namespacem__global__parameters.html#a24562c7cd90c1d827ca9f8779328cfbf", null ],
       [ "adv", "namespacem__global__parameters.html#ab08373aff5e7867fd0d6a24f4eb1238d", null ],

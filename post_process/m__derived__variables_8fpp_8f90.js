@@ -1,6 +1,5 @@
 var m__derived__variables_8fpp_8f90 =
 [
-    [ "s_compute_finite_difference_coefficients", "m__derived__variables_8fpp_8f90.html#acf313542c783139e0798f2097d1f68fc", null ],
     [ "s_compute_speed_of_sound", "m__derived__variables_8fpp_8f90.html#aa428d100adab2acbbba6b31faad19b42", null ],
     [ "s_derive_flux_limiter", "m__derived__variables_8fpp_8f90.html#ac85e77b0312f21389eb166960446f6ec", null ],
     [ "s_derive_liquid_stiffness", "m__derived__variables_8fpp_8f90.html#a02166198be4da04f6b6ce69fd432910d", null ],

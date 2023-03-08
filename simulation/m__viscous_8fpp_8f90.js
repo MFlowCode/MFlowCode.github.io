@@ -1,7 +1,7 @@
 var m__viscous_8fpp_8f90 =
 [
-    [ "s_apply_scalar_divergence_theorem", "m__viscous_8fpp_8f90.html#a856fc14c6456d93e8c889a13bf7184e3", null ],
-    [ "s_compute_fd_gradient", "m__viscous_8fpp_8f90.html#a7e34fc1e886ecabc9717580c082d9661", null ],
+    [ "s_apply_scalar_divergence_theorem", "m__viscous_8fpp_8f90.html#ac3c83ed8442f7dc0213a48a3c05bbb25", null ],
+    [ "s_compute_fd_gradient", "m__viscous_8fpp_8f90.html#a75e7b28550d3837e9c881b1cad09fe25", null ],
     [ "s_compute_viscous_stress_tensor", "m__viscous_8fpp_8f90.html#a8afc814dda0a24bf059badbd8c69de46", null ],
     [ "s_finalize_viscous_module", "m__viscous_8fpp_8f90.html#a2369a44e7c11f663e2cde746d5ace2a6", null ],
     [ "s_get_viscous", "m__viscous_8fpp_8f90.html#a0b6f51a421b47b8b28de584ec6d2cd49", null ],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_5fassign_5fpatch_5fxxxxx_5fprimitive_5fvariables_0',['s_assign_patch_xxxxx_primitive_variables',['../interfacem__assign__patches_1_1s__assign__patch__xxxxx__primitive__variables.html',1,'m_assign_patches']]],
+  ['s_5fassign_5fpatch_5fxxxxx_5fprimitive_5fvariables_0',['s_assign_patch_xxxxx_primitive_variables',['../interfacem__assign__variables_1_1s__assign__patch__xxxxx__primitive__variables.html',1,'m_assign_variables']]],
   ['s_5fconvert_5fxxxxx_5fto_5fmixture_5fvariables_1',['s_convert_xxxxx_to_mixture_variables',['../interfacem__variables__conversion_1_1s__convert__xxxxx__to__mixture__variables.html',1,'m_variables_conversion']]],
   ['s_5fgenerate_5fabstract_5fgrid_2',['s_generate_abstract_grid',['../interfacem__grid_1_1s__generate__abstract__grid.html',1,'m_grid']]],
   ['s_5fread_5fabstract_5fgrid_5fdata_5ffiles_3',['s_read_abstract_grid_data_files',['../interfacem__start__up_1_1s__read__abstract__grid__data__files.html',1,'m_start_up']]],

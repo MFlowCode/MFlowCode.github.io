@@ -136,9 +136,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a516a9808b3446b7b45029f6451d02b3f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a516a9808b3446b7b45029f6451d02b3f">s_compute_derived_variables</a> (<a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>)</td></tr>
 <tr class="memdesc:a516a9808b3446b7b45029f6451d02b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes coherent body information, communication files, and probes.  <br /></td></tr>
 <tr class="separator:a516a9808b3446b7b45029f6451d02b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a908281ae7fe786ef19397e268ede0ece"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a908281ae7fe786ef19397e268ede0ece">s_compute_finite_difference_coefficients</a> (<a class="el" href="m__monopole_8fpp_8f90.html#ac913953da65ff7c5eed9784fdde07c47">q</a>, s_cc, fd_coeff_s)</td></tr>
-<tr class="memdesc:a908281ae7fe786ef19397e268ede0ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to compute the finite- difference coefficients for the centered schemes utilized in computations of first order spatial derivatives in the s-coordinate direction. The s-coordinate direction refers to the x-, y- or z-coordinate direction, depending on the subroutine's inputs. Note that coefficients of up to 4th order accuracy are available.  <br /></td></tr>
-<tr class="separator:a908281ae7fe786ef19397e268ede0ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c6df8a69a463ae2c56fb2c2bb8c59a7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a5c6df8a69a463ae2c56fb2c2bb8c59a7">s_derive_acceleration_component</a> (<a class="el" href="m__monopole_8fpp_8f90.html#aaea4baed8fd8b780f6938f0dc1fb0f72">i</a>, <a class="el" href="namespacem__time__steppers.html#a72d421d80bf4592428f20416cc2047f5">q_prim_vf</a>, q_prim_vf1, q_prim_vf2, q_prim_vf3, q_sf)</td></tr>
 <tr class="memdesc:a5c6df8a69a463ae2c56fb2c2bb8c59a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine receives as inputs the indicator of the component of the acceleration that should be outputted and the primitive variables. From those inputs, it proceeds to calculate values of the desired acceleration component, which are subsequently stored in derived flow quantity storage variable, q_sf.  <br /></td></tr>
 <tr class="separator:a5c6df8a69a463ae2c56fb2c2bb8c59a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -193,55 +190,6 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_a516a9808b3446b7b45029f6451d02b3f_icgraph.svg" width="288" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a908281ae7fe786ef19397e268ede0ece" name="a908281ae7fe786ef19397e268ede0ece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a908281ae7fe786ef19397e268ede0ece">&#9670;&#160;</a></span>s_compute_finite_difference_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_derived_variables::s_compute_finite_difference_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-buff_size:q + <a class="el" href="namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92">buff_size</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>s_cc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-fd_number:fd_number, 0:<a class="el" href="m__monopole_8fpp_8f90.html#ac913953da65ff7c5eed9784fdde07c47">q</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>fd_coeff_s</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The purpose of this subroutine is to compute the finite- difference coefficients for the centered schemes utilized in computations of first order spatial derivatives in the s-coordinate direction. The s-coordinate direction refers to the x-, y- or z-coordinate direction, depending on the subroutine's inputs. Note that coefficients of up to 4th order accuracy are available. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q</td><td>Number of cells in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">s_cc</td><td>Locations of the cell-centers in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">fd_coeff_s</td><td>Finite-diff. coefficients in the s-coordinate direction </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_a908281ae7fe786ef19397e268ede0ece_icgraph.svg" width="550" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -358,7 +306,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_ae9dbea9bb47e84dbd380c480ad5144b8_cgraph.svg" width="431" height="131"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_ae9dbea9bb47e84dbd380c480ad5144b8_cgraph.svg" width="392" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

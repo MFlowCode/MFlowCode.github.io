@@ -1,4 +1,30 @@
 var m__initial__condition_8fpp_8f90 =
 [
-    [ "s_generate_initial_condition", "m__initial__condition_8fpp_8f90.html#aa74a70029e3ec0fd3225b369e7c5443e", null ]
+    [ "s_finalize_initial_condition_module", "m__initial__condition_8fpp_8f90.html#a944c63abd61afab021ab664246f80495", null ],
+    [ "s_generate_initial_condition", "m__initial__condition_8fpp_8f90.html#aa74a70029e3ec0fd3225b369e7c5443e", null ],
+    [ "s_initialize_initial_condition_module", "m__initial__condition_8fpp_8f90.html#a07a665ff41297455ac2da7b54243bac5", null ],
+    [ "s_perturb_sphere", "m__initial__condition_8fpp_8f90.html#afef3f507e182798fcfd7aecc52878fc9", null ],
+    [ "s_perturb_surrounding_flow", "m__initial__condition_8fpp_8f90.html#ab66e3b04024a8ae7327857b1b265bc27", null ],
+    [ "a", "m__initial__condition_8fpp_8f90.html#a8a559b4d7a1e1e69f5e3b9ea0474e3fa", null ],
+    [ "b", "m__initial__condition_8fpp_8f90.html#a0932a1bcb9b0293f1368e204a8fda4b9", null ],
+    [ "beta", "m__initial__condition_8fpp_8f90.html#aa61b446189c2c88bb9261649f4b594b3", null ],
+    [ "c", "m__initial__condition_8fpp_8f90.html#a03d80b7b8ee41e5b16d996b46a605706", null ],
+    [ "d", "m__initial__condition_8fpp_8f90.html#af692b3658ab0d7bcda937394fe3e2903", null ],
+    [ "epsilon", "m__initial__condition_8fpp_8f90.html#a0fb096d74052e49545e6ec72b3c2a114", null ],
+    [ "eta", "m__initial__condition_8fpp_8f90.html#a44e267143646437278341b252110443b", null ],
+    [ "length_x", "m__initial__condition_8fpp_8f90.html#ab59e590873d32a54651ac60af6b1a6e4", null ],
+    [ "length_y", "m__initial__condition_8fpp_8f90.html#a49ed82b4f9548cd8166844888028c8cd", null ],
+    [ "length_z", "m__initial__condition_8fpp_8f90.html#a0d9d1bcde238177f0beb7684e252aa69", null ],
+    [ "patch_id_fp", "m__initial__condition_8fpp_8f90.html#a5d331c773a88029795462ae22c20d6c8", null ],
+    [ "q_cons_vf", "m__initial__condition_8fpp_8f90.html#a1f42c68f3b3d167616d52b7cf7a7d56a", null ],
+    [ "q_prim_vf", "m__initial__condition_8fpp_8f90.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ],
+    [ "radius", "m__initial__condition_8fpp_8f90.html#a51a6afec0ff2f62c62b6cf86bd2c16e4", null ],
+    [ "smooth_coeff", "m__initial__condition_8fpp_8f90.html#a7ab7ae2808ac3b52319477860c6dbf80", null ],
+    [ "smooth_patch_id", "m__initial__condition_8fpp_8f90.html#adf36787dd781f2f28d1b49d06116c401", null ],
+    [ "x_boundary", "m__initial__condition_8fpp_8f90.html#abcd86e737c47247631a1fb95c1764b00", null ],
+    [ "x_centroid", "m__initial__condition_8fpp_8f90.html#aaf66843a6e051174a3cde0729daa1300", null ],
+    [ "y_boundary", "m__initial__condition_8fpp_8f90.html#ab669c9fbfa80cdc9139ea45f293b7f49", null ],
+    [ "y_centroid", "m__initial__condition_8fpp_8f90.html#a6cef3dccb0374a24cb372bd7d4c0b43f", null ],
+    [ "z_boundary", "m__initial__condition_8fpp_8f90.html#aaae7053fde0b060e39db9f943f000389", null ],
+    [ "z_centroid", "m__initial__condition_8fpp_8f90.html#aca427fa4af7501277f10bf96977a9766", null ]
 ];

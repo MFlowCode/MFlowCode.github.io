@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_5fassign_5fpatch_5fprimitive_5fvariables_0',['s_assign_patch_primitive_variables',['../namespacem__assign__patches.html#a91332791c9d2f4099d4b32131c1a5c7f',1,'m_assign_patches']]],
+  ['s_5fassign_5fpatch_5fprimitive_5fvariables_0',['s_assign_patch_primitive_variables',['../namespacem__assign__variables.html#a0133600238019599a3700db098df648a',1,'m_assign_variables']]],
   ['s_5fconvert_5fto_5fmixture_5fvariables_1',['s_convert_to_mixture_variables',['../namespacem__variables__conversion.html#a13c16c62aae8663c39c82c23cff0e84a',1,'m_variables_conversion']]],
   ['s_5fgenerate_5fgrid_2',['s_generate_grid',['../namespacem__grid.html#a3af3e5a8e440ff542dfd274546fb8150',1,'m_grid']]],
   ['s_5fread_5fgrid_5fdata_5ffiles_3',['s_read_grid_data_files',['../namespacem__start__up.html#af646e0769cd88c45b2acfc47a3b15d7b',1,'m_start_up']]],
@@ -10,9 +10,9 @@ var searchData=
   ['sigr_7',['sigr',['../namespacem__global__parameters.html#ac640a18f248b6e5a66ad804312e3f200',1,'m_global_parameters']]],
   ['sigv_8',['sigv',['../namespacem__global__parameters.html#ae5c0846ec0fb548d198d1e141e1b2e00',1,'m_global_parameters']]],
   ['small_5falf_9',['small_alf',['../namespacem__constants.html#a9b8eca0aba4d449f5713146a147c2607',1,'m_constants']]],
-  ['smooth_5fcoeff_10',['smooth_coeff',['../namespacem__create__patches.html#a8d15a0af75000a9d2e49c0466e87e53c',1,'m_create_patches']]],
-  ['smooth_5fpatch_5fid_11',['smooth_patch_id',['../namespacem__assign__patches.html#a2187d291a61bdb86684cad9bbf99188a',1,'m_assign_patches']]],
-  ['sph_5fphi_12',['sph_phi',['../namespacem__create__patches.html#aab967c8a60e95607f9a0d1add4282d0a',1,'m_create_patches']]],
+  ['smooth_5fcoeff_10',['smooth_coeff',['../namespacem__patches.html#ae20e39eb9587ec5a94ee15ff101d898f',1,'m_patches::smooth_coeff'],['../namespacem__assign__variables.html#a22daf2a8345cb9dd9c3c02c37cf48455',1,'m_assign_variables::smooth_coeff'],['../namespacem__initial__condition.html#a7ab7ae2808ac3b52319477860c6dbf80',1,'m_initial_condition::smooth_coeff']]],
+  ['smooth_5fpatch_5fid_11',['smooth_patch_id',['../namespacem__initial__condition.html#adf36787dd781f2f28d1b49d06116c401',1,'m_initial_condition::smooth_patch_id'],['../namespacem__assign__variables.html#aff75488e2e67ae7baa626c003876b72e',1,'m_assign_variables::smooth_patch_id'],['../namespacem__patches.html#a7b0c0bb412fb2caeea0abb31bc1daf7c',1,'m_patches::smooth_patch_id']]],
+  ['sph_5fphi_12',['sph_phi',['../namespacem__patches.html#ac73e513c9bd795d61e0e6babb926d2d1',1,'m_patches']]],
   ['start_5fidx_13',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
   ['stress_5fidx_14',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
   ['stretch_5fx_15',['stretch_x',['../namespacem__global__parameters.html#a95a3647227ae84b17613caee22408853',1,'m_global_parameters']]],

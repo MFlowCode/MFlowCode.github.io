@@ -1,7 +1,7 @@
 var annotated_dup =
 [
-    [ "m_assign_patches", "namespacem__assign__patches.html", [
-      [ "s_assign_patch_xxxxx_primitive_variables", "interfacem__assign__patches_1_1s__assign__patch__xxxxx__primitive__variables.html", "interfacem__assign__patches_1_1s__assign__patch__xxxxx__primitive__variables" ]
+    [ "m_assign_variables", "namespacem__assign__variables.html", [
+      [ "s_assign_patch_xxxxx_primitive_variables", "interfacem__assign__variables_1_1s__assign__patch__xxxxx__primitive__variables.html", "interfacem__assign__variables_1_1s__assign__patch__xxxxx__primitive__variables" ]
     ] ],
     [ "m_data_output", "namespacem__data__output.html", [
       [ "s_write_abstract_data_files", "interfacem__data__output_1_1s__write__abstract__data__files.html", "interfacem__data__output_1_1s__write__abstract__data__files" ]

@@ -1,18 +1,9 @@
 var m__cbc_8fpp_8f90 =
 [
-    [ "m_cbc::s_compute_abstract_l", "interfacem__cbc_1_1s__compute__abstract__l.html", "interfacem__cbc_1_1s__compute__abstract__l" ],
     [ "s_associate_cbc_coefficients_pointers", "m__cbc_8fpp_8f90.html#a76e19dea2a654c9a7f311baa16ef118c", null ],
     [ "s_cbc", "m__cbc_8fpp_8f90.html#a1463206b8a0492feba405c93fbdc1929", null ],
     [ "s_compute_cbc_coefficients", "m__cbc_8fpp_8f90.html#aee8ead62642bc2783deb6403a961679d", null ],
-    [ "s_compute_constant_pressure_subsonic_outflow_l", "m__cbc_8fpp_8f90.html#ad8fcd08114ca6e64be4e37c1bab117c2", null ],
-    [ "s_compute_force_free_subsonic_outflow_l", "m__cbc_8fpp_8f90.html#a18d823e26d7b8b8fdfadb0e7988aef98", null ],
-    [ "s_compute_nonreflecting_subsonic_buffer_l", "m__cbc_8fpp_8f90.html#a384c9ad99c8e549c83d3e6d2d4966fd4", null ],
-    [ "s_compute_nonreflecting_subsonic_inflow_l", "m__cbc_8fpp_8f90.html#a1ae81f8dc6b690e6c02fb4a5959c05bd", null ],
-    [ "s_compute_nonreflecting_subsonic_outflow_l", "m__cbc_8fpp_8f90.html#a6593a73287a3070feda85f3bda95874c", null ],
-    [ "s_compute_slip_wall_l", "m__cbc_8fpp_8f90.html#a1b93131a7db68e57ac83a34fdc9ab8f3", null ],
     [ "s_compute_speed_of_sound", "m__cbc_8fpp_8f90.html#ab28553bfffb2974f19d2dc68847ae8d4", null ],
-    [ "s_compute_supersonic_inflow_l", "m__cbc_8fpp_8f90.html#a742d36b1db502ee5ca3d5a4faa1e3ac5", null ],
-    [ "s_compute_supersonic_outflow_l", "m__cbc_8fpp_8f90.html#a3073f3308365f0c6c425a33237d825f8", null ],
     [ "s_finalize_cbc", "m__cbc_8fpp_8f90.html#a8d4bf0d35fea6a2aed9771ce39dc651c", null ],
     [ "s_finalize_cbc_module", "m__cbc_8fpp_8f90.html#a76b737dff5c827677888ffde0aff9cf1", null ],
     [ "s_initialize_cbc", "m__cbc_8fpp_8f90.html#ae32673f5dc3342969a7b48e4348271eb", null ],

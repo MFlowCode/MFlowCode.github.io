@@ -1,13 +1,10 @@
 var m__global__parameters_8fpp_8f90 =
 [
     [ "s_assign_default_values_to_user_inputs", "m__global__parameters_8fpp_8f90.html#a433eac37597eb46a3cac84ca0471f5d3", null ],
-    [ "s_comp_n_from_cons", "m__global__parameters_8fpp_8f90.html#ad6c69097a0e9f5acf637c6b49e0bd1ea", null ],
-    [ "s_comp_n_from_prim", "m__global__parameters_8fpp_8f90.html#a39ce2449992dc4d113a1098e01d35efb", null ],
     [ "s_finalize_global_parameters_module", "m__global__parameters_8fpp_8f90.html#aa2237c2ed3662bbd69ef39e2e92af7bf", null ],
     [ "s_initialize_global_parameters_module", "m__global__parameters_8fpp_8f90.html#a8a76198d180cb9736c21dde108cb0dbf", null ],
     [ "s_initialize_nonpoly", "m__global__parameters_8fpp_8f90.html#a1611e2cf82243c04b04a11281ef67993", null ],
     [ "s_initialize_parallel_io", "m__global__parameters_8fpp_8f90.html#a54905a7a2ce9e15fc33ebac52c0d3c27", null ],
-    [ "s_quad", "m__global__parameters_8fpp_8f90.html#aa5a48fa9cc196136634022cfa6708213", null ],
     [ "s_simpson", "m__global__parameters_8fpp_8f90.html#aaae887ec9e7fe756c6f52bd584a7f095", null ],
     [ "s_transcoeff", "m__global__parameters_8fpp_8f90.html#a24562c7cd90c1d827ca9f8779328cfbf", null ],
     [ "adv_alphan", "m__global__parameters_8fpp_8f90.html#abebd95d9d0271fbda40f47f75a2d829b", null ],
@@ -161,6 +158,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "t_step_start", "m__global__parameters_8fpp_8f90.html#ace0c8a67825d0dccd2e23b5d0f9985c0", null ],
     [ "t_step_stop", "m__global__parameters_8fpp_8f90.html#aff1140575af25247060f3e7f31a8a10f", null ],
     [ "thermal", "m__global__parameters_8fpp_8f90.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
+    [ "time", "m__global__parameters_8fpp_8f90.html#af996529dc0edf42d995ecf9434cdada8", null ],
     [ "time_stepper", "m__global__parameters_8fpp_8f90.html#aeb707079ac4a6d4135c3b7121a8a3232", null ],
     [ "tw", "m__global__parameters_8fpp_8f90.html#aa77b0836fe22478b69e10e656ef7fcc2", null ],
     [ "v0", "m__global__parameters_8fpp_8f90.html#a334b440356a4353d073c43e68c2372da", null ],

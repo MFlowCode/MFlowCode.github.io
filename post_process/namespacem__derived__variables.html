@@ -131,20 +131,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a15a6d70e2bd1c9b7001c753ca1f2ee27"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a15a6d70e2bd1c9b7001c753ca1f2ee27">s_initialize_derived_variables_module</a> ()</td></tr>
 <tr class="memdesc:a15a6d70e2bd1c9b7001c753ca1f2ee27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module.  <br /></td></tr>
 <tr class="separator:a15a6d70e2bd1c9b7001c753ca1f2ee27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The purpose of this subroutine is to compute the finite-</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>difference coefficients for the centered schemes utilized in computations of first order spatial derivatives in the s-coordinate direction. The s-coordinate direction refers to the x-, y- or z-coordinate direction, depending on the subroutine's inputs. Note that coefficients of up to 4th order accuracy are available.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q</td><td>Number of cells in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">offset_s</td><td>Size of the ghost zone layer in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">s_cc</td><td>Locations of the cell-centers in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">fd_coeff_s</td><td>Finite-diff. coefficients in the s-coordinate direction </td></tr>
-  </table>
-  </dd>
-</dl>
-</div></td></tr>
-<tr class="memitem:acf313542c783139e0798f2097d1f68fc"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#acf313542c783139e0798f2097d1f68fc">s_compute_finite_difference_coefficients</a> (q, offset_s, s_cc, fd_coeff_s)</td></tr>
-<tr class="separator:acf313542c783139e0798f2097d1f68fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab235aa45c622ecf7f387cbf7994387d"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#aab235aa45c622ecf7f387cbf7994387d">s_derive_specific_heat_ratio</a> (<a class="el" href="namespacem__variables__conversion.html#a0043b018970eb4da381b5f9f0c1a1f53">gamma_sf</a>, q_sf)</td></tr>
 <tr class="memdesc:aab235aa45c622ecf7f387cbf7994387d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine receives as input the specific heat ratio function, gamma_sf, and derives from it the specific heat ratio. The latter is stored in the derived flow quantity storage variable, q_sf.  <br /></td></tr>
 <tr class="separator:aab235aa45c622ecf7f387cbf7994387d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,51 +182,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module features subroutines that allow for the derivation of numerous flow variables from the conservative and primitive ones. Currently, the available derived variables include the unadvected volume fraction, specific heat ratio, liquid stiffness, speed of sound, vorticity and the numerical Schlieren function. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="acf313542c783139e0798f2097d1f68fc" name="acf313542c783139e0798f2097d1f68fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf313542c783139e0798f2097d1f68fc">&#9670;&#160;</a></span>s_compute_finite_difference_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_derived_variables::s_compute_finite_difference_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>q</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(int_bounds_info), intent(in)&#160;</td>
-          <td class="paramname"><em>offset_s</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-buff_size:q + <a class="el" href="namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92">buff_size</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>s_cc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-fd_number:fd_number, -offset_s%beg:q + offset_s%end), intent(inout)&#160;</td>
-          <td class="paramname"><em>fd_coeff_s</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_acf313542c783139e0798f2097d1f68fc_icgraph.svg" width="343" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="aa428d100adab2acbbba6b31faad19b42" name="aa428d100adab2acbbba6b31faad19b42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa428d100adab2acbbba6b31faad19b42">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
 
