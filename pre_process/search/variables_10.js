@@ -13,5 +13,6 @@ var searchData=
   ['restart_5fdir_10',['restart_dir',['../namespacem__data__output.html#abf7d1457ca6b2fe8c5165f6cebc4b258',1,'m_data_output']]],
   ['rho_5fsf_11',['rho_sf',['../namespacem__variables__conversion.html#a6e656215dbc78f3364e10007b9a41f19',1,'m_variables_conversion']]],
   ['rhoref_12',['rhoref',['../namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534',1,'m_global_parameters']]],
-  ['rhorv_13',['rhorv',['../namespacem__global__parameters.html#aa1bbfa906e1019bd962a5a0f7f378aa1',1,'m_global_parameters']]]
+  ['rhorv_13',['rhorv',['../namespacem__global__parameters.html#aa1bbfa906e1019bd962a5a0f7f378aa1',1,'m_global_parameters']]],
+  ['ru_14',['ru',['../namespacem__constants.html#a7fdf9b8c462434610a5a9c38925a1b9b',1,'m_constants']]]
 ];

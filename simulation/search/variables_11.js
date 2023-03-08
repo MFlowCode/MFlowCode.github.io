@@ -43,5 +43,6 @@ var searchData=
   ['riemann_5fflat_40',['riemann_flat',['../namespacem__global__parameters.html#ab6cb4c5f8752d7ee5b2aa9735bd37012',1,'m_global_parameters']]],
   ['riemann_5fsolver_41',['riemann_solver',['../namespacem__global__parameters.html#a6b9c81f07f8444654924e3075e4edaf8',1,'m_global_parameters']]],
   ['rs_42',['rs',['../namespacem__bubbles.html#a03ba50aba78f7e21cd4b756752f171f3',1,'m_bubbles']]],
-  ['run_5ftime_5finfo_43',['run_time_info',['../namespacem__global__parameters.html#a63e30bca2565699c008b6b0442ef5494',1,'m_global_parameters']]]
+  ['ru_43',['ru',['../namespacem__constants.html#a7fdf9b8c462434610a5a9c38925a1b9b',1,'m_constants']]],
+  ['run_5ftime_5finfo_44',['run_time_info',['../namespacem__global__parameters.html#a63e30bca2565699c008b6b0442ef5494',1,'m_global_parameters']]]
 ];

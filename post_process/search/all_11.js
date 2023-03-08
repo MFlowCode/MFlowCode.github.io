@@ -75,11 +75,12 @@ var searchData=
   ['s_5fwrite_5fvariable_5fto_5fformatted_5fdatabase_5ffile_72',['s_write_variable_to_formatted_database_file',['../namespacem__data__output.html#a57ac3445406c2114885fab7e5517bd1c',1,'m_data_output']]],
   ['schlieren_5falpha_73',['schlieren_alpha',['../namespacem__global__parameters.html#ada8a4a23b5804dfa9843b25ddd1cd8c1',1,'m_global_parameters']]],
   ['schlieren_5fwrt_74',['schlieren_wrt',['../namespacem__global__parameters.html#acd86b6cea52b83b147f680d9d6da342c',1,'m_global_parameters']]],
-  ['sgm_5feps_75',['sgm_eps',['../namespacem__global__parameters.html#aec97838cc58623019b07ae47da7f4c1c',1,'m_global_parameters']]],
-  ['spatial_5fextents_76',['spatial_extents',['../namespacem__data__output.html#a60fd667edc741b8cb7dcb08d05f67462',1,'m_data_output']]],
-  ['start_5fidx_77',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
-  ['stress_5fidx_78',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
-  ['strxb_79',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
-  ['strxe_80',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
-  ['sys_5fsize_81',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
+  ['sgm_5feps_75',['sgm_eps',['../namespacem__constants.html#a0b285066be796589a964ce4906432334',1,'m_constants']]],
+  ['small_5falf_76',['small_alf',['../namespacem__constants.html#a9b8eca0aba4d449f5713146a147c2607',1,'m_constants']]],
+  ['spatial_5fextents_77',['spatial_extents',['../namespacem__data__output.html#a60fd667edc741b8cb7dcb08d05f67462',1,'m_data_output']]],
+  ['start_5fidx_78',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
+  ['stress_5fidx_79',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
+  ['strxb_80',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
+  ['strxe_81',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
+  ['sys_5fsize_82',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
 ];

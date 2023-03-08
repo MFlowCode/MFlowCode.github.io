@@ -37,7 +37,7 @@ var searchData=
   ['flux_5fsrc_5frsy_5fvf_34',['flux_src_rsy_vf',['../namespacem__cbc.html#ad151f7fbaf6646c17ecab5549ab428f4',1,'m_cbc::flux_src_rsy_vf'],['../namespacem__riemann__solvers.html#a7f66a52cec4c03d2ef370b57ecc888b2',1,'m_riemann_solvers::flux_src_rsy_vf']]],
   ['flux_5fsrc_5frsz_5fvf_35',['flux_src_rsz_vf',['../namespacem__cbc.html#a9e948b1e985740297fce825473b34fb2',1,'m_cbc::flux_src_rsz_vf'],['../namespacem__riemann__solvers.html#a91889f97bce797a1c8efabb7fe3a2e1b',1,'m_riemann_solvers::flux_src_rsz_vf']]],
   ['foc_5flength_36',['foc_length',['../namespacem__monopole.html#a6f4d4e9e0cdf0aa9046fbd0a94a67325',1,'m_monopole']]],
-  ['fourier_5frings_37',['fourier_rings',['../namespacem__global__parameters.html#aadeb708160fdfee48fe55e83e41b5064',1,'m_global_parameters']]],
+  ['fourier_5frings_37',['fourier_rings',['../namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183',1,'m_constants']]],
   ['fwd_5fplan_38',['fwd_plan',['../namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a',1,'m_fftw']]],
   ['fwd_5fplan_5fgpu_39',['fwd_plan_gpu',['../namespacem__fftw.html#a6978924e23b0a6a2f528893b170b8059',1,'m_fftw']]]
 ];
