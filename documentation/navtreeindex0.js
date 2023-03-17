@@ -1,7 +1,7 @@
 var NAVTREEINDEX0 =
 {
-"index.html":[],
 "index.html":[0],
+"index.html":[],
 "index.html#autotoc_md39":[0,0],
 "index.html#autotoc_md40":[0,1],
 "md_CODE__OF__CONDUCT.html":[3],
@@ -46,10 +46,11 @@ var NAVTREEINDEX0 =
 "md_running.html":[6],
 "md_running.html#autotoc_md43":[6,0],
 "md_running.html#autotoc_md44":[6,1],
-"md_running.html#autotoc_md45":[6,2],
+"md_running.html#autotoc_md45":[6,1,0],
+"md_running.html#autotoc_md46":[6,1,1],
 "md_testing.html":[7],
 "md_visualisation.html":[8],
-"md_visualisation.html#autotoc_md50":[8,0],
-"md_visualisation.html#autotoc_md51":[8,1],
+"md_visualisation.html#autotoc_md51":[8,0],
+"md_visualisation.html#autotoc_md52":[8,1],
 "pages.html":[]
 };

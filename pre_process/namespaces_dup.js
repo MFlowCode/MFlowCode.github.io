@@ -165,6 +165,7 @@ var namespaces_dup =
       [ "strxe", "namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9", null ],
       [ "sys_size", "namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b", null ],
       [ "t_step_old", "namespacem__global__parameters.html#a5d0554c4fef91acf46f683e8bcd29133", null ],
+      [ "t_step_start", "namespacem__global__parameters.html#ace0c8a67825d0dccd2e23b5d0f9985c0", null ],
       [ "thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
       [ "tw", "namespacem__global__parameters.html#aa77b0836fe22478b69e10e656ef7fcc2", null ],
       [ "v0", "namespacem__global__parameters.html#a334b440356a4353d073c43e68c2372da", null ],

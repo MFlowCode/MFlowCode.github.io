@@ -73,13 +73,15 @@ var NAVTREE =
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
       [ "Interactive Execution", "md_running.html#autotoc_md43", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md44", null ],
-      [ "Example Runs", "md_running.html#autotoc_md45", null ]
+      [ "Batch Execution", "md_running.html#autotoc_md44", [
+        [ "Restarting Cases", "md_running.html#autotoc_md45", null ],
+        [ "Example Runs", "md_running.html#autotoc_md46", null ]
+      ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md50", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md51", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md51", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md52", null ]
     ] ]
   ] ]
 ];

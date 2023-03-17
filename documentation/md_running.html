@@ -160,8 +160,97 @@ Batch Execution</h1>
 <li>Statements of the form <code>{MFC::expression}</code> tell MFC where to place the common code, across all batch files, that is required for proper execution. They are not intended to be modified by users.</li>
 </ul>
 <p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource-sets in task and GPU count.</p>
-<h1><a class="anchor" id="autotoc_md45"></a>
-Example Runs</h1>
+<h2><a class="anchor" id="autotoc_md45"></a>
+Restarting Cases</h2>
+<p>When running a simulation, MFC generates a <code>./restart_data</code> folder in the case directory that contains <code>lustre_*.dat</code> files that can be used to restart a simulation from saved timesteps. This allows a user to run a simulation to some timestep $X$, then later continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
+<p>If you want to restart a simulation,</p>
+<ul>
+<li>Set up the initial simulation, with:<ul>
+<li><code>t_step_start</code> : $t_i$</li>
+<li><code>t_step_stop</code> : $t_f$</li>
+<li><code>t_step_save</code> : $SF$ in which $t_i$ is the starting time, $t_f$ is the final time, and $SF$ is the saving frequency time.</li>
+</ul>
+</li>
+<li>Run pre-process and simulation on the case.<ul>
+<li><code>./mfc.sh run case.py -t pre_process simulation</code></li>
+</ul>
+</li>
+<li>As the simulation runs, it will create LUSTRE files for each saved timestep in <code>./restart_data</code>.</li>
+<li>When the simulation stops, choose any LUSTRE file as the restarting point (lustre_ $t_s$.dat)</li>
+<li>Create a new duplicate input file, (ex. <code>restart_case.py</code>), on which it should:</li>
+</ul>
+<ol type="1">
+<li>For the Computational Domain Parameters<ul>
+<li>Have the following removed BUT <code>m</code>, <code>n</code>, and <code>p</code>:<ul>
+<li>All domaing/mesh information<ul>
+<li><code>(xyz)_domainbeg</code></li>
+<li><code>(xyz)_domainend</code></li>
+<li><code>stretch_(xyz)</code></li>
+<li><code>a_(xyz)</code></li>
+<li><code>(xyz)_a</code></li>
+<li><code>(xyz)_b</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Have the following altered:<ul>
+<li><code>t_step_start</code> : $t_s$ # this is the point at which the simulation will restart</li>
+<li><code>t_step_stop</code> : $t_{f2}$ # your new final simulation time, which can be the same as $t_f$</li>
+<li><code>t_step_save</code> : ${SF}_2$ # if interested in changing the saving frequency</li>
+</ul>
+</li>
+<li>Have the following ADDED:<ul>
+<li><code>old_ic</code> : 'T' # to specify that we have initial conditions from previous simulations</li>
+<li><code>old_grid</code> : 'T' # to specify that we have a grid from previous simulations (maybe I do not need m, n, and p, then?)</li>
+<li><code>t_step_old</code> : $t_i$ # this is the time step used as the <code>t_step_start</code> of the original <code>case.py</code> file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>For the Simulation Algorithm Parameters<ul>
+<li>Substitute <code>num_patches</code> to reflect the number of ADDED patches in the <code>restart_case.py</code> file. If no patches are added, set <code>num_patches: 0</code></li>
+</ul>
+</li>
+<li>For Patches<ul>
+<li>Have all information about old patches (used in the <code>case.py</code> file) removed.<ul>
+<li><code>patch_icpp(1)all variables</code></li>
+<li><code>patch_icpp(2)all variables</code></li>
+<li><code>patch_icpp(num_patches)all variables</code></li>
+</ul>
+</li>
+<li>Add information about new patches that will be introduced, if any. The parameter num_patches should reflect this addition.<ul>
+<li>e.g. <code>patch_icpp(1)some variables of interest</code> <br  />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>For Fluid properties<ul>
+<li>Keep information about the fluid properties</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Run pre-process and simulation on restart_case.py<ul>
+<li><code>./mfc.sh run restart_case.py -t pre_process simulation</code></li>
+</ul>
+</li>
+<li>Run the post_process<ul>
+<li>There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files.<ul>
+<li>One way is to set <code>t_step_stop</code> to the restarting point $t_s$ in <code>case.py</code>. Then, run: ```console $ ./mfc.sh run case.py -t post_process $ ./mfc.sh run restart_case.py -t post_process ```</li>
+<li>The first command will run on timesteps $[t_i, t_s]$. The second command will run on $[t_s, t_{f2}]$. Therefore, the whole range $[t_i, t_{f2}]$ will be post processed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We have provided an example <code>case.py</code> and <code>restart_case.py</code> in <code>/examples/1D_vacuum_restart/</code>. This simulation is a duplicate of the <code>1D_vacuum</code> case. It demonstrates stopping at timestep 7000, adding a new patch, and restarting the simulation. To test this code, run:</p>
+<div class="fragment"><div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t pre_process simulation</div>
+<div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t pre_process simulation</div>
+<div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
+<div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md46"></a>
+Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>
 </ul>
