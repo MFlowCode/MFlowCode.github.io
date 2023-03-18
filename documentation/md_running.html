@@ -122,16 +122,16 @@ $(document).ready(function(){initNavTree('md_running.html',''); initResizable();
 <div class="textblock"><p><a class="anchor" id="autotoc_md42"></a> MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports both interactive and batch execution, the latter being designed for multi-socket systems, namely supercomputers, equipped with a scheduler such as PBS, SLURM, and LSF. A full (and updated) list of available arguments can be acquired with <code>./mfc.sh run -h</code>.</p>
 <h1><a class="anchor" id="autotoc_md43"></a>
 Interactive Execution</h1>
-<p>To run all stages of MFC, that is <a href="src/pre_process/">pre_process</a>, <a href="src/simulation/">simulation</a>, and <a href="src/post_process/">post_process</a> on the sample case <a href="examples/2D_shockbubble/">2D_shockbubble</a>,</p>
+<p>To run all stages of MFC, that is <a href="https://github.com/MFlowCode/MFC/tree/master/src/pre_process/">pre_process</a>, <a href="https://github.com/MFlowCode/MFC/tree/master/src/simulation/">simulation</a>, and <a href="https://github.com/MFlowCode/MFC/tree/master/src/post_process/">post_process</a> on the sample case <a href="https://github.com/MFlowCode/MFC/tree/master/examples/2D_shockbubble/">2D_shockbubble</a>,</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py</div>
 </div><!-- fragment --><p>If you want to run a subset of the available stages, you can use the <code>-t</code> argument. To use multiple threads, use the <code>-n</code> option along with the number of threads you wish to use. If a (re)build is required, it will be done automatically, with the number of threads specified with the <code>-j</code> option.</p>
 <p>For example,</p>
 <ul>
-<li>Running <a href="src/pre_process/">pre_process</a> with 2 cores:</li>
+<li>Running <a href="https://github.com/MFlowCode/MFC/tree/master/src/pre_process/">pre_process</a> with 2 cores:</li>
 </ul>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -t pre_process -n 2</div>
 </div><!-- fragment --><ul>
-<li>Running <a href="src/simulation/">simulation</a> and <a href="src/post_process/">post_process</a> using 4 cores:</li>
+<li>Running <a href="https://github.com/MFlowCode/MFC/tree/master/src/simulation/">simulation</a> and <a href="https://github.com/MFlowCode/MFC/tree/master/src/post_process/">post_process</a> using 4 cores:</li>
 </ul>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -t simulation post_process -n 4</div>
 </div><!-- fragment --><p>On some computer clusters, MFC might select the wrong MPI program to execute your application because it uses a general heuristic for its selection. Notably, <code>srun</code> is known to fail on some SLURM systems when using GPUs or MPI implementations from different vendors, whereas <code>mpirun</code> functions properly. To override and manually specify which MPI program you wish to run your application with, please use the <code>-b &lt;program name&gt;</code> option (i.e <code>--binary</code>).</p>
@@ -149,10 +149,10 @@ Batch Execution</h1>
 <li><code>-a &lt;account name&gt;</code> to identify the account to be charged for the job. (i.e <code>--account</code>)</li>
 <li><code>-p &lt;partition name&gt;</code> to select the job's partition. (i.e <code>--partition</code>)</li>
 </ul>
-<p>Since some schedulers don't have a standardized syntax to request certain resources, MFC can only provide support for a restricted subset of common configuration options. If MFC fails to execute on your system, or if you wish to adjust how the program runs and resources are requested to be allocated, you are invited to modify the template batch script for your queue system. Upon execution of <code>./mfc.sh run</code>, MFC fills in the template with runtime parameters, to generate the batch file it will submit. These files are located in the <a href="templates/">templates</a> directory. To request GPUs, modification of the template will be required on most systems.</p>
+<p>Since some schedulers don't have a standardized syntax to request certain resources, MFC can only provide support for a restricted subset of common configuration options. If MFC fails to execute on your system, or if you wish to adjust how the program runs and resources are requested to be allocated, you are invited to modify the template batch script for your queue system. Upon execution of <code>./mfc.sh run</code>, MFC fills in the template with runtime parameters, to generate the batch file it will submit. These files are located in the <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/templates/">templates</a> directory. To request GPUs, modification of the template will be required on most systems.</p>
 <ul>
 <li>Lines that begin with <code>#&gt;</code> are ignored and won't figure in the final batch script, not even as a comment.</li>
-<li>Statements of the form <code>${expression}</code> are string-replaced to provide runtime parameters, most notably execution options. They reference the variables in the same format as those under the "run" section of <a href="defaults.yaml">defaults.yaml</a>, replacing <code>-</code> for <code>_</code>. You can perform therein any Python operation recognized by the built-in <code>expr()</code> function.</li>
+<li>Statements of the form <code>${expression}</code> are string-replaced to provide runtime parameters, most notably execution options. You can perform therein any Python operation recognized by the built-in <code>expr()</code> function.</li>
 </ul>
 <p>As an example, one might request GPUs on a SLURM system using the following:</p>
 <div class="fragment"><div class="line">#SBATCH --gpus=v100-32:{gpus_per_node*nodes}</div>
@@ -236,8 +236,10 @@ Restarting Cases</h2>
 </ul>
 </li>
 <li>Run the post_process<ul>
-<li>There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files.<ul>
-<li>One way is to set <code>t_step_stop</code> to the restarting point $t_s$ in <code>case.py</code>. Then, run: ```console $ ./mfc.sh run case.py -t post_process $ ./mfc.sh run restart_case.py -t post_process ```</li>
+<li><p class="startli">There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files.</p><ul>
+<li>One way is to set <code>t_step_stop</code> to the restarting point $t_s$ in <code>case.py</code>. Then, run:</li>
+</ul>
+<p class="startli">```console $ ./mfc.sh run case.py -t post_process $ ./mfc.sh run restart_case.py -t post_process ```</p><ul>
 <li>The first command will run on timesteps $[t_i, t_s]$. The second command will run on $[t_s, t_{f2}]$. Therefore, the whole range $[t_i, t_{f2}]$ will be post processed.</li>
 </ul>
 </li>

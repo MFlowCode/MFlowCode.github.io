@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('md_testing.html',''); initResizable();
 Creating Tests</h2>
 <p>To (re)generate <em>golden files</em>, append the <code>-g</code> (i.e <code>--generate</code>) option: </p><div class="fragment"><div class="line">$ ./mfc.sh test -g -j 8</div>
 </div><!-- fragment --><p>It is recommended that a range be specified when generating golden files for new test cases, as described in the previous section, in an effort not to regenerate the golden files of existing test cases.</p>
-<p>Adding a new test case can be done by modifying <a href="toolchain/mfc/tests/cases.py">cases.py</a>. The function <code>generate_cases</code> is responsible for generating the list of test cases. Loops and conditionals are used to vary parameters, whose defaults can be found in the <code>BASE_CFG</code> case object within <a href="toolchain/mfc/tests/case.py">case.py</a>. The function operates on two variables:</p>
+<p>Adding a new test case can be done by modifying <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/mfc/test/cases.py">cases.py</a>. The function <code>generate_cases</code> is responsible for generating the list of test cases. Loops and conditionals are used to vary parameters, whose defaults can be found in the <code>BASE_CFG</code> case object within <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/mfc/test/case.py">case.py</a>. The function operates on two variables:</p>
 <ul>
 <li><code>stack</code>: A stack that holds the variations to the default case parameters. By pushing and popping the stack inside loops and conditionals, it is easier to nest test case descriptions, as it holds the variations that are common to all future test cases within the same indentation level (in most scenarios).</li>
 <li><code>cases</code>: A list that holds fully-formed <code>Case</code> objects, that will be returned at the end of the function.</li>
@@ -169,7 +169,7 @@ Creating Tests</h2>
 <h2><a class="anchor" id="autotoc_md49"></a>
 Testing Post Process</h2>
 <p>To test updated post process code, append the <code>-a</code> or <code>--test-all</code> option: </p><div class="fragment"><div class="line">$ ./mfc.sh test -a -j 8</div>
-</div><!-- fragment --><p>This argument will re-run the test stack with <code>parallel_io=True</code>, which generates silo_hdf5 files. It will also turn most write parameters (<code>*_wrt</code>) on. Then, it uses the <a href="https://www.h5py.org/">h5py</a> library to ensure that there are no NaNs or Infinity's written to the silo files. Although adding this option does not guarantee that accurate silo files are generated, it does ensure that post process does not fail or produce malformed data. </p>
+</div><!-- fragment --><p>This argument will re-run the test stack with <code>parallel_io=True</code>, which generates silo_hdf5 files. It will also turn most write parameters (<code>*_wrt</code>) on. Then, it searches through the silo files using <code>h5dump</code> to ensure that there are no NaNs or Infinitys. Although adding this option does not guarantee that accurate silo files are generated, it does ensure that post process does not fail or produce malformed data. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
