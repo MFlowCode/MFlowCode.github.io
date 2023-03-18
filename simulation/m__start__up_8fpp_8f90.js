@@ -12,6 +12,8 @@ var m__start__up_8fpp_8f90 =
     [ "grad_x_vf", "m__start__up_8fpp_8f90.html#acd3b736578c59b1bd9dfc4b81f4a7279", null ],
     [ "grad_y_vf", "m__start__up_8fpp_8f90.html#a2e9ad6009d63488a8f8c7a3a548ba433", null ],
     [ "grad_z_vf", "m__start__up_8fpp_8f90.html#ada153b7f1b2f725b026b89cd187d3206", null ],
+    [ "istr", "m__start__up_8fpp_8f90.html#af09735d64b57b9da3d48873cd1a66574", null ],
+    [ "jstr", "m__start__up_8fpp_8f90.html#ae020581df05dfb260ffc8baf417c76e4", null ],
     [ "norm_vf", "m__start__up_8fpp_8f90.html#ae380781597535aa125ff18847b85a206", null ],
     [ "s_read_data_files", "m__start__up_8fpp_8f90.html#a76bcd559339a2dac17d36b71eb912556", null ]
 ];
