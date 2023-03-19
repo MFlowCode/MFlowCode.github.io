@@ -27,6 +27,9 @@ var namespaces_dup =
       [ "s_check_unsupported_patch_smoothing", "namespacem__check__patches.html#a7f27b499f2b90ad0f25443c1a1c5a0e5", null ],
       [ "istr", "namespacem__check__patches.html#a1595128fdb31c7579893e18f2b9b5165", null ]
     ] ],
+    [ "m_checker", "namespacem__checker.html", [
+      [ "s_check_inputs", "namespacem__checker.html#af3af1277501908ef5a97721ebf04061f", null ]
+    ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],

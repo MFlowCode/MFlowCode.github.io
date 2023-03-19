@@ -1,7 +1,6 @@
 var m__riemann__solvers_8fpp_8f90 =
 [
     [ "m_riemann_solvers::s_abstract_riemann_solver", "interfacem__riemann__solvers_1_1s__abstract__riemann__solver.html", "interfacem__riemann__solvers_1_1s__abstract__riemann__solver" ],
-    [ "m_riemann_solvers::s_compute_abstract_wave_speeds", "interfacem__riemann__solvers_1_1s__compute__abstract__wave__speeds.html", "interfacem__riemann__solvers_1_1s__compute__abstract__wave__speeds" ],
     [ "m_riemann_solvers::s_compute_abstract_viscous_source_flux", "interfacem__riemann__solvers_1_1s__compute__abstract__viscous__source__flux.html", "interfacem__riemann__solvers_1_1s__compute__abstract__viscous__source__flux" ],
     [ "s_compute_cartesian_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a67523a29805d4128431484ca49de1068", null ],
     [ "s_compute_cylindrical_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a225f72f7e466dad77766ea2fe27a7a05", null ],
@@ -37,7 +36,6 @@ var m__riemann__solvers_8fpp_8f90 =
     [ "re_avg_rsz_vf", "m__riemann__solvers_8fpp_8f90.html#aa1bb11104b7d4024eed16dcd32a747a8", null ],
     [ "res", "m__riemann__solvers_8fpp_8f90.html#a7f9cd51bb2139ea279ca5a0bcd0fc8cd", null ],
     [ "s_compute_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a334d729c58a5c746cb0045d1f5f00b01", null ],
-    [ "s_compute_wave_speeds", "m__riemann__solvers_8fpp_8f90.html#a3e2b4d51fda04b61d6f54069c5bb66c6", null ],
     [ "s_riemann_solver", "m__riemann__solvers_8fpp_8f90.html#a7edc50538c81447bf49e9242d85ee1ff", null ],
     [ "vel_src_rsx_vf", "m__riemann__solvers_8fpp_8f90.html#a6cbc0f5e485156b7f35aad890f983070", null ],
     [ "vel_src_rsy_vf", "m__riemann__solvers_8fpp_8f90.html#a821aa26e65fc3896af1c8691d66d0931", null ],

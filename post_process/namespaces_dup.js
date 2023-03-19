@@ -1,5 +1,8 @@
 var namespaces_dup =
 [
+    [ "m_checker", "namespacem__checker.html", [
+      [ "s_check_inputs", "namespacem__checker.html#af3af1277501908ef5a97721ebf04061f", null ]
+    ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
@@ -250,8 +253,7 @@ var namespaces_dup =
     ] ],
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_check_input_file", "namespacem__start__up.html#ad77478b402c186b1f620b7d14aab9123", null ],
-      [ "s_read_input_file", "namespacem__start__up.html#a3a19eb11ae434dc590a1bd7835442891", null ],
-      [ "istr", "namespacem__start__up.html#af09735d64b57b9da3d48873cd1a66574", null ]
+      [ "s_read_input_file", "namespacem__start__up.html#a3a19eb11ae434dc590a1bd7835442891", null ]
     ] ],
     [ "m_variables_conversion", "namespacem__variables__conversion.html", "namespacem__variables__conversion" ]
 ];

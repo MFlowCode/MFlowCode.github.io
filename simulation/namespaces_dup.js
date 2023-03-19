@@ -72,6 +72,9 @@ var namespaces_dup =
       [ "q_prim_rsz_vf", "namespacem__cbc.html#ac86c0eeaacc036e9d0ce87152d6ac013", null ],
       [ "re", "namespacem__cbc.html#af36bd73bae305dd791c6da0a37d2f6f8", null ]
     ] ],
+    [ "m_checker", "namespacem__checker.html", [
+      [ "s_check_inputs", "namespacem__checker.html#af3af1277501908ef5a97721ebf04061f", null ]
+    ] ],
     [ "m_compute_cbc", "namespacem__compute__cbc.html", [
       [ "s_compute_constant_pressure_subsonic_outflow_l", "namespacem__compute__cbc.html#a89ae3c53a30f581fa783a21220420a30", null ],
       [ "s_compute_force_free_subsonic_outflow_l", "namespacem__compute__cbc.html#abc270e72f7a6ec00358853f535901c53", null ],
