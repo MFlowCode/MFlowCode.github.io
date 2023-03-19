@@ -208,26 +208,9 @@ Variables</h2></td></tr>
 <tr class="separator:a9b96f4e232a0efb815f720bb9f5c805a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb7d43a2b1a88f5d7200c1ad6926a11"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#afbb7d43a2b1a88f5d7200c1ad6926a11">m_rhs::res</a></td></tr>
 <tr class="separator:afbb7d43a2b1a88f5d7200c1ad6926a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="memItemLeft" align="right" valign="top">character(50)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a31f27cef4252ee5a36802fd02b3f8ac9">m_rhs::file_path</a></td></tr>
-<tr class="memdesc:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local file path for saving debug files.  <br /></td></tr>
-<tr class="separator:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d795dd93ba08b82dacdcf96bcb60278"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2d795dd93ba08b82dacdcf96bcb60278">m_rhs::nbub</a></td></tr>
 <tr class="memdesc:a2d795dd93ba08b82dacdcf96bcb60278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble number density.  <br /></td></tr>
 <tr class="separator:a2d795dd93ba08b82dacdcf96bcb60278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The left (L) and the right (R) WENO-reconstructed cell-boundary values,</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>including cell-boundary Gaussian quadrature points, of the cell-average conservative variables. The latter are stored in the variable q_cons_qp (NDQP - normal direction quadrature points). </p>
-</div></td></tr>
-<tr class="memitem:a28befe7f38832274c66cdd33c975a811"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a28befe7f38832274c66cdd33c975a811">m_rhs::ql_cons_n</a></td></tr>
-<tr class="separator:a28befe7f38832274c66cdd33c975a811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb61cb0c3d7248d64e44977df296fad0"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#abb61cb0c3d7248d64e44977df296fad0">m_rhs::qr_cons_n</a></td></tr>
-<tr class="separator:abb61cb0c3d7248d64e44977df296fad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The left and right WENO-reconstructed cell-boundary values, that include</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>cell-boundary Gaussian quadrature points, of the cell-averaged primitive variables. The latter are stored in the variable q_prim_qp. </p>
-</div></td></tr>
-<tr class="memitem:ae4c49103ddeed7930b8cd71f3f736355"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae4c49103ddeed7930b8cd71f3f736355">m_rhs::ql_prim_n</a></td></tr>
-<tr class="separator:ae4c49103ddeed7930b8cd71f3f736355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1cc7931d642c6a0d606f253f0a87085"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ab1cc7931d642c6a0d606f253f0a87085">m_rhs::qr_prim_n</a></td></tr>
-<tr class="separator:ab1cc7931d642c6a0d606f253f0a87085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">The first-order spatial derivatives of the primitive variables at cell-</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>interior Guassian quadrature points. These are WENO-reconstructed from their respective cell-average values, obtained through the application of the divergence theorem on the integral-average cell-boundary values of the primitive variables, located in qK_prim_n, where K = L or R. </p>
 </div></td></tr>
@@ -259,7 +242,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a8bf36ad3264e93579aa229376590cc28"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a8bf36ad3264e93579aa229376590cc28">m_rhs::gm_alphar_n</a></td></tr>
 <tr class="separator:a8bf36ad3264e93579aa229376590cc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">The cell-boundary values of the fluxes (src - source, gsrc - geometrical</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>source). These are computed by applying the chosen Riemann problem solver on the left and right cell-boundary values of the primitive variables, qK_prim_n, the first-order spatial derivatives, dqK_prim_ds_n, as well as the curvature of volume fractions, kappaK_n. </p>
+<tr><td colspan="2"><div class="groupText"><p>source). These are computed by applying the chosen Riemann problem solver .on the left and right cell-boundary values of the primitive variables </p>
 </div></td></tr>
 <tr class="memitem:ae4c236ac5b4df2d001cc9fa9dc1d032c"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae4c236ac5b4df2d001cc9fa9dc1d032c">m_rhs::flux_n</a></td></tr>
 <tr class="separator:ae4c236ac5b4df2d001cc9fa9dc1d032c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,10 +284,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a5f5df14b0d9f487bf5438185ec16a5e8"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a5f5df14b0d9f487bf5438185ec16a5e8">m_rhs::mono_mom_src</a></td></tr>
 <tr class="separator:a5f5df14b0d9f487bf5438185ec16a5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Saved fluxes for testing</div></td></tr>
-<tr class="memitem:ad81a6e3c8f45621811682d18a4ea2f2d"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ad81a6e3c8f45621811682d18a4ea2f2d">m_rhs::myflux_vf</a></td></tr>
-<tr class="separator:ad81a6e3c8f45621811682d18a4ea2f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fd6cb5a09feb61691bf63751b8de6c8"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a5fd6cb5a09feb61691bf63751b8de6c8">m_rhs::myflux_src_vf</a></td></tr>
-<tr class="separator:a5fd6cb5a09feb61691bf63751b8de6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaecb99341e4534ec839e9356bf90536"><td class="memItemLeft" align="right" valign="top">type(scalar_field)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aaaecb99341e4534ec839e9356bf90536">m_rhs::alf_sum</a></td></tr>
 <tr class="separator:aaaecb99341e4534ec839e9356bf90536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">

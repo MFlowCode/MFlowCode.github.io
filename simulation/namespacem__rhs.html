@@ -222,26 +222,9 @@ Variables</h2></td></tr>
 <tr class="separator:a9b96f4e232a0efb815f720bb9f5c805a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbb7d43a2b1a88f5d7200c1ad6926a11"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#afbb7d43a2b1a88f5d7200c1ad6926a11">res</a></td></tr>
 <tr class="separator:afbb7d43a2b1a88f5d7200c1ad6926a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="memItemLeft" align="right" valign="top">character(50)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a31f27cef4252ee5a36802fd02b3f8ac9">file_path</a></td></tr>
-<tr class="memdesc:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local file path for saving debug files.  <br /></td></tr>
-<tr class="separator:a31f27cef4252ee5a36802fd02b3f8ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d795dd93ba08b82dacdcf96bcb60278"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2d795dd93ba08b82dacdcf96bcb60278">nbub</a></td></tr>
 <tr class="memdesc:a2d795dd93ba08b82dacdcf96bcb60278"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble number density.  <br /></td></tr>
 <tr class="separator:a2d795dd93ba08b82dacdcf96bcb60278"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The left (L) and the right (R) WENO-reconstructed cell-boundary values,</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>including cell-boundary Gaussian quadrature points, of the cell-average conservative variables. The latter are stored in the variable q_cons_qp (NDQP - normal direction quadrature points). </p>
-</div></td></tr>
-<tr class="memitem:a28befe7f38832274c66cdd33c975a811"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a28befe7f38832274c66cdd33c975a811">ql_cons_n</a></td></tr>
-<tr class="separator:a28befe7f38832274c66cdd33c975a811"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb61cb0c3d7248d64e44977df296fad0"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#abb61cb0c3d7248d64e44977df296fad0">qr_cons_n</a></td></tr>
-<tr class="separator:abb61cb0c3d7248d64e44977df296fad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The left and right WENO-reconstructed cell-boundary values, that include</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>cell-boundary Gaussian quadrature points, of the cell-averaged primitive variables. The latter are stored in the variable q_prim_qp. </p>
-</div></td></tr>
-<tr class="memitem:ae4c49103ddeed7930b8cd71f3f736355"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae4c49103ddeed7930b8cd71f3f736355">ql_prim_n</a></td></tr>
-<tr class="separator:ae4c49103ddeed7930b8cd71f3f736355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1cc7931d642c6a0d606f253f0a87085"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ab1cc7931d642c6a0d606f253f0a87085">qr_prim_n</a></td></tr>
-<tr class="separator:ab1cc7931d642c6a0d606f253f0a87085"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">The first-order spatial derivatives of the primitive variables at cell-</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>interior Guassian quadrature points. These are WENO-reconstructed from their respective cell-average values, obtained through the application of the divergence theorem on the integral-average cell-boundary values of the primitive variables, located in qK_prim_n, where K = L or R. </p>
 </div></td></tr>
@@ -273,7 +256,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a8bf36ad3264e93579aa229376590cc28"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a8bf36ad3264e93579aa229376590cc28">gm_alphar_n</a></td></tr>
 <tr class="separator:a8bf36ad3264e93579aa229376590cc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">The cell-boundary values of the fluxes (src - source, gsrc - geometrical</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>source). These are computed by applying the chosen Riemann problem solver on the left and right cell-boundary values of the primitive variables, qK_prim_n, the first-order spatial derivatives, dqK_prim_ds_n, as well as the curvature of volume fractions, kappaK_n. </p>
+<tr><td colspan="2"><div class="groupText"><p>source). These are computed by applying the chosen Riemann problem solver .on the left and right cell-boundary values of the primitive variables </p>
 </div></td></tr>
 <tr class="memitem:ae4c236ac5b4df2d001cc9fa9dc1d032c"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae4c236ac5b4df2d001cc9fa9dc1d032c">flux_n</a></td></tr>
 <tr class="separator:ae4c236ac5b4df2d001cc9fa9dc1d032c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -315,10 +298,6 @@ Variables</h2></td></tr>
 <tr class="memitem:a5f5df14b0d9f487bf5438185ec16a5e8"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a5f5df14b0d9f487bf5438185ec16a5e8">mono_mom_src</a></td></tr>
 <tr class="separator:a5f5df14b0d9f487bf5438185ec16a5e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Saved fluxes for testing</div></td></tr>
-<tr class="memitem:ad81a6e3c8f45621811682d18a4ea2f2d"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ad81a6e3c8f45621811682d18a4ea2f2d">myflux_vf</a></td></tr>
-<tr class="separator:ad81a6e3c8f45621811682d18a4ea2f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5fd6cb5a09feb61691bf63751b8de6c8"><td class="memItemLeft" align="right" valign="top">type(vector_field), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a5fd6cb5a09feb61691bf63751b8de6c8">myflux_src_vf</a></td></tr>
-<tr class="separator:a5fd6cb5a09feb61691bf63751b8de6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaecb99341e4534ec839e9356bf90536"><td class="memItemLeft" align="right" valign="top">type(scalar_field)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#aaaecb99341e4534ec839e9356bf90536">alf_sum</a></td></tr>
 <tr class="separator:aaaecb99341e4534ec839e9356bf90536"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -914,22 +893,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a31f27cef4252ee5a36802fd02b3f8ac9" name="a31f27cef4252ee5a36802fd02b3f8ac9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31f27cef4252ee5a36802fd02b3f8ac9">&#9670;&#160;</a></span>file_path</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">character(50) m_rhs::file_path</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Local file path for saving debug files. </p>
-
-</div>
-</div>
 <a id="a1e06afd1d3190259a5341029c21842e9" name="a1e06afd1d3190259a5341029c21842e9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1e06afd1d3190259a5341029c21842e9">&#9670;&#160;</a></span>flux_gsrc_n</h2>
 
@@ -1242,34 +1205,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5fd6cb5a09feb61691bf63751b8de6c8" name="a5fd6cb5a09feb61691bf63751b8de6c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5fd6cb5a09feb61691bf63751b8de6c8">&#9670;&#160;</a></span>myflux_src_vf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::myflux_src_vf</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad81a6e3c8f45621811682d18a4ea2f2d" name="ad81a6e3c8f45621811682d18a4ea2f2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad81a6e3c8f45621811682d18a4ea2f2d">&#9670;&#160;</a></span>myflux_vf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::myflux_vf</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a2d795dd93ba08b82dacdcf96bcb60278" name="a2d795dd93ba08b82dacdcf96bcb60278"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d795dd93ba08b82dacdcf96bcb60278">&#9670;&#160;</a></span>nbub</h2>
 
@@ -1332,20 +1267,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a28befe7f38832274c66cdd33c975a811" name="a28befe7f38832274c66cdd33c975a811"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28befe7f38832274c66cdd33c975a811">&#9670;&#160;</a></span>ql_cons_n</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::ql_cons_n</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ac20ddcb23484665560b9916ddd7ff2c8" name="ac20ddcb23484665560b9916ddd7ff2c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac20ddcb23484665560b9916ddd7ff2c8">&#9670;&#160;</a></span>ql_prim</h2>
 
@@ -1354,20 +1275,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::ql_prim</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae4c49103ddeed7930b8cd71f3f736355" name="ae4c49103ddeed7930b8cd71f3f736355"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4c49103ddeed7930b8cd71f3f736355">&#9670;&#160;</a></span>ql_prim_n</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::ql_prim_n</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1416,20 +1323,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="abb61cb0c3d7248d64e44977df296fad0" name="abb61cb0c3d7248d64e44977df296fad0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb61cb0c3d7248d64e44977df296fad0">&#9670;&#160;</a></span>qr_cons_n</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::qr_cons_n</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a554e70ae8c4fa1b4991e50c2db802a4e" name="a554e70ae8c4fa1b4991e50c2db802a4e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a554e70ae8c4fa1b4991e50c2db802a4e">&#9670;&#160;</a></span>qr_prim</h2>
 
@@ -1438,20 +1331,6 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::qr_prim</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab1cc7931d642c6a0d606f253f0a87085" name="ab1cc7931d642c6a0d606f253f0a87085"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1cc7931d642c6a0d606f253f0a87085">&#9670;&#160;</a></span>qr_prim_n</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(vector_field), dimension(:), allocatable m_rhs::qr_prim_n</td>
         </tr>
       </table>
 </div><div class="memdoc">
