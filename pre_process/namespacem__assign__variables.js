@@ -7,16 +7,5 @@ var namespacem__assign__variables =
     [ "s_finialize_assign_variables_module", "namespacem__assign__variables.html#a0ac5909103b06b46099506b517f43c5f", null ],
     [ "s_initialize_assign_variables_module", "namespacem__assign__variables.html#ae31ee924c1ac66d05a215ec59656a9e0", null ],
     [ "alf_sum", "namespacem__assign__variables.html#aefb6bed3e785cd14cbf7d632880839a9", null ],
-    [ "beta", "namespacem__assign__variables.html#a5aee3a98a7b390ca4cbb94a5b3f9f322", null ],
-    [ "epsilon", "namespacem__assign__variables.html#a311427c54f556c1b8e763fbaf0e40e09", null ],
-    [ "length_x", "namespacem__assign__variables.html#a667b1e7fd1363d9c45cc55e305e252d6", null ],
-    [ "length_y", "namespacem__assign__variables.html#a7822722a2915783d6f7bccda2bb13678", null ],
-    [ "length_z", "namespacem__assign__variables.html#afb807cfaedafad2434b72e79b3353497", null ],
-    [ "radius", "namespacem__assign__variables.html#a8af1d3ab108f8c890ac6ee7f74505a19", null ],
-    [ "s_assign_patch_primitive_variables", "namespacem__assign__variables.html#a0133600238019599a3700db098df648a", null ],
-    [ "smooth_coeff", "namespacem__assign__variables.html#a22daf2a8345cb9dd9c3c02c37cf48455", null ],
-    [ "smooth_patch_id", "namespacem__assign__variables.html#aff75488e2e67ae7baa626c003876b72e", null ],
-    [ "x_centroid", "namespacem__assign__variables.html#a73ae2a5944d23e1ae075c4fa063d963a", null ],
-    [ "y_centroid", "namespacem__assign__variables.html#a19e810f855f598cc9942c33a854fb449", null ],
-    [ "z_centroid", "namespacem__assign__variables.html#ac5dd1a1f143bdd9ebd1932a07b9f9284", null ]
+    [ "s_assign_patch_primitive_variables", "namespacem__assign__variables.html#a0133600238019599a3700db098df648a", null ]
 ];
