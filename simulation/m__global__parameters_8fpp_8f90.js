@@ -49,7 +49,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "fd_order", "m__global__parameters_8fpp_8f90.html#a8892cc67c7d04be4d8e6d02a86e209bc", null ],
     [ "finaltime", "m__global__parameters_8fpp_8f90.html#a824adfde04a9d962da561b618763f717", null ],
     [ "fluid_pp", "m__global__parameters_8fpp_8f90.html#a7297abec8863ecabf95e24ebdae46a17", null ],
-    [ "g", "m__global__parameters_8fpp_8f90.html#a1cf978782a398c375177b6742818f329", null ],
     [ "gam", "m__global__parameters_8fpp_8f90.html#a83c6d772d5cc2a2c5c9414130195c285", null ],
     [ "gamma_idx", "m__global__parameters_8fpp_8f90.html#a4ecdedaf3db880f8d71dbefc816322f8", null ],
     [ "gamma_m", "m__global__parameters_8fpp_8f90.html#a72d4c58c04a9c1714a58f974765f11a6", null ],

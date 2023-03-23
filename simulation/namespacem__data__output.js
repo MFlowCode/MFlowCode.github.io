@@ -12,7 +12,6 @@ var namespacem__data__output =
     [ "s_write_probe_files", "namespacem__data__output.html#a29f34883bc8e9d895dbb4232493397a1", null ],
     [ "s_write_run_time_information", "namespacem__data__output.html#a33a72559ec5cfdedf7162a8269d41201", null ],
     [ "s_write_serial_data_files", "namespacem__data__output.html#a2f7a43312f3d62d4765afe87f114dba4", null ],
-    [ "accel_mag", "namespacem__data__output.html#a7e34daec4511ee5f05f3b3ab6073768b", null ],
     [ "ccfl_max", "namespacem__data__output.html#afc429263f629a2ba4b5655dec5fd2509", null ],
     [ "ccfl_max_glb", "namespacem__data__output.html#a6f6b09b3d6f7335a35659157141050eb", null ],
     [ "ccfl_max_loc", "namespacem__data__output.html#ae4f222eac6471148a8584451339e1204", null ],
@@ -29,8 +28,5 @@ var namespacem__data__output =
     [ "vcfl_max", "namespacem__data__output.html#ada9b22b5a158b2ce980f43cec00a1ac6", null ],
     [ "vcfl_max_glb", "namespacem__data__output.html#ad1932cac0e55d311eae1985f0ea53005", null ],
     [ "vcfl_max_loc", "namespacem__data__output.html#adf7106e733e02688e49cd2a6e6346904", null ],
-    [ "vcfl_sf", "namespacem__data__output.html#a0f917a7c1835c3b210879ab406759b06", null ],
-    [ "x_accel", "namespacem__data__output.html#a92da0f0184a99ede32bc82c25b62bb4a", null ],
-    [ "y_accel", "namespacem__data__output.html#a749f42e25129b68e4b4b58a8eded077d", null ],
-    [ "z_accel", "namespacem__data__output.html#a69ef22a762715ad72320dc7bdce28bf5", null ]
+    [ "vcfl_sf", "namespacem__data__output.html#a0f917a7c1835c3b210879ab406759b06", null ]
 ];

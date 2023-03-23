@@ -136,9 +136,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a516a9808b3446b7b45029f6451d02b3f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a516a9808b3446b7b45029f6451d02b3f">s_compute_derived_variables</a> (<a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>)</td></tr>
 <tr class="memdesc:a516a9808b3446b7b45029f6451d02b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes coherent body information, communication files, and probes.  <br /></td></tr>
 <tr class="separator:a516a9808b3446b7b45029f6451d02b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c6df8a69a463ae2c56fb2c2bb8c59a7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a5c6df8a69a463ae2c56fb2c2bb8c59a7">s_derive_acceleration_component</a> (<a class="el" href="m__monopole_8fpp_8f90.html#aaea4baed8fd8b780f6938f0dc1fb0f72">i</a>, <a class="el" href="namespacem__time__steppers.html#a72d421d80bf4592428f20416cc2047f5">q_prim_vf</a>, q_prim_vf1, q_prim_vf2, q_prim_vf3, q_sf)</td></tr>
-<tr class="memdesc:a5c6df8a69a463ae2c56fb2c2bb8c59a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine receives as inputs the indicator of the component of the acceleration that should be outputted and the primitive variables. From those inputs, it proceeds to calculate values of the desired acceleration component, which are subsequently stored in derived flow quantity storage variable, q_sf.  <br /></td></tr>
-<tr class="separator:a5c6df8a69a463ae2c56fb2c2bb8c59a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeafec81c1b2cb37f1cea824b9fff4d9b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#aeafec81c1b2cb37f1cea824b9fff4d9b">s_derive_acceleration_component</a> (<a class="el" href="m__monopole_8fpp_8f90.html#aaea4baed8fd8b780f6938f0dc1fb0f72">i</a>, q_prim_vf0, q_prim_vf1, q_prim_vf2, q_prim_vf3, q_sf)</td></tr>
+<tr class="memdesc:aeafec81c1b2cb37f1cea824b9fff4d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine receives as inputs the indicator of the component of the acceleration that should be outputted and the primitive variables. From those inputs, it proceeds to calculate values of the desired acceleration component, which are subsequently stored in derived flow quantity storage variable, q_sf.  <br /></td></tr>
+<tr class="separator:aeafec81c1b2cb37f1cea824b9fff4d9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735665bf598281689158d9d6e075f3d4"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a735665bf598281689158d9d6e075f3d4">s_finalize_derived_variables_module</a> ()</td></tr>
 <tr class="memdesc:a735665bf598281689158d9d6e075f3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
 <tr class="separator:a735665bf598281689158d9d6e075f3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -154,6 +154,15 @@ Variables</h2></td></tr>
 <tr class="separator:a7de396fd76dc391271b45f7874a556cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8da872e21eb3b2340c75326d3fbfc447"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a8da872e21eb3b2340c75326d3fbfc447">fd_coeff_z</a></td></tr>
 <tr class="separator:a8da872e21eb3b2340c75326d3fbfc447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
+<tr class="memitem:a2452879f2bc8e2e3719c45e49eb33500"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a2452879f2bc8e2e3719c45e49eb33500">accel_mag</a></td></tr>
+<tr class="separator:a2452879f2bc8e2e3719c45e49eb33500"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51ad9941944fd82b2b5f660bc1c8ef5b"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a51ad9941944fd82b2b5f660bc1c8ef5b">x_accel</a></td></tr>
+<tr class="separator:a51ad9941944fd82b2b5f660bc1c8ef5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a850258fb97475bb6dc9ecc310197a671"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#a850258fb97475bb6dc9ecc310197a671">y_accel</a></td></tr>
+<tr class="separator:a850258fb97475bb6dc9ecc310197a671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0d0f4496313d5f31c8f9ac9c58e1acd"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__derived__variables.html#aa0d0f4496313d5f31c8f9ac9c58e1acd">z_accel</a></td></tr>
+<tr class="separator:aa0d0f4496313d5f31c8f9ac9c58e1acd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module features subroutines that allow for the derivation of numerous flow variables from the conservative and primitive ones. Currently, the available derived variables include the unadvected volume fraction, specific heat ratio, liquid stiffness, speed of sound, vorticity and the numerical Schlieren function. </p>
@@ -194,8 +203,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5c6df8a69a463ae2c56fb2c2bb8c59a7" name="a5c6df8a69a463ae2c56fb2c2bb8c59a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c6df8a69a463ae2c56fb2c2bb8c59a7">&#9670;&#160;</a></span>s_derive_acceleration_component()</h2>
+<a id="aeafec81c1b2cb37f1cea824b9fff4d9b" name="aeafec81c1b2cb37f1cea824b9fff4d9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafec81c1b2cb37f1cea824b9fff4d9b">&#9670;&#160;</a></span>s_derive_acceleration_component()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +219,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>q_prim_vf</em>, </td>
+          <td class="paramname"><em>q_prim_vf0</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -248,7 +257,7 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">i</td><td>Acceleration component indicator </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">q_prim_vf0</td><td>Primitive variables </td></tr>
     <tr><td class="paramname">q_prim_vf1</td><td>Primitive variables </td></tr>
     <tr><td class="paramname">q_prim_vf2</td><td>Primitive variables </td></tr>
     <tr><td class="paramname">q_prim_vf3</td><td>Primitive variables </td></tr>
@@ -259,7 +268,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_a5c6df8a69a463ae2c56fb2c2bb8c59a7_icgraph.svg" width="508" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_aeafec81c1b2cb37f1cea824b9fff4d9b_icgraph.svg" width="508" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -338,6 +347,20 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a2452879f2bc8e2e3719c45e49eb33500" name="a2452879f2bc8e2e3719c45e49eb33500"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2452879f2bc8e2e3719c45e49eb33500">&#9670;&#160;</a></span>accel_mag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :), allocatable, public m_derived_variables::accel_mag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aff8f0490b179f03fc55ac6c899285a85" name="aff8f0490b179f03fc55ac6c899285a85"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aff8f0490b179f03fc55ac6c899285a85">&#9670;&#160;</a></span>fd_coeff_x</h2>
 
@@ -374,6 +397,48 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(kind(0d0)), dimension(:, :), allocatable, public m_derived_variables::fd_coeff_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51ad9941944fd82b2b5f660bc1c8ef5b" name="a51ad9941944fd82b2b5f660bc1c8ef5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51ad9941944fd82b2b5f660bc1c8ef5b">&#9670;&#160;</a></span>x_accel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :), allocatable, public m_derived_variables::x_accel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a850258fb97475bb6dc9ecc310197a671" name="a850258fb97475bb6dc9ecc310197a671"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a850258fb97475bb6dc9ecc310197a671">&#9670;&#160;</a></span>y_accel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :), allocatable, public m_derived_variables::y_accel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0d0f4496313d5f31c8f9ac9c58e1acd" name="aa0d0f4496313d5f31c8f9ac9c58e1acd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d0f4496313d5f31c8f9ac9c58e1acd">&#9670;&#160;</a></span>z_accel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(kind(0d0)), dimension(:, :, :), allocatable, public m_derived_variables::z_accel</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['accel_5fmag_0',['accel_mag',['../namespacem__data__output.html#a7e34daec4511ee5f05f3b3ab6073768b',1,'m_data_output']]],
+  ['accel_5fmag_0',['accel_mag',['../namespacem__derived__variables.html#a2452879f2bc8e2e3719c45e49eb33500',1,'m_derived_variables']]],
   ['adv_5falphan_1',['adv_alphan',['../namespacem__global__parameters.html#abebd95d9d0271fbda40f47f75a2d829b',1,'m_global_parameters']]],
   ['adv_5fidx_2',['adv_idx',['../namespacem__global__parameters.html#ab73a1c5c3f6815695771323454db2a81',1,'m_global_parameters']]],
   ['advxb_3',['advxb',['../namespacem__global__parameters.html#af4751a18db30b97d83e7f0372182a18d',1,'m_global_parameters']]],
