@@ -140,9 +140,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a057da8ef357307243a56ea3f94fbb907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35048d96fa6ee17f1b9ffc11252ef2b5"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__viscous.html#a35048d96fa6ee17f1b9ffc11252ef2b5">s_reconstruct_cell_boundary_values_visc_deriv</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir, vl_prim_vf, vr_prim_vf, ix, iy, iz)</td></tr>
 <tr class="separator:a35048d96fa6ee17f1b9ffc11252ef2b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3701920a567b541349de23b802bd69bc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__viscous.html#a3701920a567b541349de23b802bd69bc">s_apply_scalar_divergence_theorem</a> (vl_vf, vr_vf, dv_ds_vf, norm_dir, ix, iy, iz, dxl, dyl, dzl, buff_size_in)</td></tr>
-<tr class="memdesc:a3701920a567b541349de23b802bd69bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to employ the inputted left and right cell-boundary integral-averaged variables to compute the relevant cell-average first-order spatial derivatives in the x-, y- or z-direction by means of the scalar divergence theorem.  <br /></td></tr>
-<tr class="separator:a3701920a567b541349de23b802bd69bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8ecf9e0182cb6e566c51c11759e70ee"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__viscous.html#ad8ecf9e0182cb6e566c51c11759e70ee">s_apply_scalar_divergence_theorem</a> (vl_vf, vr_vf, dv_ds_vf, norm_dir, ix, iy, iz, <a class="el" href="namespacem__viscous.html#a77381e5e4b644064f69d9b306edc6913">iv</a>, dl, dim, buff_size_in)</td></tr>
+<tr class="memdesc:ad8ecf9e0182cb6e566c51c11759e70ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to employ the inputted left and right cell-boundary integral-averaged variables to compute the relevant cell-average first-order spatial derivatives in the x-, y- or z-direction by means of the scalar divergence theorem.  <br /></td></tr>
+<tr class="separator:ad8ecf9e0182cb6e566c51c11759e70ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2858e8fbfbf55af77338ab8a02cfbfc3"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__viscous.html#a2858e8fbfbf55af77338ab8a02cfbfc3">s_compute_fd_gradient</a> (var, grad_x, grad_y, grad_z, ix, iy, iz, buff_size_in)</td></tr>
 <tr class="memdesc:a2858e8fbfbf55af77338ab8a02cfbfc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the scalar gradient fields via finite differences.  <br /></td></tr>
 <tr class="separator:a2858e8fbfbf55af77338ab8a02cfbfc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,8 +165,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The module contains the subroutines used to compute viscous terms. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a3701920a567b541349de23b802bd69bc" name="a3701920a567b541349de23b802bd69bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3701920a567b541349de23b802bd69bc">&#9670;&#160;</a></span>s_apply_scalar_divergence_theorem()</h2>
+<a id="ad8ecf9e0182cb6e566c51c11759e70ee" name="ad8ecf9e0182cb6e566c51c11759e70ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ecf9e0182cb6e566c51c11759e70ee">&#9670;&#160;</a></span>s_apply_scalar_divergence_theorem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,20 +216,20 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-buff_size_in:m + buff_size_in)&#160;</td>
-          <td class="paramname"><em>dxl</em>, </td>
+          <td class="paramtype">type(int_bounds_info)&#160;</td>
+          <td class="paramname"><em>iv</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-buff_size_in:n + buff_size_in)&#160;</td>
-          <td class="paramname"><em>dyl</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(-buff_size_in:dim + buff_size_in)&#160;</td>
+          <td class="paramname"><em>dl</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(-buff_size_in:p + buff_size_in)&#160;</td>
-          <td class="paramname"><em>dzl</em>, </td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>dim</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -258,7 +258,7 @@ Variables</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__viscous_a3701920a567b541349de23b802bd69bc_icgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__viscous_ad8ecf9e0182cb6e566c51c11759e70ee_icgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

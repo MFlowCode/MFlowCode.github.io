@@ -7,7 +7,7 @@ var searchData=
   ['s_5f3rd_5forder_5ftvd_5frk_4',['s_3rd_order_tvd_rk',['../namespacem__time__steppers.html#ae08efa7df1f8efae0f726dd5114176a8',1,'m_time_steppers']]],
   ['s_5fabstract_5friemann_5fsolver_5',['s_abstract_riemann_solver',['../interfacem__riemann__solvers_1_1s__abstract__riemann__solver.html',1,'m_riemann_solvers::s_abstract_riemann_solver'],['../interfacem__riemann__solvers_1_1s__abstract__riemann__solver.html#a1c1c1e717f442d5b49548964c4310021',1,'m_riemann_solvers::s_abstract_riemann_solver::s_abstract_riemann_solver()']]],
   ['s_5fapply_5ffourier_5ffilter_6',['s_apply_fourier_filter',['../namespacem__fftw.html#ada93950a5527dfe2a35cc4f4ba77cb96',1,'m_fftw']]],
-  ['s_5fapply_5fscalar_5fdivergence_5ftheorem_7',['s_apply_scalar_divergence_theorem',['../namespacem__viscous.html#a3701920a567b541349de23b802bd69bc',1,'m_viscous']]],
+  ['s_5fapply_5fscalar_5fdivergence_5ftheorem_7',['s_apply_scalar_divergence_theorem',['../namespacem__viscous.html#ad8ecf9e0182cb6e566c51c11759e70ee',1,'m_viscous']]],
   ['s_5fassign_5fdefault_5fvalues_5fto_5fuser_5finputs_8',['s_assign_default_values_to_user_inputs',['../namespacem__global__parameters.html#a433eac37597eb46a3cac84ca0471f5d3',1,'m_global_parameters']]],
   ['s_5fassociate_5fcbc_5fcoefficients_5fpointers_9',['s_associate_cbc_coefficients_pointers',['../namespacem__cbc.html#a0860f3f0c146b497f05ed57e07e0d4d9',1,'m_cbc']]],
   ['s_5fbwproperty_10',['s_bwproperty',['../namespacem__bubbles.html#a0364f07e472fa9444fc140d772bec3bb',1,'m_bubbles']]],

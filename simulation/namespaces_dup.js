@@ -488,7 +488,7 @@ var namespaces_dup =
     ] ],
     [ "m_variables_conversion", "namespacem__variables__conversion.html", "namespacem__variables__conversion" ],
     [ "m_viscous", "namespacem__viscous.html", [
-      [ "s_apply_scalar_divergence_theorem", "namespacem__viscous.html#a3701920a567b541349de23b802bd69bc", null ],
+      [ "s_apply_scalar_divergence_theorem", "namespacem__viscous.html#ad8ecf9e0182cb6e566c51c11759e70ee", null ],
       [ "s_compute_fd_gradient", "namespacem__viscous.html#a2858e8fbfbf55af77338ab8a02cfbfc3", null ],
       [ "s_compute_viscous_stress_tensor", "namespacem__viscous.html#a8afc814dda0a24bf059badbd8c69de46", null ],
       [ "s_finalize_viscous_module", "namespacem__viscous.html#a2369a44e7c11f663e2cde746d5ace2a6", null ],
