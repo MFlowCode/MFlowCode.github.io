@@ -236,17 +236,17 @@ Restarting Cases</h2>
 </ul>
 </li>
 <li>Run the post_process<ul>
-<li><p class="startli">There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files.</p><ul>
+<li>There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files.<ul>
 <li>One way is to set <code>t_step_stop</code> to the restarting point $t_s$ in <code>case.py</code>. Then, run:</li>
 </ul>
-<p class="startli">```console $ ./mfc.sh run case.py -t post_process $ ./mfc.sh run restart_case.py -t post_process ```</p><ul>
-<li>The first command will run on timesteps $[t_i, t_s]$. The second command will run on $[t_s, t_{f2}]$. Therefore, the whole range $[t_i, t_{f2}]$ will be post processed.</li>
-</ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>We have provided an example <code>case.py</code> and <code>restart_case.py</code> in <code>/examples/1D_vacuum_restart/</code>. This simulation is a duplicate of the <code>1D_vacuum</code> case. It demonstrates stopping at timestep 7000, adding a new patch, and restarting the simulation. To test this code, run:</p>
+<div class="fragment"><div class="line">$ ./mfc.sh run case.py -t post_process</div>
+<div class="line">$ ./mfc.sh run restart_case.py -t post_process</div>
+</div><!-- fragment --> <pre class="fragment">    - The first command will run on timesteps $[t_i, t_s]$. The second command will run on $[t_s, t_{f2}]$. Therefore, the whole range $[t_i, t_{f2}]$ will be post processed.
+</pre><p> We have provided an example <code>case.py</code> and <code>restart_case.py</code> in <code>/examples/1D_vacuum_restart/</code>. This simulation is a duplicate of the <code>1D_vacuum</code> case. It demonstrates stopping at timestep 7000, adding a new patch, and restarting the simulation. To test this code, run:</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t pre_process simulation</div>
 <div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t pre_process simulation</div>
 <div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
