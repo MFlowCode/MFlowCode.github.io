@@ -171,12 +171,9 @@ Parameters</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>case_dir</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyLeft">Case script directory    </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>run_time_info</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output run-time information   </td></tr>
 </table>
 <ul>
-<li><code>case_dir</code> specifies the directory where the python input file is located.</li>
 <li><code>run_time_info</code> generates a text file that includes run-time information including the CFL number(s) at each time-step.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md6"></a>
@@ -195,20 +192,22 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>x[y,z]_b</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Beginning of the stretching in the positive $x$[y,z]-direction    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>loops_x[y,z]</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of times to recursively apply grid stretching    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>cyl_coord</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Cylindrical coordinates (2D: Axisymmetric, 3D: Cylindrical)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>m</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of grid cells in the $x$-coordinate direction    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>n</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of grid cells in the $y$-coordinate direction    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>p</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of grid cells in the $z$-coordinate direction    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>dt</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time step size    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>t_step_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation starting time step    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>t_step_stop</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation stopping time step    </td></tr>
+<td class="markdownTableBodyRight"><code>t_step_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation starting time step    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_step_stop</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation stopping time step    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>t_step_save</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to output data   </td></tr>
 </table>
 <p>The parameters define the boundaries of the spatial and temporal domains, and their discritization that are used in simulation.</p>
@@ -222,7 +221,7 @@ Parameters</h1>
 <li><code>a_[x,y,z]</code>, <code>[x,y,z]_a</code>, and <code>[x,y,z]_b</code> are parameters that define the grid stretching function. When grid stretching along the $x$ axis is considered, the stretching function is given as:</li>
 </ul>
 <p>$$ x_{cb,stretch} = x_{cb} + \frac{x_{cb}}{a_x} \Bigg[ \mathrm{log}\left[\mathrm{cosh} \left( \frac{a_x(x_{cb}-x_a)}{L} \right) \right] + \mathrm{log}\left[\mathrm{cosh} \left( \frac{a_x(x_{cb}-x_b)}{L} \right) \right] -2 \mathrm{log}\left[\mathrm{cosh} \left( \frac{a_x(x_b-x_a)}{2L} \right) \right] \Bigg] $$</p>
-<p>where <code>x_cb</code> and <code>x_[cb,stretch]</code> are the coordinates of a cell boundary at the original and stretched domains, respectively. <code>L</code> is the domain length along the <code>x</code> axis: <code>L</code>=<code>x_domainend</code>-<code>x_domainbeg</code>. Crudely speaking, <code>x_a</code> and <code>x_b</code> define the coordinates at which the grid begins to get stretched in the negative and positive directions along the $x$ axis, respectively. $a_x$ defines the smoothness of the stretching. Stretching along the $y$ and $z$ axes follows the same logistics. Optimal choice of the parameters for grid stretching is case-dependent and left to the user.</p>
+<p>where <code>x_cb</code> and <code>x_[cb,stretch]</code> are the coordinates of a cell boundary at the original and stretched domains, respectively. <code>L</code> is the domain length along the <code>x</code> axis: <code>L</code>=<code>x_domainend</code>-<code>x_domainbeg</code>. Crudely speaking, <code>x_a</code> and <code>x_b</code> define the coordinates at which the grid begins to get stretched in the negative and positive directions along the $x$ axis, respectively. $a_x$ defines the smoothness of the stretching. Stretching along the $y$ and $z$ axes follows the same logistics. Optimal choice of the parameters for grid stretching is case-dependent and left to the user. <code>loops_x[y,z]</code> defines the number of times the grid stretching funciton is applied and has a default value of one.</p>
 <ul>
 <li><code>cyl_coord</code> activates cylindrical coordinates. The domain is defined in $x$-$y$-$z$ cylindrical coordinates, instead of Cartesian coordinates. Domain discritization is accordingly conducted along the axes of cylindrical coordinates. Wnen $p=0$, the domain is defined on $x$-$y$ axi-symmetric coordinates. In both Coordinates, mesh stretching can be defined along the $x$- and $y$-axes. MPI topology is automatically optimized to maximize the parallel efficiency for given choice of coordinate systems.</li>
 <li><code>dt</code> specifies the constant time step size that is used in simulation. The value of <code>dt</code> needs to be sufficiently small such that the Courant-Friedrichs-Lewy (CFL) condition is satisfied.</li>
@@ -317,15 +316,11 @@ Parameters</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mixture_err</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture properties correction    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge&ndash;Kutta order [1&ndash;5]    </td></tr>
+<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge&ndash;Kutta order [1&ndash;3]    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>weno_vars</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO reconstruction on [1] Conservative; [2] Primitive variables    </td></tr>
-<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>char_decomp</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Characteristic decomposition    </td></tr>
+<td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mapped_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO with mapping of nonlinear weights    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -337,21 +332,7 @@ Parameters</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe averagen*; [2] Arithmetic mean    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>commute_err</code> †*   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Commutative error correction via cell-interior quadrature    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>split_err</code> †*   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Dimensional splitting error correction via cell-boundary    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>reg_eps</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Interface thickness parameter for regularization terms    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>flux_lim</code> *   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Choice of flux limiter: [1] Minmod; [2] MC; [3] Ospre; [4] Superbee; [5] Sweby; [6] van Albada; [7] van Leer.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>tvd_rhs_flux</code> *   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Apply TVD flux limiter to intercell fluxes outside Riemann solver    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>tvd_riemann_flux</code> *   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Apply TVD flux limiter to cell edges inside Riemann solver    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>tvd_wave_speeds</code> *   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">TVD wave-speeds for flux computation inside Riemann solver   </td></tr>
+<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)   </td></tr>
 </table>
 <ul>
 <li>* Options that work only with <code>model_eqns</code> $=2$.</li>
@@ -370,24 +351,14 @@ Parameters</h1>
 <li><code>mpp_lim</code> activates correction of solutions to avoid a negative void fraction of each component in each grid cell, such that $\alpha_i&gt;\varepsilon$ is satisfied at each time step.</li>
 <li><code>mixture_err</code> activates correction of solutions to avoid imaginary speed of sound at each grid cell.</li>
 <li><code>time_stepper</code> specifies the order of the Runge-Kutta (RK) time integration scheme that is used for temporal integration in simulation, from the 1st to 5th order by corresponding integer. Note that <code>time_stepper</code> $=$ 3 specifies the total variation diminishing (TVD), third order RK scheme (<a href="references.md#Gottlieb98">Gottlieb and Shu, 1998</a>).</li>
-<li><code>weno_vars</code> specifies the choice of state variables that are reconstructed using a WENO scheme by an integer of 1 or 2.</li>
-<li><code>weno_vars</code> $=$ 1 and 2 correspond to conservative variables and primitive variables, respectively.</li>
 <li><code>weno_order</code> specifies the order of WENO scheme that is used for spatial reconstruction of variables by an integer of 1, 3, and 5, that correspond to the 1st, 3rd, and 5th order, respectively.</li>
 <li><code>weno_eps</code> specifies the lower bound of the WENO nonlinear weights. Practically, <code>weno_eps</code> $&lt;10^{-6}$ is used.</li>
-<li><code>char_decomp</code> activates projection of the state variables onto characteristic fields prior to WENO reconstruction.</li>
 <li><code>mapped_weno</code> activates mapping of the nonlinear WENO weights to the more accurate nonlinear weights in order to reinstate the optimal order of accuracy of the reconstruction in the proximity of critical points (<a href="references.md#Henrick05">Henrick et al., 2005</a>).</li>
 <li><code>null_weights</code> activates nullification of the nonlinear WENO weights at the buffer regions outside the domain boundaries when the Riemann extrapolation boundary condition is specified (<code>bc_[x,y,z]\beg[end]}</code> $=-4$).</li>
 <li><code>mp_weno</code> activates monotonicity preservation in the WENO reconstruction (MPWENO) such that the values of reconstructed variables do not reside outside the range spanned by WENO stencil (<a href="references.md#Balsara00">Balsara and Shu, 2000</a>; <a href="references.md#Suresh97">Suresh and Huynh, 1997</a>).</li>
 <li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver</code> $=$ 1,2, and 3 correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>).</li>
 <li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state</code> $=$ 1 and 2 correspond to Roe- and arithmetic averages, respectively.</li>
 <li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds</code> $=$ 1 and 2 correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
-<li><code>commute_err</code> activates WENO reconstruction of the cell-averaged variables at the cell-interior Gaussian quadrature points, following the two-point, fourth order Gaussian quadrature rule (<a href="references.md#Titarev04">Titarev and Toro, 2004</a>).</li>
-<li><code>split_err</code> activates numerical approximation of the left or right cell-boundary integral-average of the given variables by getting the arithmetic mean of their WENO-reconstructed values at the cell-boundary Gaussian quadrature points, following the two-point, fourth order Gaussian quadrature rule (<a href="references.md#Titarev04">Titarev and Toro, 2004</a>). When <code>commute_err</code> and <code>split_err</code> are set <code>True</code> and the 5th-order WENO is used, the global order of accuracy of the spatial integration of the governing equations becomes fourth order (<a href="references.md#Coralic14">Coralic and Colonius, 2014</a>).</li>
-<li><code>reg_eps</code> specifies the magnitude of interface regularization for two-component flows that prevents diffusion of the phase interface (<a href="references.md#Tiwari13">Tiwari et al., 2013</a>). The default value of <code>reg_eps</code> is unity. When <code>reg_eps</code> is undefined, interface regularization is not used. Details of implementation and assessment are addressed in <a href="references.md#Meng16">Meng (2016)</a>; <a href="references.md#Schmidmayer19">Schmidmayer et al. (2019)</a>.</li>
-<li><code>flux_lim</code> specifies the choice of flux limiter that is used in simulation by an integer from 1 through 7 as listed in table Flux Limiters. When <code>flux_lim</code> is undefined, flux limiter is not applied. Details of the limiters and their implementations in MFC can be found in <a href="references.md#Meng16">Meng (2016)</a>.</li>
-<li><code>tvd_rhs_flux</code> activates a specified flux limiter to inte-rcell fluxes outside Riemann solver.</li>
-<li><code>tvd_riemann_flux</code> activate a specified flux limiter to cell edges inside the Riemann solver. <code>tvd_rhs_flux</code> and <code>tvd_riemann_flux</code> are mutually exclusive.</li>
-<li><code>tvd_wave_speeds</code> activates the use of the TVD wave speeds for flux computation inside the Riemann solver when <code>tvd_riemann_flux</code> is set <code>True</code>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md10"></a>
 6. Formatted Output</h2>
@@ -405,51 +376,45 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>prim_vars_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write primitive variables    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>fourier_decomp</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Apply a spatial Fourier decomposition to the output variables    </td></tr>
+<td class="markdownTableBodyRight"><code>alpha_rho_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the partial density of the fluid $i$ to the database |    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>alpha_rho_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the partial density of the fluid $i$ to the database    </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>rho_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the mixture density to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mom_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the $i$-direction momentum to the database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>vel_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the $i$-direction velocity to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>E_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the total energy to the database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>pres_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the pressure to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>alpha_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the volume fraction of fluid $i$ to the database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>gamma_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the specific heat ratio function to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>heat_ratio_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the specific heat ratio to the database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>pi_inf_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>pres_inf_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the liquid stiffness to the formatted database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>c_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the sound speed to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>omega_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the $i$-direction vorticity to the database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>schlieren_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the numerical schlieren to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>qm_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>fd_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>schlieren_alpha(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <code>alpha(i)</code>    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>probe_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>num_probes</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of probes    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>com_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the center of mass of fluid $i$ to the database    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>cb_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add coherent body data of fluid $i$ to the database   </td></tr>
+<td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$   </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
 <ul>
@@ -461,8 +426,6 @@ Parameters</h1>
 <li><code>schlieren_alpha(i)</code> specifies the intensity of the numerical Schlieren of $i$-th component.</li>
 <li><code>fd_order</code> specifies the order of finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order</code> $=$ 1, 2, and 4 correspond to the first, second, and fourth order finite difference schemes, respectively.</li>
 <li><code>probe_wrt</code> activates output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</li>
-<li><code>com_wrt(i)</code> activates output of the center of mass of $i$-th fluid component into the database.</li>
-<li><code>cb_wrt(i)</code> activates output of the coherent body mass of $i$-th fluid component in the domain into the database.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md11"></a>
 7. Acoustic Source</h2>
@@ -592,7 +555,7 @@ Boundary conditions</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">-4   </td><td class="markdownTableBodyCenter">Normal   </td><td class="markdownTableBodyLeft">Riemann extrapolation    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">-5   </td><td class="markdownTableBodyCenter">Normal   </td><td class="markdownTableBodyLeft">Slip wall    </td></tr>
+<td class="markdownTableBodyRight">-5   </td><td class="markdownTableBodyCenter">Characteristic   </td><td class="markdownTableBodyLeft">Slip wall    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">-6   </td><td class="markdownTableBodyCenter">Characteristic   </td><td class="markdownTableBodyLeft">Non-reflecting subsonic buffer    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -655,27 +618,6 @@ Patch types</h2>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
 <h2><a class="anchor" id="autotoc_md17"></a>
-Flux limiters</h2>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadRight">#   </th><th class="markdownTableHeadLeft">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">1   </td><td class="markdownTableBodyLeft">Minmod    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyLeft">MC    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">3   </td><td class="markdownTableBodyLeft">Ospre    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">4   </td><td class="markdownTableBodyLeft">Superbee    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">5   </td><td class="markdownTableBodyLeft">Sweby    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyLeft">van Albada    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">7   </td><td class="markdownTableBodyLeft">van Leer   </td></tr>
-</table>
-<p>The flux limiters supported by the MFC are listed in table Flux Limiters. Each limiter can be specified by specifying the value of <code>flux_lim</code>. Details of their implementations can be found in <a href="references.md#Meng16">Meng (2016)</a>.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -694,7 +636,7 @@ Monopole supports</h2>
 <td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special souce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -720,7 +662,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

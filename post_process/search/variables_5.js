@@ -10,6 +10,5 @@ var searchData=
   ['flux_5flim_7',['flux_lim',['../namespacem__global__parameters.html#acbb163a79ff0011a4327c3fb65a04c14',1,'m_global_parameters']]],
   ['flux_5fwrt_8',['flux_wrt',['../namespacem__global__parameters.html#a35133a9d59c33919af73594f804d2fd9',1,'m_global_parameters']]],
   ['format_9',['format',['../namespacem__global__parameters.html#a35560eae3e70f3a803a78c590bce1e13',1,'m_global_parameters']]],
-  ['fourier_5fdecomp_10',['fourier_decomp',['../namespacem__global__parameters.html#a41c2be7ba7b793490633ce040f949274',1,'m_global_parameters']]],
-  ['fourier_5frings_11',['fourier_rings',['../namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183',1,'m_constants']]]
+  ['fourier_5frings_10',['fourier_rings',['../namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183',1,'m_constants']]]
 ];

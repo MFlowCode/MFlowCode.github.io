@@ -319,7 +319,6 @@ var namespaces_dup =
       [ "weno_order", "namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa", null ],
       [ "weno_polyn", "namespacem__global__parameters.html#a351be005cfac23e82310e91393f5d535", null ],
       [ "weno_re_flux", "namespacem__global__parameters.html#a3c3cd38abc3ece085bab77788afece73", null ],
-      [ "weno_vars", "namespacem__global__parameters.html#aa254277cf111be2267a61b7884279844", null ],
       [ "x_cb", "namespacem__global__parameters.html#a800c19cad11fe2774ac137b12ec89e33", null ],
       [ "x_cc", "namespacem__global__parameters.html#aea5b911d65b330f65e97052e9e8c0383", null ],
       [ "y_cb", "namespacem__global__parameters.html#a4bb8b661a170fc6ccd9fa3cc4b32c960", null ],

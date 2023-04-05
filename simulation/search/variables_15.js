@@ -7,6 +7,5 @@ var searchData=
   ['weno_5fflat_4',['weno_flat',['../namespacem__global__parameters.html#a20823a68105756ce895d79f03080def4',1,'m_global_parameters']]],
   ['weno_5forder_5',['weno_order',['../namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa',1,'m_global_parameters']]],
   ['weno_5fpolyn_6',['weno_polyn',['../namespacem__global__parameters.html#a351be005cfac23e82310e91393f5d535',1,'m_global_parameters']]],
-  ['weno_5fre_5fflux_7',['weno_re_flux',['../namespacem__global__parameters.html#a3c3cd38abc3ece085bab77788afece73',1,'m_global_parameters']]],
-  ['weno_5fvars_8',['weno_vars',['../namespacem__global__parameters.html#aa254277cf111be2267a61b7884279844',1,'m_global_parameters']]]
+  ['weno_5fre_5fflux_7',['weno_re_flux',['../namespacem__global__parameters.html#a3c3cd38abc3ece085bab77788afece73',1,'m_global_parameters']]]
 ];

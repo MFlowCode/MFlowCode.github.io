@@ -169,7 +169,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "weno_order", "m__global__parameters_8fpp_8f90.html#ab8488205257dab4e94258eee55d0d1aa", null ],
     [ "weno_polyn", "m__global__parameters_8fpp_8f90.html#a351be005cfac23e82310e91393f5d535", null ],
     [ "weno_re_flux", "m__global__parameters_8fpp_8f90.html#a3c3cd38abc3ece085bab77788afece73", null ],
-    [ "weno_vars", "m__global__parameters_8fpp_8f90.html#aa254277cf111be2267a61b7884279844", null ],
     [ "x_cb", "m__global__parameters_8fpp_8f90.html#a800c19cad11fe2774ac137b12ec89e33", null ],
     [ "x_cc", "m__global__parameters_8fpp_8f90.html#aea5b911d65b330f65e97052e9e8c0383", null ],
     [ "y_cb", "m__global__parameters_8fpp_8f90.html#a4bb8b661a170fc6ccd9fa3cc4b32c960", null ],

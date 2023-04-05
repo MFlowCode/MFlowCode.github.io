@@ -1,7 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"namespacem__riemann__solvers.html#ad378748f280ab86bbad7bf59a442065d":[1,0,16,21],
-"namespacem__riemann__solvers.html#ad95d93ae3d68d0828e6c9b4a6bcbec57":[1,0,16,26],
 "namespacem__riemann__solvers.html#ae0577acd199c492ae838122a82f2d6da":[1,0,16,31],
 "namespacem__riemann__solvers.html#ae76c973ef8a15cba7e6994e598c89f95":[1,0,16,18],
 "namespacem__riemann__solvers.html#ae85c99b569bfee75f494018d24285249":[1,0,16,27],
