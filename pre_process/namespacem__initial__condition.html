@@ -138,6 +138,16 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:afef3f507e182798fcfd7aecc52878fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab66e3b04024a8ae7327857b1b265bc27"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__initial__condition.html#ab66e3b04024a8ae7327857b1b265bc27">s_perturb_surrounding_flow</a> ()</td></tr>
 <tr class="separator:ab66e3b04024a8ae7327857b1b265bc27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50f37d0c816501ebcd2908e17e7afde5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__initial__condition.html#a50f37d0c816501ebcd2908e17e7afde5">s_superposition_instability_wave</a> ()</td></tr>
+<tr class="memdesc:a50f37d0c816501ebcd2908e17e7afde5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes velocity perturbations for a temporal mixing <br  />
+ layer with hypertangent mean streamwise velocity profile obtained from linear stability analysis. For a 2D case, instability waves with spatial wavenumbers, (4,0), (2,0), and (1,0) are superposed. For a 3D waves, (4,4), (4,-4), (2,2), (2,-2), (1,1), (1,-1) areadded on top of 2D waves.  <br /></td></tr>
+<tr class="separator:a50f37d0c816501ebcd2908e17e7afde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ef3152e5d06fe9242edb0b09ae97951"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__initial__condition.html#a7ef3152e5d06fe9242edb0b09ae97951">s_instability_wave</a> (alpha, beta, tr, ti, wave, shift)</td></tr>
+<tr class="memdesc:a7ef3152e5d06fe9242edb0b09ae97951"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes instability waves for a given set of spatial wavenumbers (alpha, beta) in x and z directions. The eigenvalue problem is derived from the linearized Euler equations with parallel mean flow assumption (See Sandham 1989 PhD thesis for details).  <br /></td></tr>
+<tr class="separator:a7ef3152e5d06fe9242edb0b09ae97951"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ec73f4130ceb7893efddc863874e951"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__initial__condition.html#a5ec73f4130ceb7893efddc863874e951">s_generate_wave</a> (nl, wr, wi, zr, zi, alpha, beta, wave, shift)</td></tr>
+<tr class="memdesc:a5ec73f4130ceb7893efddc863874e951"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine generates an instability wave using the most unstable eigenvalue and corresponding eigenvector among the given set of eigenvalues and eigenvectors.  <br /></td></tr>
+<tr class="separator:a5ec73f4130ceb7893efddc863874e951"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a944c63abd61afab021ab664246f80495"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__initial__condition.html#a944c63abd61afab021ab664246f80495">s_finalize_initial_condition_module</a> ()</td></tr>
 <tr class="memdesc:a944c63abd61afab021ab664246f80495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
 <tr class="separator:a944c63abd61afab021ab664246f80495"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -199,6 +209,90 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a5ec73f4130ceb7893efddc863874e951" name="a5ec73f4130ceb7893efddc863874e951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ec73f4130ceb7893efddc863874e951">&#9670;&#160;</a></span>s_generate_wave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_initial_condition::s_generate_wave </td>
+          <td>(</td>
+          <td class="paramtype">integer&#160;</td>
+          <td class="paramname"><em>nl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:nl-1)&#160;</td>
+          <td class="paramname"><em>wr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:nl-1)&#160;</td>
+          <td class="paramname"><em>wi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:nl-1,0:nl-1)&#160;</td>
+          <td class="paramname"><em>zr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:nl-1,0:nl-1)&#160;</td>
+          <td class="paramname"><em>zi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0))&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0))&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(5,0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>,0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>,0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>)&#160;</td>
+          <td class="paramname"><em>wave</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0))&#160;</td>
+          <td class="paramname"><em>shift</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This subroutine generates an instability wave using the most unstable eigenvalue and corresponding eigenvector among the given set of eigenvalues and eigenvectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wi</td><td>eigenvalues </td></tr>
+    <tr><td class="paramname">zi</td><td>eigenvectors </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_a5ec73f4130ceb7893efddc863874e951_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a07a665ff41297455ac2da7b54243bac5" name="a07a665ff41297455ac2da7b54243bac5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a07a665ff41297455ac2da7b54243bac5">&#9670;&#160;</a></span>s_initialize_initial_condition_module()</h2>
 
@@ -216,6 +310,79 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_a07a665ff41297455ac2da7b54243bac5_icgraph.svg" width="276" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7ef3152e5d06fe9242edb0b09ae97951" name="a7ef3152e5d06fe9242edb0b09ae97951"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ef3152e5d06fe9242edb0b09ae97951">&#9670;&#160;</a></span>s_instability_wave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_initial_condition::s_instability_wave </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
+          <td class="paramname"><em>beta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0))&#160;</td>
+          <td class="paramname"><em>tr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0))&#160;</td>
+          <td class="paramname"><em>ti</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(5,0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>,0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>,0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>)&#160;</td>
+          <td class="paramname"><em>wave</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0))&#160;</td>
+          <td class="paramname"><em>shift</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This subroutine computes instability waves for a given set of spatial wavenumbers (alpha, beta) in x and z directions. The eigenvalue problem is derived from the linearized Euler equations with parallel mean flow assumption (See Sandham 1989 PhD thesis for details). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">beta</td><td>spatial wavenumbers </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ti</td><td>most unstable eigenvalue </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">wave</td><td>instability wave </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">shift</td><td>phase shift </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_a7ef3152e5d06fe9242edb0b09ae97951_cgraph.svg" width="356" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_a7ef3152e5d06fe9242edb0b09ae97951_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -254,6 +421,33 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_ab66e3b04024a8ae7327857b1b265bc27_icgraph.svg" width="534" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a50f37d0c816501ebcd2908e17e7afde5" name="a50f37d0c816501ebcd2908e17e7afde5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50f37d0c816501ebcd2908e17e7afde5">&#9670;&#160;</a></span>s_superposition_instability_wave()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_initial_condition::s_superposition_instability_wave</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This subroutine computes velocity perturbations for a temporal mixing <br  />
+ layer with hypertangent mean streamwise velocity profile obtained from linear stability analysis. For a 2D case, instability waves with spatial wavenumbers, (4,0), (2,0), and (1,0) are superposed. For a 3D waves, (4,4), (4,-4), (2,2), (2,-2), (1,1), (1,-1) areadded on top of 2D waves. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_a50f37d0c816501ebcd2908e17e7afde5_cgraph.svg" width="651" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__initial__condition_a50f37d0c816501ebcd2908e17e7afde5_icgraph.svg" width="571" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

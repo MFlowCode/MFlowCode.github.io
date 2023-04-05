@@ -162,8 +162,9 @@ Parameters</h1>
 <li>Formatted Database and Structure Parameters</li>
 <li>(Optional) Acoustic Source Parameters</li>
 <li>(Optional) Ensemble-Averaged Bubble Model Parameters</li>
+<li>(Optional) Velocity Field Setup Parameters</li>
 </ol>
-<p>Items 7 and 8 are optional sets of parameters that activate the acoustic source model and ensemble-averaged bubble model, respectively. Definition of the parameters is described in the following subsections.</p>
+<p>Items 7, 8, and 9 are optional sets of parameters that activate the acoustic source model, ensemble-averaged bubble model, and initial velocity field setup, respectively. Definition of the parameters is described in the following subsections.</p>
 <h2><a class="anchor" id="autotoc_md5"></a>
 1. Runtime</h2>
 <table class="markdownTable">
@@ -400,13 +401,13 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>parallel_io</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Parallel I/O    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>cons_vars_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write conservative variables |    </td></tr>
+<td class="markdownTableBodyRight"><code>cons_vars_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write conservative variables    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>prim_vars_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write primitive variables    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>fourier_decomp</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Apply a spatial Fourier decomposition to the output variables    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>alpha_rho_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the partial density of the fluid $i$ to the database |    </td></tr>
+<td class="markdownTableBodyRight"><code>alpha_rho_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the partial density of the fluid $i$ to the database    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>rho_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the mixture density to the database    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -424,7 +425,7 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>heat_ratio_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the specific heat ratio to the database    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>pi_inf_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database |    </td></tr>
+<td class="markdownTableBodyRight"><code>pi_inf_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>pres_inf_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the liquid stiffness to the formatted database    </td></tr>
 <tr class="markdownTableRowEven">
@@ -434,18 +435,20 @@ Parameters</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>schlieren_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the numerical schlieren to the database    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>qm_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>fd_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>schlieren_alpha(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <code>alpha(i)</code>    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>probe_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>num_probes</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of probes    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>com_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the center of mass of fluid $i$ to the database    </td></tr>
+<td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>com_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the center of mass of fluid $i$ to the database    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>cb_wrt(i)</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add coherent body data of fluid $i$ to the database   </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
@@ -549,9 +552,33 @@ Parameters</h1>
 <li><code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</li>
 <li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify the specific heat ratio, molecular weight, viscosity, and thermal conductivity of a chosen component. Implementation of the parameterse into the model follow <a href="references.md#Ando10">Ando (2010)</a>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="autotoc_md13"></a>
+9. Velocity Field Setup</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>perturb_flow</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initlal velocity field by random noise    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>perturb_sph</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initial partial density by random noise    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>perturb_sph_fluid</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Fluid component whose partial density to be perturbed    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>vel_profile</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Set the mean streamwise velocity to hyperbolic tangent profile    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>instability_wave</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initial velocity field by instability waves   </td></tr>
+</table>
+<p>The table lists velocity field parameters. The parameters are optionally used to define initial velocity profiles and perturbations.</p>
+<ul>
+<li><code>perturb_flow</code> activates the perturbation of initial velocity by random noise.</li>
+<li><code>perturb_sph</code> activates the perturbation of intial partial density by random noise.</li>
+<li><code>perturb_sph_fluid</code> specifies the fluid component whose the partial density to be perturbed.</li>
+<li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
+<li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with <code>vel_profile</code>=TRUE.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -582,7 +609,7 @@ Boundary conditions</h2>
 <td class="markdownTableBodyRight">-12   </td><td class="markdownTableBodyCenter">Characteristic   </td><td class="markdownTableBodyLeft">Supersonic outflow   </td></tr>
 </table>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="autotoc_md16"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -627,7 +654,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">19   </td><td class="markdownTableBodyCenter">3D Varcircle   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code>, <code>length_z</code>, <code>radius</code>, and <code>thickness</code>   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 Flux limiters</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -648,7 +675,7 @@ Flux limiters</h2>
 <td class="markdownTableBodyRight">7   </td><td class="markdownTableBodyLeft">van Leer   </td></tr>
 </table>
 <p>The flux limiters supported by the MFC are listed in table Flux Limiters. Each limiter can be specified by specifying the value of <code>flux_lim</code>. Details of their implementations can be found in <a href="references.md#Meng16">Meng (2016)</a>.</p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -667,7 +694,7 @@ Monopole supports</h2>
 <td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special souce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -693,7 +720,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

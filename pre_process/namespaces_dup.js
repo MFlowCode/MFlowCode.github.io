@@ -91,6 +91,7 @@ var namespaces_dup =
       [ "ierr", "namespacem__global__parameters.html#a46461347b5094736adfa94ef005b49a6", null ],
       [ "im_trans_c", "namespacem__global__parameters.html#aa93addd83f0134aaaf319ca2b743233c", null ],
       [ "im_trans_t", "namespacem__global__parameters.html#a62b213889b2dc5da7d81e7fa636231f6", null ],
+      [ "instability_wave", "namespacem__global__parameters.html#a15ec0672f2bbe2da77390113f75a98a4", null ],
       [ "internalenergies_idx", "namespacem__global__parameters.html#a9eb3789b90381530338a223c99cf1090", null ],
       [ "intxb", "namespacem__global__parameters.html#ace71c8ec227d7c6364893107bc131dae", null ],
       [ "intxe", "namespacem__global__parameters.html#af08928c5b9bde727869334ee7067e89c", null ],
@@ -170,6 +171,7 @@ var namespaces_dup =
       [ "thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
       [ "tw", "namespacem__global__parameters.html#aa77b0836fe22478b69e10e656ef7fcc2", null ],
       [ "v0", "namespacem__global__parameters.html#a334b440356a4353d073c43e68c2372da", null ],
+      [ "vel_profile", "namespacem__global__parameters.html#a52b51b6b1171aeff9a8f995050044661", null ],
       [ "web", "namespacem__global__parameters.html#af2ed21959a90158c2459574230cdfcff", null ],
       [ "weight", "namespacem__global__parameters.html#a121ed97f0ae913d37bce5bbf1c7b2cc2", null ],
       [ "weno_order", "namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa", null ],
@@ -193,9 +195,12 @@ var namespaces_dup =
     [ "m_initial_condition", "namespacem__initial__condition.html", [
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#a944c63abd61afab021ab664246f80495", null ],
       [ "s_generate_initial_condition", "namespacem__initial__condition.html#aa74a70029e3ec0fd3225b369e7c5443e", null ],
+      [ "s_generate_wave", "namespacem__initial__condition.html#a5ec73f4130ceb7893efddc863874e951", null ],
       [ "s_initialize_initial_condition_module", "namespacem__initial__condition.html#a07a665ff41297455ac2da7b54243bac5", null ],
+      [ "s_instability_wave", "namespacem__initial__condition.html#a7ef3152e5d06fe9242edb0b09ae97951", null ],
       [ "s_perturb_sphere", "namespacem__initial__condition.html#afef3f507e182798fcfd7aecc52878fc9", null ],
       [ "s_perturb_surrounding_flow", "namespacem__initial__condition.html#ab66e3b04024a8ae7327857b1b265bc27", null ],
+      [ "s_superposition_instability_wave", "namespacem__initial__condition.html#a50f37d0c816501ebcd2908e17e7afde5", null ],
       [ "patch_id_fp", "namespacem__initial__condition.html#a5d331c773a88029795462ae22c20d6c8", null ],
       [ "q_cons_vf", "namespacem__initial__condition.html#a1f42c68f3b3d167616d52b7cf7a7d56a", null ],
       [ "q_prim_vf", "namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ]
