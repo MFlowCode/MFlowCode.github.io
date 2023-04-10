@@ -119,11 +119,11 @@ $(document).ready(function(){initNavTree('md_testing.html',''); initResizable();
   <div class="headertitle"><div class="title">Testing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md47"></a> To run MFC's test suite, run </p><div class="fragment"><div class="line">$ ./mfc.sh test -j &lt;thread count&gt;</div>
+<div class="textblock"><p><a class="anchor" id="autotoc_md48"></a> To run MFC's test suite, run </p><div class="fragment"><div class="line">$ ./mfc.sh test -j &lt;thread count&gt;</div>
 </div><!-- fragment --><p>It will generate and run test cases, comparing their output to that of previous runs from versions of MFC considered to be accurate. <em>golden files</em>, stored in the <code>tests/</code> directory contain this data, by aggregating <code>.dat</code> files generated when running MFC. A test is considered passing when our error tolerances are met, in order to maintain a high level of stability and accuracy. Run <code>./mfc.sh test -h</code> for a full list of accepted arguments.</p>
 <p>Most notably, you can consult the full list of tests by running </p><div class="fragment"><div class="line">$ ./mfc.sh test -l</div>
 </div><!-- fragment --><p>To restrict to a given range, use the <code>--from</code> (<code>-f</code>) and <code>--to</code> (<code>-t</code>) options. To run a (non-contiguous) subset of tests, use the <code>--only</code> (<code>-o</code>) option instead.</p>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Creating Tests</h2>
 <p>To (re)generate <em>golden files</em>, append the <code>-g</code> (i.e <code>--generate</code>) option: </p><div class="fragment"><div class="line">$ ./mfc.sh test -g -j 8</div>
 </div><!-- fragment --><p>It is recommended that a range be specified when generating golden files for new test cases, as described in the previous section, in an effort not to regenerate the golden files of existing test cases.</p>
@@ -166,7 +166,7 @@ Creating Tests</h2>
 </ul>
 <p>If a trace is empty (that is, the empty string <code>""</code>), it will not appear in the final trace, but any case parameter variations associated with it will still be applied.</p>
 <p>Finally, the case is appended to the <code>cases</code> list, which will be returned by the <code>generate_cases</code> function.</p>
-<h2><a class="anchor" id="autotoc_md49"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Testing Post Process</h2>
 <p>To test updated post process code, append the <code>-a</code> or <code>--test-all</code> option: </p><div class="fragment"><div class="line">$ ./mfc.sh test -a -j 8</div>
 </div><!-- fragment --><p>This argument will re-run the test stack with <code>parallel_io=True</code>, which generates silo_hdf5 files. It will also turn most write parameters (<code>*_wrt</code>) on. Then, it searches through the silo files using <code>h5dump</code> to ensure that there are no NaNs or Infinitys. Although adding this option does not guarantee that accurate silo files are generated, it does ensure that post process does not fail or produce malformed data. </p>
