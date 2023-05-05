@@ -2,6 +2,7 @@ var m__check__patches_8fpp_8f90 =
 [
     [ "s_check_1d_analytical_patch_geometry", "m__check__patches_8fpp_8f90.html#a4d14e04de7d9344029130ab09571fdb9", null ],
     [ "s_check_2d_analytical_patch_geometry", "m__check__patches_8fpp_8f90.html#a41e469c1773e6b92e16b2e3b3558c0ed", null ],
+    [ "s_check_2d_taylorgreen_vortex_patch_geometry", "m__check__patches_8fpp_8f90.html#a5d383a1b6d22d83b4d85e0efaa0de52a", null ],
     [ "s_check_3d_analytical_patch_geometry", "m__check__patches_8fpp_8f90.html#a5643fb88910457783efdc7be07c2096c", null ],
     [ "s_check_active_patch_alteration_rights", "m__check__patches_8fpp_8f90.html#ac652a2c373fea30afb587a3a8f28e4c9", null ],
     [ "s_check_active_patch_primitive_variables", "m__check__patches_8fpp_8f90.html#a7286a74b75fa2f5e046638056a85665e", null ],

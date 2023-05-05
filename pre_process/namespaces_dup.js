@@ -4,6 +4,7 @@ var namespaces_dup =
     [ "m_check_patches", "namespacem__check__patches.html", [
       [ "s_check_1d_analytical_patch_geometry", "namespacem__check__patches.html#a4d14e04de7d9344029130ab09571fdb9", null ],
       [ "s_check_2d_analytical_patch_geometry", "namespacem__check__patches.html#a41e469c1773e6b92e16b2e3b3558c0ed", null ],
+      [ "s_check_2d_taylorgreen_vortex_patch_geometry", "namespacem__check__patches.html#a5d383a1b6d22d83b4d85e0efaa0de52a", null ],
       [ "s_check_3d_analytical_patch_geometry", "namespacem__check__patches.html#a5643fb88910457783efdc7be07c2096c", null ],
       [ "s_check_active_patch_alteration_rights", "namespacem__check__patches.html#ac652a2c373fea30afb587a3a8f28e4c9", null ],
       [ "s_check_active_patch_primitive_variables", "namespacem__check__patches.html#a7286a74b75fa2f5e046638056a85665e", null ],
@@ -231,6 +232,7 @@ var namespaces_dup =
       [ "s_1d_analytical", "namespacem__patches.html#a049be436d0c118c61d37c22c1a66d52a", null ],
       [ "s_1d_bubble_pulse", "namespacem__patches.html#a7bbae345a3fa4e777ccbd05dbb78335a", null ],
       [ "s_2d_analytical", "namespacem__patches.html#a2e69c0fc458162bde0a907b2fbf51cd5", null ],
+      [ "s_2d_taylorgreen_vortex", "namespacem__patches.html#a55e4bc25766e757c116eaf82d1eb6531", null ],
       [ "s_3d_analytical", "namespacem__patches.html#a236fcbc415c46b059d1a864254f03749", null ],
       [ "s_3dvarcircle", "namespacem__patches.html#a9953de1edc7ab7b0eb574e7ac33f5156", null ],
       [ "s_circle", "namespacem__patches.html#a99bd27a782f64ea9785aedbe33e2eecb", null ],

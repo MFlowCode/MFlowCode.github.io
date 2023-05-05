@@ -4,6 +4,7 @@ var m__patches_8f90 =
     [ "s_1d_analytical", "m__patches_8f90.html#a049be436d0c118c61d37c22c1a66d52a", null ],
     [ "s_1d_bubble_pulse", "m__patches_8f90.html#a7bbae345a3fa4e777ccbd05dbb78335a", null ],
     [ "s_2d_analytical", "m__patches_8f90.html#a2e69c0fc458162bde0a907b2fbf51cd5", null ],
+    [ "s_2d_taylorgreen_vortex", "m__patches_8f90.html#a55e4bc25766e757c116eaf82d1eb6531", null ],
     [ "s_3d_analytical", "m__patches_8f90.html#a236fcbc415c46b059d1a864254f03749", null ],
     [ "s_3dvarcircle", "m__patches_8f90.html#a9953de1edc7ab7b0eb574e7ac33f5156", null ],
     [ "s_circle", "m__patches_8f90.html#a99bd27a782f64ea9785aedbe33e2eecb", null ],
