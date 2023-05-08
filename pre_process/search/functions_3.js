@@ -49,7 +49,7 @@ var searchData=
   ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_46',['s_convert_species_to_mixture_variables',['../namespacem__variables__conversion.html#a95ca46151b4f53187280645d71755bfa',1,'m_variables_conversion']]],
   ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5facc_47',['s_convert_species_to_mixture_variables_acc',['../namespacem__variables__conversion.html#a0e52444cc72f2fd0ea3a6d3543cfa32e',1,'m_variables_conversion']]],
   ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5fbubbles_48',['s_convert_species_to_mixture_variables_bubbles',['../namespacem__variables__conversion.html#ab3775ce10728f71d6da205e34cf50b77',1,'m_variables_conversion']]],
-  ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5fbubbles_5facc_49',['s_convert_species_to_mixture_variables_bubbles_acc',['../namespacem__variables__conversion.html#a915eb0e3917fc09375124cf3df2c6df6',1,'m_variables_conversion']]],
+  ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5fbubbles_5facc_49',['s_convert_species_to_mixture_variables_bubbles_acc',['../namespacem__variables__conversion.html#a8c5b7c732af2020216749229776452c3',1,'m_variables_conversion']]],
   ['s_5fconvert_5fxxxxx_5fto_5fmixture_5fvariables_50',['s_convert_xxxxx_to_mixture_variables',['../interfacem__variables__conversion_1_1s__convert__xxxxx__to__mixture__variables.html#ae1d26d96a79f87ca00e2392503369a7f',1,'m_variables_conversion::s_convert_xxxxx_to_mixture_variables']]],
   ['s_5fcuboid_51',['s_cuboid',['../namespacem__patches.html#a66aced9da5e4fde4d5c92b2283f8cccd',1,'m_patches']]],
   ['s_5fcylinder_52',['s_cylinder',['../namespacem__patches.html#ac9e356d1f9db7bcd0f98095a8cf503a7',1,'m_patches']]],
