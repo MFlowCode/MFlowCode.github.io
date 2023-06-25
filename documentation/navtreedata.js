@@ -29,7 +29,7 @@ var NAVTREE =
     [ "Authors", "md_authors.html", null ],
     [ "Case Files", "md_case.html", [
       [ "Basic Skeleton", "md_case.html#autotoc_md2", null ],
-      [ "(Optional) Accepting command line arguments (from <tt>mfc.sh run</tt>)", "md_case.html#autotoc_md3", null ],
+      [ "(Optional) Accepting command line arguments", "md_case.html#autotoc_md3", null ],
       [ "Parameters", "md_case.html#autotoc_md4", [
         [ "1. Runtime", "md_case.html#autotoc_md5", null ],
         [ "2. Computational Domain", "md_case.html#autotoc_md6", null ],

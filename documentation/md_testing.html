@@ -42,6 +42,7 @@ MathJax.Hub.Config({
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -125,8 +126,9 @@ $(document).ready(function(){initNavTree('md_testing.html',''); initResizable();
 </div><!-- fragment --><p>To restrict to a given range, use the <code>--from</code> (<code>-f</code>) and <code>--to</code> (<code>-t</code>) options. To run a (non-contiguous) subset of tests, use the <code>--only</code> (<code>-o</code>) option instead.</p>
 <h2><a class="anchor" id="autotoc_md49"></a>
 Creating Tests</h2>
-<p>To (re)generate <em>golden files</em>, append the <code>-g</code> (i.e <code>--generate</code>) option: </p><div class="fragment"><div class="line">$ ./mfc.sh test -g -j 8</div>
+<p>To (re)generate <em>golden files</em>, append the <code>--generate</code> option: </p><div class="fragment"><div class="line">$ ./mfc.sh test --generate -j 8</div>
 </div><!-- fragment --><p>It is recommended that a range be specified when generating golden files for new test cases, as described in the previous section, in an effort not to regenerate the golden files of existing test cases.</p>
+<p><b>Note:</b> If you output new variables and want to update the golden files to include these without modifying the original data, use the <code>--add-new-variables</code> option instead.</p>
 <p>Adding a new test case can be done by modifying <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/mfc/test/cases.py">cases.py</a>. The function <code>generate_cases</code> is responsible for generating the list of test cases. Loops and conditionals are used to vary parameters, whose defaults can be found in the <code>BASE_CFG</code> case object within <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/mfc/test/case.py">case.py</a>. The function operates on two variables:</p>
 <ul>
 <li><code>stack</code>: A stack that holds the variations to the default case parameters. By pushing and popping the stack inside loops and conditionals, it is easier to nest test case descriptions, as it holds the variations that are common to all future test cases within the same indentation level (in most scenarios).</li>

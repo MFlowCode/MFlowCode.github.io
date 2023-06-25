@@ -42,6 +42,7 @@ MathJax.Hub.Config({
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -136,7 +137,7 @@ Basic Skeleton</h1>
 <div class="fragment"><div class="line">$ python3 my_case_file.py</div>
 </div><!-- fragment --><p>This is particularly useful when computations are done in Python to generate the case.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
-(Optional) Accepting command line arguments (from &lt;tt&gt;mfc.sh run&lt;/tt&gt;)</h1>
+(Optional) Accepting command line arguments</h1>
 <p>Input files can accept <b>positional</b> command line arguments, forwarded by <code>mfc.sh run</code>. Consider this example from the 3D_weak_scaling case:</p>
 <div class="fragment"><div class="line"><span class="keyword">import</span> argparse</div>
 <div class="line"> </div>
@@ -151,7 +152,11 @@ Basic Skeleton</h1>
 <div class="line"><span class="comment"># Your parsed arguments are here</span></div>
 <div class="line">ARGS = vars(parser.parse_args())</div>
 </div><!-- fragment --><p>The first argument is always a JSON string representing <code>mfc.sh run</code>'s internal state. It contains all the runtime information you might want from the build/run system. We hide it from the help menu with <code>help=argparse.SUPPRESS</code> since it is not meant to be passed in by users. You can add as many additional positional arguments as you may need.</p>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<p>To run such a case, use the following format:</p>
+<div class="fragment"><div class="line">./mfc.sh run &lt;path/to/case.py&gt; &lt;positional arguments&gt; &lt;regular mfc.sh run arguments&gt;</div>
+</div><!-- fragment --><p>For example, to run the 3D_weak_scaling case with <code>gbpp=2</code>:</p>
+<div class="fragment"><div class="line">./mfc.sh run examples/3D_weak_scaling/case.py 2 -t pre_process -j 8</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Parameters</h1>
 <p>There are multiple sets of parameters that must be specified in the python input file:</p><ol type="1">
 <li>Runtime Parameters</li>
