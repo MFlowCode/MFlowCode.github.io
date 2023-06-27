@@ -23,7 +23,7 @@ var searchData=
   ['m_5fmpi_5fproxy_20',['m_mpi_proxy',['../namespacem__mpi__proxy.html',1,'']]],
   ['m_5fmpi_5fproxy_2efpp_2ef90_21',['m_mpi_proxy.fpp.f90',['../m__mpi__proxy_8fpp_8f90.html',1,'']]],
   ['m_5fpatches_22',['m_patches',['../namespacem__patches.html',1,'']]],
-  ['m_5fpatches_2ef90_23',['m_patches.f90',['../m__patches_8f90.html',1,'']]],
+  ['m_5fpatches_2efpp_2ef90_23',['m_patches.fpp.f90',['../m__patches_8fpp_8f90.html',1,'']]],
   ['m_5fstart_5fup_24',['m_start_up',['../namespacem__start__up.html',1,'']]],
   ['m_5fstart_5fup_2efpp_2ef90_25',['m_start_up.fpp.f90',['../m__start__up_8fpp_8f90.html',1,'']]],
   ['m_5fvariables_5fconversion_26',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]],
