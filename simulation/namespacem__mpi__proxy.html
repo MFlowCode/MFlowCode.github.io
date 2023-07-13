@@ -141,9 +141,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac348cb6f02f2a9ab70d5c7eac6320231"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#ac348cb6f02f2a9ab70d5c7eac6320231">s_mpi_sendrecv_grid_variables_buffers</a> (mpi_dir, pbc_loc)</td></tr>
 <tr class="memdesc:ac348cb6f02f2a9ab70d5c7eac6320231"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions.  <br /></td></tr>
 <tr class="separator:ac348cb6f02f2a9ab70d5c7eac6320231"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9015d32f3d27c21a75e8a916e5090b96"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a9015d32f3d27c21a75e8a916e5090b96">s_mpi_sendrecv_conservative_variables_buffers</a> (q_cons_vf, mpi_dir, pbc_loc)</td></tr>
-<tr class="memdesc:a9015d32f3d27c21a75e8a916e5090b96"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
-<tr class="separator:a9015d32f3d27c21a75e8a916e5090b96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae350c552385f74c16e5179d163eb2a64"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#ae350c552385f74c16e5179d163eb2a64">s_mpi_sendrecv_conservative_variables_buffers</a> (q_cons_vf, pb, mv, mpi_dir, pbc_loc)</td></tr>
+<tr class="memdesc:ae350c552385f74c16e5179d163eb2a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
+<tr class="separator:ae350c552385f74c16e5179d163eb2a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac984c84fe4140876d6600250af9807da"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#ac984c84fe4140876d6600250af9807da">s_finalize_mpi_proxy_module</a> ()</td></tr>
 <tr class="memdesc:ac984c84fe4140876d6600250af9807da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 <tr class="separator:ac984c84fe4140876d6600250af9807da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -161,6 +161,8 @@ Variables</h2></td></tr>
 <tr class="separator:ae5709407e3600d19d79b183e409bb982"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306ba163b09cfc692125f2c0ba82ef8c"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c">ierr</a></td></tr>
 <tr class="separator:a306ba163b09cfc692125f2c0ba82ef8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4642e60e390e98384e597f5445021431"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a4642e60e390e98384e597f5445021431">v_size</a></td></tr>
+<tr class="separator:a4642e60e390e98384e597f5445021431"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The module serves as a proxy to the parameters and subroutines available in the MPI implementation's MPI module. Specifically, the purpose of the proxy is to harness basic MPI commands into more complicated procedures as to accomplish the communication goals for the simulation. </p>
@@ -249,8 +251,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9015d32f3d27c21a75e8a916e5090b96" name="a9015d32f3d27c21a75e8a916e5090b96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9015d32f3d27c21a75e8a916e5090b96">&#9670;&#160;</a></span>s_mpi_sendrecv_conservative_variables_buffers()</h2>
+<a id="ae350c552385f74c16e5179d163eb2a64" name="ae350c552385f74c16e5179d163eb2a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae350c552385f74c16e5179d163eb2a64">&#9670;&#160;</a></span>s_mpi_sendrecv_conservative_variables_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,6 +262,18 @@ Here is the caller graph for this function:</div>
           <td>(</td>
           <td class="paramtype">type(scalar_field), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)&#160;</td>
           <td class="paramname"><em>q_cons_vf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>pb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>mv</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -425,6 +439,28 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>This variable is utilized to pack and send the buffer of the cell-average conservative variables, for a single computational domain boundary at the time, to the relevant neighboring processor. </p>
+
+</div>
+</div>
+<a id="a4642e60e390e98384e597f5445021431" name="a4642e60e390e98384e597f5445021431"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4642e60e390e98384e597f5445021431">&#9670;&#160;</a></span>v_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, private m_mpi_proxy::v_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

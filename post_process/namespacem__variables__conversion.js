@@ -11,6 +11,8 @@ var namespacem__variables__conversion =
     [ "s_convert_species_to_mixture_variables_bubbles", "namespacem__variables__conversion.html#ab3775ce10728f71d6da205e34cf50b77", null ],
     [ "s_convert_species_to_mixture_variables_bubbles_acc", "namespacem__variables__conversion.html#a8c5b7c732af2020216749229776452c3", null ],
     [ "s_finalize_variables_conversion_module", "namespacem__variables__conversion.html#a6a3f90e69ef4dea304495d0f7c068de2", null ],
+    [ "s_initialize_mv", "namespacem__variables__conversion.html#a55f61a59d5d979886829dab99e00b4e8", null ],
+    [ "s_initialize_pb", "namespacem__variables__conversion.html#a572d64fd75d1710f3dbce61d9b6e6c0d", null ],
     [ "s_initialize_variables_conversion_module", "namespacem__variables__conversion.html#ac006af9a5403b2fdad7f81ce0a67ecec", null ],
     [ "bubrs", "namespacem__variables__conversion.html#adf365a7d842572eb657e0f9082081716", null ],
     [ "gamma_sf", "namespacem__variables__conversion.html#a0043b018970eb4da381b5f9f0c1a1f53", null ],

@@ -10,5 +10,7 @@ var m__time__steppers_8fpp_8f90 =
     [ "q_cons_ts", "m__time__steppers_8fpp_8f90.html#a4bbe3aedc07e11e85679ec0c7a094f37", null ],
     [ "q_prim_ts", "m__time__steppers_8fpp_8f90.html#a5fbb5dbdd477579d17f067ec7900e659", null ],
     [ "q_prim_vf", "m__time__steppers_8fpp_8f90.html#a72d421d80bf4592428f20416cc2047f5", null ],
+    [ "rhs_mv", "m__time__steppers_8fpp_8f90.html#a990746c9f8251248cdce1eee711aba44", null ],
+    [ "rhs_pb", "m__time__steppers_8fpp_8f90.html#a01bc5229215090c1245b3efddff133ac", null ],
     [ "rhs_vf", "m__time__steppers_8fpp_8f90.html#a3d0867c3c2572c712d2aed6d677e6fc2", null ]
 ];

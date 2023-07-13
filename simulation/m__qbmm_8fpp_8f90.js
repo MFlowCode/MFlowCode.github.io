@@ -1,12 +1,13 @@
 var m__qbmm_8fpp_8f90 =
 [
-    [ "f_quad", "m__qbmm_8fpp_8f90.html#ad6cef7c87a7d6d9a57a05ffd8329261c", null ],
-    [ "f_quad2d", "m__qbmm_8fpp_8f90.html#a68d3cfeeb869a9183bd3105db5bea82b", null ],
+    [ "f_quad", "m__qbmm_8fpp_8f90.html#aa582cc44323730e6f94430c06f9f9e66", null ],
+    [ "f_quad2d", "m__qbmm_8fpp_8f90.html#ae651cf4a8036d64be13cf2c5f77b0807", null ],
     [ "s_chyqmom", "m__qbmm_8fpp_8f90.html#aa79c3153d25df68db23cb43379ec1668", null ],
     [ "s_coeff", "m__qbmm_8fpp_8f90.html#ad9cdf4bbd8165d785faec51d38d14e82", null ],
+    [ "s_coeff_nonpoly", "m__qbmm_8fpp_8f90.html#a5e0072c74b73c5cb22a0cc0407ff6acc", null ],
     [ "s_hyqmom", "m__qbmm_8fpp_8f90.html#a879ca427353c45ca833d0ecb8a13f05b", null ],
     [ "s_initialize_qbmm_module", "m__qbmm_8fpp_8f90.html#a4b580ad6ca42c2170fcdf83e3a0125ba", null ],
-    [ "s_mom_inv", "m__qbmm_8fpp_8f90.html#affffbc4f091ccdb5017959a81391196d", null ],
+    [ "s_mom_inv", "m__qbmm_8fpp_8f90.html#a7042c6dee702d02f8dc28ee07b2bf6fc", null ],
     [ "bubmoms", "m__qbmm_8fpp_8f90.html#abdb53e9258e120cf455cb1c3b2b79cd8", null ],
     [ "bubrs", "m__qbmm_8fpp_8f90.html#a0e66c06bf27961c50cd0292f7aaea345", null ],
     [ "is1", "m__qbmm_8fpp_8f90.html#a1cad9613f25172ba230180cdd72c9047", null ],

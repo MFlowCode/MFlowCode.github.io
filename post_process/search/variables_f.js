@@ -8,5 +8,6 @@ var searchData=
   ['q_5froot_5fsf_5fs_5',['q_root_sf_s',['../namespacem__data__output.html#a820257cb20e0d646df65524ef3d80ebb',1,'m_data_output']]],
   ['q_5fsf_6',['q_sf',['../namespacem__data__output.html#aba7b421fd9e4c371bed8f60c64b41363',1,'m_data_output']]],
   ['q_5fsf_5fs_7',['q_sf_s',['../namespacem__data__output.html#ac6b32c55ef6d3be1e08e9b9b9e2b162c',1,'m_data_output']]],
-  ['qm_5fwrt_8',['qm_wrt',['../namespacem__global__parameters.html#aeb332a499ed778d200d1caa2abe19782',1,'m_global_parameters']]]
+  ['qbmm_8',['qbmm',['../namespacem__global__parameters.html#a9648048cbecc834252ec7e0c259b1111',1,'m_global_parameters']]],
+  ['qm_5fwrt_9',['qm_wrt',['../namespacem__global__parameters.html#aeb332a499ed778d200d1caa2abe19782',1,'m_global_parameters']]]
 ];

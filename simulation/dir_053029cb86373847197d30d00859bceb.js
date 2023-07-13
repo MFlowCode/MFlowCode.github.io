@@ -8,6 +8,7 @@ var dir_053029cb86373847197d30d00859bceb =
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
     [ "m_fftw.fpp.f90", "m__fftw_8fpp_8f90.html", "m__fftw_8fpp_8f90" ],
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
+    [ "m_helper.fpp.f90", "m__helper_8fpp_8f90.html", "m__helper_8fpp_8f90" ],
     [ "m_hypoelastic.fpp.f90", "m__hypoelastic_8fpp_8f90.html", "m__hypoelastic_8fpp_8f90" ],
     [ "m_monopole.fpp.f90", "m__monopole_8fpp_8f90.html", "m__monopole_8fpp_8f90" ],
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],

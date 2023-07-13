@@ -132,8 +132,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ae6f7edb814859919c5d1f739574155bd"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#ae6f7edb814859919c5d1f739574155bd">s_initialize_rhs_module</a> ()</td></tr>
 <tr class="memdesc:ae6f7edb814859919c5d1f739574155bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
 <tr class="separator:ae6f7edb814859919c5d1f739574155bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a361f0038973069452cc88430c49bcfe8"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a361f0038973069452cc88430c49bcfe8">s_compute_rhs</a> (q_cons_vf, q_prim_vf, rhs_vf, <a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>)</td></tr>
-<tr class="separator:a361f0038973069452cc88430c49bcfe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a314c030bcc6d40c0b39fbdc9a7a5080e"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a314c030bcc6d40c0b39fbdc9a7a5080e">s_compute_rhs</a> (q_cons_vf, q_prim_vf, rhs_vf, pb, rhs_pb, mv, rhs_mv, <a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>)</td></tr>
+<tr class="separator:a314c030bcc6d40c0b39fbdc9a7a5080e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Relaxed pressure, initial partial pressures, function f(p) and its partial</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -143,9 +143,9 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 </div></td></tr>
-<tr class="memitem:a2647dbdf6b09315564ef060e1f49df0d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a2647dbdf6b09315564ef060e1f49df0d">s_populate_conservative_variables_buffers</a> ()</td></tr>
-<tr class="memdesc:a2647dbdf6b09315564ef060e1f49df0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to populate the buffers of the conservative variables, depending on the selected boundary conditions.  <br /></td></tr>
-<tr class="separator:a2647dbdf6b09315564ef060e1f49df0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99f6f40d88dccc5c5f998ccd48bd8289"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a99f6f40d88dccc5c5f998ccd48bd8289">s_populate_conservative_variables_buffers</a> (pb, mv)</td></tr>
+<tr class="memdesc:a99f6f40d88dccc5c5f998ccd48bd8289"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to populate the buffers of the conservative variables, depending on the selected boundary conditions.  <br /></td></tr>
+<tr class="separator:a99f6f40d88dccc5c5f998ccd48bd8289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__rhs.html#a48c0b3313ccec916c5cb2652f8cad5b0">s_reconstruct_cell_boundary_values</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
 <tr class="memdesc:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables.  <br /></td></tr>
 <tr class="separator:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -303,8 +303,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The module contains the subroutines used to calculate the right- hand-side (RHS) in the quasi-conservative, shock- and interface- capturing finite-volume framework for the multicomponent Navier- Stokes equations supplemented by appropriate advection equations used to capture the material interfaces. The system of equations is closed by the stiffened gas equation of state, as well as any required mixture relationships. Capillarity effects are included and are modeled by the means of a volume force acting across the diffuse material interface region. The implementation details of surface tension may be found in Perigaud and Saurel (2005). Note that both viscous and surface tension effects are only available in the volume fraction model. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a361f0038973069452cc88430c49bcfe8" name="a361f0038973069452cc88430c49bcfe8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a361f0038973069452cc88430c49bcfe8">&#9670;&#160;</a></span>s_compute_rhs()</h2>
+<a id="a314c030bcc6d40c0b39fbdc9a7a5080e" name="a314c030bcc6d40c0b39fbdc9a7a5080e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a314c030bcc6d40c0b39fbdc9a7a5080e">&#9670;&#160;</a></span>s_compute_rhs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,6 +330,30 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>pb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>rhs_pb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>mv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>rhs_mv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">integer, intent(in)&#160;</td>
           <td class="paramname"><em>t_step</em>&#160;</td>
         </tr>
@@ -343,7 +367,7 @@ Variables</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a361f0038973069452cc88430c49bcfe8_cgraph.svg" width="459" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a314c030bcc6d40c0b39fbdc9a7a5080e_cgraph.svg" width="459" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -390,14 +414,28 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2647dbdf6b09315564ef060e1f49df0d" name="a2647dbdf6b09315564ef060e1f49df0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2647dbdf6b09315564ef060e1f49df0d">&#9670;&#160;</a></span>s_populate_conservative_variables_buffers()</h2>
+<a id="a99f6f40d88dccc5c5f998ccd48bd8289" name="a99f6f40d88dccc5c5f998ccd48bd8289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99f6f40d88dccc5c5f998ccd48bd8289">&#9670;&#160;</a></span>s_populate_conservative_variables_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine m_rhs::s_populate_conservative_variables_buffers</td>
+          <td class="memname">subroutine m_rhs::s_populate_conservative_variables_buffers </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>pb</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>mv</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -406,7 +444,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a2647dbdf6b09315564ef060e1f49df0d_icgraph.svg" width="459" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__rhs_a99f6f40d88dccc5c5f998ccd48bd8289_icgraph.svg" width="459" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

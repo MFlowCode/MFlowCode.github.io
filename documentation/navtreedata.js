@@ -67,15 +67,15 @@ var NAVTREE =
       [ "Attribution", "md_CODE__OF__CONDUCT.html#autotoc_md33", null ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md35", [
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md35", [
         [ "Initial Condition", "md_examples.html#autotoc_md36", null ],
         [ "Result", "md_examples.html#autotoc_md37", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md38", null ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md39", [
-        [ "Initial Condition", "md_examples.html#autotoc_md40", null ],
-        [ "Result", "md_examples.html#autotoc_md41", null ]
-      ] ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md38", [
+        [ "Initial Condition", "md_examples.html#autotoc_md39", null ],
+        [ "Result", "md_examples.html#autotoc_md40", null ]
+      ] ],
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md41", null ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
       [ "Fetching MFC", "md_getting-started.html#autotoc_md43", null ],

@@ -11,6 +11,8 @@ var m__variables__conversion_8fpp_8f90 =
     [ "s_convert_species_to_mixture_variables_bubbles", "m__variables__conversion_8fpp_8f90.html#ab3775ce10728f71d6da205e34cf50b77", null ],
     [ "s_convert_species_to_mixture_variables_bubbles_acc", "m__variables__conversion_8fpp_8f90.html#a8c5b7c732af2020216749229776452c3", null ],
     [ "s_finalize_variables_conversion_module", "m__variables__conversion_8fpp_8f90.html#a6a3f90e69ef4dea304495d0f7c068de2", null ],
+    [ "s_initialize_mv", "m__variables__conversion_8fpp_8f90.html#a55f61a59d5d979886829dab99e00b4e8", null ],
+    [ "s_initialize_pb", "m__variables__conversion_8fpp_8f90.html#a572d64fd75d1710f3dbce61d9b6e6c0d", null ],
     [ "s_initialize_variables_conversion_module", "m__variables__conversion_8fpp_8f90.html#ac006af9a5403b2fdad7f81ce0a67ecec", null ],
     [ "bubrs", "m__variables__conversion_8fpp_8f90.html#adf365a7d842572eb657e0f9082081716", null ],
     [ "gamma_sf", "m__variables__conversion_8fpp_8f90.html#a0043b018970eb4da381b5f9f0c1a1f53", null ],

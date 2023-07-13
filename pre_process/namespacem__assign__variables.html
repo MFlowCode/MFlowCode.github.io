@@ -138,11 +138,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa06360954af8af6e857e009116101f20"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__assign__variables.html#aa06360954af8af6e857e009116101f20">s_assign_patch_mixture_primitive_variables</a> (patch_id, j, k, l, eta, q_prim_vf, patch_id_fp)</td></tr>
 <tr class="memdesc:aa06360954af8af6e857e009116101f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine assigns the mixture primitive variables of the patch designated by the patch_id, to the cell that is designated by the indexes (j,k,l). In addition, the variable bookkeeping the patch identities in the entire domain is updated with the new assignment. Note that if the smoothing of the patch's boundaries is employed, the ensuing primitive variables in the cell will be a type of combination of the current patch's primitive variables with those of the smoothing patch. The specific details of the combination may be found in Shyue's work (1998).  <br /></td></tr>
 <tr class="separator:aa06360954af8af6e857e009116101f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae01fbd01b77fe466d70676b831498e5f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__assign__variables.html#ae01fbd01b77fe466d70676b831498e5f">s_assign_patch_species_primitive_variables_bubbles</a> (patch_id, j, k, l, eta, q_prim_vf, patch_id_fp)</td></tr>
-<tr class="memdesc:ae01fbd01b77fe466d70676b831498e5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine assigns the species primitive variables. This follows s_assign_patch_species_primitive_variables with adaptation for ensemble-averaged bubble modeling.  <br /></td></tr>
-<tr class="separator:ae01fbd01b77fe466d70676b831498e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfa73df32d8651fa69de79ec3426a6f1"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__assign__variables.html#adfa73df32d8651fa69de79ec3426a6f1">s_perturb_primitive</a> (j, k, l, q_prim_vf)</td></tr>
+<tr class="separator:adfa73df32d8651fa69de79ec3426a6f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acea8669db4dc8eb166849ab1f9683223"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__assign__variables.html#acea8669db4dc8eb166849ab1f9683223">s_assign_patch_species_primitive_variables</a> (patch_id, j, k, l, eta, q_prim_vf, patch_id_fp)</td></tr>
-<tr class="memdesc:acea8669db4dc8eb166849ab1f9683223"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine assigns the species primitive variables of the patch designated by the patch_id, to the cell that is designated by the indexes (j,k,l). In addition, the variable bookkeeping the patch identities in the entire domain is updated with the new assignment. Note that if the smoothing of the patch's boundaries is employed, the ensuing primitive variables in the cell will be a type of combination of the current patch's primitive variables with those of the smoothing patch. The specific details of the combination may be found in Shyue's work (1998).  <br /></td></tr>
+<tr class="memdesc:acea8669db4dc8eb166849ab1f9683223"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine assigns the species primitive variables. This follows s_assign_patch_species_primitive_variables with adaptation for ensemble-averaged bubble modeling.  <br /></td></tr>
 <tr class="separator:acea8669db4dc8eb166849ab1f9683223"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ac5909103b06b46099506b517f43c5f"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__assign__variables.html#a0ac5909103b06b46099506b517f43c5f">s_finialize_assign_variables_module</a></td></tr>
 <tr class="separator:a0ac5909103b06b46099506b517f43c5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -285,85 +284,6 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine assigns the species primitive variables of the patch designated by the patch_id, to the cell that is designated by the indexes (j,k,l). In addition, the variable bookkeeping the patch identities in the entire domain is updated with the new assignment. Note that if the smoothing of the patch's boundaries is employed, the ensuing primitive variables in the cell will be a type of combination of the current patch's primitive variables with those of the smoothing patch. The specific details of the combination may be found in Shyue's work (1998). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">patch_id</td><td>the patch identifier </td></tr>
-    <tr><td class="paramname">j</td><td>the x-dir node index </td></tr>
-    <tr><td class="paramname">k</td><td>the y-dir node index </td></tr>
-    <tr><td class="paramname">l</td><td>the z-dir node index </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_acea8669db4dc8eb166849ab1f9683223_cgraph.svg" width="424" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_acea8669db4dc8eb166849ab1f9683223_icgraph.svg" width="100%" height="409"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ae01fbd01b77fe466d70676b831498e5f" name="ae01fbd01b77fe466d70676b831498e5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae01fbd01b77fe466d70676b831498e5f">&#9670;&#160;</a></span>s_assign_patch_species_primitive_variables_bubbles()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_assign_variables::s_assign_patch_species_primitive_variables_bubbles </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>patch_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0))&#160;</td>
-          <td class="paramname"><em>eta</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(scalar_field), dimension(1:<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>)&#160;</td>
-          <td class="paramname"><em>q_prim_vf</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>patch_id_fp</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 <p>This subroutine assigns the species primitive variables. This follows s_assign_patch_species_primitive_variables with adaptation for ensemble-averaged bubble modeling. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -377,7 +297,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_ae01fbd01b77fe466d70676b831498e5f_icgraph.svg" width="100%" height="409"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_acea8669db4dc8eb166849ab1f9683223_icgraph.svg" width="100%" height="409"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -415,13 +335,53 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_ae31ee924c1ac66d05a215ec59656a9e0_cgraph.svg" width="651" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_ae31ee924c1ac66d05a215ec59656a9e0_cgraph.svg" width="396" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__assign__variables_ae31ee924c1ac66d05a215ec59656a9e0_icgraph.svg" width="444" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="adfa73df32d8651fa69de79ec3426a6f1" name="adfa73df32d8651fa69de79ec3426a6f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa73df32d8651fa69de79ec3426a6f1">&#9670;&#160;</a></span>s_perturb_primitive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_assign_variables::s_perturb_primitive </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>j</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>k</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(scalar_field), dimension(1:<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)&#160;</td>
+          <td class="paramname"><em>q_prim_vf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
