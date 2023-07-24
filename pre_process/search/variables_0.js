@@ -8,5 +8,9 @@ var searchData=
   ['advxb_5',['advxb',['../namespacem__global__parameters.html#af4751a18db30b97d83e7f0372182a18d',1,'m_global_parameters']]],
   ['advxe_6',['advxe',['../namespacem__global__parameters.html#a4ea7c4ff7f9fc3debe3111bdd5aa6300',1,'m_global_parameters']]],
   ['alf_5fidx_7',['alf_idx',['../namespacem__global__parameters.html#af451fa7762c859ef20552498fa6edb16',1,'m_global_parameters']]],
-  ['alf_5fsum_8',['alf_sum',['../namespacem__assign__variables.html#aefb6bed3e785cd14cbf7d632880839a9',1,'m_assign_variables']]]
+  ['alf_5fsum_8',['alf_sum',['../namespacem__assign__variables.html#aefb6bed3e785cd14cbf7d632880839a9',1,'m_assign_variables']]],
+  ['alpha_9',['alpha',['../structic__patch__parameters.html#a0838c73a398dbe9c779bcc57d274d768',1,'ic_patch_parameters']]],
+  ['alpha_5frho_10',['alpha_rho',['../structic__patch__parameters.html#a38e1f7414e57b23f1c12882b8d658a09',1,'ic_patch_parameters']]],
+  ['alter_5fpatch_11',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
+  ['aperture_12',['aperture',['../structmono__parameters.html#aa86fb00d14bf246842258c0be1092eb5',1,'mono_parameters']]]
 ];

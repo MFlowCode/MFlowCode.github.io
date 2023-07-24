@@ -118,112 +118,392 @@ $(document).ready(function(){initNavTree('m__weno_8fpp_8f90.html',''); initResiz
 
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Modules</a> &#124;
-<a href="#func-members">Functions/Subroutines</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions/Subroutines</a>  </div>
   <div class="headertitle"><div class="title">m_weno.fpp.f90 File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
-Modules</h2></td></tr>
-<tr class="memitem:namespacem__weno"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html">m_weno</a></td></tr>
-<tr class="memdesc:namespacem__weno"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weighted essentially non-oscillatory (WENO) reconstruction scheme that is supplemented with monotonicity preserving bounds (MPWENO) and a mapping function that boosts the accuracy of the non-linear weights (WENOM). MPWENO, see Balsara and Shu (2000), prevents the reconstructed values to lay outside the range set by the stencil, while WENOM, see Henrick et al. (2005), recovers the formal order of accuracy of the reconstruction at critical points. Please note that the basic WENO approach is implemented according to the work of Jiang and Shu (1996). <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a0c42f0718a03dafe119ac88c17bcda78"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a0c42f0718a03dafe119ac88c17bcda78">m_weno::s_initialize_weno_module</a> ()</td></tr>
-<tr class="memdesc:a0c42f0718a03dafe119ac88c17bcda78"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
-<tr class="separator:a0c42f0718a03dafe119ac88c17bcda78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd4f52b755635cf7b0e75d1352b27b1d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#acd4f52b755635cf7b0e75d1352b27b1d">m_weno::s_compute_weno_coefficients</a> (weno_dir, is)</td></tr>
-<tr class="memdesc:acd4f52b755635cf7b0e75d1352b27b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to compute the grid dependent coefficients of the WENO polynomials, ideal weights and smoothness indicators, provided the order, the coordinate direction and the location of the WENO reconstruction.  <br /></td></tr>
-<tr class="separator:acd4f52b755635cf7b0e75d1352b27b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf60919ebaaf298c15e8a3a1167610e0"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#abf60919ebaaf298c15e8a3a1167610e0">m_weno::s_weno</a> (v_vf, vl_rs_vf_x, vl_rs_vf_y, vl_rs_vf_z, vr_rs_vf_x, vr_rs_vf_y, vr_rs_vf_z, norm_dir, weno_dir, is1_d, is2_d, is3_d)</td></tr>
-<tr class="separator:abf60919ebaaf298c15e8a3a1167610e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5c7a0754b0624a47b0152c759ee1789"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#ac5c7a0754b0624a47b0152c759ee1789">m_weno::s_initialize_weno</a> (v_vf, norm_dir, weno_dir)</td></tr>
-<tr class="memdesc:ac5c7a0754b0624a47b0152c759ee1789"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the WENO reconstruction.  <br /></td></tr>
-<tr class="separator:ac5c7a0754b0624a47b0152c759ee1789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c518e5d3cd83824f2d4c8cb76528555"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a8c518e5d3cd83824f2d4c8cb76528555">m_weno::s_preserve_monotonicity</a> (v_rs_ws, vl_rs_vf, vr_rs_vf)</td></tr>
-<tr class="memdesc:a8c518e5d3cd83824f2d4c8cb76528555"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to ensure that the WENO reconstruction is monotonic. The latter is achieved by enforcing monotonicity preserving bounds of Suresh and Huynh (1997). The resulting MPWENO reconstruction, see Balsara and Shu (2000), ensures that the reconstructed values do not reside outside the range spanned by WENO stencil.  <br /></td></tr>
-<tr class="separator:a8c518e5d3cd83824f2d4c8cb76528555"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e2bca630c0e8e8afac63e905f23783c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a2e2bca630c0e8e8afac63e905f23783c">m_weno::s_finalize_weno_module</a> ()</td></tr>
-<tr class="memdesc:a2e2bca630c0e8e8afac63e905f23783c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
-<tr class="separator:a2e2bca630c0e8e8afac63e905f23783c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a91b7a29671368f77d62ab0d3fd9ecff0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a91b7a29671368f77d62ab0d3fd9ecff0">m_weno::v_size</a></td></tr>
-<tr class="memdesc:a91b7a29671368f77d62ab0d3fd9ecff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of WENO-reconstructed cell-average variables.  <br /></td></tr>
-<tr class="separator:a91b7a29671368f77d62ab0d3fd9ecff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a981a8fec3e93423dd6d51fe875785720"><td class="memItemLeft" align="right" valign="top">real(kind(0d0))&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a981a8fec3e93423dd6d51fe875785720">m_weno::test</a></td></tr>
-<tr class="separator:a981a8fec3e93423dd6d51fe875785720"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The cell-average variables that will be WENO-reconstructed. Formerly, they</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>are stored in v_vf. However, they are transferred to v_rs_wsL and v_rs_wsR as to be reshaped (RS) and/or characteristically decomposed. The reshaping allows the WENO procedure to be independent of the coordinate direction of the reconstruction. Lastly, notice that the left (L) and right (R) results of the characteristic decomposition are stored in custom-constructed WENO- stencils (WS) that are annexed to each position of a given scalar field. </p>
-</div></td></tr>
-<tr class="memitem:a9b756cdfee9fcbd8ac01e3493880217f"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a9b756cdfee9fcbd8ac01e3493880217f">m_weno::v_rs_ws_x</a></td></tr>
-<tr class="separator:a9b756cdfee9fcbd8ac01e3493880217f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c58c45e24beaf7217faa8d633ba94c5"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a0c58c45e24beaf7217faa8d633ba94c5">m_weno::v_rs_ws_y</a></td></tr>
-<tr class="separator:a0c58c45e24beaf7217faa8d633ba94c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8682af6fe89228be9ef020cefbd6875d"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a8682af6fe89228be9ef020cefbd6875d">m_weno::v_rs_ws_z</a></td></tr>
-<tr class="separator:a8682af6fe89228be9ef020cefbd6875d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Polynomial coefficients at the left and right cell-boundaries (CB) and at</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>the left and right quadrature points (QP), in the x-, y- and z-directions. Note that the first dimension of the array identifies the polynomial, the second dimension identifies the position of its coefficients and the last dimension denotes the cell-location in the relevant coordinate direction. </p>
-</div></td></tr>
-<tr class="memitem:a78adf130dd2030c54de407c4ef3edbb4"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a78adf130dd2030c54de407c4ef3edbb4">m_weno::poly_coef_cbl_x</a></td></tr>
-<tr class="separator:a78adf130dd2030c54de407c4ef3edbb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7d06474961b446088c62977fbbdebdd"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#af7d06474961b446088c62977fbbdebdd">m_weno::poly_coef_cbl_y</a></td></tr>
-<tr class="separator:af7d06474961b446088c62977fbbdebdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab75af95862b25ec419fe8782306bd80c"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#ab75af95862b25ec419fe8782306bd80c">m_weno::poly_coef_cbl_z</a></td></tr>
-<tr class="separator:ab75af95862b25ec419fe8782306bd80c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ca88928cfc38f21528eb3df482df974"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a5ca88928cfc38f21528eb3df482df974">m_weno::poly_coef_cbr_x</a></td></tr>
-<tr class="separator:a5ca88928cfc38f21528eb3df482df974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c8121dd2f281a60b31fa26b55d095f"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#ac8c8121dd2f281a60b31fa26b55d095f">m_weno::poly_coef_cbr_y</a></td></tr>
-<tr class="separator:ac8c8121dd2f281a60b31fa26b55d095f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add73087b689576b5072f9b6792c8a43f"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#add73087b689576b5072f9b6792c8a43f">m_weno::poly_coef_cbr_z</a></td></tr>
-<tr class="separator:add73087b689576b5072f9b6792c8a43f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe45f2336e4519fe44ef365a7d6e55ac"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#abe45f2336e4519fe44ef365a7d6e55ac">m_weno::poly_coef_l</a></td></tr>
-<tr class="separator:abe45f2336e4519fe44ef365a7d6e55ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab886168bb365cc0a3b1cb134235c7f14"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#ab886168bb365cc0a3b1cb134235c7f14">m_weno::poly_coef_r</a></td></tr>
-<tr class="separator:ab886168bb365cc0a3b1cb134235c7f14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">The ideal weights at the left and the right cell-boundaries and at the</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>left and the right quadrature points, in x-, y- and z-directions. Note that the first dimension of the array identifies the weight, while the last denotes the cell-location in the relevant coordinate direction. </p>
-</div></td></tr>
-<tr class="memitem:acbc1ad853df868baf6d85f1f080669fb"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#acbc1ad853df868baf6d85f1f080669fb">m_weno::d_cbl_x</a></td></tr>
-<tr class="separator:acbc1ad853df868baf6d85f1f080669fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4177f84a57122008352f71cf8613c288"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a4177f84a57122008352f71cf8613c288">m_weno::d_cbl_y</a></td></tr>
-<tr class="separator:a4177f84a57122008352f71cf8613c288"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa45ac173c095f5677f2bd4608095847"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#afa45ac173c095f5677f2bd4608095847">m_weno::d_cbl_z</a></td></tr>
-<tr class="separator:afa45ac173c095f5677f2bd4608095847"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad205fc5eeaa4530f82f6d36c9a2bb7ec"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#ad205fc5eeaa4530f82f6d36c9a2bb7ec">m_weno::d_cbr_x</a></td></tr>
-<tr class="separator:ad205fc5eeaa4530f82f6d36c9a2bb7ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a049a4e2b038f5dbb689b7e1a5b865bc1"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a049a4e2b038f5dbb689b7e1a5b865bc1">m_weno::d_cbr_y</a></td></tr>
-<tr class="separator:a049a4e2b038f5dbb689b7e1a5b865bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7971668a41d70d94936dfd00c4e9b6b9"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a7971668a41d70d94936dfd00c4e9b6b9">m_weno::d_cbr_z</a></td></tr>
-<tr class="separator:a7971668a41d70d94936dfd00c4e9b6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de0ca265930220243764491885daf9a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a2de0ca265930220243764491885daf9a">m_weno::d_l</a></td></tr>
-<tr class="separator:a2de0ca265930220243764491885daf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a158fc1eadeb16069c3348d77c537ac70"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a158fc1eadeb16069c3348d77c537ac70">m_weno::d_r</a></td></tr>
-<tr class="separator:a158fc1eadeb16069c3348d77c537ac70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Smoothness indicator coefficients in the x-, y-, and z-directions. Note</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>that the first array dimension identifies the smoothness indicator, the second identifies the position of its coefficients and the last denotes the cell-location in the relevant coordinate direction. </p>
-</div></td></tr>
-<tr class="memitem:a0faf9f6f48f96581e65d90a7a4cb3b5c"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a0faf9f6f48f96581e65d90a7a4cb3b5c">m_weno::beta_coef_x</a></td></tr>
-<tr class="separator:a0faf9f6f48f96581e65d90a7a4cb3b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0379c9b2a082a45541c4f1c18559164f"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a0379c9b2a082a45541c4f1c18559164f">m_weno::beta_coef_y</a></td></tr>
-<tr class="separator:a0379c9b2a082a45541c4f1c18559164f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc4e4ae883c7f03c2a891498416343f9"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#acc4e4ae883c7f03c2a891498416343f9">m_weno::beta_coef_z</a></td></tr>
-<tr class="separator:acc4e4ae883c7f03c2a891498416343f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8ddf9805a8031faa1c8b7b9c481d710"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:, :, :), pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#aa8ddf9805a8031faa1c8b7b9c481d710">m_weno::beta_coef</a></td></tr>
-<tr class="separator:aa8ddf9805a8031faa1c8b7b9c481d710"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Indical bounds in the s1-, s2- and s3-directions</div></td></tr>
-<tr class="memitem:a8075cca8da1813c24f26324e25fe882e"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a8075cca8da1813c24f26324e25fe882e">m_weno::is1</a></td></tr>
-<tr class="separator:a8075cca8da1813c24f26324e25fe882e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78d2d8d691312397873b5b007f8f8a26"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#a78d2d8d691312397873b5b007f8f8a26">m_weno::is2</a></td></tr>
-<tr class="separator:a78d2d8d691312397873b5b007f8f8a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d87108d056e0958055ad31179e93fa"><td class="memItemLeft" align="right" valign="top">type(int_bounds_info)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__weno.html#aa4d87108d056e0958055ad31179e93fa">m_weno::is3</a></td></tr>
-<tr class="separator:aa4d87108d056e0958055ad31179e93fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b89d4ee512abb6265f7209e3b8fadce"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#a8b89d4ee512abb6265f7209e3b8fadce">__m_weno_fpp_f90__</a></td></tr>
+<tr class="separator:a8b89d4ee512abb6265f7209e3b8fadce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a136d3d4063cbcedaa960e3a34cf75b5c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#a136d3d4063cbcedaa960e3a34cf75b5c">s_initialize_weno_module</a> ()</td></tr>
+<tr class="memdesc:a136d3d4063cbcedaa960e3a34cf75b5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
+<tr class="separator:a136d3d4063cbcedaa960e3a34cf75b5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab901fc61bffbbe39af35d3ccb92bfa75"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#ab901fc61bffbbe39af35d3ccb92bfa75">s_compute_weno_coefficients</a> (weno_dir, is)</td></tr>
+<tr class="memdesc:ab901fc61bffbbe39af35d3ccb92bfa75"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to compute the grid dependent coefficients of the WENO polynomials, ideal weights and smoothness indicators, provided the order, the coordinate direction and the location of the WENO reconstruction.  <br /></td></tr>
+<tr class="separator:ab901fc61bffbbe39af35d3ccb92bfa75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8495f5eb3dca2bbde1088b568cf13288"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#a8495f5eb3dca2bbde1088b568cf13288">s_weno</a> (v_vf, vl_rs_vf_x, vl_rs_vf_y, vl_rs_vf_z, vr_rs_vf_x, vr_rs_vf_y, vr_rs_vf_z, norm_dir, weno_dir, is1_d, is2_d, is3_d)</td></tr>
+<tr class="separator:a8495f5eb3dca2bbde1088b568cf13288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc4801fbf3acfd4db40d1ad294aa3e46"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#abc4801fbf3acfd4db40d1ad294aa3e46">s_initialize_weno</a> (v_vf, norm_dir, weno_dir)</td></tr>
+<tr class="memdesc:abc4801fbf3acfd4db40d1ad294aa3e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the WENO reconstruction.  <br /></td></tr>
+<tr class="separator:abc4801fbf3acfd4db40d1ad294aa3e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6752752f34719dae452d0fe42e21682"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#ac6752752f34719dae452d0fe42e21682">s_preserve_monotonicity</a> (v_rs_ws, vl_rs_vf, vr_rs_vf)</td></tr>
+<tr class="memdesc:ac6752752f34719dae452d0fe42e21682"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to ensure that the WENO reconstruction is monotonic. The latter is achieved by enforcing monotonicity preserving bounds of Suresh and Huynh (1997). The resulting MPWENO reconstruction, see Balsara and Shu (2000), ensures that the reconstructed values do not reside outside the range spanned by WENO stencil.  <br /></td></tr>
+<tr class="separator:ac6752752f34719dae452d0fe42e21682"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58db4ca1aba01851c9aca95c2b57be37"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__weno_8fpp_8f90.html#a58db4ca1aba01851c9aca95c2b57be37">s_finalize_weno_module</a> ()</td></tr>
+<tr class="memdesc:a58db4ca1aba01851c9aca95c2b57be37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
+<tr class="separator:a58db4ca1aba01851c9aca95c2b57be37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a8b89d4ee512abb6265f7209e3b8fadce" name="a8b89d4ee512abb6265f7209e3b8fadce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b89d4ee512abb6265f7209e3b8fadce">&#9670;&#160;</a></span>__m_weno_fpp_f90__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">program __m_weno_fpp_f90__</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a8b89d4ee512abb6265f7209e3b8fadce_cgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab901fc61bffbbe39af35d3ccb92bfa75" name="ab901fc61bffbbe39af35d3ccb92bfa75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab901fc61bffbbe39af35d3ccb92bfa75">&#9670;&#160;</a></span>s_compute_weno_coefficients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_weno_fpp_f90__::s_compute_weno_coefficients </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>weno_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>is</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The purpose of this subroutine is to compute the grid dependent coefficients of the WENO polynomials, ideal weights and smoothness indicators, provided the order, the coordinate direction and the location of the WENO reconstruction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">weno_dir</td><td>Coordinate direction of the WENO reconstruction </td></tr>
+    <tr><td class="paramname">is</td><td>Index bounds in the s-direction </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_ab901fc61bffbbe39af35d3ccb92bfa75_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a58db4ca1aba01851c9aca95c2b57be37" name="a58db4ca1aba01851c9aca95c2b57be37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58db4ca1aba01851c9aca95c2b57be37">&#9670;&#160;</a></span>s_finalize_weno_module()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_weno_fpp_f90__::s_finalize_weno_module</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Module deallocation and/or disassociation procedures. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a58db4ca1aba01851c9aca95c2b57be37_icgraph.svg" width="523" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abc4801fbf3acfd4db40d1ad294aa3e46" name="abc4801fbf3acfd4db40d1ad294aa3e46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc4801fbf3acfd4db40d1ad294aa3e46">&#9670;&#160;</a></span>s_initialize_weno()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_weno_fpp_f90__::s_initialize_weno </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(:), intent(in)&#160;</td>
+          <td class="paramname"><em>v_vf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>norm_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>weno_dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the WENO reconstruction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v_vf</td><td>Cell-averaged variables </td></tr>
+    <tr><td class="paramname">vL_vf</td><td>Left WENO reconstructed cell-boundary values </td></tr>
+    <tr><td class="paramname">vR_vf</td><td>Right WENO reconstructed cell-boundary values </td></tr>
+    <tr><td class="paramname">norm_dir</td><td>Characteristic decommposition coordinate direction </td></tr>
+    <tr><td class="paramname">weno_dir</td><td>Coordinate direction of the WENO reconstruction </td></tr>
+    <tr><td class="paramname">is1</td><td>Index bounds in first coordinate direction </td></tr>
+    <tr><td class="paramname">is2</td><td>Index bounds in second coordinate direction </td></tr>
+    <tr><td class="paramname">is3</td><td>Index bounds in third coordinate direction </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_abc4801fbf3acfd4db40d1ad294aa3e46_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a136d3d4063cbcedaa960e3a34cf75b5c" name="a136d3d4063cbcedaa960e3a34cf75b5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136d3d4063cbcedaa960e3a34cf75b5c">&#9670;&#160;</a></span>s_initialize_weno_module()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_weno_fpp_f90__::s_initialize_weno_module</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a136d3d4063cbcedaa960e3a34cf75b5c_cgraph.svg" width="467" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a136d3d4063cbcedaa960e3a34cf75b5c_icgraph.svg" width="542" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac6752752f34719dae452d0fe42e21682" name="ac6752752f34719dae452d0fe42e21682"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6752752f34719dae452d0fe42e21682">&#9670;&#160;</a></span>s_preserve_monotonicity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_weno_fpp_f90__::s_preserve_monotonicity </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(in)&#160;</td>
+          <td class="paramname"><em>v_rs_ws</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vl_rs_vf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vr_rs_vf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The goal of this subroutine is to ensure that the WENO reconstruction is monotonic. The latter is achieved by enforcing monotonicity preserving bounds of Suresh and Huynh (1997). The resulting MPWENO reconstruction, see Balsara and Shu (2000), ensures that the reconstructed values do not reside outside the range spanned by WENO stencil. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">i</td><td>Equation number </td></tr>
+    <tr><td class="paramname">j</td><td>First-coordinate cell index </td></tr>
+    <tr><td class="paramname">k</td><td>Second-coordinate cell index </td></tr>
+    <tr><td class="paramname">l</td><td>Third-coordinate cell index </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_ac6752752f34719dae452d0fe42e21682_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8495f5eb3dca2bbde1088b568cf13288" name="a8495f5eb3dca2bbde1088b568cf13288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8495f5eb3dca2bbde1088b568cf13288">&#9670;&#160;</a></span>s_weno()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_weno_fpp_f90__::s_weno </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(1:), intent(in)&#160;</td>
+          <td class="paramname"><em>v_vf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vl_rs_vf_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vl_rs_vf_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vl_rs_vf_z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vr_rs_vf_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vr_rs_vf_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)&#160;</td>
+          <td class="paramname"><em>vr_rs_vf_z</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>norm_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)&#160;</td>
+          <td class="paramname"><em>weno_dir</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>is1_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>is2_d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
+          <td class="paramname"><em>is3_d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a8495f5eb3dca2bbde1088b568cf13288_cgraph.svg" width="316" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a8495f5eb3dca2bbde1088b568cf13288_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

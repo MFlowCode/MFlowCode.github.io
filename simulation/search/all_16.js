@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['x_5faccel_0',['x_accel',['../namespacem__derived__variables.html#a51ad9941944fd82b2b5f660bc1c8ef5b',1,'m_derived_variables']]],
-  ['x_5fcb_1',['x_cb',['../namespacem__global__parameters.html#a800c19cad11fe2774ac137b12ec89e33',1,'m_global_parameters']]],
-  ['x_5fcc_2',['x_cc',['../namespacem__global__parameters.html#aea5b911d65b330f65e97052e9e8c0383',1,'m_global_parameters']]],
-  ['x_5fsize_3',['x_size',['../namespacem__fftw.html#a246f1941ea684614558888dbe69c5952',1,'m_fftw']]]
+  ['z_0',['z',['../structprobe__parameters.html#a00a2db722735a7a8a3b6c68ad5dc9cc2',1,'probe_parameters']]],
+  ['z_5faccel_1',['z_accel',['../namespacem__derived__variables.html#aa0d0f4496313d5f31c8f9ac9c58e1acd',1,'m_derived_variables']]],
+  ['z_5fcentroid_2',['z_centroid',['../structic__patch__parameters.html#a0993edab0b1ab51cee55c29f47af39a6',1,'ic_patch_parameters']]],
+  ['zmax_3',['zmax',['../structintegral__parameters.html#a927eaea4b9e3fa05203157d43d376e73',1,'integral_parameters']]],
+  ['zmin_4',['zmin',['../structintegral__parameters.html#a2f936a12f4c52a8005cfe3e88c8189be',1,'integral_parameters']]]
 ];

@@ -29,9 +29,9 @@ var NAVTREE =
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "All", "namespacemembers.html", null ],
         [ "Functions/Subroutines", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", "namespacemembers_vars" ]
+        [ "Variables", "namespacemembers_vars.html", null ]
       ] ]
     ] ],
     [ "Data Types", "annotated.html", [
@@ -57,11 +57,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"m__global__parameters_8fpp_8f90.html#a36964b5437c2dc2f04569f7029f460ee",
-"m__qbmm_8fpp_8f90.html#aec70a99e3b94b186100cdb4b95384ef6",
-"namespacem__bubbles.html#a173fe7dea2dc0cfb3a978bb8055a8555",
-"namespacem__global__parameters.html#a795878d693cec161db5f5c06aea7331e",
-"namespacem__riemann__solvers.html#a3f244d4b1bc8e00f8c3c5b6f96aa5448"
+"m__qbmm_8fpp_8f90.html#a5e8f8b30325d688111d1ec1cd8c9680d",
+"namespacem__riemann__solvers.html#a91889f97bce797a1c8efabb7fe3a2e1b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

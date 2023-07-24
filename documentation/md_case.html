@@ -264,7 +264,17 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>pres</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Pressure.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>vel(i)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Velocity in direction $i$.   </td></tr>
+<td class="markdownTableBodyRight"><code>vel(i)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Velocity in direction $i$.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>modelfilepath</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>modelscale(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>modelrotate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>modeltranslate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>modelspc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.   </td></tr>
 </table>
 <p>*: These parameters should be prepended with <code>patch_icpp(j)%</code> where $j$ is the patch index.</p>
 <p>The Table lists the patch parameters. The parameters define the geometries and physical parameters of fluid components (patch) in the domain at initial condition. Note that the domain must be fully filled with patche(s). The code outputs error messages when an empty region is left in the domain.</p>
@@ -315,6 +325,7 @@ Parameter Descriptions</h3>
 </li>
 <li><code>smoothen</code> activates smoothening of the boundary of the patch that alters the existing patch. When smoothening occurs, fluids of the two patches are mixed in the region of the boundary. For instance, in the aforementioned case of the cylindrical patch immersed in the rectangular patch, smoothening occurs when <code>patch_icpp(2)smoothen</code>=TRUE. <code>smooth_coeff</code> controls the thickness of the region of smoothening (sharpness of the mixture region). The default value of <code>smooth_coeff</code> is unity. The region of smoothening is thickened with decreasing the value. Optimal choice of the value of <code>smooth_coeff</code> is case-dependent and left to the user.</li>
 <li><code>patch_icpp(j)alpha(i)</code>, <code>patch_icpp(j)alpha_rho(i)</code>, <code>patch_icpp(j)pres</code>, and <code>texttt{patch_icpp(j)vel(i)</code> define for $j$-th patch the void fraction of <code>fluid(i)</code>, partial density of <code>fluid(i)</code>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection. See also <code>adv_alphan</code> in table Simulation Algorithm Parameters.</li>
+<li>'modelscale', 'modelrotate<code>and</code>modeltranslate<code>define how the model should be transformed to domain-space by first scaling by</code>modelscale<code>, then rotating about the Z, X, and Y axes (using</code>modelrotate<code>), and finally translating by</code>modeltranslate`.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md10"></a>
 4. Fluid Material’s</h2>
@@ -682,6 +693,7 @@ Patch types</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">19   </td><td class="markdownTableBodyCenter">3D Varcircle   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code>, <code>length_z</code>, <code>radius</code>, and <code>thickness</code>   </td></tr>
 </table>
+<p>| 21 | Model | 2 &amp; 3 | Y | Imports a Model (STL/OBJ). Requires <code>modelfilepath</code>. | |</p>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
 <h2><a class="anchor" id="autotoc_md19"></a>
 Monopole supports</h2>

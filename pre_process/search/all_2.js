@@ -1,11 +1,14 @@
 var searchData=
 [
-  ['ca_0',['ca',['../namespacem__global__parameters.html#a1fcd6cc13ad7f604ef81708716a1feac',1,'m_global_parameters']]],
-  ['cart_5fy_1',['cart_y',['../namespacem__patches.html#a539e4cdd94b49582423d1704f5b2230f',1,'m_patches']]],
-  ['cart_5fz_2',['cart_z',['../namespacem__patches.html#a8a57673d9306683e8d180776988d2289',1,'m_patches']]],
-  ['case_5fdir_3',['case_dir',['../namespacem__global__parameters.html#ab3482dd78520fd94475375479fe1befb',1,'m_global_parameters']]],
-  ['cont_5fidx_4',['cont_idx',['../namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56',1,'m_global_parameters']]],
-  ['contxb_5',['contxb',['../namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b',1,'m_global_parameters']]],
-  ['contxe_6',['contxe',['../namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497',1,'m_global_parameters']]],
-  ['cyl_5fcoord_7',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]]
+  ['bc_5fx_0',['bc_x',['../namespacem__global__parameters.html#a91304734742c36abcb4dbf0712545344',1,'m_global_parameters']]],
+  ['bc_5fy_1',['bc_y',['../namespacem__global__parameters.html#a7a7bb7c9caddde4f86bd27169b0f150d',1,'m_global_parameters']]],
+  ['bc_5fz_2',['bc_z',['../namespacem__global__parameters.html#a2d3a5d211f996a1fff3238a8b7fe5fe7',1,'m_global_parameters']]],
+  ['beg_3',['beg',['../structint__bounds__info.html#ad2f75876eb0cfa41efb1bbf84ae9da4b',1,'int_bounds_info::beg'],['../structbounds__info.html#a783d882ee47029bd1ee3541b9a026aa5',1,'bounds_info::beg'],['../structbub__bounds__info.html#ae7ba9f466a7c1600e636c59e19868452',1,'bub_bounds_info::beg']]],
+  ['beta_4',['beta',['../structic__patch__parameters.html#ad33465b4315fa58d1a721807813c8c47',1,'ic_patch_parameters']]],
+  ['bounds_5finfo_5',['bounds_info',['../structbounds__info.html',1,'']]],
+  ['bub_5fbounds_5finfo_6',['bub_bounds_info',['../structbub__bounds__info.html',1,'']]],
+  ['bub_5fidx_7',['bub_idx',['../namespacem__global__parameters.html#a9a425d1bd91d1765043adf8410b98bf7',1,'m_global_parameters']]],
+  ['bubbles_8',['bubbles',['../namespacem__global__parameters.html#a4a22ed160838f8fbe6bd506f334b8815',1,'m_global_parameters']]],
+  ['bubxb_9',['bubxb',['../namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341',1,'m_global_parameters']]],
+  ['bubxe_10',['bubxe',['../namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70',1,'m_global_parameters']]]
 ];

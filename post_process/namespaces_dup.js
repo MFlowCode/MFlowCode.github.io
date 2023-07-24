@@ -221,30 +221,6 @@ var namespaces_dup =
       [ "z_cb_s", "namespacem__global__parameters.html#a43ab4f09147c4b478f9854b2454c8eee", null ],
       [ "z_cc", "namespacem__global__parameters.html#a2c4b9e99b981dc55cccf0b153159404e", null ]
     ] ],
-    [ "m_helper", "namespacem__helper.html", [
-      [ "s_comp_n_from_cons", "namespacem__helper.html#aed8be5c8be0cadf256dece6f0912e475", null ],
-      [ "s_comp_n_from_prim", "namespacem__helper.html#a08118839702b15012f3801529dc38429", null ],
-      [ "s_compute_finite_difference_coefficients", "namespacem__helper.html#a6f074880c18285c5ad590ab0e74d15ef", null ],
-      [ "s_initialize_nonpoly", "namespacem__helper.html#af0b989fa695d4851556951498bec7f44", null ],
-      [ "s_int_to_str", "namespacem__helper.html#aa65386df9bda15c3a0e2a15a27ea2d11", null ],
-      [ "s_simpson", "namespacem__helper.html#a7427a72dbfa0ee78524ee325da461216", null ],
-      [ "s_transcoeff", "namespacem__helper.html#ab709b526a2c5eb94db1299d03700a428", null ]
-    ] ],
-    [ "m_mpi_common", "namespacem__mpi__common.html", [
-      [ "mpi_bcast_time_step_values", "namespacem__mpi__common.html#a77a60defea189de530570379ae3a7afc", null ],
-      [ "s_initialize_mpi_data", "namespacem__mpi__common.html#aea49cf2acc5a904a0e26d44ff3677c73", null ],
-      [ "s_mpi_abort", "namespacem__mpi__common.html#a8b5c408f4f137e570ae68ec8ec9a6df8", null ],
-      [ "s_mpi_allreduce_max", "namespacem__mpi__common.html#ab35427e131228dc35ea3055bbefab622", null ],
-      [ "s_mpi_allreduce_min", "namespacem__mpi__common.html#afa324c02508b23805b4e0cb7eae57bd6", null ],
-      [ "s_mpi_allreduce_sum", "namespacem__mpi__common.html#a594554bb31ea4182b41a2794a1406575", null ],
-      [ "s_mpi_barrier", "namespacem__mpi__common.html#afcc803e0c015e7ac84240515ad937dae", null ],
-      [ "s_mpi_finalize", "namespacem__mpi__common.html#a06634ae81752a52cb6e71887aa00b250", null ],
-      [ "s_mpi_initialize", "namespacem__mpi__common.html#a02969edf62d49a19e4e5969cc14505c0", null ],
-      [ "s_mpi_reduce_maxloc", "namespacem__mpi__common.html#a3cdfe65403d448aa4312ed6e078e2f37", null ],
-      [ "s_mpi_reduce_min", "namespacem__mpi__common.html#a7c0599d6565920725a345c6e18e3505b", null ],
-      [ "s_mpi_reduce_stability_criteria_extrema", "namespacem__mpi__common.html#a8a2555138caad6b423bfcf84a5bc2d8e", null ],
-      [ "ierr", "namespacem__mpi__common.html#af554ae18658426bbac4c4c0066506c04", null ]
-    ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_finalize_mpi_proxy_module", "namespacem__mpi__proxy.html#ac984c84fe4140876d6600250af9807da", null ],
       [ "s_initialize_mpi_proxy_module", "namespacem__mpi__proxy.html#a015ee2c0892e9cfcb858da8f27b646d5", null ],
@@ -271,6 +247,5 @@ var namespaces_dup =
       [ "s_perform_time_step", "namespacem__start__up.html#a12b3ef85917ad7441924faf3610f75ab", null ],
       [ "s_read_input_file", "namespacem__start__up.html#a3a19eb11ae434dc590a1bd7835442891", null ],
       [ "s_save_data", "namespacem__start__up.html#a6b63dfe2b03558e6b89bc29e1401de48", null ]
-    ] ],
-    [ "m_variables_conversion", "namespacem__variables__conversion.html", "namespacem__variables__conversion" ]
+    ] ]
 ];

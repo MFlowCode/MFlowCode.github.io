@@ -1,20 +1,11 @@
 var searchData=
 [
   ['accel_5fmag_0',['accel_mag',['../namespacem__derived__variables.html#a2452879f2bc8e2e3719c45e49eb33500',1,'m_derived_variables']]],
-  ['adv_5falphan_1',['adv_alphan',['../namespacem__global__parameters.html#abebd95d9d0271fbda40f47f75a2d829b',1,'m_global_parameters']]],
-  ['adv_5fidx_2',['adv_idx',['../namespacem__global__parameters.html#ab73a1c5c3f6815695771323454db2a81',1,'m_global_parameters']]],
-  ['advxb_3',['advxb',['../namespacem__global__parameters.html#af4751a18db30b97d83e7f0372182a18d',1,'m_global_parameters']]],
-  ['advxe_4',['advxe',['../namespacem__global__parameters.html#a4ea7c4ff7f9fc3debe3111bdd5aa6300',1,'m_global_parameters']]],
-  ['alf_5',['alf',['../m__monopole_8fpp_8f90.html#ac86b93619a8ae0900f15869f17191993',1,'m_monopole.fpp.f90']]],
-  ['alf_5fidx_6',['alf_idx',['../namespacem__global__parameters.html#af451fa7762c859ef20552498fa6edb16',1,'m_global_parameters']]],
-  ['alf_5fsum_7',['alf_sum',['../namespacem__rhs.html#aaaecb99341e4534ec839e9356bf90536',1,'m_rhs']]],
-  ['alpha_8',['alpha',['../m__rhs_8fpp_8f90.html#a8947fb914dfe4c2f0e688f4061e802ee',1,'m_rhs.fpp.f90']]],
-  ['alpha1_9',['alpha1',['../namespacem__rhs.html#a223a31f12e9632e10523cf4e4e6d4953',1,'m_rhs']]],
-  ['alpha2_10',['alpha2',['../namespacem__rhs.html#a54a336d2be7186f6cc141e38f7edd506',1,'m_rhs']]],
-  ['alpha_5frho_11',['alpha_rho',['../m__rhs_8fpp_8f90.html#a811c16d33272b2c75d7a75f24c675795',1,'m_rhs.fpp.f90']]],
-  ['alt_5fsoundspeed_12',['alt_soundspeed',['../namespacem__global__parameters.html#a5a19b6ba65c32dfc21f4762eceb25f29',1,'m_global_parameters']]],
-  ['angle_13',['angle',['../m__monopole_8fpp_8f90.html#acdc7d237b12781da7b386805fc0b756a',1,'m_monopole.fpp.f90']]],
-  ['angle_5fz_14',['angle_z',['../m__monopole_8fpp_8f90.html#a824b471ac493e433932598889da7784b',1,'m_monopole.fpp.f90']]],
-  ['aperture_15',['aperture',['../namespacem__monopole.html#a073eff1c091677aaf4dbdf3a972fe0b6',1,'m_monopole']]],
-  ['avg_5fstate_16',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
+  ['alf_1',['alf',['../m__monopole_8fpp_8f90.html#ac86b93619a8ae0900f15869f17191993',1,'m_monopole.fpp.f90']]],
+  ['alpha_2',['alpha',['../structic__patch__parameters.html#a0838c73a398dbe9c779bcc57d274d768',1,'ic_patch_parameters::alpha'],['../m__rhs_8fpp_8f90.html#a8947fb914dfe4c2f0e688f4061e802ee',1,'alpha:&#160;m_rhs.fpp.f90']]],
+  ['alpha_5frho_3',['alpha_rho',['../structic__patch__parameters.html#a38e1f7414e57b23f1c12882b8d658a09',1,'ic_patch_parameters::alpha_rho'],['../m__rhs_8fpp_8f90.html#a811c16d33272b2c75d7a75f24c675795',1,'alpha_rho:&#160;m_rhs.fpp.f90']]],
+  ['alter_5fpatch_4',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
+  ['angle_5',['angle',['../m__monopole_8fpp_8f90.html#acdc7d237b12781da7b386805fc0b756a',1,'m_monopole.fpp.f90']]],
+  ['angle_5fz_6',['angle_z',['../m__monopole_8fpp_8f90.html#a824b471ac493e433932598889da7784b',1,'m_monopole.fpp.f90']]],
+  ['aperture_7',['aperture',['../structmono__parameters.html#aa86fb00d14bf246842258c0be1092eb5',1,'mono_parameters']]]
 ];
