@@ -7,6 +7,7 @@ var structic__patch__parameters =
     [ "epsilon", "structic__patch__parameters.html#a97867bd0c47a402d40e329eb4a51e42a", null ],
     [ "gamma", "structic__patch__parameters.html#aedd5a010e8cda5628576a7750e7c3274", null ],
     [ "geometry", "structic__patch__parameters.html#adcd14f8609bf5dc1dca4edd77b75a10a", null ],
+    [ "hcid", "structic__patch__parameters.html#af4bcab52597ab14171e4633fa03eb1eb", null ],
     [ "length_x", "structic__patch__parameters.html#a1eded192c26ba1365a17bbf52cb1efc5", null ],
     [ "length_y", "structic__patch__parameters.html#ae3dd62118f63a82f3f4c2395c684f616", null ],
     [ "length_z", "structic__patch__parameters.html#a8a635c3b94d0d5b7a64f8a7a440d4eaf", null ],
