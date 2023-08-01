@@ -76,32 +76,36 @@ var NAVTREE =
         [ "Initial Condition", "md_examples.html#autotoc_md40", null ],
         [ "Result", "md_examples.html#autotoc_md41", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md42", [
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md42", [
         [ "Initial Condition", "md_examples.html#autotoc_md43", null ],
         [ "Result", "md_examples.html#autotoc_md44", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md45", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md45", [
+        [ "Initial Condition", "md_examples.html#autotoc_md46", null ],
+        [ "Result", "md_examples.html#autotoc_md47", null ]
+      ] ],
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md48", null ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
-      [ "Fetching MFC", "md_getting-started.html#autotoc_md47", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md48", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md49", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md50", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md51", null ]
+      [ "Fetching MFC", "md_getting-started.html#autotoc_md50", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md51", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md52", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md53", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md54", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md57", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md58", [
-        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md59", null ],
-        [ "Restarting Cases", "md_running.html#autotoc_md60", null ],
-        [ "Example Runs", "md_running.html#autotoc_md61", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md60", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md61", [
+        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md62", null ],
+        [ "Restarting Cases", "md_running.html#autotoc_md63", null ],
+        [ "Example Runs", "md_running.html#autotoc_md64", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md66", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md67", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md69", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md70", null ]
     ] ]
   ] ]
 ];
