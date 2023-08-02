@@ -391,7 +391,11 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe averagen*; [2] Arithmetic mean    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)   </td></tr>
+<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values   </td></tr>
 </table>
 <ul>
 <li>* Options that work only with <code>model_eqns</code> $=2$.</li>
@@ -418,6 +422,8 @@ Parameter Descriptions</h3>
 <li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver</code> $=$ 1,2, and 3 correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>).</li>
 <li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state</code> $=$ 1 and 2 correspond to Roe- and arithmetic averages, respectively.</li>
 <li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds</code> $=$ 1 and 2 correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
+<li><code>weno_Re_flux</code> activates the scaler divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
+<li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md13"></a>
 6. Formatted Output</h2>
