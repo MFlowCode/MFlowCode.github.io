@@ -68,23 +68,23 @@ var NAVTREE =
       [ "Attribution", "md_CODE__OF__CONDUCT.html#autotoc_md34", null ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md36", [
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md36", [
         [ "Initial Condition", "md_examples.html#autotoc_md37", null ],
         [ "Result", "md_examples.html#autotoc_md38", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md39", [
-        [ "Initial Condition", "md_examples.html#autotoc_md40", null ],
-        [ "Result", "md_examples.html#autotoc_md41", null ]
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md39", null ],
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md40", [
+        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
+        [ "Result", "md_examples.html#autotoc_md42", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md42", [
-        [ "Initial Condition", "md_examples.html#autotoc_md43", null ],
-        [ "Result", "md_examples.html#autotoc_md44", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md43", [
+        [ "Initial Condition", "md_examples.html#autotoc_md44", null ],
+        [ "Result", "md_examples.html#autotoc_md45", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md45", [
-        [ "Initial Condition", "md_examples.html#autotoc_md46", null ],
-        [ "Result", "md_examples.html#autotoc_md47", null ]
-      ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md48", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md46", [
+        [ "Initial Condition", "md_examples.html#autotoc_md47", null ],
+        [ "Result", "md_examples.html#autotoc_md48", null ]
+      ] ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
       [ "Fetching MFC", "md_getting-started.html#autotoc_md50", null ],

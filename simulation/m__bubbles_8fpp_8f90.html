@@ -128,9 +128,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a4538c091d5a38f5c7d7a35ecd774f34d"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__bubbles_8fpp_8f90.html#a4538c091d5a38f5c7d7a35ecd774f34d">__m_bubbles_fpp_f90__</a></td></tr>
 <tr class="separator:a4538c091d5a38f5c7d7a35ecd774f34d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaa300859cbffeaa97ee08e80e80445b0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__bubbles_8fpp_8f90.html#aaa300859cbffeaa97ee08e80e80445b0">s_initialize_bubbles_module</a> ()</td></tr>
-<tr class="memdesc:aaa300859cbffeaa97ee08e80e80445b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to compute the source terms that are needed for the bubble modeling.  <br /></td></tr>
 <tr class="separator:aaa300859cbffeaa97ee08e80e80445b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d7f514861d6b4004211c6f0bdb58fc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__bubbles_8fpp_8f90.html#a13d7f514861d6b4004211c6f0bdb58fc">s_compute_bubble_source</a> (bub_adv_src, bub_r_src, bub_v_src, bub_p_src, bub_m_src, divu, nbub, q_cons_vf, q_prim_vf, <a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>, <a class="el" href="m__monopole_8fpp_8f90.html#a9b51b595b3426066a1f5810575bb9b25">id</a>, rhs_vf)</td></tr>
+<tr class="memdesc:a13d7f514861d6b4004211c6f0bdb58fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to compute the source terms that are needed for the bubble modeling.  <br /></td></tr>
 <tr class="separator:a13d7f514861d6b4004211c6f0bdb58fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a0193f314079c7e9d923b9374eb20e3"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="m__bubbles_8fpp_8f90.html#a5a0193f314079c7e9d923b9374eb20e3">f_cpbw</a> (fr0, fr, fv, fpb)</td></tr>
 <tr class="memdesc:a5a0193f314079c7e9d923b9374eb20e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that computes that bubble wall pressure for Gilmore bubbles.  <br /></td></tr>
@@ -1226,8 +1226,18 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>The purpose of this procedure is to compute the source terms that are needed for the bubble modeling. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">divu</td><td>Divergence of velocity </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">bub_adv_src</td><td>Advection equation source due to bubble compression/expansion </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">bub_r_src</td><td>Bubble radius equation source </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">bub_v_src</td><td>Bubble velocity equation source </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">bub_p_src</td><td>Bubble pressure equation source </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">bub_m_src</td><td>Bubble mass equation source </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">bub_m_src</td><td>Bubble number density </td></tr>
   </table>
   </dd>
@@ -1256,22 +1266,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>The purpose of this procedure is to compute the source terms that are needed for the bubble modeling. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">idir</td><td>Dimension splitting index </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
-    <tr><td class="paramname">mydivu</td><td>Divergence of velocity </td></tr>
-    <tr><td class="paramname">bub_adv_src</td><td>Advection equation source due to bubble compression/expansion </td></tr>
-    <tr><td class="paramname">bub_r_src</td><td>Bubble radius equation source </td></tr>
-    <tr><td class="paramname">bub_v_src</td><td>Bubble velocity equation source </td></tr>
-    <tr><td class="paramname">bub_p_src</td><td>Bubble pressure equation source </td></tr>
-    <tr><td class="paramname">bub_m_src</td><td>Bubble mass equation source </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
