@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['getting_20started_0',['Getting Started',['../md_getting-started.html',1,'']]],
-  ['getting_2dstarted_2emd_1',['getting-started.md',['../getting-started_8md.html',1,'']]]
+  ['6_20formatted_20output_0',['6. Formatted Output',['../md_case.html#autotoc_md13',1,'']]]
 ];

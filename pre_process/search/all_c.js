@@ -34,7 +34,7 @@ var searchData=
   ['mag_31',['mag',['../structmono__parameters.html#a98e16e7416328d088723877357d3e7a7',1,'mono_parameters']]],
   ['mass_5fn0_32',['mass_n0',['../namespacem__global__parameters.html#ae3701f74c9487c9e56c2a11fb6a52e40',1,'m_global_parameters']]],
   ['mass_5fv0_33',['mass_v0',['../namespacem__global__parameters.html#a6a06981be6cdab78452a106009022aa4',1,'m_global_parameters']]],
-  ['mfc_20pre_2dprocess_34',['MFC Pre-Process',['../index.html',1,'']]],
+  ['mfc_20pre_20process_34',['MFC Pre-Process',['../index.html',1,'']]],
   ['model_35',['model',['../structic__patch__parameters.html#a2d92a80bd279bec1b27bdecfa98fbfd5',1,'ic_patch_parameters']]],
   ['model_5feqns_36',['model_eqns',['../namespacem__global__parameters.html#a6cf2e92cfc3b519fb6da6fe9e88fab31',1,'m_global_parameters']]],
   ['mom_5fidx_37',['mom_idx',['../namespacem__global__parameters.html#a293bc6a9ccf7a197d8a5f0cfc3988584',1,'m_global_parameters']]],
