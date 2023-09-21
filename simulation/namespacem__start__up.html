@@ -154,6 +154,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a38182f7fcc92c1c687840339a20e85cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaeff91a52af5b8f17ed9efed8ac17bd" id="r_aaaeff91a52af5b8f17ed9efed8ac17bd"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__start__up.html#aaaeff91a52af5b8f17ed9efed8ac17bd">s_perform_time_step</a> (<a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>, time_avg, time_final, io_time_avg, io_time_final, proc_time, io_proc_time, file_exists, start, finish, nt)</td></tr>
 <tr class="separator:aaaeff91a52af5b8f17ed9efed8ac17bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9487d5a4bc44cf9541702999694fd7" id="r_a9d9487d5a4bc44cf9541702999694fd7"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__start__up.html#a9d9487d5a4bc44cf9541702999694fd7">s_save_performance_metrics</a> (<a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>, time_avg, time_final, io_time_avg, io_time_final, proc_time, io_proc_time, file_exists, start, finish, nt)</td></tr>
+<tr class="separator:a9d9487d5a4bc44cf9541702999694fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0865c4378f1fdf7a9053530fb25fadaa" id="r_a0865c4378f1fdf7a9053530fb25fadaa"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__start__up.html#a0865c4378f1fdf7a9053530fb25fadaa">s_save_data</a> (<a class="el" href="m__monopole_8fpp_8f90.html#a70735e3fe825be6ae765e0f7cfb8b838">t_step</a>, start, finish, io_time_avg, nt)</td></tr>
 <tr class="separator:a0865c4378f1fdf7a9053530fb25fadaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3745654d013067a8c4fd89f50598674c" id="r_a3745654d013067a8c4fd89f50598674c"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__start__up.html#a3745654d013067a8c4fd89f50598674c">s_initialize_modules</a> ()</td></tr>
@@ -582,6 +584,98 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a0865c4378f1fdf7a9053530fb25fadaa_icgraph.svg" width="314" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9d9487d5a4bc44cf9541702999694fd7" name="a9d9487d5a4bc44cf9541702999694fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9487d5a4bc44cf9541702999694fd7">&#9670;&#160;</a></span>s_save_performance_metrics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_start_up::s_save_performance_metrics </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(inout)&#160;</td>
+          <td class="paramname"><em>t_step</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
+          <td class="paramname"><em>time_avg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
+          <td class="paramname"><em>time_final</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
+          <td class="paramname"><em>io_time_avg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
+          <td class="paramname"><em>io_time_final</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>proc_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(:), intent(inout)&#160;</td>
+          <td class="paramname"><em>io_proc_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(inout)&#160;</td>
+          <td class="paramname"><em>file_exists</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
+          <td class="paramname"><em>finish</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)&#160;</td>
+          <td class="paramname"><em>nt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a9d9487d5a4bc44cf9541702999694fd7_cgraph.svg" width="388" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a9d9487d5a4bc44cf9541702999694fd7_icgraph.svg" width="298" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

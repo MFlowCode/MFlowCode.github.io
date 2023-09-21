@@ -1,5 +1,6 @@
 var m__cbc_8fpp_8f90 =
 [
+    [ "s_any_cbc_boundaries", "m__cbc_8fpp_8f90.html#a6d548ec5ca2cd0f31822c16d6b1d2afa", null ],
     [ "s_associate_cbc_coefficients_pointers", "m__cbc_8fpp_8f90.html#a0860f3f0c146b497f05ed57e07e0d4d9", null ],
     [ "s_cbc", "m__cbc_8fpp_8f90.html#a1463206b8a0492feba405c93fbdc1929", null ],
     [ "s_compute_cbc_coefficients", "m__cbc_8fpp_8f90.html#a460b0f51b92de710648d9088801b1cde", null ],

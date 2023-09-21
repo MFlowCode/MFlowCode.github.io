@@ -1,6 +1,16 @@
 var namespaces_dup =
 [
+    [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
+      [ "s_axis", "namespacem__boundary__conditions.html#a45ae3083ad5714037c5477041606de11", null ],
+      [ "s_ghost_cell_extrapolation", "namespacem__boundary__conditions.html#ad0a14062164cd9840580ef430c54eaa6", null ],
+      [ "s_no_slip_wall", "namespacem__boundary__conditions.html#af5a630a3f115c8053fed28d310b28b38", null ],
+      [ "s_periodic", "namespacem__boundary__conditions.html#ac6ce3ef00ac5e5febd34bfcd26828440", null ],
+      [ "s_populate_conservative_variables_buffers", "namespacem__boundary__conditions.html#ac05c7841a499f8e0958a5c129133b12f", null ],
+      [ "s_slip_wall", "namespacem__boundary__conditions.html#a3de4b197bfec5cd8cea5f47bac8c4f6d", null ],
+      [ "s_symmetry", "namespacem__boundary__conditions.html#a156ff6cca7b53dbd97cec6c93278784b", null ]
+    ] ],
     [ "m_cbc", "namespacem__cbc.html", [
+      [ "s_any_cbc_boundaries", "namespacem__cbc.html#a6d548ec5ca2cd0f31822c16d6b1d2afa", null ],
       [ "s_associate_cbc_coefficients_pointers", "namespacem__cbc.html#a0860f3f0c146b497f05ed57e07e0d4d9", null ],
       [ "s_cbc", "namespacem__cbc.html#a1463206b8a0492feba405c93fbdc1929", null ],
       [ "s_compute_cbc_coefficients", "namespacem__cbc.html#a460b0f51b92de710648d9088801b1cde", null ],

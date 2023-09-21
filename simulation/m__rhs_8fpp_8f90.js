@@ -4,7 +4,6 @@ var m__rhs_8fpp_8f90 =
     [ "s_compute_rhs", "m__rhs_8fpp_8f90.html#a8522bdf311a42fe6ff7f2b433656573f", null ],
     [ "s_finalize_rhs_module", "m__rhs_8fpp_8f90.html#ae26471c3379c2d6797c51f2c973e963c", null ],
     [ "s_initialize_rhs_module", "m__rhs_8fpp_8f90.html#ae28e169ac4d1272cc2a8e73be34b8ccb", null ],
-    [ "s_populate_conservative_variables_buffers", "m__rhs_8fpp_8f90.html#a5c22f7d6b7e7a86557cd685eb598f55f", null ],
     [ "s_reconstruct_cell_boundary_values", "m__rhs_8fpp_8f90.html#a26833f559de36f1d15b4f6b3d28cfc79", null ],
     [ "alpha", "m__rhs_8fpp_8f90.html#a8947fb914dfe4c2f0e688f4061e802ee", null ],
     [ "alpha_rho", "m__rhs_8fpp_8f90.html#a811c16d33272b2c75d7a75f24c675795", null ],

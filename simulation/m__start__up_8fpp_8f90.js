@@ -13,6 +13,7 @@ var m__start__up_8fpp_8f90 =
     [ "s_read_parallel_data_files", "m__start__up_8fpp_8f90.html#a45c8fef6680263063a1c7d2fa1748013", null ],
     [ "s_read_serial_data_files", "m__start__up_8fpp_8f90.html#abd3c3fd9fbb80ef2ddaf82945c1c1af9", null ],
     [ "s_save_data", "m__start__up_8fpp_8f90.html#a0865c4378f1fdf7a9053530fb25fadaa", null ],
+    [ "s_save_performance_metrics", "m__start__up_8fpp_8f90.html#a9d9487d5a4bc44cf9541702999694fd7", null ],
     [ "grad_x_vf", "m__start__up_8fpp_8f90.html#acd3b736578c59b1bd9dfc4b81f4a7279", null ],
     [ "grad_y_vf", "m__start__up_8fpp_8f90.html#a2e9ad6009d63488a8f8c7a3a548ba433", null ],
     [ "grad_z_vf", "m__start__up_8fpp_8f90.html#ada153b7f1b2f725b026b89cd187d3206", null ],
