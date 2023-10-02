@@ -88,28 +88,32 @@ var NAVTREE =
       [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md49", [
         [ "Initial Condition", "md_examples.html#autotoc_md50", null ],
         [ "Result", "md_examples.html#autotoc_md51", null ]
+      ] ],
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md52", [
+        [ "Initial Condition", "md_examples.html#autotoc_md53", null ],
+        [ "Result", "md_examples.html#autotoc_md54", null ]
       ] ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
-      [ "Fetching MFC", "md_getting-started.html#autotoc_md53", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md54", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md55", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md56", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md57", null ]
+      [ "Fetching MFC", "md_getting-started.html#autotoc_md56", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md57", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md58", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md59", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md60", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md63", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md64", [
-        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md65", null ],
-        [ "Restarting Cases", "md_running.html#autotoc_md66", null ],
-        [ "Example Runs", "md_running.html#autotoc_md67", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md66", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md67", [
+        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md68", null ],
+        [ "Restarting Cases", "md_running.html#autotoc_md69", null ],
+        [ "Example Runs", "md_running.html#autotoc_md70", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md72", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md73", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md75", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md76", null ]
     ] ]
   ] ]
 ];
