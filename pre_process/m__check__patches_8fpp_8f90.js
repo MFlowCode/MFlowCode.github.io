@@ -14,7 +14,6 @@ var m__check__patches_8fpp_8f90 =
     [ "s_check_inactive_patch_alteration_rights", "m__check__patches_8fpp_8f90.html#a2690167f0b25ca2a4475875740a1a99c", null ],
     [ "s_check_inactive_patch_geometry", "m__check__patches_8fpp_8f90.html#aa2e133b2f325b7a3597149ec08e7dccc", null ],
     [ "s_check_inactive_patch_primitive_variables", "m__check__patches_8fpp_8f90.html#a67a788934dbcdcd139962e5b453bf622", null ],
-    [ "s_check_isentropic_vortex_patch_geometry", "m__check__patches_8fpp_8f90.html#ad07ba3c6ec28f098d2301cb5c4fab3fa", null ],
     [ "s_check_line_segment_patch_geometry", "m__check__patches_8fpp_8f90.html#a5b142fb0ce186f97c22e5a10a36a3bb8", null ],
     [ "s_check_line_sweep_patch_geometry", "m__check__patches_8fpp_8f90.html#a7bae026c1e443c8247a8ad74a849063b", null ],
     [ "s_check_model_geometry", "m__check__patches_8fpp_8f90.html#a706187f3489d08ace44760a60c1efabb", null ],

@@ -16,7 +16,6 @@ var m__patches_8fpp_8f90 =
     [ "s_cylinder", "m__patches_8fpp_8f90.html#a3344bff4ec4757e3491a9ad26d275b5f", null ],
     [ "s_ellipse", "m__patches_8fpp_8f90.html#aa6d7431c71ad4e9e0ffc9dc20b75d649", null ],
     [ "s_ellipsoid", "m__patches_8fpp_8f90.html#a229b5d7429dddd9a321dd1c8850f818f", null ],
-    [ "s_isentropic_vortex", "m__patches_8fpp_8f90.html#ab5330abbe995a8000fa4e026793e8b76", null ],
     [ "s_line_segment", "m__patches_8fpp_8f90.html#a643440c3316ec8583c02dba30f9da8eb", null ],
     [ "s_model", "m__patches_8fpp_8f90.html#ac7f748ab1e64c62eff219301807ba04e", null ],
     [ "s_rectangle", "m__patches_8fpp_8f90.html#a13fd94596295470337ddd3aaaf997e50", null ],
