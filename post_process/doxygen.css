@@ -291,12 +291,12 @@ ul.multicol {
   overflow-x: auto;
   overflow-y: hidden;
   position: relative;
-  min-height: 28px;
-  margin: 4px 4px 4px 2px;
-  padding: 2px 2px 3px 2px;
+  min-height: 12px;
+  margin: 10px 0px;
+  padding: 10px 10px;
   border: 1px solid #8DC8FF;
+  border-radius: 4px;
   background-color: #F8FBFF;
-  border-radius : 2px;
   color: black;
 }
 
@@ -465,10 +465,6 @@ img.dark-mode-visible {
 }
 img.light-mode-visible {
 	display: none;
-}
-
-img.formulaDsp {
-	
 }
 
 img.formulaInl, img.inline {
@@ -1202,7 +1198,8 @@ dl {
         padding: 0 0 0 0;
 }
 
-/* dl.note, dl.warning, dl.attention, dl.pre, dl.post, dl.invariant, dl.deprecated, dl.todo, dl.test, dl.bug, dl.examples */
+/*
+
 dl.section {
 	margin-left: 0px;
 	padding-left: 0px;
@@ -1257,8 +1254,101 @@ dl.bug {
   border-color: #C08050;
 }
 
+*/
+
+dl.bug dt a, dl.deprecated dt a, dl.todo dt a, dl.test a {
+    font-weight: bold !important;
+}
+
+dl.warning, dl.attention, dl.note, dl.deprecated, dl.bug,
+dl.invariant, dl.pre, dl.post, dl.todo, dl.test, dl.remark {
+    padding: 10px;
+    margin: 10px 0px;
+    overflow: hidden;
+    margin-left: 0;
+    border-radius: 4px;
+}
+
 dl.section dd {
-	margin-bottom: 6px;
+    margin-bottom: 2px;
+}
+
+dl.warning, dl.attention {
+    background: #f8d1cc;
+    border-left: 8px solid #b61825;
+    color: #75070f;
+}
+
+dl.warning dt, dl.attention dt {
+    color: #b61825;
+}
+
+dl.note, dl.remark {
+    background: #faf3d8;
+    border-left: 8px solid #f3a600;
+    color: #5f4204;
+}
+
+dl.note dt, dl.remark dt {
+    color: #f3a600;
+}
+
+dl.todo {
+    background: #e4f3ff;
+    border-left: 8px solid #1879C4;
+    color: #274a5c;
+}
+
+dl.todo dt {
+    color: #1879C4;
+}
+
+dl.test {
+    background: #e8e8ff;
+    border-left: 8px solid #3939C4;
+    color: #1a1a5c;
+}
+
+dl.test dt {
+    color: #3939C4;
+}
+
+dl.bug dt a {
+    color: #5b2bdd !important;
+}
+
+dl.bug {
+    background: #e4dafd;
+    border-left: 8px solid #5b2bdd;
+    color: #2a0d72;
+}
+
+dl.bug dt a {
+    color: #5b2bdd !important;
+}
+
+dl.deprecated {
+    background: #ecf0f3;
+    border-left: 8px solid #5b6269;
+    color: #43454a;
+}
+
+dl.deprecated dt a {
+    color: #5b6269 !important;
+}
+
+dl.section dd, dl.bug dd, dl.deprecated dd, dl.todo dd, dl.test dd {
+    margin-inline-start: 0px;
+}
+
+dl.invariant, dl.pre, dl.post {
+    background: #d8f1e3;
+    border-left: 8px solid #44b86f;
+    color: #265532;
+}
+
+dl.invariant dt, dl.pre dt, dl.post dt {
+    color: #44b86f;
 }
 
 
@@ -1273,12 +1363,12 @@ dl.section dd {
 	vertical-align: bottom;
 	border-collapse: separate;
 }
- 
+
 #projectlogo img
-{ 
+{
 	border: 0px none;
 }
- 
+
 #projectalign
 {
         vertical-align: middle;

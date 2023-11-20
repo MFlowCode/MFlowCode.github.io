@@ -6,11 +6,12 @@ var searchData=
   ['patches_3',['patches',['../md_case.html#autotoc_md7',1,'3. Patches'],['../md_case.html#autotoc_md9',1,'Hard Coded Patches']]],
   ['permanent_20ban_4',['4. Permanent Ban',['../md_CODE__OF__CONDUCT.html#autotoc_md33',1,'']]],
   ['pledge_5',['Our Pledge',['../md_CODE__OF__CONDUCT.html#autotoc_md24',1,'']]],
-  ['post_20process_6',['Testing Post Process',['../md_testing.html#autotoc_md61',1,'']]],
+  ['post_20process_6',['Testing Post Process',['../md_testing.html#autotoc_md98',1,'']]],
   ['primitive_20variables_7',['Analytical Definition of Primitive Variables',['../md_case.html#autotoc_md8',1,'']]],
   ['primitive_20variables_20ordering_8',['Primitive Variables Ordering',['../md_case.html#autotoc_md22',1,'']]],
-  ['problem_201d_9',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md39',1,'']]],
-  ['procedure_10',['Procedure',['../md_visualisation.html#autotoc_md63',1,'']]],
-  ['process_11',['Testing Post Process',['../md_testing.html#autotoc_md61',1,'']]],
-  ['profiling_20with_20nvidia_20nsight_12',['Profiling with NVIDIA Nsight',['../md_running.html#autotoc_md56',1,'']]]
+  ['problem_201d_9',['problem 1d',['../md_examples.html#autotoc_md47',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md74',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md65',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md37',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md59',1,'Titarev-Toro problem (1D)'],['../md_examples.html#autotoc_md50',1,'Titarev-Toro problem (1D)']]],
+  ['problem_202d_10',['problem 2d',['../md_examples.html#autotoc_md62',1,'Isentropic vortex problem (2D)'],['../md_examples.html#autotoc_md68',1,'Isentropic vortex problem (2D)'],['../md_examples.html#autotoc_md40',1,'Isentropic vortex problem (2D)']]],
+  ['procedure_11',['Procedure',['../md_visualisation.html#autotoc_md100',1,'']]],
+  ['process_12',['Testing Post Process',['../md_testing.html#autotoc_md98',1,'']]],
+  ['profiling_20with_20nvidia_20nsight_13',['Profiling with NVIDIA Nsight',['../md_running.html#autotoc_md93',1,'']]]
 ];
