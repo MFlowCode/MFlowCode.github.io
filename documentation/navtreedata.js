@@ -72,79 +72,77 @@ var NAVTREE =
         [ "Initial Condition", "md_examples.html#autotoc_md37", null ],
         [ "Result", "md_examples.html#autotoc_md38", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md39", null ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md40", [
-        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
-        [ "Result", "md_examples.html#autotoc_md42", null ],
-        [ "Density", "md_examples.html#autotoc_md43", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md44", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md39", [
+        [ "Initial Condition", "md_examples.html#autotoc_md40", null ],
+        [ "Result", "md_examples.html#autotoc_md41", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md45", null ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md46", [
-        [ "Initial Condition", "md_examples.html#autotoc_md47", null ],
-        [ "Result", "md_examples.html#autotoc_md48", null ]
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md42", null ],
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md43", [
+        [ "Initial Condition", "md_examples.html#autotoc_md44", null ],
+        [ "Result", "md_examples.html#autotoc_md45", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md49", [
-        [ "Initial Condition", "md_examples.html#autotoc_md50", null ],
-        [ "Result", "md_examples.html#autotoc_md51", null ]
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md46", null ],
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md47", [
+        [ "Initial Condition", "md_examples.html#autotoc_md48", null ],
+        [ "Result", "md_examples.html#autotoc_md49", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md52", [
-        [ "Initial Condition", "md_examples.html#autotoc_md53", null ],
-        [ "Result", "md_examples.html#autotoc_md54", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md50", [
+        [ "Initial Condition", "md_examples.html#autotoc_md51", null ],
+        [ "Result", "md_examples.html#autotoc_md52", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md55", [
-        [ "Initial Condition", "md_examples.html#autotoc_md56", null ],
-        [ "Result", "md_examples.html#autotoc_md57", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md53", [
+        [ "Initial Condition", "md_examples.html#autotoc_md54", null ],
+        [ "Result", "md_examples.html#autotoc_md55", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md58", [
-        [ "Initial Condition", "md_examples.html#autotoc_md59", null ],
-        [ "Result", "md_examples.html#autotoc_md60", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md56", [
+        [ "Initial Condition", "md_examples.html#autotoc_md57", null ],
+        [ "Result", "md_examples.html#autotoc_md58", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md61", [
-        [ "Density", "md_examples.html#autotoc_md62", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md63", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md59", [
+        [ "Density", "md_examples.html#autotoc_md60", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md61", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md64", [
-        [ "Density", "md_examples.html#autotoc_md65", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md66", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md62", [
+        [ "Density", "md_examples.html#autotoc_md63", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md64", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md67", [
-        [ "Initial Condition", "md_examples.html#autotoc_md68", null ],
-        [ "Result", "md_examples.html#autotoc_md69", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md65", [
+        [ "Initial Condition", "md_examples.html#autotoc_md66", null ],
+        [ "Result", "md_examples.html#autotoc_md67", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md70", [
-        [ "Initial Condition", "md_examples.html#autotoc_md71", null ],
-        [ "Result", "md_examples.html#autotoc_md72", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md68", [
+        [ "Initial Condition", "md_examples.html#autotoc_md69", null ],
+        [ "Result", "md_examples.html#autotoc_md70", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md73", [
-        [ "Initial Condition", "md_examples.html#autotoc_md74", null ],
-        [ "Result", "md_examples.html#autotoc_md75", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md71", [
+        [ "Initial Condition", "md_examples.html#autotoc_md72", null ],
+        [ "Result", "md_examples.html#autotoc_md73", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md76", [
-        [ "Initial Condition", "md_examples.html#autotoc_md77", null ],
-        [ "Result", "md_examples.html#autotoc_md78", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md74", [
+        [ "Initial Condition", "md_examples.html#autotoc_md75", null ],
+        [ "Result", "md_examples.html#autotoc_md76", null ]
       ] ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
-      [ "Fetching MFC", "md_getting-started.html#autotoc_md80", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md81", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md82", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md83", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md84", null ]
+      [ "Fetching MFC", "md_getting-started.html#autotoc_md78", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md79", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md80", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md81", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md82", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md90", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md91", [
-        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md92", null ],
-        [ "Restarting Cases", "md_running.html#autotoc_md93", null ],
-        [ "Example Runs", "md_running.html#autotoc_md94", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md88", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md89", [
+        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md90", null ],
+        [ "Restarting Cases", "md_running.html#autotoc_md91", null ],
+        [ "Example Runs", "md_running.html#autotoc_md92", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md99", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md100", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md97", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md98", null ]
     ] ]
   ] ]
 ];
