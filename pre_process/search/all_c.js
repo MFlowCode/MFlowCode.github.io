@@ -50,7 +50,7 @@ var searchData=
   ['mpp_5flim_47',['mpp_lim',['../namespacem__global__parameters.html#adc35ba450a192812db36f1d6659d64e6',1,'m_global_parameters']]],
   ['ms_48',['ms',['../structbub__bounds__info.html#a038a7ae16f7bcd2ebbdbd087c9a6a5d4',1,'bub_bounds_info']]],
   ['mu_5fn_49',['mu_n',['../namespacem__global__parameters.html#ad4dad45ac373a501071736a842b92e7f',1,'m_global_parameters']]],
-  ['mu_5fv_50',['mu_v',['../namespacem__global__parameters.html#a8131eca3d2cf75ed86eb2e61170a7ea7',1,'m_global_parameters::mu_v'],['../structphysical__parameters.html#ab7752a9cce4c42f55da488ad594529a7',1,'physical_parameters::mu_v']]],
+  ['mu_5fv_50',['mu_v',['../structphysical__parameters.html#ab7752a9cce4c42f55da488ad594529a7',1,'physical_parameters::mu_v'],['../namespacem__global__parameters.html#a8131eca3d2cf75ed86eb2e61170a7ea7',1,'m_global_parameters::mu_v']]],
   ['mul0_51',['mul0',['../structphysical__parameters.html#aa138b2f821d890706b8e15bbd2f9fcef',1,'physical_parameters::mul0'],['../namespacem__global__parameters.html#a66201f815774054202aad11d89558061',1,'m_global_parameters::mul0']]],
   ['mv_52',['mv',['../namespacem__global__parameters.html#ac0f2b9f46268623e7b3f82f0b222588f',1,'m_global_parameters']]]
 ];

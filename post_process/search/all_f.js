@@ -15,7 +15,7 @@ var searchData=
   ['phi_5fvn_12',['phi_vn',['../namespacem__global__parameters.html#acc6771df62005731bbec282b0c9a5659',1,'m_global_parameters']]],
   ['physical_5fparameters_13',['physical_parameters',['../structphysical__parameters.html',1,'']]],
   ['pi_14',['pi',['../namespacem__constants.html#adf10faade818887559697bfbb40bfe09',1,'m_constants']]],
-  ['pi_5finf_15',['pi_inf',['../structphysical__parameters.html#a39fe275dec450d4d90cd9ae5974bda01',1,'physical_parameters::pi_inf'],['../structic__patch__parameters.html#a834402015112a7fcbd7f2e8652cfb758',1,'ic_patch_parameters::pi_inf']]],
+  ['pi_5finf_15',['pi_inf',['../structic__patch__parameters.html#a834402015112a7fcbd7f2e8652cfb758',1,'ic_patch_parameters::pi_inf'],['../structphysical__parameters.html#a39fe275dec450d4d90cd9ae5974bda01',1,'physical_parameters::pi_inf']]],
   ['pi_5finf_5fidx_16',['pi_inf_idx',['../namespacem__global__parameters.html#a7db1a23566279bdbc7da68850c596c69',1,'m_global_parameters']]],
   ['pi_5finf_5fwrt_17',['pi_inf_wrt',['../namespacem__global__parameters.html#afb66fcff0c17f2298a9b7a35c85dedb7',1,'m_global_parameters']]],
   ['poly_5fsigma_18',['poly_sigma',['../namespacem__global__parameters.html#a29164826db891e5662ce2bccdbc57d3c',1,'m_global_parameters']]],

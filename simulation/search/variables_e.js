@@ -9,7 +9,7 @@ var searchData=
   ['pi_5fcoef_5fx_6',['pi_coef_x',['../namespacem__cbc.html#a92a790ebc08099baa5e0e6d8be1a9da6',1,'m_cbc']]],
   ['pi_5fcoef_5fy_7',['pi_coef_y',['../namespacem__cbc.html#a13a0d266d8351493ec7d51ca6f0c8dfc',1,'m_cbc']]],
   ['pi_5fcoef_5fz_8',['pi_coef_z',['../namespacem__cbc.html#a0c44bbedd1d2730d3c2040045e0c6c67',1,'m_cbc']]],
-  ['pi_5finf_9',['pi_inf',['../structphysical__parameters.html#a39fe275dec450d4d90cd9ae5974bda01',1,'physical_parameters::pi_inf'],['../structic__patch__parameters.html#a834402015112a7fcbd7f2e8652cfb758',1,'ic_patch_parameters::pi_inf'],['../m__rhs_8fpp_8f90.html#aeed4eb93ccb2725da7a4756e510dda03',1,'pi_inf:&#160;m_rhs.fpp.f90']]],
+  ['pi_5finf_9',['pi_inf',['../structic__patch__parameters.html#a834402015112a7fcbd7f2e8652cfb758',1,'ic_patch_parameters::pi_inf'],['../structphysical__parameters.html#a39fe275dec450d4d90cd9ae5974bda01',1,'physical_parameters::pi_inf'],['../m__rhs_8fpp_8f90.html#aeed4eb93ccb2725da7a4756e510dda03',1,'pi_inf:&#160;m_rhs.fpp.f90']]],
   ['pres_10',['pres',['../structic__patch__parameters.html#ab49672270d63ba491601c5fe58a474a4',1,'ic_patch_parameters']]],
   ['pres_5fk_5finit_11',['pres_k_init',['../m__rhs_8fpp_8f90.html#a762d1c12479dcf998f8a5a47dc258ddc',1,'m_rhs.fpp.f90']]],
   ['pres_5frelax_12',['pres_relax',['../m__rhs_8fpp_8f90.html#a9dff053a7e3f9c1702a161f55d3e1726',1,'m_rhs.fpp.f90']]],

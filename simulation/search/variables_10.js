@@ -4,7 +4,7 @@ var searchData=
   ['r2vav_1',['r2vav',['../m__monopole_8fpp_8f90.html#ab8c28346670f830b851c9f4cdb58caa9',1,'m_monopole.fpp.f90']]],
   ['radii_2',['radii',['../structic__patch__parameters.html#abbb051640b489e1de93ae9376e35b82d',1,'ic_patch_parameters']]],
   ['radius_3',['radius',['../structic__patch__parameters.html#afda2a3a41543a88bd4bf2a53b7e07f44',1,'ic_patch_parameters']]],
-  ['re_4',['re',['../namespacem__cbc.html#af36bd73bae305dd791c6da0a37d2f6f8',1,'m_cbc::re'],['../m__rhs_8fpp_8f90.html#a6c337b82dc4c47f2d3cc57408aa1fc9f',1,'re:&#160;m_rhs.fpp.f90'],['../structphysical__parameters.html#a23cf2317c70f9097487fcdaacc91a13a',1,'physical_parameters::re']]],
+  ['re_4',['re',['../structphysical__parameters.html#a23cf2317c70f9097487fcdaacc91a13a',1,'physical_parameters::re'],['../namespacem__cbc.html#af36bd73bae305dd791c6da0a37d2f6f8',1,'m_cbc::re'],['../m__rhs_8fpp_8f90.html#a6c337b82dc4c47f2d3cc57408aa1fc9f',1,'re:&#160;m_rhs.fpp.f90']]],
   ['re_5favg_5frsx_5fvf_5',['re_avg_rsx_vf',['../namespacem__riemann__solvers.html#ae0577acd199c492ae838122a82f2d6da',1,'m_riemann_solvers']]],
   ['re_5favg_5frsy_5fvf_6',['re_avg_rsy_vf',['../namespacem__riemann__solvers.html#a8ac3f7f002fecd32c9e777d12dd3aa6a',1,'m_riemann_solvers']]],
   ['re_5favg_5frsz_5fvf_7',['re_avg_rsz_vf',['../namespacem__riemann__solvers.html#aa1bb11104b7d4024eed16dcd32a747a8',1,'m_riemann_solvers']]],

@@ -22,7 +22,7 @@ var searchData=
   ['phi_5fvn_19',['phi_vn',['../namespacem__global__parameters.html#acc6771df62005731bbec282b0c9a5659',1,'m_global_parameters']]],
   ['physical_5fparameters_20',['physical_parameters',['../structphysical__parameters.html',1,'']]],
   ['pi_21',['pi',['../namespacem__constants.html#adf10faade818887559697bfbb40bfe09',1,'m_constants']]],
-  ['pi_5finf_22',['pi_inf',['../structphysical__parameters.html#a39fe275dec450d4d90cd9ae5974bda01',1,'physical_parameters::pi_inf'],['../structic__patch__parameters.html#a834402015112a7fcbd7f2e8652cfb758',1,'ic_patch_parameters::pi_inf']]],
+  ['pi_5finf_22',['pi_inf',['../structic__patch__parameters.html#a834402015112a7fcbd7f2e8652cfb758',1,'ic_patch_parameters::pi_inf'],['../structphysical__parameters.html#a39fe275dec450d4d90cd9ae5974bda01',1,'physical_parameters::pi_inf']]],
   ['pi_5finf_5fidx_23',['pi_inf_idx',['../namespacem__global__parameters.html#a7db1a23566279bdbc7da68850c596c69',1,'m_global_parameters']]],
   ['poly_5fsigma_24',['poly_sigma',['../namespacem__global__parameters.html#a29164826db891e5662ce2bccdbc57d3c',1,'m_global_parameters']]],
   ['polydisperse_25',['polydisperse',['../namespacem__global__parameters.html#a32791d9d5fef0213f01fc31713b17ae8',1,'m_global_parameters']]],
