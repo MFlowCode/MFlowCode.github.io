@@ -120,8 +120,8 @@ $(function(){initNavTree('md_running.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Running</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md93"></a> MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports both interactive and batch execution, the latter being designed for multi-socket systems, namely supercomputers, equipped with a scheduler such as PBS, SLURM, and LSF. A full (and updated) list of available arguments can be acquired with <code>./mfc.sh run -h</code>.</p>
-<h1><a class="anchor" id="autotoc_md94"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md86"></a> MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports both interactive and batch execution, the latter being designed for multi-socket systems, namely supercomputers, equipped with a scheduler such as PBS, SLURM, and LSF. A full (and updated) list of available arguments can be acquired with <code>./mfc.sh run -h</code>.</p>
+<h1><a class="anchor" id="autotoc_md87"></a>
 Interactive Execution</h1>
 <p>To run all stages of MFC, that is <a href="https://github.com/MFlowCode/MFC/tree/master/src/pre_process/">pre_process</a>, <a href="https://github.com/MFlowCode/MFC/tree/master/src/simulation/">simulation</a>, and <a href="https://github.com/MFlowCode/MFC/tree/master/src/post_process/">post_process</a> on the sample case <a href="https://github.com/MFlowCode/MFC/tree/master/examples/2D_shockbubble/">2D_shockbubble</a>,</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py</div>
@@ -138,7 +138,7 @@ Interactive Execution</h1>
 </div><!-- fragment --><p>On some computer clusters, MFC might select the wrong MPI program to execute your application because it uses a general heuristic for its selection. Notably, <code>srun</code> is known to fail on some SLURM systems when using GPUs or MPI implementations from different vendors, whereas <code>mpirun</code> functions properly. To override and manually specify which MPI program you wish to run your application with, please use the <code>-b &lt;program name&gt;</code> option (i.e <code>--binary</code>).</p>
 <p>Additional flags can be appended to the MPI executable call using the <code>-f</code> (i.e <code>--flags</code>) option.</p>
 <p>Please refer to <code>./mfc.sh run -h</code> for a complete list of arguments and options, along with their defaults.</p>
-<h1><a class="anchor" id="autotoc_md95"></a>
+<h1><a class="anchor" id="autotoc_md88"></a>
 Batch Execution</h1>
 <p>The MFC detects which scheduler your system is using and handles the creation and execution of batch scripts. The batch engine is requested with the <code>-e batch</code> option. Whereas the interactive engine can execute all of MFC's codes in succession, the batch engine requires you to only specify one target with the <code>-t</code> option. The number of nodes and GPUs can, respectively be specified with the <code>-N</code> (i.e <code>--nodes</code>) and <code>-g</code> (i.e <code>--gpus-per-node</code>) options.</p>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -e batch -N 2 -n 4 -g 4 -t simulation</div>
@@ -161,13 +161,13 @@ Batch Execution</h1>
 <li>Statements of the form <code>{MFC::expression}</code> tell MFC where to place the common code, across all batch files, that is required for proper execution. They are not intended to be modified by users.</li>
 </ul>
 <p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource-sets in task and GPU count.</p>
-<h2><a class="anchor" id="autotoc_md96"></a>
+<h2><a class="anchor" id="autotoc_md89"></a>
 Profiling with NVIDIA Nsight</h2>
 <p>MFC provides two different argument to facilitate profiling with NVIDIA Nsight. <b>Please ensure that the used argument is placed at the end so that their respective flags can be appended.</b></p><ul>
 <li>Nsight Systems (Nsys): <code>./mfc.sh run ... --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for getting a general understanding of the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps so that the report files remain small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
 <li>Nsight Compute (NCU): <code>./mfc.sh run ... --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Please note that adding this argument will significantly slow down the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md97"></a>
+<h2><a class="anchor" id="autotoc_md90"></a>
 Restarting Cases</h2>
 <p>When running a simulation, MFC generates a <code>./restart_data</code> folder in the case directory that contains <code>lustre_*.dat</code> files that can be used to restart a simulation from saved timesteps. This allows a user to run a simulation to some timestep $X$, then later continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
 <p>If you want to restart a simulation,</p>
@@ -255,7 +255,7 @@ Restarting Cases</h2>
 <div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t pre_process simulation</div>
 <div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
 <div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md98"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md91"></a>
 Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>
