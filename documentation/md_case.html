@@ -158,8 +158,7 @@ Basic Skeleton</h1>
 <div class="fragment"><div class="line">./mfc.sh run examples/3D_weak_scaling/case.py 2 -t pre_process -j 8</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Parameters</h1>
-<p>There are multiple sets of parameters that must be specified in the python input file:</p><ol type="1">
-<li>Runtime Parameters</li>
+<p>There are multiple sets of parameters that must be specified in the python input file: 1. Runtime Parameters</p><ol type="1">
 <li>Computational Domain Parameters</li>
 <li>Patch Parameters</li>
 <li>Fluid Material's Parameters</li>
@@ -178,9 +177,7 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>run_time_info</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output run-time information   </td></tr>
 </table>
-<ul>
-<li><code>run_time_info</code> generates a text file that includes run-time information including the CFL number(s) at each time-step.</li>
-</ul>
+<p>- <code>run_time_info</code> generates a text file that includes run-time information including the CFL number(s) at each time-step.</p>
 <h2><a class="anchor" id="autotoc_md6"></a>
 2. Computational Domain</h2>
 <table class="markdownTable">
@@ -216,22 +213,16 @@ Parameters</h1>
 <td class="markdownTableBodyRight"><code>t_step_save</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to output data   </td></tr>
 </table>
 <p>The parameters define the boundaries of the spatial and temporal domains, and their discritization that are used in simulation.</p>
-<ul>
-<li><code>[x,y,z]_domain%[beg,end]</code> define the spatial domain in $x$, $y$, and $z$ Cartesian coordinates:</li>
-</ul>
+<p>- <code>[x,y,z]_domain%[beg,end]</code> define the spatial domain in $x$, $y$, and $z$ Cartesian coordinates:</p>
 <p>$$ x \in \left[ x \_ domain \% beg, x \_ domain \% end \right], y \in \left[ y \_ domain \% beg, y \_ domain \% end \right], z \in \left[ z \_ domain \% beg, z \_ domain \% end \right] $$</p>
-<ul>
-<li>$m$, $n$, and $p$ define the number of finite volume cells that uniformly discritize the domain along the $x$, $y$, and $z$ axes, respectively. Note that the actual number of cells in each coordinate axis is given as $[m,n,p]+1$. For example, $m=n=p=499$ discretizes the domain into $500^3$ cells. When the simulation is 2D/axi-symmetric or 1D, it requires that $p=0$ or $p=n=0$, respectively.</li>
-<li><code>stretch_[x,y,z]</code> activates grid stretching in the $[x,y,z]$ directions. The grid is gradually stretched such that the domain boundaries are pushed away from the origin along a specified axis.</li>
-<li><code>a_[x,y,z]</code>, <code>[x,y,z]_a</code>, and <code>[x,y,z]_b</code> are parameters that define the grid stretching function. When grid stretching along the $x$ axis is considered, the stretching function is given as:</li>
-</ul>
+<p>- $m$, $n$, and $p$ define the number of finite volume cells that uniformly discritize the domain along the $x$, $y$, and $z$ axes, respectively. Note that the actual number of cells in each coordinate axis is given as $[m,n,p]+1$. For example, $m=n=p=499$ discretizes the domain into $500^3$ cells. When the simulation is 2D/axi-symmetric or 1D, it requires that $p=0$ or $p=n=0$, respectively.</p>
+<p>- <code>stretch_[x,y,z]</code> activates grid stretching in the $[x,y,z]$ directions. The grid is gradually stretched such that the domain boundaries are pushed away from the origin along a specified axis.</p>
+<p>- <code>a_[x,y,z]</code>, <code>[x,y,z]_a</code>, and <code>[x,y,z]_b</code> are parameters that define the grid stretching function. When grid stretching along the $x$ axis is considered, the stretching function is given as:</p>
 <p>$$ x_{cb,stretch} = x_{cb} + \frac{x_{cb}}{a_x} \Bigg[ \mathrm{log}\left[\mathrm{cosh} \left( \frac{a_x(x_{cb}-x_a)}{L} \right) \right] + \mathrm{log}\left[\mathrm{cosh} \left( \frac{a_x(x_{cb}-x_b)}{L} \right) \right] -2 \mathrm{log}\left[\mathrm{cosh} \left( \frac{a_x(x_b-x_a)}{2L} \right) \right] \Bigg] $$</p>
 <p>where <code>x_cb</code> and <code>x_[cb,stretch]</code> are the coordinates of a cell boundary at the original and stretched domains, respectively. <code>L</code> is the domain length along the <code>x</code> axis: <code>L</code>=<code>x_domainend</code>-<code>x_domainbeg</code>. Crudely speaking, <code>x_a</code> and <code>x_b</code> define the coordinates at which the grid begins to get stretched in the negative and positive directions along the $x$ axis, respectively. $a_x$ defines the smoothness of the stretching. Stretching along the $y$ and $z$ axes follows the same logistics. Optimal choice of the parameters for grid stretching is case-dependent and left to the user. <code>loops_x[y,z]</code> defines the number of times the grid stretching funciton is applied and has a default value of one.</p>
-<ul>
-<li><code>cyl_coord</code> activates cylindrical coordinates. The domain is defined in $x$-$y$-$z$ cylindrical coordinates, instead of Cartesian coordinates. Domain discritization is accordingly conducted along the axes of cylindrical coordinates. Wnen $p=0$, the domain is defined on $x$-$y$ axi-symmetric coordinates. In both Coordinates, mesh stretching can be defined along the $x$- and $y$-axes. MPI topology is automatically optimized to maximize the parallel efficiency for given choice of coordinate systems.</li>
-<li><code>dt</code> specifies the constant time step size that is used in simulation. The value of <code>dt</code> needs to be sufficiently small such that the Courant-Friedrichs-Lewy (CFL) condition is satisfied.</li>
-<li><code>t_step_start</code> and <code>t_step_end</code> define the time steps at which simulation starts and ends, respectively. <code>t_step_save</code> is the time step interval for data output during simulation. To newly start simulation, set <code>t_step_start</code>=0. To restart simulation from $k$-th time step, set <code>t_step_start</code>=k.</li>
-</ul>
+<p>- <code>cyl_coord</code> activates cylindrical coordinates. The domain is defined in $x$-$y$-$z$ cylindrical coordinates, instead of Cartesian coordinates. Domain discritization is accordingly conducted along the axes of cylindrical coordinates. Wnen $p=0$, the domain is defined on $x$-$y$ axi-symmetric coordinates. In both Coordinates, mesh stretching can be defined along the $x$- and $y$-axes. MPI topology is automatically optimized to maximize the parallel efficiency for given choice of coordinate systems.</p>
+<p>- <code>dt</code> specifies the constant time step size that is used in simulation. The value of <code>dt</code> needs to be sufficiently small such that the Courant-Friedrichs-Lewy (CFL) condition is satisfied.</p>
+<p>- <code>t_step_start</code> and <code>t_step_end</code> define the time steps at which simulation starts and ends, respectively. <code>t_step_save</code> is the time step interval for data output during simulation. To newly start simulation, set <code>t_step_start</code>=0. To restart simulation from $k$-th time step, set <code>t_step_start</code>=k.</p>
 <h2><a class="anchor" id="autotoc_md7"></a>
 3. Patches</h2>
 <table class="markdownTable">
@@ -321,10 +312,10 @@ Hard Coded Patches</h3>
 </div><!-- fragment --><p>and use <code>patch_icpp(i)geometry = 7</code> and <code>patch_icpp(i)hcid = 200</code> in the input file. Additional variables can be declared in <code>Hardcoded1[2,3]DVariables</code> and used in <code>hardcoded1[2,3]D</code>. As a convention, any hard coded patches that are part of the MFC master branch should be identied as 1[2,3]xx where the first digit indiates the number of dimensions.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Parameter Descriptions</h3>
+<p>- <code>num_patches</code> defines the total number of patches defined in the domain. The number has to be a positive integer.</p>
+<p>- <code>num_fluids</code> defines the total number of fluids defined in each of the patches. The number has to be a positive integer.</p>
+<p>- <code>patch_icpp(j)geometry</code> defines the type of geometry of $j$-th patch by using an integer from 1 to 13. Definition of the patch type for each integer is listed in table Patch Types.</p>
 <ul>
-<li><code>num_patches</code> defines the total number of patches defined in the domain. The number has to be a positive integer.</li>
-<li><code>num_fluids</code> defines the total number of fluids defined in each of the patches. The number has to be a positive integer.</li>
-<li><code>patch_icpp(j)geometry</code> defines the type of geometry of $j$-th patch by using an integer from 1 to 13. Definition of the patch type for each integer is listed in table Patch Types.</li>
 <li><code>[x,y,z]_centroid</code>, <code>length_[x,y,z]</code>, and/or <code>radius</code> are used to uniquely define the geometry of the patch with given type. Requisite combinations of the parameters for each type can be found in is listed in table Patch types.</li>
 <li><code>patch_icpp(j)alter_patch(i)</code> activates alternation of <code>patch(i)</code> with <code>patch(j)</code>. For instance, in a 2D simulation, when a cylindrical <code>patch(2)</code> is immersed in a rectangular <code>patch(1)</code>:<ul>
 <li><code>patch_icpp(1)geometry</code>=3</li>
@@ -353,10 +344,8 @@ Parameter Descriptions</h3>
 <p>Fluid material's parameters. All parameters should be prepended with <code>fluid_pp(i)</code> where $i$ is the fluid index.</p>
 <p>*: Parameters that work only with <code>model_eqns</code>=2.</p>
 <p>The table lists the fluid material's parameters. The parameters define material's property of compressible fluids that are used in simulation.</p>
-<ul>
-<li><code>fluid_pp(i)gamma</code> and <code>fluid_pp(i)pi_inf</code> define $\Gamma$ and $\Pi$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
-<li><code>fluid_pp(i)Re(1)</code> and <code>fluid_pp(i)Re(2)</code> define the shear and volume viscosities of $i$-th fluid, respectively. When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</li>
-</ul>
+<p>- <code>fluid_pp(i)gamma</code> and <code>fluid_pp(i)pi_inf</code> define $\Gamma$ and $\Pi$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</p>
+<p>- <code>fluid_pp(i)Re(1)</code> and <code>fluid_pp(i)Re(2)</code> define the shear and volume viscosities of $i$-th fluid, respectively. When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
 5. Simulation Algorithm</h2>
 <table class="markdownTable">
@@ -482,16 +471,14 @@ Parameter Descriptions</h3>
 <td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$   </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
-<ul>
-<li><code>format</code> specifies the choice of the file format of data file outputted by MFC by an integer of 1 and 2. <code>format</code> $=$ 1 and 2 correspond to Silo-HDF5 format and binary format, respectively.</li>
-<li><code>precision</code> specifies the choice of the floating-point format of the data file outputted by MFC by an integer of 1 and 2. <code>precision</code> $=$ 1 and 2 correspond to single-precision and double-precision formats, respectively.</li>
-<li><code>parallel_io</code> activates parallel input/output (I/O) of data files. It is highly recommended to activate this option in a parallel environment. With parallel I/O, MFC inputs and outputs a single file throughout pre-process, simulation, and post-process, regardless of the number of processors used. Parallel I/O enables the use of different number of processors in each of the processes (i.e. simulation data generated using 1000 processors can be post-processed using a single processor).</li>
-<li><code>cons_vars_wrt</code> and `prim_vars_wrt} activate output of conservative and primitive state variables into the database, respectively.</li>
-<li><code>[variable's name]_wrt</code> activates output of the each specified variable into the database.</li>
-<li><code>schlieren_alpha(i)</code> specifies the intensity of the numerical Schlieren of $i$-th component.</li>
-<li><code>fd_order</code> specifies the order of finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order</code> $=$ 1, 2, and 4 correspond to the first, second, and fourth order finite difference schemes, respectively.</li>
-<li><code>probe_wrt</code> activates output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</li>
-</ul>
+<p>- <code>format</code> specifies the choice of the file format of data file outputted by MFC by an integer of 1 and 2. <code>format</code> $=$ 1 and 2 correspond to Silo-HDF5 format and binary format, respectively.</p>
+<p>- <code>precision</code> specifies the choice of the floating-point format of the data file outputted by MFC by an integer of 1 and 2. <code>precision</code> $=$ 1 and 2 correspond to single-precision and double-precision formats, respectively.</p>
+<p>- <code>parallel_io</code> activates parallel input/output (I/O) of data files. It is highly recommended to activate this option in a parallel environment. With parallel I/O, MFC inputs and outputs a single file throughout pre-process, simulation, and post-process, regardless of the number of processors used. Parallel I/O enables the use of different number of processors in each of the processes (i.e. simulation data generated using 1000 processors can be post-processed using a single processor).</p>
+<p>- <code>cons_vars_wrt</code> and `prim_vars_wrt} activate output of conservative and primitive state variables into the database, respectively.</p>
+<p>- <code>[variable's name]_wrt</code> activates output of the each specified variable into the database.</p>
+<p>- <code>schlieren_alpha(i)</code> specifies the intensity of the numerical Schlieren of $i$-th component.</p>
+<p>- <code>fd_order</code> specifies the order of finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order</code> $=$ 1, 2, and 4 correspond to the first, second, and fourth order finite difference schemes, respectively.</p>
+<p>- <code>probe_wrt</code> activates output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</p>
 <h2><a class="anchor" id="autotoc_md14"></a>
 7. Acoustic Source</h2>
 <table class="markdownTable">
@@ -517,15 +504,13 @@ Parameter Descriptions</h3>
 <td class="markdownTableBodyRight"><code>Mono(i)length</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Spatial pulse length   </td></tr>
 </table>
 <p>The table lists acoustic source parameters. The parameters are optionally used to define a source plane in the domain that generates an acoustic wave that propagates in a specified direction normal to the source plane (one-way acoustic source). Details of the acoustic source model can be found in <a href="references.md#Maeda17">Maeda and Colonius (2017)</a>.</p>
-<ul>
-<li><code>Monopole</code> activates the acoustic source.</li>
-<li><code>num_mono</code> defines the total number of source planes by an integer.</li>
-<li><code>Mono(i)pulse</code> specifies the choice of the acoustic wave form generated from $i$-th source plane by an integer. <code>Mono(i)pulse</code> $=$ 1, 2, and 3 correspond to sinusoidal wave, Gaussian wave, and square wave, respectively.</li>
-<li><code>Mono(i)npulse</code> defines the number of cycles of the acoustic wave generated from $i$-th source plane by an integer.</li>
-<li><code>Mono(i)mag</code> defines the peak amplitude of the acoustic wave generated from $i$-th source plane with a given wave form.</li>
-<li><code>Mono(i)length</code> defines the characteristic wavelength of the acoustic wave generated from $i$-th source plane.</li>
-<li><code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support</code> $=1$ specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support</code> $=2$ specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support</code> $=3$ specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</li>
-</ul>
+<p>- <code>Monopole</code> activates the acoustic source.</p>
+<p>- <code>num_mono</code> defines the total number of source planes by an integer.</p>
+<p>- <code>Mono(i)pulse</code> specifies the choice of the acoustic wave form generated from $i$-th source plane by an integer. <code>Mono(i)pulse</code> $=$ 1, 2, and 3 correspond to sinusoidal wave, Gaussian wave, and square wave, respectively.</p>
+<p>- <code>Mono(i)npulse</code> defines the number of cycles of the acoustic wave generated from $i$-th source plane by an integer.</p>
+<p>- <code>Mono(i)mag</code> defines the peak amplitude of the acoustic wave generated from $i$-th source plane with a given wave form.</p>
+<p>- <code>Mono(i)length</code> defines the characteristic wavelength of the acoustic wave generated from $i$-th source plane.</p>
+<p>- <code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support</code> $=1$ specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support</code> $=2$ specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support</code> $=3$ specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</p>
 <h2><a class="anchor" id="autotoc_md15"></a>
 8. Ensemble-Averaged Bubble Model</h2>
 <table class="markdownTable">
@@ -581,32 +566,27 @@ Parameter Descriptions</h3>
 <td class="markdownTableBodyRight"><code>rhoRV</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Correlation coefficient for joint probability density function of bubble radius and velocity (only when qbmm is true)   </td></tr>
 </table>
 <p>These options work only for gas-liquid two component flows. Component indexes are required to be 1 for liquid and 2 for gas.</p>
-<ul>
-<li>* These parameters should be pretended with patch index $1$ that is filled with liquid: <code>fluid_pp(1)%</code>.</li>
-<li>† These parameters should be pretended with patch indexes that are respectively filled with liquid and gas: <code>fluid_pp(1)%</code> and <code>fluid_pp(2)%</code>.</li>
-</ul>
+<p>- * These parameters should be pretended with patch index $1$ that is filled with liquid: <code>fluid_pp(1)%</code>. - † These parameters should be pretended with patch indexes that are respectively filled with liquid and gas: <code>fluid_pp(1)%</code> and <code>fluid_pp(2)%</code>.</p>
 <p>This table lists the ensemble-averaged bubble model parameters.</p>
-<ul>
-<li><code>bubbles</code> activates the ensemble-averaged bubble model.</li>
-<li><code>bubble_model</code> specified a model for spherical bubble dynamics by an integer of 1 and 2. <code>bubble_model</code> $=$ 1 and 2 correspond to the Gilmore and the Keller-Miksis equations, respectively.</li>
-<li><code>polytropic</code> activates polytropic gas compression in the bubble. When <code>polytropic</code> is set <code>False</code>, the gas compression is modeled as non-polytropic due to heat and mass transfer across the bubble wall with constant heat and mass transfer coefficients based on (<a href="references.md#Preston07">Preston et al., 2007</a>).</li>
-<li><code>polydisperse</code> activates polydispersity in the bubble model by means of a probability density function (PDF) of the equiliibrium bubble radius.</li>
-<li><code>thermal</code> specifies a model for heat transfer across the bubble interface by an integer from 1 through 3. <code>thermal</code> $=$ 1, 2, and 3 correspond to no heat transfer (adiabatic gas compression), isothermal heat transfer, and heat transfer with a constant heat transfer coefficient based on <a href="references.md#Preston07">Preston et al., 2007</a>, respectively.</li>
-<li><code>R0ref</code> specifies the reference bubble radius.</li>
-<li><code>nb</code> specifies the number of discrete bins that define the probability density function (PDF) of the equilibirum bubble radius.</li>
-<li><code>R0_type</code> specifies the quadrature rule for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations. <code>R0_type</code> $=$ 1 corresponds to simpson's rule.</li>
-<li><code>poly_sigma</code> specifies the standard deviation of the log-normal PDF of equilibirium bubble radius for polydisperse populations.</li>
-<li><code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</li>
-<li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify the specific heat ratio, molecular weight, viscosity, and thermal conductivity of a chosen component. Implementation of the parameterse into the model follow <a href="references.md#Ando10">Ando (2010)</a>.</li>
-<li><code>qbmm</code> activates quadrature by method of moments, which assumes a PDF for bubble radius and velocity.</li>
-<li><code>dist_type</code> specifies the initial joint PDF of initial bubble radius and bubble velocity required in qbmm. <code>dist_type</code> $=$ 1 and 2 correspond to binormal and lognormal-normal distributions respectively.</li>
-<li><code>sigR</code> specifies the standard deviation of the PDF of bubble radius required in qbmm. <br  />
-</li>
-<li><code>sigV</code> specifies the standard deviation of the PDF of bubble velocity required in qbmm. <br  />
-</li>
-<li><code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in qbmm. <br  />
-</li>
-</ul>
+<p>- <code>bubbles</code> activates the ensemble-averaged bubble model.</p>
+<p>- <code>bubble_model</code> specified a model for spherical bubble dynamics by an integer of 1 and 2. <code>bubble_model</code> $=$ 1 and 2 correspond to the Gilmore and the Keller-Miksis equations, respectively.</p>
+<p>- <code>polytropic</code> activates polytropic gas compression in the bubble. When <code>polytropic</code> is set <code>False</code>, the gas compression is modeled as non-polytropic due to heat and mass transfer across the bubble wall with constant heat and mass transfer coefficients based on (<a href="references.md#Preston07">Preston et al., 2007</a>).</p>
+<p>- <code>polydisperse</code> activates polydispersity in the bubble model by means of a probability density function (PDF) of the equiliibrium bubble radius.</p>
+<p>- <code>thermal</code> specifies a model for heat transfer across the bubble interface by an integer from 1 through 3. <code>thermal</code> $=$ 1, 2, and 3 correspond to no heat transfer (adiabatic gas compression), isothermal heat transfer, and heat transfer with a constant heat transfer coefficient based on <a href="references.md#Preston07">Preston et al., 2007</a>, respectively.</p>
+<p>- <code>R0ref</code> specifies the reference bubble radius.</p>
+<p>- <code>nb</code> specifies the number of discrete bins that define the probability density function (PDF) of the equilibirum bubble radius.</p>
+<p>- <code>R0_type</code> specifies the quadrature rule for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations. <code>R0_type</code> $=$ 1 corresponds to simpson's rule.</p>
+<p>- <code>poly_sigma</code> specifies the standard deviation of the log-normal PDF of equilibirium bubble radius for polydisperse populations.</p>
+<p>- <code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</p>
+<p>- <code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify the specific heat ratio, molecular weight, viscosity, and thermal conductivity of a chosen component. Implementation of the parameterse into the model follow <a href="references.md#Ando10">Ando (2010)</a>.</p>
+<p>- <code>qbmm</code> activates quadrature by method of moments, which assumes a PDF for bubble radius and velocity.</p>
+<p>- <code>dist_type</code> specifies the initial joint PDF of initial bubble radius and bubble velocity required in qbmm. <code>dist_type</code> $=$ 1 and 2 correspond to binormal and lognormal-normal distributions respectively.</p>
+<p>- <code>sigR</code> specifies the standard deviation of the PDF of bubble radius required in qbmm. <br  />
+</p>
+<p>- <code>sigV</code> specifies the standard deviation of the PDF of bubble velocity required in qbmm. <br  />
+</p>
+<p>- <code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in qbmm. <br  />
+</p>
 <h2><a class="anchor" id="autotoc_md16"></a>
 9. Velocity Field Setup</h2>
 <table class="markdownTable">
@@ -624,13 +604,11 @@ Parameter Descriptions</h3>
 <td class="markdownTableBodyRight"><code>instability_wave</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initial velocity field by instability waves   </td></tr>
 </table>
 <p>The table lists velocity field parameters. The parameters are optionally used to define initial velocity profiles and perturbations.</p>
-<ul>
-<li><code>perturb_flow</code> activates the perturbation of initial velocity by random noise.</li>
-<li><code>perturb_sph</code> activates the perturbation of intial partial density by random noise.</li>
-<li><code>perturb_sph_fluid</code> specifies the fluid component whose the partial density to be perturbed.</li>
-<li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
-<li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with <code>vel_profile</code>=TRUE.</li>
-</ul>
+<p>- <code>perturb_flow</code> activates the perturbation of initial velocity by random noise.</p>
+<p>- <code>perturb_sph</code> activates the perturbation of intial partial density by random noise.</p>
+<p>- <code>perturb_sph_fluid</code> specifies the fluid component whose the partial density to be perturbed.</p>
+<p>- <code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</p>
+<p>- <code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with <code>vel_profile</code>=TRUE.</p>
 <h1><a class="anchor" id="autotoc_md17"></a>
 Enumerations</h1>
 <h2><a class="anchor" id="autotoc_md18"></a>
