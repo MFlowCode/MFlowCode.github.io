@@ -85,11 +85,11 @@ var NAVTREE =
         [ "Result", "md_examples.html#autotoc_md47", null ]
       ] ],
       [ "3D Weak Scaling", "md_examples.html#autotoc_md48", null ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md49", [
-        [ "Initial Condition", "md_examples.html#autotoc_md50", null ],
-        [ "Result", "md_examples.html#autotoc_md51", null ]
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md49", null ],
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md50", [
+        [ "Initial Condition", "md_examples.html#autotoc_md51", null ],
+        [ "Result", "md_examples.html#autotoc_md52", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md52", null ],
       [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md53", [
         [ "Initial Condition", "md_examples.html#autotoc_md54", null ],
         [ "Result", "md_examples.html#autotoc_md55", null ]

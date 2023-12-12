@@ -90,6 +90,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "pe_t", "m__global__parameters_8fpp_8f90.html#a8a75928178eef1550c6a0389ff12b44a", null ],
     [ "perturb_flow", "m__global__parameters_8fpp_8f90.html#add2d4033abdced8536200ef739ab379b", null ],
     [ "perturb_flow_fluid", "m__global__parameters_8fpp_8f90.html#a1c242fb70db5a2c91c0997b37bcffd6a", null ],
+    [ "perturb_flow_mag", "m__global__parameters_8fpp_8f90.html#a3ff9c5c4c3b51b7b639cee0b541de56f", null ],
     [ "perturb_sph", "m__global__parameters_8fpp_8f90.html#a98ddabe1c45996064589ca24ce5d8fe3", null ],
     [ "perturb_sph_fluid", "m__global__parameters_8fpp_8f90.html#a90f36c0b74894ddd901534dd4efccfc8", null ],
     [ "phi_nv", "m__global__parameters_8fpp_8f90.html#a7dbd1ec1fd1ece4e997a825fa07785eb", null ],
