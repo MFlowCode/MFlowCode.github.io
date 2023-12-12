@@ -72,11 +72,11 @@ var NAVTREE =
         [ "Density", "md_examples.html#autotoc_md37", null ],
         [ "Density Norms", "md_examples.html#autotoc_md38", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md39", [
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md39", [
         [ "Initial Condition", "md_examples.html#autotoc_md40", null ],
         [ "Result", "md_examples.html#autotoc_md41", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md42", [
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md42", [
         [ "Initial Condition", "md_examples.html#autotoc_md43", null ],
         [ "Result", "md_examples.html#autotoc_md44", null ]
       ] ],
@@ -84,58 +84,61 @@ var NAVTREE =
         [ "Initial Condition", "md_examples.html#autotoc_md46", null ],
         [ "Result", "md_examples.html#autotoc_md47", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md48", null ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md49", null ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md50", [
-        [ "Initial Condition", "md_examples.html#autotoc_md51", null ],
-        [ "Result", "md_examples.html#autotoc_md52", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md48", [
+        [ "Initial Condition", "md_examples.html#autotoc_md49", null ],
+        [ "Result", "md_examples.html#autotoc_md50", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md53", [
-        [ "Initial Condition", "md_examples.html#autotoc_md54", null ],
-        [ "Result", "md_examples.html#autotoc_md55", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md51", [
+        [ "Initial Condition", "md_examples.html#autotoc_md52", null ],
+        [ "Result", "md_examples.html#autotoc_md53", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md56", [
-        [ "Initial Condition", "md_examples.html#autotoc_md57", null ],
-        [ "Result", "md_examples.html#autotoc_md58", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md54", [
+        [ "Initial Condition", "md_examples.html#autotoc_md55", null ],
+        [ "Result", "md_examples.html#autotoc_md56", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md59", [
-        [ "Initial Condition", "md_examples.html#autotoc_md60", null ],
-        [ "Result", "md_examples.html#autotoc_md61", null ]
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md57", null ],
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md58", [
+        [ "Initial Condition", "md_examples.html#autotoc_md59", null ],
+        [ "Result", "md_examples.html#autotoc_md60", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md62", [
-        [ "Initial Condition", "md_examples.html#autotoc_md63", null ],
-        [ "Result", "md_examples.html#autotoc_md64", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md61", [
+        [ "Initial Condition", "md_examples.html#autotoc_md62", null ],
+        [ "Result", "md_examples.html#autotoc_md63", null ]
       ] ],
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md64", null ],
       [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md65", [
         [ "Initial Condition", "md_examples.html#autotoc_md66", null ],
         [ "Result", "md_examples.html#autotoc_md67", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md68", null ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md69", [
-        [ "Initial Condition", "md_examples.html#autotoc_md70", null ],
-        [ "Result", "md_examples.html#autotoc_md71", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md68", [
+        [ "Initial Condition", "md_examples.html#autotoc_md69", null ],
+        [ "Result", "md_examples.html#autotoc_md70", null ]
+      ] ],
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md71", [
+        [ "Initial Condition", "md_examples.html#autotoc_md72", null ],
+        [ "Result", "md_examples.html#autotoc_md73", null ]
       ] ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
-      [ "Fetching MFC", "md_getting-started.html#autotoc_md73", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md74", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md75", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md76", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md77", null ]
+      [ "Fetching MFC", "md_getting-started.html#autotoc_md75", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md76", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md77", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md78", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md79", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md83", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md84", [
-        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md85", null ],
-        [ "Restarting Cases", "md_running.html#autotoc_md86", null ],
-        [ "Example Runs", "md_running.html#autotoc_md87", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md85", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md86", [
+        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md87", null ],
+        [ "Restarting Cases", "md_running.html#autotoc_md88", null ],
+        [ "Example Runs", "md_running.html#autotoc_md89", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualisation.html", [
-      [ "Procedure", "md_visualisation.html#autotoc_md92", null ],
-      [ "Serial data output", "md_visualisation.html#autotoc_md93", null ]
+      [ "Procedure", "md_visualisation.html#autotoc_md94", null ],
+      [ "Serial data output", "md_visualisation.html#autotoc_md95", null ]
     ] ]
   ] ]
 ];
