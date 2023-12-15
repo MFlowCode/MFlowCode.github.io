@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['references_0',['References',['../md_references.html',1,'']]],
-  ['running_1',['Running',['../md_running.html',1,'']]]
+  ['of_20conduct_0',['Contributor Covenant Code of Conduct',['../md_CODE__OF__CONDUCT.html',1,'']]]
 ];

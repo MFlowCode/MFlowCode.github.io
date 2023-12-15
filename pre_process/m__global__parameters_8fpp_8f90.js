@@ -30,6 +30,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "dy", "m__global__parameters_8fpp_8f90.html#a5ff5660b10330ad917331259642e8dc4", null ],
     [ "dz", "m__global__parameters_8fpp_8f90.html#ab930758827576d5cf2518679bf670351", null ],
     [ "e_idx", "m__global__parameters_8fpp_8f90.html#ac6ef72ca6aa7a22e60c864df25559892", null ],
+    [ "file_per_process", "m__global__parameters_8fpp_8f90.html#acc9528b2fecd03ad3e257b912e5772b4", null ],
     [ "fluid_pp", "m__global__parameters_8fpp_8f90.html#a7297abec8863ecabf95e24ebdae46a17", null ],
     [ "fluid_rho", "m__global__parameters_8fpp_8f90.html#a3bde8cf1ea00471fcd005219c55e824e", null ],
     [ "gamma_idx", "m__global__parameters_8fpp_8f90.html#a4ecdedaf3db880f8d71dbefc816322f8", null ],

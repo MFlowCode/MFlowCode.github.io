@@ -81,6 +81,7 @@ var namespaces_dup =
       [ "dy", "namespacem__global__parameters.html#a5ff5660b10330ad917331259642e8dc4", null ],
       [ "dz", "namespacem__global__parameters.html#ab930758827576d5cf2518679bf670351", null ],
       [ "e_idx", "namespacem__global__parameters.html#ac6ef72ca6aa7a22e60c864df25559892", null ],
+      [ "file_per_process", "namespacem__global__parameters.html#acc9528b2fecd03ad3e257b912e5772b4", null ],
       [ "fluid_pp", "namespacem__global__parameters.html#a7297abec8863ecabf95e24ebdae46a17", null ],
       [ "fluid_rho", "namespacem__global__parameters.html#a3bde8cf1ea00471fcd005219c55e824e", null ],
       [ "gamma_idx", "namespacem__global__parameters.html#a4ecdedaf3db880f8d71dbefc816322f8", null ],

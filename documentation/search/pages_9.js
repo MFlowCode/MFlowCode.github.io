@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['visualization_0',['Flow visualization',['../md_visualisation.html',1,'']]]
+  ['started_0',['Getting Started',['../md_getting-started.html',1,'']]]
 ];

@@ -105,6 +105,7 @@ var namespaces_dup =
       [ "e_wrt", "namespacem__global__parameters.html#a81724112f8d98fe4345fc37eb13a51b2", null ],
       [ "fd_number", "namespacem__global__parameters.html#a60d7ab72fdab2b005144a5a45aa572de", null ],
       [ "fd_order", "namespacem__global__parameters.html#a8892cc67c7d04be4d8e6d02a86e209bc", null ],
+      [ "file_per_process", "namespacem__global__parameters.html#acc9528b2fecd03ad3e257b912e5772b4", null ],
       [ "fluid_pp", "namespacem__global__parameters.html#a7297abec8863ecabf95e24ebdae46a17", null ],
       [ "flux_lim", "namespacem__global__parameters.html#acbb163a79ff0011a4327c3fb65a04c14", null ],
       [ "flux_wrt", "namespacem__global__parameters.html#a35133a9d59c33919af73594f804d2fd9", null ],
