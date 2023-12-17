@@ -14,7 +14,7 @@ var searchData=
   ['primitive_20variables_20ordering_11',['Primitive Variables Ordering',['../md_case.html#autotoc_md22',1,'']]],
   ['problem_201d_12',['problem 1d',['../md_examples.html#autotoc_md40',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md36',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md49',1,'Titarev-Toro problem (1D)']]],
   ['problem_202d_13',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md46',1,'']]],
-  ['procedure_14',['Procedure',['../md_visualisation.html#autotoc_md89',1,'']]],
+  ['procedure_14',['Procedure',['../md_visualization.html#autotoc_md89',1,'']]],
   ['process_15',['Testing Post Process',['../md_testing.html#autotoc_md87',1,'']]],
   ['profiling_20with_20nvidia_20nsight_16',['Profiling with NVIDIA Nsight',['../md_running.html#autotoc_md82',1,'']]]
 ];

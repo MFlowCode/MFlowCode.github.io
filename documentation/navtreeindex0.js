@@ -87,8 +87,8 @@ var NAVTREEINDEX0 =
 "md_running.html#autotoc_md83":[8,1,1],
 "md_running.html#autotoc_md84":[8,1,2],
 "md_testing.html":[9],
-"md_visualisation.html":[10],
-"md_visualisation.html#autotoc_md89":[10,0],
-"md_visualisation.html#autotoc_md90":[10,1],
+"md_visualization.html":[10],
+"md_visualization.html#autotoc_md89":[10,0],
+"md_visualization.html#autotoc_md90":[10,1],
 "pages.html":[]
 };

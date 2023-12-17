@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['visualisation_2emd_0',['visualisation.md',['../visualisation_8md.html',1,'']]]
+  ['visualization_2emd_0',['visualization.md',['../visualization_8md.html',1,'']]]
 ];
