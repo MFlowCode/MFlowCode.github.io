@@ -139,8 +139,10 @@ Result</div></div>
     <h1><a class="anchor" id="autotoc_md39"></a>
 3D Weak Scaling</h1>
 <p>The <a href="case.py"><b>3D_weak_scaling</b></a> case depends on two parameters:</p>
-<p>- <b>The number of MPI ranks</b> (<em>procs</em>): As <em>procs</em> increases, the problem size per rank remains constant. <em>procs</em> is determined using information provided to the case file by <code>mfc.sh run</code>.</p>
-<p>- <b>GPU memory usage per rank</b> (<em>gbpp</em>): As <em>gbpp</em> increases, the problem size per rank increases and the number of timesteps decreases so that wall times consistent. <em>gbpp</em> is a user-defined optional argument to the <a href="case.py">case.py</a> file. It can be specified right after the case filepath when invoking <code>mfc.sh run</code>.</p>
+<ul>
+<li><b>The number of MPI ranks</b> (<em>procs</em>): As <em>procs</em> increases, the problem size per rank remains constant. <em>procs</em> is determined using information provided to the case file by <code>mfc.sh run</code>.</li>
+<li><b>GPU memory usage per rank</b> (<em>gbpp</em>): As <em>gbpp</em> increases, the problem size per rank increases and the number of timesteps decreases so that wall times consistent. <em>gbpp</em> is a user-defined optional argument to the <a href="case.py">case.py</a> file. It can be specified right after the case filepath when invoking <code>mfc.sh run</code>.</li>
+</ul>
 <p>Weak scaling benchmarks can be produced by keeping <em>gbpp</em> constant and varying <em>procs</em>.</p>
 <p>For example, to run a weak scaling test that uses ~4GB of GPU memory per rank on 8 2-rank nodes with case optimization, one could:</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/3D_weak_scaling/case.py 4 -t pre_process simulation          \</div>

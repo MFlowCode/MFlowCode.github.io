@@ -163,18 +163,91 @@ Batch Execution</h1>
 <p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource-sets in task and GPU count.</p>
 <h2><a class="anchor" id="autotoc_md82"></a>
 Profiling with NVIDIA Nsight</h2>
-<p>MFC provides two different argument to facilitate profiling with NVIDIA Nsight. <b>Please ensure that the used argument is placed at the end so that their respective flags can be appended.</b> - Nsight Systems (Nsys): <code>./mfc.sh run ... --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for getting a general understanding of the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps so that the report files remain small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>. - Nsight Compute (NCU): <code>./mfc.sh run ... --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Please note that adding this argument will significantly slow down the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</p>
+<p>MFC provides two different argument to facilitate profiling with NVIDIA Nsight. <b>Please ensure that the used argument is placed at the end so that their respective flags can be appended.</b></p><ul>
+<li>Nsight Systems (Nsys): <code>./mfc.sh run ... --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for getting a general understanding of the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps so that the report files remain small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
+<li>Nsight Compute (NCU): <code>./mfc.sh run ... --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Please note that adding this argument will significantly slow down the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md83"></a>
 Restarting Cases</h2>
 <p>When running a simulation, MFC generates a <code>./restart_data</code> folder in the case directory that contains <code>lustre_*.dat</code> files that can be used to restart a simulation from saved timesteps. This allows a user to run a simulation to some timestep $X$, then later continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
 <p>If you want to restart a simulation,</p>
-<p>- Set up the initial simulation, with: - <code>t_step_start</code> : $t_i$ - <code>t_step_stop</code> : $t_f$ - <code>t_step_save</code> : $SF$ in which $t_i$ is the starting time, $t_f$ is the final time, and $SF$ is the saving frequency time. - Run pre-process and simulation on the case. - <code>./mfc.sh run case.py -t pre_process simulation</code> - As the simulation runs, it will create LUSTRE files for each saved timestep in <code>./restart_data</code>. - When the simulation stops, choose any LUSTRE file as the restarting point (lustre_ $t_s$.dat) - Create a new duplicate input file, (ex. <code>restart_case.py</code>), on which it should:</p>
-<p>1. For the Computational Domain Parameters - Have the following removed BUT <code>m</code>, <code>n</code>, and <code>p</code>: - All domaing/mesh information - <code>(xyz)_domainbeg</code> - <code>(xyz)_domainend</code> - <code>stretch_(xyz)</code> - <code>a_(xyz)</code> - <code>(xyz)_a</code> - <code>(xyz)_b</code> - Have the following altered: - <code>t_step_start</code> : $t_s$ # this is the point at which the simulation will restart - <code>t_step_stop</code> : $t_{f2}$ # your new final simulation time, which can be the same as $t_f$ - <code>t_step_save</code> : ${SF}_2$ # if interested in changing the saving frequency - Have the following ADDED: - <code>old_ic</code> : 'T' # to specify that we have initial conditions from previous simulations - <code>old_grid</code> : 'T' # to specify that we have a grid from previous simulations (maybe I do not need m, n, and p, then?) - <code>t_step_old</code> : $t_i$ # this is the time step used as the <code>t_step_start</code> of the original <code>case.py</code> file 2. For the Simulation Algorithm Parameters - Substitute <code>num_patches</code> to reflect the number of ADDED patches in the <code>restart_case.py</code> file. If no patches are added, set <code>num_patches: 0</code></p>
-<p>3. For Patches - Have all information about old patches (used in the <code>case.py</code> file) removed. - <code>patch_icpp(1)all variables</code> - <code>patch_icpp(2)all variables</code> - <code>patch_icpp(num_patches)all variables</code> - Add information about new patches that will be introduced, if any. The parameter num_patches should reflect this addition. - e.g. <code>patch_icpp(1)some variables of interest</code> <br  />
-</p>
-<p>4. For Fluid properties - Keep information about the fluid properties</p>
-<p>- Run pre-process and simulation on restart_case.py - <code>./mfc.sh run restart_case.py -t pre_process simulation</code></p>
-<p>- Run the post_process - There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files. - One way is to set <code>t_step_stop</code> to the restarting point $t_s$ in <code>case.py</code>. Then, run the commands below. The first command will run on timesteps $[t_i, t_s]$. The second command will run on $[t_s, t_{f2}]$. Therefore, the whole range $[t_i, t_{f2}]$ will be post processed.</p>
+<ul>
+<li>Set up the initial simulation, with:<ul>
+<li><code>t_step_start</code> : $t_i$</li>
+<li><code>t_step_stop</code> : $t_f$</li>
+<li><code>t_step_save</code> : $SF$ in which $t_i$ is the starting time, $t_f$ is the final time, and $SF$ is the saving frequency time.</li>
+</ul>
+</li>
+<li>Run pre-process and simulation on the case.<ul>
+<li><code>./mfc.sh run case.py -t pre_process simulation</code></li>
+</ul>
+</li>
+<li>As the simulation runs, it will create LUSTRE files for each saved timestep in <code>./restart_data</code>.</li>
+<li>When the simulation stops, choose any LUSTRE file as the restarting point (lustre_ $t_s$.dat)</li>
+<li>Create a new duplicate input file, (ex. <code>restart_case.py</code>), on which it should:</li>
+</ul>
+<ol type="1">
+<li>For the Computational Domain Parameters<ul>
+<li>Have the following removed BUT <code>m</code>, <code>n</code>, and <code>p</code>:<ul>
+<li>All domaing/mesh information<ul>
+<li><code>(xyz)_domainbeg</code></li>
+<li><code>(xyz)_domainend</code></li>
+<li><code>stretch_(xyz)</code></li>
+<li><code>a_(xyz)</code></li>
+<li><code>(xyz)_a</code></li>
+<li><code>(xyz)_b</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Have the following altered:<ul>
+<li><code>t_step_start</code> : $t_s$ # this is the point at which the simulation will restart</li>
+<li><code>t_step_stop</code> : $t_{f2}$ # your new final simulation time, which can be the same as $t_f$</li>
+<li><code>t_step_save</code> : ${SF}_2$ # if interested in changing the saving frequency</li>
+</ul>
+</li>
+<li>Have the following ADDED:<ul>
+<li><code>old_ic</code> : 'T' # to specify that we have initial conditions from previous simulations</li>
+<li><code>old_grid</code> : 'T' # to specify that we have a grid from previous simulations (maybe I do not need m, n, and p, then?)</li>
+<li><code>t_step_old</code> : $t_i$ # this is the time step used as the <code>t_step_start</code> of the original <code>case.py</code> file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>For the Simulation Algorithm Parameters<ul>
+<li>Substitute <code>num_patches</code> to reflect the number of ADDED patches in the <code>restart_case.py</code> file. If no patches are added, set <code>num_patches: 0</code></li>
+</ul>
+</li>
+<li>For Patches<ul>
+<li>Have all information about old patches (used in the <code>case.py</code> file) removed.<ul>
+<li><code>patch_icpp(1)all variables</code></li>
+<li><code>patch_icpp(2)all variables</code></li>
+<li><code>patch_icpp(num_patches)all variables</code></li>
+</ul>
+</li>
+<li>Add information about new patches that will be introduced, if any. The parameter num_patches should reflect this addition.<ul>
+<li>e.g. <code>patch_icpp(1)some variables of interest</code> <br  />
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>For Fluid properties<ul>
+<li>Keep information about the fluid properties</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Run pre-process and simulation on restart_case.py<ul>
+<li><code>./mfc.sh run restart_case.py -t pre_process simulation</code></li>
+</ul>
+</li>
+<li>Run the post_process<ul>
+<li>There are several ways to do this. Keep in mind that, regardless of the .py file used, the post_process command will generate output files in the [<code>t_step_start</code>, <code>t_step_stop</code>] range, with <code>t_step_save</code> as the spacing between files.</li>
+<li>One way is to set <code>t_step_stop</code> to the restarting point $t_s$ in <code>case.py</code>. Then, run the commands below. The first command will run on timesteps $[t_i, t_s]$. The second command will run on $[t_s, t_{f2}]$. Therefore, the whole range $[t_i, t_{f2}]$ will be post processed.</li>
+</ul>
+</li>
+</ul>
 <div class="fragment"><div class="line">$ ./mfc.sh run case.py -t post_process</div>
 <div class="line">$ ./mfc.sh run restart_case.py -t post_process</div>
 </div><!-- fragment --><p>We have provided an example <code>case.py</code> and <code>restart_case.py</code> in <code>/examples/1D_vacuum_restart/</code>. This simulation is a duplicate of the <code>1D_vacuum</code> case. It demonstrates stopping at timestep 7000, adding a new patch, and restarting the simulation. To test this code, run:</p>
@@ -184,7 +257,9 @@ Restarting Cases</h2>
 <div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md84"></a>
 Example Runs</h2>
-<p>- Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</p>
+<ul>
+<li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>
+</ul>
 <div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -e batch    \</div>
 <div class="line">               -N 2 -n 4 -g 4 -t simulation -a &lt;redacted&gt;</div>
 </div><!-- fragment --><ul>

@@ -11,7 +11,7 @@ var searchData=
   ['example_20cases_8',['Example Cases',['../md_examples.html',1,'']]],
   ['example_20runs_9',['Example Runs',['../md_running.html#autotoc_md84',1,'']]],
   ['examples_2emd_10',['examples.md',['../examples_8md.html',1,'']]],
-  ['execution_11',['execution',['../md_running.html#autotoc_md81',1,'Batch Execution'],['../md_running.html#autotoc_md80',1,'Interactive Execution']]],
+  ['execution_11',['Execution',['../md_running.html#autotoc_md81',1,'Batch Execution'],['../md_running.html#autotoc_md80',1,'Interactive Execution']]],
   ['expected_20time_20steps_20hour_12',['Expected time-steps/hour',['../md_expectedPerformance.html#autotoc_md59',1,'']]],
   ['expectedperformance_2emd_13',['expectedPerformance.md',['../expectedPerformance_8md.html',1,'']]]
 ];
