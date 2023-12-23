@@ -14,6 +14,7 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search');
   $(function() { init_search(); });
 });
 /* @license-end */
@@ -142,10 +143,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a80c5e235786545276fe6ffa06965017f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine takes care of efficiently distributing the computational domain among the available processors as well as recomputing some of the global parameters so that they reflect the configuration of sub-domain that is overseen by the local processor.  <br /></td></tr>
 <tr class="separator:a80c5e235786545276fe6ffa06965017f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e48d59a04981a6594f25ad7a7562492" id="r_a8e48d59a04981a6594f25ad7a7562492"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a8e48d59a04981a6594f25ad7a7562492">m_mpi_proxy::s_mpi_sendrecv_grid_vars_buffer_regions</a> (pbc_loc, sweep_coord)</td></tr>
-<tr class="memdesc:a8e48d59a04981a6594f25ad7a7562492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates the buffer regions associated with the grid variables with processors in charge of the neighbooring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated.  <br /></td></tr>
+<tr class="memdesc:a8e48d59a04981a6594f25ad7a7562492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates the buffer regions associated with the grid variables with processors in charge of the neighboring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated.  <br /></td></tr>
 <tr class="separator:a8e48d59a04981a6594f25ad7a7562492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d7ec0d1976967504babdf44ec83c1b1" id="r_a4d7ec0d1976967504babdf44ec83c1b1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a4d7ec0d1976967504babdf44ec83c1b1">m_mpi_proxy::s_mpi_sendrecv_cons_vars_buffer_regions</a> (q_cons_vf, pbc_loc, sweep_coord)</td></tr>
-<tr class="memdesc:a4d7ec0d1976967504babdf44ec83c1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates buffer regions associated with conservative variables with processors in charge of the neighbooring sub-domains.  <br /></td></tr>
+<tr class="memdesc:a4d7ec0d1976967504babdf44ec83c1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates buffer regions associated with conservative variables with processors in charge of the neighboring sub-domains.  <br /></td></tr>
 <tr class="separator:a4d7ec0d1976967504babdf44ec83c1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2ced8f095b812fcc355539c2c5fa162" id="r_ab2ced8f095b812fcc355539c2c5fa162"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#ab2ced8f095b812fcc355539c2c5fa162">m_mpi_proxy::s_mpi_gather_spatial_extents</a> (spatial_extents)</td></tr>
 <tr class="memdesc:ab2ced8f095b812fcc355539c2c5fa162"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gathers the Silo database metadata for the spatial extents in order to boost the performance of the multidimensional visualization.  <br /></td></tr>
@@ -165,14 +166,14 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Buffers of the conservative variables recieved/sent from/to neighbooring</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Buffers of the conservative variables received/sent from/to neighboring</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>processors. Note that these variables are structured as vectors rather than arrays. </p>
 </div></td></tr>
 <tr class="memitem:af08f3246d9efac15d6391dc4205d4611" id="r_af08f3246d9efac15d6391dc4205d4611"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#af08f3246d9efac15d6391dc4205d4611">m_mpi_proxy::q_cons_buffer_in</a></td></tr>
 <tr class="separator:af08f3246d9efac15d6391dc4205d4611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d449655a88a9e5248af35a82caf877a" id="r_a3d449655a88a9e5248af35a82caf877a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a3d449655a88a9e5248af35a82caf877a">m_mpi_proxy::q_cons_buffer_out</a></td></tr>
 <tr class="separator:a3d449655a88a9e5248af35a82caf877a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Recieve counts and displacement vector variables, respectively, used in</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Receive counts and displacement vector variables, respectively, used in</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>enabling MPI to gather varying amounts of data from all processes to the root process </p>
 </div></td></tr>
 <tr class="memitem:a2198e825f0884d4ee9e96b6efdb69cee" id="r_a2198e825f0884d4ee9e96b6efdb69cee"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee">m_mpi_proxy::recvcounts</a></td></tr>

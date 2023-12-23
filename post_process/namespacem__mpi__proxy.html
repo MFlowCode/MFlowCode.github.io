@@ -14,6 +14,7 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search');
   $(function() { init_search(); });
 });
 /* @license-end */
@@ -138,10 +139,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a80c5e235786545276fe6ffa06965017f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine takes care of efficiently distributing the computational domain among the available processors as well as recomputing some of the global parameters so that they reflect the configuration of sub-domain that is overseen by the local processor.  <br /></td></tr>
 <tr class="separator:a80c5e235786545276fe6ffa06965017f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e48d59a04981a6594f25ad7a7562492" id="r_a8e48d59a04981a6594f25ad7a7562492"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e48d59a04981a6594f25ad7a7562492">s_mpi_sendrecv_grid_vars_buffer_regions</a> (pbc_loc, sweep_coord)</td></tr>
-<tr class="memdesc:a8e48d59a04981a6594f25ad7a7562492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates the buffer regions associated with the grid variables with processors in charge of the neighbooring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated.  <br /></td></tr>
+<tr class="memdesc:a8e48d59a04981a6594f25ad7a7562492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates the buffer regions associated with the grid variables with processors in charge of the neighboring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated.  <br /></td></tr>
 <tr class="separator:a8e48d59a04981a6594f25ad7a7562492"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d7ec0d1976967504babdf44ec83c1b1" id="r_a4d7ec0d1976967504babdf44ec83c1b1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d7ec0d1976967504babdf44ec83c1b1">s_mpi_sendrecv_cons_vars_buffer_regions</a> (q_cons_vf, pbc_loc, sweep_coord)</td></tr>
-<tr class="memdesc:a4d7ec0d1976967504babdf44ec83c1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates buffer regions associated with conservative variables with processors in charge of the neighbooring sub-domains.  <br /></td></tr>
+<tr class="memdesc:a4d7ec0d1976967504babdf44ec83c1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates buffer regions associated with conservative variables with processors in charge of the neighboring sub-domains.  <br /></td></tr>
 <tr class="separator:a4d7ec0d1976967504babdf44ec83c1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2ced8f095b812fcc355539c2c5fa162" id="r_ab2ced8f095b812fcc355539c2c5fa162"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2ced8f095b812fcc355539c2c5fa162">s_mpi_gather_spatial_extents</a> (spatial_extents)</td></tr>
 <tr class="memdesc:ab2ced8f095b812fcc355539c2c5fa162"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gathers the Silo database metadata for the spatial extents in order to boost the performance of the multidimensional visualization.  <br /></td></tr>
@@ -161,14 +162,14 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Buffers of the conservative variables recieved/sent from/to neighbooring</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Buffers of the conservative variables received/sent from/to neighboring</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>processors. Note that these variables are structured as vectors rather than arrays. </p>
 </div></td></tr>
 <tr class="memitem:af08f3246d9efac15d6391dc4205d4611" id="r_af08f3246d9efac15d6391dc4205d4611"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08f3246d9efac15d6391dc4205d4611">q_cons_buffer_in</a></td></tr>
 <tr class="separator:af08f3246d9efac15d6391dc4205d4611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d449655a88a9e5248af35a82caf877a" id="r_a3d449655a88a9e5248af35a82caf877a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d449655a88a9e5248af35a82caf877a">q_cons_buffer_out</a></td></tr>
 <tr class="separator:a3d449655a88a9e5248af35a82caf877a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">Recieve counts and displacement vector variables, respectively, used in</div></td></tr>
+<tr><td colspan="2"><div class="groupHeader">Receive counts and displacement vector variables, respectively, used in</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>enabling MPI to gather varying amounts of data from all processes to the root process </p>
 </div></td></tr>
 <tr class="memitem:a2198e825f0884d4ee9e96b6efdb69cee" id="r_a2198e825f0884d4ee9e96b6efdb69cee"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2198e825f0884d4ee9e96b6efdb69cee">recvcounts</a></td></tr>
@@ -277,19 +278,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_defragment_1d_flow_variable </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:0, 0:0), intent(in)&#160;</td>
-          <td class="paramname"><em>q_sf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:0, 0:0), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:<a class="el" href="namespacem__global__parameters.html#afabaedf16b26e327635e956d13b45086">m_root</a>, 0:0, 0:0), intent(inout)&#160;</td>
-          <td class="paramname"><em>q_root_sf</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:<a class="el" href="namespacem__global__parameters.html#afabaedf16b26e327635e956d13b45086">m_root</a>, 0:0, 0:0), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_root_sf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -340,19 +334,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_gather_data_extents </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(:, :, :), intent(in)&#160;</td>
-          <td class="paramname"><em>q_sf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(:, :, :), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(1:2, 0:<a class="el" href="namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea">num_procs</a> - 1), intent(inout)&#160;</td>
-          <td class="paramname"><em>data_extents</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(1:2, 0:<a class="el" href="namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea">num_procs</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>data_extents</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -382,8 +369,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_gather_spatial_extents </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(1:, 0:), intent(inout)&#160;</td>
-          <td class="paramname"><em>spatial_extents</em></td><td>)</td>
+          <td class="paramtype">real(kind(0d0)), dimension(1:, 0:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>spatial_extents</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -413,30 +399,22 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_sendrecv_cons_vars_buffer_regions </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)&#160;</td>
-          <td class="paramname"><em>q_cons_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">character(len=3), intent(in)&#160;</td>
-          <td class="paramname"><em>pbc_loc</em>, </td>
+          <td class="paramtype">character(len=3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">character, intent(in)&#160;</td>
-          <td class="paramname"><em>sweep_coord</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">character, intent(in)</td>          <td class="paramname"><span class="paramname"><em>sweep_coord</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Communicates buffer regions associated with conservative variables with processors in charge of the neighbooring sub-domains. </p>
+<p>Communicates buffer regions associated with conservative variables with processors in charge of the neighboring sub-domains. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
@@ -462,24 +440,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_sendrecv_grid_vars_buffer_regions </td>
           <td>(</td>
-          <td class="paramtype">character(len=3), intent(in)&#160;</td>
-          <td class="paramname"><em>pbc_loc</em>, </td>
+          <td class="paramtype">character(len=3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">character, intent(in)&#160;</td>
-          <td class="paramname"><em>sweep_coord</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">character, intent(in)</td>          <td class="paramname"><span class="paramname"><em>sweep_coord</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Communicates the buffer regions associated with the grid variables with processors in charge of the neighbooring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated. </p>
+<p>Communicates the buffer regions associated with the grid variables with processors in charge of the neighboring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pbc_loc</td><td>Processor boundary condition (PBC) location </td></tr>

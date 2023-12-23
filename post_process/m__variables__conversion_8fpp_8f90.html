@@ -14,6 +14,7 @@
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -72,7 +73,7 @@ var searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
 $(function() {
-  initMenu('',true,false,'search.php','Search',true);
+  initMenu('',true,false,'search.php','Search');
   $(function() { init_search(); });
 });
 /* @license-end */
@@ -134,7 +135,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a23d455cd803d423a9c329a36303c8e59"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine is designed for the gamma/pi_inf model and provided a set of either conservative or primitive variables, transfers the density, specific heat ratio function and the liquid stiffness function from q_vf to rho, gamma and pi_inf.  <br /></td></tr>
 <tr class="separator:a23d455cd803d423a9c329a36303c8e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a518985449876e8bf5a1f426b74790665" id="r_a518985449876e8bf5a1f426b74790665"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a518985449876e8bf5a1f426b74790665">s_convert_species_to_mixture_variables_bubbles</a> (q_vf, j, k, l, rho, gamma, pi_inf, re_k, g_k, g)</td></tr>
-<tr class="memdesc:a518985449876e8bf5a1f426b74790665"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure is used alongside with the gamma/pi_inf model to transfer the density, the specific heat ratio function and liquid stiffness function from the vector of conservative or primitive variables to their scalar counterparts. Specifially designed for when subgrid bubbles must be included.  <br /></td></tr>
+<tr class="memdesc:a518985449876e8bf5a1f426b74790665"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure is used alongside with the gamma/pi_inf model to transfer the density, the specific heat ratio function and liquid stiffness function from the vector of conservative or primitive variables to their scalar counterparts. Specifically designed for when subgrid bubbles must be included.  <br /></td></tr>
 <tr class="separator:a518985449876e8bf5a1f426b74790665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6584e5eab51d43b8fcb934fbf815732f" id="r_a6584e5eab51d43b8fcb934fbf815732f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6584e5eab51d43b8fcb934fbf815732f">s_convert_species_to_mixture_variables</a> (q_vf, k, l, r, rho, gamma, pi_inf, re_k, g_k, g)</td></tr>
 <tr class="memdesc:a6584e5eab51d43b8fcb934fbf815732f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine is designed for the volume fraction model and provided a set of either conservative or primitive variables, computes the density, the specific heat ratio function and the liquid stiffness function from q_vf and stores the results into rho, gamma and pi_inf.  <br /></td></tr>
@@ -194,67 +195,52 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_compute_pressure </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>energy</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>energy</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>alf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>dyn_p</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dyn_p</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>pi_inf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>gamma</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)&#160;</td>
-          <td class="paramname"><em>rho</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out)&#160;</td>
-          <td class="paramname"><em>pres</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>pres</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in), optional&#160;</td>
-          <td class="paramname"><em>stress</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>stress</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in), optional&#160;</td>
-          <td class="paramname"><em>mom</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>mom</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in), optional&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -298,43 +284,32 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_conservative_to_primitive_variables </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>qk_cons_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qk_cons_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)&#160;</td>
-          <td class="paramname"><em>qk_prim_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>qk_prim_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(:), intent(in), optional, allocatable&#160;</td>
-          <td class="paramname"><em>gm_alphak_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(:), intent(in), optional, allocatable</td>          <td class="paramname"><span class="paramname"><em>gm_alphak_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in), optional&#160;</td>
-          <td class="paramname"><em>ix</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>ix</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in), optional&#160;</td>
-          <td class="paramname"><em>iy</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>iy</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in), optional&#160;</td>
-          <td class="paramname"><em>iz</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>iz</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -381,67 +356,52 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_mixture_to_mixture_variables </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>q_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>rho</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>gamma</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>gamma</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>pi_inf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out), optional&#160;</td>
-          <td class="paramname"><em>re_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>re_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), optional&#160;</td>
-          <td class="paramname"><em>g_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>g_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -484,19 +444,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_primitive_to_conservative_variables </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>q_prim_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)&#160;</td>
-          <td class="paramname"><em>q_cons_vf</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -543,55 +496,42 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_primitive_to_flux_variables </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:, s2b:, s3b:, 1:), intent(in)&#160;</td>
-          <td class="paramname"><em>qk_prim_vf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:, s2b:, s3b:, 1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qk_prim_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:, s2b:, s3b:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>fk_vf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:, s2b:, s3b:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>fk_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:, s2b:, s3b:, advxb:), intent(inout)&#160;</td>
-          <td class="paramname"><em>fk_src_vf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(0:, s2b:, s3b:, advxb:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>fk_src_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>is1</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is1</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>is2</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is2</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)&#160;</td>
-          <td class="paramname"><em>is3</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is3</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer&#160;</td>
-          <td class="paramname"><em>s2b</em>, </td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>s2b</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer&#160;</td>
-          <td class="paramname"><em>s3b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>s3b</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -638,67 +578,52 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_species_to_mixture_variables </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>q_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>rho</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>gamma</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>gamma</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>pi_inf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out), optional&#160;</td>
-          <td class="paramname"><em>re_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>re_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), optional&#160;</td>
-          <td class="paramname"><em>g_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>g_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -741,73 +666,57 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_species_to_mixture_variables_acc </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), intent(out)&#160;</td>
-          <td class="paramname"><em>rho_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out)&#160;</td>
-          <td class="paramname"><em>gamma_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>gamma_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out)&#160;</td>
-          <td class="paramname"><em>pi_inf_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>pi_inf_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(inout)&#160;</td>
-          <td class="paramname"><em>alpha_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>alpha_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(inout)&#160;</td>
-          <td class="paramname"><em>alpha_rho_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out)&#160;</td>
-          <td class="paramname"><em>re_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), optional&#160;</td>
-          <td class="paramname"><em>g_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>g_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -836,67 +745,52 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_species_to_mixture_variables_bubbles </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>q_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>j</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>rho</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>rho</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>gamma</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>gamma</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), target&#160;</td>
-          <td class="paramname"><em>pi_inf</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), target</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out), optional&#160;</td>
-          <td class="paramname"><em>re_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>re_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out), optional&#160;</td>
-          <td class="paramname"><em>g_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>g_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional&#160;</td>
-          <td class="paramname"><em>g</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>g</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -906,7 +800,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>This procedure is used alongside with the gamma/pi_inf model to transfer the density, the specific heat ratio function and liquid stiffness function from the vector of conservative or primitive variables to their scalar counterparts. Specifially designed for when subgrid bubbles must be included. </p>
+<p>This procedure is used alongside with the gamma/pi_inf model to transfer the density, the specific heat ratio function and liquid stiffness function from the vector of conservative or primitive variables to their scalar counterparts. Specifically designed for when subgrid bubbles must be included. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">qK_vf</td><td>primitive variables </td></tr>
@@ -939,61 +833,47 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_species_to_mixture_variables_bubbles_acc </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
-          <td class="paramname"><em>rho_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rho_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
-          <td class="paramname"><em>gamma_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>gamma_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(inout)&#160;</td>
-          <td class="paramname"><em>pi_inf_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pi_inf_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in)&#160;</td>
-          <td class="paramname"><em>alpha_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in)&#160;</td>
-          <td class="paramname"><em>alpha_rho_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out)&#160;</td>
-          <td class="paramname"><em>re_k</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>k</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>l</em>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)&#160;</td>
-          <td class="paramname"><em>r</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1055,19 +935,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_initialize_mv </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>qk_cons_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qk_cons_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(ixb:, iyb:, izb:, 1:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>mv</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(ixb:, iyb:, izb:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>mv</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1096,25 +969,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_initialize_pb </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)&#160;</td>
-          <td class="paramname"><em>qk_cons_vf</em>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qk_cons_vf</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(ixb:, iyb:, izb:, 1:, 1:), intent(in)&#160;</td>
-          <td class="paramname"><em>mv</em>, </td>
+          <td class="paramtype">real(kind(0d0)), dimension(ixb:, iyb:, izb:, 1:, 1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mv</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(ixb:, iyb:, izb:, 1:, 1:), intent(inout)&#160;</td>
-          <td class="paramname"><em>pb</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(ixb:, iyb:, izb:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pb</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
