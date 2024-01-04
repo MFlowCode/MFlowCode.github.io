@@ -189,6 +189,8 @@ var namespaces_dup =
       [ "re_inv", "namespacem__global__parameters.html#a4438313a11564fa911c586d2dee15b8d", null ],
       [ "re_trans_c", "namespacem__global__parameters.html#a666c8f5f6663ab81f55c2298e642a3a9", null ],
       [ "re_trans_t", "namespacem__global__parameters.html#ae0e61a10cd5b33db394052fbefee2681", null ],
+      [ "relax", "namespacem__global__parameters.html#a9566fddb0a62503b1edaca5ecedaf629", null ],
+      [ "relax_model", "namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58", null ],
       [ "rho_wrt", "namespacem__global__parameters.html#aabc3362b8f53b08f4f113e699d449754", null ],
       [ "rhoref", "namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534", null ],
       [ "schlieren_alpha", "namespacem__global__parameters.html#ada8a4a23b5804dfa9843b25ddd1cd8c1", null ],

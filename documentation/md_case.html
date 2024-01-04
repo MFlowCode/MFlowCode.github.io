@@ -169,8 +169,9 @@ Parameters</h1>
 <li>(Optional) Acoustic Source Parameters</li>
 <li>(Optional) Ensemble-Averaged Bubble Model Parameters</li>
 <li>(Optional) Velocity Field Setup Parameters</li>
+<li>(Optional) Phase Change Parameters</li>
 </ol>
-<p>Items 7, 8, and 9 are optional sets of parameters that activate the acoustic source model, ensemble-averaged bubble model, and initial velocity field setup, respectively. Definition of the parameters is described in the following subsections.</p>
+<p>Items 7, 8, 9, and 10 are optional sets of parameters that activate the acoustic source model, ensemble-averaged bubble model, initial velocity field setup, and phase change, respectively. Definition of the parameters is described in the following subsections.</p>
 <h2><a class="anchor" id="autotoc_md5"></a>
 1. Runtime</h2>
 <table class="markdownTable">
@@ -349,14 +350,25 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>Re(1)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Shear viscosity of fluid.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Re(2)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Volume viscosity of fluid.   </td></tr>
+<td class="markdownTableBodyRight"><code>Re(2)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Volume viscosity of fluid.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>cv</code> **   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Sffened-gas parameter $c_v$ of fluid.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>qv</code> **   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Stiffened-gas parameter $q$ of fluid.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>qvp</code> **   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Stiffened-gas parameter $q'$ of fluid.   </td></tr>
 </table>
 <p>Fluid material's parameters. All parameters should be prepended with <code>fluid_pp(i)</code> where $i$ is the fluid index.</p>
 <p>*: Parameters that work only with <code>model_eqns</code>=2.</p>
+<p>**: Parameters that work only with <code>model_eqns</code>=3.</p>
 <p>The table lists the fluid material's parameters. The parameters define material's property of compressible fluids that are used in simulation.</p>
 <ul>
 <li><code>fluid_pp(i)gamma</code> and <code>fluid_pp(i)pi_inf</code> define $\Gamma$ and $\Pi$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
-<li><code>fluid_pp(i)Re(1)</code> and <code>fluid_pp(i)Re(2)</code> define the shear and volume viscosities of $i$-th fluid, respectively. When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</li>
+<li><code>fluid_pp(i)Re(1)</code> and <code>fluid_pp(i)Re(2)</code> define the shear and volume viscosities of $i$-th fluid, respectively.</li>
+</ul>
+<p>When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</p>
+<ul>
+<li><code>fluid_pp(i)cv</code>, <code>fluid_pp(i)qv</code>, and <code>fluid_pp(i)qvp</code> define $c_v$, $q$, and $q'$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md12"></a>
 5. Simulation Algorithm</h2>
@@ -641,9 +653,29 @@ Parameter Descriptions</h3>
 <li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
 <li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with <code>vel_profile = TRUE</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
+10. Phase Change Model</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>relax</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activates Phase Change model    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>relax_model</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Phase change model: [5] pT-equilibrium; [6] pTg-equilibrium    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>palpha_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">tolerance of the Newton Solver to activate pT-equilibrium    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>ptgalpha_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">tolerance of the Newton Solver to activate pTg-equilibrium   </td></tr>
+</table>
+<ul>
+<li><code>relax</code> Activates the Phase Change model.</li>
+<li><code>relax_model</code> Specifies the phase change model to be used: [5] enables pT-equilibrium, while [6] activates pTg-equilibrium (if criteria are met).</li>
+<li><code>palpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pT-equilibrium model.</li>
+<li><code>ptgalpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pTg-equilibrium model.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -681,7 +713,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_ybeg</code> when using cylindrical coordinates (&lsquo;cyl_coord = 'T&rsquo;<code>and 3d). For axisymmetric problems, use</code>bc_ybeg = -2<code>with</code>cyl_coord = 'T'` in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -730,7 +762,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>modelfilepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -749,7 +781,7 @@ Monopole supports</h2>
 <td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special sauce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -775,7 +807,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

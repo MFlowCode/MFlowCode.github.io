@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['z_0',['z',['../structprobe__parameters.html#a00a2db722735a7a8a3b6c68ad5dc9cc2',1,'probe_parameters']]],
-  ['z_5fa_1',['z_a',['../namespacem__global__parameters.html#a65b092136a85b466956efe77c639dc27',1,'m_global_parameters']]],
-  ['z_5fb_2',['z_b',['../namespacem__global__parameters.html#accc52011bfc1383c99125f030792ba6b',1,'m_global_parameters']]],
-  ['z_5fcb_3',['z_cb',['../namespacem__global__parameters.html#a1f932e794cad6291b2e6c62b93dcf533',1,'m_global_parameters']]],
-  ['z_5fcc_4',['z_cc',['../namespacem__global__parameters.html#a2c4b9e99b981dc55cccf0b153159404e',1,'m_global_parameters']]],
-  ['z_5fcentroid_5',['z_centroid',['../structic__patch__parameters.html#a0993edab0b1ab51cee55c29f47af39a6',1,'ic_patch_parameters']]],
-  ['z_5fdomain_6',['z_domain',['../namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc',1,'m_global_parameters']]],
-  ['zmax_7',['zmax',['../structintegral__parameters.html#a927eaea4b9e3fa05203157d43d376e73',1,'integral_parameters']]],
-  ['zmin_8',['zmin',['../structintegral__parameters.html#a2f936a12f4c52a8005cfe3e88c8189be',1,'integral_parameters']]]
+  ['y_0',['y',['../structprobe__parameters.html#ad037d50888db04c05a05d4587c6ca1e9',1,'probe_parameters']]],
+  ['y_5fa_1',['y_a',['../namespacem__global__parameters.html#ab19fa915c817b9b6697827d8ce059797',1,'m_global_parameters']]],
+  ['y_5fb_2',['y_b',['../namespacem__global__parameters.html#ae6deea785ef4dbdb572a8eb6f30b7c3a',1,'m_global_parameters']]],
+  ['y_5fcb_3',['y_cb',['../namespacem__global__parameters.html#aa436c56a050419e85c8c08611a688e63',1,'m_global_parameters']]],
+  ['y_5fcc_4',['y_cc',['../namespacem__global__parameters.html#ad7e05d3d526e5dfa14a74ffda890e63d',1,'m_global_parameters']]],
+  ['y_5fcentroid_5',['y_centroid',['../structic__patch__parameters.html#a2c013be4fd82b7c3d617bd5ededa6580',1,'ic_patch_parameters']]],
+  ['y_5fdomain_6',['y_domain',['../namespacem__global__parameters.html#a94bfe5cc861c66dadab450d25a6b5817',1,'m_global_parameters']]],
+  ['ymax_7',['ymax',['../structintegral__parameters.html#a86aae2c8f173fd5d168d0ed1be55697b',1,'integral_parameters']]],
+  ['ymin_8',['ymin',['../structintegral__parameters.html#aaccba0d5b1d7c3f4638f22f83554b6e7',1,'integral_parameters']]]
 ];

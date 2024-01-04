@@ -13,5 +13,6 @@ var searchData=
   ['reserved0_10',['reserved0',['../structm__nvtx_1_1nvtxeventattributes.html#a6c0adfd6fef5a8a05ec816b92fe759a6',1,'m_nvtx::nvtxeventattributes']]],
   ['rho_11',['rho',['../structic__patch__parameters.html#a36f10647203ecd5b4ca14f73faf1cdb8',1,'ic_patch_parameters::rho'],['../m__rhs_8fpp_8f90.html#a340bafa0c8d745c3060facd9cfef7ec4',1,'rho:&#160;m_rhs.fpp.f90']]],
   ['rho_5fk_5fs_12',['rho_k_s',['../m__rhs_8fpp_8f90.html#aa5195db0f89eb91b6f5544e9764412a0',1,'m_rhs.fpp.f90']]],
-  ['rs_13',['rs',['../structbub__bounds__info.html#a3661fbaf8357f886c87a7ac46e1495a9',1,'bub_bounds_info']]]
+  ['rm_13',['rm',['../m__phase__change_8fpp_8f90.html#a5b844989c2a7395cd3ebd29d75a3fc67',1,'m_phase_change.fpp.f90']]],
+  ['rs_14',['rs',['../structbub__bounds__info.html#a3661fbaf8357f886c87a7ac46e1495a9',1,'bub_bounds_info']]]
 ];

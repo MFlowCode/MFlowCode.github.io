@@ -120,6 +120,8 @@ var m__global__parameters_8fpp_8f90 =
     [ "re_inv", "m__global__parameters_8fpp_8f90.html#a4438313a11564fa911c586d2dee15b8d", null ],
     [ "re_trans_c", "m__global__parameters_8fpp_8f90.html#a666c8f5f6663ab81f55c2298e642a3a9", null ],
     [ "re_trans_t", "m__global__parameters_8fpp_8f90.html#ae0e61a10cd5b33db394052fbefee2681", null ],
+    [ "relax", "m__global__parameters_8fpp_8f90.html#a9566fddb0a62503b1edaca5ecedaf629", null ],
+    [ "relax_model", "m__global__parameters_8fpp_8f90.html#a5cedf3ff171416c31d59851103792c58", null ],
     [ "rho_wrt", "m__global__parameters_8fpp_8f90.html#aabc3362b8f53b08f4f113e699d449754", null ],
     [ "rhoref", "m__global__parameters_8fpp_8f90.html#a485a360d73013d7bce1daa01df404534", null ],
     [ "schlieren_alpha", "m__global__parameters_8fpp_8f90.html#ada8a4a23b5804dfa9843b25ddd1cd8c1", null ],

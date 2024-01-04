@@ -7,5 +7,6 @@ var searchData=
   ['col_4',['col',['../namespacem__nvtx.html#af232470c550267867fedf74adc30cab4',1,'m_nvtx']]],
   ['color_5',['color',['../structm__nvtx_1_1nvtxeventattributes.html#ac3782bbbbe86784127af31797be53f98',1,'m_nvtx::nvtxeventattributes']]],
   ['colortype_6',['colortype',['../structm__nvtx_1_1nvtxeventattributes.html#a6c3d2c3996f7c755fe5fc92ab083744d',1,'m_nvtx::nvtxeventattributes']]],
-  ['const_5fsos_7',['const_sos',['../m__monopole_8fpp_8f90.html#a9e22377892f06ea9aeaba431969b58cc',1,'m_monopole.fpp.f90']]]
+  ['const_5fsos_7',['const_sos',['../m__monopole_8fpp_8f90.html#a9e22377892f06ea9aeaba431969b58cc',1,'m_monopole.fpp.f90']]],
+  ['cv_8',['cv',['../structic__patch__parameters.html#a4ea2714f2984f0fbe34f79e41ff7d311',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#a82e92f193d2ba4bbe654b8fcabdaa5b2',1,'physical_parameters::cv']]]
 ];

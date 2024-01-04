@@ -58,7 +58,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "m__mpi__proxy_8fpp_8f90.html#aed5e69351e389cdca5b8deff13ba1a92",
-"namespacem__riemann__solvers.html#a225f72f7e466dad77766ea2fe27a7a05"
+"namespacem__derived__variables.html#a8da872e21eb3b2340c75326d3fbfc447"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

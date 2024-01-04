@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['z_0',['z',['../structprobe__parameters.html#a00a2db722735a7a8a3b6c68ad5dc9cc2',1,'probe_parameters']]],
-  ['z_5fcb_1',['z_cb',['../namespacem__global__parameters.html#a1f932e794cad6291b2e6c62b93dcf533',1,'m_global_parameters']]],
-  ['z_5fcb_5fs_2',['z_cb_s',['../namespacem__global__parameters.html#a43ab4f09147c4b478f9854b2454c8eee',1,'m_global_parameters']]],
-  ['z_5fcc_3',['z_cc',['../namespacem__global__parameters.html#a2c4b9e99b981dc55cccf0b153159404e',1,'m_global_parameters']]],
-  ['z_5fcentroid_4',['z_centroid',['../structic__patch__parameters.html#a0993edab0b1ab51cee55c29f47af39a6',1,'ic_patch_parameters']]],
-  ['zmax_5',['zmax',['../structintegral__parameters.html#a927eaea4b9e3fa05203157d43d376e73',1,'integral_parameters']]],
-  ['zmin_6',['zmin',['../structintegral__parameters.html#a2f936a12f4c52a8005cfe3e88c8189be',1,'integral_parameters']]]
+  ['y_0',['y',['../structprobe__parameters.html#ad037d50888db04c05a05d4587c6ca1e9',1,'probe_parameters']]],
+  ['y_5fcb_1',['y_cb',['../namespacem__global__parameters.html#aa436c56a050419e85c8c08611a688e63',1,'m_global_parameters']]],
+  ['y_5fcb_5fs_2',['y_cb_s',['../namespacem__global__parameters.html#a40bdc2d25013f193b31d51861235b201',1,'m_global_parameters']]],
+  ['y_5fcc_3',['y_cc',['../namespacem__global__parameters.html#ad7e05d3d526e5dfa14a74ffda890e63d',1,'m_global_parameters']]],
+  ['y_5fcentroid_4',['y_centroid',['../structic__patch__parameters.html#a2c013be4fd82b7c3d617bd5ededa6580',1,'ic_patch_parameters']]],
+  ['ymax_5',['ymax',['../structintegral__parameters.html#a86aae2c8f173fd5d168d0ed1be55697b',1,'integral_parameters']]],
+  ['ymin_6',['ymin',['../structintegral__parameters.html#aaccba0d5b1d7c3f4638f22f83554b6e7',1,'integral_parameters']]]
 ];
