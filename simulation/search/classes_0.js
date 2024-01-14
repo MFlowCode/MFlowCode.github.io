@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['bounds_5finfo_0',['bounds_info',['../structbounds__info.html',1,'']]],
-  ['bub_5fbounds_5finfo_1',['bub_bounds_info',['../structbub__bounds__info.html',1,'']]]
+  ['nvtxeventattributes_0',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
+  ['nvtxrangepop_1',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx']]],
+  ['nvtxrangepush_2',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]]
 ];

@@ -1,12 +1,10 @@
 var searchData=
 [
-  ['c_0',['c',['../namespacem__cbc.html#a982b2364cfaa61896b8143231fc9e380',1,'m_cbc']]],
-  ['category_1',['category',['../structm__nvtx_1_1nvtxeventattributes.html#abf254ea90a23978e664e8bd4ba836424',1,'m_nvtx::nvtxeventattributes']]],
-  ['cbc_5fdir_2',['cbc_dir',['../namespacem__cbc.html#a9c31f68754c60018285c75c77be07ff0',1,'m_cbc']]],
-  ['cbc_5floc_3',['cbc_loc',['../namespacem__cbc.html#a823b0bbc10a35ac51bd48d3210aff962',1,'m_cbc']]],
-  ['col_4',['col',['../namespacem__nvtx.html#af232470c550267867fedf74adc30cab4',1,'m_nvtx']]],
-  ['color_5',['color',['../structm__nvtx_1_1nvtxeventattributes.html#ac3782bbbbe86784127af31797be53f98',1,'m_nvtx::nvtxeventattributes']]],
-  ['colortype_6',['colortype',['../structm__nvtx_1_1nvtxeventattributes.html#a6c3d2c3996f7c755fe5fc92ab083744d',1,'m_nvtx::nvtxeventattributes']]],
-  ['const_5fsos_7',['const_sos',['../m__monopole_8fpp_8f90.html#a9e22377892f06ea9aeaba431969b58cc',1,'m_monopole.fpp.f90']]],
-  ['cv_8',['cv',['../structic__patch__parameters.html#a4ea2714f2984f0fbe34f79e41ff7d311',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#a82e92f193d2ba4bbe654b8fcabdaa5b2',1,'physical_parameters::cv']]]
+  ['m_5fderived_5fvariables_0',['m_derived_variables',['../namespacem__derived__variables.html',1,'']]],
+  ['m_5fderived_5fvariables_2ef90_1',['m_derived_variables.f90',['../m__derived__variables_8f90.html',1,'']]],
+  ['m_5fnvtx_2',['m_nvtx',['../namespacem__nvtx.html',1,'']]],
+  ['m_5fnvtx_2ef90_3',['m_nvtx.f90',['../m__nvtx_8f90.html',1,'']]],
+  ['message_4',['message',['../structm__nvtx_1_1nvtxeventattributes.html#a37a6f715453d35ed14e1117bae0f3079',1,'m_nvtx::nvtxeventattributes']]],
+  ['messagetype_5',['messagetype',['../structm__nvtx_1_1nvtxeventattributes.html#a420eb146e93e94d3ea83b4e76df49bbd',1,'m_nvtx::nvtxeventattributes']]],
+  ['mfc_20simulation_6',['MFC Simulation',['../index.html',1,'']]]
 ];
