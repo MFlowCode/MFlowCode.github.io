@@ -13,8 +13,8 @@ var searchData=
   ['power9_20cpu_10',['Power9 CPU',['../md_expectedPerformance.html#autotoc_md64',1,'IBM Power9 CPU'],['../md_expectedPerformance.html#autotoc_md69',1,'IBM Power9 CPU']]],
   ['primitive_20variables_11',['Analytical Definition of Primitive Variables',['../md_case.html#autotoc_md8',1,'']]],
   ['primitive_20variables_20ordering_12',['Primitive Variables Ordering',['../md_case.html#autotoc_md23',1,'']]],
-  ['problem_201d_13',['Problem 1D',['../md_examples.html#autotoc_md41',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md37',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md50',1,'Titarev-Toro problem (1D)']]],
-  ['problem_202d_14',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md47',1,'']]],
+  ['problem_201d_13',['Problem 1D',['../md_examples.html#autotoc_md50',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md40',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md43',1,'Titarev-Toro problem (1D)']]],
+  ['problem_202d_14',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md37',1,'']]],
   ['procedure_15',['Procedure',['../md_visualization.html#autotoc_md90',1,'']]],
   ['process_16',['Testing Post Process',['../md_testing.html#autotoc_md88',1,'']]],
   ['profiling_20with_20nvidia_20nsight_17',['Profiling with NVIDIA Nsight',['../md_running.html#autotoc_md83',1,'']]]

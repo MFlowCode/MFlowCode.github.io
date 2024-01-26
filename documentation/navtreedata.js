@@ -69,24 +69,24 @@ var NAVTREE =
       [ "Attribution", "md_CODE__OF__CONDUCT.html#autotoc_md35", null ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md37", [
-        [ "Initial Condition", "md_examples.html#autotoc_md38", null ],
-        [ "Result", "md_examples.html#autotoc_md39", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md37", [
+        [ "Density", "md_examples.html#autotoc_md38", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md39", null ]
       ] ],
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md40", null ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md41", [
-        [ "Initial Condition", "md_examples.html#autotoc_md42", null ],
-        [ "Result", "md_examples.html#autotoc_md43", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md40", [
+        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
+        [ "Result", "md_examples.html#autotoc_md42", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md44", [
-        [ "Initial Condition", "md_examples.html#autotoc_md45", null ],
-        [ "Result", "md_examples.html#autotoc_md46", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md43", [
+        [ "Initial Condition", "md_examples.html#autotoc_md44", null ],
+        [ "Result", "md_examples.html#autotoc_md45", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md47", [
-        [ "Density", "md_examples.html#autotoc_md48", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md49", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md46", [
+        [ "Initial Condition", "md_examples.html#autotoc_md47", null ],
+        [ "Result", "md_examples.html#autotoc_md48", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md50", [
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md49", null ],
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md50", [
         [ "Initial Condition", "md_examples.html#autotoc_md51", null ],
         [ "Result", "md_examples.html#autotoc_md52", null ]
       ] ],
@@ -94,7 +94,7 @@ var NAVTREE =
         [ "Density Initial Condition", "md_examples.html#autotoc_md54", null ],
         [ "Density Final Condition", "md_examples.html#autotoc_md55", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md56", [
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md56", [
         [ "Initial Condition", "md_examples.html#autotoc_md57", null ],
         [ "Result", "md_examples.html#autotoc_md58", null ]
       ] ]

@@ -9,8 +9,8 @@ var searchData=
   ['tests_6',['Creating Tests',['../md_testing.html#autotoc_md87',1,'']]],
   ['the_20test_20suite_7',['Running the Test Suite',['../md_getting-started.html#autotoc_md74',1,'']]],
   ['time_20steps_20hour_8',['Expected time-steps/hour',['../md_expectedPerformance.html#autotoc_md60',1,'']]],
-  ['titarev_20toro_20problem_201d_9',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md50',1,'']]],
-  ['toro_20problem_201d_10',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md50',1,'']]],
-  ['tube_20problem_201d_11',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md41',1,'']]],
+  ['titarev_20toro_20problem_201d_9',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md43',1,'']]],
+  ['toro_20problem_201d_10',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md43',1,'']]],
+  ['tube_20problem_201d_11',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md50',1,'']]],
   ['types_12',['Patch types',['../md_case.html#autotoc_md20',1,'']]]
 ];
