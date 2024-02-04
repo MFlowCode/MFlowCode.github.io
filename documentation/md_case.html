@@ -383,6 +383,10 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>bc_[x,y,z]\beg[end]</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Beginning [ending] boundary condition in the $[x,y,z]$-direction (negative integer, see table Boundary Conditions)    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bc_[x,y,z]\vb[1,2,3]</code>‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Velocity in the (x,1), (y, 2), (z,3) direction applied to <code>bc_[x,y,z]beg</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bc_[x,y,z]\ve[1,2,3]</code>‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Velocity in the (x,1), (y, 2), (z,3) direction applied to <code>bc_[x,y,z]end</code>    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>model_eqns</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Multicomponent model: [1] $\Gamma/\Pi_\infty$; [2] 5-equation; [3] 6-equation\%;%[4] 4-equation    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>alt_soundspeed</code> *   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Alternate sound speed and $K \nabla \cdot u$ for 5-equation model    </td></tr>
@@ -418,10 +422,13 @@ Parameter Descriptions</h3>
 <ul>
 <li>* Options that work only with <code>model_eqns</code> $=2$.</li>
 <li>† Options that work only with <code>cyl_coord</code> $=$ <code>False</code>.</li>
+<li>‡ Options that work only with <code>bc_[x,y,z]%[beg,end] = -15</code> and/or <code>bc_[x,y,z]%[beg,end] = -16</code></li>
 </ul>
 <p>The table lists simulation algorithm parameters. The parameters are used to specify options in algorithms that are used to integrate the governing equations of the multi-component flow based on the initial condition. Models and assumptions that are used to formulate and discritize the governing equations are described in <a href="references.md#Bryngelson19">Bryngelson et al. (2019)</a>. Details of the simulation algorithms and implementation of the WENO scheme can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</p>
 <ul>
 <li><code>bc_[x,y,z]%[beg,end]</code> specifies the boundary conditions at the beginning and the end of domain boundaries in each coordinate direction by a negative integer from -1 through -12. See table Boundary Conditions for details.</li>
+<li><code>bc_[x,y,z]\vb[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]beg</code> when using <code>bc_[x,y,z]beg = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]beg = -16</code> to work properly. Normal velocities require <code>bc_[x,y,z]\end = -15</code> or <code>\bc_[x,y,z]\end = -16</code> to work properly.</li>
+<li><code>bc_[x,y,z]\ve[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]beg</code> when using <code>bc_[x,y,z]end = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]\end = 16</code> to work properly. Normal velocities require <code>bc_[x,y,z]\end = -15</code> or <code>\bc_[x,y,z]\end = -16</code> to work properly.</li>
 <li><code>model_eqns</code> specifies the choice of the multi-component model that is used to formulate the dynamics of the flow using integers from 1 through 3. <code>model_eqns</code> $=$ 1, 2, and 3 correspond to $\Gamma$-$\Pi_\infty$ model (<a href="references.md#Johnsen08">Johnsen, 2008</a>), 5-equation model (<a href="references.md#Allaire02">Allaire et al., 2002</a>), and 6-equation model (<a href="references.md#Saurel09">Saurel et al., 2009</a>), respectively. The difference of the two models is assessed by (<a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>). Note that some code parameters are only compatible with 5-equation model.</li>
 <li><code>alt_soundspeed</code> activates the source term in the advection equations for the volume fractions, $K\nabla\cdot \underline{u}$, that regularizes the speed of sound in the mixture region when the 5-equation model is used. The effect and use of the source term are assessed by <a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>.</li>
 <li><code>adv_alphan</code> activates the advection equations of all the components of fluid. If this parameter is set false, the void fraction of $N$-th component is computed as the residual of the void fraction of the other components at each cell:</li>
