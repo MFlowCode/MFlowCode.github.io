@@ -283,7 +283,9 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>modeltranslate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>modelspc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.   </td></tr>
+<td class="markdownTableBodyRight"><code>modelspc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>modelthreshold</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.   </td></tr>
 </table>
 <p>*: These parameters should be prepended with <code>patch_icpp(j)%</code> where $j$ is the patch index.</p>
 <p>The Table lists the patch parameters. The parameters define the geometries and physical parameters of fluid components (patch) in the domain at initial condition. Note that the domain must be fully filled with patche(s). The code outputs error messages when an empty region is left in the domain.</p>
@@ -536,12 +538,14 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>Mono(i)support</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Type of the spatial support of the acoustic source : [1] 1D [2] Finite width (2D) [3] Support for finite line/patch [4] General support for 3D simulation in cartesian systems [5] Support along monopole acoustic transducer [6] Support for cylindrical coordinate system along axial-dir    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>Mono(i)support_width</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">The width of the monopole support in terms of cell width    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>Mono(i)loc(j)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">$j$-th coordinate of the point that consists of $i$-th source plane    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Mono(i)dir</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Direction of acoustic propagation    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Mono(i)mag</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Pulse magnitude    </td></tr>
+<td class="markdownTableBodyRight"><code>Mono(i)dir</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Direction of acoustic propagation    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>Mono(i)mag</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Pulse magnitude    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>Mono(i)length</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Spatial pulse length   </td></tr>
 </table>
 <p>The table lists acoustic source parameters. The parameters are optionally used to define a source plane in the domain that generates an acoustic wave that propagates in a specified direction normal to the source plane (one-way acoustic source). Details of the acoustic source model can be found in <a href="references.md#Maeda17">Maeda and Colonius (2017)</a>.</p>
@@ -553,6 +557,7 @@ Parameter Descriptions</h3>
 <li><code>Mono(i)mag</code> defines the peak amplitude of the acoustic wave generated from $i$-th source plane with a given wave form.</li>
 <li><code>Mono(i)length</code> defines the characteristic wavelength of the acoustic wave generated from $i$-th source plane.</li>
 <li><code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support</code> $=1$ specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support</code> $=2$ specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support</code> $=3$ specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</li>
+<li><code>Mono(i)support_width</code> defines how many cell width the monopole support function extended by. Large <code>Mono(i)support_width</code> is preferred when <code>Mono(i)mag</code> is large.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md15"></a>
 8. Ensemble-Averaged Bubble Model</h2>
