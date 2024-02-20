@@ -346,7 +346,36 @@ Parameter Descriptions</h3>
 <li>'modelscale', 'modelrotate<code>and</code>modeltranslate<code>define how the model should be transformed to domain-space by first scaling by</code>modelscale<code>, then rotating about the Z, X, and Y axes (using</code>modelrotate<code>), and finally translating by</code>modeltranslate`.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md11"></a>
-4. Fluid Material’s</h2>
+4. Immersed Boundary Patches</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadCenter">Analytical Definition Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>geometry</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Geometry configuration of the patch.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>x[y,z]_centroid</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Centroid of the applied geometry in the [x,y,z]-direction.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>length_x[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Length, if applicable, in the [x,y,z]-direction.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>radius</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Radius, if applicable, of the applied geometry.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>theta</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Angle of attach applied to airfoil IB patches   </td></tr>
+</table>
+<p>| <code>c</code> | Real | | <code>t</code> | Real | | <code>m</code> | Real | | <code>p</code> | Real | | <code>slip</code> | Logical | Apply a slip boundary |</p>
+<p>These parameters should be prepended with <code>patch_ib(j)%</code> where $j$ is the patch index.</p>
+<h3><a class="anchor" id="autotoc_md12"></a>
+Parameter Descriptions</h3>
+<ul>
+<li><code>geometry</code> defines the type of geometry of a patch with an integer number. Definitions for currently implemented patch types are list in table Immersed Boundary Patch Type</li>
+<li><code>x[y,z]_centroid</code> is the centroid location of the patch in the x[y,z]-direction</li>
+<li><code>length_x[y,z]</code> is the length of the patch in the x[y,z]-direction.</li>
+<li><code>radius</code> is the radius to be used for circular patches.</li>
+<li><code>theta</code> allows for the angle of attach of airfoil patches to be changed.</li>
+<li><code>c</code>, <code>t</code>, <code>p</code>, and <code>m</code> specify the parameters for a NACA airfoil. <code>m</code> is the maximum camber, <code>p</code> is the location of maximum camber, <code>c</code> is the coord length, and <code>t</code> is the thickness. Additional details on this specification can be found in <a href="https://web.stanford.edu/~cantwell/AA200_Course_Material/The%20NACA%20airfoil%20series.pdf">The Naca Airfoil Series</a></li>
+<li><code>slip</code> applies a slip boundary to the surface of the patch if true and a no-slip boundary condition to the surface if false.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md13"></a>
+5. Fluid Material’s</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -377,8 +406,8 @@ Parameter Descriptions</h3>
 <ul>
 <li><code>fluid_pp(i)cv</code>, <code>fluid_pp(i)qv</code>, and <code>fluid_pp(i)qvp</code> define $c_v$, $q$, and $q'$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
-5. Simulation Algorithm</h2>
+<h2><a class="anchor" id="autotoc_md14"></a>
+6. Simulation Algorithm</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -452,8 +481,8 @@ Parameter Descriptions</h3>
 <li><code>weno_Re_flux</code> activates the scaler divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
 <li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md13"></a>
-6. Formatted Output</h2>
+<h2><a class="anchor" id="autotoc_md15"></a>
+7. Formatted Output</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -522,8 +551,8 @@ Parameter Descriptions</h3>
 <li><code>fd_order</code> specifies the order of the finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order</code> $=$ 1, 2, and 4 correspond to the first, second, and fourth-order finite difference schemes, respectively.</li>
 <li><code>probe_wrt</code> activates output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md14"></a>
-7. Acoustic Source</h2>
+<h2><a class="anchor" id="autotoc_md16"></a>
+8. Acoustic Source</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -559,8 +588,8 @@ Parameter Descriptions</h3>
 <li><code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support</code> $=1$ specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support</code> $=2$ specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support</code> $=3$ specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</li>
 <li><code>Mono(i)support_width</code> defines how many cell width the monopole support function extended by. Large <code>Mono(i)support_width</code> is preferred when <code>Mono(i)mag</code> is large.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md15"></a>
-8. Ensemble-Averaged Bubble Model</h2>
+<h2><a class="anchor" id="autotoc_md17"></a>
+9. Ensemble-Averaged Bubble Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -640,8 +669,8 @@ Parameter Descriptions</h3>
 <li><code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in qbmm. <br  />
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md16"></a>
-9. Velocity Field Setup</h2>
+<h2><a class="anchor" id="autotoc_md18"></a>
+10. Velocity Field Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -670,8 +699,8 @@ Parameter Descriptions</h3>
 <li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
 <li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with <code>vel_profile = TRUE</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md17"></a>
-10. Phase Change Model</h2>
+<h2><a class="anchor" id="autotoc_md19"></a>
+11. Phase Change Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
@@ -690,9 +719,9 @@ Parameter Descriptions</h3>
 <li><code>palpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pT-equilibrium model.</li>
 <li><code>ptgalpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pTg-equilibrium model.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -730,7 +759,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_ybeg</code> when using cylindrical coordinates (&lsquo;cyl_coord = 'T&rsquo;<code>and 3d). For axisymmetric problems, use</code>bc_ybeg = -2<code>with</code>cyl_coord = 'T'` in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -779,7 +808,25 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>modelfilepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
+Immersed Boundary Patch Types</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">#   </th><th class="markdownTableHeadCenter">Name   </th><th class="markdownTableHeadLeft">Dim.    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyCenter">2D Circle   </td><td class="markdownTableBodyLeft">2    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">3   </td><td class="markdownTableBodyCenter">2D Rectangle   </td><td class="markdownTableBodyLeft">2    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">4   </td><td class="markdownTableBodyCenter">2D Airfoil   </td><td class="markdownTableBodyLeft">2    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">8   </td><td class="markdownTableBodyCenter">3D Sphere   </td><td class="markdownTableBodyLeft">3    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">10   </td><td class="markdownTableBodyCenter">3D Cylinder   </td><td class="markdownTableBodyLeft">3    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyCenter">3D Airfoil   </td><td class="markdownTableBodyLeft">3   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -798,7 +845,7 @@ Monopole supports</h2>
 <td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special sauce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -824,7 +871,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

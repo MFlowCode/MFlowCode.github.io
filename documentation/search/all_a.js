@@ -1,9 +1,11 @@
 var searchData=
 [
   ['basic_20skeleton_0',['Basic Skeleton',['../md_case.html#autotoc_md2',1,'']]],
-  ['batch_20execution_1',['Batch Execution',['../md_running.html#autotoc_md73',1,'']]],
-  ['boundary_20conditions_2',['Boundary conditions',['../md_case.html#autotoc_md19',1,'']]],
-  ['bubble_20model_3',['8. Ensemble-Averaged Bubble Model',['../md_case.html#autotoc_md15',1,'']]],
-  ['build_20environment_4',['Build Environment',['../md_getting-started.html#autotoc_md63',1,'']]],
-  ['building_20mfc_5',['Building MFC',['../md_getting-started.html#autotoc_md64',1,'']]]
+  ['batch_20execution_1',['Batch Execution',['../md_running.html#autotoc_md76',1,'']]],
+  ['boundary_20conditions_2',['Boundary conditions',['../md_case.html#autotoc_md21',1,'']]],
+  ['boundary_20patch_20types_3',['Immersed Boundary Patch Types',['../md_case.html#autotoc_md23',1,'']]],
+  ['boundary_20patches_4',['4. Immersed Boundary Patches',['../md_case.html#autotoc_md11',1,'']]],
+  ['bubble_20model_5',['9. Ensemble-Averaged Bubble Model',['../md_case.html#autotoc_md17',1,'']]],
+  ['build_20environment_6',['Build Environment',['../md_getting-started.html#autotoc_md66',1,'']]],
+  ['building_20mfc_7',['Building MFC',['../md_getting-started.html#autotoc_md67',1,'']]]
 ];
