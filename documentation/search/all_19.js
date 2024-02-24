@@ -11,5 +11,6 @@ var searchData=
   ['titarev_20toro_20problem_201d_8',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md37',1,'']]],
   ['toro_20problem_201d_9',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md37',1,'']]],
   ['tube_20problem_201d_10',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md47',1,'']]],
-  ['types_11',['Types',['../md_case.html#autotoc_md23',1,'Immersed Boundary Patch Types'],['../md_case.html#autotoc_md22',1,'Patch types']]]
+  ['types_11',['Immersed Boundary Patch Types',['../md_case.html#autotoc_md23',1,'']]],
+  ['types_12',['Patch types',['../md_case.html#autotoc_md22',1,'']]]
 ];
