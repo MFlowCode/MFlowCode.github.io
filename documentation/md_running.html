@@ -148,41 +148,41 @@ $(function(){initNavTree('md_running.html',''); initResizable(true); });
 <h1><a class="anchor" id="autotoc_md75"></a>
 Interactive Execution</h1>
 <p>To run all stages of MFC, that is <a href="https://github.com/MFlowCode/MFC/tree/master/src/pre_process/">pre_process</a>, <a href="https://github.com/MFlowCode/MFC/tree/master/src/simulation/">simulation</a>, and <a href="https://github.com/MFlowCode/MFC/tree/master/src/post_process/">post_process</a> on the sample case <a href="https://github.com/MFlowCode/MFC/tree/master/examples/2D_shockbubble/">2D_shockbubble</a>,</p>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py</div>
 </div><!-- fragment --><p>If you want to run a subset of the available stages, you can use the <code>-t</code> argument. To use multiple threads, use the <code>-n</code> option along with the number of threads you wish to use. If a (re)build is required, it will be done automatically, with the number of threads specified with the <code>-j</code> option.</p>
 <p>For example,</p>
 <ul>
 <li>Running <a href="https://github.com/MFlowCode/MFC/tree/master/src/pre_process/">pre_process</a> with 2 cores:</li>
 </ul>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -t pre_process -n 2</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -t pre_process -n 2</div>
 </div><!-- fragment --><ul>
 <li>Running <a href="https://github.com/MFlowCode/MFC/tree/master/src/simulation/">simulation</a> and <a href="https://github.com/MFlowCode/MFC/tree/master/src/post_process/">post_process</a> using 4 cores:</li>
 </ul>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -t simulation post_process -n 4</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -t simulation post_process -n 4</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md76"></a>
 Batch Execution</h1>
-<p>The MFC detects which scheduler your system is using and handles the creation and execution of batch scripts. The batch engine is requested via the <code>-e batch</code> option. The number of nodes can be specified with the <code>-N</code> (i.e <code>--nodes</code>) option.</p>
+<p>The MFC detects which scheduler your system is using and handles the creation and execution of batch scripts. The batch engine is requested via the <code>-e batch</code> option. The number of nodes can be specified with the <code>-N</code> (i.e., <code>--nodes</code>) option.</p>
 <p>We provide a list of (baked-in) submission batch scripts in the <code>toolchain/templates</code> folder.</p>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -e batch -N 2 -n 4 -t simulation -c &lt;computer name&gt;</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -e batch -N 2 -n 4 -t simulation -c &lt;computer name&gt;</div>
 </div><!-- fragment --><p>Other useful arguments include:</p>
 <ul>
-<li><code>-# &lt;job name&gt;</code> to name your job. (i.e <code>--name</code>)</li>
-<li><code>-@ sample@example.com</code> to receive emails from the scheduler. (i.e <code>--email</code>)</li>
-<li><code>-w hh:mm:ss</code> to specify the job's maximum allowed walltime. (i.e <code>--walltime</code>)</li>
-<li><code>-a &lt;account name&gt;</code> to identify the account to be charged for the job. (i.e <code>--account</code>)</li>
-<li><code>-p &lt;partition name&gt;</code> to select the job's partition. (i.e <code>--partition</code>)</li>
+<li><code>-# &lt;job name&gt;</code> to name your job. (i.e., <code>--name</code>)</li>
+<li><code>-@ sample@example.com</code> to receive emails from the scheduler. (i.e., <code>--email</code>)</li>
+<li><code>-w hh:mm:ss</code> to specify the job's maximum allowed walltime. (i.e., <code>--walltime</code>)</li>
+<li><code>-a &lt;account name&gt;</code> to identify the account to be charged for the job. (i.e., <code>--account</code>)</li>
+<li><code>-p &lt;partition name&gt;</code> to select the job's partition. (i.e., <code>--partition</code>)</li>
 </ul>
 <p>As an example, one might request GPUs on a SLURM system using the following:</p>
-<p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource-sets in task and GPU count.</p>
+<p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource sets in the task and GPU count.</p>
 <h2><a class="anchor" id="autotoc_md77"></a>
 Profiling with NVIDIA Nsight</h2>
-<p>MFC provides two different argument to facilitate profiling with NVIDIA Nsight. <b>Please ensure that the used argument is placed at the end so that their respective flags can be appended.</b></p><ul>
-<li>Nsight Systems (Nsys): <code>./mfc.sh run ... --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for getting a general understanding of the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps so that the report files remain small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
-<li>Nsight Compute (NCU): <code>./mfc.sh run ... --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Please note that adding this argument will significantly slow down the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
+<p>MFC provides two different arguments to facilitate profiling with NVIDIA Nsight. <b>Please ensure the used argument is placed at the end so their respective flags can be appended.</b></p><ul>
+<li>Nsight Systems (Nsys): <code>./mfc.sh run ... --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for understanding the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps to keep the report files small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
+<li>Nsight Compute (NCU): <code>./mfc.sh run ... --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Adding this argument will significantly slow the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md78"></a>
 Restarting Cases</h2>
-<p>When running a simulation, MFC generates a <code>./restart_data</code> folder in the case directory that contains <code>lustre_*.dat</code> files that can be used to restart a simulation from saved timesteps. This allows a user to run a simulation to some timestep $X$, then later continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
+<p>When running a simulation, MFC generates a <code>./restart_data</code> folder in the case directory that contains <code>lustre_*.dat</code> files that can be used to restart a simulation from saved timesteps. This allows a user to simulate some timestep $X$, then continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
 <p>If you want to restart a simulation,</p>
 <ul>
 <li>Set up the initial simulation, with:<ul>
@@ -191,18 +191,18 @@ Restarting Cases</h2>
 <li><code>t_step_save</code> : $SF$ in which $t_i$ is the starting time, $t_f$ is the final time, and $SF$ is the saving frequency time.</li>
 </ul>
 </li>
-<li>Run pre-process and simulation on the case.<ul>
+<li>Run <code>pre_process</code> and <code>simulation</code> on the case.<ul>
 <li><code>./mfc.sh run case.py -t pre_process simulation</code></li>
 </ul>
 </li>
-<li>As the simulation runs, it will create LUSTRE files for each saved timestep in <code>./restart_data</code>.</li>
-<li>When the simulation stops, choose any LUSTRE file as the restarting point (lustre_ $t_s$.dat)</li>
-<li>Create a new duplicate input file, (ex. <code>restart_case.py</code>), on which it should:</li>
+<li>As the simulation runs, it will create Lustre files for each saved timestep in <code>./restart_data</code>.</li>
+<li>When the simulation stops, choose any Lustre file as the restarting point (lustre_ $t_s$.dat)</li>
+<li>Create a new duplicate input file (e.g., <code>restart_case.py</code>), which should have:</li>
 </ul>
 <ol type="1">
 <li>For the Computational Domain Parameters<ul>
-<li>Have the following removed BUT <code>m</code>, <code>n</code>, and <code>p</code>:<ul>
-<li>All domaing/mesh information<ul>
+<li>Have the following removed <b>except</b> <code>m</code>, <code>n</code>, and <code>p</code>:<ul>
+<li>All domain/mesh information<ul>
 <li><code>(xyz)_domainbeg</code></li>
 <li><code>(xyz)_domainend</code></li>
 <li><code>stretch_(xyz)</code></li>
@@ -213,16 +213,16 @@ Restarting Cases</h2>
 </li>
 </ul>
 </li>
-<li>Have the following altered:<ul>
-<li><code>t_step_start</code> : $t_s$ # this is the point at which the simulation will restart</li>
-<li><code>t_step_stop</code> : $t_{f2}$ # your new final simulation time, which can be the same as $t_f$</li>
-<li><code>t_step_save</code> : ${SF}_2$ # if interested in changing the saving frequency</li>
+<li>Alter the following:<ul>
+<li><code>t_step_start</code> : $t_s$ (the point at which the simulation will restart)</li>
+<li><code>t_step_stop</code> : $t_{f2}$ (new final simulation time, which can be the same as $t_f$)</li>
+<li><code>t_step_save</code> : ${SF}_2$ (if interested in changing the saving frequency)</li>
 </ul>
 </li>
-<li>Have the following ADDED:<ul>
-<li><code>old_ic</code> : 'T' # to specify that we have initial conditions from previous simulations</li>
-<li><code>old_grid</code> : 'T' # to specify that we have a grid from previous simulations (maybe I do not need m, n, and p, then?)</li>
-<li><code>t_step_old</code> : $t_i$ # this is the time step used as the <code>t_step_start</code> of the original <code>case.py</code> file</li>
+<li>Add the following:<ul>
+<li><code>old_ic</code> : 'T' (to specify that we have initial conditions from previous simulations)</li>
+<li><code>old_grid</code> : 'T' (to specify that we have a grid from previous simulations)</li>
+<li><code>t_step_old</code> : $t_i$ (the time step used as the <code>t_step_start</code> of the original <code>case.py</code> file)</li>
 </ul>
 </li>
 </ul>
@@ -251,7 +251,7 @@ Restarting Cases</h2>
 </li>
 </ol>
 <ul>
-<li>Run pre-process and simulation on restart_case.py<ul>
+<li>Run pre-process and simulation on <code>restart_case.py</code><ul>
 <li><code>./mfc.sh run restart_case.py -t pre_process simulation</code></li>
 </ul>
 </li>
@@ -261,19 +261,19 @@ Restarting Cases</h2>
 </ul>
 </li>
 </ul>
-<div class="fragment"><div class="line">$ ./mfc.sh run case.py -t post_process</div>
-<div class="line">$ ./mfc.sh run restart_case.py -t post_process</div>
-</div><!-- fragment --><p>We have provided an example <code>case.py</code> and <code>restart_case.py</code> in <code>/examples/1D_vacuum_restart/</code>. This simulation is a duplicate of the <code>1D_vacuum</code> case. It demonstrates stopping at timestep 7000, adding a new patch, and restarting the simulation. To test this code, run:</p>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t pre_process simulation</div>
-<div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t pre_process simulation</div>
-<div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
-<div class="line">$ ./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
+<div class="fragment"><div class="line">./mfc.sh run case.py -t post_process</div>
+<div class="line">./mfc.sh run restart_case.py -t post_process</div>
+</div><!-- fragment --><p>We have provided an example, <code>case.py</code> and <code>restart_case.py</code> in <code>/examples/1D_vacuum_restart/</code>. This simulation is a duplicate of the <code>1D_vacuum</code> case. It demonstrates stopping at timestep 7000, adding a new patch, and restarting the simulation. To test this code, run:</p>
+<div class="fragment"><div class="line">./mfc.sh run examples/1D_vacuum_restart/case.py -t pre_process simulation</div>
+<div class="line">./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t pre_process simulation</div>
+<div class="line">./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
+<div class="line">./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md79"></a>
 Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>
 </ul>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -e batch \</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -e batch \</div>
 <div class="line">               -N 2 -n 4 -t simulation -a &lt;redacted&gt; -c summit</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->

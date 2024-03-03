@@ -138,9 +138,8 @@ $(function(){initNavTree('md_getting-started.html',''); initResizable(true); });
 <h1><a class="anchor" id="autotoc_md65"></a>
 Fetching MFC</h1>
 <p>You can either download MFC's <a href="https://github.com/MFlowCode/MFC/releases/latest">latest release from GitHub</a> or clone the repository:</p>
-<div class="fragment"><div class="line">$ git clone https://github.com/MFlowCode/MFC.git</div>
-<div class="line">$ cd MFC</div>
-<div class="line">$ git checkout &lt;release tag&gt;</div>
+<div class="fragment"><div class="line">git clone https://github.com/MFlowCode/MFC.git</div>
+<div class="line">cd MFC</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md66"></a>
 Build Environment</h1>
 <p>MFC can be built in multiple ways on various operating systems. Please select your desired configuration from the list bellow:</p>
@@ -151,20 +150,20 @@ Build Environment</h1>
 <ul>
 <li><b>On supported clusters:</b> Load environment modules</li>
 </ul>
-<div class="fragment"><div class="line">$ . ./mfc.sh load</div>
+<div class="fragment"><div class="line">. ./mfc.sh load</div>
 </div><!-- fragment --><ul>
 <li><b>Via <a href="https://wiki.debian.org/Aptitude">Aptitude</a>:</b></li>
 </ul>
-<div class="fragment"><div class="line">$ sudo apt update</div>
-<div class="line">$ sudo apt upgrade</div>
-<div class="line">$ sudo apt install tar wget make cmake gcc g++ \</div>
+<div class="fragment"><div class="line">sudo apt update</div>
+<div class="line">sudo apt upgrade</div>
+<div class="line">sudo apt install tar wget make cmake gcc g++ \</div>
 <div class="line">                   python3 python3-dev         \</div>
 <div class="line">                   &quot;openmpi-*&quot; libopenmpi-dev</div>
 </div><!-- fragment --><ul>
 <li><b>Via <a href="https://wiki.archlinux.org/title/pacman">Pacman</a>:</b></li>
 </ul>
-<div class="fragment"><div class="line">$ sudo pacman -Syu</div>
-<div class="line">$ sudo pacman -S base-devel coreutils  \</div>
+<div class="fragment"><div class="line">sudo pacman -Syu</div>
+<div class="line">sudo pacman -S base-devel coreutils  \</div>
 <div class="line">                 git ninja gcc-fortran \</div>
 <div class="line">                 cmake openmpi python3 \</div>
 <div class="line">                 python-pip openssh    \</div>
@@ -203,22 +202,21 @@ Windows + WSL</summary>
 </details>
 <details >
 <summary >
-MacOS (x86 and Apple Silicon)</summary>
+MacOS</summary>
 <p></p>
-<p><b>Note:</b> macOS remains the most difficult platform to consistently compile MFC on. If you run into issues, we suggest you try using Docker (instructions above).</p>
 <ul>
-<li><b>MacOS v10.15 (Catalina) or newer [ZSH]</b> (Verify with <code>echo $SHELL</code>)</li>
+<li><b>If you use [ZSH]</b> (Verify with <code>echo $SHELL</code>)</li>
 </ul>
-<div class="fragment"><div class="line">$ touch ~/.zshrc</div>
-<div class="line">$ open ~/.zshrc</div>
+<div class="fragment"><div class="line">touch ~/.zshrc</div>
+<div class="line">open ~/.zshrc</div>
 </div><!-- fragment --><ul>
-<li><b>Older than MacOS v10.15 (Catalina) [BASH]</b> (Verify with <code>echo $SHELL</code>)</li>
+<li><b>If you use [BASH]</b> (Verify with <code>echo $SHELL</code>)</li>
 </ul>
-<div class="fragment"><div class="line">$ touch ~/.bash_profile</div>
-<div class="line">$ open ~/.bash_profile</div>
-</div><!-- fragment --><p>An editor should open. Please paste the following lines into it before saving the file. If you wish to use a version of GNU's GCC other than 11, modify the first assignment. These lines ensure that LLVM's Clang, and Apple's modified version of GCC, won't be used to compile MFC. Further reading on <code>open-mpi</code> incompatibility with <code>clang</code>-based <code>gcc</code> on macOS: <a href="https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9">here</a>. We do <em>not</em> support <code>clang</code> due to conflicts with our Silo dependency.</p>
+<div class="fragment"><div class="line">touch ~/.bash_profile</div>
+<div class="line">open ~/.bash_profile</div>
+</div><!-- fragment --><p>An editor should open. Please paste the following lines into it before saving the file. If you wish to use a version of GNU's GCC other than 13, modify the first assignment. These lines ensure that LLVM's Clang, and Apple's modified version of GCC, won't be used to compile MFC. Further reading on <code>open-mpi</code> incompatibility with <code>clang</code>-based <code>gcc</code> on macOS: <a href="https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9">here</a>. We do <em>not</em> support <code>clang</code> due to conflicts with the Silo dependency.</p>
 <div class="fragment"><div class="line"># === MFC MPI Installation ===</div>
-<div class="line">export MFC_GCC_VER=11</div>
+<div class="line">export MFC_GCC_VER=13</div>
 <div class="line">export OMPI_MPICC=gcc-$MFC_GCC_VER</div>
 <div class="line">export OMPI_CXX=g++-$MFC_GCC_VER</div>
 <div class="line">export OMPI_FC=gfortran-$MFC_GCC_VER</div>
@@ -226,9 +224,9 @@ MacOS (x86 and Apple Silicon)</summary>
 <div class="line">export CXX=g++-$MFC_GCC_VER</div>
 <div class="line">export FC=gfortran-$MFC_GCC_VER</div>
 <div class="line"># === MFC MPI Installation ===</div>
-</div><!-- fragment --><p><b>Close the open editor and terminal window</b>. Open a <b>new terminal</b> window before executing the commands bellow.</p>
-<div class="fragment"><div class="line">$ brew install wget make python make cmake coreutils gcc@$MFC_GCC_VER</div>
-<div class="line">$ HOMEBREW_MAKE_JOBS=$(nproc) brew install --cc=gcc-$MFC_GCC_VER --verbose --build-from-source open-mpi</div>
+</div><!-- fragment --><p><b>Close the open editor and terminal window</b>. Open a <b>new terminal</b> window before executing the commands below.</p>
+<div class="fragment"><div class="line">brew install wget make python make cmake coreutils gcc@$MFC_GCC_VER</div>
+<div class="line">HOMEBREW_MAKE_JOBS=$(nproc) brew install --cc=gcc-$MFC_GCC_VER --verbose --build-from-source open-mpi</div>
 </div><!-- fragment --><p>They will download the dependencies MFC requires to build itself. <code>open-mpi</code> will be compiled from source, using the version of GCC we specified above with the environment variables <code>HOMEBREW_CC</code> and <code>HOMEBREW_CXX</code>. Building this package might take a while.</p>
 <p></p>
 </details>
@@ -240,16 +238,16 @@ Docker</summary>
 <p>First install Docker and Git:</p><ul>
 <li>Windows: <a href="https://docs.docker.com/get-docker/">Docker</a> + <a href="https://git-scm.com/downloads">Git</a>.</li>
 <li>macOS: <code>brew install git docker</code> (requires <a href="https://brew.sh/">Homebrew</a>).</li>
-<li>Other systems: <div class="fragment"><div class="line">$ sudo apt install git docker # Debian / Ubuntu via Aptitude</div>
-<div class="line">$ sudo pacman -S git docker   # Arch Linux via Pacman</div>
+<li>Other systems: <div class="fragment"><div class="line">sudo apt install git docker # Debian / Ubuntu via Aptitude</div>
+<div class="line">sudo pacman -S git docker   # Arch Linux via Pacman</div>
 </div><!-- fragment --></li>
 </ul>
 <p>Once Docker and Git are installed on your system, clone MFC with</p>
-<div class="fragment"><div class="line">$ git clone https://github.com/MFlowCode/MFC</div>
-<div class="line">$ cd MFC </div>
+<div class="fragment"><div class="line">git clone https://github.com/MFlowCode/MFC</div>
+<div class="line">cd MFC </div>
 </div><!-- fragment --><p>To fetch the prebuilt Docker image and enter an interactive bash session with the recommended settings applied, run</p>
-<div class="fragment"><div class="line">$ ./mfc.sh  docker # If on \*nix/macOS</div>
-<div class="line">  .\mfc.bat docker # If on Windows</div>
+<div class="fragment"><div class="line">./mfc.sh  docker # If on \*nix/macOS</div>
+<div class="line">.\mfc.bat docker # If on Windows</div>
 </div><!-- fragment --><p>We automatically mount and configure the proper permissions in order for you to access your local copy of MFC, available at <code>~/MFC</code>. You will be logged-in as the <code>me</code> user with root permissions.</p>
 <p>:warning: The state of your container is entirely transient, except for the MFC mount. Thus, any modification outside of <code>~/MFC</code> should be considered as permanently lost upon session exit.</p>
 <p></p>
@@ -270,22 +268,22 @@ Building MFC</h1>
 <p><em>⚠️ The <code>--gpu</code> option requires that your compiler supports OpenACC for Fortran for your target GPU architecture.</em></p>
 <p>When these options are given to <code>mfc.sh</code>, they will be remembered when you issue future commands. You can enable and disable features at any time by passing any of the arguments above. For example, if you have previously built MFC with MPI support and no longer wish to run using MPI, you can pass <code>--no-mpi</code> once, for the change to be permanent.</p>
 <p>MFC is composed of three codes, each being a separate <em>target</em>. By default, all targets (<code>pre_process</code>, <code>simulation</code>, and <code>post_process</code>) are selected. To only select a subset, use the <code>-t</code> (i.e., <code>--targets</code>) argument. For a detailed list of options, arguments, and features, please refer to <code>./mfc.sh build --help</code>.</p>
-<p>Most first-time users will want to build MFC using 8 threads (or more!) with MPI support: </p><div class="fragment"><div class="line">$ ./mfc.sh build -j 8</div>
+<p>Most first-time users will want to build MFC using 8 threads (or more!) with MPI support: </p><div class="fragment"><div class="line">./mfc.sh build -j 8</div>
 </div><!-- fragment --><p>Examples:</p>
 <ul>
-<li>Build MFC using 8 threads with MPI and GPU acceleration: <code>$ ./mfc.sh build --gpu -j 8</code>.</li>
-<li>Build MFC using a single thread without MPI, GPU, and Debug support: <code>$ ./mfc.sh build --no-mpi</code>.</li>
-<li>Build MFC's <code>simulation</code> code in Debug mode with MPI and GPU support: <code>$ ./mfc.sh build --debug --gpu -t simulation</code>.</li>
+<li>Build MFC using 8 threads with MPI and GPU acceleration: <code>./mfc.sh build --gpu -j 8</code>.</li>
+<li>Build MFC using a single thread without MPI, GPU, and Debug support: <code>./mfc.sh build --no-mpi</code>.</li>
+<li>Build MFC's <code>simulation</code> code in Debug mode with MPI and GPU support: <code>./mfc.sh build --debug --gpu -t simulation</code>.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md68"></a>
 Running the Test Suite</h1>
 <p>Run MFC's test suite with 8 threads:</p>
-<div class="fragment"><div class="line">$ ./mfc.sh test -j 8</div>
+<div class="fragment"><div class="line">./mfc.sh test -j 8</div>
 </div><!-- fragment --><p>Please refer to the <a class="el" href="md_testing.html">Testing</a> document for more information.</p>
 <h1><a class="anchor" id="autotoc_md69"></a>
 Running an Example Case</h1>
 <p>MFC has example cases in the <code>examples</code> folder. You can run such a case interactively using 2 tasks by typing:</p>
-<div class="fragment"><div class="line">$ ./mfc.sh run examples/2D_shockbubble/case.py -n 2</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -n 2</div>
 </div><!-- fragment --><p>Please refer to the <a class="el" href="md_running.html">Running</a> document for more information on <code>case.py</code> files and how to run them. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->

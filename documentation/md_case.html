@@ -148,7 +148,7 @@ Basic Skeleton</h1>
 <div class="line">  ...</div>
 <div class="line">}))</div>
 </div><!-- fragment --><p>Thus, you can run your case file with Python to view the computed case dictionary that will be processed by MFC when you run:</p>
-<div class="fragment"><div class="line">$ python3 my_case_file.py</div>
+<div class="fragment"><div class="line">python3 my_case_file.py</div>
 </div><!-- fragment --><p>This is particularly useful when computations are done in Python to generate the case.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 (Optional) Accepting command line arguments</h1>
@@ -436,7 +436,7 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mixture_err</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture properties correction    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge&ndash;Kutta order [1&ndash;3]    </td></tr>
+<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge-Kutta order [1-3]    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -459,33 +459,33 @@ Parameter Descriptions</h3>
 <td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values   </td></tr>
 </table>
 <ul>
-<li>* Options that work only with <code>model_eqns</code> $=2$.</li>
-<li>† Options that work only with <code>cyl_coord</code> $=$ <code>False</code>.</li>
-<li>‡ Options that work only with <code>bc_[x,y,z]%[beg,end] = -15</code> and/or <code>bc_[x,y,z]%[beg,end] = -16</code></li>
+<li>* Options that work only with <code>model_eqns =2</code>.</li>
+<li>† Options that work only with &lsquo;cyl_coord = 'F&rsquo;<code>.</code></li>
+<li><code>‡ Options that work only with</code>bc_[x,y,z]%[beg,end] = -15<code>and/or</code>bc_[x,y,z]%[beg,end] = -16`</li>
 </ul>
 <p>The table lists simulation algorithm parameters. The parameters are used to specify options in algorithms that are used to integrate the governing equations of the multi-component flow based on the initial condition. Models and assumptions that are used to formulate and discritize the governing equations are described in <a href="references.md#Bryngelson19">Bryngelson et al. (2019)</a>. Details of the simulation algorithms and implementation of the WENO scheme can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</p>
 <ul>
 <li><code>bc_[x,y,z]%[beg,end]</code> specifies the boundary conditions at the beginning and the end of domain boundaries in each coordinate direction by a negative integer from -1 through -12. See table Boundary Conditions for details.</li>
 <li><code>bc_[x,y,z]\vb[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]beg</code> when using <code>bc_[x,y,z]beg = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]beg = -16</code> to work properly. Normal velocities require <code>bc_[x,y,z]\end = -15</code> or <code>\bc_[x,y,z]\end = -16</code> to work properly.</li>
 <li><code>bc_[x,y,z]\ve[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]beg</code> when using <code>bc_[x,y,z]end = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]\end = 16</code> to work properly. Normal velocities require <code>bc_[x,y,z]\end = -15</code> or <code>\bc_[x,y,z]\end = -16</code> to work properly.</li>
-<li><code>model_eqns</code> specifies the choice of the multi-component model that is used to formulate the dynamics of the flow using integers from 1 through 3. <code>model_eqns</code> $=$ 1, 2, and 3 correspond to $\Gamma$-$\Pi_\infty$ model (<a href="references.md#Johnsen08">Johnsen, 2008</a>), 5-equation model (<a href="references.md#Allaire02">Allaire et al., 2002</a>), and 6-equation model (<a href="references.md#Saurel09">Saurel et al., 2009</a>), respectively. The difference of the two models is assessed by (<a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>). Note that some code parameters are only compatible with 5-equation model.</li>
+<li><code>model_eqns</code> specifies the choice of the multi-component model that is used to formulate the dynamics of the flow using integers from 1 through 3. <code>model_eqns = 1</code>, <code>2</code>, and <code>3</code> correspond to $\Gamma$-$\Pi_\infty$ model (<a href="references.md#Johnsen08">Johnsen, 2008</a>), 5-equation model (<a href="references.md#Allaire02">Allaire et al., 2002</a>), and 6-equation model (<a href="references.md#Saurel09">Saurel et al., 2009</a>), respectively. The difference of the two models is assessed by (<a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>). Note that some code parameters are only compatible with 5-equation model.</li>
 <li><code>alt_soundspeed</code> activates the source term in the advection equations for the volume fractions, $K\nabla\cdot \underline{u}$, that regularizes the speed of sound in the mixture region when the 5-equation model is used. The effect and use of the source term are assessed by <a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>.</li>
 <li><code>adv_alphan</code> activates the advection equations of all the components of fluid. If this parameter is set false, the void fraction of $N$-th component is computed as the residual of the void fraction of the other components at each cell:</li>
 </ul>
 <p>$$ \alpha_N=1-\sum^{N-1}_{i=1} \alpha_i $$</p>
-<p>where $\alpha_i$ is the void fraction of $i$-th component. When a single-component flow is simulated, it requires that <code>adv_alphan</code> $=$ <code>True</code>.</p>
+<p>where $\alpha_i$ is the void fraction of $i$-th component. When a single-component flow is simulated, it requires that &lsquo;adv_alphan = 'T&rsquo;`.</p>
 <ul>
 <li><code>mpp_lim</code> activates correction of solutions to avoid a negative void fraction of each component in each grid cell, such that $\alpha_i&gt;\varepsilon$ is satisfied at each time step.</li>
 <li><code>mixture_err</code> activates correction of solutions to avoid imaginary speed of sound at each grid cell.</li>
-<li><code>time_stepper</code> specifies the order of the Runge-Kutta (RK) time integration scheme that is used for temporal integration in simulation, from the 1st to 5th order by corresponding integer. Note that <code>time_stepper</code> $=$ 3 specifies the total variation diminishing (TVD), third order RK scheme (<a href="references.md#Gottlieb98">Gottlieb and Shu, 1998</a>).</li>
+<li><code>time_stepper</code> specifies the order of the Runge-Kutta (RK) time integration scheme that is used for temporal integration in simulation, from the 1st to 5th order by corresponding integer. Note that <code>time_stepper = 3</code> specifies the total variation diminishing (TVD), third order RK scheme (<a href="references.md#Gottlieb98">Gottlieb and Shu, 1998</a>).</li>
 <li><code>weno_order</code> specifies the order of WENO scheme that is used for spatial reconstruction of variables by an integer of 1, 3, and 5, that correspond to the 1st, 3rd, and 5th order, respectively.</li>
 <li><code>weno_eps</code> specifies the lower bound of the WENO nonlinear weights. Practically, <code>weno_eps</code> $&lt;10^{-6}$ is used.</li>
 <li><code>mapped_weno</code> activates mapping of the nonlinear WENO weights to the more accurate nonlinear weights in order to reinstate the optimal order of accuracy of the reconstruction in the proximity of critical points (<a href="references.md#Henrick05">Henrick et al., 2005</a>).</li>
-<li><code>null_weights</code> activates nullification of the nonlinear WENO weights at the buffer regions outside the domain boundaries when the Riemann extrapolation boundary condition is specified (<code>bc_[x,y,z]\beg[end]}</code> $=-4$).</li>
+<li><code>null_weights</code> activates nullification of the nonlinear WENO weights at the buffer regions outside the domain boundaries when the Riemann extrapolation boundary condition is specified (<code>bc_[x,y,z]\beg[end]} = -4</code>).</li>
 <li><code>mp_weno</code> activates monotonicity preservation in the WENO reconstruction (MPWENO) such that the values of reconstructed variables do not reside outside the range spanned by WENO stencil (<a href="references.md#Balsara00">Balsara and Shu, 2000</a>; <a href="references.md#Suresh97">Suresh and Huynh, 1997</a>).</li>
-<li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver</code> $=$ 1,2, and 3 correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>).</li>
-<li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state</code> $=$ 1 and 2 correspond to Roe- and arithmetic averages, respectively.</li>
-<li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds</code> $=$ 1 and 2 correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
+<li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver = 1</code>, <code>2</code>, and <code>3</code> correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>).</li>
+<li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state = 1</code> and <code>2</code> correspond to Roe- and arithmetic averages, respectively.</li>
+<li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds = 1</code> and <code>2</code> correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
 <li><code>weno_Re_flux</code> activates the scaler divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
 <li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
 </ul>
@@ -549,14 +549,14 @@ Parameter Descriptions</h3>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
 <ul>
-<li><code>format</code> specifies the choice of the file format of data file outputted by MFC by an integer of 1 and 2. <code>format</code> $=$ 1 and 2 correspond to Silo-HDF5 format and binary format, respectively.</li>
-<li><code>precision</code> specifies the choice of the floating-point format of the data file outputted by MFC by an integer of 1 and 2. <code>precision</code> $=$ 1 and 2 correspond to single-precision and double-precision formats, respectively.</li>
+<li><code>format</code> specifies the choice of the file format of data file outputted by MFC by an integer of 1 and 2. <code>format = 1</code> and <code>2</code> correspond to Silo-HDF5 format and binary format, respectively.</li>
+<li><code>precision</code> specifies the choice of the floating-point format of the data file outputted by MFC by an integer of 1 and 2. <code>precision = 1</code> and <code>2</code> correspond to single-precision and double-precision formats, respectively.</li>
 <li><code>parallel_io</code> activates parallel input/output (I/O) of data files. It is highly recommended to activate this option in a parallel environment. With parallel I/O, MFC inputs and outputs a single file throughout pre-process, simulation, and post-process, regardless of the number of processors used. Parallel I/O enables the use of different number of processors in each of the processes (i.e., simulation data generated using 1000 processors can be post-processed using a single processor).</li>
 <li><code>file_per_process</code> deactivates shared file MPI-IO and activates file per process MPI-IO. The default behavior is to use a shared file. File per process is useful when running on 10's of thousands of ranks. If <code>file_per_process</code> is true, then pre_process, simulation, and post_process must be run with the same number of ranks.</li>
 <li><code>cons_vars_wrt</code> and <code>prim_vars_wrt</code> activate output of conservative and primitive state variables into the database, respectively.</li>
 <li><code>[variable's name]_wrt</code> activates output of the each specified variable into the database.</li>
 <li><code>schlieren_alpha(i)</code> specifies the intensity of the numerical Schlieren of $i$-th component.</li>
-<li><code>fd_order</code> specifies the order of the finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order</code> $=$ 1, 2, and 4 correspond to the first, second, and fourth-order finite difference schemes, respectively.</li>
+<li><code>fd_order</code> specifies the order of the finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order = 1</code>, <code>2</code>, and <code>4</code> correspond to the first, second, and fourth-order finite difference schemes, respectively.</li>
 <li><code>probe_wrt</code> activates output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md16"></a>
@@ -589,11 +589,11 @@ Parameter Descriptions</h3>
 <ul>
 <li><code>Monopole</code> activates the acoustic source.</li>
 <li><code>num_mono</code> defines the total number of source planes by an integer.</li>
-<li><code>Mono(i)pulse</code> specifies the choice of the acoustic waveform generated from $i$-th source plane by an integer. <code>Mono(i)pulse</code> $=$ 1, 2, and 3 correspond to sinusoidal wave, Gaussian wave, and square wave, respectively.</li>
+<li><code>Mono(i)pulse</code> specifies the choice of the acoustic waveform generated from $i$-th source plane by an integer. <code>Mono(i)pulse = 1</code>, <code>2</code>, and <code>3</code> correspond to sinusoidal wave, Gaussian wave, and square wave, respectively.</li>
 <li><code>Mono(i)npulse</code> defines the number of cycles of the acoustic wave generated from $i$-th source plane by an integer.</li>
 <li><code>Mono(i)mag</code> defines the peak amplitude of the acoustic wave generated from $i$-th source plane with a given wave form.</li>
 <li><code>Mono(i)length</code> defines the characteristic wavelength of the acoustic wave generated from $i$-th source plane.</li>
-<li><code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support</code> $=1$ specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support</code> $=2$ specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support</code> $=3$ specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</li>
+<li><code>Mono(i)support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:\ <code>Mono(i)support =1</code> specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)loc(1)</code> in 1-D simulation.\ <code>Mono(i)support =2</code> specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2].\ <code>Mono(i)support =3</code> specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)loc(1)</code>, <code>Mono(i)loc(2)</code>, <code>Mono(i)loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)dir</code>), $\mathrm{sin}$(<code>Mono(i)dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>mymono_length</code>/2, <code>mymono_length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</li>
 <li><code>Mono(i)support_width</code> defines how many cell width the monopole support function extended by. Large <code>Mono(i)support_width</code> is preferred when <code>Mono(i)mag</code> is large.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md17"></a>
@@ -658,18 +658,18 @@ Parameter Descriptions</h3>
 <p>This table lists the ensemble-averaged bubble model parameters.</p>
 <ul>
 <li><code>bubbles</code> activates the ensemble-averaged bubble model.</li>
-<li><code>bubble_model</code> specified a model for spherical bubble dynamics by an integer of 1 and 2. <code>bubble_model</code> $=$ 1 and 2 correspond to the Gilmore and the Keller-Miksis equations, respectively.</li>
+<li><code>bubble_model</code> specified a model for spherical bubble dynamics by an integer of 1 and 2. <code>bubble_model = 1</code>, <code>2</code>, and <code>3</code> correspond to the Gilmore, Keller-Miksis, and Rayleigh-Plesset models.</li>
 <li><code>polytropic</code> activates polytropic gas compression in the bubble. When <code>polytropic</code> is set <code>False</code>, the gas compression is modeled as non-polytropic due to heat and mass transfer across the bubble wall with constant heat and mass transfer coefficients based on (<a href="references.md#Preston07">Preston et al., 2007</a>).</li>
 <li><code>polydisperse</code> activates polydispersity in the bubble model by means of a probability density function (PDF) of the equiliibrium bubble radius.</li>
-<li><code>thermal</code> specifies a model for heat transfer across the bubble interface by an integer from 1 through 3. <code>thermal</code> $=$ 1, 2, and 3 correspond to no heat transfer (adiabatic gas compression), isothermal heat transfer, and heat transfer with a constant heat transfer coefficient based on <a href="references.md#Preston07">Preston et al., 2007</a>, respectively.</li>
+<li><code>thermal</code> specifies a model for heat transfer across the bubble interface by an integer from 1 through 3. <code>thermal = 1</code>, <code>2</code>, and <code>3</code> correspond to no heat transfer (adiabatic gas compression), isothermal heat transfer, and heat transfer with a constant heat transfer coefficient based on <a href="references.md#Preston07">Preston et al., 2007</a>, respectively.</li>
 <li><code>R0ref</code> specifies the reference bubble radius.</li>
 <li><code>nb</code> specifies the number of discrete bins that define the probability density function (PDF) of the equilibrium bubble radius.</li>
-<li><code>R0_type</code> specifies the quadrature rule for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations. <code>R0_type</code> $=$ 1 corresponds to Simpson's rule.</li>
+<li><code>R0_type</code> specifies the quadrature rule for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations. <code>R0_type = 1</code> corresponds to Simpson's rule.</li>
 <li><code>poly_sigma</code> specifies the standard deviation of the log-normal PDF of equilibrium bubble radius for polydisperse populations.</li>
 <li><code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</li>
 <li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify the specific heat ratio, molecular weight, viscosity, and thermal conductivity of a chosen component. Implementation of the parameters into the model follow <a href="references.md#Ando10">Ando (2010)</a>.</li>
 <li><code>qbmm</code> activates quadrature by method of moments, which assumes a PDF for bubble radius and velocity.</li>
-<li><code>dist_type</code> specifies the initial joint PDF of initial bubble radius and bubble velocity required in qbmm. <code>dist_type</code> $=$ 1 and 2 correspond to binormal and lognormal-normal distributions respectively.</li>
+<li><code>dist_type</code> specifies the initial joint PDF of initial bubble radius and bubble velocity required in qbmm. <code>dist_type = 1</code> and <code>2</code> correspond to binormal and lognormal-normal distributions respectively.</li>
 <li><code>sigR</code> specifies the standard deviation of the PDF of bubble radius required in qbmm. <br  />
 </li>
 <li><code>sigV</code> specifies the standard deviation of the PDF of bubble velocity required in qbmm. <br  />
@@ -705,7 +705,7 @@ Parameter Descriptions</h3>
 <li><code>perturb_sph</code> activates the perturbation of initial partial density by random noise.</li>
 <li><code>perturb_sph_fluid</code> specifies the fluid component whose partial density is to be perturbed.</li>
 <li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
-<li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with <code>vel_profile = TRUE</code>.</li>
+<li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with &lsquo;vel_profile = 'T&rsquo;`.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md19"></a>
 11. Phase Change Model</h2>
@@ -765,7 +765,7 @@ Boundary conditions</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">-16   </td><td class="markdownTableBodyCenter">Normal   </td><td class="markdownTableBodyLeft">No-slip wall   </td></tr>
 </table>
-<p>*: This boundary condition is only used for <code>bc_ybeg</code> when using cylindrical coordinates (&lsquo;cyl_coord = 'T&rsquo;<code>and 3d). For axisymmetric problems, use</code>bc_ybeg = -2<code>with</code>cyl_coord = 'T'` in 2D.</p>
+<p>*: This boundary condition is only used for <code>bc_ybeg</code> when using cylindrical coordinates (&lsquo;cyl_coord = 'T&rsquo;<code>and 3D). For axisymmetric problems, use</code>bc_ybeg = -2<code>with</code>cyl_coord = 'T'` in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
 <h2><a class="anchor" id="autotoc_md22"></a>
 Patch types</h2>
