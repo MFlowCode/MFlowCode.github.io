@@ -215,19 +215,13 @@ MacOS</summary>
 <div class="fragment"><div class="line">touch ~/.bash_profile</div>
 <div class="line">open ~/.bash_profile</div>
 </div><!-- fragment --><p>An editor should open. Please paste the following lines into it before saving the file. If you wish to use a version of GNU's GCC other than 13, modify the first assignment. These lines ensure that LLVM's Clang, and Apple's modified version of GCC, won't be used to compile MFC. Further reading on <code>open-mpi</code> incompatibility with <code>clang</code>-based <code>gcc</code> on macOS: <a href="https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9">here</a>. We do <em>not</em> support <code>clang</code> due to conflicts with the Silo dependency.</p>
-<div class="fragment"><div class="line"># === MFC MPI Installation ===</div>
-<div class="line">export MFC_GCC_VER=13</div>
-<div class="line">export OMPI_MPICC=gcc-$MFC_GCC_VER</div>
-<div class="line">export OMPI_CXX=g++-$MFC_GCC_VER</div>
-<div class="line">export OMPI_FC=gfortran-$MFC_GCC_VER</div>
+<div class="fragment"><div class="line">export MFC_GCC_VER=13</div>
 <div class="line">export CC=gcc-$MFC_GCC_VER</div>
 <div class="line">export CXX=g++-$MFC_GCC_VER</div>
 <div class="line">export FC=gfortran-$MFC_GCC_VER</div>
-<div class="line"># === MFC MPI Installation ===</div>
 </div><!-- fragment --><p><b>Close the open editor and terminal window</b>. Open a <b>new terminal</b> window before executing the commands below.</p>
-<div class="fragment"><div class="line">brew install wget make python make cmake coreutils gcc@$MFC_GCC_VER</div>
-<div class="line">HOMEBREW_MAKE_JOBS=$(nproc) brew install --cc=gcc-$MFC_GCC_VER --verbose --build-from-source open-mpi</div>
-</div><!-- fragment --><p>They will download the dependencies MFC requires to build itself. <code>open-mpi</code> will be compiled from source, using the version of GCC we specified above with the environment variables <code>HOMEBREW_CC</code> and <code>HOMEBREW_CXX</code>. Building this package might take a while.</p>
+<div class="fragment"><div class="line">brew install wget make python make cmake coreutils gcc@$MFC_GCC_VER mpich</div>
+</div><!-- fragment --><p>They will download the dependencies MFC requires to build itself.</p>
 <p></p>
 </details>
 <details >
