@@ -147,8 +147,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ab901fc61bffbbe39af35d3ccb92bfa75" id="r_ab901fc61bffbbe39af35d3ccb92bfa75"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab901fc61bffbbe39af35d3ccb92bfa75">s_compute_weno_coefficients</a> (weno_dir, is)</td></tr>
 <tr class="memdesc:ab901fc61bffbbe39af35d3ccb92bfa75"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to compute the grid dependent coefficients of the WENO polynomials, ideal weights and smoothness indicators, provided the order, the coordinate direction and the location of the WENO reconstruction.  <br /></td></tr>
 <tr class="separator:ab901fc61bffbbe39af35d3ccb92bfa75"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8495f5eb3dca2bbde1088b568cf13288" id="r_a8495f5eb3dca2bbde1088b568cf13288"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8495f5eb3dca2bbde1088b568cf13288">s_weno</a> (v_vf, vl_rs_vf_x, vl_rs_vf_y, vl_rs_vf_z, vr_rs_vf_x, vr_rs_vf_y, vr_rs_vf_z, norm_dir, weno_dir, is1_d, is2_d, is3_d)</td></tr>
-<tr class="separator:a8495f5eb3dca2bbde1088b568cf13288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c79c6347a719cfadea72a4e0dd83591" id="r_a0c79c6347a719cfadea72a4e0dd83591"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c79c6347a719cfadea72a4e0dd83591">s_weno</a> (v_vf, vl_rs_vf_x, vl_rs_vf_y, vl_rs_vf_z, vr_rs_vf_x, vr_rs_vf_y, vr_rs_vf_z, norm_dir, weno_dir, is1_weno_d, is2_weno_d, is3_weno_d)</td></tr>
+<tr class="separator:a0c79c6347a719cfadea72a4e0dd83591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc4801fbf3acfd4db40d1ad294aa3e46" id="r_abc4801fbf3acfd4db40d1ad294aa3e46"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc4801fbf3acfd4db40d1ad294aa3e46">s_initialize_weno</a> (v_vf, norm_dir, weno_dir)</td></tr>
 <tr class="memdesc:abc4801fbf3acfd4db40d1ad294aa3e46"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the WENO reconstruction.  <br /></td></tr>
 <tr class="separator:abc4801fbf3acfd4db40d1ad294aa3e46"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -291,9 +291,9 @@ Here is the caller graph for this function:</div>
     <tr><td class="paramname">vR_vf</td><td>Right WENO reconstructed cell-boundary values </td></tr>
     <tr><td class="paramname">norm_dir</td><td>Characteristic decommposition coordinate direction </td></tr>
     <tr><td class="paramname">weno_dir</td><td>Coordinate direction of the WENO reconstruction </td></tr>
-    <tr><td class="paramname">is1</td><td>Index bounds in first coordinate direction </td></tr>
-    <tr><td class="paramname">is2</td><td>Index bounds in second coordinate direction </td></tr>
-    <tr><td class="paramname">is3</td><td>Index bounds in third coordinate direction </td></tr>
+    <tr><td class="paramname">is1_weno</td><td>Index bounds in first coordinate direction </td></tr>
+    <tr><td class="paramname">is2_weno</td><td>Index bounds in second coordinate direction </td></tr>
+    <tr><td class="paramname">is3_weno</td><td>Index bounds in third coordinate direction </td></tr>
   </table>
   </dd>
 </dl>
@@ -389,8 +389,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8495f5eb3dca2bbde1088b568cf13288" name="a8495f5eb3dca2bbde1088b568cf13288"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8495f5eb3dca2bbde1088b568cf13288">&#9670;&#160;</a></span>s_weno()</h2>
+<a id="a0c79c6347a719cfadea72a4e0dd83591" name="a0c79c6347a719cfadea72a4e0dd83591"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c79c6347a719cfadea72a4e0dd83591">&#9670;&#160;</a></span>s_weno()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -446,17 +446,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is1_d</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is1_weno_d</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is2_d</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is2_weno_d</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is3_d</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is3_weno_d</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -468,12 +468,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a8495f5eb3dca2bbde1088b568cf13288_cgraph.svg" width="316" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a0c79c6347a719cfadea72a4e0dd83591_cgraph.svg" width="316" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a8495f5eb3dca2bbde1088b568cf13288_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__weno_8fpp_8f90_a0c79c6347a719cfadea72a4e0dd83591_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

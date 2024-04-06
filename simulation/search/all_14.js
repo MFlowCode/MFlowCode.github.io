@@ -11,12 +11,9 @@ var searchData=
   ['ve3_8',['ve3',['../structint__bounds__info.html#aca20bf2fa97ddd2caf7c3fe8444864f9',1,'int_bounds_info']]],
   ['vector_5ffield_9',['vector_field',['../structvector__field.html',1,'']]],
   ['vel_10',['vel',['../structic__patch__parameters.html#ae6785e7c65e673fa13a7b7abcd3cab53',1,'ic_patch_parameters']]],
-  ['vel_5fsrc_5frsx_5fvf_11',['vel_src_rsx_vf',['../namespacem__riemann__solvers.html#a6cbc0f5e485156b7f35aad890f983070',1,'m_riemann_solvers']]],
-  ['vel_5fsrc_5frsy_5fvf_12',['vel_src_rsy_vf',['../namespacem__riemann__solvers.html#a821aa26e65fc3896af1c8691d66d0931',1,'m_riemann_solvers']]],
-  ['vel_5fsrc_5frsz_5fvf_13',['vel_src_rsz_vf',['../namespacem__riemann__solvers.html#af9dedb754eac8df7621f2ac13e07f715',1,'m_riemann_solvers']]],
-  ['version_14',['version',['../structm__nvtx_1_1nvtxeventattributes.html#abea96c114d8adfd0734147f2a385fcea',1,'m_nvtx::nvtxeventattributes']]],
-  ['verysmall_15',['verysmall',['../namespacem__constants.html#af743a2977fdec1c91df6aad50c155dbb',1,'m_constants']]],
-  ['vf_16',['vf',['../structvector__field.html#a7e81ce34a68c9a9823eef2932008f772',1,'vector_field']]],
-  ['view_17',['view',['../structmpi__io__var.html#a1eb4fea938daca9315de1cf58afdaba3',1,'mpi_io_var::view'],['../structmpi__io__ib__var.html#acc3af23584b537c634ef69b14c194d96',1,'mpi_io_ib_var::view'],['../structmpi__io__airfoil__ib__var.html#a004f93523f3e811cf157daab8fdfe4c8',1,'mpi_io_airfoil_ib_var::view']]],
-  ['vs_18',['vs',['../structbub__bounds__info.html#ad27b93a5c6ae4acd19b831efb3ec6c8b',1,'bub_bounds_info']]]
+  ['version_11',['version',['../structm__nvtx_1_1nvtxeventattributes.html#abea96c114d8adfd0734147f2a385fcea',1,'m_nvtx::nvtxeventattributes']]],
+  ['verysmall_12',['verysmall',['../namespacem__constants.html#af743a2977fdec1c91df6aad50c155dbb',1,'m_constants']]],
+  ['vf_13',['vf',['../structvector__field.html#a7e81ce34a68c9a9823eef2932008f772',1,'vector_field']]],
+  ['view_14',['view',['../structmpi__io__var.html#a1eb4fea938daca9315de1cf58afdaba3',1,'mpi_io_var::view'],['../structmpi__io__ib__var.html#acc3af23584b537c634ef69b14c194d96',1,'mpi_io_ib_var::view'],['../structmpi__io__airfoil__ib__var.html#a004f93523f3e811cf157daab8fdfe4c8',1,'mpi_io_airfoil_ib_var::view']]],
+  ['vs_15',['vs',['../structbub__bounds__info.html#ad27b93a5c6ae4acd19b831efb3ec6c8b',1,'bub_bounds_info']]]
 ];

@@ -14,6 +14,6 @@ var searchData=
   ['interp_5fcoeffs_11',['interp_coeffs',['../structghost__point.html#a25fdf03a86650c5eb6a2fbc7bef590a8',1,'ghost_point']]],
   ['intxb_12',['intxb',['../namespacem__global__parameters.html#ace71c8ec227d7c6364893107bc131dae',1,'m_global_parameters']]],
   ['intxe_13',['intxe',['../namespacem__global__parameters.html#af08928c5b9bde727869334ee7067e89c',1,'m_global_parameters']]],
-  ['ip_5fgrid_14',['ip_grid',['../structghost__point.html#adc6117bbd801c7f7befe7d619369959a',1,'ghost_point']]],
+  ['ip_5fgrid_14',['ip_grid',['../structghost__point.html#a6a3c27213fcd46b20cc54d4cec16039f',1,'ghost_point']]],
   ['ip_5floc_15',['ip_loc',['../structghost__point.html#a3561ee37ddbdb854039b5a5b18995dce',1,'ghost_point']]]
 ];

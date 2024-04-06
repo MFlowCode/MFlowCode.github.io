@@ -7,6 +7,5 @@ var searchData=
   ['ghost_5fpoint_4',['ghost_point',['../structghost__point.html',1,'']]],
   ['grad_5fx_5fvf_5',['grad_x_vf',['../namespacem__start__up.html#acd3b736578c59b1bd9dfc4b81f4a7279',1,'m_start_up']]],
   ['grad_5fy_5fvf_6',['grad_y_vf',['../namespacem__start__up.html#a2e9ad6009d63488a8f8c7a3a548ba433',1,'m_start_up']]],
-  ['grad_5fz_5fvf_7',['grad_z_vf',['../namespacem__start__up.html#ada153b7f1b2f725b026b89cd187d3206',1,'m_start_up']]],
-  ['gs_8',['gs',['../namespacem__riemann__solvers.html#ad378748f280ab86bbad7bf59a442065d',1,'m_riemann_solvers']]]
+  ['grad_5fz_5fvf_7',['grad_z_vf',['../namespacem__start__up.html#ada153b7f1b2f725b026b89cd187d3206',1,'m_start_up']]]
 ];

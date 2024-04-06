@@ -6,6 +6,5 @@ var searchData=
   ['geometry_3',['geometry',['../structic__patch__parameters.html#adcd14f8609bf5dc1dca4edd77b75a10a',1,'ic_patch_parameters::geometry'],['../structib__patch__parameters.html#ab89e22e150dcf97121f5c894acfdadd7',1,'ib_patch_parameters::geometry']]],
   ['grad_5fx_5fvf_4',['grad_x_vf',['../namespacem__start__up.html#acd3b736578c59b1bd9dfc4b81f4a7279',1,'m_start_up']]],
   ['grad_5fy_5fvf_5',['grad_y_vf',['../namespacem__start__up.html#a2e9ad6009d63488a8f8c7a3a548ba433',1,'m_start_up']]],
-  ['grad_5fz_5fvf_6',['grad_z_vf',['../namespacem__start__up.html#ada153b7f1b2f725b026b89cd187d3206',1,'m_start_up']]],
-  ['gs_7',['gs',['../namespacem__riemann__solvers.html#ad378748f280ab86bbad7bf59a442065d',1,'m_riemann_solvers']]]
+  ['grad_5fz_5fvf_6',['grad_z_vf',['../namespacem__start__up.html#ada153b7f1b2f725b026b89cd187d3206',1,'m_start_up']]]
 ];

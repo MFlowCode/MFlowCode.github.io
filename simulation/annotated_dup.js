@@ -5,10 +5,6 @@ var annotated_dup =
       [ "nvtxrangepop", "interfacem__nvtx_1_1nvtxrangepop.html", "interfacem__nvtx_1_1nvtxrangepop" ],
       [ "nvtxrangepush", "interfacem__nvtx_1_1nvtxrangepush.html", "interfacem__nvtx_1_1nvtxrangepush" ]
     ] ],
-    [ "m_riemann_solvers", "namespacem__riemann__solvers.html", [
-      [ "s_abstract_riemann_solver", "interfacem__riemann__solvers_1_1s__abstract__riemann__solver.html", "interfacem__riemann__solvers_1_1s__abstract__riemann__solver" ],
-      [ "s_compute_abstract_viscous_source_flux", "interfacem__riemann__solvers_1_1s__compute__abstract__viscous__source__flux.html", "interfacem__riemann__solvers_1_1s__compute__abstract__viscous__source__flux" ]
-    ] ],
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_read_abstract_data_files", "interfacem__start__up_1_1s__read__abstract__data__files.html", "interfacem__start__up_1_1s__read__abstract__data__files" ]
     ] ],
