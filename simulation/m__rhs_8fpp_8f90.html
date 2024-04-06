@@ -146,6 +146,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:ae28e169ac4d1272cc2a8e73be34b8ccb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8522bdf311a42fe6ff7f2b433656573f" id="r_a8522bdf311a42fe6ff7f2b433656573f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8522bdf311a42fe6ff7f2b433656573f">s_compute_rhs</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, rhs_vf, pb, rhs_pb, mv, rhs_mv, t_step)</td></tr>
 <tr class="separator:a8522bdf311a42fe6ff7f2b433656573f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376bc3b64f78384ac773235ee7fbdd98" id="r_a376bc3b64f78384ac773235ee7fbdd98"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a376bc3b64f78384ac773235ee7fbdd98">s_compute_advection_source_term</a> (idir, rhs_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, flux_src_n_vf)</td></tr>
+<tr class="separator:a376bc3b64f78384ac773235ee7fbdd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">Relaxed pressure, initial partial pressures, function f(p) and its partial</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p>The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation.</p>
@@ -221,6 +223,60 @@ Functions/Subroutines</h2></td></tr>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a87616394067f1273cd06c4d299d10add_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a376bc3b64f78384ac773235ee7fbdd98" name="a376bc3b64f78384ac773235ee7fbdd98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376bc3b64f78384ac773235ee7fbdd98">&#9670;&#160;</a></span>s_compute_advection_source_term()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_rhs_fpp_f90__::s_compute_advection_source_term </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>idir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_n_vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a376bc3b64f78384ac773235ee7fbdd98_cgraph.svg" width="100%" height="585"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a376bc3b64f78384ac773235ee7fbdd98_icgraph.svg" width="100%" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
