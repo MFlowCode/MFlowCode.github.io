@@ -2,7 +2,7 @@ var searchData=
 [
   ['scaling_0',['3D Weak Scaling',['../md_examples.html#autotoc_md28',1,'']]],
   ['scaling_1',['scaling',['../md_expectedPerformance.html#autotoc_md59',1,'Strong scaling'],['../md_expectedPerformance.html#autotoc_md55',1,'Weak scaling']]],
-  ['serial_20data_20output_2',['Serial data output',['../md_visualization.html#autotoc_md85',1,'']]],
+  ['serial_20data_20output_2',['Serial data output',['../md_visualization.html#autotoc_md87',1,'']]],
   ['setup_3',['10. Velocity Field Setup',['../md_case.html#autotoc_md18',1,'']]],
   ['shock_20droplet_202d_4',['Shock Droplet (2D)',['../md_examples.html#autotoc_md35',1,'']]],
   ['shock_20tube_20problem_201d_5',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md44',1,'']]],

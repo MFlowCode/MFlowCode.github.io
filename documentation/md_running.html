@@ -175,12 +175,20 @@ Batch Execution</h1>
 <p>As an example, one might request GPUs on a SLURM system using the following:</p>
 <p><b>Disclaimer</b>: IBM's JSRUN on LSF-managed computers does not use the traditional node-based approach to allocate resources. Therefore, the MFC constructs equivalent resource sets in the task and GPU count.</p>
 <h2><a class="anchor" id="autotoc_md77"></a>
-Profiling with NVIDIA Nsight</h2>
+GPU Profiling</h2>
+<h3><a class="anchor" id="autotoc_md78"></a>
+NVIDIA GPUs</h3>
 <p>MFC provides two different arguments to facilitate profiling with NVIDIA Nsight. <b>Please ensure the used argument is placed at the end so their respective flags can be appended.</b></p><ul>
-<li>Nsight Systems (Nsys): <code>./mfc.sh run ... --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for understanding the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps to keep the report files small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
-<li>Nsight Compute (NCU): <code>./mfc.sh run ... --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Adding this argument will significantly slow the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
+<li>Nsight Systems (Nsys): <code>./mfc.sh run ... -t simulation --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for understanding the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps to keep the report files small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
+<li>Nsight Compute (NCU): <code>./mfc.sh run ... -t simulation --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Adding this argument will significantly slow the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md78"></a>
+<h3><a class="anchor" id="autotoc_md79"></a>
+AMD GPUs</h3>
+<ul>
+<li>Rocprof (ROC): <code>./mfc.sh run ... -t simulation --roc --hip-trace [rocprof flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://ui.perfetto.dev/">Perfetto UI</a>. When used, <code>--roc</code> will run the simulation and generate files in the case directory for all targets. <code>results.json</code> can then be imported in <a href="https://ui.perfetto.dev/">Perfetto's UI</a>. Learn more about AMD Rocprof <a href="https://rocm.docs.amd.com/projects/rocprofiler/en/docs-5.5.1/rocprof.html">here</a> It is best to run case files with a few timesteps to keep the report files small.</li>
+<li>Omniperf (OMNI): <code>./mfc.sh run ... -t simulation --omni [omniperf flags]</code>allows one to conduct kernel-level profiling with <a href="https://rocm.github.io/omniperf/introduction.html#what-is-omniperf">AMD Omniperf</a>. When used, <code>--omni</code> will output profiling information for all subroutines, including rooflines, cache usage, register usage, and more after the simulation is run. Adding this argument will moderately slow down the simulation and run the MFC executable several times. For this reason it should only be used with case files that have a few timesteps.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md80"></a>
 Restarting Cases</h2>
 <p>When running a simulation, MFC generates a <code>./restart_data</code> folder in the case directory that contains <code>lustre_*.dat</code> files that can be used to restart a simulation from saved timesteps. This allows a user to simulate some timestep $X$, then continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
 <p>If you want to restart a simulation,</p>
@@ -268,7 +276,7 @@ Restarting Cases</h2>
 <div class="line">./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t pre_process simulation</div>
 <div class="line">./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
 <div class="line">./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md79"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md81"></a>
 Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>

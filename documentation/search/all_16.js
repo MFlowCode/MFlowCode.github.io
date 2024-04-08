@@ -8,14 +8,14 @@ var searchData=
   ['performance_20results_5',['Performance Results',['../md_expectedPerformance.html',1,'']]],
   ['phase_20change_20model_6',['11. Phase Change Model',['../md_case.html#autotoc_md19',1,'']]],
   ['points_7',['Points',['../md_expectedPerformance.html#autotoc_md61',1,'16M Grid Points'],['../md_expectedPerformance.html#autotoc_md62',1,'64M Grid Points']]],
-  ['post_20process_8',['Testing Post Process',['../md_testing.html#autotoc_md82',1,'']]],
+  ['post_20process_8',['Testing Post Process',['../md_testing.html#autotoc_md84',1,'']]],
   ['power9_20cpu_9',['Power9 CPU',['../md_expectedPerformance.html#autotoc_md58',1,'IBM Power9 CPU'],['../md_expectedPerformance.html#autotoc_md63',1,'IBM Power9 CPU']]],
   ['primitive_20variables_10',['Analytical Definition of Primitive Variables',['../md_case.html#autotoc_md8',1,'']]],
   ['primitive_20variables_20ordering_11',['Primitive Variables Ordering',['../md_case.html#autotoc_md26',1,'']]],
   ['problem_201d_12',['problem 1D',['../md_examples.html#autotoc_md44',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md50',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md41',1,'Titarev-Toro problem (1D)']]],
   ['problem_202d_13',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md38',1,'']]],
   ['problem_202d_14',['Lid-Driven Cavity Problem (2D)',['../md_examples.html#autotoc_md47',1,'']]],
-  ['procedure_15',['Procedure',['../md_visualization.html#autotoc_md84',1,'']]],
-  ['process_16',['Testing Post Process',['../md_testing.html#autotoc_md82',1,'']]],
-  ['profiling_20with_20nvidia_20nsight_17',['Profiling with NVIDIA Nsight',['../md_running.html#autotoc_md77',1,'']]]
+  ['procedure_15',['Procedure',['../md_visualization.html#autotoc_md86',1,'']]],
+  ['process_16',['Testing Post Process',['../md_testing.html#autotoc_md84',1,'']]],
+  ['profiling_17',['GPU Profiling',['../md_running.html#autotoc_md77',1,'']]]
 ];

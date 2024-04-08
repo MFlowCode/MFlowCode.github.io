@@ -119,15 +119,18 @@ var NAVTREE =
     [ "Running", "md_running.html", [
       [ "Interactive Execution", "md_running.html#autotoc_md75", null ],
       [ "Batch Execution", "md_running.html#autotoc_md76", [
-        [ "Profiling with NVIDIA Nsight", "md_running.html#autotoc_md77", null ],
-        [ "Restarting Cases", "md_running.html#autotoc_md78", null ],
-        [ "Example Runs", "md_running.html#autotoc_md79", null ]
+        [ "GPU Profiling", "md_running.html#autotoc_md77", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md78", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md79", null ]
+        ] ],
+        [ "Restarting Cases", "md_running.html#autotoc_md80", null ],
+        [ "Example Runs", "md_running.html#autotoc_md81", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Procedure", "md_visualization.html#autotoc_md84", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md85", null ]
+      [ "Procedure", "md_visualization.html#autotoc_md86", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md87", null ]
     ] ]
   ] ]
 ];

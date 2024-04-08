@@ -79,11 +79,13 @@ var NAVTREEINDEX0 =
 "md_running.html#autotoc_md75":[7,0],
 "md_running.html#autotoc_md76":[7,1],
 "md_running.html#autotoc_md77":[7,1,0],
-"md_running.html#autotoc_md78":[7,1,1],
-"md_running.html#autotoc_md79":[7,1,2],
+"md_running.html#autotoc_md78":[7,1,0,0],
+"md_running.html#autotoc_md79":[7,1,0,1],
+"md_running.html#autotoc_md80":[7,1,1],
+"md_running.html#autotoc_md81":[7,1,2],
 "md_testing.html":[8],
 "md_visualization.html":[9],
-"md_visualization.html#autotoc_md84":[9,0],
-"md_visualization.html#autotoc_md85":[9,1],
+"md_visualization.html#autotoc_md86":[9,0],
+"md_visualization.html#autotoc_md87":[9,1],
 "pages.html":[]
 };
