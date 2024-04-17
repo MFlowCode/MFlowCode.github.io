@@ -150,9 +150,15 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2847bfea6f3dc3fdae115a99009f7245" id="r_a2847bfea6f3dc3fdae115a99009f7245"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2847bfea6f3dc3fdae115a99009f7245">s_2nd_order_tvd_rk</a> (t_step, time_avg)</td></tr>
 <tr class="memdesc:a2847bfea6f3dc3fdae115a99009f7245"><td class="mdescLeft">&#160;</td><td class="mdescRight">2nd order TVD RK time-stepping algorithm  <br /></td></tr>
 <tr class="separator:a2847bfea6f3dc3fdae115a99009f7245"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad642c094881f0cffbb6158f9fa079a86" id="r_ad642c094881f0cffbb6158f9fa079a86"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad642c094881f0cffbb6158f9fa079a86">s_3rd_order_tvd_rk</a> (t_step, time_avg)</td></tr>
-<tr class="memdesc:ad642c094881f0cffbb6158f9fa079a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">3rd order TVD RK time-stepping algorithm  <br /></td></tr>
-<tr class="separator:ad642c094881f0cffbb6158f9fa079a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac05b61c34936393b040d927a57d3a659" id="r_ac05b61c34936393b040d927a57d3a659"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac05b61c34936393b040d927a57d3a659">s_3rd_order_tvd_rk</a> (t_step, time_avg, dt_in)</td></tr>
+<tr class="memdesc:ac05b61c34936393b040d927a57d3a659"><td class="mdescLeft">&#160;</td><td class="mdescRight">3rd order TVD RK time-stepping algorithm  <br /></td></tr>
+<tr class="separator:ac05b61c34936393b040d927a57d3a659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5858523edfce42df32b2b0a8af54bc0e" id="r_a5858523edfce42df32b2b0a8af54bc0e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5858523edfce42df32b2b0a8af54bc0e">s_strang_splitting</a> (t_step, time_avg)</td></tr>
+<tr class="memdesc:a5858523edfce42df32b2b0a8af54bc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strang splitting scheme with 3rd order TVD RK time-stepping algorithm for the flux term and adaptive time stepping algorithm for the source term.  <br /></td></tr>
+<tr class="separator:a5858523edfce42df32b2b0a8af54bc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d3b794980e24632e81102bb05044392" id="r_a7d3b794980e24632e81102bb05044392"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d3b794980e24632e81102bb05044392">s_adaptive_dt_bubble</a> (t_step)</td></tr>
+<tr class="memdesc:a7d3b794980e24632e81102bb05044392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble source part in Strang operator splitting scheme.  <br /></td></tr>
+<tr class="separator:a7d3b794980e24632e81102bb05044392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97e442ca304d37ffdf0ba06d272fee54" id="r_a97e442ca304d37ffdf0ba06d272fee54"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97e442ca304d37ffdf0ba06d272fee54">s_time_step_cycling</a> (t_step)</td></tr>
 <tr class="memdesc:a97e442ca304d37ffdf0ba06d272fee54"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine saves the temporary q_prim_vf vector into the q_prim_ts vector that is then used in p_main.  <br /></td></tr>
 <tr class="separator:a97e442ca304d37ffdf0ba06d272fee54"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -269,8 +275,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ad642c094881f0cffbb6158f9fa079a86" name="ad642c094881f0cffbb6158f9fa079a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad642c094881f0cffbb6158f9fa079a86">&#9670;&#160;</a></span>s_3rd_order_tvd_rk()</h2>
+<a id="ac05b61c34936393b040d927a57d3a659" name="ac05b61c34936393b040d927a57d3a659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac05b61c34936393b040d927a57d3a659">&#9670;&#160;</a></span>s_3rd_order_tvd_rk()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -286,7 +292,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dt_in</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -306,12 +317,55 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_ad642c094881f0cffbb6158f9fa079a86_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_ac05b61c34936393b040d927a57d3a659_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_ad642c094881f0cffbb6158f9fa079a86_icgraph.svg" width="494" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_ac05b61c34936393b040d927a57d3a659_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a7d3b794980e24632e81102bb05044392" name="a7d3b794980e24632e81102bb05044392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3b794980e24632e81102bb05044392">&#9670;&#160;</a></span>s_adaptive_dt_bubble()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_time_steppers_fpp_f90__::s_adaptive_dt_bubble </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bubble source part in Strang operator splitting scheme. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_cons_vf</td><td>conservative variables </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_a7d3b794980e24632e81102bb05044392_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_a7d3b794980e24632e81102bb05044392_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -376,6 +430,53 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a5858523edfce42df32b2b0a8af54bc0e" name="a5858523edfce42df32b2b0a8af54bc0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5858523edfce42df32b2b0a8af54bc0e">&#9670;&#160;</a></span>s_strang_splitting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_time_steppers_fpp_f90__::s_strang_splitting </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Strang splitting scheme with 3rd order TVD RK time-stepping algorithm for the flux term and adaptive time stepping algorithm for the source term. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_a5858523edfce42df32b2b0a8af54bc0e_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_a5858523edfce42df32b2b0a8af54bc0e_icgraph.svg" width="484" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a97e442ca304d37ffdf0ba06d272fee54" name="a97e442ca304d37ffdf0ba06d272fee54"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97e442ca304d37ffdf0ba06d272fee54">&#9670;&#160;</a></span>s_time_step_cycling()</h2>
 
@@ -409,7 +510,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_a97e442ca304d37ffdf0ba06d272fee54_icgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_a97e442ca304d37ffdf0ba06d272fee54_icgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

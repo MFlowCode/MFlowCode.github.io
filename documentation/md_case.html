@@ -183,6 +183,7 @@ Parameters</h1>
 <li>(Optional) Ensemble-Averaged Bubble Model Parameters</li>
 <li>(Optional) Velocity Field Setup Parameters</li>
 <li>(Optional) Phase Change Parameters</li>
+<li>(Optional) Artificial Mach Number Parameters</li>
 </ol>
 <p>Items 7, 8, 9, and 10 are optional sets of parameters that activate the acoustic source model, ensemble-averaged bubble model, initial velocity field setup, and phase change, respectively. Definition of the parameters is described in the following subsections.</p>
 <h2><a class="anchor" id="autotoc_md5"></a>
@@ -434,11 +435,15 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>adv_alphan</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Equations for all $N$ volume fractions (instead of $N-1$)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>mpp_lim</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture physical parameters limits    </td></tr>
+<td class="markdownTableBodyRight"><code>adv_n</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Solving directly for the number density (in the method of classes) and compute void fraction from the number density    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>mixture_err</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture properties correction    </td></tr>
+<td class="markdownTableBodyRight"><code>mpp_lim</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture physical parameters limits    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge-Kutta order [1-3]    </td></tr>
+<td class="markdownTableBodyRight"><code>mixture_err</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture properties correction    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge&ndash;Kutta order [1-3]    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>adap_dt</code>   </td><td class="markdownTableBodyCenter">Loginal   </td><td class="markdownTableBodyLeft">Strang splitting scheme with adaptive time stepping    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -477,9 +482,11 @@ Parameter Descriptions</h3>
 <p>$$ \alpha_N=1-\sum^{N-1}_{i=1} \alpha_i $$</p>
 <p>where $\alpha_i$ is the void fraction of $i$-th component. When a single-component flow is simulated, it requires that &lsquo;adv_alphan = 'T&rsquo;`.</p>
 <ul>
+<li><code>adv_n</code> activates the direct computation of number density by the Riemann solver instead of computing number density from the void fraction in the method of classes.</li>
 <li><code>mpp_lim</code> activates correction of solutions to avoid a negative void fraction of each component in each grid cell, such that $\alpha_i&gt;\varepsilon$ is satisfied at each time step.</li>
 <li><code>mixture_err</code> activates correction of solutions to avoid imaginary speed of sound at each grid cell.</li>
 <li><code>time_stepper</code> specifies the order of the Runge-Kutta (RK) time integration scheme that is used for temporal integration in simulation, from the 1st to 5th order by corresponding integer. Note that <code>time_stepper = 3</code> specifies the total variation diminishing (TVD), third order RK scheme (<a href="references.md#Gottlieb98">Gottlieb and Shu, 1998</a>).</li>
+<li><code>adap_dt</code> activates the Strang operator splitting scheme which splits flux and source terms in time marching, and an adaptive time stepping strategy is implemented for the source term. It requires &lsquo;bubbles = 'T&rsquo;<code>,</code>polytropic = 'T'<code>,</code>adv_n = 'T'<code>and</code>time_stepper = 3`.</li>
 <li><code>weno_order</code> specifies the order of WENO scheme that is used for spatial reconstruction of variables by an integer of 1, 3, and 5, that correspond to the 1st, 3rd, and 5th order, respectively.</li>
 <li><code>weno_eps</code> specifies the lower bound of the WENO nonlinear weights. Practically, <code>weno_eps</code> $&lt;10^{-6}$ is used.</li>
 <li><code>mapped_weno</code> activates mapping of the nonlinear WENO weights to the more accurate nonlinear weights in order to reinstate the optimal order of accuracy of the reconstruction in the proximity of critical points (<a href="references.md#Henrick05">Henrick et al., 2005</a>).</li>
@@ -707,7 +714,7 @@ Parameter Descriptions</h3>
 <li><code>perturb_sph</code> activates the perturbation of initial partial density by random noise.</li>
 <li><code>perturb_sph_fluid</code> specifies the fluid component whose partial density is to be perturbed.</li>
 <li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
-<li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for 2D and 3D cases, together with &lsquo;vel_profile = 'T&rsquo;`.</li>
+<li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for <code>n &gt; 0</code>, <code>bc_y%[beg,end] = -5</code>, and &lsquo;vel_profile = 'T&rsquo;`.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md19"></a>
 11. Phase Change Model</h2>
@@ -729,9 +736,20 @@ Parameter Descriptions</h3>
 <li><code>palpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pT-equilibrium model.</li>
 <li><code>ptgalpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pTg-equilibrium model.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
+11. Artificial Mach Number</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>pi_fac</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Ratio of artificial and true <code>pi_\infty</code> values   </td></tr>
+</table>
+<ul>
+<li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models, when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -769,7 +787,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_ybeg</code> when using cylindrical coordinates (&lsquo;cyl_coord = 'T&rsquo;<code>and 3D). For axisymmetric problems, use</code>bc_ybeg = -2<code>with</code>cyl_coord = 'T'` in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -818,7 +836,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>modelfilepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -836,7 +854,7 @@ Immersed Boundary Patch Types</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyCenter">3D Airfoil   </td><td class="markdownTableBodyLeft">3   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -855,7 +873,7 @@ Monopole supports</h2>
 <td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special sauce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -881,7 +899,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
