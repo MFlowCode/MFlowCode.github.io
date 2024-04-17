@@ -59,24 +59,24 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "3D Weak Scaling", "md_examples.html#autotoc_md28", null ],
-      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md29", [
-        [ "Density Initial Condition", "md_examples.html#autotoc_md30", null ],
-        [ "Density Final Condition", "md_examples.html#autotoc_md31", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md28", [
+        [ "Initial Condition", "md_examples.html#autotoc_md29", null ],
+        [ "Result", "md_examples.html#autotoc_md30", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md32", [
-        [ "Initial Condition", "md_examples.html#autotoc_md33", null ],
-        [ "Result", "md_examples.html#autotoc_md34", null ]
+      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md31", [
+        [ "Density Initial Condition", "md_examples.html#autotoc_md32", null ],
+        [ "Density Final Condition", "md_examples.html#autotoc_md33", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md35", [
+      [ "3D Weak Scaling", "md_examples.html#autotoc_md34", null ],
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md35", [
         [ "Initial Condition", "md_examples.html#autotoc_md36", null ],
         [ "Result", "md_examples.html#autotoc_md37", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md38", [
-        [ "Density", "md_examples.html#autotoc_md39", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md40", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md38", [
+        [ "Initial Condition", "md_examples.html#autotoc_md39", null ],
+        [ "Result", "md_examples.html#autotoc_md40", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md41", [
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md41", [
         [ "Initial Condition", "md_examples.html#autotoc_md42", null ],
         [ "Result", "md_examples.html#autotoc_md43", null ]
       ] ],
@@ -84,13 +84,13 @@ var NAVTREE =
         [ "Initial Condition", "md_examples.html#autotoc_md45", null ],
         [ "Result", "md_examples.html#autotoc_md46", null ]
       ] ],
-      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md47", [
-        [ "Final Condition", "md_examples.html#autotoc_md48", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md49", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md47", [
+        [ "Density", "md_examples.html#autotoc_md48", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md49", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md50", [
-        [ "Initial Condition", "md_examples.html#autotoc_md51", null ],
-        [ "Result", "md_examples.html#autotoc_md52", null ]
+      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md50", [
+        [ "Final Condition", "md_examples.html#autotoc_md51", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md52", null ]
       ] ]
     ] ],
     [ "Performance Results", "md_expectedPerformance.html", [
@@ -130,7 +130,12 @@ var NAVTREE =
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
       [ "Procedure", "md_visualization.html#autotoc_md86", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md87", null ]
+      [ "Serial data output", "md_visualization.html#autotoc_md87", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md88", [
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md89", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md90", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md91", null ]
+      ] ]
     ] ]
   ] ]
 ];
