@@ -12,11 +12,13 @@ var searchData=
   ['f_5fg_9',['f_g',['../m__monopole_8fpp_8f90.html#aaa2bade9b9b7f87c8ada93bd470c98f5',1,'m_monopole.fpp.f90']]],
   ['f_5fh_10',['f_h',['../m__bubbles_8fpp_8f90.html#a5cd28691438ce1e5e59e56e03f81082a',1,'m_bubbles.fpp.f90']]],
   ['f_5fhdot_11',['f_hdot',['../m__bubbles_8fpp_8f90.html#a8677e47b010a7a8e38e25c25f30fe0f0',1,'m_bubbles.fpp.f90']]],
-  ['f_5fquad_12',['f_quad',['../m__qbmm_8fpp_8f90.html#a74e7ce86214df481371f693002986023',1,'m_qbmm.fpp.f90']]],
-  ['f_5fquad2d_13',['f_quad2d',['../m__qbmm_8fpp_8f90.html#add8fc901ab3865292669cbb997aaf2b2',1,'m_qbmm.fpp.f90']]],
-  ['f_5frddot_14',['f_rddot',['../m__bubbles_8fpp_8f90.html#a83a3d658a10fa30f1ea2676cf110e451',1,'m_bubbles.fpp.f90']]],
-  ['f_5frddot_5fg_15',['f_rddot_g',['../m__bubbles_8fpp_8f90.html#a1d5426908fc62e135de2e554b061f9cc',1,'m_bubbles.fpp.f90']]],
-  ['f_5frddot_5fkm_16',['f_rddot_km',['../m__bubbles_8fpp_8f90.html#a6c94745d6e1c569d57616a5e472ae2cd',1,'m_bubbles.fpp.f90']]],
-  ['f_5frddot_5frp_17',['f_rddot_rp',['../m__bubbles_8fpp_8f90.html#ad8bb547b5b33724b2d0affee7746a306',1,'m_bubbles.fpp.f90']]],
-  ['f_5fvflux_18',['f_vflux',['../m__bubbles_8fpp_8f90.html#a5af4ca8a74ce2461012304ed54f52d73',1,'m_bubbles.fpp.f90']]]
+  ['f_5flogical_5fto_5fint_12',['f_logical_to_int',['../m__helper_8fpp_8f90.html#aaa9cc8944c8dfe3f302e106b0eb3efee',1,'m_helper.fpp.f90']]],
+  ['f_5fquad_13',['f_quad',['../m__qbmm_8fpp_8f90.html#a74e7ce86214df481371f693002986023',1,'m_qbmm.fpp.f90']]],
+  ['f_5fquad2d_14',['f_quad2d',['../m__qbmm_8fpp_8f90.html#add8fc901ab3865292669cbb997aaf2b2',1,'m_qbmm.fpp.f90']]],
+  ['f_5frddot_15',['f_rddot',['../m__bubbles_8fpp_8f90.html#a83a3d658a10fa30f1ea2676cf110e451',1,'m_bubbles.fpp.f90']]],
+  ['f_5frddot_5fg_16',['f_rddot_g',['../m__bubbles_8fpp_8f90.html#a1d5426908fc62e135de2e554b061f9cc',1,'m_bubbles.fpp.f90']]],
+  ['f_5frddot_5fkm_17',['f_rddot_km',['../m__bubbles_8fpp_8f90.html#a6c94745d6e1c569d57616a5e472ae2cd',1,'m_bubbles.fpp.f90']]],
+  ['f_5frddot_5frp_18',['f_rddot_rp',['../m__bubbles_8fpp_8f90.html#ad8bb547b5b33724b2d0affee7746a306',1,'m_bubbles.fpp.f90']]],
+  ['f_5fvflux_19',['f_vflux',['../m__bubbles_8fpp_8f90.html#a5af4ca8a74ce2461012304ed54f52d73',1,'m_bubbles.fpp.f90']]],
+  ['f_5fxor_20',['f_xor',['../m__helper_8fpp_8f90.html#abd1074cc9307589b2d34db68c67afb7f',1,'m_helper.fpp.f90']]]
 ];

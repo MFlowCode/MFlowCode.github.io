@@ -4,6 +4,8 @@ var m__helper_8fpp_8f90 =
     [ "f_create_bbox", "m__helper_8fpp_8f90.html#a88808ee0f14fe4e145a538646dc9ba73", null ],
     [ "f_create_transform_matrix", "m__helper_8fpp_8f90.html#aafb2d0e9e3e66d3f3714f0ad3349bc8f", null ],
     [ "f_cross", "m__helper_8fpp_8f90.html#a3685fb84c52ce964157ac58fc0068249", null ],
+    [ "f_logical_to_int", "m__helper_8fpp_8f90.html#aaa9cc8944c8dfe3f302e106b0eb3efee", null ],
+    [ "f_xor", "m__helper_8fpp_8f90.html#abd1074cc9307589b2d34db68c67afb7f", null ],
     [ "s_comp_n_from_cons", "m__helper_8fpp_8f90.html#a772c75c8b24c414cfaed17e2f8acc772", null ],
     [ "s_comp_n_from_prim", "m__helper_8fpp_8f90.html#a308591c92e68d2500ea353807d1b388b", null ],
     [ "s_compute_finite_difference_coefficients", "m__helper_8fpp_8f90.html#a397f792e51d5a7f74131b9c72b87e071", null ],
