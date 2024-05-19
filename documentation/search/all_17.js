@@ -5,7 +5,7 @@ var searchData=
   ['references_2emd_2',['references.md',['../references_8md.html',1,'']]],
   ['remote_20visualization_20on_20pace_20phoenix_3',['Remote Visualization on PACE Phoenix',['../md_visualization.html#autotoc_md89',1,'']]],
   ['restarting_20cases_4',['Restarting Cases',['../md_running.html#autotoc_md81',1,'']]],
-  ['result_5',['Result',['../md_examples.html#autotoc_md31',1,'Result'],['../md_examples.html#autotoc_md38',1,'Result'],['../md_examples.html#autotoc_md41',1,'Result'],['../md_examples.html#autotoc_md44',1,'Result'],['../md_examples.html#autotoc_md47',1,'Result']]],
+  ['result_5',['Result',['../md_examples.html#autotoc_md31',1,'Result'],['../md_examples.html#autotoc_md37',1,'Result'],['../md_examples.html#autotoc_md43',1,'Result'],['../md_examples.html#autotoc_md47',1,'Result'],['../md_examples.html#autotoc_md50',1,'Result']]],
   ['results_6',['Performance Results',['../md_expectedPerformance.html',1,'']]],
   ['riemann_20test_202d_7',['2D Riemann Test (2D)',['../md_examples.html#autotoc_md32',1,'']]],
   ['running_8',['Running',['../md_running.html',1,'']]],

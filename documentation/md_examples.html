@@ -136,18 +136,21 @@ $(function(){initNavTree('md_examples.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md28"></a> </p>
 <h1><a class="anchor" id="autotoc_md29"></a>
-Shock Droplet (2D)</h1>
-<p>Reference: Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023)</p>
+Shu-Osher problem (1D)</h1>
+<p>Reference: C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5.</p>
 <h2><a class="anchor" id="autotoc_md30"></a>
 Initial Condition</h2>
 <div class="image">
-<img src="initial-2D_shockdroplet-example.png" alt=""/>
+<img src="initial-1D_shuosher-example.png" alt=""/>
 <div class="caption">
 Initial Condition</div></div>
     <h2><a class="anchor" id="autotoc_md31"></a>
 Result</h2>
-<p><img src="result-2D_shockdroplet-example.png" alt="" class="inline" title="Result"/>     </p>
-<h1><a class="anchor" id="autotoc_md32"></a>
+<div class="image">
+<img src="result-1D_shuosher-example.png" alt=""/>
+<div class="caption">
+Result</div></div>
+    <h1><a class="anchor" id="autotoc_md32"></a>
 2D Riemann Test (2D)</h1>
 <p>Reference: Chamarthi, A., &amp; Hoffmann, N., &amp; Nishikawa, H., &amp; Frankel S. (2023). Implicit gradients based conservative numerical scheme for compressible flows. arXiv:2110.05461</p>
 <h2><a class="anchor" id="autotoc_md33"></a>
@@ -163,6 +166,48 @@ Density Final Condition</h2>
 <div class="caption">
 Density Norms</div></div>
     <h1><a class="anchor" id="autotoc_md35"></a>
+Shock Droplet (2D)</h1>
+<p>Reference: Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023)</p>
+<h2><a class="anchor" id="autotoc_md36"></a>
+Initial Condition</h2>
+<div class="image">
+<img src="initial-2D_shockdroplet-example.png" alt=""/>
+<div class="caption">
+Initial Condition</div></div>
+    <h2><a class="anchor" id="autotoc_md37"></a>
+Result</h2>
+<p><img src="result-2D_shockdroplet-example.png" alt="" class="inline" title="Result"/>     </p>
+<h1><a class="anchor" id="autotoc_md38"></a>
+Isentropic vortex problem (2D)</h1>
+<p>Reference: Coralic, V., &amp; Colonius, T. (2014). Finite-volume Weno scheme for viscous compressible multicomponent flows. Journal of Computational Physics, 274, 95–121. <a href="https://doi.org/10.1016/j.jcp.2014.06.003">https://doi.org/10.1016/j.jcp.2014.06.003</a></p>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Density</h2>
+<div class="image">
+<img src="alpha_rho1-2D_isentropicvortex-example.png" alt=""/>
+<div class="caption">
+Density</div></div>
+    <h2><a class="anchor" id="autotoc_md40"></a>
+Density Norms</h2>
+<div class="image">
+<img src="density_norms-2D_isentropicvortex-example.png" alt=""/>
+<div class="caption">
+Density Norms</div></div>
+    <h1><a class="anchor" id="autotoc_md41"></a>
+Lax shock tube problem (1D)</h1>
+<p>Reference: P. D. Lax, Weak solutions of nonlinear hyperbolic equations and their numerical computation, Communications on pure and applied mathematics 7 (1) (1954) 159–193.</p>
+<h2><a class="anchor" id="autotoc_md42"></a>
+Initial Condition</h2>
+<div class="image">
+<img src="initial-1D_laxshocktube-example.png" alt=""/>
+<div class="caption">
+Initial Condition</div></div>
+    <h2><a class="anchor" id="autotoc_md43"></a>
+Result</h2>
+<div class="image">
+<img src="result-1D_laxshocktube-example.png" alt=""/>
+<div class="caption">
+Result</div></div>
+    <h1><a class="anchor" id="autotoc_md44"></a>
 3D Weak Scaling</h1>
 <p>The <a href="case.py"><b>3D_weak_scaling</b></a> case depends on two parameters:</p>
 <ul>
@@ -174,77 +219,32 @@ Density Norms</div></div>
 <div class="fragment"><div class="line">./mfc.sh run examples/3D_weak_scaling/case.py 4 -t pre_process simulation          \</div>
 <div class="line">             -e batch -p mypartition -N 8 -n 2 -w &quot;01:00:00&quot; -# &quot;MFC Weak Scaling&quot; \</div>
 <div class="line">             --case-optimization -j 32</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md36"></a>
-Shu-Osher problem (1D)</h1>
-<p>Reference: C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
-Initial Condition</h2>
-<div class="image">
-<img src="initial-1D_shuosher-example.png" alt=""/>
-<div class="caption">
-Initial Condition</div></div>
-    <h2><a class="anchor" id="autotoc_md38"></a>
-Result</h2>
-<div class="image">
-<img src="result-1D_shuosher-example.png" alt=""/>
-<div class="caption">
-Result</div></div>
-    <h1><a class="anchor" id="autotoc_md39"></a>
-Titarev-Toro problem (1D)</h1>
-<p>Reference: V. A. Titarev, E. F. Toro, Finite-volume WENO schemes for three-dimensional conservation laws, Journal of Computational Physics 201 (1) (2004) 238–260.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
-Initial Condition</h2>
-<div class="image">
-<img src="initial-1D_titarevtorro-example.png" alt=""/>
-<div class="caption">
-Initial Condition</div></div>
-    <h2><a class="anchor" id="autotoc_md41"></a>
-Result</h2>
-<div class="image">
-<img src="result-1D_titarevtorro-example.png" alt=""/>
-<div class="caption">
-Result</div></div>
-    <h1><a class="anchor" id="autotoc_md42"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md45"></a>
 2D Hardcodied IC Example</h1>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 Initial Condition</h2>
 <div class="image">
 <img src="initial-2D_hardcodied_ic-example.png" alt=""/>
 <div class="caption">
 Initial Condition</div></div>
-    <h2><a class="anchor" id="autotoc_md44"></a>
-Result</h2>
-<p><img src="result-2D_hardcodied_ic-example.png" alt="" class="inline" title="Result"/>     </p>
-<h1><a class="anchor" id="autotoc_md45"></a>
-Lax shock tube problem (1D)</h1>
-<p>Reference: P. D. Lax, Weak solutions of nonlinear hyperbolic equations and their numerical computation, Communications on pure and applied mathematics 7 (1) (1954) 159–193.</p>
-<h2><a class="anchor" id="autotoc_md46"></a>
-Initial Condition</h2>
-<div class="image">
-<img src="initial-1D_laxshocktube-example.png" alt=""/>
-<div class="caption">
-Initial Condition</div></div>
     <h2><a class="anchor" id="autotoc_md47"></a>
 Result</h2>
+<p><img src="result-2D_hardcodied_ic-example.png" alt="" class="inline" title="Result"/>     </p>
+<h1><a class="anchor" id="autotoc_md48"></a>
+Titarev-Toro problem (1D)</h1>
+<p>Reference: V. A. Titarev, E. F. Toro, Finite-volume WENO schemes for three-dimensional conservation laws, Journal of Computational Physics 201 (1) (2004) 238–260.</p>
+<h2><a class="anchor" id="autotoc_md49"></a>
+Initial Condition</h2>
 <div class="image">
-<img src="result-1D_laxshocktube-example.png" alt=""/>
+<img src="initial-1D_titarevtorro-example.png" alt=""/>
+<div class="caption">
+Initial Condition</div></div>
+    <h2><a class="anchor" id="autotoc_md50"></a>
+Result</h2>
+<div class="image">
+<img src="result-1D_titarevtorro-example.png" alt=""/>
 <div class="caption">
 Result</div></div>
-    <h1><a class="anchor" id="autotoc_md48"></a>
-Isentropic vortex problem (2D)</h1>
-<p>Reference: Coralic, V., &amp; Colonius, T. (2014). Finite-volume Weno scheme for viscous compressible multicomponent flows. Journal of Computational Physics, 274, 95–121. <a href="https://doi.org/10.1016/j.jcp.2014.06.003">https://doi.org/10.1016/j.jcp.2014.06.003</a></p>
-<h2><a class="anchor" id="autotoc_md49"></a>
-Density</h2>
-<div class="image">
-<img src="alpha_rho1-2D_isentropicvortex-example.png" alt=""/>
-<div class="caption">
-Density</div></div>
-    <h2><a class="anchor" id="autotoc_md50"></a>
-Density Norms</h2>
-<div class="image">
-<img src="density_norms-2D_isentropicvortex-example.png" alt=""/>
-<div class="caption">
-Density Norms</div></div>
     <h1><a class="anchor" id="autotoc_md51"></a>
 Lid-Driven Cavity Problem (2D)</h1>
 <p>Reference: Bezgin, D. A., &amp; Buhendwa A. B., &amp; Adams N. A. (2022). JAX-FLUIDS: A fully-differentiable high-order computational fluid dynamics solver for compressible two-phase flows. arXiv:2203.13760</p>
