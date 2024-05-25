@@ -2,7 +2,7 @@ var m__rhs_8fpp_8f90 =
 [
     [ "__m_rhs_fpp_f90__", "m__rhs_8fpp_8f90.html#a87616394067f1273cd06c4d299d10add", null ],
     [ "s_compute_advection_source_term", "m__rhs_8fpp_8f90.html#a376bc3b64f78384ac773235ee7fbdd98", null ],
-    [ "s_compute_rhs", "m__rhs_8fpp_8f90.html#a8522bdf311a42fe6ff7f2b433656573f", null ],
+    [ "s_compute_rhs", "m__rhs_8fpp_8f90.html#a434cc22610390c8f0a8f8ff667c1c573", null ],
     [ "s_finalize_rhs_module", "m__rhs_8fpp_8f90.html#ae26471c3379c2d6797c51f2c973e963c", null ],
     [ "s_initialize_rhs_module", "m__rhs_8fpp_8f90.html#ae28e169ac4d1272cc2a8e73be34b8ccb", null ],
     [ "s_reconstruct_cell_boundary_values", "m__rhs_8fpp_8f90.html#a26833f559de36f1d15b4f6b3d28cfc79", null ],
