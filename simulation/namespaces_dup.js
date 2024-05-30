@@ -5,6 +5,7 @@ var namespaces_dup =
       [ "s_ghost_cell_extrapolation", "namespacem__boundary__conditions.html#a6b07b760d5e002f6fd09fbeb2e96c227", null ],
       [ "s_no_slip_wall", "namespacem__boundary__conditions.html#addb7b32cdfa1a35e0b18f1b187ac6af4", null ],
       [ "s_periodic", "namespacem__boundary__conditions.html#a29b132a26ddae2cd3afb4214f861dcfc", null ],
+      [ "s_populate_capillary_buffers", "namespacem__boundary__conditions.html#a2d5a6967c482027e9a757e15979a825d", null ],
       [ "s_populate_primitive_variables_buffers", "namespacem__boundary__conditions.html#aa57204a6a6bdae766a526edd5d768566", null ],
       [ "s_qbmm_extrapolation", "namespacem__boundary__conditions.html#a655f4ef9edcb15614b91363aae213c65", null ],
       [ "s_slip_wall", "namespacem__boundary__conditions.html#a00baa416b778d7fa702a0d6dbfe34eb3", null ],
@@ -32,6 +33,7 @@ var namespaces_dup =
       [ "s_compute_supersonic_outflow_l", "namespacem__compute__cbc.html#a2540ddd993a9852241a2d40168608fd4", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
+      [ "capillary_cutoff", "namespacem__constants.html#a0cf16707988911557a1775d347cc048b", null ],
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
       [ "dflt_real", "namespacem__constants.html#aea00cbe9efc8c7935ded731213cbda58", null ],

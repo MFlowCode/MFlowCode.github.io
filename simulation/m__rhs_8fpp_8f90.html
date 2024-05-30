@@ -148,6 +148,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a434cc22610390c8f0a8f8ff667c1c573"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a376bc3b64f78384ac773235ee7fbdd98" id="r_a376bc3b64f78384ac773235ee7fbdd98"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a376bc3b64f78384ac773235ee7fbdd98">s_compute_advection_source_term</a> (idir, rhs_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, flux_src_n_vf)</td></tr>
 <tr class="separator:a376bc3b64f78384ac773235ee7fbdd98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fb92e599a44f84a75db022d90bb3056" id="r_a3fb92e599a44f84a75db022d90bb3056"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fb92e599a44f84a75db022d90bb3056">s_compute_additional_physics_rhs</a> (idir, q_prim_vf, rhs_vf, flux_src_n, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf, ixt, iyt, izt)</td></tr>
+<tr class="separator:a3fb92e599a44f84a75db022d90bb3056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader">Relaxed pressure, initial partial pressures, function f(p) and its partial</h2></td></tr>
 <tr><td class="ititle" colspan="2"><p>The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation.</p>
@@ -203,6 +205,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a26833f559de36f1d15b4f6b3d28cfc79" id="r_a26833f559de36f1d15b4f6b3d28cfc79"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26833f559de36f1d15b4f6b3d28cfc79">s_reconstruct_cell_boundary_values</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
 <tr class="memdesc:a26833f559de36f1d15b4f6b3d28cfc79"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables.  <br /></td></tr>
 <tr class="separator:a26833f559de36f1d15b4f6b3d28cfc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bcce95b1cef498290e90372dc0b5ac8" id="r_a1bcce95b1cef498290e90372dc0b5ac8"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bcce95b1cef498290e90372dc0b5ac8">s_reconstruct_cell_boundary_values_first_order</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
+<tr class="separator:a1bcce95b1cef498290e90372dc0b5ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae26471c3379c2d6797c51f2c973e963c" id="r_ae26471c3379c2d6797c51f2c973e963c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae26471c3379c2d6797c51f2c973e963c">s_finalize_rhs_module</a> ()</td></tr>
 <tr class="memdesc:ae26471c3379c2d6797c51f2c973e963c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 <tr class="separator:ae26471c3379c2d6797c51f2c973e963c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -223,6 +227,85 @@ Functions/Subroutines</h2></td></tr>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a87616394067f1273cd06c4d299d10add_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3fb92e599a44f84a75db022d90bb3056" name="a3fb92e599a44f84a75db022d90bb3056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fb92e599a44f84a75db022d90bb3056">&#9670;&#160;</a></span>s_compute_additional_physics_rhs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_rhs_fpp_f90__::s_compute_additional_physics_rhs </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>idir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_src_n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dq_prim_dx_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dq_prim_dy_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dq_prim_dz_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>)</td>          <td class="paramname"><span class="paramname"><em>ixt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>)</td>          <td class="paramname"><span class="paramname"><em>iyt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>)</td>          <td class="paramname"><span class="paramname"><em>izt</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a3fb92e599a44f84a75db022d90bb3056_cgraph.svg" width="419" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a3fb92e599a44f84a75db022d90bb3056_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -494,6 +577,70 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a26833f559de36f1d15b4f6b3d28cfc79_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1bcce95b1cef498290e90372dc0b5ac8" name="a1bcce95b1cef498290e90372dc0b5ac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bcce95b1cef498290e90372dc0b5ac8">&#9670;&#160;</a></span>s_reconstruct_cell_boundary_values_first_order()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_rhs_fpp_f90__::s_reconstruct_cell_boundary_values_first_order </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(iv%beg:iv%end), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(startx:, starty:, startz:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>norm_dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a1bcce95b1cef498290e90372dc0b5ac8_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

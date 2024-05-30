@@ -12,6 +12,7 @@ var namespaces_dup =
       [ "s_get_cwd", "namespacem__compile__specific.html#ae3383041a3e88fce84fcc7aa39a7c4d5", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
+      [ "capillary_cutoff", "namespacem__constants.html#a0cf16707988911557a1775d347cc048b", null ],
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
       [ "dflt_real", "namespacem__constants.html#aea00cbe9efc8c7935ded731213cbda58", null ],
@@ -114,9 +115,11 @@ var namespaces_dup =
       [ "bubxb", "namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341", null ],
       [ "bubxe", "namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70", null ],
       [ "buff_size", "namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92", null ],
+      [ "c_idx", "namespacem__global__parameters.html#ad8b54d825523de113bda2a127a62dc73", null ],
       [ "c_wrt", "namespacem__global__parameters.html#a56a071ae0b79b39a826646ace37972eb", null ],
       [ "ca", "namespacem__global__parameters.html#a1fcd6cc13ad7f604ef81708716a1feac", null ],
       [ "case_dir", "namespacem__global__parameters.html#ab3482dd78520fd94475375479fe1befb", null ],
+      [ "cf_wrt", "namespacem__global__parameters.html#a73cc9669577b7bff07f23946dbf78cc6", null ],
       [ "cons_vars_wrt", "namespacem__global__parameters.html#ad23223100223bdb6d7f59fed5ec7bbb9", null ],
       [ "cont_idx", "namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56", null ],
       [ "contxb", "namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b", null ],
@@ -221,6 +224,7 @@ var namespaces_dup =
       [ "rhoref", "namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534", null ],
       [ "schlieren_alpha", "namespacem__global__parameters.html#ada8a4a23b5804dfa9843b25ddd1cd8c1", null ],
       [ "schlieren_wrt", "namespacem__global__parameters.html#acd86b6cea52b83b147f680d9d6da342c", null ],
+      [ "sigma", "namespacem__global__parameters.html#a2af1dc5c11e9e597f73dbd882b0bcb1e", null ],
       [ "sigr", "namespacem__global__parameters.html#ac640a18f248b6e5a66ad804312e3f200", null ],
       [ "ss", "namespacem__global__parameters.html#afcb3bf395f8f03bac37cd6b63f49ae18", null ],
       [ "start_idx", "namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d", null ],

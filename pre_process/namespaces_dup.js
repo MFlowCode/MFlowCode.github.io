@@ -51,6 +51,7 @@ var namespaces_dup =
       [ "s_get_cwd", "namespacem__compile__specific.html#ae3383041a3e88fce84fcc7aa39a7c4d5", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
+      [ "capillary_cutoff", "namespacem__constants.html#a0cf16707988911557a1775d347cc048b", null ],
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
       [ "dflt_real", "namespacem__constants.html#aea00cbe9efc8c7935ded731213cbda58", null ],
@@ -107,6 +108,7 @@ var namespaces_dup =
       [ "bubbles", "namespacem__global__parameters.html#a4a22ed160838f8fbe6bd506f334b8815", null ],
       [ "bubxb", "namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341", null ],
       [ "bubxe", "namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70", null ],
+      [ "c_idx", "namespacem__global__parameters.html#ad8b54d825523de113bda2a127a62dc73", null ],
       [ "ca", "namespacem__global__parameters.html#a1fcd6cc13ad7f604ef81708716a1feac", null ],
       [ "case_dir", "namespacem__global__parameters.html#ab3482dd78520fd94475375479fe1befb", null ],
       [ "cont_idx", "namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56", null ],
@@ -217,6 +219,7 @@ var namespaces_dup =
       [ "relax_model", "namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58", null ],
       [ "rhoref", "namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534", null ],
       [ "rhorv", "namespacem__global__parameters.html#aa1bbfa906e1019bd962a5a0f7f378aa1", null ],
+      [ "sigma", "namespacem__global__parameters.html#a2af1dc5c11e9e597f73dbd882b0bcb1e", null ],
       [ "sigr", "namespacem__global__parameters.html#ac640a18f248b6e5a66ad804312e3f200", null ],
       [ "sigv", "namespacem__global__parameters.html#ae5c0846ec0fb548d198d1e141e1b2e00", null ],
       [ "ss", "namespacem__global__parameters.html#afcb3bf395f8f03bac37cd6b63f49ae18", null ],

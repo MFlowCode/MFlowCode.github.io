@@ -1,11 +1,13 @@
 var m__rhs_8fpp_8f90 =
 [
     [ "__m_rhs_fpp_f90__", "m__rhs_8fpp_8f90.html#a87616394067f1273cd06c4d299d10add", null ],
+    [ "s_compute_additional_physics_rhs", "m__rhs_8fpp_8f90.html#a3fb92e599a44f84a75db022d90bb3056", null ],
     [ "s_compute_advection_source_term", "m__rhs_8fpp_8f90.html#a376bc3b64f78384ac773235ee7fbdd98", null ],
     [ "s_compute_rhs", "m__rhs_8fpp_8f90.html#a434cc22610390c8f0a8f8ff667c1c573", null ],
     [ "s_finalize_rhs_module", "m__rhs_8fpp_8f90.html#ae26471c3379c2d6797c51f2c973e963c", null ],
     [ "s_initialize_rhs_module", "m__rhs_8fpp_8f90.html#ae28e169ac4d1272cc2a8e73be34b8ccb", null ],
     [ "s_reconstruct_cell_boundary_values", "m__rhs_8fpp_8f90.html#a26833f559de36f1d15b4f6b3d28cfc79", null ],
+    [ "s_reconstruct_cell_boundary_values_first_order", "m__rhs_8fpp_8f90.html#a1bcce95b1cef498290e90372dc0b5ac8", null ],
     [ "alpha", "m__rhs_8fpp_8f90.html#a8947fb914dfe4c2f0e688f4061e802ee", null ],
     [ "alpha_rho", "m__rhs_8fpp_8f90.html#a811c16d33272b2c75d7a75f24c675795", null ],
     [ "df_pres", "m__rhs_8fpp_8f90.html#afab53b80fef38424acbbd772be46d333", null ],

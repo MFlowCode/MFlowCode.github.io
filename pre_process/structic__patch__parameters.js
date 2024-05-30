@@ -4,6 +4,7 @@ var structic__patch__parameters =
     [ "alpha_rho", "structic__patch__parameters.html#a38e1f7414e57b23f1c12882b8d658a09", null ],
     [ "alter_patch", "structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e", null ],
     [ "beta", "structic__patch__parameters.html#ad33465b4315fa58d1a721807813c8c47", null ],
+    [ "cf_val", "structic__patch__parameters.html#ae1b668d59b9015be4fda1039eb535c11", null ],
     [ "cv", "structic__patch__parameters.html#a4ea2714f2984f0fbe34f79e41ff7d311", null ],
     [ "epsilon", "structic__patch__parameters.html#a97867bd0c47a402d40e329eb4a51e42a", null ],
     [ "gamma", "structic__patch__parameters.html#aedd5a010e8cda5628576a7750e7c3274", null ],

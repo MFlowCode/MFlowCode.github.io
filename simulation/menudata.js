@@ -134,8 +134,8 @@ var menudata={children:[
 {text:"s",url:"globals_s.html#index_s"}]},
 {text:"Functions/Subroutines",url:"globals_func.html",children:[
 {text:"_",url:"globals_func.html#index__5F"},
-{text:"f",url:"globals_func.html#index_f"},
-{text:"m",url:"globals_func.html#index_m"},
-{text:"p",url:"globals_func.html#index_p"},
-{text:"s",url:"globals_func.html#index_s"}]},
+{text:"f",url:"globals_func_f.html#index_f"},
+{text:"m",url:"globals_func_m.html#index_m"},
+{text:"p",url:"globals_func_p.html#index_p"},
+{text:"s",url:"globals_func_s.html#index_s"}]},
 {text:"Variables",url:"globals_vars.html"}]}]}]}

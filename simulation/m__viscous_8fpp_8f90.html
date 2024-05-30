@@ -149,8 +149,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a0f828f5ebe7c76e07c69a5d13ea74803" id="r_a0f828f5ebe7c76e07c69a5d13ea74803"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f828f5ebe7c76e07c69a5d13ea74803">s_get_viscous</a> (ql_prim_rsx_vf, ql_prim_rsy_vf, ql_prim_rsz_vf, dql_prim_dx_n, dql_prim_dy_n, dql_prim_dz_n, ql_prim, qr_prim_rsx_vf, qr_prim_rsy_vf, qr_prim_rsz_vf, dqr_prim_dx_n, dqr_prim_dy_n, dqr_prim_dz_n, qr_prim, q_prim_qp, dq_prim_dx_qp, dq_prim_dy_qp, dq_prim_dz_qp, ix, iy, iz)</td></tr>
 <tr class="memdesc:a0f828f5ebe7c76e07c69a5d13ea74803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes viscous terms.  <br /></td></tr>
 <tr class="separator:a0f828f5ebe7c76e07c69a5d13ea74803"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3952fdb60dca7f4970ec6f2ef1fb0c6" id="r_ad3952fdb60dca7f4970ec6f2ef1fb0c6"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad3952fdb60dca7f4970ec6f2ef1fb0c6">s_compute_viscous_rhs</a> (idir, q_prim_vf, rhs_vf, flux_src_n, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf, ixt, iyt, izt)</td></tr>
-<tr class="separator:ad3952fdb60dca7f4970ec6f2ef1fb0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb2cea3f273b947ff0fefe977e829244" id="r_afb2cea3f273b947ff0fefe977e829244"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb2cea3f273b947ff0fefe977e829244">s_reconstruct_cell_boundary_values_visc</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir, vl_prim_vf, vr_prim_vf, ix, iy, iz)</td></tr>
 <tr class="separator:afb2cea3f273b947ff0fefe977e829244"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a5f067c7a738f8814f5cee205d2892d" id="r_a7a5f067c7a738f8814f5cee205d2892d"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a5f067c7a738f8814f5cee205d2892d">s_reconstruct_cell_boundary_values_visc_deriv</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir, vl_prim_vf, vr_prim_vf, ix, iy, iz)</td></tr>
@@ -179,7 +177,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__viscous_8fpp_8f90_a24875bab9826f15c6be48956a235472d_cgraph.svg" width="100%" height="546"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__viscous_8fpp_8f90_a24875bab9826f15c6be48956a235472d_cgraph.svg" width="100%" height="518"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -346,85 +344,6 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__viscous_8fpp_8f90_add30c5e0cfe85ee14359bb4e02c713c3_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ad3952fdb60dca7f4970ec6f2ef1fb0c6" name="ad3952fdb60dca7f4970ec6f2ef1fb0c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3952fdb60dca7f4970ec6f2ef1fb0c6">&#9670;&#160;</a></span>s_compute_viscous_rhs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_viscous_fpp_f90__::s_compute_viscous_rhs </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>idir</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_src_n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dq_prim_dx_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dq_prim_dy_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dq_prim_dz_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>)</td>          <td class="paramname"><span class="paramname"><em>ixt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>)</td>          <td class="paramname"><span class="paramname"><em>iyt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>)</td>          <td class="paramname"><span class="paramname"><em>izt</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__viscous_8fpp_8f90_ad3952fdb60dca7f4970ec6f2ef1fb0c6_cgraph.svg" width="430" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__viscous_8fpp_8f90_ad3952fdb60dca7f4970ec6f2ef1fb0c6_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
