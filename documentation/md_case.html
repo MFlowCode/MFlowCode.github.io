@@ -748,11 +748,30 @@ Parameter Descriptions</h3>
 <td class="markdownTableBodyRight"><code>pi_fac</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Ratio of artificial and true <code>pi_\infty</code> values   </td></tr>
 </table>
 <ul>
-<li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models, when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
+<li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). i This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models, when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
+13. Body Forces</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bf_x[y,z]</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable body forces in the x[y,z] direction    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>k_x[y,y]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Magnitude of oscillating acceleration    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>w_x[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Frequency of oscillating acceleration    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>p_x[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Phase shift of oscillating acceleration    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>g_x[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Magnitude of bacground acceleration   </td></tr>
+</table>
+<p><code>k_x[y,z]</code>, <code>w_x[y,z]</code>, <code>p_x[y,z]</code>, and <code>g_x[y,z]</code> define an oscillating acceleration in the <code>x[y,z]</code> direction with the form</p>
+<p>$$ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). $$</p>
+<p>Positive accelerations are in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction by convention.</p>
+<h1><a class="anchor" id="autotoc_md22"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -790,7 +809,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_ybeg</code> when using cylindrical coordinates (&lsquo;cyl_coord = 'T&rsquo;<code>and 3D). For axisymmetric problems, use</code>bc_ybeg = -2<code>with</code>cyl_coord = 'T'` in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -839,7 +858,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>modelfilepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -857,7 +876,7 @@ Immersed Boundary Patch Types</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyCenter">3D Airfoil   </td><td class="markdownTableBodyLeft">3   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Monopole supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -876,7 +895,7 @@ Monopole supports</h2>
 <td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
 </table>
 <p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special sauce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -902,7 +921,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
