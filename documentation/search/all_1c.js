@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['weak_20scaling_0',['3D Weak Scaling',['../md_examples.html#autotoc_md45',1,'']]],
-  ['weak_20scaling_1',['Weak scaling',['../md_expectedPerformance.html#autotoc_md63',1,'']]]
+  ['weak_20scaling_0',['Weak Scaling',['../md_examples.html#autotoc_md37',1,'']]],
+  ['weak_20scaling_1',['Weak scaling',['../md_examples.html#autotoc_md36',1,'Strong- &amp; Weak-scaling'],['../md_expectedPerformance.html#autotoc_md66',1,'Weak scaling']]]
 ];

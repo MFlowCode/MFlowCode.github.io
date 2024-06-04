@@ -152,24 +152,24 @@ Basic Skeleton</h1>
 </div><!-- fragment --><p>This is particularly useful when computations are done in Python to generate the case.</p>
 <h1><a class="anchor" id="autotoc_md3"></a>
 (Optional) Accepting command line arguments</h1>
-<p>Input files can accept <b>positional</b> command line arguments, forwarded by <code>mfc.sh run</code>. Consider this example from the 3D_weak_scaling case:</p>
+<p>Input files can accept command line arguments, forwarded by <code>mfc.sh run</code>. Consider this example from the <code>scaling</code> case:</p>
 <div class="fragment"><div class="line"><span class="keyword">import</span> argparse</div>
 <div class="line"> </div>
 <div class="line">parser = argparse.ArgumentParser(</div>
-<div class="line">    prog=<span class="stringliteral">&quot;3D_weak_scaling&quot;</span>,</div>
-<div class="line">    description=<span class="stringliteral">&quot;This MFC case was created for the purposes of weak scaling.&quot;</span>,</div>
+<div class="line">    prog=<span class="stringliteral">&quot;scaling&quot;</span>,</div>
+<div class="line">    description=<span class="stringliteral">&quot;Weak- and strong-scaling benchmark case.&quot;</span>,</div>
 <div class="line">    formatter_class=argparse.ArgumentDefaultsHelpFormatter)</div>
 <div class="line"> </div>
-<div class="line">parser.add_argument(<span class="stringliteral">&quot;dict&quot;</span>, type=str, metavar=<span class="stringliteral">&quot;DICT&quot;</span>, help=argparse.SUPPRESS)</div>
-<div class="line">parser.add_argument(<span class="stringliteral">&quot;gbpp&quot;</span>, type=int, metavar=<span class="stringliteral">&quot;MEM&quot;</span>, default=16, help=<span class="stringliteral">&quot;Adjusts the problem size per rank to fit into [MEM] GB of GPU memory&quot;</span>)</div>
+<div class="line">parser.add_argument(<span class="stringliteral">&quot;dict&quot;</span>, type=str, metavar=<span class="stringliteral">&quot;DICT&quot;</span>)</div>
+<div class="line">parser.add_argument(<span class="stringliteral">&quot;-s&quot;</span>, <span class="stringliteral">&quot;--scaling&quot;</span>,  type=str, metavar=<span class="stringliteral">&quot;SCALING&quot;</span>,  choices=[<span class="stringliteral">&quot;weak&quot;</span>, <span class="stringliteral">&quot;strong&quot;</span>], help=<span class="stringliteral">&quot;Whether weak- or strong-scaling is being exercised.&quot;</span>)</div>
 <div class="line"> </div>
 <div class="line"><span class="comment"># Your parsed arguments are here</span></div>
-<div class="line">ARGS = vars(parser.parse_args())</div>
-</div><!-- fragment --><p>The first argument is always a JSON string representing <code>mfc.sh run</code>'s internal state. It contains all the runtime information you might want from the build/run system. We hide it from the help menu with <code>help=argparse.SUPPRESS</code> since it is not meant to be passed in by users. You can add as many additional positional arguments as you may need.</p>
+<div class="line">args = parser.parse_args()</div>
+</div><!-- fragment --><p>The first argument is always a JSON string representing <code>mfc.sh run</code>'s internal state. It contains all the runtime information you might want from the build/run system. You can add as many additional arguments as you may need.</p>
 <p>To run such a case, use the following format:</p>
-<div class="fragment"><div class="line">./mfc.sh run &lt;path/to/case.py&gt; &lt;positional arguments&gt; &lt;regular mfc.sh run arguments&gt;</div>
-</div><!-- fragment --><p>For example, to run the 3D_weak_scaling case with <code>gbpp=2</code>:</p>
-<div class="fragment"><div class="line">./mfc.sh run examples/3D_weak_scaling/case.py 2 -t pre_process -j 8</div>
+<div class="fragment"><div class="line">./mfc.sh run &lt;path/to/case.py&gt; &lt;mfc.sh run arguments&gt; -- &lt;case arguments&gt;</div>
+</div><!-- fragment --><p>For example, to run the <code>scaling</code> case in "weak-scaling" mode:</p>
+<div class="fragment"><div class="line">./mfc.sh run examples/scaling/case.py -t pre_process -j 8 -- --scaling weak</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Parameters</h1>
 <p>There are multiple sets of parameters that must be specified in the python input file:</p><ol type="1">
@@ -193,10 +193,13 @@ Parameters</h1>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>run_time_info</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output run-time information   </td></tr>
+<td class="markdownTableBodyRight"><code>run_time_info</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output run-time information    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>rdma_mpi</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">(GPUs) Enable RDMA for MPI communication.   </td></tr>
 </table>
 <ul>
 <li><code>run_time_info</code> generates a text file that includes run-time information including the CFL number(s) at each time-step.</li>
+<li><code>rdma_mpi</code> optimizes data transfers between GPUs using Remote Direct Memory Access (RDMA). The underlying MPI implementation and communication infrastructure must support this feature, detecting GPU pointers and performing RDMA accordingly.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md6"></a>
 2. Computational Domain</h2>
