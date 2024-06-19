@@ -61,50 +61,50 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md30", [
-        [ "Initial Condition", "md_examples.html#autotoc_md31", null ],
-        [ "Result", "md_examples.html#autotoc_md32", null ]
+      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md30", [
+        [ "Density Initial Condition", "md_examples.html#autotoc_md31", null ],
+        [ "Density Final Condition", "md_examples.html#autotoc_md32", null ]
       ] ],
-      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md33", [
-        [ "Density Initial Condition", "md_examples.html#autotoc_md34", null ],
-        [ "Density Final Condition", "md_examples.html#autotoc_md35", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md33", [
+        [ "Initial Condition", "md_examples.html#autotoc_md34", null ],
+        [ "Result", "md_examples.html#autotoc_md35", null ]
       ] ],
-      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md36", [
-        [ "Weak Scaling", "md_examples.html#autotoc_md37", null ],
-        [ "Strong Scaling", "md_examples.html#autotoc_md38", null ],
-        [ "Example", "md_examples.html#autotoc_md39", null ]
+      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md36", [
+        [ "Final Condition", "md_examples.html#autotoc_md37", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md38", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md40", [
-        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
-        [ "Result", "md_examples.html#autotoc_md42", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md39", [
+        [ "Density", "md_examples.html#autotoc_md40", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md41", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md43", [
-        [ "Density", "md_examples.html#autotoc_md44", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md45", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md42", [
+        [ "Initial Condition", "md_examples.html#autotoc_md43", null ],
+        [ "Result", "md_examples.html#autotoc_md44", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md46", [
-        [ "Initial Condition", "md_examples.html#autotoc_md47", null ],
-        [ "Result", "md_examples.html#autotoc_md48", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md45", [
+        [ "Initial Condition", "md_examples.html#autotoc_md46", null ],
+        [ "Result", "md_examples.html#autotoc_md47", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md49", [
-        [ "Initial Condition", "md_examples.html#autotoc_md50", null ],
-        [ "Result", "md_examples.html#autotoc_md51", null ]
+      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md48", [
+        [ "Final Condition", "md_examples.html#autotoc_md49", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md50", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md52", [
-        [ "Initial Condition", "md_examples.html#autotoc_md53", null ],
-        [ "Result", "md_examples.html#autotoc_md54", null ]
+      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md51", [
+        [ "Weak Scaling", "md_examples.html#autotoc_md52", null ],
+        [ "Strong Scaling", "md_examples.html#autotoc_md53", null ],
+        [ "Example", "md_examples.html#autotoc_md54", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md55", [
+      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md55", [
         [ "Final Condition", "md_examples.html#autotoc_md56", null ],
         [ "Centerline Velocities", "md_examples.html#autotoc_md57", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md58", [
-        [ "Final Condition", "md_examples.html#autotoc_md59", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md60", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md58", [
+        [ "Initial Condition", "md_examples.html#autotoc_md59", null ],
+        [ "Result", "md_examples.html#autotoc_md60", null ]
       ] ],
-      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md61", [
-        [ "Final Condition", "md_examples.html#autotoc_md62", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md63", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md61", [
+        [ "Initial Condition", "md_examples.html#autotoc_md62", null ],
+        [ "Result", "md_examples.html#autotoc_md63", null ]
       ] ]
     ] ],
     [ "Performance Results", "md_expectedPerformance.html", [
