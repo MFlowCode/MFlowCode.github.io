@@ -17,7 +17,7 @@ var m__check__patches_8fpp_8f90 =
     [ "s_check_line_segment_patch_geometry", "m__check__patches_8fpp_8f90.html#a5b142fb0ce186f97c22e5a10a36a3bb8", null ],
     [ "s_check_line_sweep_patch_geometry", "m__check__patches_8fpp_8f90.html#a7bae026c1e443c8247a8ad74a849063b", null ],
     [ "s_check_model_geometry", "m__check__patches_8fpp_8f90.html#a706187f3489d08ace44760a60c1efabb", null ],
-    [ "s_check_patches", "m__check__patches_8fpp_8f90.html#a1c50b481760b96ce4496118759dc67f5", null ],
+    [ "s_check_patches", "m__check__patches_8fpp_8f90.html#ac1792db17d6be42202c765e34c6febfe", null ],
     [ "s_check_plane_sweep_patch_geometry", "m__check__patches_8fpp_8f90.html#a9bb2f96dfcb0168c5a5e51cb7b5dc906", null ],
     [ "s_check_rectangle_patch_geometry", "m__check__patches_8fpp_8f90.html#ac34be0830489fb414bc93ecbb25c0383", null ],
     [ "s_check_sphere_patch_geometry", "m__check__patches_8fpp_8f90.html#ad2dd6dc473d7bb6d32cd5fd906c80da4", null ],

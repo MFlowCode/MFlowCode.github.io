@@ -456,20 +456,26 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>mapped_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO with mapping of nonlinear weights    </td></tr>
+<td class="markdownTableBodyRight"><code>mapped_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-M (WENO with mapping of nonlinear weights)    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>wenoz</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-Z    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>teno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">TENO (Targeted ENO)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>teno_CT</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">TENO threshold for smoothness detection    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>null_weights</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Null WENO weights at boundaries    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>mp_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Monotonicity preserving WENO    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>riemann_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe averagen*; [2] Arithmetic mean    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
+<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values   </td></tr>
 </table>
 <ul>
@@ -496,7 +502,10 @@ Parameter Descriptions</h3>
 <li><code>adap_dt</code> activates the Strang operator splitting scheme which splits flux and source terms in time marching, and an adaptive time stepping strategy is implemented for the source term. It requires &lsquo;bubbles = 'T&rsquo;<code>,</code>polytropic = 'T'<code>,</code>adv_n = 'T'<code>and</code>time_stepper = 3`.</li>
 <li><code>weno_order</code> specifies the order of WENO scheme that is used for spatial reconstruction of variables by an integer of 1, 3, and 5, that correspond to the 1st, 3rd, and 5th order, respectively.</li>
 <li><code>weno_eps</code> specifies the lower bound of the WENO nonlinear weights. Practically, <code>weno_eps</code> $&lt;10^{-6}$ is used.</li>
-<li><code>mapped_weno</code> activates mapping of the nonlinear WENO weights to the more accurate nonlinear weights in order to reinstate the optimal order of accuracy of the reconstruction in the proximity of critical points (<a href="references.md#Henrick05">Henrick et al., 2005</a>).</li>
+<li><code>mapped_weno</code> activates the WENO-M scheme in place of the default WENO-JS scheme (<a href="references.md#Henrick05">Henrick et al., 2005</a>). WENO-M a variant of the WENO scheme that remaps the nonlinear WENO-JS weights by assigning larger weights to non-smooth stencils, reducing dissipation compared to the default WENO-JS scheme, at the expense of higher computational cost. Only one of <code>mapped_weno</code>, <code>wenoz</code>, and <code>teno</code> can be activated.</li>
+<li><code>wenoz</code> activates the WENO-Z scheme in place of the default WENO-JS scheme (<a href="references.md#Borges08">Borges et al., 2008</a>). WENO-Z is a variant of the WENO scheme that further reduces the dissipation compared to the WENO-M scheme. It has similar computational cost to the WENO-JS scheme.</li>
+<li><code>teno</code> activates the TENO scheme in place of the default WENO-JS scheme (<a href="references.md#Fu16">Fu et al., 2016</a>). TENO is a variant of the ENO scheme that is the least dissipative, but could be less robust for extreme cases. It uses a threshold to identify smooth and non-smooth stencils, and applies optimal weights to the smooth stencils. Only available for <code>weno_order = 5</code>. Requires <code>teno_CT</code> to be set.</li>
+<li><code>teno_CT</code> specifies the threshold for the TENO scheme. This dimensionless constant, also known as $C_T$, sets a threshold to identify smooth and non-smooth stencils. Larger values make the scheme more robust but also more dissipative. A recommended value for teno_CT is <code>1e-6</code>. When adjusting this parameter, it is recommended to try values like <code>1e-5</code> or <code>1e-7</code>.</li>
 <li><code>null_weights</code> activates nullification of the nonlinear WENO weights at the buffer regions outside the domain boundaries when the Riemann extrapolation boundary condition is specified (<code>bc_[x,y,z]\beg[end]} = -4</code>).</li>
 <li><code>mp_weno</code> activates monotonicity preservation in the WENO reconstruction (MPWENO) such that the values of reconstructed variables do not reside outside the range spanned by WENO stencil (<a href="references.md#Balsara00">Balsara and Shu, 2000</a>; <a href="references.md#Suresh97">Suresh and Huynh, 1997</a>).</li>
 <li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver = 1</code>, <code>2</code>, and <code>3</code> correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>).</li>

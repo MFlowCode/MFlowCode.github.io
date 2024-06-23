@@ -9,7 +9,7 @@ var searchData=
   ['setup_6',['10. Velocity Field Setup',['../md_case.html#autotoc_md18',1,'']]],
   ['shock_20droplet_202d_7',['Shock Droplet (2D)',['../md_examples.html#autotoc_md61',1,'']]],
   ['shock_20tube_20problem_201d_8',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md58',1,'']]],
-  ['shu_20osher_20problem_201d_9',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md45',1,'']]],
+  ['shu_20osher_20problem_201d_9',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md30',1,'']]],
   ['simulation_20algorithm_10',['6. Simulation Algorithm',['../md_case.html#autotoc_md14',1,'']]],
   ['skeleton_11',['Basic Skeleton',['../md_case.html#autotoc_md2',1,'']]],
   ['source_12',['8. Acoustic Source',['../md_case.html#autotoc_md16',1,'']]],

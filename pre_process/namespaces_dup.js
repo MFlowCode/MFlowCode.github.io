@@ -6,7 +6,7 @@ var namespaces_dup =
       [ "s_check_airfoil_ib_patch_geometry", "namespacem__check__ib__patches.html#ae20f8a0e12b3e56c35d5f5942f95255d", null ],
       [ "s_check_circle_ib_patch_geometry", "namespacem__check__ib__patches.html#a377529d7fa93adfd0a8c8900ba20f2d8", null ],
       [ "s_check_cylinder_ib_patch_geometry", "namespacem__check__ib__patches.html#a08e3a10bb21f85ba20ec4a2964807412", null ],
-      [ "s_check_ib_patches", "namespacem__check__ib__patches.html#a04f9f8a09aaefefe6e26aa0a43a7cf13", null ],
+      [ "s_check_ib_patches", "namespacem__check__ib__patches.html#ad5bd471b2a7b29d48088e4706b382f16", null ],
       [ "s_check_inactive_ib_patch_geometry", "namespacem__check__ib__patches.html#a51a8ceefeca1160ee84e5332263ff6c9", null ],
       [ "s_check_rectangle_ib_patch_geometry", "namespacem__check__ib__patches.html#a8bc8ab72ae98940c5146c10ade1c3318", null ],
       [ "s_check_sphere_ib_patch_geometry", "namespacem__check__ib__patches.html#a4d5c31d4ed9680fe196404fed2ae3fe7", null ],
@@ -30,7 +30,7 @@ var namespaces_dup =
       [ "s_check_line_segment_patch_geometry", "namespacem__check__patches.html#a5b142fb0ce186f97c22e5a10a36a3bb8", null ],
       [ "s_check_line_sweep_patch_geometry", "namespacem__check__patches.html#a7bae026c1e443c8247a8ad74a849063b", null ],
       [ "s_check_model_geometry", "namespacem__check__patches.html#a706187f3489d08ace44760a60c1efabb", null ],
-      [ "s_check_patches", "namespacem__check__patches.html#a1c50b481760b96ce4496118759dc67f5", null ],
+      [ "s_check_patches", "namespacem__check__patches.html#ac1792db17d6be42202c765e34c6febfe", null ],
       [ "s_check_plane_sweep_patch_geometry", "namespacem__check__patches.html#a9bb2f96dfcb0168c5a5e51cb7b5dc906", null ],
       [ "s_check_rectangle_patch_geometry", "namespacem__check__patches.html#ac34be0830489fb414bc93ecbb25c0383", null ],
       [ "s_check_sphere_patch_geometry", "namespacem__check__patches.html#ad2dd6dc473d7bb6d32cd5fd906c80da4", null ],
@@ -40,7 +40,7 @@ var namespaces_dup =
       [ "istr", "namespacem__check__patches.html#a1595128fdb31c7579893e18f2b9b5165", null ]
     ] ],
     [ "m_checker", "namespacem__checker.html", [
-      [ "s_check_inputs", "namespacem__checker.html#af3af1277501908ef5a97721ebf04061f", null ]
+      [ "s_check_inputs", "namespacem__checker.html#a91965851c33800f743ed0f6eb055f013", null ]
     ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
@@ -86,10 +86,10 @@ var namespaces_dup =
       [ "pythag", "namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2", null ]
     ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
-      [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a433eac37597eb46a3cac84ca0471f5d3", null ],
+      [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a26a4f1fef567ae9d1f1c1ae9169316cd", null ],
       [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#aa2237c2ed3662bbd69ef39e2e92af7bf", null ],
-      [ "s_initialize_global_parameters_module", "namespacem__global__parameters.html#a8a76198d180cb9736c21dde108cb0dbf", null ],
-      [ "s_initialize_parallel_io", "namespacem__global__parameters.html#a54905a7a2ce9e15fc33ebac52c0d3c27", null ],
+      [ "s_initialize_global_parameters_module", "namespacem__global__parameters.html#a0ab7a5fabf3176ffda10bd9b5b6bf410", null ],
+      [ "s_initialize_parallel_io", "namespacem__global__parameters.html#a8bba2f308a8b95fbe6290466f58206d5", null ],
       [ "a_x", "namespacem__global__parameters.html#aa0b506b1bb27c795ff1ca2049cd84b95", null ],
       [ "a_y", "namespacem__global__parameters.html#a143fcefbf2bf4d1b296851d664c49b3a", null ],
       [ "a_z", "namespacem__global__parameters.html#a8e0a3ebd94eeb22f50b48dff8a7e0cce", null ],
@@ -258,22 +258,22 @@ var namespaces_dup =
     ] ],
     [ "m_grid", "namespacem__grid.html", "namespacem__grid" ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
-      [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#a944c63abd61afab021ab664246f80495", null ],
-      [ "s_generate_initial_condition", "namespacem__initial__condition.html#aa74a70029e3ec0fd3225b369e7c5443e", null ],
+      [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#aec342b623ebff62f17b416ece04367aa", null ],
+      [ "s_generate_initial_condition", "namespacem__initial__condition.html#a819a22af40efdd0fbeed368ebf6a0753", null ],
       [ "s_generate_wave", "namespacem__initial__condition.html#a5ec73f4130ceb7893efddc863874e951", null ],
-      [ "s_initialize_initial_condition_module", "namespacem__initial__condition.html#a07a665ff41297455ac2da7b54243bac5", null ],
+      [ "s_initialize_initial_condition_module", "namespacem__initial__condition.html#a85b4dd70a4a233bc392d2e37afd97784", null ],
       [ "s_instability_wave", "namespacem__initial__condition.html#a7ef3152e5d06fe9242edb0b09ae97951", null ],
-      [ "s_perturb_sphere", "namespacem__initial__condition.html#afef3f507e182798fcfd7aecc52878fc9", null ],
-      [ "s_perturb_surrounding_flow", "namespacem__initial__condition.html#ab66e3b04024a8ae7327857b1b265bc27", null ],
-      [ "s_superposition_instability_wave", "namespacem__initial__condition.html#a50f37d0c816501ebcd2908e17e7afde5", null ],
+      [ "s_perturb_sphere", "namespacem__initial__condition.html#a17d4d4f6820e8fb36f5409065e4c5565", null ],
+      [ "s_perturb_surrounding_flow", "namespacem__initial__condition.html#a40e856fc6fe5ce80cf742cfc620c22d8", null ],
+      [ "s_superposition_instability_wave", "namespacem__initial__condition.html#ae39e0bd3c5c19ec322b9bcce61c417db", null ],
       [ "ib_markers", "namespacem__initial__condition.html#a05e359f2cf998f50d805e9d86feaad51", null ],
       [ "patch_id_fp", "namespacem__initial__condition.html#a5d331c773a88029795462ae22c20d6c8", null ],
       [ "q_cons_vf", "namespacem__initial__condition.html#a1f42c68f3b3d167616d52b7cf7a7d56a", null ],
       [ "q_prim_vf", "namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ]
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
-      [ "s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#a69660c5fe9302a8c0496b622fa3b5286", null ],
-      [ "s_mpi_decompose_computational_domain", "namespacem__mpi__proxy.html#a80c5e235786545276fe6ffa06965017f", null ],
+      [ "s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#a2e66d6f04cbc2b6a882021f6b7afa50e", null ],
+      [ "s_mpi_decompose_computational_domain", "namespacem__mpi__proxy.html#a381eb1e36bd87a09884d304d835d36db", null ],
       [ "err_code", "namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982", null ],
       [ "ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ]
     ] ],
