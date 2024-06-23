@@ -4,7 +4,7 @@ var m__weno_8fpp_8f90 =
     [ "s_compute_weno_coefficients", "m__weno_8fpp_8f90.html#ab901fc61bffbbe39af35d3ccb92bfa75", null ],
     [ "s_finalize_weno_module", "m__weno_8fpp_8f90.html#a58db4ca1aba01851c9aca95c2b57be37", null ],
     [ "s_initialize_weno", "m__weno_8fpp_8f90.html#abc4801fbf3acfd4db40d1ad294aa3e46", null ],
-    [ "s_initialize_weno_module", "m__weno_8fpp_8f90.html#a136d3d4063cbcedaa960e3a34cf75b5c", null ],
+    [ "s_initialize_weno_module", "m__weno_8fpp_8f90.html#a5682460bfdc5c0e5147f8ffb7bf04145", null ],
     [ "s_preserve_monotonicity", "m__weno_8fpp_8f90.html#ac6752752f34719dae452d0fe42e21682", null ],
     [ "s_weno", "m__weno_8fpp_8f90.html#a0c79c6347a719cfadea72a4e0dd83591", null ]
 ];

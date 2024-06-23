@@ -87,7 +87,7 @@ var namespaces_dup =
     ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
       [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a26a4f1fef567ae9d1f1c1ae9169316cd", null ],
-      [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#aa2237c2ed3662bbd69ef39e2e92af7bf", null ],
+      [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#a848f72f366376ede42529bf1a74fabb2", null ],
       [ "s_initialize_global_parameters_module", "namespacem__global__parameters.html#a0ab7a5fabf3176ffda10bd9b5b6bf410", null ],
       [ "s_initialize_parallel_io", "namespacem__global__parameters.html#a8bba2f308a8b95fbe6290466f58206d5", null ],
       [ "a_x", "namespacem__global__parameters.html#aa0b506b1bb27c795ff1ca2049cd84b95", null ],

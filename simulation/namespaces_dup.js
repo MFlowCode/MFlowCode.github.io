@@ -59,9 +59,9 @@ var namespaces_dup =
     [ "m_derived_variables", "namespacem__derived__variables.html", [
       [ "s_compute_derived_variables", "namespacem__derived__variables.html#a516a9808b3446b7b45029f6451d02b3f", null ],
       [ "s_derive_acceleration_component", "namespacem__derived__variables.html#aeafec81c1b2cb37f1cea824b9fff4d9b", null ],
-      [ "s_finalize_derived_variables_module", "namespacem__derived__variables.html#a735665bf598281689158d9d6e075f3d4", null ],
-      [ "s_initialize_derived_variables", "namespacem__derived__variables.html#ae9dbea9bb47e84dbd380c480ad5144b8", null ],
-      [ "s_initialize_derived_variables_module", "namespacem__derived__variables.html#a15a6d70e2bd1c9b7001c753ca1f2ee27", null ],
+      [ "s_finalize_derived_variables_module", "namespacem__derived__variables.html#ae8a62a7f25d9ea256e7c213c850c7070", null ],
+      [ "s_initialize_derived_variables", "namespacem__derived__variables.html#a1d5e183428b9bafe2175cfc63f7cd937", null ],
+      [ "s_initialize_derived_variables_module", "namespacem__derived__variables.html#a8edda55880064bbfb9f486156fb03423", null ],
       [ "accel_mag", "namespacem__derived__variables.html#a2452879f2bc8e2e3719c45e49eb33500", null ],
       [ "fd_coeff_x", "namespacem__derived__variables.html#aff8f0490b179f03fc55ac6c899285a85", null ],
       [ "fd_coeff_y", "namespacem__derived__variables.html#a7de396fd76dc391271b45f7874a556cd", null ],

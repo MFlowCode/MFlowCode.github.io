@@ -141,15 +141,15 @@ $(function(){initNavTree('m__fftw_8fpp_8f90.html',''); initResizable(true); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a95aff8b19cde2704bb340f70f90dea14" id="r_a95aff8b19cde2704bb340f70f90dea14"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95aff8b19cde2704bb340f70f90dea14">__m_fftw_fpp_f90__</a></td></tr>
 <tr class="separator:a95aff8b19cde2704bb340f70f90dea14"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58521984fc23adcfc50a30c0a4a0e285" id="r_a58521984fc23adcfc50a30c0a4a0e285"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58521984fc23adcfc50a30c0a4a0e285">s_initialize_fftw_module</a> ()</td></tr>
-<tr class="memdesc:a58521984fc23adcfc50a30c0a4a0e285"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to create the fftw plan that will be used in the forward and backward DFTs when applying the Fourier filter in the azimuthal direction.  <br /></td></tr>
-<tr class="separator:a58521984fc23adcfc50a30c0a4a0e285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a1e033f3a23754f5aa863927e8c0013" id="r_a3a1e033f3a23754f5aa863927e8c0013"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a1e033f3a23754f5aa863927e8c0013">s_initialize_fftw_module</a></td></tr>
+<tr class="memdesc:a3a1e033f3a23754f5aa863927e8c0013"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to create the fftw plan that will be used in the forward and backward DFTs when applying the Fourier filter in the azimuthal direction.  <br /></td></tr>
+<tr class="separator:a3a1e033f3a23754f5aa863927e8c0013"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452bf69af2ab2d6de6c1ca63d20649d7" id="r_a452bf69af2ab2d6de6c1ca63d20649d7"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a452bf69af2ab2d6de6c1ca63d20649d7">s_apply_fourier_filter</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
 <tr class="memdesc:a452bf69af2ab2d6de6c1ca63d20649d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to apply a Fourier low- pass filter to the flow variables in the azimuthal direction to remove the high-frequency content. This alleviates the restrictive CFL condition arising from cells near the axis.  <br /></td></tr>
 <tr class="separator:a452bf69af2ab2d6de6c1ca63d20649d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8670dd411b13a2c33ce50710a5ef4a72" id="r_a8670dd411b13a2c33ce50710a5ef4a72"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8670dd411b13a2c33ce50710a5ef4a72">s_finalize_fftw_module</a> ()</td></tr>
-<tr class="memdesc:a8670dd411b13a2c33ce50710a5ef4a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to destroy the fftw plan that will be used in the forward and backward DFTs when applying the Fourier filter in the azimuthal direction.  <br /></td></tr>
-<tr class="separator:a8670dd411b13a2c33ce50710a5ef4a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4724c38572698afaf830fd7e58864ed2" id="r_a4724c38572698afaf830fd7e58864ed2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4724c38572698afaf830fd7e58864ed2">s_finalize_fftw_module</a></td></tr>
+<tr class="memdesc:a4724c38572698afaf830fd7e58864ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to destroy the fftw plan that will be used in the forward and backward DFTs when applying the Fourier filter in the azimuthal direction.  <br /></td></tr>
+<tr class="separator:a4724c38572698afaf830fd7e58864ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a95aff8b19cde2704bb340f70f90dea14" name="a95aff8b19cde2704bb340f70f90dea14"></a>
@@ -195,6 +195,12 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The purpose of this subroutine is to apply a Fourier low- pass filter to the flow variables in the azimuthal direction to remove the high-frequency content. This alleviates the restrictive CFL condition arising from cells near the axis. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -203,8 +209,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8670dd411b13a2c33ce50710a5ef4a72" name="a8670dd411b13a2c33ce50710a5ef4a72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8670dd411b13a2c33ce50710a5ef4a72">&#9670;&#160;</a></span>s_finalize_fftw_module()</h2>
+<a id="a4724c38572698afaf830fd7e58864ed2" name="a4724c38572698afaf830fd7e58864ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4724c38572698afaf830fd7e58864ed2">&#9670;&#160;</a></span>s_finalize_fftw_module()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,13 +233,13 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__fftw_8fpp_8f90_a8670dd411b13a2c33ce50710a5ef4a72_icgraph.svg" width="512" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__fftw_8fpp_8f90_a4724c38572698afaf830fd7e58864ed2_icgraph.svg" width="512" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a58521984fc23adcfc50a30c0a4a0e285" name="a58521984fc23adcfc50a30c0a4a0e285"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58521984fc23adcfc50a30c0a4a0e285">&#9670;&#160;</a></span>s_initialize_fftw_module()</h2>
+<a id="a3a1e033f3a23754f5aa863927e8c0013" name="a3a1e033f3a23754f5aa863927e8c0013"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a1e033f3a23754f5aa863927e8c0013">&#9670;&#160;</a></span>s_initialize_fftw_module()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -248,7 +254,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__fftw_8fpp_8f90_a58521984fc23adcfc50a30c0a4a0e285_icgraph.svg" width="531" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__fftw_8fpp_8f90_a3a1e033f3a23754f5aa863927e8c0013_icgraph.svg" width="531" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
