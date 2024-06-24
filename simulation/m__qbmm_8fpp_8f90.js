@@ -8,6 +8,6 @@ var m__qbmm_8fpp_8f90 =
     [ "s_coeff_nonpoly", "m__qbmm_8fpp_8f90.html#aab31fde8338242a0eac719456000030d", null ],
     [ "s_compute_qbmm_rhs", "m__qbmm_8fpp_8f90.html#a76636f7da72646919d564340441e9696", null ],
     [ "s_hyqmom", "m__qbmm_8fpp_8f90.html#a9f04f02028dbe154a03418ecca95fc97", null ],
-    [ "s_initialize_qbmm_module", "m__qbmm_8fpp_8f90.html#af9c1dbeca51d35272cc734b9aa958aac", null ],
+    [ "s_initialize_qbmm_module", "m__qbmm_8fpp_8f90.html#a0dc6ff2e426e8bd4e05ef938a87e28fa", null ],
     [ "s_mom_inv", "m__qbmm_8fpp_8f90.html#a07d4ab28f830cfd5b555868bbf8a17fe", null ]
 ];

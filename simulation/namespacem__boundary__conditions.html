@@ -143,7 +143,7 @@ $(function(){initNavTree('namespacem__boundary__conditions.html',''); initResiza
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa57204a6a6bdae766a526edd5d768566" id="r_aa57204a6a6bdae766a526edd5d768566"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa57204a6a6bdae766a526edd5d768566">s_populate_primitive_variables_buffers</a> (q_prim_vf, pb, mv)</td></tr>
-<tr class="memdesc:aa57204a6a6bdae766a526edd5d768566"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to populate the buffers of the conservative variables, depending on the selected boundary conditions.  <br /></td></tr>
+<tr class="memdesc:aa57204a6a6bdae766a526edd5d768566"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to populate the buffers of the primitive variables, depending on the selected boundary conditions.  <br /></td></tr>
 <tr class="separator:aa57204a6a6bdae766a526edd5d768566"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b07b760d5e002f6fd09fbeb2e96c227" id="r_a6b07b760d5e002f6fd09fbeb2e96c227"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b07b760d5e002f6fd09fbeb2e96c227">s_ghost_cell_extrapolation</a> (q_prim_vf, pb, mv, bc_dir, bc_loc)</td></tr>
 <tr class="separator:a6b07b760d5e002f6fd09fbeb2e96c227"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,7 +174,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="memname">subroutine m_boundary_conditions::s_axis </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -189,12 +189,12 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -215,7 +215,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_boundary_conditions::s_ghost_cell_extrapolation </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -230,12 +230,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -256,7 +256,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_boundary_conditions::s_no_slip_wall </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -271,12 +271,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -297,7 +297,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_boundary_conditions::s_periodic </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -312,12 +312,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -338,7 +338,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public m_boundary_conditions::s_populate_capillary_buffers </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(num_dims + 1)</td>          <td class="paramname"><span class="paramname"><em>c_divs</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(num_dims + 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c_divs</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -360,7 +360,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public m_boundary_conditions::s_populate_primitive_variables_buffers </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -375,7 +375,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this procedure is to populate the buffers of the conservative variables, depending on the selected boundary conditions. </p>
+<p>The purpose of this procedure is to populate the buffers of the primitive variables, depending on the selected boundary conditions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variable </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -403,12 +409,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -429,7 +435,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_boundary_conditions::s_slip_wall </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -444,12 +450,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -470,7 +476,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_boundary_conditions::s_symmetry </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -485,12 +491,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
