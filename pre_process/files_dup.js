@@ -2,6 +2,8 @@ var files_dup =
 [
     [ "m_check_ib_patches.fpp.f90", "m__check__ib__patches_8fpp_8f90.html", "m__check__ib__patches_8fpp_8f90" ],
     [ "m_check_patches.fpp.f90", "m__check__patches_8fpp_8f90.html", "m__check__patches_8fpp_8f90" ],
+    [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
+    [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
     [ "m_constants.fpp.f90", "m__constants_8fpp_8f90.html", "m__constants_8fpp_8f90" ],
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
     [ "m_derived_types.fpp.f90", "m__derived__types_8fpp_8f90.html", "m__derived__types_8fpp_8f90" ],
@@ -19,7 +21,6 @@ var files_dup =
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
     [ "m_assign_variables.f90", "m__assign__variables_8f90.html", "m__assign__variables_8f90" ],
-    [ "m_checker.f90", "m__checker_8f90.html", "m__checker_8f90" ],
     [ "m_grid.f90", "m__grid_8f90.html", "m__grid_8f90" ],
     [ "p_main.f90", "p__main_8f90.html", "p__main_8f90" ]
 ];

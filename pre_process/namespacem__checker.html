@@ -143,7 +143,26 @@ $(function(){initNavTree('namespacem__checker.html',''); initResizable(true); })
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a91965851c33800f743ed0f6eb055f013" id="r_a91965851c33800f743ed0f6eb055f013"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91965851c33800f743ed0f6eb055f013">s_check_inputs</a></td></tr>
+<tr class="memdesc:a91965851c33800f743ed0f6eb055f013"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks compatibility of parameters in the input file. Used by the pre_process stage.  <br /></td></tr>
 <tr class="separator:a91965851c33800f743ed0f6eb055f013"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e21acd82407f9218b83b0b6cdf7251" id="r_a44e21acd82407f9218b83b0b6cdf7251"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44e21acd82407f9218b83b0b6cdf7251">s_check_parallel_io</a></td></tr>
+<tr class="memdesc:a44e21acd82407f9218b83b0b6cdf7251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if mpi is enabled with parallel_io.  <br /></td></tr>
+<tr class="separator:a44e21acd82407f9218b83b0b6cdf7251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5132806d0d5132e6e182e1e3106eaea" id="r_af5132806d0d5132e6e182e1e3106eaea"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5132806d0d5132e6e182e1e3106eaea">s_check_inputs_restart</a></td></tr>
+<tr class="memdesc:af5132806d0d5132e6e182e1e3106eaea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints on the restart parameters (old_grid, old_ic, etc.)  <br /></td></tr>
+<tr class="separator:af5132806d0d5132e6e182e1e3106eaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af56311c15309306dcc5d55db0b1eea9f" id="r_af56311c15309306dcc5d55db0b1eea9f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af56311c15309306dcc5d55db0b1eea9f">s_check_inputs_grid_stretching</a></td></tr>
+<tr class="memdesc:af56311c15309306dcc5d55db0b1eea9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints on grid stretching parameters (loops_x[y,z], stretch_x[y,z], etc.)  <br /></td></tr>
+<tr class="separator:af56311c15309306dcc5d55db0b1eea9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c66b5035aeed78b4f60b828793912b1" id="r_a4c66b5035aeed78b4f60b828793912b1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c66b5035aeed78b4f60b828793912b1">s_check_inputs_qbmm_and_polydisperse</a></td></tr>
+<tr class="memdesc:a4c66b5035aeed78b4f60b828793912b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints on the QBMM and polydisperse bubble parameters (qbmm, polydisperse, dist_type, rhoRV, and R0_type)  <br /></td></tr>
+<tr class="separator:a4c66b5035aeed78b4f60b828793912b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd3a05104f108b9fdebe73e440cd74a" id="r_a0fd3a05104f108b9fdebe73e440cd74a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fd3a05104f108b9fdebe73e440cd74a">s_check_inputs_perturb_density</a></td></tr>
+<tr class="memdesc:a0fd3a05104f108b9fdebe73e440cd74a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks constraints on initial partial density perturbation (perturb_flow, perturb_flow_fluid, perturb_flow_mag, perturb_sph, perturb_sph_fluid, and fluid_rho)  <br /></td></tr>
+<tr class="separator:a0fd3a05104f108b9fdebe73e440cd74a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd9c8d302aa495492a27f8d847c14929" id="r_acd9c8d302aa495492a27f8d847c14929"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd9c8d302aa495492a27f8d847c14929">s_check_inputs_misc</a></td></tr>
+<tr class="memdesc:acd9c8d302aa495492a27f8d847c14929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks miscellaneous constraints (vel_profile and instability_wave)  <br /></td></tr>
+<tr class="separator:acd9c8d302aa495492a27f8d847c14929"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The purpose of the module is to check for compatible input files. </p>
@@ -159,15 +178,173 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Checks compatibility of parameters in the input file. Used by the pre_process stage. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a91965851c33800f743ed0f6eb055f013_cgraph.svg" width="314" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a91965851c33800f743ed0f6eb055f013_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a91965851c33800f743ed0f6eb055f013_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af56311c15309306dcc5d55db0b1eea9f" name="af56311c15309306dcc5d55db0b1eea9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56311c15309306dcc5d55db0b1eea9f">&#9670;&#160;</a></span>s_check_inputs_grid_stretching()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_checker::s_check_inputs_grid_stretching</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks constraints on grid stretching parameters (loops_x[y,z], stretch_x[y,z], etc.) </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__checker_af56311c15309306dcc5d55db0b1eea9f_cgraph.svg" width="652" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_af56311c15309306dcc5d55db0b1eea9f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="acd9c8d302aa495492a27f8d847c14929" name="acd9c8d302aa495492a27f8d847c14929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd9c8d302aa495492a27f8d847c14929">&#9670;&#160;</a></span>s_check_inputs_misc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_checker::s_check_inputs_misc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks miscellaneous constraints (vel_profile and instability_wave) </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__checker_acd9c8d302aa495492a27f8d847c14929_cgraph.svg" width="314" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_acd9c8d302aa495492a27f8d847c14929_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0fd3a05104f108b9fdebe73e440cd74a" name="a0fd3a05104f108b9fdebe73e440cd74a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd3a05104f108b9fdebe73e440cd74a">&#9670;&#160;</a></span>s_check_inputs_perturb_density()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_checker::s_check_inputs_perturb_density</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks constraints on initial partial density perturbation (perturb_flow, perturb_flow_fluid, perturb_flow_mag, perturb_sph, perturb_sph_fluid, and fluid_rho) </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a0fd3a05104f108b9fdebe73e440cd74a_cgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a0fd3a05104f108b9fdebe73e440cd74a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4c66b5035aeed78b4f60b828793912b1" name="a4c66b5035aeed78b4f60b828793912b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c66b5035aeed78b4f60b828793912b1">&#9670;&#160;</a></span>s_check_inputs_qbmm_and_polydisperse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_checker::s_check_inputs_qbmm_and_polydisperse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks constraints on the QBMM and polydisperse bubble parameters (qbmm, polydisperse, dist_type, rhoRV, and R0_type) </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a4c66b5035aeed78b4f60b828793912b1_cgraph.svg" width="400" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a4c66b5035aeed78b4f60b828793912b1_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="af5132806d0d5132e6e182e1e3106eaea" name="af5132806d0d5132e6e182e1e3106eaea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5132806d0d5132e6e182e1e3106eaea">&#9670;&#160;</a></span>s_check_inputs_restart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_checker::s_check_inputs_restart</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks constraints on the restart parameters (old_grid, old_ic, etc.) </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__checker_af5132806d0d5132e6e182e1e3106eaea_cgraph.svg" width="631" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_af5132806d0d5132e6e182e1e3106eaea_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a44e21acd82407f9218b83b0b6cdf7251" name="a44e21acd82407f9218b83b0b6cdf7251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44e21acd82407f9218b83b0b6cdf7251">&#9670;&#160;</a></span>s_check_parallel_io()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_checker::s_check_parallel_io</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if mpi is enabled with parallel_io. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a44e21acd82407f9218b83b0b6cdf7251_cgraph.svg" width="314" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__checker_a44e21acd82407f9218b83b0b6cdf7251_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
