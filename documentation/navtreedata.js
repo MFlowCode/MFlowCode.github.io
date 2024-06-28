@@ -129,26 +129,27 @@ var NAVTREE =
       [ "Running the Test Suite", "md_getting-started.html#autotoc_md79", null ],
       [ "Running an Example Case", "md_getting-started.html#autotoc_md80", null ]
     ] ],
+    [ "Papers", "md_papers.html", null ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md86", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md87", [
-        [ "GPU Profiling", "md_running.html#autotoc_md88", [
-          [ "NVIDIA GPUs", "md_running.html#autotoc_md89", null ],
-          [ "AMD GPUs", "md_running.html#autotoc_md90", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md87", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md88", [
+        [ "GPU Profiling", "md_running.html#autotoc_md89", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md90", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md91", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md91", null ],
-        [ "Example Runs", "md_running.html#autotoc_md92", null ]
+        [ "Restarting Cases", "md_running.html#autotoc_md92", null ],
+        [ "Example Runs", "md_running.html#autotoc_md93", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Procedure", "md_visualization.html#autotoc_md97", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md98", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md99", [
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md100", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md101", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md102", null ]
+      [ "Procedure", "md_visualization.html#autotoc_md98", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md99", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md100", [
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md101", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md102", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md103", null ]
       ] ]
     ] ]
   ] ]
