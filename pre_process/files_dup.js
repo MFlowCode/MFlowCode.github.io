@@ -20,6 +20,7 @@ var files_dup =
     [ "m_compile_specific.f90", "m__compile__specific_8f90.html", "m__compile__specific_8f90" ],
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
+    [ "m_helper_basic.f90", "m__helper__basic_8f90.html", "m__helper__basic_8f90" ],
     [ "m_assign_variables.f90", "m__assign__variables_8f90.html", "m__assign__variables_8f90" ],
     [ "m_grid.f90", "m__grid_8f90.html", "m__grid_8f90" ],
     [ "p_main.f90", "p__main_8f90.html", "p__main_8f90" ]

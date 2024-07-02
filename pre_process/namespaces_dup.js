@@ -282,6 +282,11 @@ var namespaces_dup =
       [ "z_domain", "namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc", null ]
     ] ],
     [ "m_grid", "namespacem__grid.html", "namespacem__grid" ],
+    [ "m_helper_basic", "namespacem__helper__basic.html", [
+      [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
+      [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
+      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ]
+    ] ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#aec342b623ebff62f17b416ece04367aa", null ],
       [ "s_generate_initial_condition", "namespacem__initial__condition.html#a819a22af40efdd0fbeed368ebf6a0753", null ],

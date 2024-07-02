@@ -285,6 +285,11 @@ var namespaces_dup =
       [ "z_cb_s", "namespacem__global__parameters.html#a43ab4f09147c4b478f9854b2454c8eee", null ],
       [ "z_cc", "namespacem__global__parameters.html#a2c4b9e99b981dc55cccf0b153159404e", null ]
     ] ],
+    [ "m_helper_basic", "namespacem__helper__basic.html", [
+      [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
+      [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
+      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ]
+    ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_finalize_mpi_proxy_module", "namespacem__mpi__proxy.html#a64ab8748c8961a350a05fc821da924d5", null ],
       [ "s_initialize_mpi_proxy_module", "namespacem__mpi__proxy.html#a54a6b68f4e90c5eb65e5e1a1894c884c", null ],

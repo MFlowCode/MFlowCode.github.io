@@ -21,6 +21,7 @@ var namespaces_dup =
       [ "s_check_inputs_hypoelasticity", "namespacem__checker.html#aba87b09d8a683ac08c30c97f0c42540e", null ],
       [ "s_check_inputs_misc", "namespacem__checker.html#acd9c8d302aa495492a27f8d847c14929", null ],
       [ "s_check_inputs_model_eqns", "namespacem__checker.html#a1f48137af879055fa06db09109fbb10c", null ],
+      [ "s_check_inputs_monopole", "namespacem__checker.html#a41168f8917f8c2def904ec3563ecd702", null ],
       [ "s_check_inputs_riemann_solver", "namespacem__checker.html#af81d33b5f248906792b4152ad96b5204", null ],
       [ "s_check_inputs_stiffened_eos_viscosity", "namespacem__checker.html#a0fc0440565d7ecfa120fb79e6c389efb", null ],
       [ "s_check_inputs_time_stepping", "namespacem__checker.html#a44acd2d6b579775b1d6a4a5c4aa090a9", null ],
@@ -110,6 +111,11 @@ var namespaces_dup =
       [ "corth", "namespacem__eigen__solver.html#ab54bfcf38d40c65fcd0887727d3b00f0", null ],
       [ "csroot", "namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f", null ],
       [ "pythag", "namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2", null ]
+    ] ],
+    [ "m_helper_basic", "namespacem__helper__basic.html", [
+      [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
+      [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
+      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ]

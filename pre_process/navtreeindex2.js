@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"namespacem__check__patches.html#a706187f3489d08ace44760a60c1efabb":[1,0,2,16],
 "namespacem__check__patches.html#a7286a74b75fa2f5e046638056a85665e":[1,0,2,5],
 "namespacem__check__patches.html#a7bae026c1e443c8247a8ad74a849063b":[1,0,2,15],
 "namespacem__check__patches.html#a7f27b499f2b90ad0f25443c1a1c5a0e5":[1,0,2,23],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "namespacem__global__parameters.html#aeae3081b4f001d2057d27335232a04ad":[1,0,10,122],
 "namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33":[1,0,10,57],
 "namespacem__global__parameters.html#af08928c5b9bde727869334ee7067e89c":[1,0,10,50],
-"namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70":[1,0,10,21],
-"namespacem__global__parameters.html#af2ed21959a90158c2459574230cdfcff":[1,0,10,151]
+"namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70":[1,0,10,21]
 };
