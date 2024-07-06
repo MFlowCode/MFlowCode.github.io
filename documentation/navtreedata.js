@@ -55,7 +55,7 @@ var NAVTREE =
         [ "Boundary conditions", "md_case.html#autotoc_md23", null ],
         [ "Patch types", "md_case.html#autotoc_md24", null ],
         [ "Immersed Boundary Patch Types", "md_case.html#autotoc_md25", null ],
-        [ "Monopole supports", "md_case.html#autotoc_md26", null ],
+        [ "Monopole Supports", "md_case.html#autotoc_md26", null ],
         [ "Conservative Variables Ordering", "md_case.html#autotoc_md27", null ],
         [ "Primitive Variables Ordering", "md_case.html#autotoc_md28", null ]
       ] ]

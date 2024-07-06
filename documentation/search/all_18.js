@@ -22,5 +22,5 @@ var searchData=
   ['strong_20scaling_19',['Strong scaling',['../md_expectedPerformance.html#autotoc_md70',1,'']]],
   ['strong_20weak_20scaling_20',['Strong- &amp; Weak-scaling',['../md_examples.html#autotoc_md51',1,'']]],
   ['suite_21',['Running the Test Suite',['../md_getting-started.html#autotoc_md79',1,'']]],
-  ['supports_22',['Monopole supports',['../md_case.html#autotoc_md26',1,'']]]
+  ['supports_22',['Monopole Supports',['../md_case.html#autotoc_md26',1,'']]]
 ];
