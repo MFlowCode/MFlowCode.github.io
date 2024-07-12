@@ -13,9 +13,11 @@ var m__bubbles_8fpp_8f90 =
     [ "f_rddot_km", "m__bubbles_8fpp_8f90.html#a6c94745d6e1c569d57616a5e472ae2cd", null ],
     [ "f_rddot_rp", "m__bubbles_8fpp_8f90.html#ad8bb547b5b33724b2d0affee7746a306", null ],
     [ "f_vflux", "m__bubbles_8fpp_8f90.html#a5af4ca8a74ce2461012304ed54f52d73", null ],
+    [ "s_advance_substep", "m__bubbles_8fpp_8f90.html#a6be5e899bc2c59aa1aa94ec130c683b9", null ],
     [ "s_bwproperty", "m__bubbles_8fpp_8f90.html#a8a11f32e3e991cbcfa764074a62f2492", null ],
     [ "s_comp_alpha_from_n", "m__bubbles_8fpp_8f90.html#ab7d5e3873ddb5da9b668c7a34538d4e0", null ],
     [ "s_compute_bubble_source", "m__bubbles_8fpp_8f90.html#a872de9f3a8b5de0a08fa1c08fd7332c9", null ],
     [ "s_compute_bubbles_rhs", "m__bubbles_8fpp_8f90.html#adfb9b785adb40aec938c95ef8b8c4345", null ],
+    [ "s_initialize_adap_dt", "m__bubbles_8fpp_8f90.html#a68b1aa526222d54e3114b902ba11fbc4", null ],
     [ "s_initialize_bubbles_module", "m__bubbles_8fpp_8f90.html#a960ffa88585b1901f997427796a0a72d", null ]
 ];

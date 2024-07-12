@@ -151,6 +151,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a872de9f3a8b5de0a08fa1c08fd7332c9" id="r_a872de9f3a8b5de0a08fa1c08fd7332c9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a872de9f3a8b5de0a08fa1c08fd7332c9">s_compute_bubble_source</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, t_step, rhs_vf)</td></tr>
 <tr class="memdesc:a872de9f3a8b5de0a08fa1c08fd7332c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to compute the source terms that are needed for the bubble modeling.  <br /></td></tr>
 <tr class="separator:a872de9f3a8b5de0a08fa1c08fd7332c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68b1aa526222d54e3114b902ba11fbc4" id="r_a68b1aa526222d54e3114b902ba11fbc4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68b1aa526222d54e3114b902ba11fbc4">s_initialize_adap_dt</a> (frho, fp, fr, fv, fr0, fpb, fpbdot, alf, fntait, fbtait, f_bub_adv_src, f_divu, h)</td></tr>
+<tr class="memdesc:a68b1aa526222d54e3114b902ba11fbc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Choose the initial time step size for the adaptive time stepping routine (See Heirer, E. Hairer S.P.Nørsett G. Wanner, Solving Ordinary Differential Equations I, Chapter II.4)  <br /></td></tr>
+<tr class="separator:a68b1aa526222d54e3114b902ba11fbc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6be5e899bc2c59aa1aa94ec130c683b9" id="r_a6be5e899bc2c59aa1aa94ec130c683b9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6be5e899bc2c59aa1aa94ec130c683b9">s_advance_substep</a> (frho, fp, fr, fv, fr0, fpb, fpbdot, alf, fntait, fbtait, f_bub_adv_src, f_divu, h, myr_tmp, myv_tmp, err)</td></tr>
+<tr class="memdesc:a6be5e899bc2c59aa1aa94ec130c683b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Integrate bubble variables over the given time step size, h.  <br /></td></tr>
+<tr class="separator:a6be5e899bc2c59aa1aa94ec130c683b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a0193f314079c7e9d923b9374eb20e3" id="r_a5a0193f314079c7e9d923b9374eb20e3"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a0193f314079c7e9d923b9374eb20e3">f_cpbw</a> (fr0, fr, fv, fpb)</td></tr>
 <tr class="memdesc:a5a0193f314079c7e9d923b9374eb20e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that computes that bubble wall pressure for Gilmore bubbles.  <br /></td></tr>
 <tr class="separator:a5a0193f314079c7e9d923b9374eb20e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1094,6 +1100,138 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a6be5e899bc2c59aa1aa94ec130c683b9" name="a6be5e899bc2c59aa1aa94ec130c683b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6be5e899bc2c59aa1aa94ec130c683b9">&#9670;&#160;</a></span>s_advance_substep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_bubbles_fpp_f90__::s_advance_substep </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>frho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fr0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fpb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fpbdot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fntait</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fbtait</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>f_bub_adv_src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>f_divu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(4), intent(out)</td>          <td class="paramname"><span class="paramname"><em>myr_tmp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), dimension(4), intent(out)</td>          <td class="paramname"><span class="paramname"><em>myv_tmp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>err</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Integrate bubble variables over the given time step size, h. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fRho</td><td>Current density </td></tr>
+    <tr><td class="paramname">fP</td><td>Current driving pressure </td></tr>
+    <tr><td class="paramname">fR</td><td>Current bubble radius </td></tr>
+    <tr><td class="paramname">fV</td><td>Current bubble velocity </td></tr>
+    <tr><td class="paramname">fR0</td><td>Equilibrium bubble radius </td></tr>
+    <tr><td class="paramname">fpb</td><td>Internal bubble pressure </td></tr>
+    <tr><td class="paramname">fpbdot</td><td>Time-derivative of internal bubble pressure </td></tr>
+    <tr><td class="paramname">alf</td><td>bubble volume fraction </td></tr>
+    <tr><td class="paramname">fntait</td><td>Tait EOS parameter </td></tr>
+    <tr><td class="paramname">fBtait</td><td>Tait EOS parameter </td></tr>
+    <tr><td class="paramname">f_bub_adv_src</td><td>Source for bubble volume fraction </td></tr>
+    <tr><td class="paramname">f_divu</td><td>Divergence of velocity </td></tr>
+    <tr><td class="paramname">h</td><td>Time step size </td></tr>
+    <tr><td class="paramname">myR_tmp</td><td>Bubble radius at each stage </td></tr>
+    <tr><td class="paramname">myV_tmp</td><td>Bubble radial velocity at each stage </td></tr>
+    <tr><td class="paramname">err</td><td>Estimated error </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_a6be5e899bc2c59aa1aa94ec130c683b9_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_a6be5e899bc2c59aa1aa94ec130c683b9_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a8a11f32e3e991cbcfa764074a62f2492" name="a8a11f32e3e991cbcfa764074a62f2492"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a11f32e3e991cbcfa764074a62f2492">&#9670;&#160;</a></span>s_bwproperty()</h2>
 
@@ -1162,7 +1300,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_ab7d5e3873ddb5da9b668c7a34538d4e0_icgraph.svg" width="100%" height="441"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_ab7d5e3873ddb5da9b668c7a34538d4e0_icgraph.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1255,6 +1393,120 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_adfb9b785adb40aec938c95ef8b8c4345_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a68b1aa526222d54e3114b902ba11fbc4" name="a68b1aa526222d54e3114b902ba11fbc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68b1aa526222d54e3114b902ba11fbc4">&#9670;&#160;</a></span>s_initialize_adap_dt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_bubbles_fpp_f90__::s_initialize_adap_dt </td>
+          <td>(</td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>frho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fr0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fpb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fpbdot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fntait</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fbtait</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>f_bub_adv_src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>f_divu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Choose the initial time step size for the adaptive time stepping routine (See Heirer, E. Hairer S.P.Nørsett G. Wanner, Solving Ordinary Differential Equations I, Chapter II.4) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fRho</td><td>Current density </td></tr>
+    <tr><td class="paramname">fP</td><td>Current driving pressure </td></tr>
+    <tr><td class="paramname">fR</td><td>Current bubble radius </td></tr>
+    <tr><td class="paramname">fV</td><td>Current bubble velocity </td></tr>
+    <tr><td class="paramname">fR0</td><td>Equilibrium bubble radius </td></tr>
+    <tr><td class="paramname">fpb</td><td>Internal bubble pressure </td></tr>
+    <tr><td class="paramname">fpbdot</td><td>Time-derivative of internal bubble pressure </td></tr>
+    <tr><td class="paramname">alf</td><td>bubble volume fraction </td></tr>
+    <tr><td class="paramname">fntait</td><td>Tait EOS parameter </td></tr>
+    <tr><td class="paramname">fBtait</td><td>Tait EOS parameter </td></tr>
+    <tr><td class="paramname">f_bub_adv_src</td><td>Source for bubble volume fraction </td></tr>
+    <tr><td class="paramname">f_divu</td><td>Divergence of velocity </td></tr>
+    <tr><td class="paramname">h</td><td>Time step size </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_a68b1aa526222d54e3114b902ba11fbc4_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__bubbles_8fpp_8f90_a68b1aa526222d54e3114b902ba11fbc4_icgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
