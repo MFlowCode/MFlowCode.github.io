@@ -151,7 +151,7 @@ Build Environment</h1>
 <li><b>On supported clusters:</b> Load environment modules</li>
 </ul>
 <div class="fragment"><div class="line">. ./mfc.sh load</div>
-</div><!-- fragment --><ul>
+</div><!-- fragment --><p><a class="anchor" id="via-aptitude"></a></p><ul>
 <li><b>Via <a href="https://wiki.debian.org/Aptitude">Aptitude</a>:</b></li>
 </ul>
 <div class="fragment"><div class="line">sudo apt update</div>
@@ -180,23 +180,40 @@ Windows</summary>
 <p>On Windows, you can either use Intel Compilers with the standard Microsoft toolchain, <a href="https://docs.docker.com/get-docker/">Docker</a> or the <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> for a Linux experience.</p>
 <details >
 <summary >
-Windows + Intel (Native)</summary>
+Windows + WSL (Recommended)</summary>
+<p></p>
+<p></p>
+<p>Install <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> on Windows 11: Either</p><ol type="1">
+<li>Open a terminal with administrator privileges and run the following command: <div class="fragment"><div class="line">wsl --install</div>
+</div><!-- fragment --> Or</li>
+</ol>
+<ol type="1">
+<li>Open the Start menu, search for "Windows Features", and select "Turn Windows features on or off". Enable "Windows Subsystem for Linux" by checking the corresponding box.</li>
+<li>Open the Microsoft Store, search for "Linux", and install your preferred distribution (e.g., <a href="https://apps.microsoft.com/store/detail/ubuntu/9PDXGNCFSCZV">Ubuntu</a>)</li>
+</ol>
+<p>Useful software to install for using WSL on Windows:</p><ul>
+<li><a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701">Windows Terminal</a></li>
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> and the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">Remote - WSL</a> extension</li>
+</ul>
+<p>Once you have WSL installed, you can follow the instructions for *nix systems above (for Ubuntu, see Via Aptitude).</p>
+<p></p>
+</details>
+<details >
+<summary >
+Native Windows (Intel)</summary>
+<p></p>
 <p></p>
 <p>Install the latest version of:</p><ul>
 <li><a href="https://visualstudio.microsoft.com/">Microsoft Visual Studio Community</a></li>
 <li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html">Intel® oneAPI Base Toolkit</a></li>
 <li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html">Intel® oneAPI HPC Toolkit</a></li>
+<li><a href="https://strawberryperl.com/">Strawberry Perl</a> (Install and add <code>C:\strawberry\perl\bin\perl.exe</code> or your installation path to your <a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">PATH</a>) Please note that Visual Studio must be installed first, and the oneAPI Toolkits need to be configured with the installed Visual Studio, even if you plan to use a different IDE.</li>
 </ul>
-<p>Then, in order to initialize your development environment, open a terminal window and run: </p><div class="fragment"><div class="line">&quot;C:\Program Files (x86)\Intel\oneAPI\setvars.bat&quot;</div>
-</div><!-- fragment --><p>To follow this guide, please replace <code>./mfc.sh</code> with <code>mfc.bat</code> when running any commands. <code>./mfc.sh</code> is intended Unix-like systems. You will also have access to the <code>.sln</code> Microsoft Visual Studio solution files for an IDE (Integrated Development Environment).</p>
-<p></p>
-</details>
-<details >
-<summary >
-Windows + WSL</summary>
-<p></p>
-<p>Install the latest version of the <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> as well as a distribution such as Ubuntu which can be found <a href="https://apps.microsoft.com/store/detail/ubuntu/9PDXGNCFSCZV">here</a>. Acquiring an interactive session is as simple as typing <code>wsl</code> in your command prompt, or alternatively, selecting the distribution from the dropdown menu available in the <a href="https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701">Microsoft Terminal</a>.</p>
-<p>You can now follow the appropriate instructions for your distribution.</p>
+<p>Then, in order to initialize your development environment, run the following command (or your installation path) in command prompt: </p><div class="fragment"><div class="line">&quot;C:\Program Files (x86)\Intel\oneAPI\setvars.bat&quot;</div>
+</div><!-- fragment --><p> Alternatively, you can run the following command in Powershell: </p><div class="fragment"><div class="line">cmd.exe &quot;/K&quot; &#39;&quot;C:\Program Files (x86)\Intel\oneAPI\setvars.bat&quot; &amp;&amp; powershell&#39;</div>
+</div><!-- fragment --><p> You could verify the initialization by typing <code>where mpiexec</code> in the command prompt terminal (does not work in Powershell), which should return the path to the Intel MPI executable. To continue following this guide, please stay in the initialized terminal window. Replace <code>./mfc.sh</code> with <code>.\mfc.bat</code> for all commands.</p>
+<p>If <code>.\mfc.bat build</code> produces errors, please run the command again. Repeating this process three times should resolve all errors (once each for pre_process, simulation, and post_process). If the same error persists after each attempt, please verify that you have installed all required software and properly initialized the development environment. If uncertain, you could try deleting the build directory and starting over.</p>
+<p>You will also have access to the <code>.sln</code> Microsoft Visual Studio solution files for an IDE (Integrated Development Environment).</p>
 <p></p>
 </details>
 <p></p>

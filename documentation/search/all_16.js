@@ -18,9 +18,9 @@ var searchData=
   ['power9_20cpu_15',['Power9 CPU',['../md_expectedPerformance.html#autotoc_md69',1,'IBM Power9 CPU'],['../md_expectedPerformance.html#autotoc_md74',1,'IBM Power9 CPU']]],
   ['primitive_20variables_16',['Analytical Definition of Primitive Variables',['../md_case.html#autotoc_md8',1,'']]],
   ['primitive_20variables_20ordering_17',['Primitive Variables Ordering',['../md_case.html#autotoc_md28',1,'']]],
-  ['problem_201d_18',['problem 1D',['../md_examples.html#autotoc_md37',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md40',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md46',1,'Titarev-Toro problem (1D)']]],
-  ['problem_202d_19',['Lid-Driven Cavity Problem (2D)',['../md_examples.html#autotoc_md34',1,'']]],
-  ['problem_202d_20',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md61',1,'']]],
+  ['problem_201d_18',['problem 1D',['../md_examples.html#autotoc_md54',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md30',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md39',1,'Titarev-Toro problem (1D)']]],
+  ['problem_202d_19',['Lid-Driven Cavity Problem (2D)',['../md_examples.html#autotoc_md48',1,'']]],
+  ['problem_202d_20',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md33',1,'']]],
   ['procedure_21',['Procedure',['../md_visualization.html#autotoc_md98',1,'']]],
   ['process_22',['Testing Post Process',['../md_testing.html#autotoc_md96',1,'']]],
   ['profiling_23',['GPU Profiling',['../md_running.html#autotoc_md89',1,'']]]
