@@ -12,6 +12,5 @@ var searchData=
   ['spc_9',['spc',['../structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc',1,'ic_model_parameters']]],
   ['ss_10',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters']]],
   ['sum_5falpha_11',['sum_alpha',['../m__rhs_8fpp_8f90.html#a796247036b68f5c2f04db3b4c943b5f2',1,'m_rhs.fpp.f90']]],
-  ['support_12',['support',['../structmono__parameters.html#a7399748c2d08fd39ada3faacbc6c653a',1,'mono_parameters']]],
-  ['support_5fwidth_13',['support_width',['../structmono__parameters.html#a1c1789ac9c35f7a81705c32591e463b2',1,'mono_parameters']]]
+  ['support_12',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]]
 ];

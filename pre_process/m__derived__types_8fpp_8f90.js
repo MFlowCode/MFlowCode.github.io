@@ -21,7 +21,7 @@ var m__derived__types_8fpp_8f90 =
     [ "probe_parameters", "structprobe__parameters.html", "structprobe__parameters" ],
     [ "mpi_io_airfoil_ib_var", "structmpi__io__airfoil__ib__var.html", "structmpi__io__airfoil__ib__var" ],
     [ "integral_parameters", "structintegral__parameters.html", "structintegral__parameters" ],
-    [ "mono_parameters", "structmono__parameters.html", "structmono__parameters" ],
+    [ "acoustic_parameters", "structacoustic__parameters.html", "structacoustic__parameters" ],
     [ "ghost_point", "structghost__point.html", "structghost__point" ],
     [ "__m_derived_types_fpp_f90__", "m__derived__types_8fpp_8f90.html#a433c72ee0b246578363fd76cc6001f09", null ]
 ];

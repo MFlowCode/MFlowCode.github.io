@@ -12,6 +12,6 @@ var searchData=
   ['pres_5fk_5finit_9',['pres_k_init',['../m__rhs_8fpp_8f90.html#a762d1c12479dcf998f8a5a47dc258ddc',1,'m_rhs.fpp.f90']]],
   ['pres_5frelax_10',['pres_relax',['../m__rhs_8fpp_8f90.html#a9dff053a7e3f9c1702a161f55d3e1726',1,'m_rhs.fpp.f90']]],
   ['ps_11',['ps',['../structbub__bounds__info.html#a90d2deb29311985091b8d8eb5ed92ec1',1,'bub_bounds_info']]],
-  ['pulse_12',['pulse',['../structmono__parameters.html#ac99c3b408fe4088b1a275c01c2fa970e',1,'mono_parameters']]],
+  ['pulse_12',['pulse',['../structacoustic__parameters.html#af9b80aa29d2bc272356ccf64b5c2dd52',1,'acoustic_parameters']]],
   ['pv_13',['pv',['../structphysical__parameters.html#a3c2abd6afda1cfe11a648d6b82845605',1,'physical_parameters']]]
 ];

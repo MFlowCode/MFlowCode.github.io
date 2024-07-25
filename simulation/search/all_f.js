@@ -17,7 +17,7 @@ var searchData=
   ['pres_5frelax_14',['pres_relax',['../m__rhs_8fpp_8f90.html#a9dff053a7e3f9c1702a161f55d3e1726',1,'m_rhs.fpp.f90']]],
   ['probe_5fparameters_15',['probe_parameters',['../structprobe__parameters.html',1,'']]],
   ['ps_16',['ps',['../structbub__bounds__info.html#a90d2deb29311985091b8d8eb5ed92ec1',1,'bub_bounds_info']]],
-  ['pulse_17',['pulse',['../structmono__parameters.html#ac99c3b408fe4088b1a275c01c2fa970e',1,'mono_parameters']]],
+  ['pulse_17',['pulse',['../structacoustic__parameters.html#af9b80aa29d2bc272356ccf64b5c2dd52',1,'acoustic_parameters']]],
   ['pv_18',['pv',['../structphysical__parameters.html#a3c2abd6afda1cfe11a648d6b82845605',1,'physical_parameters']]],
   ['pythag_19',['pythag',['../namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2',1,'m_eigen_solver']]]
 ];

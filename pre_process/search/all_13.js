@@ -207,7 +207,6 @@ var searchData=
   ['stretch_5fz_204',['stretch_z',['../namespacem__global__parameters.html#aaeee716bda208dc0427196cdb8ad8cdf',1,'m_global_parameters']]],
   ['strxb_205',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
   ['strxe_206',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
-  ['support_207',['support',['../structmono__parameters.html#a7399748c2d08fd39ada3faacbc6c653a',1,'mono_parameters']]],
-  ['support_5fwidth_208',['support_width',['../structmono__parameters.html#a1c1789ac9c35f7a81705c32591e463b2',1,'mono_parameters']]],
-  ['sys_5fsize_209',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
+  ['support_207',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]],
+  ['sys_5fsize_208',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
 ];

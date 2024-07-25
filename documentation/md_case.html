@@ -593,49 +593,83 @@ Parameter Descriptions</h3>
 <li><code>fd_order</code> specifies the order of the finite difference scheme that is used to compute the vorticity from the velocity field and the numerical schlieren from the density field by an integer of 1, 2, and 4. <code>fd_order = 1</code>, <code>2</code>, and <code>4</code> correspond to the first, second, and fourth-order finite difference schemes, respectively.</li>
 <li><code>probe_wrt</code> activates output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="acoustic-source"></a>
 8. Acoustic Source</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Monopole</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Acoustic source    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic_source</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Acoustic source module activation    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>num_mono</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of acoustic sources    </td></tr>
+<td class="markdownTableBodyRight"><code>num_source</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of acoustic sources    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Mono(i)%pulse</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Acoustic wave form: [1] Sine [2] Gaussian [3] Square    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%support</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Geometry of spatial support for the acoustic source    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Mono(i)%npulse</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of pulse cycles    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%dipole</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Dipole source activation (optional; default = false for monopole)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Mono(i)%support</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Type of the spatial support of the acoustic source : [1] 1D [2] Finite width (2D) [3] Support for finite line/patch [4] General support for 3D simulation in cartesian systems [5] Support along monopole acoustic transducer [6] Support for cylindrical coordinate system along axial-dir    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%loc(j)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">$j$-th coordinate of the point that defines the acoustic source location    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Mono(i)%support_width</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">The width of the monopole support in terms of cell width    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%pulse</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Acoustic wave form: [1] Sine [2] Gaussian [3] Square    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Mono(i)%loc(j)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">$j$-th coordinate of the point that consists of $i$-th source plane    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%npulse</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Number of pulse cycles    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Mono(i)%dir</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Direction of acoustic propagation    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%mag</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Pulse magnitude    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Mono(i)%mag</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Pulse magnitude    </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%frequency</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Sine/Square - Frequency of the acoustic wave (exclusive)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Mono(i)%length</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Spatial pulse length   </td></tr>
+<td class="markdownTableBodyRight"><code>acoustic(i)%wavelength</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Sine/Square - Wavelength of the acoustic wave (exclusive)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%gauss_sigma_time</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Gaussian - Gaussian pulse time width in terms of sigma (exclusive)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>acoustic(i)%gauss_sigma_dist</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Gaussian - Gaussian pulse spatial width in terms of sigma (exclusive)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%delay</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time delay of the acoustic wave (optional for <code>%pulse = 1</code> or <code>3</code>; default = 0)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>acoustic(i)%dir</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Planer - Direction of acoustic propagation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%length</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">2D/3D Planer - Spatial pulse length    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>acoustic(i)%height</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">3D Planer - Spatial pulse height    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%foc_length</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Transducer - Focal length of the transducer    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>acoustic(i)%aperture</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Transducer - Aperture of the transducer    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%num_elements</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Transducer array - Number of transducer elements in a transducer array    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>acoustic(i)%element_on</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Transducer array - Element number that is on (optional; default = 0 for all elements)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%element_spacing_angle</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">2D Transducer array - Spacing angle (in rad) between adjacent transducer elements    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>acoustic(i)%element_polygon_ratio</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">3D Transducer array - Ratio of polygon side length to transducer element radius    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>acoustic(i)%rotate_angle</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">3D Transducer array - Rotation angle of the transducer array (optional; default = 0)   </td></tr>
 </table>
-<p>The table lists acoustic source parameters. The parameters are optionally used to define a source plane in the domain that generates an acoustic wave that propagates in a specified direction normal to the source plane (one-way acoustic source). Details of the acoustic source model can be found in <a href="references.md#Maeda17">Maeda and Colonius (2017)</a>.</p>
+<p>Details of the transducer acoustic source model can be found in <a href="references.md#Maeda17">Maeda and Colonius (2017)</a>.</p>
 <ul>
-<li><code>Monopole</code> activates the acoustic source.</li>
-<li><code>num_mono</code> defines the total number of source planes by an integer.</li>
-<li><code>Mono(i)%pulse</code> specifies the choice of the acoustic waveform generated from $i$-th source plane by an integer. <code>Mono(i)%pulse = 1</code>, <code>2</code>, and <code>3</code> correspond to sinusoidal wave, Gaussian wave, and square wave, respectively.</li>
-<li><code>Mono(i)%npulse</code> defines the number of cycles of the acoustic wave generated from $i$-th source plane by an integer.</li>
-<li><code>Mono(i)%mag</code> defines the peak amplitude of the acoustic wave generated from $i$-th source plane with a given wave form.</li>
-<li><code>Mono(i)%length</code> defines the characteristic wavelength of the acoustic wave generated from $i$-th source plane.</li>
-<li><code>Mono(i)%support</code> specifies the choice of the geometry of acoustic source distribution of $i$-th source plane by an integer from 1 through 3:<ul>
-<li><code>Mono(i)%support = 1</code> specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>Mono(i)%loc(1)</code> in 1-D simulation.</li>
-<li><code>Mono(i)%support = 2</code> specifies a semi-infinite source plane in 2-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)%loc(1)</code>, <code>Mono(i)%loc(2)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)%dir</code>), $\mathrm{sin}$(<code>Mono(i)%dir</code>)] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y\in$[-<code>Mono(i)%length</code>/2, <code>Mono(i)%length</code>/2].</li>
-<li><code>Mono(i)%support = 3</code> specifies a semi-infinite source plane in 3-D simulation. The $i$-th source plane is determined by the point at [<code>Mono(i)%loc(1)</code>, <code>Mono(i)%loc(2)</code>, <code>Mono(i)%loc(3)</code>] and the normal vector [$\mathrm{cos}$(<code>Mono(i)%dir</code>), $\mathrm{sin}$(<code>Mono(i)%dir</code>), 1] that consists of this point. The source plane is defined in the finite region of the domain: $x\in[-\infty,\infty]$ and $y,z\in$[-<code>Mono(i)%length</code>/2, <code>Mono(i)%length</code>/2]. There are a few additional spatial support types available for special source types and coordinate systems tabulated in Monopole supports.</li>
+<li><code>acoustic_source</code> activates the acoustic source module.</li>
+<li><code>num_source</code> defines the total number of source planes by an integer.</li>
+<li><code>%support</code> specifies the choice of the geometry of acoustic source distribution. See table <a class="el" href="#acoustic-supports">Acoustic Supports</a> for details.</li>
+<li><code>%dipole</code> changes the default monopole (one-sided) source to a dipole source. It is only available for planar waves.</li>
+<li><code>%loc(j)</code> specifies the location of the acoustic source in the $j$-th coordinate direction. For planer support, the location defines midpoint of the source plane. For transducer arrays, the location defines the center of the transducer or transducer array (not the focal point; for 3D it's the tip of the spherical cap, for 2D it's the tip of the arc).</li>
+<li><code>%pulse</code> specifies the acoustic wave form. <code>%pulse = 1</code>, <code>2</code>, and <code>3</code> correspond to sinusoidal wave, Gaussian wave, and square wave, respectively.</li>
+<li><code>%npulse</code> specifies the number of cycles of the acoustic wave generated. Only applies to <code>%pulse = 1 and 3</code> (sine and square waves), and must be an integer for non-planar waves.</li>
+<li><code>%mag</code> specifies the peak amplitude of the acoustic wave.</li>
+<li><code>%frequency</code> and <code>%wavelength</code> specify the frequency and wavelength of the acoustic wave, respectively. These parameters are exclusive and exactly one of them must be specified for <code>%pulse = 1</code> or <code>3</code> (sine or square waves). They are related by the speed of sound in the medium: <code>frequency = speed_of_sound / wavelength</code>.</li>
+<li><code>%gauss_sigma_time</code> and <code>%gauss_sigma_dist</code> specify the time and spatial widths of the Gaussian pulse in terms of sigma, respectively. In particular, <code>%gauss_sigma_time</code> is the standard deviation in the Gaussian equation. These parameters are exclusive and exactly one of them must be specified for <code>%pulse = 2</code> (Gaussian wave). They are related by the speed of sound in the medium: <code>gauss_sigma_dist = speed_of_sound * gauss_sigma_time</code>.</li>
+<li><code>%delay</code> specifies the time delay of the acoustic wave. This parameter is optional for <code>%pulse = 1</code> or <code>3</code> (sine or square waves) and defaults to 0. It must be specified for <code>%pulse = 2</code> (Gaussian wave). It is important to note that setting the delay to 0 for a Gaussian pulse results in a half-Gaussian pulse, and delays that are too small may result in the pulse being cut off at the start of the simulation. <code>4*gauss_sigma_time</code> is a typical value for the delay of a Gaussian pulse.</li>
+<li><code>%dir</code> specifies the direction of acoustic wave propagation for planar waves. The direction is defined by the angle in degrees from the x-axis in the x-y plane. It applies to both 2D and 3D simulation of planar waves (support is infinite in z-direction for 3D).</li>
+<li><code>%length</code> specifies the spatial length of the 2D or 3D planar wave. It is the length of the source plane perpendicular to the direction of wave propagation.</li>
+<li><code>%height</code> specifies the spatial height of the planar wave. Since <code>%dir</code> is in the x-y plane, the height is perpendicular to the direction of wave propagation.</li>
+<li><code>%foc_length</code> specifies the focal length of the transducer for transducer waves. It is the distance from the transducer to the focal point.</li>
+<li><code>%aperture</code> specifies the aperture of the transducer. It is the diameter of the projection of the transducer arc onto the y-axis (2D) or spherical cap onto the y-z plane (3D). To simulate a transducer enclosing half of the circle/sphere, set the aperture to double the focal length. For transducer array, it is the total aperture of the array.</li>
+<li><code>%num_elements</code> specifies the number of transducer elements in a transducer array.</li>
+<li><code>%element_on</code> specifies the element number of the transducer array that is on. The element number starts from 1. If all elements are on, set <code>%element_on</code> to 0.</li>
+<li><code>%element_spacing_angle</code> specifies the spacing angle between adjacent transducer in radian. The total aperture (<code>%aperture</code>) is set, so each transducer element is smaller if <code>%element_spacing_angle</code> is larger.</li>
+<li><code>%element_polygon_ratio</code> specifies the ratio of the polygon side length to the aperture diameter of each transducer element in a circular 3D transducer array. The polygon side length is calculated by using the total aperture (<code>%aperture</code>) as the circumcicle diameter, and <code>%num_elements</code> as the number of sides of the polygon. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture.</li>
+<li><code>%rotate_angle</code> specifies the rotation angle of the 3D circular transducer array along the x-axis (principal axis). It is optional and defaults to 0.</li>
 </ul>
-</li>
-<li><code>Mono(i)%support_width</code> defines how many cell width the monopole support function extended by. Large <code>Mono(i)%support_width</code> is preferred when <code>Mono(i)%mag</code> is large.</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md16"></a>
 9. Ensemble-Averaged Bubble Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -716,7 +750,7 @@ Parameter Descriptions</h3>
 <li><code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in qbmm. <br  />
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md17"></a>
 10. Velocity Field Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -746,7 +780,7 @@ Parameter Descriptions</h3>
 <li><code>vel_profile</code> activates setting the mean streamwise velocity to hyperbolic tangent profile. This option works only for 2D and 3D cases.</li>
 <li><code>instability_wave</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for <code>n &gt; 0</code>, <code>bc_y%[beg,end] = -5</code>, and <code>vel_profile = 'T'</code>.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 11. Phase Change Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -766,7 +800,7 @@ Parameter Descriptions</h3>
 <li><code>palpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pT-equilibrium model.</li>
 <li><code>ptgalpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pTg-equilibrium model.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 12. Artificial Mach Number</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -777,7 +811,7 @@ Parameter Descriptions</h3>
 <ul>
 <li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models, when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 13. Body Forces</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -796,9 +830,9 @@ Parameter Descriptions</h3>
 <p><code>k_x[y,z]</code>, <code>w_x[y,z]</code>, <code>p_x[y,z]</code>, and <code>g_x[y,z]</code> define an oscillating acceleration in the <code>x[y,z]</code> direction with the form</p>
 <p>$$ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). $$</p>
 <p>Positive accelerations are in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction by convention.</p>
-<h1><a class="anchor" id="autotoc_md22"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -836,7 +870,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_y%beg</code> when using cylindrical coordinates (<code>cyl_coord = 'T'</code> and 3D). For axisymmetric problems, use <code>bc_y%beg = -2</code> with <code>cyl_coord = 'T'</code> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -885,7 +919,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>model%filepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)%geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -903,26 +937,51 @@ Immersed Boundary Patch Types</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyCenter">3D Airfoil   </td><td class="markdownTableBodyLeft">3   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md26"></a>
-Monopole Supports</h2>
+<h2><a class="anchor" id="acoustic-supports"></a>
+Acoustic Supports</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">#   </th><th class="markdownTableHeadNone">Description    </th></tr>
+<th class="markdownTableHeadRight">#   </th><th class="markdownTableHeadCenter">Name   </th><th class="markdownTableHeadCenter">Dim.   </th><th class="markdownTableHeadLeft">Requirements    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">1   </td><td class="markdownTableBodyNone">1D normal to x-axis    </td></tr>
+<td class="markdownTableBodyRight">1   </td><td class="markdownTableBodyCenter">Planar source   </td><td class="markdownTableBodyCenter">1D   </td><td class="markdownTableBodyLeft"><code>%loc(1)</code>, <code>%pulse</code>, <code>%npulse</code>, <code>%mag</code>, and <code>%dir</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">2   </td><td class="markdownTableBodyNone">2D semi-infinite source plane    </td></tr>
+<td class="markdownTableBodyRight">2   </td><td class="markdownTableBodyCenter">Planar source   </td><td class="markdownTableBodyCenter">2D   </td><td class="markdownTableBodyLeft">#1 requirements, <code>%loc(2)</code> and <code>%length</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">3   </td><td class="markdownTableBodyNone">3D semi-infinite source plane along some lines    </td></tr>
+<td class="markdownTableBodyRight">3   </td><td class="markdownTableBodyCenter">Planar source   </td><td class="markdownTableBodyCenter">3D   </td><td class="markdownTableBodyLeft">#2 requirements and <code>%height</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">4   </td><td class="markdownTableBodyNone">3D semi-infinite source plane    </td></tr>
+<td class="markdownTableBodyRight">5   </td><td class="markdownTableBodyCenter">Cylindrical Transducer   </td><td class="markdownTableBodyCenter">2D   </td><td class="markdownTableBodyLeft"><code>%loc(1)</code>, <code>%loc(2)</code>, <code>%pulse</code>, <code>%npulse</code>, <code>%mag</code>, <code>%foc_length</code>, <code>%aperture</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">5   </td><td class="markdownTableBodyNone">Transducer    </td></tr>
+<td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyCenter">Spherical Transducer   </td><td class="markdownTableBodyCenter">2D-Axisym   </td><td class="markdownTableBodyLeft">#5 requirements    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">6   </td><td class="markdownTableBodyNone">Cyl_coord along axial-dir   </td></tr>
+<td class="markdownTableBodyRight">7   </td><td class="markdownTableBodyCenter">Spherical Transducer   </td><td class="markdownTableBodyCenter">3D   </td><td class="markdownTableBodyLeft">#5 requirements and <code>%loc(3)</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">9   </td><td class="markdownTableBodyCenter">Arcuate Transducer Array   </td><td class="markdownTableBodyCenter">2D   </td><td class="markdownTableBodyLeft">#5 requirements, <code>%num_elements</code>, <code>%element_on</code>, <code>%element_spacing_angle</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">10   </td><td class="markdownTableBodyCenter">Annular Transducer Array   </td><td class="markdownTableBodyCenter">2D-Axisym   </td><td class="markdownTableBodyLeft">#9 requirements    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">11   </td><td class="markdownTableBodyCenter">Circular Transducer Array   </td><td class="markdownTableBodyCenter">3D   </td><td class="markdownTableBodyLeft">#7 requirements, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code>(optional; default = 0)   </td></tr>
 </table>
-<p>The monopole support types available in MFC are listed in table Monopole supports. This includes types exclusive to one-, two-, and three-dimensional problems with special sauce geometry like transducers as well as coordinate systems such as cylindrical coordinates. The monopole support number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>Mono(i)%support</code> where $i$ is the monopole source index.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<p>Details of the required parameters for each acoustic support type are listed in <a class="el" href="#acoustic-source">Acoustic Source</a>. The acoustic support number (<code>#</code>) corresponds to the acoustic support type <code>Acoustic(i)%support</code>, where $i$ is the acoustic source index. For each <code>%parameter</code>, prepend the parameter with <code>acoustic(i)%</code>.</p>
+<p>Additional requirements for all acoustic support types:</p><ul>
+<li><code>acoustic_source = 'T'</code> must be used to activate the acoustic source module.</li>
+<li><code>num_source</code> must be set to the total number of acoustic sources.</li>
+<li><code>%support</code> must be set to the acoustic support number listed in the table.</li>
+<li><code>%dipole</code> is only supported for planar sources.</li>
+<li><code>%npulse = 1 or 3</code> requires exactly one of <code>%frequency</code> or <code>%wavelength</code> to be set. It accepts <code>%delay</code> as an optional parameter (default = 0).</li>
+<li><code>%npulse = 2</code> requires exactly one of <code>%gauss_sigma_time</code> or <code>%gauss_sigma_space</code> to be set. It requires <code>%delay</code> to be set.</li>
+</ul>
+<p>Description of the acoustic support types:</p><ul>
+<li><code>%support = 1</code> specifies an infinite source plane that is normal to the $x$-axis and intersects with the axis at $x=$ <code>%loc(1)</code> in 1D simulation. <code>%dir &gt; 0</code> specifies a rightward propagating wave, and <code>%dir &lt; 0</code> specifies a leftward propagating wave. <code>%dir = 0</code> is not allowed.</li>
+<li><code>%support = 2</code> specifies a semi-infinite source plane in 2D simulation. The midplane location is [<code>%loc(1)</code>, <code>%loc(2)</code>] and the normal vector is [$\mathrm{cos}$(<code>%dir</code>), $\mathrm{sin}$(<code>%dir</code>)]. The length of the source plane is <code>%length</code>, and the plane is perpendicular to the direction of wave propagation (defined by <code>%dir</code>).</li>
+<li><code>%support = 3</code> specifies a semi-infinite source plane in 3D simulation. The midplane location is [<code>%loc(1)</code>, <code>%loc(2)</code>] and the normal vector is [$\mathrm{cos}$(<code>%dir</code>), $\mathrm{sin}$(<code>%dir</code>)]. The length of the source plane is <code>%length</code>, and the plane is perpendicular to the direction of wave propagation (defined by <code>%dir</code>). Note that the plane is infinite in the $z$-direction, so <code>%loc(3)</code> is not required.</li>
+<li><code>%support = 5</code> specifies a circular transducer in 2D simulation. The transducer is centered at [<code>%loc(1)</code>, <code>%loc(2)</code>] with a focal length of <code>%foc_length</code> and an aperture of <code>%aperture</code>. The center location is not the focal point; it is the tip of the circular arc (intersection of the arc and the x-axis). The aperture is the length of the projection of the circular arc onto the y-axis. If a semi-circle is desired, set the aperture to double the focal length. Note that this is physically a cylindrical transducer, and due to the complexity of Green's function for 2D wave, no closed-form solution is available for the 2D circular transducer, and an approximate is used (see <a href="references.md#Maeda17">Maeda and Colonius (2017)</a> for details). For the mass source term correction factor, the theoretical approximation factor of -0.5 in ($r_{foc}^{-0.5}$) is replaced by an empirically determined factor of -0.85.</li>
+<li><code>%support = 6</code> specifies a spherical transducer in 2D axisymmetric simulation. It is identical to <code>%support = 5</code> in terms of simulation parameters. Note that this is physically a spherical 3D transducer, so the equation is exact.</li>
+<li><code>%support = 7</code> specifies a spherical transducer in 3D simulation. The transducer is centered at [<code>%loc(1)</code>, <code>%loc(2)</code>, <code>%loc(3)</code>] with a focal length of <code>%foc_length</code> and an aperture of <code>%aperture</code>. The center location is not the focal point; it is the tip of the spherical cap (intersection of the cap and the x-axis). The aperture is the diameter of the projection of the spherical cap onto the y-z plane. If a semi-sphere is desired, set the aperture to double the focal length. Again, the equation is exact.</li>
+<li><code>%support = 9</code> specifies an arcuate transducer array in 2D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 5</code>. The parameters <code>%num_elements</code> and <code>%element_spacing_angle</code> specify the number of transducer elements and the spacing angle. The spacing angle is the angle of the gap between adjacent transducer elements in the array. Because the total aperture is set, each transducer element is smaller if the spacing angle is larger. Physically it represents curved panels. Note that similar to <code>%support = 5</code>, the mass source term correction factor is empirically determined to be -0.85.</li>
+<li><code>%support = 10</code> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <code>%support = 9</code> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <code>%support = 9</code> around the x-axis.</li>
+<li><code>%support = 11</code> specifies a circular transducer array in 3D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 7</code>. The parameters <code>%num_elements</code>, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <code>%num_elements</code>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -948,7 +1007,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

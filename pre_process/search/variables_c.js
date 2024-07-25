@@ -5,7 +5,7 @@ var searchData=
   ['m_5fglb_2',['m_glb',['../namespacem__global__parameters.html#ad4e160df8d0de7ea1801a1ca29f8e9b0',1,'m_global_parameters']]],
   ['m_5fn_3',['m_n',['../namespacem__global__parameters.html#a5600a60608bd352783350438a2efb0fe',1,'m_global_parameters']]],
   ['m_5fv_4',['m_v',['../structphysical__parameters.html#aac96a13581516e992b0b0ff806d6a68f',1,'physical_parameters::m_v'],['../namespacem__global__parameters.html#a35a6f248eec9c489110fad19d906bd40',1,'m_global_parameters::m_v']]],
-  ['mag_5',['mag',['../structmono__parameters.html#a98e16e7416328d088723877357d3e7a7',1,'mono_parameters']]],
+  ['mag_5',['mag',['../structacoustic__parameters.html#aecde4c229e2b34ec696327c5bbc7c7a8',1,'acoustic_parameters']]],
   ['mass_5fn0_6',['mass_n0',['../namespacem__global__parameters.html#ae3701f74c9487c9e56c2a11fb6a52e40',1,'m_global_parameters']]],
   ['mass_5fv0_7',['mass_v0',['../namespacem__global__parameters.html#a6a06981be6cdab78452a106009022aa4',1,'m_global_parameters']]],
   ['mct_8',['mct',['../m__phase__change_8fpp_8f90.html#af89fb7628206a6165ab3dd8583a6fbcb',1,'m_phase_change.fpp.f90']]],

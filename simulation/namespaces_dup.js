@@ -13,6 +13,7 @@ var namespaces_dup =
     ] ],
     [ "m_checker", "namespacem__checker.html", [
       [ "s_check_inputs", "namespacem__checker.html#a91965851c33800f743ed0f6eb055f013", null ],
+      [ "s_check_inputs_acoustic_src", "namespacem__checker.html#a49fc95e41875b68c3bf2e5ffc19bd1a3", null ],
       [ "s_check_inputs_adapt_dt", "namespacem__checker.html#a16fc538242ca99cd4484ce1f131375e0", null ],
       [ "s_check_inputs_alt_soundspeed", "namespacem__checker.html#acd159d784aacc1b40546f9b0b24572af", null ],
       [ "s_check_inputs_body_forces", "namespacem__checker.html#ae0c70cbee730f7d3a6a8e73c2481b9fc", null ],
@@ -21,7 +22,6 @@ var namespaces_dup =
       [ "s_check_inputs_hypoelasticity", "namespacem__checker.html#aba87b09d8a683ac08c30c97f0c42540e", null ],
       [ "s_check_inputs_misc", "namespacem__checker.html#acd9c8d302aa495492a27f8d847c14929", null ],
       [ "s_check_inputs_model_eqns", "namespacem__checker.html#a1f48137af879055fa06db09109fbb10c", null ],
-      [ "s_check_inputs_monopole", "namespacem__checker.html#a41168f8917f8c2def904ec3563ecd702", null ],
       [ "s_check_inputs_riemann_solver", "namespacem__checker.html#af81d33b5f248906792b4152ad96b5204", null ],
       [ "s_check_inputs_stiffened_eos_viscosity", "namespacem__checker.html#a0fc0440565d7ecfa120fb79e6c389efb", null ],
       [ "s_check_inputs_time_stepping", "namespacem__checker.html#a44acd2d6b579775b1d6a4a5c4aa090a9", null ],
@@ -65,6 +65,7 @@ var namespaces_dup =
       [ "s_compute_supersonic_outflow_l", "namespacem__compute__cbc.html#a2540ddd993a9852241a2d40168608fd4", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
+      [ "acoustic_spatial_support_width", "namespacem__constants.html#ab6dedacbf78b91cd293dcd12dc1d5cd1", null ],
       [ "capillary_cutoff", "namespacem__constants.html#a0cf16707988911557a1775d347cc048b", null ],
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
@@ -115,7 +116,8 @@ var namespaces_dup =
     [ "m_helper_basic", "namespacem__helper__basic.html", [
       [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
       [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
-      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ]
+      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ],
+      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ]

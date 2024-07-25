@@ -1,5 +1,6 @@
 var m__constants_8fpp_8f90 =
 [
+    [ "acoustic_spatial_support_width", "m__constants_8fpp_8f90.html#ab6dedacbf78b91cd293dcd12dc1d5cd1", null ],
     [ "capillary_cutoff", "m__constants_8fpp_8f90.html#a0cf16707988911557a1775d347cc048b", null ],
     [ "dflt_char", "m__constants_8fpp_8f90.html#a89491724fc8077006ff1b62f981400ac", null ],
     [ "dflt_int", "m__constants_8fpp_8f90.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],

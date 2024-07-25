@@ -35,7 +35,7 @@ var searchData=
   ['proc_5frank_5fdir_32',['proc_rank_dir',['../namespacem__data__output.html#ac9711cb2f20dace017da2bf94fd68118',1,'m_data_output']]],
   ['process_33',['MFC Post-Process',['../index.html',1,'']]],
   ['ps_34',['ps',['../structbub__bounds__info.html#a90d2deb29311985091b8d8eb5ed92ec1',1,'bub_bounds_info']]],
-  ['pulse_35',['pulse',['../structmono__parameters.html#ac99c3b408fe4088b1a275c01c2fa970e',1,'mono_parameters']]],
+  ['pulse_35',['pulse',['../structacoustic__parameters.html#af9b80aa29d2bc272356ccf64b5c2dd52',1,'acoustic_parameters']]],
   ['pv_36',['pv',['../structphysical__parameters.html#a3c2abd6afda1cfe11a648d6b82845605',1,'physical_parameters::pv'],['../namespacem__global__parameters.html#acc5b8b153cee23d65a886df38f821f08',1,'m_global_parameters::pv']]],
   ['pythag_37',['pythag',['../namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2',1,'m_eigen_solver']]]
 ];

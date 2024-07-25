@@ -13,6 +13,7 @@ var annotated_dup =
       [ "s_read_abstract_grid_data_files", "interfacem__start__up_1_1s__read__abstract__grid__data__files.html", "interfacem__start__up_1_1s__read__abstract__grid__data__files" ],
       [ "s_read_abstract_ic_data_files", "interfacem__start__up_1_1s__read__abstract__ic__data__files.html", "interfacem__start__up_1_1s__read__abstract__ic__data__files" ]
     ] ],
+    [ "acoustic_parameters", "structacoustic__parameters.html", "structacoustic__parameters" ],
     [ "bounds_info", "structbounds__info.html", "structbounds__info" ],
     [ "bub_bounds_info", "structbub__bounds__info.html", "structbub__bounds__info" ],
     [ "field_position", "structfield__position.html", "structfield__position" ],
@@ -23,7 +24,6 @@ var annotated_dup =
     [ "int_bounds_info", "structint__bounds__info.html", "structint__bounds__info" ],
     [ "integer_field", "structinteger__field.html", "structinteger__field" ],
     [ "integral_parameters", "structintegral__parameters.html", "structintegral__parameters" ],
-    [ "mono_parameters", "structmono__parameters.html", "structmono__parameters" ],
     [ "mpi_io_airfoil_ib_var", "structmpi__io__airfoil__ib__var.html", "structmpi__io__airfoil__ib__var" ],
     [ "mpi_io_ib_var", "structmpi__io__ib__var.html", "structmpi__io__ib__var" ],
     [ "mpi_io_var", "structmpi__io__var.html", "structmpi__io__var" ],

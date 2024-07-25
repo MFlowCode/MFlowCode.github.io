@@ -76,6 +76,7 @@ var namespaces_dup =
       [ "s_get_cwd", "namespacem__compile__specific.html#ae3383041a3e88fce84fcc7aa39a7c4d5", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
+      [ "acoustic_spatial_support_width", "namespacem__constants.html#ab6dedacbf78b91cd293dcd12dc1d5cd1", null ],
       [ "capillary_cutoff", "namespacem__constants.html#a0cf16707988911557a1775d347cc048b", null ],
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
@@ -285,7 +286,8 @@ var namespaces_dup =
     [ "m_helper_basic", "namespacem__helper__basic.html", [
       [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
       [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
-      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ]
+      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ],
+      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ]
     ] ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#aec342b623ebff62f17b416ece04367aa", null ],

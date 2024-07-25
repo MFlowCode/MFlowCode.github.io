@@ -19,5 +19,6 @@ var searchData=
   ['rhoref_16',['rhoref',['../namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534',1,'m_global_parameters']]],
   ['rm_17',['rm',['../m__phase__change_8fpp_8f90.html#a5b844989c2a7395cd3ebd29d75a3fc67',1,'m_phase_change.fpp.f90']]],
   ['rootdir_18',['rootdir',['../namespacem__data__output.html#afe3f36ee866946447f08d94c4bdaa6de',1,'m_data_output']]],
-  ['rs_19',['rs',['../structbub__bounds__info.html#a3661fbaf8357f886c87a7ac46e1495a9',1,'bub_bounds_info']]]
+  ['rotate_5fangle_19',['rotate_angle',['../structacoustic__parameters.html#a342ed1cd317962edd1f48ab1257a0be5',1,'acoustic_parameters']]],
+  ['rs_20',['rs',['../structbub__bounds__info.html#a3661fbaf8357f886c87a7ac46e1495a9',1,'bub_bounds_info']]]
 ];

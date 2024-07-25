@@ -36,6 +36,6 @@ var searchData=
   ['proc_5frank_5fdir_33',['proc_rank_dir',['../namespacem__start__up.html#a653ba8302e02e2c348dd9cd7cc81e761',1,'m_start_up']]],
   ['ps_34',['ps',['../structbub__bounds__info.html#a90d2deb29311985091b8d8eb5ed92ec1',1,'bub_bounds_info']]],
   ['ptgalpha_5feps_35',['ptgalpha_eps',['../namespacem__global__parameters.html#a0c326cc808b3aeb50efc5b7654c29e6b',1,'m_global_parameters']]],
-  ['pulse_36',['pulse',['../structmono__parameters.html#ac99c3b408fe4088b1a275c01c2fa970e',1,'mono_parameters']]],
+  ['pulse_36',['pulse',['../structacoustic__parameters.html#af9b80aa29d2bc272356ccf64b5c2dd52',1,'acoustic_parameters']]],
   ['pv_37',['pv',['../structphysical__parameters.html#a3c2abd6afda1cfe11a648d6b82845605',1,'physical_parameters::pv'],['../namespacem__global__parameters.html#acc5b8b153cee23d65a886df38f821f08',1,'m_global_parameters::pv']]]
 ];
