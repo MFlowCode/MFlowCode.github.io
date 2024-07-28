@@ -14,7 +14,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MFC: Performance Results</title>
+<title>MFC: Performance</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -131,14 +131,18 @@ $(function(){initNavTree('md_expectedPerformance.html',''); initResizable(true);
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Performance Results</div></div>
+  <div class="headertitle"><div class="title">Performance</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md62"></a></p>
 <p>MFC has been benchmarked on several CPUs and GPU devices. This page shows a summary of these results.</p>
 <h1><a class="anchor" id="autotoc_md63"></a>
-Expected time-steps/hour</h1>
-<p>The following table outlines observed performance as nanoseconds per grid point (ns/GP) per equation (eq) per right-hand side (rhs) evaluation (lower is better). We solve an example 3D, inviscid, 5-equation model problem with two advected species (8 PDEs) and 8M grid points (158-cubed uniform grid). The numerics are WENO5 finite volume reconstruction and HLLC approximate Riemann solver. This case is located in <code>examples/3D_performance_test</code>. We report results for various numbers of grid points per CPU die (or GPU device) and hardware. Results are for MFC v4.9.3 (July 2024 release), though numbers have not changed meaningfully since then. All results are for the compiler that gave the best performance. CPU results may be performed on CPUs with more cores than reported in the table; we report results for the best performance given the full processor die by checking the performance for different core counts on that device. GPU results on single-precision (SP) GPUs performed computation in double-precision via conversion in compiler/software; these numbers are <em>not</em> for single-precision computation. AMD MI250X GPUs have two graphics compute dies (GCDs) per MI250X device; we report results for one GCD, though one can quickly estimate full MI250X runtime by halving the single GCD grind time number.</p>
+Figure of merit: Grind time performance</h1>
+<p>The following table outlines observed performance as nanoseconds per grid point (ns/GP) per equation (eq) per right-hand side (rhs) evaluation (lower is better), also known as the grind time. We solve an example 3D, inviscid, 5-equation model problem with two advected species (8 PDEs) and 8M grid points (158-cubed uniform grid). The numerics are WENO5 finite volume reconstruction and HLLC approximate Riemann solver. This case is located in <code>examples/3D_performance_test</code>.</p>
+<p>Results are for MFC v4.9.3 (July 2024 release), though numbers have not changed meaningfully since then. All results are for the compiler that gave the best performance. Note:</p><ul>
+<li>CPU results may be performed on CPUs with more cores than reported in the table; we report results for the best performance given the full processor die by checking the performance for different core counts on that device. These are reported as (X/Y cores), where X is the used cores, and Y is the total on the die.</li>
+<li>GPU results on single-precision (SP) GPUs performed computation in double-precision via conversion in compiler/software; these numbers are <em>not</em> for single-precision computation. AMD MI250X GPUs have two graphics compute dies (GCDs) per MI250X device; we report results for one GCD, though one can quickly estimate full MI250X runtime by halving the single GCD grind time number.</li>
+</ul>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Hardware   </th><th class="markdownTableHeadRight"></th><th class="markdownTableHeadCenter">Grind Time   </th><th class="markdownTableHeadLeft">Compiler   </th><th class="markdownTableHeadLeft">Computer    </th></tr>
@@ -159,11 +163,15 @@ Expected time-steps/hour</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">NVIDIA RTX6000 (SP GPU)   </td><td class="markdownTableBodyRight">1 GPU   </td><td class="markdownTableBodyCenter">3.9   </td><td class="markdownTableBodyLeft">NVHPC 22.11   </td><td class="markdownTableBodyLeft">GT Phoenix    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">Apple M1 Max   </td><td class="markdownTableBodyRight">8 cores   </td><td class="markdownTableBodyCenter">72   </td><td class="markdownTableBodyLeft">GNU 14.1.0   </td><td class="markdownTableBodyLeft">N/A    </td></tr>
+<td class="markdownTableBodyRight">Apple M1 Max   </td><td class="markdownTableBodyRight">8/10 cores   </td><td class="markdownTableBodyCenter">72   </td><td class="markdownTableBodyLeft">GNU 14.1.0   </td><td class="markdownTableBodyLeft">N/A    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">AMD EPYC 7713   </td><td class="markdownTableBodyRight">32 cores   </td><td class="markdownTableBodyCenter">137   </td><td class="markdownTableBodyLeft">GNU 12.1.0   </td><td class="markdownTableBodyLeft">GT Phoenix    </td></tr>
+<td class="markdownTableBodyRight">AMD EPYC 9534 (Genoa)   </td><td class="markdownTableBodyRight">64/64 cores   </td><td class="markdownTableBodyCenter">96   </td><td class="markdownTableBodyLeft">GNU 12.3.0   </td><td class="markdownTableBodyLeft">GT Phoenix    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">Intel Xeon Gold 6226   </td><td class="markdownTableBodyRight">12 cores   </td><td class="markdownTableBodyCenter">152   </td><td class="markdownTableBodyLeft">Intel oneAPI 2022.1   </td><td class="markdownTableBodyLeft">GT Phoenix   </td></tr>
+<td class="markdownTableBodyRight">Intel Xeon Gold 6454S (Sapphire Rapids)   </td><td class="markdownTableBodyRight">16/32 cores   </td><td class="markdownTableBodyCenter">111   </td><td class="markdownTableBodyLeft">NVHPC 24.5   </td><td class="markdownTableBodyLeft">GT Rogues Gallery    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">AMD EPYC 7713 (Milan)   </td><td class="markdownTableBodyRight">32/64 cores   </td><td class="markdownTableBodyCenter">137   </td><td class="markdownTableBodyLeft">GNU 12.1.0   </td><td class="markdownTableBodyLeft">GT Phoenix    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">Intel Xeon Gold 6226 (Cascade Lake)   </td><td class="markdownTableBodyRight">12/12 cores   </td><td class="markdownTableBodyCenter">152   </td><td class="markdownTableBodyLeft">Intel oneAPI 2022.1   </td><td class="markdownTableBodyLeft">GT Phoenix   </td></tr>
 </table>
 <p><b>All grind times are in nanoseconds (ns) per grid point (gp) per equation (eq) per right-hand side (rhs) evaluation, so X ns/gp/eq/rhs. Lower is better.</b></p>
 <h1><a class="anchor" id="autotoc_md64"></a>

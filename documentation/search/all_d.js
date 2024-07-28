@@ -9,6 +9,5 @@ var searchData=
   ['example_20runs_6',['Example Runs',['../md_running.html#autotoc_md91',1,'']]],
   ['examples_2emd_7',['examples.md',['../examples_8md.html',1,'']]],
   ['execution_8',['Execution',['../md_running.html#autotoc_md86',1,'Batch Execution'],['../md_running.html#autotoc_md85',1,'Interactive Execution']]],
-  ['expected_20time_20steps_20hour_9',['Expected time-steps/hour',['../md_expectedPerformance.html#autotoc_md63',1,'']]],
-  ['expectedperformance_2emd_10',['expectedPerformance.md',['../expectedPerformance_8md.html',1,'']]]
+  ['expectedperformance_2emd_9',['expectedPerformance.md',['../expectedPerformance_8md.html',1,'']]]
 ];

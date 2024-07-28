@@ -17,10 +17,9 @@ var searchData=
   ['step_201_3a_20setting_20up_20your_20environment_14',['Step 1: Setting up your Environment',['../md_visualization.html#autotoc_md99',1,'']]],
   ['step_202_3a_20customizing_20the_20script_15',['Step 2: Customizing the script',['../md_visualization.html#autotoc_md100',1,'']]],
   ['step_203_3a_20running_20pace_20paraview_20server_16',['Step 3: Running pace-paraview-server',['../md_visualization.html#autotoc_md101',1,'']]],
-  ['steps_20hour_17',['Expected time-steps/hour',['../md_expectedPerformance.html#autotoc_md63',1,'']]],
-  ['strong_20scaling_18',['Strong Scaling',['../md_examples.html#autotoc_md60',1,'']]],
-  ['strong_20scaling_19',['Strong scaling',['../md_expectedPerformance.html#autotoc_md68',1,'']]],
-  ['strong_20weak_20scaling_20',['Strong- &amp; Weak-scaling',['../md_examples.html#autotoc_md58',1,'']]],
-  ['suite_21',['Running the Test Suite',['../md_getting-started.html#autotoc_md77',1,'']]],
-  ['supports_22',['Acoustic Supports',['../md_case.html#acoustic-supports',1,'']]]
+  ['strong_20scaling_17',['Strong Scaling',['../md_examples.html#autotoc_md60',1,'']]],
+  ['strong_20scaling_18',['Strong scaling',['../md_expectedPerformance.html#autotoc_md68',1,'']]],
+  ['strong_20weak_20scaling_19',['Strong- &amp; Weak-scaling',['../md_examples.html#autotoc_md58',1,'']]],
+  ['suite_20',['Running the Test Suite',['../md_getting-started.html#autotoc_md77',1,'']]],
+  ['supports_21',['Acoustic Supports',['../md_case.html#acoustic-supports',1,'']]]
 ];

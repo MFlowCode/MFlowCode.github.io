@@ -10,7 +10,7 @@ var searchData=
   ['tests_7',['Creating Tests',['../md_testing.html#autotoc_md93',1,'']]],
   ['the_20script_8',['Step 2: Customizing the script',['../md_visualization.html#autotoc_md100',1,'']]],
   ['the_20test_20suite_9',['Running the Test Suite',['../md_getting-started.html#autotoc_md77',1,'']]],
-  ['time_20steps_20hour_10',['Expected time-steps/hour',['../md_expectedPerformance.html#autotoc_md63',1,'']]],
+  ['time_20performance_10',['Figure of merit: Grind time performance',['../md_expectedPerformance.html#autotoc_md63',1,'']]],
   ['titarev_20toro_20problem_201d_11',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md37',1,'']]],
   ['toro_20problem_201d_12',['Titarev-Toro problem (1D)',['../md_examples.html#autotoc_md37',1,'']]],
   ['tube_20problem_201d_13',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md52',1,'']]],

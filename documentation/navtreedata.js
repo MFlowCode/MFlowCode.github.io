@@ -107,8 +107,8 @@ var NAVTREE =
         [ "Example", "md_examples.html#autotoc_md61", null ]
       ] ]
     ] ],
-    [ "Performance Results", "md_expectedPerformance.html", [
-      [ "Expected time-steps/hour", "md_expectedPerformance.html#autotoc_md63", null ],
+    [ "Performance", "md_expectedPerformance.html", [
+      [ "Figure of merit: Grind time performance", "md_expectedPerformance.html#autotoc_md63", null ],
       [ "Weak scaling", "md_expectedPerformance.html#autotoc_md64", [
         [ "AMD MI250X GPU", "md_expectedPerformance.html#autotoc_md65", null ],
         [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md66", null ],
