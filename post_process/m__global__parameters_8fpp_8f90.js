@@ -5,7 +5,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "s_initialize_global_parameters_module", "m__global__parameters_8fpp_8f90.html#a0ab7a5fabf3176ffda10bd9b5b6bf410", null ],
     [ "s_initialize_parallel_io", "m__global__parameters_8fpp_8f90.html#a8bba2f308a8b95fbe6290466f58206d5", null ],
     [ "adv", "m__global__parameters_8fpp_8f90.html#ab08373aff5e7867fd0d6a24f4eb1238d", null ],
-    [ "adv_alphan", "m__global__parameters_8fpp_8f90.html#abebd95d9d0271fbda40f47f75a2d829b", null ],
     [ "adv_idx", "m__global__parameters_8fpp_8f90.html#ab73a1c5c3f6815695771323454db2a81", null ],
     [ "adv_n", "m__global__parameters_8fpp_8f90.html#aaf85bdfa4c053e4366099e4f4520fb71", null ],
     [ "advxb", "m__global__parameters_8fpp_8f90.html#af4751a18db30b97d83e7f0372182a18d", null ],

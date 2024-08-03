@@ -128,7 +128,6 @@ var namespaces_dup =
       [ "s_initialize_global_parameters_module", "namespacem__global__parameters.html#a0ab7a5fabf3176ffda10bd9b5b6bf410", null ],
       [ "s_initialize_parallel_io", "namespacem__global__parameters.html#a8bba2f308a8b95fbe6290466f58206d5", null ],
       [ "adv", "namespacem__global__parameters.html#ab08373aff5e7867fd0d6a24f4eb1238d", null ],
-      [ "adv_alphan", "namespacem__global__parameters.html#abebd95d9d0271fbda40f47f75a2d829b", null ],
       [ "adv_idx", "namespacem__global__parameters.html#ab73a1c5c3f6815695771323454db2a81", null ],
       [ "adv_n", "namespacem__global__parameters.html#aaf85bdfa4c053e4366099e4f4520fb71", null ],
       [ "advxb", "namespacem__global__parameters.html#af4751a18db30b97d83e7f0372182a18d", null ],

@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"structphysical__parameters.html#ab7752a9cce4c42f55da488ad594529a7":[2,0,18,6],
-"structphysical__parameters.html#abcdbd314ebd4809ab9883b291f3ed8bb":[2,0,18,4],
 "structphysical__parameters.html#ae9d7f7012682110e64243a135b2fdc83":[2,0,18,2],
 "structpres__field.html":[2,0,19],
 "structpres__field.html#a2ae14c70a9a127c0e3d870b631e3d37d":[2,0,19,0],

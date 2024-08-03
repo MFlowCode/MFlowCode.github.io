@@ -358,7 +358,7 @@ Parameter Descriptions</h3>
 </ul>
 </li>
 <li><code>smoothen</code> activates smoothening of the boundary of the patch that alters the existing patch. When smoothening occurs, fluids of the two patches are mixed in the region of the boundary. For instance, in the aforementioned case of the cylindrical patch immersed in the rectangular patch, smoothening occurs when <code>patch_icpp(2)smoothen = 'T'</code>. <code>smooth_coeff</code> controls the thickness of the region of smoothening (sharpness of the mixture region). The default value of <code>smooth_coeff</code> is unity. The region of smoothening is thickened with decreasing the value. Optimal choice of the value of <code>smooth_coeff</code> is case-dependent and left to the user.</li>
-<li><code>patch_icpp(j)alpha(i)</code>, <code>patch_icpp(j)alpha_rho(i)</code>, <code>patch_icpp(j)pres</code>, and <code>patch_icpp(j)vel(i)</code> define for $j$-th patch the void fraction of <code>fluid(i)</code>, partial density of <code>fluid(i)</code>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection. See also <code>adv_alphan</code> in table Simulation Algorithm Parameters.</li>
+<li><code>patch_icpp(j)alpha(i)</code>, <code>patch_icpp(j)alpha_rho(i)</code>, <code>patch_icpp(j)pres</code>, and <code>patch_icpp(j)vel(i)</code> define for $j$-th patch the void fraction of <code>fluid(i)</code>, partial density of <code>fluid(i)</code>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection.</li>
 <li><code>model%scale</code>, <code>model%rotate</code> and <code>model%translate</code> define how the model should be transformed to domain-space by first scaling by <code>model%scale</code>, then rotating about the Z, X, and Y axes (using <code>model%rotate</code>), and finally translating by <code>model%translate</code>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md11"></a>
@@ -449,44 +449,42 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>alt_soundspeed</code> *   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Alternate sound speed and $K \nabla \cdot u$ for 5-equation model    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>adv_alphan</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Equations for all $N$ volume fractions (instead of $N-1$)    </td></tr>
-<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>adv_n</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Solving directly for the number density (in the method of classes) and compute void fraction from the number density    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>mpp_lim</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture physical parameters limits    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mixture_err</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture properties correction    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge&ndash;Kutta order [1-3]    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>adap_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Strang splitting scheme with adaptive time stepping    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>mapped_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-M (WENO with mapping of nonlinear weights)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>wenoz</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-Z    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>teno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">TENO (Targeted ENO)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>teno_CT</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">TENO threshold for smoothness detection    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>null_weights</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Null WENO weights at boundaries    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mp_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Monotonicity preserving WENO    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>riemann_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>low_Mach</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Low Mach number correction for HLLC Riemann solver: [0] None; [1] Pressure (Chen et al. 2022); [2] Velocity (Thornber et al. 2008)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe averagen*; [2] Arithmetic mean    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
+<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values   </td></tr>
 </table>
 <ul>
@@ -501,11 +499,6 @@ Parameter Descriptions</h3>
 <li><code>bc_[x,y,z]%ve[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]%beg</code> when using <code>bc_[x,y,z]%end = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]%end = 16</code> to work properly. Normal velocities require <code>bc_[x,y,z]%end = -15</code> or <code>\bc_[x,y,z]%end = -16</code> to work properly.</li>
 <li><code>model_eqns</code> specifies the choice of the multi-component model that is used to formulate the dynamics of the flow using integers from 1 through 3. <code>model_eqns = 1</code>, <code>2</code>, and <code>3</code> correspond to $\Gamma$-$\Pi_\infty$ model (<a href="references.md#Johnsen08">Johnsen, 2008</a>), 5-equation model (<a href="references.md#Allaire02">Allaire et al., 2002</a>), and 6-equation model (<a href="references.md#Saurel09">Saurel et al., 2009</a>), respectively. The difference of the two models is assessed by (<a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>). Note that some code parameters are only compatible with 5-equation model.</li>
 <li><code>alt_soundspeed</code> activates the source term in the advection equations for the volume fractions, $K\nabla\cdot \underline{u}$, that regularizes the speed of sound in the mixture region when the 5-equation model is used. The effect and use of the source term are assessed by <a href="references.md#Schmidmayer19">Schmidmayer et al., 2019</a>.</li>
-<li><code>adv_alphan</code> activates the advection equations of all the components of fluid. If this parameter is set false, the void fraction of $N$-th component is computed as the residual of the void fraction of the other components at each cell:</li>
-</ul>
-<p>$$ \alpha_N=1-\sum^{N-1}_{i=1} \alpha_i $$</p>
-<p>where $\alpha_i$ is the void fraction of $i$-th component. When a single-component flow is simulated, it requires that <code>adv_alphan = 'T'</code>.</p>
-<ul>
 <li><code>adv_n</code> activates the direct computation of number density by the Riemann solver instead of computing number density from the void fraction in the method of classes.</li>
 <li><code>mpp_lim</code> activates correction of solutions to avoid a negative void fraction of each component in each grid cell, such that $\alpha_i&gt;\varepsilon$ is satisfied at each time step.</li>
 <li><code>mixture_err</code> activates correction of solutions to avoid imaginary speed of sound at each grid cell.</li>
