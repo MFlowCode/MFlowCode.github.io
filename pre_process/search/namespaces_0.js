@@ -15,5 +15,6 @@ var searchData=
   ['m_5fhelper_5fbasic_12',['m_helper_basic',['../namespacem__helper__basic.html',1,'']]],
   ['m_5finitial_5fcondition_13',['m_initial_condition',['../namespacem__initial__condition.html',1,'']]],
   ['m_5fmpi_5fproxy_14',['m_mpi_proxy',['../namespacem__mpi__proxy.html',1,'']]],
-  ['m_5fstart_5fup_15',['m_start_up',['../namespacem__start__up.html',1,'']]]
+  ['m_5fperturbation_15',['m_perturbation',['../namespacem__perturbation.html',1,'']]],
+  ['m_5fstart_5fup_16',['m_start_up',['../namespacem__start__up.html',1,'']]]
 ];
