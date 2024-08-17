@@ -69,87 +69,93 @@ var NAVTREE =
         [ "Final Condition", "md_examples.html#autotoc_md32", null ],
         [ "Centerline Velocities", "md_examples.html#autotoc_md33", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md34", [
-        [ "Initial Condition", "md_examples.html#autotoc_md35", null ],
-        [ "Result", "md_examples.html#autotoc_md36", null ]
+      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md34", [
+        [ "Final Condition", "md_examples.html#autotoc_md35", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md37", [
-        [ "Initial Condition", "md_examples.html#autotoc_md38", null ],
-        [ "Result", "md_examples.html#autotoc_md39", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md36", [
+        [ "Initial Condition", "md_examples.html#autotoc_md37", null ],
+        [ "Result", "md_examples.html#autotoc_md38", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md40", [
-        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
-        [ "Result", "md_examples.html#autotoc_md42", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md39", [
+        [ "Initial Condition", "md_examples.html#autotoc_md40", null ],
+        [ "Result", "md_examples.html#autotoc_md41", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md43", [
-        [ "Final Condition", "md_examples.html#autotoc_md44", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md45", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md42", [
+        [ "Initial Condition", "md_examples.html#autotoc_md43", null ],
+        [ "Result", "md_examples.html#autotoc_md44", null ]
       ] ],
-      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md46", [
-        [ "Weak Scaling", "md_examples.html#autotoc_md47", null ],
-        [ "Strong Scaling", "md_examples.html#autotoc_md48", null ],
-        [ "Example", "md_examples.html#autotoc_md49", null ]
+      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md45", [
+        [ "Final Condition", "md_examples.html#autotoc_md46", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md47", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md50", [
-        [ "Initial Condition", "md_examples.html#autotoc_md51", null ],
-        [ "Result", "md_examples.html#autotoc_md52", null ]
+      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md48", [
+        [ "Weak Scaling", "md_examples.html#autotoc_md49", null ],
+        [ "Strong Scaling", "md_examples.html#autotoc_md50", null ],
+        [ "Example", "md_examples.html#autotoc_md51", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md53", [
-        [ "Final Condition", "md_examples.html#autotoc_md54", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md55", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md52", [
+        [ "Initial Condition", "md_examples.html#autotoc_md53", null ],
+        [ "Result", "md_examples.html#autotoc_md54", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md56", [
-        [ "Initial Condition", "md_examples.html#autotoc_md57", null ],
-        [ "Result", "md_examples.html#autotoc_md58", null ]
+      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md55", [
+        [ "Final Condition", "md_examples.html#autotoc_md56", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md57", null ]
       ] ],
-      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md59", [
-        [ "Density Initial Condition", "md_examples.html#autotoc_md60", null ],
-        [ "Density Final Condition", "md_examples.html#autotoc_md61", null ]
+      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md58", [
+        [ "Final Condition", "md_examples.html#autotoc_md59", null ]
+      ] ],
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md60", [
+        [ "Initial Condition", "md_examples.html#autotoc_md61", null ],
+        [ "Result", "md_examples.html#autotoc_md62", null ]
+      ] ],
+      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md63", [
+        [ "Density Initial Condition", "md_examples.html#autotoc_md64", null ],
+        [ "Density Final Condition", "md_examples.html#autotoc_md65", null ]
       ] ]
     ] ],
     [ "Performance", "md_expectedPerformance.html", [
-      [ "Figure of merit: Grind time performance", "md_expectedPerformance.html#autotoc_md63", null ],
-      [ "Weak scaling", "md_expectedPerformance.html#autotoc_md64", [
-        [ "AMD MI250X GPU", "md_expectedPerformance.html#autotoc_md65", null ],
-        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md66", null ],
-        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md67", null ]
+      [ "Figure of merit: Grind time performance", "md_expectedPerformance.html#autotoc_md67", null ],
+      [ "Weak scaling", "md_expectedPerformance.html#autotoc_md68", [
+        [ "AMD MI250X GPU", "md_expectedPerformance.html#autotoc_md69", null ],
+        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md70", null ],
+        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md71", null ]
       ] ],
-      [ "Strong scaling", "md_expectedPerformance.html#autotoc_md68", [
-        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md69", [
-          [ "16M Grid Points", "md_expectedPerformance.html#autotoc_md70", null ],
-          [ "64M Grid Points", "md_expectedPerformance.html#autotoc_md71", null ]
+      [ "Strong scaling", "md_expectedPerformance.html#autotoc_md72", [
+        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md73", [
+          [ "16M Grid Points", "md_expectedPerformance.html#autotoc_md74", null ],
+          [ "64M Grid Points", "md_expectedPerformance.html#autotoc_md75", null ]
         ] ],
-        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md72", null ]
+        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md76", null ]
       ] ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
-      [ "Fetching MFC", "md_getting-started.html#autotoc_md74", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md75", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md76", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md77", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md78", null ]
+      [ "Fetching MFC", "md_getting-started.html#autotoc_md78", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md79", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md80", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md81", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md82", null ]
     ] ],
     [ "Papers", "md_papers.html", null ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md85", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md86", [
-        [ "GPU Profiling", "md_running.html#autotoc_md87", [
-          [ "NVIDIA GPUs", "md_running.html#autotoc_md88", null ],
-          [ "AMD GPUs", "md_running.html#autotoc_md89", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md89", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md90", [
+        [ "GPU Profiling", "md_running.html#autotoc_md91", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md92", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md93", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md90", null ],
-        [ "Example Runs", "md_running.html#autotoc_md91", null ]
+        [ "Restarting Cases", "md_running.html#autotoc_md94", null ],
+        [ "Example Runs", "md_running.html#autotoc_md95", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Procedure", "md_visualization.html#autotoc_md96", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md97", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md98", [
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md99", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md100", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md101", null ]
+      [ "Procedure", "md_visualization.html#autotoc_md100", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md101", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md102", [
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md103", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md104", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md105", null ]
       ] ]
     ] ]
   ] ]

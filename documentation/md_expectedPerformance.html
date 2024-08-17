@@ -134,9 +134,9 @@ $(function(){initNavTree('md_expectedPerformance.html',''); initResizable(true);
   <div class="headertitle"><div class="title">Performance</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md62"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md66"></a></p>
 <p>MFC has been benchmarked on several CPUs and GPU devices. This page shows a summary of these results.</p>
-<h1><a class="anchor" id="autotoc_md63"></a>
+<h1><a class="anchor" id="autotoc_md67"></a>
 Figure of merit: Grind time performance</h1>
 <p>The following table outlines observed performance as nanoseconds per grid point (ns/GP) per equation (eq) per right-hand side (rhs) evaluation (lower is better), also known as the grind time. We solve an example 3D, inviscid, 5-equation model problem with two advected species (8 PDEs) and 8M grid points (158-cubed uniform grid). The numerics are WENO5 finite volume reconstruction and HLLC approximate Riemann solver. This case is located in <code>examples/3D_performance_test</code>.</p>
 <p>Results are for MFC v4.9.3 (July 2024 release), though numbers have not changed meaningfully since then. All results are for the compiler that gave the best performance. Note:</p><ul>
@@ -204,34 +204,34 @@ Figure of merit: Grind time performance</h1>
 <td class="markdownTableBodyRight">Intel Xeon E5-2650V4 (Broadwell)   </td><td class="markdownTableBodyRight">12/12 cores   </td><td class="markdownTableBodyRight">27   </td><td class="markdownTableBodyLeft">NVHPC 23.5   </td><td class="markdownTableBodyLeft">GT CSE Internal   </td></tr>
 </table>
 <p><b>All grind times are in nanoseconds (ns) per grid point (gp) per equation (eq) per right-hand side (rhs) evaluation, so X ns/gp/eq/rhs. Lower is better.</b></p>
-<h1><a class="anchor" id="autotoc_md64"></a>
+<h1><a class="anchor" id="autotoc_md68"></a>
 Weak scaling</h1>
 <p>Weak scaling results are obtained by increasing the problem size with the number of processes so that work per process remains constant.</p>
-<h2><a class="anchor" id="autotoc_md65"></a>
+<h2><a class="anchor" id="autotoc_md69"></a>
 AMD MI250X GPU</h2>
 <p>MFC weask scales to (at least) 65,536 AMD MI250X GPUs on OLCF Frontier with 96% efficiency. This corresponds to 87% of the entire machine.</p>
 <p><img src="../res/weakScaling/frontier.svg" alt="" style="pointer-events: none; height: 50%; width:50%; border-radius: 10pt" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md66"></a>
+<h2><a class="anchor" id="autotoc_md70"></a>
 NVIDIA V100 GPU</h2>
 <p>MFC weak scales to (at least) 13,824 V100 NVIDIA V100 GPUs on OLCF Summit with 97% efficiency. This corresponds to 50% of the entire machine.</p>
 <p><img src="../res/weakScaling/summit.svg" alt="" style="pointer-events: none; height: 50%; width:50%; border-radius: 10pt" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md67"></a>
+<h2><a class="anchor" id="autotoc_md71"></a>
 IBM Power9 CPU</h2>
 <p>MFC Weak scales to 13,824 Power9 CPU cores on OLCF Summit to within 1% of ideal scaling.</p>
 <p><img src="../res/weakScaling/cpuScaling.svg" alt="" style="pointer-events: none; height: 50%; width:50%; border-radius: 10pt" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md68"></a>
+<h1><a class="anchor" id="autotoc_md72"></a>
 Strong scaling</h1>
 <p>Strong scaling results are obtained by keeping the problem size constant and increasing the number of processes so that work per process decreases.</p>
-<h2><a class="anchor" id="autotoc_md69"></a>
+<h2><a class="anchor" id="autotoc_md73"></a>
 NVIDIA V100 GPU</h2>
 <p>For these tests, the base case utilizes 8 GPUs with one MPI process per GPU. The performance is analyzed at two different problem sizes of 16M and 64M grid points, with the base case using 2M and 8M grid points per process.</p>
-<h3><a class="anchor" id="autotoc_md70"></a>
+<h3><a class="anchor" id="autotoc_md74"></a>
 16M Grid Points</h3>
 <p><img src="../res/strongScaling/strongScaling16.svg" alt="" style="pointer-events: none; width: 50%; border-radius: 10pt" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md71"></a>
+<h3><a class="anchor" id="autotoc_md75"></a>
 64M Grid Points</h3>
 <p><img src="../res/strongScaling/strongScaling64.svg" alt="" style="pointer-events: none; width: 50%; border-radius: 10pt" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md72"></a>
+<h2><a class="anchor" id="autotoc_md76"></a>
 IBM Power9 CPU</h2>
 <p>CPU strong scaling tests are done with problem sizes of 16, 32, and 64M grid points, with the base case using 2, 4, and 8M cells per process.</p>
 <p><img src="../res/strongScaling/cpuStrongScaling.svg" alt="" style="pointer-events: none; width: 50%; border-radius: 10pt" class="inline"/> </p>
