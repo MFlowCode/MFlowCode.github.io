@@ -135,13 +135,13 @@ $(function(){initNavTree('md_running.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md88"></a></p>
-<p>MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports both interactive and batch execution, the latter being designed for multi-socket systems, namely supercomputers, equipped with a scheduler such as PBS, SLURM, and LSF. A full (and updated) list of available arguments can be acquired with <code>./mfc.sh run -h</code>.</p>
+<p>MFC can be run using <code>mfc.sh</code>'s <code>run</code> command. It supports interactive and batch execution. Batch mode is designed for multi-node distributed systems (supercomputers) equipped with a scheduler such as PBS, SLURM, or LSF. A full (and up-to-date) list of available arguments can be acquired with <code>./mfc.sh run -h</code>.</p>
 <p>MFC supports running simulations locally (Linux, MacOS, and Windows) as well as several supercomputer clusters, both interactively and through batch submission.</p>
 <dl class="section important"><dt>Important</dt><dd>Running simulations locally should work out of the box. On supported clusters, you can append <code>-c &lt;computer name&gt;</code> on the command line to instruct the MFC toolchain to make use of the template file <code>toolchain/templates/&lt;computer name&gt;.mako</code>. You can browse that directory and contribute your own files. Since systems and their schedulers do not have a standardized syntax to request certain resources, MFC can only provide support for a restricted subset of common or user-contributed configuration options. <br  />
 <br  />
  Adding a new template file or modifying an existing one will most likely be required if:<ul>
 <li>You are on a cluster that does not have a template yet.</li>
-<li>Your cluster is configured with SLURM but interactive job launches fail when using <code>srun</code>. You might need to invoke <code>mpirun</code> instead.</li>
+<li>Your cluster is configured with SLURM, but interactive job launches fail when using <code>srun</code>. You might need to invoke <code>mpirun</code> instead.</li>
 <li>Something in the existing default or computer template file is incompatible with your system or does not provide a feature you need. <br  />
 <br  />
  If <code>-c &lt;computer name&gt;</code> is left unspecified, it defaults to <code>-c default</code>.</li>
@@ -182,14 +182,14 @@ GPU Profiling</h2>
 <h3><a class="anchor" id="autotoc_md92"></a>
 NVIDIA GPUs</h3>
 <p>MFC provides two different arguments to facilitate profiling with NVIDIA Nsight. <b>Please ensure the used argument is placed at the end so their respective flags can be appended.</b></p><ul>
-<li>Nsight Systems (Nsys): <code>./mfc.sh run ... -t simulation --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for understanding the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. It is best to run case files with a few timesteps to keep the report files small. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
+<li>Nsight Systems (Nsys): <code>./mfc.sh run ... -t simulation --nsys [nsys flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://developer.nvidia.com/nsight-systems">NVIDIA Nsight Systems</a>. NSys is best for understanding the order and execution times of major subroutines (WENO, Riemann, etc.) in MFC. When used, <code>--nsys</code> will run the simulation and generate <code>.nsys-rep</code> files in the case directory for all targets. These files can then be imported into Nsight System's GUI, which can be downloaded <a href="https://developer.nvidia.com/nsight-systems/get-started#latest-Platforms">here</a>. To keep the report files small, it is best to run case files with a few timesteps. Learn more about NVIDIA Nsight Systems <a href="https://docs.nvidia.com/nsight-systems/UserGuide/index.html">here</a>.</li>
 <li>Nsight Compute (NCU): <code>./mfc.sh run ... -t simulation --ncu [ncu flags]</code> allows one to conduct kernel-level profiling with <a href="https://developer.nvidia.com/nsight-compute">NVIDIA Nsight Compute</a>. NCU provides profiling information for every subroutine called and is more detailed than NSys. When used, <code>--ncu</code> will output profiling information for all subroutines, including elapsed clock cycles, memory used, and more after the simulation is run. Adding this argument will significantly slow the simulation and should only be used on case files with a few timesteps. Learn more about NVIDIA Nsight Compute <a href="https://docs.nvidia.com/nsight-compute/NsightCompute/index.html">here</a>.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md93"></a>
 AMD GPUs</h3>
 <ul>
-<li>Rocprof (ROC): <code>./mfc.sh run ... -t simulation --roc --hip-trace [rocprof flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://ui.perfetto.dev/">Perfetto UI</a>. When used, <code>--roc</code> will run the simulation and generate files in the case directory for all targets. <code>results.json</code> can then be imported in <a href="https://ui.perfetto.dev/">Perfetto's UI</a>. Learn more about AMD Rocprof <a href="https://rocm.docs.amd.com/projects/rocprofiler/en/docs-5.5.1/rocprof.html">here</a> It is best to run case files with a few timesteps to keep the report files small.</li>
-<li>Omniperf (OMNI): <code>./mfc.sh run ... -t simulation --omni [omniperf flags]</code>allows one to conduct kernel-level profiling with <a href="https://rocm.github.io/omniperf/introduction.html#what-is-omniperf">AMD Omniperf</a>. When used, <code>--omni</code> will output profiling information for all subroutines, including rooflines, cache usage, register usage, and more after the simulation is run. Adding this argument will moderately slow down the simulation and run the MFC executable several times. For this reason it should only be used with case files that have a few timesteps.</li>
+<li>Rocprof (ROC): <code>./mfc.sh run ... -t simulation --roc --hip-trace [rocprof flags]</code> allows one to visualize MFC's system-wide performance with <a href="https://ui.perfetto.dev/">Perfetto UI</a>. When used, <code>--roc</code> will run the simulation and generate files in the case directory for all targets. <code>results.json</code> can then be imported in <a href="https://ui.perfetto.dev/">Perfetto's UI</a>. Learn more about AMD Rocprof <a href="https://rocm.docs.amd.com/projects/rocprofiler/en/docs-5.5.1/rocprof.html">here</a> It is best to run case files with few timesteps to keep the report file sizes manageable.</li>
+<li>Omniperf (OMNI): <code>./mfc.sh run ... -t simulation --omni [omniperf flags]</code> allows one to conduct kernel-level profiling with <a href="https://rocm.github.io/omniperf/introduction.html#what-is-omniperf">AMD Omniperf</a>. When used, <code>--omni</code> will output profiling information for all subroutines, including rooflines, cache usage, register usage, and more, after the simulation is run. Adding this argument will moderately slow down the simulation and run the MFC executable several times. For this reason, it should only be used with case files with few timesteps.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md94"></a>
 Restarting Cases</h2>
@@ -206,7 +206,7 @@ Restarting Cases</h2>
 <li><code>./mfc.sh run case.py -t pre_process simulation</code></li>
 </ul>
 </li>
-<li>As the simulation runs, it will create Lustre files for each saved timestep in <code>./restart_data</code>.</li>
+<li>As the simulation runs, Lustre files will be created for each saved timestep in <code>./restart_data</code>.</li>
 <li>When the simulation stops, choose any Lustre file as the restarting point (lustre_ $t_s$.dat)</li>
 <li>Create a new duplicate input file (e.g., <code>restart_case.py</code>), which should have:</li>
 </ul>

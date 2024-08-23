@@ -161,7 +161,7 @@ Build Environment</h1>
 <div class="line">                   &quot;openmpi-*&quot; libopenmpi-dev \</div>
 <div class="line">                   python3-venv</div>
 </div><!-- fragment --><ul>
-<li><b>Via <a href="https://wiki.archlinux.org/title/pacman">Pacman</a>:</b></li>
+<li><b>Via Pacman (Arch):</b></li>
 </ul>
 <div class="fragment"><div class="line">sudo pacman -Syu</div>
 <div class="line">sudo pacman -S base-devel coreutils  \</div>
@@ -205,11 +205,11 @@ Native Windows (Intel)</summary>
 <p></p>
 <p>Install the latest version of:</p><ul>
 <li><a href="https://visualstudio.microsoft.com/">Microsoft Visual Studio Community</a></li>
-<li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html">Intel® oneAPI Base Toolkit</a></li>
-<li><a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html">Intel® oneAPI HPC Toolkit</a></li>
+<li>Intel® oneAPI Base Toolkit</li>
+<li>Intel® oneAPI HPC Toolkit</li>
 <li><a href="https://strawberryperl.com/">Strawberry Perl</a> (Install and add <code>C:\strawberry\perl\bin\perl.exe</code> or your installation path to your <a href="https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/">PATH</a>) Please note that Visual Studio must be installed first, and the oneAPI Toolkits need to be configured with the installed Visual Studio, even if you plan to use a different IDE.</li>
 </ul>
-<p>Then, in order to initialize your development environment, run the following command (or your installation path) in command prompt: </p><div class="fragment"><div class="line">&quot;C:\Program Files (x86)\Intel\oneAPI\setvars.bat&quot;</div>
+<p>Then, to initialize your development environment, run the following command (or your installation path) in the command prompt: </p><div class="fragment"><div class="line">&quot;C:\Program Files (x86)\Intel\oneAPI\setvars.bat&quot;</div>
 </div><!-- fragment --><p> Alternatively, you can run the following command in Powershell: </p><div class="fragment"><div class="line">cmd.exe &quot;/K&quot; &#39;&quot;C:\Program Files (x86)\Intel\oneAPI\setvars.bat&quot; &amp;&amp; powershell&#39;</div>
 </div><!-- fragment --><p> You could verify the initialization by typing <code>where mpiexec</code> in the command prompt terminal (does not work in Powershell), which should return the path to the Intel MPI executable. To continue following this guide, please stay in the initialized terminal window. Replace <code>./mfc.sh</code> with <code>.\mfc.bat</code> for all commands.</p>
 <p>If <code>.\mfc.bat build</code> produces errors, please run the command again. Repeating this process three times should resolve all errors (once each for pre_process, simulation, and post_process). If the same error persists after each attempt, please verify that you have installed all required software and properly initialized the development environment. If uncertain, you could try deleting the build directory and starting over.</p>
@@ -232,7 +232,7 @@ MacOS</summary>
 </ul>
 <div class="fragment"><div class="line">touch ~/.bash_profile</div>
 <div class="line">open ~/.bash_profile</div>
-</div><!-- fragment --><p>An editor should open. Please paste the following lines into it before saving the file. If you wish to use a version of GNU's GCC other than 13, modify the first assignment. These lines ensure that LLVM's Clang, and Apple's modified version of GCC, won't be used to compile MFC. Further reading on <code>open-mpi</code> incompatibility with <code>clang</code>-based <code>gcc</code> on macOS: <a href="https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9">here</a>. We do <em>not</em> support <code>clang</code> due to conflicts with the Silo dependency.</p>
+</div><!-- fragment --><p>An editor should open. Please paste the following lines into it before saving the file. Modify the first assignment if you wish to use a different version of GNU's GCC. These lines ensure that LLVM's Clang and Apple's modified version of GCC are not used to compile MFC. Further reading on <code>open-mpi</code> incompatibility with <code>clang</code>-based <code>gcc</code> on macOS: <a href="https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9">here</a>. We do <em>not</em> support <code>clang</code> due to conflicts with the Silo dependency.</p>
 <div class="fragment"><div class="line">export MFC_GCC_VER=13</div>
 <div class="line">export CC=gcc-$MFC_GCC_VER</div>
 <div class="line">export CXX=g++-$MFC_GCC_VER</div>
@@ -247,7 +247,7 @@ MacOS</summary>
 Docker</summary>
 <p></p>
 <p>Docker is a lightweight, cross-platform, and performant alternative to Virtual Machines (VMs). We build a Docker Image that contains the packages required to build and run MFC on your local machine.</p>
-<p>First install Docker and Git:</p><ul>
+<p>First, install Docker and Git:</p><ul>
 <li>Windows: <a href="https://docs.docker.com/get-docker/">Docker</a> + <a href="https://git-scm.com/downloads">Git</a>.</li>
 <li>macOS: <code>brew install git docker</code> (requires <a href="https://brew.sh/">Homebrew</a>).</li>
 <li>Other systems: <div class="fragment"><div class="line">sudo apt install git docker # Debian / Ubuntu via Aptitude</div>
@@ -260,8 +260,8 @@ Docker</summary>
 </div><!-- fragment --><p>To fetch the prebuilt Docker image and enter an interactive bash session with the recommended settings applied, run</p>
 <div class="fragment"><div class="line">./mfc.sh  docker # If on \*nix/macOS</div>
 <div class="line">.\mfc.bat docker # If on Windows</div>
-</div><!-- fragment --><p>We automatically mount and configure the proper permissions in order for you to access your local copy of MFC, available at <code>~/MFC</code>. You will be logged-in as the <code>me</code> user with root permissions.</p>
-<p>:warning: The state of your container is entirely transient, except for the MFC mount. Thus, any modification outside of <code>~/MFC</code> should be considered as permanently lost upon session exit.</p>
+</div><!-- fragment --><p>We automatically mount and configure the proper permissions for you to access your local copy of MFC, available at <code>~/MFC</code>. You will be logged in as the <code>me</code> user with root permissions.</p>
+<p>:warning: The state of your container is entirely transient, except for the MFC mount. Thus, any modification outside of <code>~/MFC</code> should be considered permanently lost upon session exit.</p>
 <p></p>
 </details>
 <h1><a class="anchor" id="autotoc_md80"></a>
@@ -282,8 +282,8 @@ Building MFC</h1>
 <td class="markdownTableBodyCenter"><b>Unified Memory</b>   </td><td class="markdownTableBodyCenter"><code>--unified</code>   </td><td class="markdownTableBodyCenter"><code>--no-unified</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Builds MFC with unified CPU/GPU memory (GH-200 superchip only)   </td></tr>
 </table>
 <p><em>⚠️ The <code>--gpu</code> option requires that your compiler supports OpenACC for Fortran for your target GPU architecture.</em></p>
-<p>When these options are given to <code>mfc.sh</code>, they will be remembered when you issue future commands. You can enable and disable features at any time by passing any of the arguments above. For example, if you have previously built MFC with MPI support and no longer wish to run using MPI, you can pass <code>--no-mpi</code> once, for the change to be permanent.</p>
-<p>MFC is composed of three codes, each being a separate <em>target</em>. By default, all targets (<code>pre_process</code>, <code>simulation</code>, and <code>post_process</code>) are selected. To only select a subset, use the <code>-t</code> (i.e., <code>--targets</code>) argument. For a detailed list of options, arguments, and features, please refer to <code>./mfc.sh build --help</code>.</p>
+<p>When these options are given to <code>mfc.sh</code>, they will be remembered when you issue future commands. You can enable and disable features anytime by passing any of the arguments above. For example, if you previously built MFC with MPI support and no longer wish to run using MPI, you can pass <code>--no-mpi</code> once, making the change permanent.</p>
+<p>MFC comprises three codes, each being a separate <em>target</em>. By default, all targets (<code>pre_process</code>, <code>simulation</code>, and <code>post_process</code>) are selected. To only select a subset, use the <code>-t</code> (i.e., <code>--targets</code>) argument. For a detailed list of options, arguments, and features, please refer to <code>./mfc.sh build --help</code>.</p>
 <p>Most first-time users will want to build MFC using 8 threads (or more!) with MPI support: </p><div class="fragment"><div class="line">./mfc.sh build -j 8</div>
 </div><!-- fragment --><p>Examples:</p>
 <ul>
