@@ -3,7 +3,6 @@ var m__riemann__solvers_8fpp_8f90 =
     [ "__m_riemann_solvers_fpp_f90__", "m__riemann__solvers_8fpp_8f90.html#a8307be81e3cdbdafbf8e65f19b31fc30", null ],
     [ "s_compute_cartesian_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a9e640cfa9e90596c772833741d1839fc", null ],
     [ "s_compute_cylindrical_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a1092b59f5ce84670f7fdd662c0b75e4a", null ],
-    [ "s_compute_speed_of_sound", "m__riemann__solvers_8fpp_8f90.html#ae680604e8ff6dd9b8048f2be0c0f79db", null ],
     [ "s_finalize_riemann_solver", "m__riemann__solvers_8fpp_8f90.html#a8ac28f70381f12ad4d2ba1f71d68dc15", null ],
     [ "s_finalize_riemann_solvers_module", "m__riemann__solvers_8fpp_8f90.html#aca4cdda8feb68af82a25f30501bc1319", null ],
     [ "s_hll_riemann_solver", "m__riemann__solvers_8fpp_8f90.html#a7201ee610e9eb4d4777e257035d04705", null ],

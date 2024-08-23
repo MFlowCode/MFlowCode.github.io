@@ -142,8 +142,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a8aaac759a23fea3b31210aa89c940745" id="r_a8aaac759a23fea3b31210aa89c940745"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aaac759a23fea3b31210aa89c940745">__m_cbc_fpp_f90__</a></td></tr>
 <tr class="memdesc:a8aaac759a23fea3b31210aa89c940745"><td class="mdescLeft">&#160;</td><td class="mdescRight">The module features a large database of characteristic boundary conditions (CBC) for the Euler system of equations. This system is augmented by the appropriate advection equations utilized to capture the material interfaces. The closure is achieved by the stiffened equation of state and mixture relations. At this time, the following CBC are available: 1) Slip Wall 2) Nonreflecting Subsonic Buffer 3) Nonreflecting Subsonic Inflow 4) Nonreflecting Subsonic Outflow 5) Force-Free Subsonic Outflow 6) Constant Pressure Subsonic Outflow 7) Supersonic Inflow 8) Supersonic Outflow Please refer to Thompson (1987, 1990) for detailed descriptions.  <br /></td></tr>
 <tr class="separator:a8aaac759a23fea3b31210aa89c940745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29014c6ce75edc1b102b057644ebd9ee" id="r_a29014c6ce75edc1b102b057644ebd9ee"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29014c6ce75edc1b102b057644ebd9ee">s_compute_speed_of_sound</a> (pres, <a class="el" href="m__rhs_8fpp_8f90.html#a340bafa0c8d745c3060facd9cfef7ec4">rho</a>, <a class="el" href="m__rhs_8fpp_8f90.html#a298183e270a405e0f180d45940bb6f8a">gamma</a>, <a class="el" href="m__rhs_8fpp_8f90.html#aeed4eb93ccb2725da7a4756e510dda03">pi_inf</a>, h, adv, vel_sum, c)</td></tr>
-<tr class="separator:a29014c6ce75edc1b102b057644ebd9ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0e8fd4f109d6021f0954cd1d3df56ca" id="r_ab0e8fd4f109d6021f0954cd1d3df56ca"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0e8fd4f109d6021f0954cd1d3df56ca">s_initialize_cbc_module</a></td></tr>
 <tr class="memdesc:ab0e8fd4f109d6021f0954cd1d3df56ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
 <tr class="separator:ab0e8fd4f109d6021f0954cd1d3df56ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -385,62 +383,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a29014c6ce75edc1b102b057644ebd9ee" name="a29014c6ce75edc1b102b057644ebd9ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29014c6ce75edc1b102b057644ebd9ee">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_cbc_fpp_f90__::s_compute_speed_of_sound </td>
-          <td>(</td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in)</td>          <td class="paramname"><span class="paramname"><em>adv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_sum</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a29014c6ce75edc1b102b057644ebd9ee_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="a5f88feb90645fab7ac2576ccb0655b32" name="a5f88feb90645fab7ac2576ccb0655b32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f88feb90645fab7ac2576ccb0655b32">&#9670;&#160;</a></span>s_finalize_cbc()</h2>
 
@@ -608,19 +550,11 @@ Here is the caller graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine __m_cbc_fpp_f90__::s_initialize_cbc_module</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>

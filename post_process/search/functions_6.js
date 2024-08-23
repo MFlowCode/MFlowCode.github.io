@@ -36,7 +36,7 @@ var searchData=
   ['s_5fcompute_5fjacobian_5fmatrix_33',['s_compute_jacobian_matrix',['../m__phase__change_8fpp_8f90.html#a1cd33c317cc8ace82ccc1c33a53644cc',1,'m_phase_change.fpp.f90']]],
   ['s_5fcompute_5fpressure_34',['s_compute_pressure',['../m__variables__conversion_8fpp_8f90.html#ac61bd62d4ea1652a4feb24d42eb3c3b1',1,'m_variables_conversion.fpp.f90']]],
   ['s_5fcompute_5fptg_5fresidue_35',['s_compute_ptg_residue',['../m__phase__change_8fpp_8f90.html#abdbfe3d69ae51ba911409597a6870620',1,'m_phase_change.fpp.f90']]],
-  ['s_5fcompute_5fspeed_5fof_5fsound_36',['s_compute_speed_of_sound',['../namespacem__derived__variables.html#aa428d100adab2acbbba6b31faad19b42',1,'m_derived_variables']]],
+  ['s_5fcompute_5fspeed_5fof_5fsound_36',['s_compute_speed_of_sound',['../m__variables__conversion_8fpp_8f90.html#a014ebbfa361f27aaeaee1f703d4053ef',1,'m_variables_conversion.fpp.f90']]],
   ['s_5fconvert_5fconservative_5fto_5fprimitive_5fvariables_37',['s_convert_conservative_to_primitive_variables',['../m__variables__conversion_8fpp_8f90.html#a24725c6eb206c9a62e2ec70bf368836d',1,'m_variables_conversion.fpp.f90']]],
   ['s_5fconvert_5fmixture_5fto_5fmixture_5fvariables_38',['s_convert_mixture_to_mixture_variables',['../m__variables__conversion_8fpp_8f90.html#adec0ccf2a3298d2b375a9405a0fa7c1a',1,'m_variables_conversion.fpp.f90']]],
   ['s_5fconvert_5fprimitive_5fto_5fconservative_5fvariables_39',['s_convert_primitive_to_conservative_variables',['../m__variables__conversion_8fpp_8f90.html#a5bc6f1a313312f4085accb9a1c224b99',1,'m_variables_conversion.fpp.f90']]],

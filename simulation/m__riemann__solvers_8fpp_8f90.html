@@ -142,8 +142,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a8307be81e3cdbdafbf8e65f19b31fc30" id="r_a8307be81e3cdbdafbf8e65f19b31fc30"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8307be81e3cdbdafbf8e65f19b31fc30">__m_riemann_solvers_fpp_f90__</a></td></tr>
 <tr class="memdesc:a8307be81e3cdbdafbf8e65f19b31fc30"><td class="mdescLeft">&#160;</td><td class="mdescRight">This module features a database of approximate and exact Riemann problem solvers for the Navier-Stokes system of equations, which is supplemented by appropriate advection equations that are used to capture the material interfaces. The closure of the system is achieved by the stiffened gas equation of state and any required mixture relations. Surface tension effects are accounted for and are modeled by means of a volume force acting across the diffuse material interface region. The implementation details of viscous and capillary effects, into the Riemann solvers, may be found in Perigaud and Saurel (2005). Note that both effects are available only in the volume fraction model. At this time, the approximate and exact Riemann solvers that are listed below are available: 1) Harten-Lax-van Leer (HLL) 2) Harten-Lax-van Leer-Contact (HLLC) 3) Exact.  <br /></td></tr>
 <tr class="separator:a8307be81e3cdbdafbf8e65f19b31fc30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae680604e8ff6dd9b8048f2be0c0f79db" id="r_ae680604e8ff6dd9b8048f2be0c0f79db"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae680604e8ff6dd9b8048f2be0c0f79db">s_compute_speed_of_sound</a> (pres, <a class="el" href="m__rhs_8fpp_8f90.html#a340bafa0c8d745c3060facd9cfef7ec4">rho</a>, <a class="el" href="m__rhs_8fpp_8f90.html#a298183e270a405e0f180d45940bb6f8a">gamma</a>, <a class="el" href="m__rhs_8fpp_8f90.html#aeed4eb93ccb2725da7a4756e510dda03">pi_inf</a>, h, adv, vel_sum, c)</td></tr>
-<tr class="separator:ae680604e8ff6dd9b8048f2be0c0f79db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7201ee610e9eb4d4777e257035d04705" id="r_a7201ee610e9eb4d4777e257035d04705"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7201ee610e9eb4d4777e257035d04705">s_hll_riemann_solver</a> (ql_prim_rsx_vf, ql_prim_rsy_vf, ql_prim_rsz_vf, dql_prim_dx_vf, dql_prim_dy_vf, dql_prim_dz_vf, ql_prim_vf, qr_prim_rsx_vf, qr_prim_rsy_vf, qr_prim_rsz_vf, dqr_prim_dx_vf, dqr_prim_dy_vf, dqr_prim_dz_vf, qr_prim_vf, q_prim_vf, flux_vf, flux_src_vf, flux_gsrc_vf, norm_dir, ix, iy, iz)</td></tr>
 <tr class="separator:a7201ee610e9eb4d4777e257035d04705"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93cfb6ebfb98fccd81cd589ce122b7fd" id="r_a93cfb6ebfb98fccd81cd589ce122b7fd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93cfb6ebfb98fccd81cd589ce122b7fd">s_hllc_riemann_solver</a> (ql_prim_rsx_vf, ql_prim_rsy_vf, ql_prim_rsz_vf, dql_prim_dx_vf, dql_prim_dy_vf, dql_prim_dz_vf, ql_prim_vf, qr_prim_rsx_vf, qr_prim_rsy_vf, qr_prim_rsz_vf, dqr_prim_dx_vf, dqr_prim_dy_vf, dqr_prim_dz_vf, qr_prim_vf, q_prim_vf, flux_vf, flux_src_vf, flux_gsrc_vf, norm_dir, ix, iy, iz)</td></tr>
@@ -408,65 +406,6 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a1092b59f5ce84670f7fdd662c0b75e4a_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-
-</div>
-</div>
-<a id="ae680604e8ff6dd9b8048f2be0c0f79db" name="ae680604e8ff6dd9b8048f2be0c0f79db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae680604e8ff6dd9b8048f2be0c0f79db">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_riemann_solvers_fpp_f90__::s_compute_speed_of_sound </td>
-          <td>(</td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(num_fluids), intent(in)</td>          <td class="paramname"><span class="paramname"><em>adv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_sum</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>

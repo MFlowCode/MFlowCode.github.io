@@ -95,7 +95,6 @@ var namespaces_dup =
       [ "n_processes_file_access", "namespacem__delay__file__access.html#ab213216c1359e4dac71415abf3e1b5fe", null ]
     ] ],
     [ "m_derived_variables", "namespacem__derived__variables.html", [
-      [ "s_compute_speed_of_sound", "namespacem__derived__variables.html#aa428d100adab2acbbba6b31faad19b42", null ],
       [ "s_derive_flux_limiter", "namespacem__derived__variables.html#ac85e77b0312f21389eb166960446f6ec", null ],
       [ "s_derive_liquid_stiffness", "namespacem__derived__variables.html#a4787078e769104be57579c411e7d6e2a", null ],
       [ "s_derive_numerical_schlieren_function", "namespacem__derived__variables.html#a5de4b62f12a47d704fbdd9f0d27e723d", null ],
