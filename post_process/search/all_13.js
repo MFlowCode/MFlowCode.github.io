@@ -134,13 +134,14 @@ var searchData=
   ['smooth_5fcoeff_131',['smooth_coeff',['../structic__patch__parameters.html#a4044d8a2e654bb38bfee66a14b265706',1,'ic_patch_parameters']]],
   ['smooth_5fpatch_5fid_132',['smooth_patch_id',['../structic__patch__parameters.html#adb43a40c19d0b3a7baa4d972f302ca45',1,'ic_patch_parameters']]],
   ['smoothen_133',['smoothen',['../structic__patch__parameters.html#a3f501c71c12ab9b3c7f2e8b6ab4df780',1,'ic_patch_parameters']]],
-  ['spatial_5fextents_134',['spatial_extents',['../namespacem__data__output.html#a60fd667edc741b8cb7dcb08d05f67462',1,'m_data_output']]],
-  ['spc_135',['spc',['../structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc',1,'ic_model_parameters']]],
-  ['ss_136',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters::ss'],['../namespacem__global__parameters.html#afcb3bf395f8f03bac37cd6b63f49ae18',1,'m_global_parameters::ss']]],
-  ['start_5fidx_137',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
-  ['stress_5fidx_138',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
-  ['strxb_139',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
-  ['strxe_140',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
-  ['support_141',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]],
-  ['sys_5fsize_142',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
+  ['source_5fspatial_5ftype_134',['source_spatial_type',['../structsource__spatial__type.html',1,'']]],
+  ['spatial_5fextents_135',['spatial_extents',['../namespacem__data__output.html#a60fd667edc741b8cb7dcb08d05f67462',1,'m_data_output']]],
+  ['spc_136',['spc',['../structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc',1,'ic_model_parameters']]],
+  ['ss_137',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters::ss'],['../namespacem__global__parameters.html#afcb3bf395f8f03bac37cd6b63f49ae18',1,'m_global_parameters::ss']]],
+  ['start_5fidx_138',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
+  ['stress_5fidx_139',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
+  ['strxb_140',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
+  ['strxe_141',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
+  ['support_142',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]],
+  ['sys_5fsize_143',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
 ];

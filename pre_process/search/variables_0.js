@@ -15,5 +15,6 @@ var searchData=
   ['alpha_12',['alpha',['../structic__patch__parameters.html#a0838c73a398dbe9c779bcc57d274d768',1,'ic_patch_parameters']]],
   ['alpha_5frho_13',['alpha_rho',['../structic__patch__parameters.html#a38e1f7414e57b23f1c12882b8d658a09',1,'ic_patch_parameters']]],
   ['alter_5fpatch_14',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
-  ['aperture_15',['aperture',['../structacoustic__parameters.html#af2c66666b1de7af176cd2b3d45107d10',1,'acoustic_parameters']]]
+  ['angle_15',['angle',['../structsource__spatial__type.html#a4719a19afe06dbf206e31eed1733929c',1,'source_spatial_type']]],
+  ['aperture_16',['aperture',['../structacoustic__parameters.html#af2c66666b1de7af176cd2b3d45107d10',1,'acoustic_parameters']]]
 ];

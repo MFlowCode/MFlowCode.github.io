@@ -26,6 +26,7 @@ var annotated_dup =
     [ "pres_field", "structpres__field.html", "structpres__field" ],
     [ "probe_parameters", "structprobe__parameters.html", "structprobe__parameters" ],
     [ "scalar_field", "structscalar__field.html", "structscalar__field" ],
+    [ "source_spatial_type", "structsource__spatial__type.html", "structsource__spatial__type" ],
     [ "t_bbox", "structt__bbox.html", null ],
     [ "t_model", "structt__model.html", "structt__model" ],
     [ "t_ray", "structt__ray.html", null ],

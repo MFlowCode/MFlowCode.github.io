@@ -13,5 +13,6 @@ var searchData=
   ['alpha_5fwrt_10',['alpha_wrt',['../namespacem__global__parameters.html#a61f570bcde70f7013523e11d93c66929',1,'m_global_parameters']]],
   ['alt_5fsoundspeed_11',['alt_soundspeed',['../namespacem__global__parameters.html#a5a19b6ba65c32dfc21f4762eceb25f29',1,'m_global_parameters']]],
   ['alter_5fpatch_12',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
-  ['aperture_13',['aperture',['../structacoustic__parameters.html#af2c66666b1de7af176cd2b3d45107d10',1,'acoustic_parameters']]]
+  ['angle_13',['angle',['../structsource__spatial__type.html#a4719a19afe06dbf206e31eed1733929c',1,'source_spatial_type']]],
+  ['aperture_14',['aperture',['../structacoustic__parameters.html#af2c66666b1de7af176cd2b3d45107d10',1,'acoustic_parameters']]]
 ];

@@ -12,7 +12,8 @@ var searchData=
   ['color_9',['color',['../structm__nvtx_1_1nvtxeventattributes.html#ac3782bbbbe86784127af31797be53f98',1,'m_nvtx::nvtxeventattributes']]],
   ['colortype_10',['colortype',['../structm__nvtx_1_1nvtxeventattributes.html#a6c3d2c3996f7c755fe5fc92ab083744d',1,'m_nvtx::nvtxeventattributes']]],
   ['comqr2_11',['comqr2',['../namespacem__eigen__solver.html#a41c2d326d4ab6e1c50656217cbc84b51',1,'m_eigen_solver']]],
-  ['corth_12',['corth',['../namespacem__eigen__solver.html#ab54bfcf38d40c65fcd0887727d3b00f0',1,'m_eigen_solver']]],
-  ['csroot_13',['csroot',['../namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f',1,'m_eigen_solver']]],
-  ['cv_14',['cv',['../structic__patch__parameters.html#a4ea2714f2984f0fbe34f79e41ff7d311',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#a82e92f193d2ba4bbe654b8fcabdaa5b2',1,'physical_parameters::cv']]]
+  ['coord_12',['coord',['../structsource__spatial__type.html#a911e89938c3cbc54d115895a10ae9195',1,'source_spatial_type']]],
+  ['corth_13',['corth',['../namespacem__eigen__solver.html#ab54bfcf38d40c65fcd0887727d3b00f0',1,'m_eigen_solver']]],
+  ['csroot_14',['csroot',['../namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f',1,'m_eigen_solver']]],
+  ['cv_15',['cv',['../structic__patch__parameters.html#a4ea2714f2984f0fbe34f79e41ff7d311',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#a82e92f193d2ba4bbe654b8fcabdaa5b2',1,'physical_parameters::cv']]]
 ];
