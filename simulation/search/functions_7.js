@@ -120,7 +120,7 @@ var searchData=
   ['s_5ffinalize_5fsurface_5ftension_5fmodule_117',['s_finalize_surface_tension_module',['../m__surface__tension_8fpp_8f90.html#ad74fb95feb5dc6eec325d004f49d6eaf',1,'m_surface_tension.fpp.f90']]],
   ['s_5ffinalize_5ftime_5fsteppers_5fmodule_118',['s_finalize_time_steppers_module',['../m__time__steppers_8fpp_8f90.html#a6db3015033cc309caa1989836b7258b6',1,'m_time_steppers.fpp.f90']]],
   ['s_5ffinalize_5fvariables_5fconversion_5fmodule_119',['s_finalize_variables_conversion_module',['../m__variables__conversion_8fpp_8f90.html#ac3668dc754cef7a968b09b29895b5915',1,'m_variables_conversion.fpp.f90']]],
-  ['s_5ffinalize_5fviscous_5fmodule_120',['s_finalize_viscous_module',['../m__viscous_8fpp_8f90.html#a73b420d45210c1e4002991c114dc81fa',1,'m_viscous.fpp.f90']]],
+  ['s_5ffinalize_5fviscous_5fmodule_120',['s_finalize_viscous_module',['../m__viscous_8fpp_8f90.html#af6e985e68f4bbcb8f86c1dc6dd47e14a',1,'m_viscous.fpp.f90']]],
   ['s_5ffinalize_5fweno_5fmodule_121',['s_finalize_weno_module',['../m__weno_8fpp_8f90.html#a58db4ca1aba01851c9aca95c2b57be37',1,'m_weno.fpp.f90']]],
   ['s_5ffind_5fghost_5fpoints_122',['s_find_ghost_points',['../m__ibm_8fpp_8f90.html#a896584b6529220ac1efb9491c86ffa69',1,'m_ibm.fpp.f90']]],
   ['s_5ffind_5fnum_5fghost_5fpoints_123',['s_find_num_ghost_points',['../m__ibm_8fpp_8f90.html#a3b811d1e06ec46973d5abc8c3bed10cf',1,'m_ibm.fpp.f90']]],
