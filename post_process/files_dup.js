@@ -1,5 +1,6 @@
 var files_dup =
 [
+    [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
     [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
     [ "m_constants.fpp.f90", "m__constants_8fpp_8f90.html", "m__constants_8fpp_8f90" ],
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
@@ -16,7 +17,6 @@ var files_dup =
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
     [ "m_helper_basic.f90", "m__helper__basic_8f90.html", "m__helper__basic_8f90" ],
-    [ "m_checker.f90", "m__checker_8f90.html", "m__checker_8f90" ],
     [ "m_data_input.f90", "m__data__input_8f90.html", "m__data__input_8f90" ],
     [ "m_start_up.f90", "m__start__up_8f90.html", "m__start__up_8f90" ]
 ];

@@ -39,34 +39,6 @@ var namespaces_dup =
       [ "s_check_unsupported_patch_smoothing", "namespacem__check__patches.html#a7f27b499f2b90ad0f25443c1a1c5a0e5", null ],
       [ "istr", "namespacem__check__patches.html#a1595128fdb31c7579893e18f2b9b5165", null ]
     ] ],
-    [ "m_checker", "namespacem__checker.html", [
-      [ "s_check_inputs", "namespacem__checker.html#a91965851c33800f743ed0f6eb055f013", null ],
-      [ "s_check_inputs_grid_stretching", "namespacem__checker.html#af56311c15309306dcc5d55db0b1eea9f", null ],
-      [ "s_check_inputs_misc", "namespacem__checker.html#acd9c8d302aa495492a27f8d847c14929", null ],
-      [ "s_check_inputs_perturb_density", "namespacem__checker.html#a0fd3a05104f108b9fdebe73e440cd74a", null ],
-      [ "s_check_inputs_qbmm_and_polydisperse", "namespacem__checker.html#a4c66b5035aeed78b4f60b828793912b1", null ],
-      [ "s_check_inputs_restart", "namespacem__checker.html#af5132806d0d5132e6e182e1e3106eaea", null ],
-      [ "s_check_parallel_io", "namespacem__checker.html#a44e21acd82407f9218b83b0b6cdf7251", null ]
-    ] ],
-    [ "m_checker_common", "namespacem__checker__common.html", [
-      [ "s_check_inputs_adv_n", "namespacem__checker__common.html#a338aa96ad89c8cf24a4bbc2ff4854fca", null ],
-      [ "s_check_inputs_bc", "namespacem__checker__common.html#a60440046226eb692dd3126310abc954b", null ],
-      [ "s_check_inputs_bubbles", "namespacem__checker__common.html#a2ff2c47878e2ca94e6d26b003e4601d7", null ],
-      [ "s_check_inputs_common", "namespacem__checker__common.html#a74f42bff05dce7a5d2d873832fb68802", null ],
-      [ "s_check_inputs_finite_difference", "namespacem__checker__common.html#aebf926a4911082ef2beff5fd28d47891", null ],
-      [ "s_check_inputs_hypoelasticity", "namespacem__checker__common.html#a7aaf5cf7c231ec77d3b60adfcb9232a5", null ],
-      [ "s_check_inputs_ibm", "namespacem__checker__common.html#aca8413f022abcd2ae73568a653117c9a", null ],
-      [ "s_check_inputs_model_eqns_and_num_fluids", "namespacem__checker__common.html#ae4cc02df552e32e1accb89367ae94243", null ],
-      [ "s_check_inputs_moving_bc", "namespacem__checker__common.html#abcfe8095ea79c59799aeac919ade0fff", null ],
-      [ "s_check_inputs_phase_change", "namespacem__checker__common.html#a36bce663f6835f9be8da49f7957ad795", null ],
-      [ "s_check_inputs_qbmm_and_polydisperse", "namespacem__checker__common.html#a12d2c159000d13213ad316f13192e0d4", null ],
-      [ "s_check_inputs_simulation_domain", "namespacem__checker__common.html#a7363fae983f044870a56f2a21a25c8f6", null ],
-      [ "s_check_inputs_stiffened_eos", "namespacem__checker__common.html#acb9da079048c2c1239f4b3a18de2f1e6", null ],
-      [ "s_check_inputs_surface_tension", "namespacem__checker__common.html#a2abda84a3552ab0b6ed2288699f40806", null ],
-      [ "s_check_inputs_time_stepping", "namespacem__checker__common.html#aa25ab374da29ce7fd0ba0e37e1c274d6", null ],
-      [ "s_check_inputs_weno", "namespacem__checker__common.html#a5e3c218420704d543eab2759272e16f8", null ],
-      [ "s_check_total_cells", "namespacem__checker__common.html#acf11b2467e1adeb65d8400c2bca5a97d", null ]
-    ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
       [ "s_create_directory", "namespacem__compile__specific.html#a44b8e18a2c76367e7090649e62dd7d8c", null ],

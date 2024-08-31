@@ -1,37 +1,5 @@
 var namespaces_dup =
 [
-    [ "m_checker", "namespacem__checker.html", [
-      [ "s_check_inputs", "namespacem__checker.html#a91965851c33800f743ed0f6eb055f013", null ],
-      [ "s_check_inputs_flux_limiter", "namespacem__checker.html#a6bd8c5039f6ddb1b9f6396e68756960f", null ],
-      [ "s_check_inputs_momentum", "namespacem__checker.html#a276fab48861e9055a361a07fbd7b7c73", null ],
-      [ "s_check_inputs_no_flow_variables", "namespacem__checker.html#a7788327ecf45b7eaa93dc39d7f88b1c5", null ],
-      [ "s_check_inputs_output_format", "namespacem__checker.html#a87010e5a4be52fcb42bd21899b450e4a", null ],
-      [ "s_check_inputs_partial_density", "namespacem__checker.html#aecbbeab4d718cd61a32b28e630b0ab67", null ],
-      [ "s_check_inputs_schlieren", "namespacem__checker.html#a4d0dee9261f9345fc89ec04d90b2b8c3", null ],
-      [ "s_check_inputs_surface_tension", "namespacem__checker.html#a67c9b8050a2f0a353c310ca69d23db3d", null ],
-      [ "s_check_inputs_velocity", "namespacem__checker.html#ad1d40185798c72a4132ec9696e138eeb", null ],
-      [ "s_check_inputs_volume_fraction", "namespacem__checker.html#a7124f202b14d85736e0478330c8841a6", null ],
-      [ "s_check_inputs_vorticity", "namespacem__checker.html#a511b7da09e37e40033864f321ad811eb", null ]
-    ] ],
-    [ "m_checker_common", "namespacem__checker__common.html", [
-      [ "s_check_inputs_adv_n", "namespacem__checker__common.html#a338aa96ad89c8cf24a4bbc2ff4854fca", null ],
-      [ "s_check_inputs_bc", "namespacem__checker__common.html#a60440046226eb692dd3126310abc954b", null ],
-      [ "s_check_inputs_bubbles", "namespacem__checker__common.html#a2ff2c47878e2ca94e6d26b003e4601d7", null ],
-      [ "s_check_inputs_common", "namespacem__checker__common.html#a74f42bff05dce7a5d2d873832fb68802", null ],
-      [ "s_check_inputs_finite_difference", "namespacem__checker__common.html#aebf926a4911082ef2beff5fd28d47891", null ],
-      [ "s_check_inputs_hypoelasticity", "namespacem__checker__common.html#a7aaf5cf7c231ec77d3b60adfcb9232a5", null ],
-      [ "s_check_inputs_ibm", "namespacem__checker__common.html#aca8413f022abcd2ae73568a653117c9a", null ],
-      [ "s_check_inputs_model_eqns_and_num_fluids", "namespacem__checker__common.html#ae4cc02df552e32e1accb89367ae94243", null ],
-      [ "s_check_inputs_moving_bc", "namespacem__checker__common.html#abcfe8095ea79c59799aeac919ade0fff", null ],
-      [ "s_check_inputs_phase_change", "namespacem__checker__common.html#a36bce663f6835f9be8da49f7957ad795", null ],
-      [ "s_check_inputs_qbmm_and_polydisperse", "namespacem__checker__common.html#a12d2c159000d13213ad316f13192e0d4", null ],
-      [ "s_check_inputs_simulation_domain", "namespacem__checker__common.html#a7363fae983f044870a56f2a21a25c8f6", null ],
-      [ "s_check_inputs_stiffened_eos", "namespacem__checker__common.html#acb9da079048c2c1239f4b3a18de2f1e6", null ],
-      [ "s_check_inputs_surface_tension", "namespacem__checker__common.html#a2abda84a3552ab0b6ed2288699f40806", null ],
-      [ "s_check_inputs_time_stepping", "namespacem__checker__common.html#aa25ab374da29ce7fd0ba0e37e1c274d6", null ],
-      [ "s_check_inputs_weno", "namespacem__checker__common.html#a5e3c218420704d543eab2759272e16f8", null ],
-      [ "s_check_total_cells", "namespacem__checker__common.html#acf11b2467e1adeb65d8400c2bca5a97d", null ]
-    ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
       [ "s_create_directory", "namespacem__compile__specific.html#a44b8e18a2c76367e7090649e62dd7d8c", null ],

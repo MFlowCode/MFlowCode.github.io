@@ -12,6 +12,7 @@ var m__helper_8fpp_8f90 =
     [ "s_initialize_nonpoly", "m__helper_8fpp_8f90.html#ae6e719f709d847b8b1a1f8e8b483158f", null ],
     [ "s_int_to_str", "m__helper_8fpp_8f90.html#a8a0505b2bd4f3d8cb2bf3ce16cfe01e3", null ],
     [ "s_print_2d_array", "m__helper_8fpp_8f90.html#ab89cbe125a3f1cdf3339d2d40f48e547", null ],
+    [ "s_prohibit_abort", "m__helper_8fpp_8f90.html#aaf652be9ac041c3a38652bb42475f83f", null ],
     [ "s_simpson", "m__helper_8fpp_8f90.html#a546be57ed19ff3f9da2d133dc9df96a9", null ],
     [ "s_swap", "m__helper_8fpp_8f90.html#af89217ee50179a901a5c9f8fd450cf59", null ],
     [ "s_transcoeff", "m__helper_8fpp_8f90.html#a91cfb5e94039510845e0bb8cdc843ee8", null ],
