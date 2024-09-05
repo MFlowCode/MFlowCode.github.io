@@ -1,16 +1,16 @@
 var searchData=
 [
-  ['scaling_0',['Scaling',['../md_examples.html#autotoc_md50',1,'Strong Scaling'],['../md_examples.html#autotoc_md49',1,'Weak Scaling']]],
-  ['scaling_1',['scaling',['../md_expectedPerformance.html#autotoc_md72',1,'Strong scaling'],['../md_examples.html#autotoc_md48',1,'Strong- &amp; Weak-scaling'],['../md_expectedPerformance.html#autotoc_md68',1,'Weak scaling']]],
+  ['scaling_0',['Scaling',['../md_examples.html#autotoc_md41',1,'Strong Scaling'],['../md_examples.html#autotoc_md40',1,'Weak Scaling']]],
+  ['scaling_1',['scaling',['../md_expectedPerformance.html#autotoc_md72',1,'Strong scaling'],['../md_examples.html#autotoc_md39',1,'Strong- &amp; Weak-scaling'],['../md_expectedPerformance.html#autotoc_md68',1,'Weak scaling']]],
   ['script_2',['Step 2: Customizing the script',['../md_visualization.html#autotoc_md104',1,'']]],
   ['serial_20data_20output_3',['Serial data output',['../md_visualization.html#autotoc_md101',1,'']]],
   ['server_4',['Step 3: Running pace-paraview-server',['../md_visualization.html#autotoc_md105',1,'']]],
   ['setting_20up_20your_20environment_5',['Step 1: Setting up your Environment',['../md_visualization.html#autotoc_md103',1,'']]],
   ['setup_6',['10. Velocity Field Setup',['../md_case.html#autotoc_md17',1,'']]],
-  ['shock_203d_7',['IBM Bow Shock (3D)',['../md_examples.html#autotoc_md58',1,'']]],
-  ['shock_20droplet_202d_8',['Shock Droplet (2D)',['../md_examples.html#autotoc_md39',1,'']]],
+  ['shock_203d_7',['IBM Bow Shock (3D)',['../md_examples.html#autotoc_md46',1,'']]],
+  ['shock_20droplet_202d_8',['Shock Droplet (2D)',['../md_examples.html#autotoc_md28',1,'']]],
   ['shock_20tube_20problem_201d_9',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md60',1,'']]],
-  ['shu_20osher_20problem_201d_10',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md36',1,'']]],
+  ['shu_20osher_20problem_201d_10',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md51',1,'']]],
   ['simulation_20algorithm_11',['6. Simulation Algorithm',['../md_case.html#autotoc_md14',1,'']]],
   ['skeleton_12',['Basic Skeleton',['../md_case.html#autotoc_md2',1,'']]],
   ['source_13',['8. Acoustic Source',['../md_case.html#acoustic-source',1,'']]],
@@ -18,9 +18,9 @@ var searchData=
   ['step_201_3a_20setting_20up_20your_20environment_15',['Step 1: Setting up your Environment',['../md_visualization.html#autotoc_md103',1,'']]],
   ['step_202_3a_20customizing_20the_20script_16',['Step 2: Customizing the script',['../md_visualization.html#autotoc_md104',1,'']]],
   ['step_203_3a_20running_20pace_20paraview_20server_17',['Step 3: Running pace-paraview-server',['../md_visualization.html#autotoc_md105',1,'']]],
-  ['strong_20scaling_18',['Strong Scaling',['../md_examples.html#autotoc_md50',1,'']]],
+  ['strong_20scaling_18',['Strong Scaling',['../md_examples.html#autotoc_md41',1,'']]],
   ['strong_20scaling_19',['Strong scaling',['../md_expectedPerformance.html#autotoc_md72',1,'']]],
-  ['strong_20weak_20scaling_20',['Strong- &amp; Weak-scaling',['../md_examples.html#autotoc_md48',1,'']]],
+  ['strong_20weak_20scaling_20',['Strong- &amp; Weak-scaling',['../md_examples.html#autotoc_md39',1,'']]],
   ['suite_21',['Running the Test Suite',['../md_getting-started.html#autotoc_md81',1,'']]],
   ['supports_22',['Acoustic Supports',['../md_case.html#acoustic-supports',1,'']]]
 ];

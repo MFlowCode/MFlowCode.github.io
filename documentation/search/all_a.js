@@ -6,7 +6,7 @@ var searchData=
   ['boundary_20conditions_3',['Boundary conditions',['../md_case.html#autotoc_md22',1,'']]],
   ['boundary_20patch_20types_4',['Immersed Boundary Patch Types',['../md_case.html#autotoc_md24',1,'']]],
   ['boundary_20patches_5',['4. Immersed Boundary Patches',['../md_case.html#autotoc_md11',1,'']]],
-  ['bow_20shock_203d_6',['IBM Bow Shock (3D)',['../md_examples.html#autotoc_md58',1,'']]],
+  ['bow_20shock_203d_6',['IBM Bow Shock (3D)',['../md_examples.html#autotoc_md46',1,'']]],
   ['bubble_20model_7',['9. Ensemble-Averaged Bubble Model',['../md_case.html#autotoc_md16',1,'']]],
   ['build_20environment_8',['Build Environment',['../md_getting-started.html#autotoc_md79',1,'']]],
   ['building_20mfc_9',['Building MFC',['../md_getting-started.html#autotoc_md80',1,'']]]
