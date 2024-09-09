@@ -6,6 +6,7 @@ var m__time__steppers_8fpp_8f90 =
     [ "s_3rd_order_tvd_rk", "m__time__steppers_8fpp_8f90.html#ad642c094881f0cffbb6158f9fa079a86", null ],
     [ "s_adaptive_dt_bubble", "m__time__steppers_8fpp_8f90.html#a7d3b794980e24632e81102bb05044392", null ],
     [ "s_apply_bodyforces", "m__time__steppers_8fpp_8f90.html#a27fa5736201694314b08817bd8038d99", null ],
+    [ "s_compute_dt", "m__time__steppers_8fpp_8f90.html#a24dc08acb3c755a7daa9aef719190a35", null ],
     [ "s_finalize_time_steppers_module", "m__time__steppers_8fpp_8f90.html#a6db3015033cc309caa1989836b7258b6", null ],
     [ "s_initialize_time_steppers_module", "m__time__steppers_8fpp_8f90.html#a12ee7ac6b6799fd5f26f3bf8d75e35bb", null ],
     [ "s_strang_splitting", "m__time__steppers_8fpp_8f90.html#a5858523edfce42df32b2b0a8af54bc0e", null ],

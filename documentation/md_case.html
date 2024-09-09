@@ -226,17 +226,7 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>n</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of grid cells in the $y$-coordinate direction    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>p</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of grid cells in the $z$-coordinate direction    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>dt</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time step size    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>t_step_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation starting time step    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>t_step_stop</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation stopping time step    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>t_step_save</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to output data    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>t_step_print</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to print the current step number to standard output (default 1)   </td></tr>
+<td class="markdownTableBodyRight"><code>p</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of grid cells in the $z$-coordinate direction   </td></tr>
 </table>
 <p>The parameters define the boundaries of the spatial and temporal domains, and their discretization that are used in simulation.</p>
 <ul>
@@ -252,8 +242,6 @@ Parameters</h1>
 <p>where <code>x_cb</code> and <code>x_[cb,stretch]</code> are the coordinates of a cell boundary at the original and stretched domains, respectively. <code>L</code> is the domain length along the <code>x</code> axis: <code>L</code>=<code>x_domain%end</code>-<code>x_domain%beg</code>. Crudely speaking, <code>x_a</code> and <code>x_b</code> define the coordinates at which the grid begins to get stretched in the negative and positive directions along the $x$ axis, respectively. $a_x$ defines the smoothness of the stretching. Stretching along the $y$ and $z$ axes follows the same logistics. Optimal choice of the parameters for grid stretching is case-dependent and left to the user. <code>loops_x[y,z]</code> defines the number of times the grid stretching function is applied and has a default value of one.</p>
 <ul>
 <li><code>cyl_coord</code> activates cylindrical coordinates. The domain is defined in $x$-$y$-$z$ cylindrical coordinates, instead of Cartesian coordinates. Domain discretization is accordingly conducted along the axes of cylindrical coordinates. When $p=0$, the domain is defined on $x$-$y$ axi-symmetric coordinates. In both Coordinates, mesh stretching can be defined along the $x$- and $y$-axes. MPI topology is automatically optimized to maximize the parallel efficiency for given choice of coordinate systems.</li>
-<li><code>dt</code> specifies the constant time step size that is used in simulation. The value of <code>dt</code> needs to be sufficiently small such that the Courant-Friedrichs-Lewy (CFL) condition is satisfied.</li>
-<li><code>t_step_start</code> and <code>t_step_end</code> define the time steps at which simulation starts and ends, respectively. <code>t_step_save</code> is the time step interval for data output during simulation. To newly start the simulation, set <code>t_step_start = 0</code>. To restart simulation from $k$-th time step, set <code>t_step_start = k</code>, do not run <code>pre_process</code>, and run <code>simulation</code> directly (<code>./mfc.sh run [...] -t simulation</code>). Ensure the data for the $k$-th time step is stored in the <code>restart_data/</code> directory within the case repository.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md7"></a>
 3. Patches</h2>
@@ -485,7 +473,29 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values   </td></tr>
+<td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>dt</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time step size    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>t_step_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation starting time step    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_step_stop</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation stopping time step    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>t_step_save</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to output data    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_step_print</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to print the current step number to standard output (default 1)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>cfl_adap_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">CFL based adaptive time-stepping    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>cfl_const_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">CFL based non-adaptive time-stepping    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>cfl_target</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specified CFL value    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>n_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Save file from which to start simulation    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>t_save</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time duration between data output    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_stop</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Simulation stop time   </td></tr>
 </table>
 <ul>
 <li>* Options that work only with <code>model_eqns = 2</code>.</li>
@@ -519,7 +529,25 @@ Parameter Descriptions</h3>
 <li><code>weno_Re_flux</code> activates the scaler divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
 <li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="autotoc_md15"></a>
+Constant Time-Stepping</h3>
+<ul>
+<li><code>dt</code> specifies the constant time step size that is used in simulation. The value of <code>dt</code> needs to be sufficiently small such that the Courant-Friedrichs-Lewy (CFL) condition is satisfied.</li>
+<li><code>t_step_start</code> and <code>t_step_end</code> define the time steps at which simulation starts and ends, respectively.</li>
+</ul>
+<p><code>t_step_save</code> is the time step interval for data output during simulation. To newly start the simulation, set <code>t_step_start = 0</code>. To restart simulation from $k$-th time step, set <code>t_step_start = k</code>, see <a href="running.md#restarting-cases">Restarting Cases</a>.</p>
+<h4><a class="anchor" id="autotoc_md16"></a>
+Adaptive Time-Stepping</h4>
+<ul>
+<li><code>cfl_adap_dt</code> enables adaptive time stepping with a constant CFL when true</li>
+<li><code>cfl_const_dt</code> enables constant dt time-stepping where dt results in a specified CFL for the initial condition</li>
+<li><code>cfl_target</code> specifies the target CFL value</li>
+<li><code>n_start</code> specifies the save file to start at</li>
+<li><code>t_save</code> specifies the time interval between data output during simulation</li>
+<li><code>t_stop</code> specifies at what time the simulation should stop</li>
+</ul>
+<p>To newly start the simulation, set <code>n_start = 0</code>. To restart simulation from $k$-th time step, see <a href="running.md#restarting-cases">Restarting Cases</a>.</p>
+<h2><a class="anchor" id="autotoc_md17"></a>
 7. Formatted Output</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -665,7 +693,7 @@ Parameter Descriptions</h3>
 <li><code>%element_polygon_ratio</code> specifies the ratio of the polygon side length to the aperture diameter of each transducer element in a circular 3D transducer array. The polygon side length is calculated by using the total aperture (<code>%aperture</code>) as the circumcicle diameter, and <code>%num_elements</code> as the number of sides of the polygon. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture.</li>
 <li><code>%rotate_angle</code> specifies the rotation angle of the 3D circular transducer array along the x-axis (principal axis). It is optional and defaults to 0.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="autotoc_md18"></a>
 9. Ensemble-Averaged Bubble Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -739,14 +767,11 @@ Parameter Descriptions</h3>
 <li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, and <code>k_v</code> specify the specific heat ratio, molecular weight, viscosity, and thermal conductivity of a chosen component. Implementation of the parameters into the model follow <a href="references.md#Ando10">Ando (2010)</a>.</li>
 <li><code>qbmm</code> activates quadrature by method of moments, which assumes a PDF for bubble radius and velocity.</li>
 <li><code>dist_type</code> specifies the initial joint PDF of initial bubble radius and bubble velocity required in qbmm. <code>dist_type = 1</code> and <code>2</code> correspond to binormal and lognormal-normal distributions respectively.</li>
-<li><code>sigR</code> specifies the standard deviation of the PDF of bubble radius required in qbmm. <br  />
-</li>
-<li><code>sigV</code> specifies the standard deviation of the PDF of bubble velocity required in qbmm. <br  />
-</li>
-<li><code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in qbmm. <br  />
-</li>
+<li><code>sigR</code> specifies the standard deviation of the PDF of bubble radius required in qbmm.</li>
+<li><code>sigV</code> specifies the standard deviation of the PDF of bubble velocity required in qbmm.</li>
+<li><code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in qbmm.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 10. Velocity Field Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -785,7 +810,7 @@ Parameter Descriptions</h3>
 <li><code>mixlayer_perturb</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for <code>n &gt; 0</code>, <code>bc_y%[beg,end] = -6</code>, <code>num_fluids = 1</code>, <code>model_eqns = 2</code> and &lsquo;mixlayer_vel_profile = 'T&rsquo;`.</li>
 <li><code>mixlayer_domain</code> defines the domain size to compute spatial eigenvalues of the linear instability analysis when &lsquo;mixlayer_perturb = 'T&rsquo;<code>. For example, the spatial eigenvalue in</code>x` direction in 2D problem will be $2 \pi \alpha / (mixlayer_domain*patch_icpp(1)%length_y)$ for $\alpha = 1$, $2$ and $4$.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 11. Phase Change Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -805,7 +830,7 @@ Parameter Descriptions</h3>
 <li><code>palpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pT-equilibrium model.</li>
 <li><code>ptgalpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pTg-equilibrium model.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 12. Artificial Mach Number</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -816,7 +841,7 @@ Parameter Descriptions</h3>
 <ul>
 <li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models, when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 13. Body Forces</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -835,9 +860,9 @@ Parameter Descriptions</h3>
 <p><code>k_x[y,z]</code>, <code>w_x[y,z]</code>, <code>p_x[y,z]</code>, and <code>g_x[y,z]</code> define an oscillating acceleration in the <code>x[y,z]</code> direction with the form</p>
 <p>$$ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). $$</p>
 <p>Positive accelerations are in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction by convention.</p>
-<h1><a class="anchor" id="autotoc_md21"></a>
+<h1><a class="anchor" id="autotoc_md23"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -875,7 +900,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_y%beg</code> when using cylindrical coordinates (<code>cyl_coord = 'T'</code> and 3D). For axisymmetric problems, use <code>bc_y%beg = -2</code> with <code>cyl_coord = 'T'</code> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -924,7 +949,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>model%filepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)%geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -986,7 +1011,7 @@ Acoustic Supports</h2>
 <li><code>%support = 10</code> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <code>%support = 9</code> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <code>%support = 9</code> around the x-axis.</li>
 <li><code>%support = 11</code> specifies a circular transducer array in 3D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 7</code>. The parameters <code>%num_elements</code>, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <code>%num_elements</code>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1012,7 +1037,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

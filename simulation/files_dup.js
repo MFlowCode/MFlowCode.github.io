@@ -35,5 +35,6 @@ var files_dup =
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
     [ "m_helper_basic.f90", "m__helper__basic_8f90.html", "m__helper__basic_8f90" ],
     [ "m_derived_variables.f90", "m__derived__variables_8f90.html", "m__derived__variables_8f90" ],
-    [ "m_nvtx.f90", "m__nvtx_8f90.html", "m__nvtx_8f90" ]
+    [ "m_nvtx.f90", "m__nvtx_8f90.html", "m__nvtx_8f90" ],
+    [ "m_sim_helpers.f90", "m__sim__helpers_8f90.html", "m__sim__helpers_8f90" ]
 ];

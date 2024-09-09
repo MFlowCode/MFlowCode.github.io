@@ -35,6 +35,7 @@ var namespaces_dup =
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
       [ "dflt_real", "namespacem__constants.html#aea00cbe9efc8c7935ded731213cbda58", null ],
+      [ "dflt_vcfl_dt", "namespacem__constants.html#a3a243a8d9d072460385568d352ab338c", null ],
       [ "fourier_rings", "namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183", null ],
       [ "name_len", "namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757", null ],
       [ "nnode", "namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd", null ],
@@ -85,5 +86,10 @@ var namespaces_dup =
       [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
+    [ "m_sim_helpers", "namespacem__sim__helpers.html", [
+      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a3d187753f4e292887a3030707059b421", null ],
+      [ "s_compute_enthalpy", "namespacem__sim__helpers.html#a728a849783a9c8a5a8f969daa627995b", null ],
+      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#ad7c9828a95b779c9c011d9d052df9eaa", null ]
+    ] ],
     [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ]
 ];
