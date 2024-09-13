@@ -296,7 +296,7 @@ Parameters</h1>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Analytical Definition of Primitive Variables</h3>
 <p>Some parameters, as described above, can be defined by analytical functions in the input file. For example, one can define the following patch:</p>
-<div class="fragment"><div class="line">&#39;patch_icpp(2)%geometry&#39;    : 15,</div>
+<div class="fragment"><div class="line">&#39;patch_icpp(2)%geometry&#39;    : 1,</div>
 <div class="line">&#39;patch_icpp(2)%x_centroid&#39;  : 0.25,</div>
 <div class="line">&#39;patch_icpp(2)%length_x&#39;    : 9.5,</div>
 <div class="line">&#39;patch_icpp(2)%vel(1)&#39;      : 0.,</div>
@@ -331,7 +331,7 @@ Hard Coded Patches</h3>
 <div class="fragment"><div class="line">90</div>
 <div class="line">   <span class="keywordflow">case</span>(200)</div>
 <div class="line">       ! primitive variables assignment</div>
-</div><!-- fragment --><p>and use <code>patch_icpp(i)%geometry = 7</code> and <code>patch_icpp(i)%hcid = 200</code> in the input file. Additional variables can be declared in <code>Hardcoded1[2,3]DVariables</code> and used in <code>hardcoded1[2,3]D</code>. As a convention, any hard coded patches that are part of the MFC master branch should be identified as 1[2,3]xx where the first digit indites the number of dimensions.</p>
+</div><!-- fragment --><p>and use <code>patch_icpp(i)%geometry = 7</code> and <code>patch_icpp(i)%hcid = 200</code> in the input file. Additional variables can be declared in <code>Hardcoded1[2,3]DVariables</code> and used in <code>hardcoded1[2,3]D</code>. As a convention, any hard coded patches that are part of the MFC master branch should be identified as 1[2,3]xx where the first digit indicates the number of dimensions.</p>
 <h3><a class="anchor" id="autotoc_md10"></a>
 Parameter Descriptions</h3>
 <ul>
@@ -467,11 +467,11 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>low_Mach</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Low Mach number correction for HLLC Riemann solver: [0] None; [1] Pressure (Chen et al. 2022); [2] Velocity (Thornber et al. 2008)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe averagen*; [2] Arithmetic mean    </td></tr>
+<td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe average*; [2] Arithmetic mean    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scaler divergence theorem    </td></tr>
+<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scalar divergence theorem    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -526,7 +526,7 @@ Parameter Descriptions</h3>
 <li><code>low_Mach</code> specifies the choice of the low Mach number correction scheme for the HLLC Riemann solver. <code>low_Mach = 0</code> is default value and does not apply any correction scheme. <code>low_Mach = 1</code> and <code>2</code> apply the anti-dissipation pressure correction method (<a href="references.md#Chen22">Chen et al., 2022</a>) and the improved velocity reconstruction method (<a href="references.md#Thornber08">Thornber et al., 2008</a>). This feature requires <code>riemann_solver = 2</code> and <code>model_eqns = 2</code>.</li>
 <li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state = 1</code> and <code>2</code> correspond to Roe- and arithmetic averages, respectively.</li>
 <li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds = 1</code> and <code>2</code> correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
-<li><code>weno_Re_flux</code> activates the scaler divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
+<li><code>weno_Re_flux</code> activates the scalar divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
 <li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md15"></a>
@@ -689,7 +689,7 @@ Adaptive Time-Stepping</h4>
 <li><code>%aperture</code> specifies the aperture of the transducer. It is the diameter of the projection of the transducer arc onto the y-axis (2D) or spherical cap onto the y-z plane (3D). To simulate a transducer enclosing half of the circle/sphere, set the aperture to double the focal length. For transducer array, it is the total aperture of the array.</li>
 <li><code>%num_elements</code> specifies the number of transducer elements in a transducer array.</li>
 <li><code>%element_on</code> specifies the element number of the transducer array that is on. The element number starts from 1. If all elements are on, set <code>%element_on</code> to 0.</li>
-<li><code>%element_spacing_angle</code> specifies the spacing angle between adjacent transducer in radian. The total aperture (<code>%aperture</code>) is set, so each transducer element is smaller if <code>%element_spacing_angle</code> is larger.</li>
+<li><code>%element_spacing_angle</code> specifies the spacing angle between adjacent transducer in radians. The total aperture (<code>%aperture</code>) is set, so each transducer element is smaller if <code>%element_spacing_angle</code> is larger.</li>
 <li><code>%element_polygon_ratio</code> specifies the ratio of the polygon side length to the aperture diameter of each transducer element in a circular 3D transducer array. The polygon side length is calculated by using the total aperture (<code>%aperture</code>) as the circumcicle diameter, and <code>%num_elements</code> as the number of sides of the polygon. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture.</li>
 <li><code>%rotate_angle</code> specifies the rotation angle of the 3D circular transducer array along the x-axis (principal axis). It is optional and defaults to 0.</li>
 </ul>
@@ -777,7 +777,7 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>perturb_flow</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initlal velocity field by random noise    </td></tr>
+<td class="markdownTableBodyRight"><code>perturb_flow</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initlial velocity field by random noise    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>perturb_flow_fluid</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Fluid density whose flow is to be perturbed    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -918,7 +918,7 @@ Patch types</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">6   </td><td class="markdownTableBodyCenter">N/A   </td><td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">No longer exists. Empty.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">7   </td><td class="markdownTableBodyCenter">2D analytical   </td><td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions.    </td></tr>
+<td class="markdownTableBodyRight">7   </td><td class="markdownTableBodyCenter">2D Hardcoded   </td><td class="markdownTableBodyCenter">2   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions.    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">8   </td><td class="markdownTableBodyCenter">Sphere   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code> and <code>radius</code>    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -930,11 +930,11 @@ Patch types</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">12   </td><td class="markdownTableBodyCenter">Ellipsoid   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code> and <code>radii(i)</code>.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">13   </td><td class="markdownTableBodyCenter">3D analytical   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions    </td></tr>
+<td class="markdownTableBodyRight">13   </td><td class="markdownTableBodyCenter">3D Hardcoded   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">14   </td><td class="markdownTableBodyCenter">Spherical Harmonic   </td><td class="markdownTableBodyCenter">3   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Requires <code>[x,y,z]_centroid</code>, <code>radius</code>, <code>epsilon</code>, <code>beta</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">15   </td><td class="markdownTableBodyCenter">1D analytical   </td><td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions    </td></tr>
+<td class="markdownTableBodyRight">15   </td><td class="markdownTableBodyCenter">1D Hardcoded   </td><td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Assigns the primitive variables as analytical functions    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">16   </td><td class="markdownTableBodyCenter">1D bubble pulse   </td><td class="markdownTableBodyCenter">1   </td><td class="markdownTableBodyCenter">N   </td><td class="markdownTableBodyLeft">Requires <code>x_centroid</code>, <code>length_x</code>    </td></tr>
 <tr class="markdownTableRowOdd">
