@@ -156,20 +156,10 @@ Build Environment</h1>
 </ul>
 <div class="fragment"><div class="line">sudo apt update</div>
 <div class="line">sudo apt upgrade</div>
-<div class="line">sudo apt install tar wget make cmake gcc g++ \</div>
-<div class="line">                   python3 python3-dev         \</div>
-<div class="line">                   &quot;openmpi-*&quot; libopenmpi-dev \</div>
-<div class="line">                   python3-venv</div>
-</div><!-- fragment --><ul>
-<li><b>Via Pacman (Arch):</b></li>
-</ul>
-<div class="fragment"><div class="line">sudo pacman -Syu</div>
-<div class="line">sudo pacman -S base-devel coreutils  \</div>
-<div class="line">                 git ninja gcc-fortran \</div>
-<div class="line">                 cmake openmpi python3 \</div>
-<div class="line">                 python-pip openssh    \</div>
-<div class="line">                 python-virtualenv vim \</div>
-<div class="line">                 wget tree</div>
+<div class="line">sudo apt install tar wget make cmake gcc g++      \</div>
+<div class="line">                 python3 python3-dev python3-venv \</div>
+<div class="line">                 openmpi-bin libopenmpi-dev       \</div>
+<div class="line">                 libhdf5-dev libfftw3-dev</div>
 </div><!-- fragment --><p>If you wish to build MFC using <a href="https://developer.nvidia.com/hpc-sdk">NVidia's NVHPC SDK</a>, first follow the instructions <a href="https://developer.nvidia.com/nvidia-hpc-sdk-downloads">here</a>.</p>
 <p></p>
 </details>
@@ -177,7 +167,7 @@ Build Environment</h1>
 <summary >
 Windows</summary>
 <p></p>
-<p>On Windows, you can either use Intel Compilers with the standard Microsoft toolchain, <a href="https://docs.docker.com/get-docker/">Docker</a> or the <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> for a Linux experience.</p>
+<p>On Windows, you can either use Intel Compilers with the standard Microsoft toolchain, or the <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> for a Linux experience.</p>
 <details >
 <summary >
 Windows + WSL (Recommended)</summary>
@@ -222,46 +212,9 @@ Native Windows (Intel)</summary>
 <summary >
 MacOS</summary>
 <p></p>
-<ul>
-<li><b>If you use [ZSH]</b> (Verify with <code>echo $SHELL</code>)</li>
-</ul>
-<div class="fragment"><div class="line">touch ~/.zshrc</div>
-<div class="line">open ~/.zshrc</div>
-</div><!-- fragment --><ul>
-<li><b>If you use [BASH]</b> (Verify with <code>echo $SHELL</code>)</li>
-</ul>
-<div class="fragment"><div class="line">touch ~/.bash_profile</div>
-<div class="line">open ~/.bash_profile</div>
-</div><!-- fragment --><p>An editor should open. Please paste the following lines into it before saving the file. Modify the first assignment if you wish to use a different version of GNU's GCC. These lines ensure that LLVM's Clang and Apple's modified version of GCC are not used to compile MFC. Further reading on <code>open-mpi</code> incompatibility with <code>clang</code>-based <code>gcc</code> on macOS: <a href="https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9">here</a>. We do <em>not</em> support <code>clang</code> due to conflicts with the Silo dependency.</p>
-<div class="fragment"><div class="line">export MFC_GCC_VER=13</div>
-<div class="line">export CC=gcc-$MFC_GCC_VER</div>
-<div class="line">export CXX=g++-$MFC_GCC_VER</div>
-<div class="line">export FC=gfortran-$MFC_GCC_VER</div>
-</div><!-- fragment --><p><b>Close the open editor and terminal window</b>. Open a <b>new terminal</b> window before executing the commands below.</p>
-<div class="fragment"><div class="line">brew install wget python cmake gcc@$MFC_GCC_VER mpich</div>
+<p>Using <a href="https://brew.sh/">Homebrew</a> you can install the necessary dependencies:</p>
+<div class="fragment"><div class="line">brew install coreutils python cmake fftw hdf5 gcc open-mpi</div>
 </div><!-- fragment --><p>They will download the dependencies MFC requires to build itself.</p>
-<p></p>
-</details>
-<details >
-<summary >
-Docker</summary>
-<p></p>
-<p>Docker is a lightweight, cross-platform, and performant alternative to Virtual Machines (VMs). We build a Docker Image that contains the packages required to build and run MFC on your local machine.</p>
-<p>First, install Docker and Git:</p><ul>
-<li>Windows: <a href="https://docs.docker.com/get-docker/">Docker</a> + <a href="https://git-scm.com/downloads">Git</a>.</li>
-<li>macOS: <code>brew install git docker</code> (requires <a href="https://brew.sh/">Homebrew</a>).</li>
-<li>Other systems: <div class="fragment"><div class="line">sudo apt install git docker # Debian / Ubuntu via Aptitude</div>
-<div class="line">sudo pacman -S git docker   # Arch Linux via Pacman</div>
-</div><!-- fragment --></li>
-</ul>
-<p>Once Docker and Git are installed on your system, clone MFC with</p>
-<div class="fragment"><div class="line">git clone https://github.com/MFlowCode/MFC</div>
-<div class="line">cd MFC </div>
-</div><!-- fragment --><p>To fetch the prebuilt Docker image and enter an interactive bash session with the recommended settings applied, run</p>
-<div class="fragment"><div class="line">./mfc.sh  docker # If on \*nix/macOS</div>
-<div class="line">.\mfc.bat docker # If on Windows</div>
-</div><!-- fragment --><p>We automatically mount and configure the proper permissions for you to access your local copy of MFC, available at <code>~/MFC</code>. You will be logged in as the <code>me</code> user with root permissions.</p>
-<p>:warning: The state of your container is entirely transient, except for the MFC mount. Thus, any modification outside of <code>~/MFC</code> should be considered permanently lost upon session exit.</p>
 <p></p>
 </details>
 <h1><a class="anchor" id="autotoc_md84"></a>
