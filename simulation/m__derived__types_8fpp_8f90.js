@@ -24,5 +24,7 @@ var m__derived__types_8fpp_8f90 =
     [ "acoustic_parameters", "structacoustic__parameters.html", "structacoustic__parameters" ],
     [ "source_spatial_type", "structsource__spatial__type.html", "structsource__spatial__type" ],
     [ "ghost_point", "structghost__point.html", "structghost__point" ],
+    [ "species_parameters", "structspecies__parameters.html", "structspecies__parameters" ],
+    [ "chemistry_parameters", "structchemistry__parameters.html", "structchemistry__parameters" ],
     [ "__m_derived_types_fpp_f90__", "m__derived__types_8fpp_8f90.html#a433c72ee0b246578363fd76cc6001f09", null ]
 ];

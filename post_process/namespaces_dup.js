@@ -90,6 +90,10 @@ var namespaces_dup =
       [ "csroot", "namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f", null ],
       [ "pythag", "namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2", null ]
     ] ],
+    [ "m_finite_differences", "namespacem__finite__differences.html", [
+      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d", null ],
+      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a0b0c33d96d0127c1953ab1ca68ecac80", null ]
+    ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
       [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a26a4f1fef567ae9d1f1c1ae9169316cd", null ],
       [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#a848f72f366376ede42529bf1a74fabb2", null ],
@@ -121,6 +125,12 @@ var namespaces_dup =
       [ "cfl_const_dt", "namespacem__global__parameters.html#a5f24d68771870a4a6b7840eb832129e9", null ],
       [ "cfl_dt", "namespacem__global__parameters.html#afdfa7d87d094d7ded9d41b6c724d159a", null ],
       [ "cfl_target", "namespacem__global__parameters.html#a92e6175d1d8520a3a651db5bb3be37ad", null ],
+      [ "chem_wrt_t", "namespacem__global__parameters.html#a47c47975a0cf5173d1113466a31e9e35", null ],
+      [ "chem_wrt_y", "namespacem__global__parameters.html#aeca6669400147d334a6b77025da6a7d9", null ],
+      [ "chemistry", "namespacem__global__parameters.html#a206f9fba2814a2fd594e9b884e183347", null ],
+      [ "chemistry_idx", "namespacem__global__parameters.html#a2dc9022abf762552148a5c0d6a89b049", null ],
+      [ "chemxb", "namespacem__global__parameters.html#a5f33ec34f1c2b1347e839b4355f07c8f", null ],
+      [ "chemxe", "namespacem__global__parameters.html#a7421b88b31c39db3bd42b0c8502dc260", null ],
       [ "cons_vars_wrt", "namespacem__global__parameters.html#ad23223100223bdb6d7f59fed5ec7bbb9", null ],
       [ "cont_idx", "namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56", null ],
       [ "contxb", "namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b", null ],
@@ -242,6 +252,9 @@ var namespaces_dup =
       [ "t_step_start", "namespacem__global__parameters.html#ace0c8a67825d0dccd2e23b5d0f9985c0", null ],
       [ "t_step_stop", "namespacem__global__parameters.html#aff1140575af25247060f3e7f31a8a10f", null ],
       [ "t_stop", "namespacem__global__parameters.html#a43a3ef3c2e237f9e74bdedca0b528644", null ],
+      [ "temperature_idx", "namespacem__global__parameters.html#aec0babc80fc6f0c3c052d612cbd70351", null ],
+      [ "tempxb", "namespacem__global__parameters.html#a898256c26d5acae78ec43aba4211ed4b", null ],
+      [ "tempxe", "namespacem__global__parameters.html#a4eac7278a7f23a3f4e488e72320978e5", null ],
       [ "thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
       [ "tw", "namespacem__global__parameters.html#aa77b0836fe22478b69e10e656ef7fcc2", null ],
       [ "v0", "namespacem__global__parameters.html#a334b440356a4353d073c43e68c2372da", null ],
@@ -293,5 +306,9 @@ var namespaces_dup =
       [ "s_perform_time_step", "namespacem__start__up.html#a12b3ef85917ad7441924faf3610f75ab", null ],
       [ "s_read_input_file", "namespacem__start__up.html#a253c7f944ff3b0030dd4d492019e9f58", null ],
       [ "s_save_data", "namespacem__start__up.html#a6b63dfe2b03558e6b89bc29e1401de48", null ]
+    ] ],
+    [ "m_thermochem", "namespacem__thermochem.html", [
+      [ "num_species", "namespacem__thermochem.html#a7e6cd61129da8547dda1f86db5d35d47", null ],
+      [ "species_names", "namespacem__thermochem.html#a9b05a63ce9eaf99c0733fdd5b533a5b9", null ]
     ] ]
 ];

@@ -11,13 +11,14 @@ var searchData=
   ['re_5finv_8',['re_inv',['../namespacem__global__parameters.html#a4438313a11564fa911c586d2dee15b8d',1,'m_global_parameters']]],
   ['re_5ftrans_5fc_9',['re_trans_c',['../namespacem__global__parameters.html#a666c8f5f6663ab81f55c2298e642a3a9',1,'m_global_parameters']]],
   ['re_5ftrans_5ft_10',['re_trans_t',['../namespacem__global__parameters.html#ae0e61a10cd5b33db394052fbefee2681',1,'m_global_parameters']]],
-  ['relax_11',['relax',['../namespacem__global__parameters.html#a9566fddb0a62503b1edaca5ecedaf629',1,'m_global_parameters']]],
-  ['relax_5fmodel_12',['relax_model',['../namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58',1,'m_global_parameters']]],
-  ['restart_5fdir_13',['restart_dir',['../namespacem__data__output.html#abf7d1457ca6b2fe8c5165f6cebc4b258',1,'m_data_output']]],
-  ['rho_14',['rho',['../structic__patch__parameters.html#a36f10647203ecd5b4ca14f73faf1cdb8',1,'ic_patch_parameters']]],
-  ['rhoref_15',['rhoref',['../namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534',1,'m_global_parameters']]],
-  ['rhorv_16',['rhorv',['../namespacem__global__parameters.html#aa1bbfa906e1019bd962a5a0f7f378aa1',1,'m_global_parameters']]],
-  ['rm_17',['rm',['../m__phase__change_8fpp_8f90.html#a5b844989c2a7395cd3ebd29d75a3fc67',1,'m_phase_change.fpp.f90']]],
-  ['rotate_5fangle_18',['rotate_angle',['../structacoustic__parameters.html#a342ed1cd317962edd1f48ab1257a0be5',1,'acoustic_parameters']]],
-  ['rs_19',['rs',['../structbub__bounds__info.html#a3661fbaf8357f886c87a7ac46e1495a9',1,'bub_bounds_info']]]
+  ['reactions_11',['reactions',['../structchemistry__parameters.html#ae8f3439819e764fd62c6496653f29d09',1,'chemistry_parameters']]],
+  ['relax_12',['relax',['../namespacem__global__parameters.html#a9566fddb0a62503b1edaca5ecedaf629',1,'m_global_parameters']]],
+  ['relax_5fmodel_13',['relax_model',['../namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58',1,'m_global_parameters']]],
+  ['restart_5fdir_14',['restart_dir',['../namespacem__data__output.html#abf7d1457ca6b2fe8c5165f6cebc4b258',1,'m_data_output']]],
+  ['rho_15',['rho',['../structic__patch__parameters.html#a36f10647203ecd5b4ca14f73faf1cdb8',1,'ic_patch_parameters']]],
+  ['rhoref_16',['rhoref',['../namespacem__global__parameters.html#a485a360d73013d7bce1daa01df404534',1,'m_global_parameters']]],
+  ['rhorv_17',['rhorv',['../namespacem__global__parameters.html#aa1bbfa906e1019bd962a5a0f7f378aa1',1,'m_global_parameters']]],
+  ['rm_18',['rm',['../m__phase__change_8fpp_8f90.html#a5b844989c2a7395cd3ebd29d75a3fc67',1,'m_phase_change.fpp.f90']]],
+  ['rotate_5fangle_19',['rotate_angle',['../structacoustic__parameters.html#a342ed1cd317962edd1f48ab1257a0be5',1,'acoustic_parameters']]],
+  ['rs_20',['rs',['../structbub__bounds__info.html#a3661fbaf8357f886c87a7ac46e1495a9',1,'bub_bounds_info']]]
 ];

@@ -6,7 +6,7 @@ var namespaces_dup =
       [ "s_no_slip_wall", "namespacem__boundary__conditions.html#addb7b32cdfa1a35e0b18f1b187ac6af4", null ],
       [ "s_periodic", "namespacem__boundary__conditions.html#a29b132a26ddae2cd3afb4214f861dcfc", null ],
       [ "s_populate_capillary_buffers", "namespacem__boundary__conditions.html#a2d5a6967c482027e9a757e15979a825d", null ],
-      [ "s_populate_primitive_variables_buffers", "namespacem__boundary__conditions.html#aa57204a6a6bdae766a526edd5d768566", null ],
+      [ "s_populate_variables_buffers", "namespacem__boundary__conditions.html#ac0f941b0622d2e701b2f20148440ba65", null ],
       [ "s_qbmm_extrapolation", "namespacem__boundary__conditions.html#a655f4ef9edcb15614b91363aae213c65", null ],
       [ "s_slip_wall", "namespacem__boundary__conditions.html#a00baa416b778d7fa702a0d6dbfe34eb3", null ],
       [ "s_symmetry", "namespacem__boundary__conditions.html#a89094a3a651a34a2ff666e69e0cdcfb7", null ]
@@ -79,6 +79,10 @@ var namespaces_dup =
       [ "csroot", "namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f", null ],
       [ "pythag", "namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2", null ]
     ] ],
+    [ "m_finite_differences", "namespacem__finite__differences.html", [
+      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d", null ],
+      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a0b0c33d96d0127c1953ab1ca68ecac80", null ]
+    ] ],
     [ "m_helper_basic", "namespacem__helper__basic.html", [
       [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
       [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
@@ -91,5 +95,9 @@ var namespaces_dup =
       [ "s_compute_enthalpy", "namespacem__sim__helpers.html#a728a849783a9c8a5a8f969daa627995b", null ],
       [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#ad7c9828a95b779c9c011d9d052df9eaa", null ]
     ] ],
-    [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ]
+    [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ],
+    [ "m_thermochem", "namespacem__thermochem.html", [
+      [ "num_species", "namespacem__thermochem.html#a7e6cd61129da8547dda1f86db5d35d47", null ],
+      [ "species_names", "namespacem__thermochem.html#a9b05a63ce9eaf99c0733fdd5b533a5b9", null ]
+    ] ]
 ];

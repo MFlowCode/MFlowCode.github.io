@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['y_0',['y',['../structprobe__parameters.html#ad037d50888db04c05a05d4587c6ca1e9',1,'probe_parameters']]],
+  ['y_0',['y',['../structic__patch__parameters.html#a1ec1ed11568cea5740708de0e4cb8593',1,'ic_patch_parameters::y'],['../structprobe__parameters.html#ad037d50888db04c05a05d4587c6ca1e9',1,'probe_parameters::y']]],
   ['y_5fa_1',['y_a',['../namespacem__global__parameters.html#ab19fa915c817b9b6697827d8ce059797',1,'m_global_parameters']]],
   ['y_5fb_2',['y_b',['../namespacem__global__parameters.html#ae6deea785ef4dbdb572a8eb6f30b7c3a',1,'m_global_parameters']]],
   ['y_5fcb_3',['y_cb',['../namespacem__global__parameters.html#aa436c56a050419e85c8c08611a688e63',1,'m_global_parameters']]],

@@ -10,7 +10,8 @@ var searchData=
   ['smooth_5fpatch_5fid_7',['smooth_patch_id',['../structic__patch__parameters.html#adb43a40c19d0b3a7baa4d972f302ca45',1,'ic_patch_parameters']]],
   ['smoothen_8',['smoothen',['../structic__patch__parameters.html#a3f501c71c12ab9b3c7f2e8b6ab4df780',1,'ic_patch_parameters']]],
   ['spc_9',['spc',['../structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc',1,'ic_model_parameters']]],
-  ['ss_10',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters']]],
-  ['sum_5falpha_11',['sum_alpha',['../m__rhs_8fpp_8f90.html#a796247036b68f5c2f04db3b4c943b5f2',1,'m_rhs.fpp.f90']]],
-  ['support_12',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]]
+  ['species_5fnames_10',['species_names',['../namespacem__thermochem.html#a9b05a63ce9eaf99c0733fdd5b533a5b9',1,'m_thermochem']]],
+  ['ss_11',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters']]],
+  ['sum_5falpha_12',['sum_alpha',['../m__rhs_8fpp_8f90.html#a796247036b68f5c2f04db3b4c943b5f2',1,'m_rhs.fpp.f90']]],
+  ['support_13',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]]
 ];

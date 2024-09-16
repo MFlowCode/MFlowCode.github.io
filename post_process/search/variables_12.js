@@ -14,11 +14,12 @@ var searchData=
   ['smoothen_11',['smoothen',['../structic__patch__parameters.html#a3f501c71c12ab9b3c7f2e8b6ab4df780',1,'ic_patch_parameters']]],
   ['spatial_5fextents_12',['spatial_extents',['../namespacem__data__output.html#a60fd667edc741b8cb7dcb08d05f67462',1,'m_data_output']]],
   ['spc_13',['spc',['../structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc',1,'ic_model_parameters']]],
-  ['ss_14',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters::ss'],['../namespacem__global__parameters.html#afcb3bf395f8f03bac37cd6b63f49ae18',1,'m_global_parameters::ss']]],
-  ['start_5fidx_15',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
-  ['stress_5fidx_16',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
-  ['strxb_17',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
-  ['strxe_18',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
-  ['support_19',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]],
-  ['sys_5fsize_20',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
+  ['species_5fnames_14',['species_names',['../namespacem__thermochem.html#a9b05a63ce9eaf99c0733fdd5b533a5b9',1,'m_thermochem']]],
+  ['ss_15',['ss',['../structphysical__parameters.html#a65d271616be02b995b2c0e4a6dd872ff',1,'physical_parameters::ss'],['../namespacem__global__parameters.html#afcb3bf395f8f03bac37cd6b63f49ae18',1,'m_global_parameters::ss']]],
+  ['start_5fidx_16',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
+  ['stress_5fidx_17',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
+  ['strxb_18',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
+  ['strxe_19',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
+  ['support_20',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]],
+  ['sys_5fsize_21',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
 ];

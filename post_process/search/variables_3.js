@@ -11,11 +11,12 @@ var searchData=
   ['dflt_5fint_8',['dflt_int',['../namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6',1,'m_constants']]],
   ['dflt_5freal_9',['dflt_real',['../namespacem__constants.html#aea00cbe9efc8c7935ded731213cbda58',1,'m_constants']]],
   ['dflt_5fvcfl_5fdt_10',['dflt_vcfl_dt',['../namespacem__constants.html#a3a243a8d9d072460385568d352ab338c',1,'m_constants']]],
-  ['dims_11',['dims',['../namespacem__data__output.html#a98d3ca969b0e32fa09436f1a9cfbd77c',1,'m_data_output']]],
-  ['dipole_12',['dipole',['../structacoustic__parameters.html#a816eb41fe9cf7f3f3fa6810859180266',1,'acoustic_parameters']]],
-  ['dir_13',['dir',['../structacoustic__parameters.html#a7573ef49a5874545c39f2b510eaa50fe',1,'acoustic_parameters']]],
-  ['displs_14',['displs',['../namespacem__mpi__proxy.html#aebaa6e3cc66d2431c5fb49896d40d7e6',1,'m_mpi_proxy']]],
-  ['dx_15',['dx',['../namespacem__global__parameters.html#ac96de935d1ac1a172537dfcba610b976',1,'m_global_parameters']]],
-  ['dy_16',['dy',['../namespacem__global__parameters.html#abeca739b09557ccbf37b2ec35b0e73cc',1,'m_global_parameters']]],
-  ['dz_17',['dz',['../namespacem__global__parameters.html#a30d96803eb46c67ff4f0f1d7c7b92a37',1,'m_global_parameters']]]
+  ['diffusion_11',['diffusion',['../structchemistry__parameters.html#aa5ec1ceb481f1dc38193faa0a4d44d90',1,'chemistry_parameters']]],
+  ['dims_12',['dims',['../namespacem__data__output.html#a98d3ca969b0e32fa09436f1a9cfbd77c',1,'m_data_output']]],
+  ['dipole_13',['dipole',['../structacoustic__parameters.html#a816eb41fe9cf7f3f3fa6810859180266',1,'acoustic_parameters']]],
+  ['dir_14',['dir',['../structacoustic__parameters.html#a7573ef49a5874545c39f2b510eaa50fe',1,'acoustic_parameters']]],
+  ['displs_15',['displs',['../namespacem__mpi__proxy.html#aebaa6e3cc66d2431c5fb49896d40d7e6',1,'m_mpi_proxy']]],
+  ['dx_16',['dx',['../namespacem__global__parameters.html#ac96de935d1ac1a172537dfcba610b976',1,'m_global_parameters']]],
+  ['dy_17',['dy',['../namespacem__global__parameters.html#abeca739b09557ccbf37b2ec35b0e73cc',1,'m_global_parameters']]],
+  ['dz_18',['dz',['../namespacem__global__parameters.html#a30d96803eb46c67ff4f0f1d7c7b92a37',1,'m_global_parameters']]]
 ];

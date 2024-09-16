@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ghost_5fpoint_0',['ghost_point',['../structghost__point.html',1,'']]]
+  ['field_5fposition_0',['field_position',['../structfield__position.html',1,'']]]
 ];

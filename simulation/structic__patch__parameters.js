@@ -32,6 +32,7 @@ var structic__patch__parameters =
     [ "v0", "structic__patch__parameters.html#a0837815fead87148dbf9e1834b6888be", null ],
     [ "vel", "structic__patch__parameters.html#ae6785e7c65e673fa13a7b7abcd3cab53", null ],
     [ "x_centroid", "structic__patch__parameters.html#afb0dddceef3dbd4ac089bd8fdc3929cb", null ],
+    [ "y", "structic__patch__parameters.html#a1ec1ed11568cea5740708de0e4cb8593", null ],
     [ "y_centroid", "structic__patch__parameters.html#a2c013be4fd82b7c3d617bd5ededa6580", null ],
     [ "z_centroid", "structic__patch__parameters.html#a0993edab0b1ab51cee55c29f47af39a6", null ]
 ];

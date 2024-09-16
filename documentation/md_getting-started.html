@@ -212,8 +212,11 @@ Native Windows (Intel)</summary>
 <summary >
 MacOS</summary>
 <p></p>
-<p>Using <a href="https://brew.sh/">Homebrew</a> you can install the necessary dependencies:</p>
-<div class="fragment"><div class="line">brew install coreutils python cmake fftw hdf5 gcc open-mpi</div>
+<p>Using <a href="https://brew.sh/">Homebrew</a> you can install the necessary dependencies before configuring your environment:</p>
+<div class="fragment"><div class="line">brew install coreutils python cmake fftw hdf5 gcc boost open-mpi</div>
+<div class="line">echo -e &#39;export BOOST_INCLUDE=/opt/homebrew/&#39; | tee -a ~/.bash_profile ~/.zshrc</div>
+<div class="line">. ~/.bash_profile 2&gt;/dev/null || . ~/.zshrc 2&gt;/dev/null</div>
+<div class="line">! [ -z &quot;${BOOST_INCLUDE+x}&quot; ] &amp;&amp; echo &#39;Environment is ready!&#39; || echo &#39;Error: $BOOST_INCLUDE is unset. Please adjust the previous commands to fit with your environment.&#39;</div>
 </div><!-- fragment --><p>They will download the dependencies MFC requires to build itself.</p>
 <p></p>
 </details>
