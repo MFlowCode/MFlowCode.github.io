@@ -61,5 +61,5 @@ var NAVTREEINDEX =
 "namespacem__perturbation.html#ae32f74a4e2b6cd25fdec074db43e4a80"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';

@@ -61,5 +61,5 @@ var NAVTREEINDEX =
 "structacoustic__parameters.html#a9484d93267a4ab41b75e2a1523da0fa0"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
