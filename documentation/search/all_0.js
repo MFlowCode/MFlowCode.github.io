@@ -7,5 +7,5 @@ var searchData=
   ['13_20body_20forces_4',['13. Body Forces',['../md_case.html#autotoc_md22',1,'']]],
   ['16m_20grid_20points_5',['16M Grid Points',['../md_expectedPerformance.html#autotoc_md78',1,'']]],
   ['1_3a_20setting_20up_20your_20environment_6',['Step 1: Setting up your Environment',['../md_visualization.html#autotoc_md107',1,'']]],
-  ['1d_7',['1D',['../md_examples.html#autotoc_md44',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md38',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md33',1,'Titarev-Toro problem (1D)']]]
+  ['1d_7',['1D',['../md_examples.html#autotoc_md64',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md36',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md44',1,'Titarev-Toro problem (1D)']]]
 ];
