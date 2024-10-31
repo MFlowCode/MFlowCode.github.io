@@ -25,7 +25,6 @@
 var NAVTREE =
 [
   [ "MFC", "index.html", [
-    [ "Documentation", "index.html", "index" ],
     [ "Authors", "md_authors.html", null ],
     [ "Case Files", "md_case.html", [
       [ "Basic Skeleton", "md_case.html#autotoc_md2", null ],
@@ -143,6 +142,10 @@ var NAVTREE =
       [ "Running an Example Case", "md_getting-started.html#autotoc_md86", null ]
     ] ],
     [ "Papers", "md_papers.html", null ],
+    [ "Documentation", "md_readme.html", [
+      [ "User Documentation", "md_readme.html#autotoc_md89", null ],
+      [ "Code/API Documentation", "md_readme.html#autotoc_md90", null ]
+    ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
       [ "Interactive Execution", "md_running.html#autotoc_md93", null ],

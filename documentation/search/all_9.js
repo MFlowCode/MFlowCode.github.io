@@ -9,7 +9,7 @@ var searchData=
   ['amd_20mi250x_20gpu_6',['AMD MI250X GPU',['../md_expectedPerformance.html#autotoc_md73',1,'']]],
   ['an_20example_20case_7',['Running an Example Case',['../md_getting-started.html#autotoc_md86',1,'']]],
   ['analytical_20definition_20of_20primitive_20variables_8',['Analytical Definition of Primitive Variables',['../md_case.html#autotoc_md8',1,'']]],
-  ['api_20documentation_9',['Code/API Documentation',['../index.html#autotoc_md90',1,'']]],
+  ['api_20documentation_9',['Code/API Documentation',['../md_readme.html#autotoc_md90',1,'']]],
   ['arguments_10',['(Optional) Accepting command line arguments',['../md_case.html#autotoc_md3',1,'']]],
   ['artificial_20mach_20number_11',['12. Artificial Mach Number',['../md_case.html#autotoc_md21',1,'']]],
   ['authors_12',['Authors',['../md_authors.html',1,'']]],

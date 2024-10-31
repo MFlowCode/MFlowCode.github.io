@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "MFC: Post-Process", "index.html", [
-    [ "MFC Post-Process", "index.html", null ],
+    [ "MFC Post-Process", "md_readme.html", null ],
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
