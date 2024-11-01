@@ -154,18 +154,18 @@ var NAVTREE =
           [ "NVIDIA GPUs", "md_running.html#autotoc_md96", null ],
           [ "AMD GPUs", "md_running.html#autotoc_md97", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md98", null ],
-        [ "Example Runs", "md_running.html#autotoc_md99", null ]
+        [ "Restarting Cases", "md_running.html#restarting_cases", null ],
+        [ "Example Runs", "md_running.html#autotoc_md98", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Procedure", "md_visualization.html#autotoc_md104", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md105", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md106", [
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md107", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md108", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md109", null ]
+      [ "Procedure", "md_visualization.html#autotoc_md103", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md104", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md105", [
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md106", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md107", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md108", null ]
       ] ]
     ] ]
   ] ]
