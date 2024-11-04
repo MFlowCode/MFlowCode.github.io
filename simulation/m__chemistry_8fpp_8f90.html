@@ -146,16 +146,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a522608f541d819f4cf39b1fdfcf24eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb911a3da9560961102ec94ebedc1d50" id="r_acb911a3da9560961102ec94ebedc1d50"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb911a3da9560961102ec94ebedc1d50">s_finalize_chemistry_module</a></td></tr>
 <tr class="separator:acb911a3da9560961102ec94ebedc1d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8e4ae7ea2aa7d407cb13ba6dc41f11c" id="r_ae8e4ae7ea2aa7d407cb13ba6dc41f11c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8e4ae7ea2aa7d407cb13ba6dc41f11c">s_compute_chemistry_rhs_x</a> (flux_n, rhs_vf, flux_src_vf, q_prim_vf)</td></tr>
-<tr class="separator:ae8e4ae7ea2aa7d407cb13ba6dc41f11c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a255c37389ba41d7e0e007d3254a3f67e" id="r_a255c37389ba41d7e0e007d3254a3f67e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a255c37389ba41d7e0e007d3254a3f67e">s_compute_chemistry_rhs_y</a> (flux_n, rhs_vf, flux_src_vf, q_prim_vf)</td></tr>
-<tr class="separator:a255c37389ba41d7e0e007d3254a3f67e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a32a20165551027cf5626239022266a" id="r_a6a32a20165551027cf5626239022266a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a32a20165551027cf5626239022266a">s_compute_chemistry_rhs_z</a> (flux_n, rhs_vf, flux_src_vf, q_prim_vf)</td></tr>
-<tr class="separator:a6a32a20165551027cf5626239022266a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed524e8950fc1e7416aee6701950c69a" id="r_aed524e8950fc1e7416aee6701950c69a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed524e8950fc1e7416aee6701950c69a">s_compute_chemistry_advection_flux</a> (flux_n, rhs_vf)</td></tr>
+<tr class="separator:aed524e8950fc1e7416aee6701950c69a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ff0123147f3cda5522f51f8be56ec17" id="r_a8ff0123147f3cda5522f51f8be56ec17"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ff0123147f3cda5522f51f8be56ec17">s_compute_chemistry_reaction_flux</a> (rhs_vf, q_cons_qp, q_prim_qp)</td></tr>
 <tr class="separator:a8ff0123147f3cda5522f51f8be56ec17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9e45f8cdc423f34275c028b644821c1" id="r_ae9e45f8cdc423f34275c028b644821c1"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9e45f8cdc423f34275c028b644821c1">s_chemistry_normalize_cons</a> (q_cons_qp)</td></tr>
-<tr class="separator:ae9e45f8cdc423f34275c028b644821c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ae35c2f23442d8d361d5adb9c471b91ff" name="ae35c2f23442d8d361d5adb9c471b91ff"></a>
@@ -172,8 +166,8 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a id="ae9e45f8cdc423f34275c028b644821c1" name="ae9e45f8cdc423f34275c028b644821c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9e45f8cdc423f34275c028b644821c1">&#9670;&#160;</a></span>s_chemistry_normalize_cons()</h2>
+<a id="aed524e8950fc1e7416aee6701950c69a" name="aed524e8950fc1e7416aee6701950c69a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed524e8950fc1e7416aee6701950c69a">&#9670;&#160;</a></span>s_compute_chemistry_advection_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,10 +176,14 @@ Functions/Subroutines</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_chemistry_normalize_cons </td>
+          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_compute_chemistry_advection_flux </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_qp</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -194,11 +192,6 @@ Functions/Subroutines</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_ae9e45f8cdc423f34275c028b644821c1_icgraph.svg" width="558" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -238,123 +231,6 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_a8ff0123147f3cda5522f51f8be56ec17_cgraph.svg" width="327" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ae8e4ae7ea2aa7d407cb13ba6dc41f11c" name="ae8e4ae7ea2aa7d407cb13ba6dc41f11c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8e4ae7ea2aa7d407cb13ba6dc41f11c">&#9670;&#160;</a></span>s_compute_chemistry_rhs_x()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_compute_chemistry_rhs_x </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a255c37389ba41d7e0e007d3254a3f67e" name="a255c37389ba41d7e0e007d3254a3f67e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a255c37389ba41d7e0e007d3254a3f67e">&#9670;&#160;</a></span>s_compute_chemistry_rhs_y()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_compute_chemistry_rhs_y </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6a32a20165551027cf5626239022266a" name="a6a32a20165551027cf5626239022266a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a32a20165551027cf5626239022266a">&#9670;&#160;</a></span>s_compute_chemistry_rhs_z()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_compute_chemistry_rhs_z </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structvector__field.html">vector_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
