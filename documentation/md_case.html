@@ -781,7 +781,7 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>perturb_flow</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initlial velocity field by random noise    </td></tr>
+<td class="markdownTableBodyRight"><code>perturb_flow</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Perturb the initial velocity field by random noise    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>perturb_flow_fluid</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Fluid density whose flow is to be perturbed    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -802,7 +802,7 @@ Adaptive Time-Stepping</h4>
 <p>The table lists velocity field parameters. The parameters are optionally used to define initial velocity profiles and perturbations.</p>
 <ul>
 <li><code>perturb_flow</code> activates the perturbation of initial velocity by random noise.</li>
-<li><code>perturb_flow_fluid</code> specifies the fluid component whose flow is to be perturbed.</li>
+<li><code>perturb_flow_fluid</code> specifies the fluid component whose flow will be perturbed.</li>
 <li><code>perturb_flow</code> activates the perturbation of initial velocity by random noise.</li>
 <li><code>perturb_sph</code> activates the perturbation of initial partial density by random noise.</li>
 <li><code>perturb_sph_fluid</code> specifies the fluid component whose partial density is to be perturbed.</li>
@@ -843,7 +843,7 @@ Adaptive Time-Stepping</h4>
 <td class="markdownTableBodyRight"><code>pi_fac</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Ratio of artificial and true <code>pi_\infty</code> values   </td></tr>
 </table>
 <ul>
-<li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models, when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
+<li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md22"></a>
 13. Body Forces</h2>
@@ -863,10 +863,23 @@ Adaptive Time-Stepping</h4>
 </table>
 <p><code>k_x[y,z]</code>, <code>w_x[y,z]</code>, <code>p_x[y,z]</code>, and <code>g_x[y,z]</code> define an oscillating acceleration in the <code>x[y,z]</code> direction with the form</p>
 <p>$$ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). $$</p>
-<p>Positive accelerations are in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction by convention.</p>
-<h1><a class="anchor" id="autotoc_md23"></a>
+<p>By convention, positive accelerations in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction.</p>
+<h2><a class="anchor" id="autotoc_md23"></a>
+14. Cylindrical Coordinates</h2>
+<p>When <code>cyl_coord = 'T'</code> is set in 3D the following constraints must be met:</p>
+<ul>
+<li><code>bc_ybeg = -14</code> enables the axis boundary condition</li>
+<li><code>bc_zbeg = bc_zend = -1</code> enables periodic boundary conditions in the azimuthal direction</li>
+<li><code>z_domainbeg = 0</code> sets the azimuthal starting point to 0</li>
+<li><code>z_comainend = 2*math.pi</code> to set the azimuthal ending point to $2\pi$ (note, requires <code>import math</code> in the case file)</li>
+</ul>
+<p>When <code>cyl_coord = 'T'</code> is set in 2D the following constraints must be met:</p>
+<ul>
+<li><code>bc_ybeg = -2</code> to enable reflective boundary conditions</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md24"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -904,7 +917,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_y%beg</code> when using cylindrical coordinates (<code>cyl_coord = 'T'</code> and 3D). For axisymmetric problems, use <code>bc_y%beg = -2</code> with <code>cyl_coord = 'T'</code> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -953,7 +966,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>model%filepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)%geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1015,7 +1028,7 @@ Acoustic Supports</h2>
 <li><code>%support = 10</code> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <code>%support = 9</code> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <code>%support = 9</code> around the x-axis.</li>
 <li><code>%support = 11</code> specifies a circular transducer array in 3D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 7</code>. The parameters <code>%num_elements</code>, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <code>%num_elements</code>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1041,7 +1054,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
