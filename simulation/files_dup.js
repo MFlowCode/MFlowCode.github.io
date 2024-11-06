@@ -27,7 +27,6 @@ var files_dup =
     [ "m_riemann_solvers.fpp.f90", "m__riemann__solvers_8fpp_8f90.html", "m__riemann__solvers_8fpp_8f90" ],
     [ "m_start_up.fpp.f90", "m__start__up_8fpp_8f90.html", "m__start__up_8fpp_8f90" ],
     [ "m_surface_tension.fpp.f90", "m__surface__tension_8fpp_8f90.html", "m__surface__tension_8fpp_8f90" ],
-    [ "m_thermochem.fpp.f90", "m__thermochem_8fpp_8f90.html", "m__thermochem_8fpp_8f90" ],
     [ "m_time_steppers.fpp.f90", "m__time__steppers_8fpp_8f90.html", "m__time__steppers_8fpp_8f90" ],
     [ "m_variables_conversion.fpp.f90", "m__variables__conversion_8fpp_8f90.html", "m__variables__conversion_8fpp_8f90" ],
     [ "m_viscous.fpp.f90", "m__viscous_8fpp_8f90.html", "m__viscous_8fpp_8f90" ],

@@ -95,9 +95,5 @@ var namespaces_dup =
       [ "s_compute_enthalpy", "namespacem__sim__helpers.html#a728a849783a9c8a5a8f969daa627995b", null ],
       [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#ad7c9828a95b779c9c011d9d052df9eaa", null ]
     ] ],
-    [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ],
-    [ "m_thermochem", "namespacem__thermochem.html", [
-      [ "num_species", "namespacem__thermochem.html#a7e6cd61129da8547dda1f86db5d35d47", null ],
-      [ "species_names", "namespacem__thermochem.html#a9b05a63ce9eaf99c0733fdd5b533a5b9", null ]
-    ] ]
+    [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ]
 ];

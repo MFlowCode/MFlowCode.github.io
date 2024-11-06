@@ -22,6 +22,5 @@ var searchData=
   ['num_5fpatches_5fmax_19',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
   ['num_5fprobes_5fmax_20',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
   ['num_5fprocs_21',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
-  ['num_5fspecies_22',['num_species',['../namespacem__thermochem.html#a7e6cd61129da8547dda1f86db5d35d47',1,'m_thermochem']]],
-  ['num_5fstcls_5fmin_23',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]]
+  ['num_5fstcls_5fmin_22',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]]
 ];

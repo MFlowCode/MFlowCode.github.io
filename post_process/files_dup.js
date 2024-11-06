@@ -12,7 +12,6 @@ var files_dup =
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],
     [ "m_mpi_proxy.fpp.f90", "m__mpi__proxy_8fpp_8f90.html", "m__mpi__proxy_8fpp_8f90" ],
     [ "m_phase_change.fpp.f90", "m__phase__change_8fpp_8f90.html", "m__phase__change_8fpp_8f90" ],
-    [ "m_thermochem.fpp.f90", "m__thermochem_8fpp_8f90.html", "m__thermochem_8fpp_8f90" ],
     [ "m_variables_conversion.fpp.f90", "m__variables__conversion_8fpp_8f90.html", "m__variables__conversion_8fpp_8f90" ],
     [ "p_main.fpp.f90", "p__main_8fpp_8f90.html", "p__main_8fpp_8f90" ],
     [ "m_compile_specific.f90", "m__compile__specific_8f90.html", "m__compile__specific_8f90" ],

@@ -1,9 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"structacoustic__parameters.html#afab0a5a74c1c195128628ef7777f41ea":[2,0,2,9],
-"structbounds__info.html":[2,0,3],
-"structbounds__info.html#a5b6cd1dcd92542e5e4f22c2e3e045b34":[2,0,3,1],
-"structbounds__info.html#a783d882ee47029bd1ee3541b9a026aa5":[2,0,3,0],
 "structbub__bounds__info.html":[2,0,4],
 "structbub__bounds__info.html#a038a7ae16f7bcd2ebbdbd087c9a6a5d4":[2,0,4,4],
 "structbub__bounds__info.html#a1b426f4c1ac7d9200daac990a125b163":[2,0,4,3],

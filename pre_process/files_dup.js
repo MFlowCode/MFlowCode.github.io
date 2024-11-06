@@ -19,7 +19,6 @@ var files_dup =
     [ "m_perturbation.fpp.f90", "m__perturbation_8fpp_8f90.html", "m__perturbation_8fpp_8f90" ],
     [ "m_phase_change.fpp.f90", "m__phase__change_8fpp_8f90.html", "m__phase__change_8fpp_8f90" ],
     [ "m_start_up.fpp.f90", "m__start__up_8fpp_8f90.html", "m__start__up_8fpp_8f90" ],
-    [ "m_thermochem.fpp.f90", "m__thermochem_8fpp_8f90.html", "m__thermochem_8fpp_8f90" ],
     [ "m_variables_conversion.fpp.f90", "m__variables__conversion_8fpp_8f90.html", "m__variables__conversion_8fpp_8f90" ],
     [ "m_compile_specific.f90", "m__compile__specific_8f90.html", "m__compile__specific_8f90" ],
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],

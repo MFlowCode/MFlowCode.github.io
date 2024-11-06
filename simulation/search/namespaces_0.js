@@ -11,6 +11,5 @@ var searchData=
   ['m_5fhelper_5fbasic_8',['m_helper_basic',['../namespacem__helper__basic.html',1,'']]],
   ['m_5fnvtx_9',['m_nvtx',['../namespacem__nvtx.html',1,'']]],
   ['m_5fsim_5fhelpers_10',['m_sim_helpers',['../namespacem__sim__helpers.html',1,'']]],
-  ['m_5fstart_5fup_11',['m_start_up',['../namespacem__start__up.html',1,'']]],
-  ['m_5fthermochem_12',['m_thermochem',['../namespacem__thermochem.html',1,'']]]
+  ['m_5fstart_5fup_11',['m_start_up',['../namespacem__start__up.html',1,'']]]
 ];

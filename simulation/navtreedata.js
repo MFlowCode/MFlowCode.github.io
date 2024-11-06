@@ -58,7 +58,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "m__phase__change_8fpp_8f90.html#af89fb7628206a6165ab3dd8583a6fbcb",
-"structacoustic__parameters.html#afab0a5a74c1c195128628ef7777f41ea"
+"structbub__bounds__info.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

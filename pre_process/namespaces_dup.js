@@ -272,9 +272,5 @@ var namespaces_dup =
       [ "n_bc_skip", "namespacem__perturbation.html#a08e164c495eedeeb7ee64e0cca9b2964", null ],
       [ "nbp", "namespacem__perturbation.html#a958d427e8c94b02b11c857ee3c553bb0", null ]
     ] ],
-    [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ],
-    [ "m_thermochem", "namespacem__thermochem.html", [
-      [ "num_species", "namespacem__thermochem.html#a7e6cd61129da8547dda1f86db5d35d47", null ],
-      [ "species_names", "namespacem__thermochem.html#a9b05a63ce9eaf99c0733fdd5b533a5b9", null ]
-    ] ]
+    [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ]
 ];
