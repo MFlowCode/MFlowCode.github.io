@@ -208,6 +208,7 @@ var namespaces_dup =
       [ "stretch_z", "namespacem__global__parameters.html#aaeee716bda208dc0427196cdb8ad8cdf", null ],
       [ "strxb", "namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f", null ],
       [ "strxe", "namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9", null ],
+      [ "surface_tension", "namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477", null ],
       [ "sys_size", "namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b", null ],
       [ "t_idx", "namespacem__global__parameters.html#accb6d344ae6cff28cc3d060bdf0f4101", null ],
       [ "t_step_old", "namespacem__global__parameters.html#a5d0554c4fef91acf46f683e8bcd29133", null ],

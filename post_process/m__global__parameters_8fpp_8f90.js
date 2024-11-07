@@ -154,6 +154,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::stress_idx", "namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7", null ],
     [ "m_global_parameters::strxb", "namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f", null ],
     [ "m_global_parameters::strxe", "namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9", null ],
+    [ "m_global_parameters::surface_tension", "namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477", null ],
     [ "m_global_parameters::sys_size", "namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b", null ],
     [ "m_global_parameters::t_idx", "namespacem__global__parameters.html#accb6d344ae6cff28cc3d060bdf0f4101", null ],
     [ "m_global_parameters::t_save", "namespacem__global__parameters.html#adf2631c2870331b958e50da79b6bb66a", null ],
