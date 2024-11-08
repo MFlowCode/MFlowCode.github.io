@@ -8,6 +8,7 @@ var m__phase__change_8fpp_8f90 =
     [ "s_infinite_ptg_relaxation_k", "m__phase__change_8fpp_8f90.html#acdc2376a76e6e6e8cfb6f4ed9907d9de", null ],
     [ "s_infinite_relaxation_k", "m__phase__change_8fpp_8f90.html#ab0612220c96671498ca9877e1c00a639", null ],
     [ "s_initialize_phasechange_module", "m__phase__change_8fpp_8f90.html#a9ccad011154aef776399094b33ead97c", null ],
+    [ "s_relaxation_solver", "m__phase__change_8fpp_8f90.html#ab2ef001623d7173d85e8c89ccb373a59", null ],
     [ "s_tsat", "m__phase__change_8fpp_8f90.html#a8d29934dda273de9a032c4797605be3f", null ],
     [ "j", "m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2", null ],
     [ "k", "m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa", null ],

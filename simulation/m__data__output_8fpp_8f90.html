@@ -142,6 +142,9 @@ $(function(){initNavTree('m__data__output_8fpp_8f90.html',''); initResizable(tru
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a979b8a2cf4215a8122fc461c0512dbba" id="r_a979b8a2cf4215a8122fc461c0512dbba"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a979b8a2cf4215a8122fc461c0512dbba">__m_data_output_fpp_f90__</a></td></tr>
 <tr class="separator:a979b8a2cf4215a8122fc461c0512dbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bdde7678c4eb6a71541fd22c63a620a" id="r_a7bdde7678c4eb6a71541fd22c63a620a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bdde7678c4eb6a71541fd22c63a620a">s_write_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, t_step)</td></tr>
+<tr class="memdesc:a7bdde7678c4eb6a71541fd22c63a620a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data files. Dispatch subroutine that replaces procedure pointer.  <br /></td></tr>
+<tr class="separator:a7bdde7678c4eb6a71541fd22c63a620a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00fd7405d66289c5cbeced472d66d6ed" id="r_a00fd7405d66289c5cbeced472d66d6ed"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00fd7405d66289c5cbeced472d66d6ed">s_open_run_time_information_file</a></td></tr>
 <tr class="memdesc:a00fd7405d66289c5cbeced472d66d6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to open a new or pre- existing run-time information file and append to it the basic header information relevant to current simulation. In general, this requires generating a table header for those stability criteria which will be written at every time-step.  <br /></td></tr>
 <tr class="separator:a00fd7405d66289c5cbeced472d66d6ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -302,11 +305,6 @@ Here is the caller graph for this function:</div>
 
 <p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_aed63ecd847eb3b59526ffb4099722532_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_aed63ecd847eb3b59526ffb4099722532_icgraph.svg" width="528" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -372,6 +370,60 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a7bdde7678c4eb6a71541fd22c63a620a" name="a7bdde7678c4eb6a71541fd22c63a620a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bdde7678c4eb6a71541fd22c63a620a">&#9670;&#160;</a></span>s_write_data_files()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_data_output_fpp_f90__::s_write_data_files </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write data files. Dispatch subroutine that replaces procedure pointer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">t_step</td><td>Current time step </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a7bdde7678c4eb6a71541fd22c63a620a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a7bdde7678c4eb6a71541fd22c63a620a_icgraph.svg" width="500" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a694588474e2bd0e0b68d5dcb12a2598c" name="a694588474e2bd0e0b68d5dcb12a2598c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a694588474e2bd0e0b68d5dcb12a2598c">&#9670;&#160;</a></span>s_write_parallel_data_files()</h2>
 
@@ -421,7 +473,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a694588474e2bd0e0b68d5dcb12a2598c_icgraph.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a694588474e2bd0e0b68d5dcb12a2598c_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -470,7 +522,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_aefc508a7157b96fe6611e3874c97ee0b_cgraph.svg" width="370" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_aefc508a7157b96fe6611e3874c97ee0b_cgraph.svg" width="623" height="314"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -572,12 +624,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a9bfd1f9d59388f2294e049bcabe09692_cgraph.svg" width="666" height="251"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a9bfd1f9d59388f2294e049bcabe09692_cgraph.svg" width="100%" height="557"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a9bfd1f9d59388f2294e049bcabe09692_icgraph.svg" width="100%" height="395"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a9bfd1f9d59388f2294e049bcabe09692_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
