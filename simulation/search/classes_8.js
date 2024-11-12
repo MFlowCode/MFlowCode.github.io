@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['physical_5fparameters_0',['physical_parameters',['../structphysical__parameters.html',1,'']]],
-  ['pres_5ffield_1',['pres_field',['../structpres__field.html',1,'']]],
-  ['probe_5fparameters_2',['probe_parameters',['../structprobe__parameters.html',1,'']]]
+  ['nvtxeventattributes_0',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
+  ['nvtxrangepop_1',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx']]],
+  ['nvtxrangepush_2',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]]
 ];

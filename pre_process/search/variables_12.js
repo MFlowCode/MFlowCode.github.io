@@ -5,7 +5,7 @@ var searchData=
   ['s_5fread_5fgrid_5fdata_5ffiles_2',['s_read_grid_data_files',['../namespacem__start__up.html#af646e0769cd88c45b2acfc47a3b15d7b',1,'m_start_up']]],
   ['s_5fread_5fic_5fdata_5ffiles_3',['s_read_ic_data_files',['../namespacem__start__up.html#a7a35339ce3c84eaf721a80e77be63c07',1,'m_start_up']]],
   ['s_5fwrite_5fdata_5ffiles_4',['s_write_data_files',['../namespacem__data__output.html#a1ba4e8126b198fb2147d4d9b60f74e44',1,'m_data_output']]],
-  ['sf_5',['sf',['../structscalar__field.html#a7211e3e27133d75fe14cf95313d22b95',1,'scalar_field::sf'],['../structpres__field.html#a2ae14c70a9a127c0e3d870b631e3d37d',1,'pres_field::sf'],['../structinteger__field.html#a4c63cc0a685ee01903babafa866352ea',1,'integer_field::sf']]],
+  ['sf_5',['sf',['../structscalar__field.html#a7211e3e27133d75fe14cf95313d22b95',1,'scalar_field::sf'],['../structpres__field.html#a2ae14c70a9a127c0e3d870b631e3d37d',1,'pres_field::sf'],['../structinteger__field.html#a4c63cc0a685ee01903babafa866352ea',1,'integer_field::sf'],['../structlevelset__field.html#a7981d60058b7cbeb7f615c37cb4ddf1b',1,'levelset_field::sf'],['../structlevelset__norm__field.html#a9d40f2966e837e5fcd00c7c8290508b9',1,'levelset_norm_field::sf']]],
   ['sgm_5feps_6',['sgm_eps',['../namespacem__constants.html#a0b285066be796589a964ce4906432334',1,'m_constants']]],
   ['sigma_7',['sigma',['../namespacem__global__parameters.html#a2af1dc5c11e9e597f73dbd882b0bcb1e',1,'m_global_parameters']]],
   ['sigr_8',['sigr',['../namespacem__global__parameters.html#ac640a18f248b6e5a66ad804312e3f200',1,'m_global_parameters']]],

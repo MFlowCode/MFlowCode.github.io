@@ -144,8 +144,8 @@ $(function(){initNavTree('interfacem__data__output_1_1s__write__abstract__data__
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3db3df2d8ffffd9f2ff36bf193a68eb2" id="r_a3db3df2d8ffffd9f2ff36bf193a68eb2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3db3df2d8ffffd9f2ff36bf193a68eb2">s_write_abstract_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ib_markers)</td></tr>
-<tr class="separator:a3db3df2d8ffffd9f2ff36bf193a68eb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4be6e91adda1b221bb255eb393ad1f5" id="r_ae4be6e91adda1b221bb255eb393ad1f5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4be6e91adda1b221bb255eb393ad1f5">s_write_abstract_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ib_markers, levelset, levelset_norm)</td></tr>
+<tr class="separator:ae4be6e91adda1b221bb255eb393ad1f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface for the conservative data. </p>
@@ -153,12 +153,14 @@ Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
     <tr><td class="paramname">ib_markers</td><td>track if a cell is within the immersed boundary </td></tr>
+    <tr><td class="paramname">levelset</td><td>closest distance from every cell to the IB </td></tr>
+    <tr><td class="paramname">levelset_norm</td><td>normalized vector from every cell to the closest point to the IB </td></tr>
   </table>
   </dd>
 </dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a3db3df2d8ffffd9f2ff36bf193a68eb2" name="a3db3df2d8ffffd9f2ff36bf193a68eb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3db3df2d8ffffd9f2ff36bf193a68eb2">&#9670;&#160;</a></span>s_write_abstract_data_files()</h2>
+<a id="ae4be6e91adda1b221bb255eb393ad1f5" name="ae4be6e91adda1b221bb255eb393ad1f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4be6e91adda1b221bb255eb393ad1f5">&#9670;&#160;</a></span>s_write_abstract_data_files()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +176,17 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structinteger__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_markers</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structinteger__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_markers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structlevelset__field.html">levelset_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>levelset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structlevelset__norm__field.html">levelset_norm_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>levelset_norm</em></span>&#160;)</td>
         </tr>
       </table>
   </td>

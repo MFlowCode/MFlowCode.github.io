@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scalar_5ffield_0',['scalar_field',['../structscalar__field.html',1,'']]],
-  ['source_5fspatial_5ftype_1',['source_spatial_type',['../structsource__spatial__type.html',1,'']]],
-  ['species_5fparameters_2',['species_parameters',['../structspecies__parameters.html',1,'']]]
+  ['physical_5fparameters_0',['physical_parameters',['../structphysical__parameters.html',1,'']]],
+  ['pres_5ffield_1',['pres_field',['../structpres__field.html',1,'']]],
+  ['probe_5fparameters_2',['probe_parameters',['../structprobe__parameters.html',1,'']]]
 ];

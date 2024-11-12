@@ -145,8 +145,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a54cceb35ca18376f296a24504ce0e010" id="r_a54cceb35ca18376f296a24504ce0e010"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54cceb35ca18376f296a24504ce0e010">s_mpi_initialize</a></td></tr>
 <tr class="memdesc:a54cceb35ca18376f296a24504ce0e010"><td class="mdescLeft">&#160;</td><td class="mdescRight">The subroutine initializes the MPI execution environment and queries both the number of processors which will be available for the job and the local processor rank.  <br /></td></tr>
 <tr class="separator:a54cceb35ca18376f296a24504ce0e010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61ffdfd9a712123c83b8ae8964e6427e" id="r_a61ffdfd9a712123c83b8ae8964e6427e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61ffdfd9a712123c83b8ae8964e6427e">s_initialize_mpi_data</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ib_markers)</td></tr>
-<tr class="separator:a61ffdfd9a712123c83b8ae8964e6427e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab731eb87df34f026c14f5fd49c43dd85" id="r_ab731eb87df34f026c14f5fd49c43dd85"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab731eb87df34f026c14f5fd49c43dd85">s_initialize_mpi_data</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ib_markers, levelset, levelset_norm)</td></tr>
+<tr class="separator:ab731eb87df34f026c14f5fd49c43dd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9074e92a692f4de87c0a8b6ff9f4bb33" id="r_a9074e92a692f4de87c0a8b6ff9f4bb33"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9074e92a692f4de87c0a8b6ff9f4bb33">mpi_bcast_time_step_values</a> (proc_time, time_avg)</td></tr>
 <tr class="separator:a9074e92a692f4de87c0a8b6ff9f4bb33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99e735e37227935a07a9dbcf948878f6" id="r_a99e735e37227935a07a9dbcf948878f6"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99e735e37227935a07a9dbcf948878f6">s_mpi_reduce_stability_criteria_extrema</a> (icfl_max_loc, vcfl_max_loc, ccfl_max_loc, rc_min_loc, icfl_max_glb, vcfl_max_glb, ccfl_max_glb, rc_min_glb)</td></tr>
@@ -221,8 +221,8 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a id="a61ffdfd9a712123c83b8ae8964e6427e" name="a61ffdfd9a712123c83b8ae8964e6427e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61ffdfd9a712123c83b8ae8964e6427e">&#9670;&#160;</a></span>s_initialize_mpi_data()</h2>
+<a id="ab731eb87df34f026c14f5fd49c43dd85" name="ab731eb87df34f026c14f5fd49c43dd85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab731eb87df34f026c14f5fd49c43dd85">&#9670;&#160;</a></span>s_initialize_mpi_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,7 +238,17 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structinteger__field.html">integer_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>ib_markers</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structinteger__field.html">integer_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>ib_markers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structlevelset__field.html">levelset_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>levelset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structlevelset__norm__field.html">levelset_norm_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>levelset_norm</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -250,7 +260,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a61ffdfd9a712123c83b8ae8964e6427e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_ab731eb87df34f026c14f5fd49c43dd85_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

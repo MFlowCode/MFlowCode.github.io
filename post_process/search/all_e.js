@@ -19,8 +19,9 @@ var searchData=
   ['num_5felements_16',['num_elements',['../structacoustic__parameters.html#a63e0603c74a70bc9febebe8ce09f3b85',1,'acoustic_parameters']]],
   ['num_5ffluids_17',['num_fluids',['../namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e',1,'m_global_parameters']]],
   ['num_5ffluids_5fmax_18',['num_fluids_max',['../namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1',1,'m_constants']]],
-  ['num_5fpatches_5fmax_19',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
-  ['num_5fprobes_5fmax_20',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
-  ['num_5fprocs_21',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
-  ['num_5fstcls_5fmin_22',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]]
+  ['num_5fibs_19',['num_ibs',['../namespacem__global__parameters.html#af65a8b8e1a7209eab79c732e7d8b823f',1,'m_global_parameters']]],
+  ['num_5fpatches_5fmax_20',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
+  ['num_5fprobes_5fmax_21',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
+  ['num_5fprocs_22',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
+  ['num_5fstcls_5fmin_23',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]]
 ];

@@ -132,6 +132,8 @@ var namespaces_dup =
       [ "mpi_io_airfoil_ib_data", "namespacem__global__parameters.html#aca06e91ef5252884025e5b0a2cf38acd", null ],
       [ "mpi_io_data", "namespacem__global__parameters.html#ad80f68aac31aa898ab2d7729f60e375f", null ],
       [ "mpi_io_ib_data", "namespacem__global__parameters.html#a46a3e8a6405a0008a7f34bcfc648b20f", null ],
+      [ "mpi_io_levelset_data", "namespacem__global__parameters.html#a637c6a85e6862557c7d7ad75c7b1ebea", null ],
+      [ "mpi_io_levelsetnorm_data", "namespacem__global__parameters.html#a088b6f9c52bdd38ace95a8545d1c8ae2", null ],
       [ "mpiiofs", "namespacem__global__parameters.html#a4bca716b2500286d98ec40aef2f258f2", null ],
       [ "mpp_lim", "namespacem__global__parameters.html#adc35ba450a192812db36f1d6659d64e6", null ],
       [ "mu_n", "namespacem__global__parameters.html#ad4dad45ac373a501071736a842b92e7f", null ],
@@ -247,6 +249,8 @@ var namespaces_dup =
       [ "s_generate_initial_condition", "namespacem__initial__condition.html#a819a22af40efdd0fbeed368ebf6a0753", null ],
       [ "s_initialize_initial_condition_module", "namespacem__initial__condition.html#a85b4dd70a4a233bc392d2e37afd97784", null ],
       [ "ib_markers", "namespacem__initial__condition.html#a05e359f2cf998f50d805e9d86feaad51", null ],
+      [ "levelset", "namespacem__initial__condition.html#a857f64244083a0320b4ea9f4fb263c65", null ],
+      [ "levelset_norm", "namespacem__initial__condition.html#ace67919b40ae8033e24aa16075251208", null ],
       [ "patch_id_fp", "namespacem__initial__condition.html#a5d331c773a88029795462ae22c20d6c8", null ],
       [ "q_cons_vf", "namespacem__initial__condition.html#a1f42c68f3b3d167616d52b7cf7a7d56a", null ],
       [ "q_prim_vf", "namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ]

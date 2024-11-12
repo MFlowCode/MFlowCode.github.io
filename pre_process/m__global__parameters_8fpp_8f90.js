@@ -81,6 +81,8 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::mpi_io_airfoil_ib_data", "namespacem__global__parameters.html#aca06e91ef5252884025e5b0a2cf38acd", null ],
     [ "m_global_parameters::mpi_io_data", "namespacem__global__parameters.html#ad80f68aac31aa898ab2d7729f60e375f", null ],
     [ "m_global_parameters::mpi_io_ib_data", "namespacem__global__parameters.html#a46a3e8a6405a0008a7f34bcfc648b20f", null ],
+    [ "m_global_parameters::mpi_io_levelset_data", "namespacem__global__parameters.html#a637c6a85e6862557c7d7ad75c7b1ebea", null ],
+    [ "m_global_parameters::mpi_io_levelsetnorm_data", "namespacem__global__parameters.html#a088b6f9c52bdd38ace95a8545d1c8ae2", null ],
     [ "m_global_parameters::mpiiofs", "namespacem__global__parameters.html#a4bca716b2500286d98ec40aef2f258f2", null ],
     [ "m_global_parameters::mpp_lim", "namespacem__global__parameters.html#adc35ba450a192812db36f1d6659d64e6", null ],
     [ "m_global_parameters::mu_n", "namespacem__global__parameters.html#ad4dad45ac373a501071736a842b92e7f", null ],

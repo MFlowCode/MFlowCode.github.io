@@ -2,7 +2,7 @@ var m__mpi__common_8fpp_8f90 =
 [
     [ "__m_mpi_common_fpp_f90__", "m__mpi__common_8fpp_8f90.html#a46cece4f7e596ad8a37023819e780d7a", null ],
     [ "mpi_bcast_time_step_values", "m__mpi__common_8fpp_8f90.html#a9074e92a692f4de87c0a8b6ff9f4bb33", null ],
-    [ "s_initialize_mpi_data", "m__mpi__common_8fpp_8f90.html#a61ffdfd9a712123c83b8ae8964e6427e", null ],
+    [ "s_initialize_mpi_data", "m__mpi__common_8fpp_8f90.html#ab731eb87df34f026c14f5fd49c43dd85", null ],
     [ "s_mpi_abort", "m__mpi__common_8fpp_8f90.html#ad9e1329e498b65ad4256658675d6f797", null ],
     [ "s_mpi_allreduce_max", "m__mpi__common_8fpp_8f90.html#ace30ab3097bad7059bd466d05e862ca4", null ],
     [ "s_mpi_allreduce_min", "m__mpi__common_8fpp_8f90.html#a2f92e040848a8371632428f1b5210dbe", null ],

@@ -5,6 +5,7 @@ var files_dup =
     [ "m_check_patches.fpp.f90", "m__check__patches_8fpp_8f90.html", "m__check__patches_8fpp_8f90" ],
     [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
     [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
+    [ "m_compute_levelset.fpp.f90", "m__compute__levelset_8fpp_8f90.html", "m__compute__levelset_8fpp_8f90" ],
     [ "m_constants.fpp.f90", "m__constants_8fpp_8f90.html", "m__constants_8fpp_8f90" ],
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
     [ "m_derived_types.fpp.f90", "m__derived__types_8fpp_8f90.html", "m__derived__types_8fpp_8f90" ],
