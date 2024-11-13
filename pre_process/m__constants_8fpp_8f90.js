@@ -1,6 +1,8 @@
 var m__constants_8fpp_8f90 =
 [
     [ "m_constants::acoustic_spatial_support_width", "namespacem__constants.html#ab6dedacbf78b91cd293dcd12dc1d5cd1", null ],
+    [ "m_constants::broadband_spectral_level_constant", "namespacem__constants.html#a12e49665abc8df12f5d31790ad170ce3", null ],
+    [ "m_constants::broadband_spectral_level_growth_rate", "namespacem__constants.html#a4ed795abc33229c6dc7a0202337608e5", null ],
     [ "m_constants::capillary_cutoff", "namespacem__constants.html#a0cf16707988911557a1775d347cc048b", null ],
     [ "m_constants::dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
     [ "m_constants::dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],

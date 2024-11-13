@@ -148,9 +148,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a61efad7c40f7253f8cf7320469e3859a" id="r_a61efad7c40f7253f8cf7320469e3859a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61efad7c40f7253f8cf7320469e3859a">s_acoustic_src_calculations</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, t_step, rhs_vf)</td></tr>
 <tr class="memdesc:a61efad7c40f7253f8cf7320469e3859a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine updates the rhs by computing the mass, mom, energy sources.  <br /></td></tr>
 <tr class="separator:a61efad7c40f7253f8cf7320469e3859a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45959b07b26426df591c7b4af11df6f9" id="r_a45959b07b26426df591c7b4af11df6f9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45959b07b26426df591c7b4af11df6f9">s_source_temporal</a> (sim_time, c, ai, term_index, frequency_local, gauss_sigma_time_local, source)</td></tr>
-<tr class="memdesc:a45959b07b26426df591c7b4af11df6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gives the temporally varying amplitude of the pulse.  <br /></td></tr>
-<tr class="separator:a45959b07b26426df591c7b4af11df6f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa44c6e7518e2edeccddf256a9e8a35e0" id="r_aa44c6e7518e2edeccddf256a9e8a35e0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa44c6e7518e2edeccddf256a9e8a35e0">s_source_temporal</a> (sim_time, c, ai, term_index, frequency_local, gauss_sigma_time_local, source, sum_bb)</td></tr>
+<tr class="memdesc:aa44c6e7518e2edeccddf256a9e8a35e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gives the temporally varying amplitude of the pulse.  <br /></td></tr>
+<tr class="separator:aa44c6e7518e2edeccddf256a9e8a35e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae29b230f74be3ff2a24cd55882415101" id="r_ae29b230f74be3ff2a24cd55882415101"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae29b230f74be3ff2a24cd55882415101">s_precalculate_acoustic_spatial_sources</a></td></tr>
 <tr class="memdesc:ae29b230f74be3ff2a24cd55882415101"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine identifies and precalculates the non-zero acoustic spatial sources before time-stepping.  <br /></td></tr>
 <tr class="separator:ae29b230f74be3ff2a24cd55882415101"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -355,7 +355,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a61efad7c40f7253f8cf7320469e3859a_cgraph.svg" width="416" height="199"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a61efad7c40f7253f8cf7320469e3859a_cgraph.svg" width="474" height="248"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -706,8 +706,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a45959b07b26426df591c7b4af11df6f9" name="a45959b07b26426df591c7b4af11df6f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45959b07b26426df591c7b4af11df6f9">&#9670;&#160;</a></span>s_source_temporal()</h2>
+<a id="aa44c6e7518e2edeccddf256a9e8a35e0" name="aa44c6e7518e2edeccddf256a9e8a35e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44c6e7518e2edeccddf256a9e8a35e0">&#9670;&#160;</a></span>s_source_temporal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -748,7 +748,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>&#160;)</td>
+          <td class="paramtype">real(kind(0d0)), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(kind(0d0)), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sum_bb</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -774,7 +779,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a45959b07b26426df591c7b4af11df6f9_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_aa44c6e7518e2edeccddf256a9e8a35e0_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

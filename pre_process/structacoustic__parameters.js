@@ -1,6 +1,9 @@
 var structacoustic__parameters =
 [
     [ "aperture", "structacoustic__parameters.html#af2c66666b1de7af176cd2b3d45107d10", null ],
+    [ "bb_bandwidth", "structacoustic__parameters.html#ae83d8b7ed9cafe8cc5fea4f537d49753", null ],
+    [ "bb_lowest_freq", "structacoustic__parameters.html#aeb87af0ef7e9ad023dbcb8306f2e5af8", null ],
+    [ "bb_num_freq", "structacoustic__parameters.html#a030e7617e484fe015aa1c97946c93eb7", null ],
     [ "delay", "structacoustic__parameters.html#aafdecfd9430e01ec77e14740e36796c5", null ],
     [ "dipole", "structacoustic__parameters.html#a816eb41fe9cf7f3f3fa6810859180266", null ],
     [ "dir", "structacoustic__parameters.html#a7573ef49a5874545c39f2b510eaa50fe", null ],
