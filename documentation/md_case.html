@@ -282,16 +282,18 @@ Parameters</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>hcid</code> *   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">N/A   </td><td class="markdownTableBodyLeft">Hard coded patch id    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>cf_val</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Surface tension color function value    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>model%filepath</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>model%scale(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>model%rotate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>model%translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>model%spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<td class="markdownTableBodyRight"><code>model%translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>model%spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>model%threshold</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.   </td></tr>
 </table>
 <p>*: These parameters should be prepended with <code>patch_icpp(j)%</code> where $j$ is the patch index.</p>
@@ -536,7 +538,7 @@ Parameter Descriptions</h3>
 <li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds = 1</code> and <code>2</code> correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
 <li><code>weno_Re_flux</code> activates the scalar divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
 <li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
-<li><code>surface_tension</code> activates surface tension when set to <code>'T'</code>. Requires <code>sigma</code> to be set.</li>
+<li><code>surface_tension</code> activates surface tension when set to <code>'T'</code>. Requires <code>sigma</code> to be set and <code>num_fluids</code>. The color function in each patch should be assigned such that <code>patch_icpp(i)cf_val = 1</code> in patches where <code>patch_icpp(i)alpha = 1 - eps</code> and <code>patch_icpp(i)cf_val = 0</code> in patches where <code>patch_icpp(i)alpha = eps</code>.</li>
 <li><code>viscous</code> activates viscosity when set to <code>'T'</code>. Requires <code>Re(1)</code> and <code>Re(2)</code> to be set.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md15"></a>
