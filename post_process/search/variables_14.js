@@ -11,9 +11,11 @@ var searchData=
   ['ve2_8',['ve2',['../structint__bounds__info.html#a37ecdb322d74d80fb0a14e4194a1ec92',1,'int_bounds_info']]],
   ['ve3_9',['ve3',['../structint__bounds__info.html#aca20bf2fa97ddd2caf7c3fe8444864f9',1,'int_bounds_info']]],
   ['vel_10',['vel',['../structic__patch__parameters.html#ae6785e7c65e673fa13a7b7abcd3cab53',1,'ic_patch_parameters']]],
-  ['vel_5fwrt_11',['vel_wrt',['../namespacem__global__parameters.html#ae4ab7caa7dee5e616b217437f7f2b87f',1,'m_global_parameters']]],
-  ['verysmall_12',['verysmall',['../namespacem__constants.html#af743a2977fdec1c91df6aad50c155dbb',1,'m_constants']]],
-  ['vf_13',['vf',['../structvector__field.html#a7e81ce34a68c9a9823eef2932008f772',1,'vector_field']]],
-  ['view_14',['view',['../structmpi__io__var.html#a1eb4fea938daca9315de1cf58afdaba3',1,'mpi_io_var::view'],['../structmpi__io__ib__var.html#acc3af23584b537c634ef69b14c194d96',1,'mpi_io_ib_var::view'],['../structmpi__io__levelset__var.html#af0da4f92b120bba2fb93bc72f546b5e4',1,'mpi_io_levelset_var::view'],['../structmpi__io__levelset__norm__var.html#aab7db57468708df1debaffa6b7bb64a6',1,'mpi_io_levelset_norm_var::view'],['../structmpi__io__airfoil__ib__var.html#a004f93523f3e811cf157daab8fdfe4c8',1,'mpi_io_airfoil_ib_var::view']]],
-  ['vs_15',['vs',['../structbub__bounds__info.html#ad27b93a5c6ae4acd19b831efb3ec6c8b',1,'bub_bounds_info']]]
+  ['vel_5fin_11',['vel_in',['../structint__bounds__info.html#a925309202685ee5c098037ecbd3f0cdd',1,'int_bounds_info']]],
+  ['vel_5fout_12',['vel_out',['../structint__bounds__info.html#a6c57ecc191a6847169976d0f5d676022',1,'int_bounds_info']]],
+  ['vel_5fwrt_13',['vel_wrt',['../namespacem__global__parameters.html#ae4ab7caa7dee5e616b217437f7f2b87f',1,'m_global_parameters']]],
+  ['verysmall_14',['verysmall',['../namespacem__constants.html#af743a2977fdec1c91df6aad50c155dbb',1,'m_constants']]],
+  ['vf_15',['vf',['../structvector__field.html#a7e81ce34a68c9a9823eef2932008f772',1,'vector_field']]],
+  ['view_16',['view',['../structmpi__io__var.html#a1eb4fea938daca9315de1cf58afdaba3',1,'mpi_io_var::view'],['../structmpi__io__ib__var.html#acc3af23584b537c634ef69b14c194d96',1,'mpi_io_ib_var::view'],['../structmpi__io__levelset__var.html#af0da4f92b120bba2fb93bc72f546b5e4',1,'mpi_io_levelset_var::view'],['../structmpi__io__levelset__norm__var.html#aab7db57468708df1debaffa6b7bb64a6',1,'mpi_io_levelset_norm_var::view'],['../structmpi__io__airfoil__ib__var.html#a004f93523f3e811cf157daab8fdfe4c8',1,'mpi_io_airfoil_ib_var::view']]],
+  ['vs_17',['vs',['../structbub__bounds__info.html#ad27b93a5c6ae4acd19b831efb3ec6c8b',1,'bub_bounds_info']]]
 ];

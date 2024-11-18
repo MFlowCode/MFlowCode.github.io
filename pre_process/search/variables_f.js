@@ -31,11 +31,13 @@ var searchData=
   ['precision_28',['precision',['../namespacem__global__parameters.html#a6ed5e5561c16f30a4010f6612877029d',1,'m_global_parameters']]],
   ['pref_29',['pref',['../namespacem__global__parameters.html#aae2170af8a68c7dcdd91910aad867ef4',1,'m_global_parameters']]],
   ['pres_30',['pres',['../structic__patch__parameters.html#ab49672270d63ba491601c5fe58a474a4',1,'ic_patch_parameters']]],
-  ['proc_5fcoords_31',['proc_coords',['../namespacem__global__parameters.html#a48dea2bc17c5e4465a444c926070ae9b',1,'m_global_parameters']]],
-  ['proc_5frank_32',['proc_rank',['../namespacem__global__parameters.html#a383c6ff025d4ea09ddd4e2356042d86b',1,'m_global_parameters']]],
-  ['proc_5frank_5fdir_33',['proc_rank_dir',['../namespacem__start__up.html#a653ba8302e02e2c348dd9cd7cc81e761',1,'m_start_up']]],
-  ['ps_34',['ps',['../structbub__bounds__info.html#a90d2deb29311985091b8d8eb5ed92ec1',1,'bub_bounds_info']]],
-  ['ptgalpha_5feps_35',['ptgalpha_eps',['../namespacem__global__parameters.html#a0c326cc808b3aeb50efc5b7654c29e6b',1,'m_global_parameters']]],
-  ['pulse_36',['pulse',['../structacoustic__parameters.html#af9b80aa29d2bc272356ccf64b5c2dd52',1,'acoustic_parameters']]],
-  ['pv_37',['pv',['../structphysical__parameters.html#a3c2abd6afda1cfe11a648d6b82845605',1,'physical_parameters::pv'],['../namespacem__global__parameters.html#acc5b8b153cee23d65a886df38f821f08',1,'m_global_parameters::pv']]]
+  ['pres_5fin_31',['pres_in',['../structint__bounds__info.html#a4012d52e835a25375d9b613690a9af01',1,'int_bounds_info']]],
+  ['pres_5fout_32',['pres_out',['../structint__bounds__info.html#aa7862f4f74a6c1c22a209d97c517ddec',1,'int_bounds_info']]],
+  ['proc_5fcoords_33',['proc_coords',['../namespacem__global__parameters.html#a48dea2bc17c5e4465a444c926070ae9b',1,'m_global_parameters']]],
+  ['proc_5frank_34',['proc_rank',['../namespacem__global__parameters.html#a383c6ff025d4ea09ddd4e2356042d86b',1,'m_global_parameters']]],
+  ['proc_5frank_5fdir_35',['proc_rank_dir',['../namespacem__start__up.html#a653ba8302e02e2c348dd9cd7cc81e761',1,'m_start_up']]],
+  ['ps_36',['ps',['../structbub__bounds__info.html#a90d2deb29311985091b8d8eb5ed92ec1',1,'bub_bounds_info']]],
+  ['ptgalpha_5feps_37',['ptgalpha_eps',['../namespacem__global__parameters.html#a0c326cc808b3aeb50efc5b7654c29e6b',1,'m_global_parameters']]],
+  ['pulse_38',['pulse',['../structacoustic__parameters.html#af9b80aa29d2bc272356ccf64b5c2dd52',1,'acoustic_parameters']]],
+  ['pv_39',['pv',['../structphysical__parameters.html#a3c2abd6afda1cfe11a648d6b82845605',1,'physical_parameters::pv'],['../namespacem__global__parameters.html#acc5b8b153cee23d65a886df38f821f08',1,'m_global_parameters::pv']]]
 ];
