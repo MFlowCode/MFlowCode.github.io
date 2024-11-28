@@ -284,17 +284,17 @@ Parameters</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>cf_val</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Surface tension color function value    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>model%filepath</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).    </td></tr>
+<td class="markdownTableBodyRight"><code>model_filepath</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>model%scale(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.    </td></tr>
+<td class="markdownTableBodyRight"><code>model_scale(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>model%rotate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.    </td></tr>
+<td class="markdownTableBodyRight"><code>model_rotate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>model%translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
+<td class="markdownTableBodyRight"><code>model_translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>model%spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<td class="markdownTableBodyRight"><code>model_spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>model%threshold</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.   </td></tr>
+<td class="markdownTableBodyRight"><code>model_threshold</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.   </td></tr>
 </table>
 <p>*: These parameters should be prepended with <code>patch_icpp(j)%</code> where $j$ is the patch index.</p>
 <p>The Table lists the patch parameters. The parameters define the geometries and physical parameters of fluid components (patch) in the domain at initial condition. Note that the domain must be fully filled with patche(s). The code outputs error messages when an empty region is left in the domain.</p>
@@ -350,7 +350,9 @@ Parameter Descriptions</h3>
 </li>
 <li><code>smoothen</code> activates smoothening of the boundary of the patch that alters the existing patch. When smoothening occurs, fluids of the two patches are mixed in the region of the boundary. For instance, in the aforementioned case of the cylindrical patch immersed in the rectangular patch, smoothening occurs when <code>patch_icpp(2)smoothen = 'T'</code>. <code>smooth_coeff</code> controls the thickness of the region of smoothening (sharpness of the mixture region). The default value of <code>smooth_coeff</code> is unity. The region of smoothening is thickened with decreasing the value. Optimal choice of the value of <code>smooth_coeff</code> is case-dependent and left to the user.</li>
 <li><code>patch_icpp(j)alpha(i)</code>, <code>patch_icpp(j)alpha_rho(i)</code>, <code>patch_icpp(j)pres</code>, and <code>patch_icpp(j)vel(i)</code> define for $j$-th patch the void fraction of <code>fluid(i)</code>, partial density of <code>fluid(i)</code>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection.</li>
-<li><code>model%scale</code>, <code>model%rotate</code> and <code>model%translate</code> define how the model should be transformed to domain-space by first scaling by <code>model%scale</code>, then rotating about the Z, X, and Y axes (using <code>model%rotate</code>), and finally translating by <code>model%translate</code>.</li>
+<li><code>model_filepath</code> defines the root directory of the STL or OBJ model file.</li>
+<li><code>model_scale</code>, <code>model_rotate</code> and <code>model_translate</code> define how the model should be transformed to domain-space by first scaling by <code>model_scale</code>, then rotating about the Z, X, and Y axes (using <code>model_rotate</code>), and finally translating by <code>model_translate</code>.</li>
+<li><code>model_spc</code> and <code>model_threshold</code> are ray-tracing parameters. <code>model_spc</code> defines the number of rays per cell to render the model. <code>model_threshold</code> defines the ray-tracing threshold at which the cell is marked as the model.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md11"></a>
 4. Immersed Boundary Patches</h2>
@@ -376,7 +378,19 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>p</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>slip</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Apply a slip boundary   </td></tr>
+<td class="markdownTableBodyRight"><code>slip</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Apply a slip boundary    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>model_filepath</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>model_scale(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>model_rotate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>model_translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>model_spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>model_threshold</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.   </td></tr>
 </table>
 <p>These parameters should be prepended with <code>patch_ib(j)%</code> where $j$ is the patch index.</p>
 <h3><a class="anchor" id="autotoc_md12"></a>
@@ -389,6 +403,7 @@ Parameter Descriptions</h3>
 <li><code>theta</code> allows for the angle of attach of airfoil patches to be changed.</li>
 <li><code>c</code>, <code>t</code>, <code>p</code>, and <code>m</code> specify the parameters for a NACA airfoil. <code>m</code> is the maximum camber, <code>p</code> is the location of maximum camber, <code>c</code> is the coord length, and <code>t</code> is the thickness. Additional details on this specification can be found in <a href="https://web.stanford.edu/~cantwell/AA200_Course_Material/The%20NACA%20airfoil%20series.pdf">The Naca Airfoil Series</a></li>
 <li><code>slip</code> applies a slip boundary to the surface of the patch if true and a no-slip boundary condition to the surface if false.</li>
+<li>Please see Patch Parameters for the descriptions of <code>model_filepath</code>, <code>model_scale</code>, <code>model_rotate</code>, <code>model_translate</code>, <code>model_spc</code>, and <code>model_threshold</code>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md13"></a>
 5. Fluid Material’s</h2>

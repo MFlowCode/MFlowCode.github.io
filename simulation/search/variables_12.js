@@ -5,5 +5,8 @@ var searchData=
   ['tempname_2',['tempname',['../namespacem__nvtx.html#aba9ec6c19c1589367e247cdb545b1197',1,'m_nvtx']]],
   ['theta_3',['theta',['../structib__patch__parameters.html#a7fbaf650fcab406f7da899c6945cae90',1,'ib_patch_parameters']]],
   ['threshold_4',['threshold',['../structic__model__parameters.html#a55fc9430c6d828c18091b61bcfabf6a3',1,'ic_model_parameters']]],
-  ['trs_5',['trs',['../structt__model.html#a2263885506ecea0b2c00f9de9c103848',1,'t_model']]]
+  ['threshold_5fbary_5',['threshold_bary',['../namespacem__constants.html#ae3a15686c6f9507b242d4e1837fddd8c',1,'m_constants']]],
+  ['threshold_5fedge_5fzero_6',['threshold_edge_zero',['../namespacem__constants.html#a65078abc44926491d33f9e624271feb8',1,'m_constants']]],
+  ['threshold_5fvector_5fzero_7',['threshold_vector_zero',['../namespacem__constants.html#a00dc00839ff64b3a29b314da503e7176',1,'m_constants']]],
+  ['trs_8',['trs',['../structt__model.html#a2263885506ecea0b2c00f9de9c103848',1,'t_model']]]
 ];
