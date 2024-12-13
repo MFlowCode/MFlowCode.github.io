@@ -137,15 +137,25 @@ $(function(){initNavTree('md_testing.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="autotoc_md109"></a></p>
 <p>To run MFC's test suite, run </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt;</div>
-</div><!-- fragment --><p>It will generate and run test cases, comparing their output to previous runs from versions of MFC considered accurate. <em>golden files</em>, stored in the <code>tests/</code> directory contain this data, aggregating <code>.dat</code> files generated when running MFC. A test is considered passing when our error tolerances are met in order to maintain a high level of stability and accuracy. Run <code>./mfc.sh test -h</code> for a full list of accepted arguments.</p>
-<p>Most notably, you can consult the full list of tests by running </p><div class="fragment"><div class="line">./mfc.sh test -l</div>
-</div><!-- fragment --><p>To restrict to a given range, use the <code>--from</code> (<code>-f</code>) and <code>--to</code> (<code>-t</code>) options. To run a (non-contiguous) subset of tests, use the <code>--only</code> (<code>-o</code>) option instead. To specify a computer, pass the <code>-c</code> flag to <code>./mfc.sh run</code> like so: </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt; -- -c &lt;computer name&gt;</div>
+</div><!-- fragment --><p>It will generate and run test cases, comparing their output to previous runs from versions of MFC considered accurate. <em>golden files</em>, stored in the <code>tests/</code> directory contain this data, aggregating <code>.dat</code> files generated when running MFC. A test is considered passing when our error tolerances are met in order to maintain a high level of stability and accuracy. <code>./mfc.sh test</code> has the following unique options:</p><ul>
+<li><code>-l</code> outputs the full list of tests</li>
+<li><code>--from</code> (<code>-f)</code> and <code>--to</code> (<code>t</code>) restrict testing to a range of contiguous slugs</li>
+<li><code>--only</code> (<code>-o</code>) restricts testing to a non-contiguous range of tests based on if their trace contains a certain feature</li>
+<li><code>--test-all</code> (<code>a</code>) test post process and ensure the Silo database files are correct</li>
+<li><code>--percent</code> (<code>%</code>) to specify a percentage of the test suite to select at random and test</li>
+<li><code>--max-attempts</code> (<code>-m</code>) the maximum number of attempts to make on a test before considering it failed</li>
+<li><code>--no-examples</code> skips the testing of cases in the examples folder</li>
+</ul>
+<p>To specify a computer, pass the <code>-c</code> flag to <code>./mfc.sh run</code> like so: </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt; -- -c &lt;computer name&gt;</div>
 </div><!-- fragment --><p> where <code>&lt;computer name&gt;</code> could be <code>phoenix</code> or any of the others in the <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/templates">templates</a>). You can create new templates with the appropriate run commands or omit this option. The use of <code>--</code> in the above command passes options to the <code>./mfc.sh run</code> command underlying the <code>./mfc.sh test</code>.</p>
 <h2><a class="anchor" id="autotoc_md110"></a>
 Creating Tests</h2>
-<p>To (re)generate <em>golden files</em>, append the <code>--generate</code> option: </p><div class="fragment"><div class="line">./mfc.sh test --generate -j 8</div>
-</div><!-- fragment --><p>It is recommended that a range be specified when generating golden files for new test cases, as described in the previous section, in an effort not to regenerate the golden files of existing test cases.</p>
-<p><b>Note:</b> If you output new variables and want to update the golden files to include these without modifying the original data, use the <code>--add-new-variables</code> option instead.</p>
+<p>Creating and updating test cases can be done with the following command line arguments:</p><ul>
+<li><code>--generate</code> to generate golden files for a new test case</li>
+<li><code>--add-new-variables</code> to similar to <code>--generate</code>, but rather than generating a golden file from scratch, it generates a gold file with new variables for an updated test without changing the original golden file values.</li>
+<li><code>--remove-old-tests</code> to remove the directories of tests that no longer exist</li>
+</ul>
+<p>It is recommended that a range be specified when generating golden files for new test cases, as described in the previous section, in an effort not to regenerate the golden files of existing test cases.</p>
 <p>Adding a new test case can be done by modifying <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/mfc/test/cases.py">cases.py</a>. The function <code>list_cases</code> is responsible for generating the list of test cases. Loops and conditionals are used to vary parameters, whose defaults can be found in the <code>BASE_CFG</code> case object within <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/mfc/test/case.py">case.py</a>. The function operates on two variables:</p>
 <ul>
 <li><code>stack</code>: A stack that holds the variations to the default case parameters. By pushing and popping the stack inside loops and conditionals, it is easier to nest test case descriptions, as it holds the variations that are common to all future test cases within the same indentation level (in most scenarios).</li>
