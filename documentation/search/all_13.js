@@ -6,6 +6,6 @@ var searchData=
   ['mfc_3',['MFC',['../md_getting-started.html#autotoc_md93',1,'Building MFC'],['../md_getting-started.html#autotoc_md91',1,'Fetching MFC']]],
   ['mi250x_20gpu_4',['AMD MI250X GPU',['../md_expectedPerformance.html#autotoc_md82',1,'']]],
   ['model_5',['Model',['../md_case.html#autotoc_md20',1,'11. Phase Change Model'],['../md_case.html#autotoc_md18',1,'9. Ensemble-Averaged Bubble Model']]],
-  ['multi_20component_20inert_20shock_20tube_6',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md46',1,'']]],
-  ['multi_20component_20reactive_20shock_20tube_7',['1D Multi-Component Reactive Shock Tube',['../md_examples.html#autotoc_md70',1,'']]]
+  ['multi_20component_20inert_20shock_20tube_6',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md56',1,'']]],
+  ['multi_20component_20reactive_20shock_20tube_7',['1D Multi-Component Reactive Shock Tube',['../md_examples.html#autotoc_md76',1,'']]]
 ];
