@@ -1,16 +1,18 @@
 var searchData=
 [
   ['db_0',['db',['../structghost__point.html#a0ffa08c158b398a2a6fcf0370b8a95a6',1,'ghost_point']]],
-  ['delay_1',['delay',['../structacoustic__parameters.html#aafdecfd9430e01ec77e14740e36796c5',1,'acoustic_parameters']]],
+  ['delay_1',['delay',['../structacoustic__parameters.html#a295e26512465e638669abbc04f71919d',1,'acoustic_parameters']]],
   ['dflt_5fchar_2',['dflt_char',['../namespacem__constants.html#a89491724fc8077006ff1b62f981400ac',1,'m_constants']]],
   ['dflt_5fint_3',['dflt_int',['../namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6',1,'m_constants']]],
-  ['dflt_5freal_4',['dflt_real',['../namespacem__constants.html#aea00cbe9efc8c7935ded731213cbda58',1,'m_constants']]],
-  ['dflt_5fvcfl_5fdt_5',['dflt_vcfl_dt',['../namespacem__constants.html#a3a243a8d9d072460385568d352ab338c',1,'m_constants']]],
+  ['dflt_5freal_4',['dflt_real',['../namespacem__constants.html#a53cf8dfd06fcfa36c018ab624ef988b6',1,'m_constants']]],
+  ['dflt_5fvcfl_5fdt_5',['dflt_vcfl_dt',['../namespacem__constants.html#ae54580d6fa55ec139c1d82f85340dcc4',1,'m_constants']]],
   ['diffusion_6',['diffusion',['../structchemistry__parameters.html#aa5ec1ceb481f1dc38193faa0a4d44d90',1,'chemistry_parameters']]],
   ['dipole_7',['dipole',['../structacoustic__parameters.html#a816eb41fe9cf7f3f3fa6810859180266',1,'acoustic_parameters']]],
-  ['dir_8',['dir',['../structacoustic__parameters.html#a7573ef49a5874545c39f2b510eaa50fe',1,'acoustic_parameters']]],
+  ['dir_8',['dir',['../structacoustic__parameters.html#a5631c1b24a7d2365c76f08a84c51f8a4',1,'acoustic_parameters']]],
   ['dist_5ftype_9',['dist_type',['../namespacem__global__parameters.html#a34297551dccfd5771f543ff8902042bc',1,'m_global_parameters']]],
-  ['dx_10',['dx',['../namespacem__global__parameters.html#aaa9a08d5b90f48e0f6bb64c209fd89e4',1,'m_global_parameters']]],
-  ['dy_11',['dy',['../namespacem__global__parameters.html#a5ff5660b10330ad917331259642e8dc4',1,'m_global_parameters']]],
-  ['dz_12',['dz',['../namespacem__global__parameters.html#ab930758827576d5cf2518679bf670351',1,'m_global_parameters']]]
+  ['double_5fprecision_10',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
+  ['dp_11',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
+  ['dx_12',['dx',['../namespacem__global__parameters.html#a742174580da5b9b325a2f00c24aca536',1,'m_global_parameters']]],
+  ['dy_13',['dy',['../namespacem__global__parameters.html#a380743bc7a4af4ab7143cb0c8679d972',1,'m_global_parameters']]],
+  ['dz_14',['dz',['../namespacem__global__parameters.html#a29818b2dd42d5384d99765393d965049',1,'m_global_parameters']]]
 ];

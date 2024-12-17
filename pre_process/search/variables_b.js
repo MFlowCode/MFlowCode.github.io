@@ -1,13 +1,13 @@
 var searchData=
 [
   ['l_0',['l',['../m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72',1,'m_phase_change.fpp.f90']]],
-  ['length_1',['length',['../structacoustic__parameters.html#abd8535a1cf213fc02879a77b8d00a75c',1,'acoustic_parameters']]],
-  ['length_5fx_2',['length_x',['../structic__patch__parameters.html#a1eded192c26ba1365a17bbf52cb1efc5',1,'ic_patch_parameters::length_x'],['../structib__patch__parameters.html#ad4a1aaa779f8abc9e1433a8e4668c526',1,'ib_patch_parameters::length_x']]],
-  ['length_5fy_3',['length_y',['../structic__patch__parameters.html#ae3dd62118f63a82f3f4c2395c684f616',1,'ic_patch_parameters::length_y'],['../structib__patch__parameters.html#a37a635633bcffadcb0b2f15d51249262',1,'ib_patch_parameters::length_y']]],
-  ['length_5fz_4',['length_z',['../structic__patch__parameters.html#a8a635c3b94d0d5b7a64f8a7a440d4eaf',1,'ic_patch_parameters::length_z'],['../structib__patch__parameters.html#acefa6708fd7cd6658aa77212c158bf9e',1,'ib_patch_parameters::length_z']]],
+  ['length_1',['length',['../structacoustic__parameters.html#a728a4549342ed14c7012cd8b09cb1753',1,'acoustic_parameters']]],
+  ['length_5fx_2',['length_x',['../structic__patch__parameters.html#a889d34cfdccb9e1c9c7b2f58d8174d40',1,'ic_patch_parameters::length_x'],['../structib__patch__parameters.html#acf60b695e9b2bac9fd9ad35a34c107fa',1,'ib_patch_parameters::length_x']]],
+  ['length_5fy_3',['length_y',['../structic__patch__parameters.html#a90bdfc1fa338f5d687cb1b298d5eeb86',1,'ic_patch_parameters::length_y'],['../structib__patch__parameters.html#ad46f79224c9caaadaa7245a78a08a512',1,'ib_patch_parameters::length_y']]],
+  ['length_5fz_4',['length_z',['../structic__patch__parameters.html#a4039626d35668c1cd496fb379148be43',1,'ic_patch_parameters::length_z'],['../structib__patch__parameters.html#aec2f00fa8c2cdc0aee11db075281334a',1,'ib_patch_parameters::length_z']]],
   ['levelset_5',['levelset',['../namespacem__initial__condition.html#a857f64244083a0320b4ea9f4fb263c65',1,'m_initial_condition']]],
   ['levelset_5fnorm_6',['levelset_norm',['../namespacem__initial__condition.html#ace67919b40ae8033e24aa16075251208',1,'m_initial_condition']]],
-  ['loc_7',['loc',['../structacoustic__parameters.html#a30528827a005f7ab9864782e71266dde',1,'acoustic_parameters::loc'],['../structghost__point.html#a2eaac2f388eb0b59dd21af4f15d2410c',1,'ghost_point::loc']]],
+  ['loc_7',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#a20fadd1ffa93d9e27a44496103137f8f',1,'ghost_point::loc']]],
   ['logic_5fgrid_8',['logic_grid',['../namespacem__global__parameters.html#a5b6232ffcb06cb4763438c9c5b545b5f',1,'m_global_parameters']]],
   ['loops_5fx_9',['loops_x',['../namespacem__global__parameters.html#a35f17d72a6c9e18aae51a5131d2c9303',1,'m_global_parameters']]],
   ['loops_5fy_10',['loops_y',['../namespacem__global__parameters.html#af8c939272b6741337359fd99e419fba1',1,'m_global_parameters']]],

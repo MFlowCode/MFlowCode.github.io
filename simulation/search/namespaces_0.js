@@ -10,6 +10,7 @@ var searchData=
   ['m_5ffinite_5fdifferences_7',['m_finite_differences',['../namespacem__finite__differences.html',1,'']]],
   ['m_5fhelper_5fbasic_8',['m_helper_basic',['../namespacem__helper__basic.html',1,'']]],
   ['m_5fnvtx_9',['m_nvtx',['../namespacem__nvtx.html',1,'']]],
-  ['m_5fsim_5fhelpers_10',['m_sim_helpers',['../namespacem__sim__helpers.html',1,'']]],
-  ['m_5fstart_5fup_11',['m_start_up',['../namespacem__start__up.html',1,'']]]
+  ['m_5fprecision_5fselect_10',['m_precision_select',['../namespacem__precision__select.html',1,'']]],
+  ['m_5fsim_5fhelpers_11',['m_sim_helpers',['../namespacem__sim__helpers.html',1,'']]],
+  ['m_5fstart_5fup_12',['m_start_up',['../namespacem__start__up.html',1,'']]]
 ];

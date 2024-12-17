@@ -13,7 +13,7 @@ var m__mpi__proxy_8fpp_8f90 =
     [ "m_mpi_proxy::displs", "namespacem__mpi__proxy.html#aebaa6e3cc66d2431c5fb49896d40d7e6", null ],
     [ "m_mpi_proxy::err_code", "namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982", null ],
     [ "m_mpi_proxy::ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ],
-    [ "m_mpi_proxy::q_cons_buffer_in", "namespacem__mpi__proxy.html#af08f3246d9efac15d6391dc4205d4611", null ],
-    [ "m_mpi_proxy::q_cons_buffer_out", "namespacem__mpi__proxy.html#a3d449655a88a9e5248af35a82caf877a", null ],
+    [ "m_mpi_proxy::q_cons_buffer_in", "namespacem__mpi__proxy.html#a1dd1a7a9b62361d7810f49d3cdc5d77d", null ],
+    [ "m_mpi_proxy::q_cons_buffer_out", "namespacem__mpi__proxy.html#ab2728585443f6e7066d591dd04c06c22", null ],
     [ "m_mpi_proxy::recvcounts", "namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee", null ]
 ];

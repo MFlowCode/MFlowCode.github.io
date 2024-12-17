@@ -8,6 +8,7 @@ var m__checker_8fpp_8f90 =
     [ "s_check_inputs_body_forces", "m__checker_8fpp_8f90.html#a89185a899611c8b9c8a9fecd6cfe828a", null ],
     [ "s_check_inputs_bubbles", "m__checker_8fpp_8f90.html#a3e2dd421965eb7773a40fdbf28f4e02f", null ],
     [ "s_check_inputs_compilers", "m__checker_8fpp_8f90.html#a1ec74473406fc22a2f83913581b1d715", null ],
+    [ "s_check_inputs_geometry_precision", "m__checker_8fpp_8f90.html#a97581e8fbf3e7e5851a080887b0f8fce", null ],
     [ "s_check_inputs_grcbc", "m__checker_8fpp_8f90.html#a81a6cf9985e236ecb2a9b24191d1dccc", null ],
     [ "s_check_inputs_hypoelasticity", "m__checker_8fpp_8f90.html#a3faaf9823edfbc75c4dc5b7fc44606e2", null ],
     [ "s_check_inputs_misc", "m__checker_8fpp_8f90.html#a056bdbf07520073ed10595aca47b7669", null ],

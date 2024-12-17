@@ -1,5 +1,5 @@
 var structbounds__info =
 [
-    [ "beg", "structbounds__info.html#a783d882ee47029bd1ee3541b9a026aa5", null ],
-    [ "end", "structbounds__info.html#a5b6cd1dcd92542e5e4f22c2e3e045b34", null ]
+    [ "beg", "structbounds__info.html#a74037d88013a6ff25996fc85c9dc06fc", null ],
+    [ "end", "structbounds__info.html#ae2df4c2e8894ec4f481de2b1412ae4a4", null ]
 ];

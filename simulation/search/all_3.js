@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['c_0',['c',['../structib__patch__parameters.html#a35d7e9123ec3b3bb3fda981da75944dc',1,'ib_patch_parameters']]],
+  ['c_0',['c',['../structib__patch__parameters.html#a271dfee2c341ae81425e8b696880d8d3',1,'ib_patch_parameters']]],
   ['cantera_5ffile_1',['cantera_file',['../structchemistry__parameters.html#abb399bf23261952c38ca1ac9fd8fdaa6',1,'chemistry_parameters']]],
-  ['capillary_5fcutoff_2',['capillary_cutoff',['../namespacem__constants.html#a0cf16707988911557a1775d347cc048b',1,'m_constants']]],
+  ['capillary_5fcutoff_2',['capillary_cutoff',['../namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140',1,'m_constants']]],
   ['category_3',['category',['../structm__nvtx_1_1nvtxeventattributes.html#abf254ea90a23978e664e8bd4ba836424',1,'m_nvtx::nvtxeventattributes']]],
   ['cbabk2_4',['cbabk2',['../namespacem__eigen__solver.html#a6d35cffb5e64987dbbb6211356e9136f',1,'m_eigen_solver']]],
   ['cbal_5',['cbal',['../namespacem__eigen__solver.html#a79d1a338e00b679ba5fcf166c529d77c',1,'m_eigen_solver']]],
   ['cdiv_6',['cdiv',['../namespacem__eigen__solver.html#a8537482af056a2e62fb0f03b0b60d951',1,'m_eigen_solver']]],
-  ['cf_5fval_7',['cf_val',['../structic__patch__parameters.html#ae1b668d59b9015be4fda1039eb535c11',1,'ic_patch_parameters']]],
+  ['cf_5fval_7',['cf_val',['../structic__patch__parameters.html#ab8559e392ba9e3cfbb4be44615609f9d',1,'ic_patch_parameters']]],
   ['cg_8',['cg',['../namespacem__eigen__solver.html#ae98c4a659de6724591ff45c1c72080b6',1,'m_eigen_solver']]],
   ['chemistry_5fparameters_9',['chemistry_parameters',['../structchemistry__parameters.html',1,'']]],
   ['col_10',['col',['../namespacem__nvtx.html#af232470c550267867fedf74adc30cab4',1,'m_nvtx']]],
@@ -17,5 +17,5 @@ var searchData=
   ['coord_14',['coord',['../structsource__spatial__type.html#a911e89938c3cbc54d115895a10ae9195',1,'source_spatial_type']]],
   ['corth_15',['corth',['../namespacem__eigen__solver.html#ab54bfcf38d40c65fcd0887727d3b00f0',1,'m_eigen_solver']]],
   ['csroot_16',['csroot',['../namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f',1,'m_eigen_solver']]],
-  ['cv_17',['cv',['../structic__patch__parameters.html#a4ea2714f2984f0fbe34f79e41ff7d311',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#a82e92f193d2ba4bbe654b8fcabdaa5b2',1,'physical_parameters::cv']]]
+  ['cv_17',['cv',['../structic__patch__parameters.html#a54bee368deb78c819eb96a80e2f1f3ca',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#ae27ba8724cf25d4c4e22d70ad058c16d',1,'physical_parameters::cv']]]
 ];

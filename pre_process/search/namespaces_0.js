@@ -13,5 +13,6 @@ var searchData=
   ['m_5finitial_5fcondition_10',['m_initial_condition',['../namespacem__initial__condition.html',1,'']]],
   ['m_5fmpi_5fproxy_11',['m_mpi_proxy',['../namespacem__mpi__proxy.html',1,'']]],
   ['m_5fperturbation_12',['m_perturbation',['../namespacem__perturbation.html',1,'']]],
-  ['m_5fstart_5fup_13',['m_start_up',['../namespacem__start__up.html',1,'']]]
+  ['m_5fprecision_5fselect_13',['m_precision_select',['../namespacem__precision__select.html',1,'']]],
+  ['m_5fstart_5fup_14',['m_start_up',['../namespacem__start__up.html',1,'']]]
 ];

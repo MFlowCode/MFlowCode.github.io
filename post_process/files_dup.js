@@ -18,6 +18,7 @@ var files_dup =
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
     [ "m_helper_basic.f90", "m__helper__basic_8f90.html", "m__helper__basic_8f90" ],
+    [ "m_precision_select.f90", "m__precision__select_8f90.html", "m__precision__select_8f90" ],
     [ "m_data_input.f90", "m__data__input_8f90.html", "m__data__input_8f90" ],
     [ "m_start_up.f90", "m__start__up_8f90.html", "m__start__up_8f90" ]
 ];

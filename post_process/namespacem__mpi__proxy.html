@@ -179,10 +179,10 @@ Variables</h2></td></tr>
 <tr><td colspan="2"><div class="groupHeader">Buffers of the conservative variables received/sent from/to neighboring</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>processors. Note that these variables are structured as vectors rather than arrays. </p>
 </div></td></tr>
-<tr class="memitem:af08f3246d9efac15d6391dc4205d4611" id="r_af08f3246d9efac15d6391dc4205d4611"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af08f3246d9efac15d6391dc4205d4611">q_cons_buffer_in</a></td></tr>
-<tr class="separator:af08f3246d9efac15d6391dc4205d4611"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d449655a88a9e5248af35a82caf877a" id="r_a3d449655a88a9e5248af35a82caf877a"><td class="memItemLeft" align="right" valign="top">real(kind(0d0)), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d449655a88a9e5248af35a82caf877a">q_cons_buffer_out</a></td></tr>
-<tr class="separator:a3d449655a88a9e5248af35a82caf877a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dd1a7a9b62361d7810f49d3cdc5d77d" id="r_a1dd1a7a9b62361d7810f49d3cdc5d77d"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dd1a7a9b62361d7810f49d3cdc5d77d">q_cons_buffer_in</a></td></tr>
+<tr class="separator:a1dd1a7a9b62361d7810f49d3cdc5d77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2728585443f6e7066d591dd04c06c22" id="r_ab2728585443f6e7066d591dd04c06c22"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2728585443f6e7066d591dd04c06c22">q_cons_buffer_out</a></td></tr>
+<tr class="separator:ab2728585443f6e7066d591dd04c06c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Receive counts and displacement vector variables, respectively, used in</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>enabling MPI to gather varying amounts of data from all processes to the root process </p>
 </div></td></tr>
@@ -292,12 +292,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_defragment_1d_flow_variable </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:0, 0:0), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>, </td>
+          <td class="paramtype">real(wp), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(0:<a class="el" href="namespacem__global__parameters.html#afabaedf16b26e327635e956d13b45086">m_root</a>, 0:0, 0:0), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_root_sf</em></span>&#160;)</td>
+          <td class="paramtype">real(wp), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_root_sf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -348,12 +348,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_gather_data_extents </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(:, :, :), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>, </td>
+          <td class="paramtype">real(wp), dimension(:, :, :), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(kind(0d0)), dimension(1:2, 0:<a class="el" href="namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea">num_procs</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>data_extents</em></span>&#160;)</td>
+          <td class="paramtype">real(wp), dimension(1:2, 0:<a class="el" href="namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea">num_procs</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>data_extents</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -383,7 +383,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_mpi_proxy::s_mpi_gather_spatial_extents </td>
           <td>(</td>
-          <td class="paramtype">real(kind(0d0)), dimension(1:, 0:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>spatial_extents</em></span></td><td>)</td>
+          <td class="paramtype">real(wp), dimension(1:, 0:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>spatial_extents</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -539,28 +539,28 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="af08f3246d9efac15d6391dc4205d4611" name="af08f3246d9efac15d6391dc4205d4611"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af08f3246d9efac15d6391dc4205d4611">&#9670;&#160;</a></span>q_cons_buffer_in</h2>
+<a id="a1dd1a7a9b62361d7810f49d3cdc5d77d" name="a1dd1a7a9b62361d7810f49d3cdc5d77d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd1a7a9b62361d7810f49d3cdc5d77d">&#9670;&#160;</a></span>q_cons_buffer_in</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_mpi_proxy::q_cons_buffer_in</td>
+          <td class="memname">real(wp), dimension(:), allocatable m_mpi_proxy::q_cons_buffer_in</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a3d449655a88a9e5248af35a82caf877a" name="a3d449655a88a9e5248af35a82caf877a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d449655a88a9e5248af35a82caf877a">&#9670;&#160;</a></span>q_cons_buffer_out</h2>
+<a id="ab2728585443f6e7066d591dd04c06c22" name="ab2728585443f6e7066d591dd04c06c22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2728585443f6e7066d591dd04c06c22">&#9670;&#160;</a></span>q_cons_buffer_out</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(kind(0d0)), dimension(:), allocatable m_mpi_proxy::q_cons_buffer_out</td>
+          <td class="memname">real(wp), dimension(:), allocatable m_mpi_proxy::q_cons_buffer_out</td>
         </tr>
       </table>
 </div><div class="memdoc">

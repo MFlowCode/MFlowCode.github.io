@@ -1,8 +1,8 @@
 var m__acoustic__src_8fpp_8f90 =
 [
     [ "__m_acoustic_src_fpp_f90__", "m__acoustic__src_8fpp_8f90.html#a6188e1e3f202697dbe014d7856777502", null ],
-    [ "f_frequency_local", "m__acoustic__src_8fpp_8f90.html#a2e53efec27e8cc52f35b4db516948f51", null ],
-    [ "f_gauss_sigma_time_local", "m__acoustic__src_8fpp_8f90.html#aaf327cf1dd669ce002ce4c8e88484316", null ],
+    [ "f_frequency_local", "m__acoustic__src_8fpp_8f90.html#aa88772b58650f115a115e1f5fc01dc46", null ],
+    [ "f_gauss_sigma_time_local", "m__acoustic__src_8fpp_8f90.html#a98345a4ae67d5f5af2a3ebd1446f315c", null ],
     [ "s_acoustic_src_calculations", "m__acoustic__src_8fpp_8f90.html#a61efad7c40f7253f8cf7320469e3859a", null ],
     [ "s_initialize_acoustic_src", "m__acoustic__src_8fpp_8f90.html#aca1556eca3786433ee03d3c7ae5094c4", null ],
     [ "s_precalculate_acoustic_spatial_sources", "m__acoustic__src_8fpp_8f90.html#ae29b230f74be3ff2a24cd55882415101", null ],
