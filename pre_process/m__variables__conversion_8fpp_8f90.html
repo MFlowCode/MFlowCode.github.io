@@ -168,9 +168,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:ad48f69f361f76e36209d9d979b76ad62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11120a6e524ba31ebb874fdbf3ee75a4" id="r_a11120a6e524ba31ebb874fdbf3ee75a4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11120a6e524ba31ebb874fdbf3ee75a4">s_initialize_pb</a> (qk_cons_vf, mv, pb)</td></tr>
 <tr class="separator:a11120a6e524ba31ebb874fdbf3ee75a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3480e5d3bc628f115c1952e68a0ae891" id="r_a3480e5d3bc628f115c1952e68a0ae891"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3480e5d3bc628f115c1952e68a0ae891">s_convert_conservative_to_primitive_variables</a> (qk_cons_vf, qk_prim_vf, ibounds, gm_alphak_vf)</td></tr>
-<tr class="memdesc:a3480e5d3bc628f115c1952e68a0ae891"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following procedure handles the conversion between the conservative variables and the primitive variables.  <br /></td></tr>
-<tr class="separator:a3480e5d3bc628f115c1952e68a0ae891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac269816c5c0ef9758b03e89cf59d3c50" id="r_ac269816c5c0ef9758b03e89cf59d3c50"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac269816c5c0ef9758b03e89cf59d3c50">s_convert_conservative_to_primitive_variables</a> (qk_cons_vf, q_t_sf, qk_prim_vf, ibounds, gm_alphak_vf)</td></tr>
+<tr class="memdesc:ac269816c5c0ef9758b03e89cf59d3c50"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following procedure handles the conversion between the conservative variables and the primitive variables.  <br /></td></tr>
+<tr class="separator:ac269816c5c0ef9758b03e89cf59d3c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bc6f1a313312f4085accb9a1c224b99" id="r_a5bc6f1a313312f4085accb9a1c224b99"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bc6f1a313312f4085accb9a1c224b99">s_convert_primitive_to_conservative_variables</a> (q_prim_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
 <tr class="memdesc:a5bc6f1a313312f4085accb9a1c224b99"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following procedure handles the conversion between the primitive variables and the conservative variables.  <br /></td></tr>
 <tr class="separator:a5bc6f1a313312f4085accb9a1c224b99"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,7 +259,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -377,8 +377,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a3480e5d3bc628f115c1952e68a0ae891" name="a3480e5d3bc628f115c1952e68a0ae891"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3480e5d3bc628f115c1952e68a0ae891">&#9670;&#160;</a></span>s_convert_conservative_to_primitive_variables()</h2>
+<a id="ac269816c5c0ef9758b03e89cf59d3c50" name="ac269816c5c0ef9758b03e89cf59d3c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac269816c5c0ef9758b03e89cf59d3c50">&#9670;&#160;</a></span>s_convert_conservative_to_primitive_variables()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,6 +390,11 @@ Here is the caller graph for this function:</div>
           <td class="memname">subroutine __m_variables_conversion_fpp_f90__::s_convert_conservative_to_primitive_variables </td>
           <td>(</td>
           <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qk_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -429,12 +434,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__variables__conversion_8fpp_8f90_a3480e5d3bc628f115c1952e68a0ae891_cgraph.svg" width="100%" height="557"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__variables__conversion_8fpp_8f90_ac269816c5c0ef9758b03e89cf59d3c50_cgraph.svg" width="100%" height="557"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__variables__conversion_8fpp_8f90_a3480e5d3bc628f115c1952e68a0ae891_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__variables__conversion_8fpp_8f90_ac269816c5c0ef9758b03e89cf59d3c50_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

@@ -142,12 +142,10 @@ $(function(){initNavTree('m__chemistry_8fpp_8f90.html',''); initResizable(true);
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ae35c2f23442d8d361d5adb9c471b91ff" id="r_ae35c2f23442d8d361d5adb9c471b91ff"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae35c2f23442d8d361d5adb9c471b91ff">__m_chemistry_fpp_f90__</a></td></tr>
 <tr class="separator:ae35c2f23442d8d361d5adb9c471b91ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a522608f541d819f4cf39b1fdfcf24eea" id="r_a522608f541d819f4cf39b1fdfcf24eea"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a522608f541d819f4cf39b1fdfcf24eea">s_initialize_chemistry_module</a></td></tr>
-<tr class="separator:a522608f541d819f4cf39b1fdfcf24eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb911a3da9560961102ec94ebedc1d50" id="r_acb911a3da9560961102ec94ebedc1d50"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb911a3da9560961102ec94ebedc1d50">s_finalize_chemistry_module</a></td></tr>
-<tr class="separator:acb911a3da9560961102ec94ebedc1d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ff0123147f3cda5522f51f8be56ec17" id="r_a8ff0123147f3cda5522f51f8be56ec17"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ff0123147f3cda5522f51f8be56ec17">s_compute_chemistry_reaction_flux</a> (rhs_vf, q_cons_qp, q_prim_qp)</td></tr>
-<tr class="separator:a8ff0123147f3cda5522f51f8be56ec17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa144c2b6b3344709c212a7babcd9d0d2" id="r_aa144c2b6b3344709c212a7babcd9d0d2"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa144c2b6b3344709c212a7babcd9d0d2">s_compute_q_t_sf</a> (q_t_sf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, bounds)</td></tr>
+<tr class="separator:aa144c2b6b3344709c212a7babcd9d0d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae810c0aac38e598c0347b54a96bfef99" id="r_ae810c0aac38e598c0347b54a96bfef99"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae810c0aac38e598c0347b54a96bfef99">s_compute_chemistry_reaction_flux</a> (rhs_vf, q_cons_qp, q_t_sf, q_prim_qp, bounds)</td></tr>
+<tr class="separator:ae810c0aac38e598c0347b54a96bfef99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="ae35c2f23442d8d361d5adb9c471b91ff" name="ae35c2f23442d8d361d5adb9c471b91ff"></a>
@@ -164,8 +162,8 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a id="a8ff0123147f3cda5522f51f8be56ec17" name="a8ff0123147f3cda5522f51f8be56ec17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ff0123147f3cda5522f51f8be56ec17">&#9670;&#160;</a></span>s_compute_chemistry_reaction_flux()</h2>
+<a id="ae810c0aac38e598c0347b54a96bfef99" name="ae810c0aac38e598c0347b54a96bfef99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae810c0aac38e598c0347b54a96bfef99">&#9670;&#160;</a></span>s_compute_chemistry_reaction_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,7 +184,17 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_qp</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_qp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -196,55 +204,40 @@ Functions/Subroutines</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_a8ff0123147f3cda5522f51f8be56ec17_cgraph.svg" width="327" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_a8ff0123147f3cda5522f51f8be56ec17_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_ae810c0aac38e598c0347b54a96bfef99_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="acb911a3da9560961102ec94ebedc1d50" name="acb911a3da9560961102ec94ebedc1d50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb911a3da9560961102ec94ebedc1d50">&#9670;&#160;</a></span>s_finalize_chemistry_module()</h2>
+<a id="aa144c2b6b3344709c212a7babcd9d0d2" name="aa144c2b6b3344709c212a7babcd9d0d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa144c2b6b3344709c212a7babcd9d0d2">&#9670;&#160;</a></span>s_compute_q_t_sf()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_finalize_chemistry_module</td>
+          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_compute_q_t_sf </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a522608f541d819f4cf39b1fdfcf24eea" name="a522608f541d819f4cf39b1fdfcf24eea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a522608f541d819f4cf39b1fdfcf24eea">&#9670;&#160;</a></span>s_initialize_chemistry_module()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">subroutine __m_chemistry_fpp_f90__::s_initialize_chemistry_module</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_a522608f541d819f4cf39b1fdfcf24eea_icgraph.svg" width="515" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__chemistry_8fpp_8f90_aa144c2b6b3344709c212a7babcd9d0d2_icgraph.svg" width="490" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

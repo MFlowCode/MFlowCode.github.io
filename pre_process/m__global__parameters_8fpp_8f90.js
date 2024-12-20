@@ -161,7 +161,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::strxe", "namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9", null ],
     [ "m_global_parameters::surface_tension", "namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477", null ],
     [ "m_global_parameters::sys_size", "namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b", null ],
-    [ "m_global_parameters::t_idx", "namespacem__global__parameters.html#accb6d344ae6cff28cc3d060bdf0f4101", null ],
     [ "m_global_parameters::t_step_old", "namespacem__global__parameters.html#a5d0554c4fef91acf46f683e8bcd29133", null ],
     [ "m_global_parameters::t_step_start", "namespacem__global__parameters.html#ace0c8a67825d0dccd2e23b5d0f9985c0", null ],
     [ "m_global_parameters::thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],

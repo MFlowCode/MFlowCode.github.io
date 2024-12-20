@@ -2,6 +2,7 @@ var files_dup =
 [
     [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
     [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
+    [ "m_chemistry.fpp.f90", "m__chemistry_8fpp_8f90.html", "m__chemistry_8fpp_8f90" ],
     [ "m_constants.fpp.f90", "m__constants_8fpp_8f90.html", "m__constants_8fpp_8f90" ],
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
     [ "m_derived_types.fpp.f90", "m__derived__types_8fpp_8f90.html", "m__derived__types_8fpp_8f90" ],

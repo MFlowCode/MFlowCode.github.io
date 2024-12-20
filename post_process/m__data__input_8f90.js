@@ -10,5 +10,6 @@ var m__data__input_8f90 =
     [ "m_data_input::ib_markers", "namespacem__data__input.html#ae7e5a46044d44b5523ea49707c34b366", null ],
     [ "m_data_input::q_cons_vf", "namespacem__data__input.html#a464b144d544f769a0d9a1b549c510e1f", null ],
     [ "m_data_input::q_prim_vf", "namespacem__data__input.html#a65ba499d27d4b21b1ec8bcfe02816bd4", null ],
+    [ "m_data_input::q_t_sf", "namespacem__data__input.html#a40989f702d0dd91e694100c1e1c38feb", null ],
     [ "m_data_input::s_read_data_files", "namespacem__data__input.html#aba1cbfb151ed869483feb37291104830", null ]
 ];

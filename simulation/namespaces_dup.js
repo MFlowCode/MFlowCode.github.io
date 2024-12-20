@@ -37,6 +37,7 @@ var namespaces_dup =
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
       [ "dflt_real", "namespacem__constants.html#a53cf8dfd06fcfa36c018ab624ef988b6", null ],
+      [ "dflt_t_guess", "namespacem__constants.html#a347d9c638ece21f6f356c5ba91e6438e", null ],
       [ "dflt_vcfl_dt", "namespacem__constants.html#ae54580d6fa55ec139c1d82f85340dcc4", null ],
       [ "fourier_rings", "namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183", null ],
       [ "ifactor_2d", "namespacem__constants.html#ae0a7eafec5ea0d0ec6d74c5064f2414b", null ],

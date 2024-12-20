@@ -17,6 +17,7 @@ var namespaces_dup =
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
       [ "dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
       [ "dflt_real", "namespacem__constants.html#a53cf8dfd06fcfa36c018ab624ef988b6", null ],
+      [ "dflt_t_guess", "namespacem__constants.html#a347d9c638ece21f6f356c5ba91e6438e", null ],
       [ "dflt_vcfl_dt", "namespacem__constants.html#ae54580d6fa55ec139c1d82f85340dcc4", null ],
       [ "fourier_rings", "namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183", null ],
       [ "ifactor_2d", "namespacem__constants.html#ae0a7eafec5ea0d0ec6d74c5064f2414b", null ],
@@ -223,7 +224,6 @@ var namespaces_dup =
       [ "strxe", "namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9", null ],
       [ "surface_tension", "namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477", null ],
       [ "sys_size", "namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b", null ],
-      [ "t_idx", "namespacem__global__parameters.html#accb6d344ae6cff28cc3d060bdf0f4101", null ],
       [ "t_step_old", "namespacem__global__parameters.html#a5d0554c4fef91acf46f683e8bcd29133", null ],
       [ "t_step_start", "namespacem__global__parameters.html#ace0c8a67825d0dccd2e23b5d0f9985c0", null ],
       [ "thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
@@ -264,7 +264,8 @@ var namespaces_dup =
       [ "levelset_norm", "namespacem__initial__condition.html#ace67919b40ae8033e24aa16075251208", null ],
       [ "patch_id_fp", "namespacem__initial__condition.html#a5d331c773a88029795462ae22c20d6c8", null ],
       [ "q_cons_vf", "namespacem__initial__condition.html#a1f42c68f3b3d167616d52b7cf7a7d56a", null ],
-      [ "q_prim_vf", "namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ]
+      [ "q_prim_vf", "namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ],
+      [ "q_t_sf", "namespacem__initial__condition.html#aa602f2787f8bf850b2abff07b2ff2dd2", null ]
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#a2e66d6f04cbc2b6a882021f6b7afa50e", null ],
