@@ -6,6 +6,7 @@ var m__checker__common_8fpp_8f90 =
     [ "s_check_inputs_bubbles", "m__checker__common_8fpp_8f90.html#a01441cca058c6ae5c7ad6d95023d7c74", null ],
     [ "s_check_inputs_common", "m__checker__common_8fpp_8f90.html#ac1305563044bff409bb307d98e1dfe13", null ],
     [ "s_check_inputs_finite_difference", "m__checker__common_8fpp_8f90.html#a1f58bf767848b82995c95a02051a26a3", null ],
+    [ "s_check_inputs_hyperelasticity", "m__checker__common_8fpp_8f90.html#a74d976da13a3b275d1e9406cfc213a12", null ],
     [ "s_check_inputs_hypoelasticity", "m__checker__common_8fpp_8f90.html#accfb74f37212066b8bc82dd89ed2ed22", null ],
     [ "s_check_inputs_ibm", "m__checker__common_8fpp_8f90.html#a5f288df12e9ccee0eb013354410ebfa8", null ],
     [ "s_check_inputs_model_eqns_and_num_fluids", "m__checker__common_8fpp_8f90.html#a62ef6c0450d3c2d10771bc88062ae6e4", null ],

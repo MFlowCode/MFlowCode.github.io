@@ -1,5 +1,6 @@
 var structic__patch__parameters =
 [
+    [ "a", "structic__patch__parameters.html#a192d61dbfd14b55dc1fa5ff920203c2f", null ],
     [ "alpha", "structic__patch__parameters.html#af36582698b0d5171f7c6e8a38ddbdfd6", null ],
     [ "alpha_rho", "structic__patch__parameters.html#acd64b4adc39ad4b1b8b73e61037aa7aa", null ],
     [ "alter_patch", "structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e", null ],
@@ -17,6 +18,7 @@ var structic__patch__parameters =
     [ "model_filepath", "structic__patch__parameters.html#a81ee374f5bacf64229f15270e688db4c", null ],
     [ "model_spc", "structic__patch__parameters.html#ac0413acf072c367e5b24cfbfcc872939", null ],
     [ "model_threshold", "structic__patch__parameters.html#a4c558e7f55ddfb01126725971b840f28", null ],
+    [ "non_axis_sym", "structic__patch__parameters.html#a15ee33ba45ad6e6f2a1a63f7d6671a8b", null ],
     [ "normal", "structic__patch__parameters.html#a9931b4f9fe624a19c42a325d873afba8", null ],
     [ "p0", "structic__patch__parameters.html#ad3402d8cfe4ea56bbebdf45c68986ab8", null ],
     [ "pi_inf", "structic__patch__parameters.html#aefec10f947b7754b7c52ae3c4173ff81", null ],

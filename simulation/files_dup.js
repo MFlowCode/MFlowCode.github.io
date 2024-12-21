@@ -16,6 +16,7 @@ var files_dup =
     [ "m_finite_differences.fpp.f90", "m__finite__differences_8fpp_8f90.html", "m__finite__differences_8fpp_8f90" ],
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
     [ "m_helper.fpp.f90", "m__helper_8fpp_8f90.html", "m__helper_8fpp_8f90" ],
+    [ "m_hyperelastic.fpp.f90", "m__hyperelastic_8fpp_8f90.html", "m__hyperelastic_8fpp_8f90" ],
     [ "m_hypoelastic.fpp.f90", "m__hypoelastic_8fpp_8f90.html", "m__hypoelastic_8fpp_8f90" ],
     [ "m_ibm.fpp.f90", "m__ibm_8fpp_8f90.html", "m__ibm_8fpp_8f90" ],
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],

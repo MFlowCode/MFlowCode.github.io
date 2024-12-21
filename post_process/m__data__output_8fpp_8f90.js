@@ -1,10 +1,16 @@
 var m__data__output_8fpp_8f90 =
 [
+    [ "m_data_output::s_close_energy_data_file", "namespacem__data__output.html#a1e7156a124c0a4d3529b29b19a58da5b", null ],
     [ "m_data_output::s_close_formatted_database_file", "namespacem__data__output.html#a9ab4e5bfbf085c126a58c78383d38fa7", null ],
+    [ "m_data_output::s_close_intf_data_file", "namespacem__data__output.html#a76c4cc5399a84e8a0f3ac9fbf5121a44", null ],
     [ "m_data_output::s_finalize_data_output_module", "namespacem__data__output.html#a02f2b04a434c1f0ebf9156147d0f976e", null ],
     [ "m_data_output::s_initialize_data_output_module", "namespacem__data__output.html#ab65b312ef83adb104cafafada9c998b6", null ],
+    [ "m_data_output::s_open_energy_data_file", "namespacem__data__output.html#ad787f19ff5027d9863ab4da56ff0c1ce", null ],
     [ "m_data_output::s_open_formatted_database_file", "namespacem__data__output.html#ae767b4364e76ee05872868171fd2f05d", null ],
+    [ "m_data_output::s_open_intf_data_file", "namespacem__data__output.html#a2a6b37b99925533ec7f085b0a7a12cbc", null ],
+    [ "m_data_output::s_write_energy_data_file", "namespacem__data__output.html#a14bc544d50777b3cde28f09a54c09723", null ],
     [ "m_data_output::s_write_grid_to_formatted_database_file", "namespacem__data__output.html#aecc8721d118ae19c22982d0b59455ede", null ],
+    [ "m_data_output::s_write_intf_data_file", "namespacem__data__output.html#a2f1be11683f783acc6294e62fa049ed4", null ],
     [ "m_data_output::s_write_variable_to_formatted_database_file", "namespacem__data__output.html#a57ac3445406c2114885fab7e5517bd1c", null ],
     [ "m_data_output::cyl_q_sf", "namespacem__data__output.html#a87f400362d917373451a6689b0234286", null ],
     [ "m_data_output::cyl_q_sf_s", "namespacem__data__output.html#a1eeb172cfaf593890a16666f0cbc136a", null ],

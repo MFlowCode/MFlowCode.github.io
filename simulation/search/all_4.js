@@ -12,8 +12,9 @@ var searchData=
   ['diffusion_9',['diffusion',['../structchemistry__parameters.html#aa5ec1ceb481f1dc38193faa0a4d44d90',1,'chemistry_parameters']]],
   ['dipole_10',['dipole',['../structacoustic__parameters.html#a816eb41fe9cf7f3f3fa6810859180266',1,'acoustic_parameters']]],
   ['dir_11',['dir',['../structacoustic__parameters.html#a5631c1b24a7d2365c76f08a84c51f8a4',1,'acoustic_parameters']]],
-  ['double_5fprecision_12',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
-  ['dp_13',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
-  ['dt_5finit_14',['dt_init',['../namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752',1,'m_start_up']]],
-  ['dyn_5fpres_15',['dyn_pres',['../m__rhs_8fpp_8f90.html#a2de07ec483a161c26ec55909f358ad6f',1,'m_rhs.fpp.f90']]]
+  ['double_5ffactorial_12',['double_factorial',['../m__helper_8fpp_8f90.html#a2285e716b45e1f31667dd4d22a401b99',1,'m_helper.fpp.f90']]],
+  ['double_5fprecision_13',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
+  ['dp_14',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
+  ['dt_5finit_15',['dt_init',['../namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752',1,'m_start_up']]],
+  ['dyn_5fpres_16',['dyn_pres',['../m__rhs_8fpp_8f90.html#a2de07ec483a161c26ec55909f358ad6f',1,'m_rhs.fpp.f90']]]
 ];

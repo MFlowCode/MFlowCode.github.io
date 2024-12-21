@@ -7,7 +7,10 @@ var searchData=
   ['x_5fcc_4',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
   ['x_5fcentroid_5',['x_centroid',['../structic__patch__parameters.html#ad7887b4527e7b87f961565154a2d06db',1,'ic_patch_parameters::x_centroid'],['../structib__patch__parameters.html#a503df1b2d30656b0e93669ba5fc891b3',1,'ib_patch_parameters::x_centroid']]],
   ['x_5fdomain_6',['x_domain',['../namespacem__global__parameters.html#a58e390acc41a75facd63f1d89a8e60bc',1,'m_global_parameters']]],
-  ['xmax_7',['xmax',['../structintegral__parameters.html#a393cfa6b095a806fc6d02b1adbb3cf5d',1,'integral_parameters']]],
-  ['xmin_8',['xmin',['../structintegral__parameters.html#a05e55d2577ecb7694a99d45c013e6bad',1,'integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_9',['xyz_to_r_ratios',['../structsource__spatial__type.html#a45d042e6eee7917c7ce95f45a02caa9d',1,'source_spatial_type']]]
+  ['xi_5fidx_7',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
+  ['xibeg_8',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
+  ['xiend_9',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
+  ['xmax_10',['xmax',['../structintegral__parameters.html#a393cfa6b095a806fc6d02b1adbb3cf5d',1,'integral_parameters']]],
+  ['xmin_11',['xmin',['../structintegral__parameters.html#a05e55d2577ecb7694a99d45c013e6bad',1,'integral_parameters']]],
+  ['xyz_5fto_5fr_5fratios_12',['xyz_to_r_ratios',['../structsource__spatial__type.html#a45d042e6eee7917c7ce95f45a02caa9d',1,'source_spatial_type']]]
 ];
