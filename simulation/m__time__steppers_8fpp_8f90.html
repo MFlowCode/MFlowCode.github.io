@@ -168,6 +168,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a97e442ca304d37ffdf0ba06d272fee54" id="r_a97e442ca304d37ffdf0ba06d272fee54"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97e442ca304d37ffdf0ba06d272fee54">s_time_step_cycling</a> (t_step)</td></tr>
 <tr class="memdesc:a97e442ca304d37ffdf0ba06d272fee54"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine saves the temporary q_prim_vf vector into the q_prim_ts vector that is then used in p_main.  <br /></td></tr>
 <tr class="separator:a97e442ca304d37ffdf0ba06d272fee54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca171c932551af4579eecbfc6b9a8c6a" id="r_aca171c932551af4579eecbfc6b9a8c6a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca171c932551af4579eecbfc6b9a8c6a">s_4th_5th_order_rkck</a> (t_step, time_avg)</td></tr>
+<tr class="memdesc:aca171c932551af4579eecbfc6b9a8c6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Adaptive) 4th/5th order Runge—Kutta–Cash–Karp (RKCK) time-stepping algorithm (Cash J. and Karp A., 1990) Method for initial value problems with rapidly varying RHS. A maximum error between the 4th and 5th order Runge-Kutta-Cash-Karp solutions for the same time step size is calculated. If the error is smaller than a tolerance, then the algorithm employs the 5th order solution, while if not, both eulerian/lagrangian variables are re-calculated with a smaller time step size.  <br /></td></tr>
+<tr class="separator:aca171c932551af4579eecbfc6b9a8c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6db3015033cc309caa1989836b7258b6" id="r_a6db3015033cc309caa1989836b7258b6"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6db3015033cc309caa1989836b7258b6">s_finalize_time_steppers_module</a></td></tr>
 <tr class="memdesc:a6db3015033cc309caa1989836b7258b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 <tr class="separator:a6db3015033cc309caa1989836b7258b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -324,6 +327,55 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_ad642c094881f0cffbb6158f9fa079a86_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aca171c932551af4579eecbfc6b9a8c6a" name="aca171c932551af4579eecbfc6b9a8c6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca171c932551af4579eecbfc6b9a8c6a">&#9670;&#160;</a></span>s_4th_5th_order_rkck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_time_steppers_fpp_f90__::s_4th_5th_order_rkck </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>(Adaptive) 4th/5th order Runge—Kutta–Cash–Karp (RKCK) time-stepping algorithm (Cash J. and Karp A., 1990) Method for initial value problems with rapidly varying RHS. A maximum error between the 4th and 5th order Runge-Kutta-Cash-Karp solutions for the same time step size is calculated. If the error is smaller than a tolerance, then the algorithm employs the 5th order solution, while if not, both eulerian/lagrangian variables are re-calculated with a smaller time step size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
+    <tr><td class="paramname">hdid</td><td>Advanced time increment (adaptive time stepping) </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Update values</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_aca171c932551af4579eecbfc6b9a8c6a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__time__steppers_8fpp_8f90_aca171c932551af4579eecbfc6b9a8c6a_icgraph.svg" width="508" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

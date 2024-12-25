@@ -3,7 +3,7 @@ var m__checker__common_8fpp_8f90 =
     [ "__m_checker_common_fpp_f90__", "m__checker__common_8fpp_8f90.html#a3d7d0fa7763c21af55ac8bad130f285a", null ],
     [ "s_check_inputs_adv_n", "m__checker__common_8fpp_8f90.html#a538dcaa242ef367d1b2cddca76058620", null ],
     [ "s_check_inputs_bc", "m__checker__common_8fpp_8f90.html#ab9d26fff561c55f5ef7f201aa14d2688", null ],
-    [ "s_check_inputs_bubbles", "m__checker__common_8fpp_8f90.html#a01441cca058c6ae5c7ad6d95023d7c74", null ],
+    [ "s_check_inputs_bubbles_euler", "m__checker__common_8fpp_8f90.html#ad303eb73a684151b34b7a78d459e8969", null ],
     [ "s_check_inputs_common", "m__checker__common_8fpp_8f90.html#ac1305563044bff409bb307d98e1dfe13", null ],
     [ "s_check_inputs_finite_difference", "m__checker__common_8fpp_8f90.html#a1f58bf767848b82995c95a02051a26a3", null ],
     [ "s_check_inputs_hyperelasticity", "m__checker__common_8fpp_8f90.html#a74d976da13a3b275d1e9406cfc213a12", null ],

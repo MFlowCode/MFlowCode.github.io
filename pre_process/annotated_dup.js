@@ -16,6 +16,7 @@ var annotated_dup =
     [ "acoustic_parameters", "structacoustic__parameters.html", "structacoustic__parameters" ],
     [ "bounds_info", "structbounds__info.html", "structbounds__info" ],
     [ "bub_bounds_info", "structbub__bounds__info.html", "structbub__bounds__info" ],
+    [ "bubbles_lagrange_parameters", "structbubbles__lagrange__parameters.html", "structbubbles__lagrange__parameters" ],
     [ "chemistry_parameters", "structchemistry__parameters.html", "structchemistry__parameters" ],
     [ "field_position", "structfield__position.html", "structfield__position" ],
     [ "ghost_point", "structghost__point.html", "structghost__point" ],

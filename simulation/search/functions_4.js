@@ -2,7 +2,7 @@ var searchData=
 [
   ['f_5fall_5fdefault_0',['f_all_default',['../namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d',1,'m_helper_basic']]],
   ['f_5fapprox_5fequal_1',['f_approx_equal',['../namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d',1,'m_helper_basic']]],
-  ['f_5fbpres_5fdot_2',['f_bpres_dot',['../m__bubbles_8fpp_8f90.html#ada752c329221f07a6111ef048d539310',1,'m_bubbles.fpp.f90']]],
+  ['f_5fbpres_5fdot_2',['f_bpres_dot',['../m__bubbles_8fpp_8f90.html#a9424c35de6d8426f58213f77f2286108',1,'m_bubbles.fpp.f90']]],
   ['f_5fcgas_3',['f_cgas',['../m__bubbles_8fpp_8f90.html#ab0ac0947d48440f35574b246710fc2c4',1,'m_bubbles.fpp.f90']]],
   ['f_5fcpbw_4',['f_cpbw',['../m__bubbles_8fpp_8f90.html#af98280f380da0387ba9ec1f48eb4cec3',1,'m_bubbles.fpp.f90']]],
   ['f_5fcpbw_5fkm_5',['f_cpbw_km',['../m__bubbles_8fpp_8f90.html#a2bbc9a7f555b4d1fedc9c62eb1000491',1,'m_bubbles.fpp.f90']]],
@@ -19,11 +19,11 @@ var searchData=
   ['f_5flogical_5fto_5fint_16',['f_logical_to_int',['../m__helper_8fpp_8f90.html#aaa9cc8944c8dfe3f302e106b0eb3efee',1,'m_helper.fpp.f90']]],
   ['f_5fquad_17',['f_quad',['../m__qbmm_8fpp_8f90.html#a46348ef65b760bb47693a627a6c9594e',1,'m_qbmm.fpp.f90']]],
   ['f_5fquad2d_18',['f_quad2d',['../m__qbmm_8fpp_8f90.html#a73f7faeb37417280db39aeb17fba8b49',1,'m_qbmm.fpp.f90']]],
-  ['f_5frddot_19',['f_rddot',['../m__bubbles_8fpp_8f90.html#a205b2c0ce1db47f68fcd0c8f4be94663',1,'m_bubbles.fpp.f90']]],
+  ['f_5frddot_19',['f_rddot',['../m__bubbles__EE_8fpp_8f90.html#a3e1372a97974d8db14459b39c530832d',1,'m_bubbles_EE.fpp.f90']]],
   ['f_5frddot_5fg_20',['f_rddot_g',['../m__bubbles_8fpp_8f90.html#a57f445c9fe39d49a07aa5ef23de29eef',1,'m_bubbles.fpp.f90']]],
   ['f_5frddot_5fkm_21',['f_rddot_km',['../m__bubbles_8fpp_8f90.html#ab2626844d2d33110f39cb680d2bf113e',1,'m_bubbles.fpp.f90']]],
   ['f_5frddot_5frp_22',['f_rddot_rp',['../m__bubbles_8fpp_8f90.html#a9cca2f30ab2f04b334e219081b0fcb70',1,'m_bubbles.fpp.f90']]],
-  ['f_5fvflux_23',['f_vflux',['../m__bubbles_8fpp_8f90.html#a6237e254d6bab008b30584b3eb958138',1,'m_bubbles.fpp.f90']]],
+  ['f_5fvflux_23',['f_vflux',['../m__bubbles_8fpp_8f90.html#a851239f7357e8af588e7ecb0d6a4cbed',1,'m_bubbles.fpp.f90']]],
   ['f_5fxor_24',['f_xor',['../m__helper_8fpp_8f90.html#abd1074cc9307589b2d34db68c67afb7f',1,'m_helper.fpp.f90']]],
   ['factorial_25',['factorial',['../m__helper_8fpp_8f90.html#a75f33054da60fc47c0f2eab69455b674',1,'m_helper.fpp.f90']]]
 ];

@@ -145,8 +145,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a54cceb35ca18376f296a24504ce0e010" id="r_a54cceb35ca18376f296a24504ce0e010"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54cceb35ca18376f296a24504ce0e010">s_mpi_initialize</a></td></tr>
 <tr class="memdesc:a54cceb35ca18376f296a24504ce0e010"><td class="mdescLeft">&#160;</td><td class="mdescRight">The subroutine initializes the MPI execution environment and queries both the number of processors which will be available for the job and the local processor rank.  <br /></td></tr>
 <tr class="separator:a54cceb35ca18376f296a24504ce0e010"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab731eb87df34f026c14f5fd49c43dd85" id="r_ab731eb87df34f026c14f5fd49c43dd85"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab731eb87df34f026c14f5fd49c43dd85">s_initialize_mpi_data</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ib_markers, levelset, levelset_norm)</td></tr>
-<tr class="separator:ab731eb87df34f026c14f5fd49c43dd85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38945c557b779811c40fdc40b20d601f" id="r_a38945c557b779811c40fdc40b20d601f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38945c557b779811c40fdc40b20d601f">s_initialize_mpi_data</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ib_markers, levelset, levelset_norm, beta)</td></tr>
+<tr class="separator:a38945c557b779811c40fdc40b20d601f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed4942d0f9c11568f682db7dac3d4c15" id="r_aed4942d0f9c11568f682db7dac3d4c15"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed4942d0f9c11568f682db7dac3d4c15">s_mpi_gather_data</a> (my_vector, counts, gathered_vector, root)</td></tr>
 <tr class="separator:aed4942d0f9c11568f682db7dac3d4c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9074e92a692f4de87c0a8b6ff9f4bb33" id="r_a9074e92a692f4de87c0a8b6ff9f4bb33"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9074e92a692f4de87c0a8b6ff9f4bb33">mpi_bcast_time_step_values</a> (proc_time, time_avg)</td></tr>
@@ -223,8 +223,8 @@ Functions/Subroutines</h2></td></tr>
 
 </div>
 </div>
-<a id="ab731eb87df34f026c14f5fd49c43dd85" name="ab731eb87df34f026c14f5fd49c43dd85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab731eb87df34f026c14f5fd49c43dd85">&#9670;&#160;</a></span>s_initialize_mpi_data()</h2>
+<a id="a38945c557b779811c40fdc40b20d601f" name="a38945c557b779811c40fdc40b20d601f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38945c557b779811c40fdc40b20d601f">&#9670;&#160;</a></span>s_initialize_mpi_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,7 +250,12 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structlevelset__norm__field.html">levelset_norm_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>levelset_norm</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structlevelset__norm__field.html">levelset_norm_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>levelset_norm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -262,7 +267,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_ab731eb87df34f026c14f5fd49c43dd85_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a38945c557b779811c40fdc40b20d601f_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -453,7 +458,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_af4b834c000e6de71e6a00e1224599976_icgraph.svg" width="100%" height="368"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_af4b834c000e6de71e6a00e1224599976_icgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

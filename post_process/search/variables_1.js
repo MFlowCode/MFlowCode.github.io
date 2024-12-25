@@ -12,8 +12,9 @@ var searchData=
   ['broadband_5fspectral_5flevel_5fconstant_9',['broadband_spectral_level_constant',['../namespacem__constants.html#aac0bc72075d1ecb51762a15ded73bf9a',1,'m_constants']]],
   ['broadband_5fspectral_5flevel_5fgrowth_5frate_10',['broadband_spectral_level_growth_rate',['../namespacem__constants.html#a780f498b501ce87bb36fa0a33fce28c5',1,'m_constants']]],
   ['bub_5fidx_11',['bub_idx',['../namespacem__global__parameters.html#a9a425d1bd91d1765043adf8410b98bf7',1,'m_global_parameters']]],
-  ['bubbles_12',['bubbles',['../namespacem__global__parameters.html#a4a22ed160838f8fbe6bd506f334b8815',1,'m_global_parameters']]],
-  ['bubxb_13',['bubxb',['../namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341',1,'m_global_parameters']]],
-  ['bubxe_14',['bubxe',['../namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70',1,'m_global_parameters']]],
-  ['buff_5fsize_15',['buff_size',['../namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92',1,'m_global_parameters']]]
+  ['bubbles_5feuler_12',['bubbles_euler',['../namespacem__global__parameters.html#a04cbfd496a4957519236d8be24b343bd',1,'m_global_parameters']]],
+  ['bubbles_5flagrange_13',['bubbles_lagrange',['../namespacem__global__parameters.html#a89fde47fbf14a9c93f6033542fe123db',1,'m_global_parameters']]],
+  ['bubxb_14',['bubxb',['../namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341',1,'m_global_parameters']]],
+  ['bubxe_15',['bubxe',['../namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70',1,'m_global_parameters']]],
+  ['buff_5fsize_16',['buff_size',['../namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92',1,'m_global_parameters']]]
 ];

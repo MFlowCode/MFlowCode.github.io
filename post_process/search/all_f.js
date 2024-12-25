@@ -5,5 +5,6 @@ var searchData=
   ['offset_5fz_2',['offset_z',['../namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06',1,'m_global_parameters']]],
   ['omega_5fwrt_3',['omega_wrt',['../namespacem__global__parameters.html#aaf0ab8b40d717a67662251516870b1a6',1,'m_global_parameters']]],
   ['omegan_4',['omegan',['../namespacem__global__parameters.html#addf7564fc01940adad44defd2c6b65ba',1,'m_global_parameters']]],
-  ['optlist_5',['optlist',['../namespacem__data__output.html#a21c768216c63e43ea9e1f13e498a3558',1,'m_data_output']]]
+  ['optlist_5',['optlist',['../namespacem__data__output.html#a21c768216c63e43ea9e1f13e498a3558',1,'m_data_output']]],
+  ['output_5fpartial_5fdomain_6',['output_partial_domain',['../namespacem__global__parameters.html#a3e2e920d821be2807cad1c153158c2fe',1,'m_global_parameters']]]
 ];

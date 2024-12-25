@@ -8,5 +8,6 @@ var searchData=
   ['bounds_5finfo_5',['bounds_info',['../structbounds__info.html',1,'']]],
   ['broadband_5fspectral_5flevel_5fconstant_6',['broadband_spectral_level_constant',['../namespacem__constants.html#aac0bc72075d1ecb51762a15ded73bf9a',1,'m_constants']]],
   ['broadband_5fspectral_5flevel_5fgrowth_5frate_7',['broadband_spectral_level_growth_rate',['../namespacem__constants.html#a780f498b501ce87bb36fa0a33fce28c5',1,'m_constants']]],
-  ['bub_5fbounds_5finfo_8',['bub_bounds_info',['../structbub__bounds__info.html',1,'']]]
+  ['bub_5fbounds_5finfo_8',['bub_bounds_info',['../structbub__bounds__info.html',1,'']]],
+  ['bubbles_5flagrange_5fparameters_9',['bubbles_lagrange_parameters',['../structbubbles__lagrange__parameters.html',1,'']]]
 ];

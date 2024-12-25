@@ -14,8 +14,10 @@ var searchData=
   ['broadband_5fspectral_5flevel_5fgrowth_5frate_11',['broadband_spectral_level_growth_rate',['../namespacem__constants.html#a780f498b501ce87bb36fa0a33fce28c5',1,'m_constants']]],
   ['bub_5fbounds_5finfo_12',['bub_bounds_info',['../structbub__bounds__info.html',1,'']]],
   ['bub_5fidx_13',['bub_idx',['../namespacem__global__parameters.html#a9a425d1bd91d1765043adf8410b98bf7',1,'m_global_parameters']]],
-  ['bubbles_14',['bubbles',['../namespacem__global__parameters.html#a4a22ed160838f8fbe6bd506f334b8815',1,'m_global_parameters']]],
-  ['bubxb_15',['bubxb',['../namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341',1,'m_global_parameters']]],
-  ['bubxe_16',['bubxe',['../namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70',1,'m_global_parameters']]],
-  ['buff_5fsize_17',['buff_size',['../namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92',1,'m_global_parameters']]]
+  ['bubbles_5feuler_14',['bubbles_euler',['../namespacem__global__parameters.html#a04cbfd496a4957519236d8be24b343bd',1,'m_global_parameters']]],
+  ['bubbles_5flagrange_15',['bubbles_lagrange',['../namespacem__global__parameters.html#a89fde47fbf14a9c93f6033542fe123db',1,'m_global_parameters']]],
+  ['bubbles_5flagrange_5fparameters_16',['bubbles_lagrange_parameters',['../structbubbles__lagrange__parameters.html',1,'']]],
+  ['bubxb_17',['bubxb',['../namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341',1,'m_global_parameters']]],
+  ['bubxe_18',['bubxe',['../namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70',1,'m_global_parameters']]],
+  ['buff_5fsize_19',['buff_size',['../namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92',1,'m_global_parameters']]]
 ];
