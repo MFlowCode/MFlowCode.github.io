@@ -7,7 +7,7 @@ var searchData=
   ['length_5fz_4',['length_z',['../structic__patch__parameters.html#a4039626d35668c1cd496fb379148be43',1,'ic_patch_parameters::length_z'],['../structib__patch__parameters.html#aec2f00fa8c2cdc0aee11db075281334a',1,'ib_patch_parameters::length_z']]],
   ['levelset_5',['levelset',['../namespacem__initial__condition.html#a857f64244083a0320b4ea9f4fb263c65',1,'m_initial_condition']]],
   ['levelset_5fnorm_6',['levelset_norm',['../namespacem__initial__condition.html#ace67919b40ae8033e24aa16075251208',1,'m_initial_condition']]],
-  ['loc_7',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#a20fadd1ffa93d9e27a44496103137f8f',1,'ghost_point::loc']]],
+  ['loc_7',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#ae3f71ccfa0bf1a18b528dbc2b6deeca3',1,'ghost_point::loc']]],
   ['logic_5fgrid_8',['logic_grid',['../namespacem__global__parameters.html#a5b6232ffcb06cb4763438c9c5b545b5f',1,'m_global_parameters']]],
   ['loops_5fx_9',['loops_x',['../namespacem__global__parameters.html#a35f17d72a6c9e18aae51a5131d2c9303',1,'m_global_parameters']]],
   ['loops_5fy_10',['loops_y',['../namespacem__global__parameters.html#af8c939272b6741337359fd99e419fba1',1,'m_global_parameters']]],

@@ -21,6 +21,7 @@ var namespaces_dup =
       [ "dflt_vcfl_dt", "namespacem__constants.html#ae54580d6fa55ec139c1d82f85340dcc4", null ],
       [ "errcon", "namespacem__constants.html#a1695bb92ecfb5b4dcb2c667917ab0e38", null ],
       [ "fourier_rings", "namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183", null ],
+      [ "gp_layers", "namespacem__constants.html#a4363660e82e633cc1947ab968706b26b", null ],
       [ "ifactor_2d", "namespacem__constants.html#ae0a7eafec5ea0d0ec6d74c5064f2414b", null ],
       [ "ifactor_3d", "namespacem__constants.html#a1495dfa0d93a4fa455e4faf14fd4e900", null ],
       [ "ifactor_bary_3d", "namespacem__constants.html#aa55824b7d702be1e449c539ed96fc7d8", null ],
@@ -306,6 +307,7 @@ var namespaces_dup =
       [ "err_code", "namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982", null ],
       [ "ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ]
     ] ],
+    [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_perturbation", "namespacem__perturbation.html", [
       [ "s_compute_equilibrium_state", "namespacem__perturbation.html#a935011289e8500cce5029cd4a0057fb3", null ],
       [ "s_generate_wave", "namespacem__perturbation.html#a1c4f0408bd2add236726ce145792fedc", null ],

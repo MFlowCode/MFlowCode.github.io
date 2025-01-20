@@ -8,5 +8,5 @@ var searchData=
   ['levelset_5ffield_5',['levelset_field',['../structlevelset__field.html',1,'']]],
   ['levelset_5fnorm_5ffield_6',['levelset_norm_field',['../structlevelset__norm__field.html',1,'']]],
   ['lo_5foffset_7',['lo_offset',['../namespacem__data__output.html#a4b7e6567b3bb7fdd4384180d1a7475af',1,'m_data_output']]],
-  ['loc_8',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#a20fadd1ffa93d9e27a44496103137f8f',1,'ghost_point::loc']]]
+  ['loc_8',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#ae3f71ccfa0bf1a18b528dbc2b6deeca3',1,'ghost_point::loc']]]
 ];

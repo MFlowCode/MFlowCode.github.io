@@ -7,5 +7,5 @@ var searchData=
   ['length_5fz_4',['length_z',['../structic__patch__parameters.html#a4039626d35668c1cd496fb379148be43',1,'ic_patch_parameters::length_z'],['../structib__patch__parameters.html#aec2f00fa8c2cdc0aee11db075281334a',1,'ib_patch_parameters::length_z']]],
   ['levelset_5ffield_5',['levelset_field',['../structlevelset__field.html',1,'']]],
   ['levelset_5fnorm_5ffield_6',['levelset_norm_field',['../structlevelset__norm__field.html',1,'']]],
-  ['loc_7',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#a20fadd1ffa93d9e27a44496103137f8f',1,'ghost_point::loc']]]
+  ['loc_7',['loc',['../structacoustic__parameters.html#a6daadbe9a26a5cc0f3b258670e3928b4',1,'acoustic_parameters::loc'],['../structghost__point.html#ae3f71ccfa0bf1a18b528dbc2b6deeca3',1,'ghost_point::loc']]]
 ];

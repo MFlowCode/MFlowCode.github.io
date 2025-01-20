@@ -13,8 +13,9 @@ var searchData=
   ['geometry_10',['geometry',['../structic__patch__parameters.html#adcd14f8609bf5dc1dca4edd77b75a10a',1,'ic_patch_parameters::geometry'],['../structib__patch__parameters.html#ab89e22e150dcf97121f5c894acfdadd7',1,'ib_patch_parameters::geometry']]],
   ['ghost_5fpoint_11',['ghost_point',['../structghost__point.html',1,'']]],
   ['gm_5frho_5fsf_12',['gm_rho_sf',['../namespacem__derived__variables.html#a669ae824cc8ce04607c7753ec954739f',1,'m_derived_variables']]],
-  ['grcbc_5fin_13',['grcbc_in',['../structint__bounds__info.html#aa9d56daed1d8fd4834237b26997bd89d',1,'int_bounds_info']]],
-  ['grcbc_5fout_14',['grcbc_out',['../structint__bounds__info.html#afade6721d65fe765656c9af35f3f8b9b',1,'int_bounds_info']]],
-  ['grcbc_5fvel_5fout_15',['grcbc_vel_out',['../structint__bounds__info.html#ab45bdefe7ad25277ecd2356bbd8d7878',1,'int_bounds_info']]],
-  ['grid_5fgeometry_16',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]]
+  ['gp_5flayers_13',['gp_layers',['../namespacem__constants.html#a4363660e82e633cc1947ab968706b26b',1,'m_constants']]],
+  ['grcbc_5fin_14',['grcbc_in',['../structint__bounds__info.html#aa9d56daed1d8fd4834237b26997bd89d',1,'int_bounds_info']]],
+  ['grcbc_5fout_15',['grcbc_out',['../structint__bounds__info.html#afade6721d65fe765656c9af35f3f8b9b',1,'int_bounds_info']]],
+  ['grcbc_5fvel_5fout_16',['grcbc_vel_out',['../structint__bounds__info.html#ab45bdefe7ad25277ecd2356bbd8d7878',1,'int_bounds_info']]],
+  ['grid_5fgeometry_17',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]]
 ];

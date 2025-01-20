@@ -9,6 +9,11 @@ var annotated_dup =
     [ "m_grid", "namespacem__grid.html", [
       [ "s_generate_abstract_grid", "interfacem__grid_1_1s__generate__abstract__grid.html", "interfacem__grid_1_1s__generate__abstract__grid" ]
     ] ],
+    [ "m_nvtx", "namespacem__nvtx.html", [
+      [ "nvtxeventattributes", "structm__nvtx_1_1nvtxeventattributes.html", "structm__nvtx_1_1nvtxeventattributes" ],
+      [ "nvtxrangepop", "interfacem__nvtx_1_1nvtxrangepop.html", "interfacem__nvtx_1_1nvtxrangepop" ],
+      [ "nvtxrangepush", "interfacem__nvtx_1_1nvtxrangepush.html", "interfacem__nvtx_1_1nvtxrangepush" ]
+    ] ],
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_read_abstract_grid_data_files", "interfacem__start__up_1_1s__read__abstract__grid__data__files.html", "interfacem__start__up_1_1s__read__abstract__grid__data__files" ],
       [ "s_read_abstract_ic_data_files", "interfacem__start__up_1_1s__read__abstract__ic__data__files.html", "interfacem__start__up_1_1s__read__abstract__ic__data__files" ]

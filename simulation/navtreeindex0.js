@@ -224,7 +224,7 @@ var NAVTREEINDEX0 =
 "m__delay__file__access_8f90.html":[3,0,36],
 "m__derived__types_8fpp_8f90.html":[3,0,14],
 "m__derived__types_8fpp_8f90.html#a433c72ee0b246578363fd76cc6001f09":[3,0,14,31],
-"m__derived__variables_8f90.html":[3,0,40],
+"m__derived__variables_8f90.html":[3,0,41],
 "m__eigen__solver_8f90.html":[3,0,37],
 "m__fftw_8fpp_8f90.html":[3,0,15],
 "m__fftw_8fpp_8f90.html#a3a1e033f3a23754f5aa863927e8c0013":[3,0,15,3],

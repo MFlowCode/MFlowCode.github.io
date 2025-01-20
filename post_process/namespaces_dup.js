@@ -20,6 +20,7 @@ var namespaces_dup =
       [ "dflt_vcfl_dt", "namespacem__constants.html#ae54580d6fa55ec139c1d82f85340dcc4", null ],
       [ "errcon", "namespacem__constants.html#a1695bb92ecfb5b4dcb2c667917ab0e38", null ],
       [ "fourier_rings", "namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183", null ],
+      [ "gp_layers", "namespacem__constants.html#a4363660e82e633cc1947ab968706b26b", null ],
       [ "ifactor_2d", "namespacem__constants.html#ae0a7eafec5ea0d0ec6d74c5064f2414b", null ],
       [ "ifactor_3d", "namespacem__constants.html#a1495dfa0d93a4fa455e4faf14fd4e900", null ],
       [ "ifactor_bary_3d", "namespacem__constants.html#aa55824b7d702be1e449c539ed96fc7d8", null ],
@@ -365,6 +366,7 @@ var namespaces_dup =
       [ "q_cons_buffer_out", "namespacem__mpi__proxy.html#ab2728585443f6e7066d591dd04c06c22", null ],
       [ "recvcounts", "namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee", null ]
     ] ],
+    [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_precision_select", "namespacem__precision__select.html", [
       [ "double_precision", "namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e", null ],
       [ "dp", "namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315", null ],
