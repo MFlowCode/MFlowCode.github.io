@@ -69,67 +69,67 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md34", [
-        [ "Density Initial and Final Conditions", "md_examples.html#autotoc_md35", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md34", [
+        [ "Initial Condition", "md_examples.html#autotoc_md35", null ],
+        [ "Result", "md_examples.html#autotoc_md36", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md36", [
-        [ "Initial Condition", "md_examples.html#autotoc_md37", null ],
+      [ "2D IBM CFL dt (2D)", "md_examples.html#autotoc_md37", [
         [ "Result", "md_examples.html#autotoc_md38", null ]
       ] ],
-      [ "Perfectly Stirred Reactor", "md_examples.html#autotoc_md39", null ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md40", [
-        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
-        [ "Result", "md_examples.html#autotoc_md42", null ]
+      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md39", [
+        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md40", null ]
       ] ],
-      [ "2D IBM CFL dt (2D)", "md_examples.html#autotoc_md43", [
-        [ "Result", "md_examples.html#autotoc_md44", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md41", [
+        [ "Initial Condition", "md_examples.html#autotoc_md42", null ],
+        [ "Result", "md_examples.html#autotoc_md43", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md45", [
-        [ "Initial Condition", "md_examples.html#autotoc_md46", null ],
-        [ "Result", "md_examples.html#autotoc_md47", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md44", [
+        [ "Initial Condition and Result", "md_examples.html#autotoc_md45", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md48", [
-        [ "Initial Condition and Result", "md_examples.html#autotoc_md49", null ]
+      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md46", [
+        [ "Density Initial and Final Conditions", "md_examples.html#autotoc_md47", null ]
       ] ],
-      [ "2D Triple Point (2D)", "md_examples.html#autotoc_md50", [
-        [ "Numerical Schlieren at Final Time", "md_examples.html#autotoc_md51", null ]
+      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md48", [
+        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md49", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md52", [
-        [ "Initial Condition", "md_examples.html#autotoc_md53", null ],
-        [ "Result", "md_examples.html#autotoc_md54", null ]
+      [ "Perfectly Stirred Reactor", "md_examples.html#autotoc_md50", null ],
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md51", [
+        [ "Initial Condition", "md_examples.html#autotoc_md52", null ],
+        [ "Result", "md_examples.html#autotoc_md53", null ]
       ] ],
-      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md55", [
-        [ "Final Condition", "md_examples.html#autotoc_md56", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md57", null ]
+      [ "2D Triple Point (2D)", "md_examples.html#autotoc_md54", [
+        [ "Numerical Schlieren at Final Time", "md_examples.html#autotoc_md55", null ]
       ] ],
-      [ "1D Multi-Component Inert Shock Tube", "md_examples.html#autotoc_md58", [
-        [ "Initial Condition", "md_examples.html#autotoc_md59", null ],
-        [ "Results", "md_examples.html#autotoc_md60", null ]
+      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md56", [
+        [ "Final Condition", "md_examples.html#autotoc_md57", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md58", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md61", [
-        [ "Density", "md_examples.html#autotoc_md62", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md63", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md59", [
+        [ "Density", "md_examples.html#autotoc_md60", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md61", null ]
       ] ],
-      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md64", [
-        [ "Weak Scaling", "md_examples.html#autotoc_md65", null ],
-        [ "Strong Scaling", "md_examples.html#autotoc_md66", null ],
-        [ "Example", "md_examples.html#autotoc_md67", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md62", [
+        [ "Initial Condition", "md_examples.html#autotoc_md63", null ],
+        [ "Result", "md_examples.html#autotoc_md64", null ]
       ] ],
-      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md68", [
-        [ "Final Condition", "md_examples.html#autotoc_md69", null ]
+      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md65", [
+        [ "Final Condition", "md_examples.html#autotoc_md66", null ]
       ] ],
-      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md70", [
-        [ "Final Condition", "md_examples.html#autotoc_md71", null ]
+      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md67", [
+        [ "Final Condition", "md_examples.html#autotoc_md68", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md72", [
-        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md73", null ]
+      [ "1D Multi-Component Reactive Shock Tube", "md_examples.html#autotoc_md69", [
+        [ "Initial Condition", "md_examples.html#autotoc_md70", null ],
+        [ "Results", "md_examples.html#autotoc_md71", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md74", [
-        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md75", null ]
+      [ "1D Multi-Component Inert Shock Tube", "md_examples.html#autotoc_md72", [
+        [ "Initial Condition", "md_examples.html#autotoc_md73", null ],
+        [ "Results", "md_examples.html#autotoc_md74", null ]
       ] ],
-      [ "1D Multi-Component Reactive Shock Tube", "md_examples.html#autotoc_md76", [
-        [ "Initial Condition", "md_examples.html#autotoc_md77", null ],
-        [ "Results", "md_examples.html#autotoc_md78", null ]
+      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md75", [
+        [ "Weak Scaling", "md_examples.html#autotoc_md76", null ],
+        [ "Strong Scaling", "md_examples.html#autotoc_md77", null ],
+        [ "Example", "md_examples.html#autotoc_md78", null ]
       ] ]
     ] ],
     [ "Performance", "md_expectedPerformance.html", [
