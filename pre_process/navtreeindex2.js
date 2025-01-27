@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"namespacem__global__parameters.html#a8e231f445cc1e2d702a24da9de08b618":[1,0,7,45],
 "namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f":[1,0,7,163],
 "namespacem__global__parameters.html#a90f36c0b74894ddd901534dd4efccfc8":[1,0,7,124],
 "namespacem__global__parameters.html#a91304734742c36abcb4dbf0712545344":[1,0,7,15],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "structbubbles__lagrange__parameters.html":[2,0,8],
 "structbubbles__lagrange__parameters.html#a0a2687aaa8e3c0eecf002a924ddcd627":[2,0,8,3],
 "structbubbles__lagrange__parameters.html#a121b99dead0cacdc4f2d955fe32471f6":[2,0,8,15],
-"structbubbles__lagrange__parameters.html#a210f23c80d555a0198a06cfb91aaee77":[2,0,8,6],
-"structbubbles__lagrange__parameters.html#a2426f1a36a3a01f64c66cbb20d2b4d1b":[2,0,8,8]
+"structbubbles__lagrange__parameters.html#a210f23c80d555a0198a06cfb91aaee77":[2,0,8,6]
 };

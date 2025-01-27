@@ -4,6 +4,7 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::broadband_spectral_level_constant", "namespacem__constants.html#aac0bc72075d1ecb51762a15ded73bf9a", null ],
     [ "m_constants::broadband_spectral_level_growth_rate", "namespacem__constants.html#a780f498b501ce87bb36fa0a33fce28c5", null ],
     [ "m_constants::capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
+    [ "m_constants::case_file_error_code", "namespacem__constants.html#a78dc466963174e056c559059e09704cc", null ],
     [ "m_constants::dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
     [ "m_constants::dflt_int", "namespacem__constants.html#a36d9e57f65f9235b1e7b4abb690345a6", null ],
     [ "m_constants::dflt_real", "namespacem__constants.html#a53cf8dfd06fcfa36c018ab624ef988b6", null ],
