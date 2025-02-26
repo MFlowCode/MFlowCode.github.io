@@ -5,7 +5,7 @@ var searchData=
   ['on_20pace_20phoenix_2',['Remote Visualization on PACE Phoenix',['../md_visualization.html#autotoc_md117',1,'']]],
   ['optional_20accepting_20command_20line_20arguments_3',['(Optional) Accepting command line arguments',['../md_case.html#autotoc_md3',1,'']]],
   ['ordering_4',['Ordering',['../md_case.html#autotoc_md31',1,'Conservative Variables Ordering'],['../md_case.html#autotoc_md32',1,'Primitive Variables Ordering']]],
-  ['osher_20problem_201d_5',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md76',1,'']]],
+  ['osher_20problem_201d_5',['Shu-Osher problem (1D)',['../md_examples.html#autotoc_md48',1,'']]],
   ['output_6',['7. Formatted Output',['../md_case.html#autotoc_md17',1,'']]],
   ['output_7',['Serial data output',['../md_visualization.html#autotoc_md116',1,'']]]
 ];
