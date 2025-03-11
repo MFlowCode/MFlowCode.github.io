@@ -1,6 +1,17 @@
 var namespaces_dup =
 [
     [ "m_assign_variables", "namespacem__assign__variables.html", "namespacem__assign__variables" ],
+    [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
+      [ "s_axis", "namespacem__boundary__conditions.html#a3d6227c971fb98a1d518a645e3db5c41", null ],
+      [ "s_ghost_cell_extrapolation", "namespacem__boundary__conditions.html#a6b07b760d5e002f6fd09fbeb2e96c227", null ],
+      [ "s_no_slip_wall", "namespacem__boundary__conditions.html#addb7b32cdfa1a35e0b18f1b187ac6af4", null ],
+      [ "s_periodic", "namespacem__boundary__conditions.html#a29b132a26ddae2cd3afb4214f861dcfc", null ],
+      [ "s_populate_capillary_buffers", "namespacem__boundary__conditions.html#a2d5a6967c482027e9a757e15979a825d", null ],
+      [ "s_populate_variables_buffers", "namespacem__boundary__conditions.html#ac0f941b0622d2e701b2f20148440ba65", null ],
+      [ "s_qbmm_extrapolation", "namespacem__boundary__conditions.html#a655f4ef9edcb15614b91363aae213c65", null ],
+      [ "s_slip_wall", "namespacem__boundary__conditions.html#a00baa416b778d7fa702a0d6dbfe34eb3", null ],
+      [ "s_symmetry", "namespacem__boundary__conditions.html#a89094a3a651a34a2ff666e69e0cdcfb7", null ]
+    ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
       [ "s_create_directory", "namespacem__compile__specific.html#a44b8e18a2c76367e7090649e62dd7d8c", null ],
@@ -108,8 +119,10 @@ var namespaces_dup =
       [ "bc_z", "namespacem__global__parameters.html#a2d3a5d211f996a1fff3238a8b7fe5fe7", null ],
       [ "bub_idx", "namespacem__global__parameters.html#a9a425d1bd91d1765043adf8410b98bf7", null ],
       [ "bubbles_euler", "namespacem__global__parameters.html#a04cbfd496a4957519236d8be24b343bd", null ],
+      [ "bubbles_lagrange", "namespacem__global__parameters.html#a89fde47fbf14a9c93f6033542fe123db", null ],
       [ "bubxb", "namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341", null ],
       [ "bubxe", "namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70", null ],
+      [ "buff_size", "namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92", null ],
       [ "c_idx", "namespacem__global__parameters.html#ad8b54d825523de113bda2a127a62dc73", null ],
       [ "ca", "namespacem__global__parameters.html#a8d1cb80880dd8ee5b2e0ce84b12e9dff", null ],
       [ "case_dir", "namespacem__global__parameters.html#ab3482dd78520fd94475375479fe1befb", null ],
@@ -129,6 +142,8 @@ var namespaces_dup =
       [ "dz", "namespacem__global__parameters.html#a29818b2dd42d5384d99765393d965049", null ],
       [ "e_idx", "namespacem__global__parameters.html#ac6ef72ca6aa7a22e60c864df25559892", null ],
       [ "elasticity", "namespacem__global__parameters.html#ad3ab5ce00c74b0050cc1a9e96d9e14b6", null ],
+      [ "elliptic_smoothing", "namespacem__global__parameters.html#a26686c8992b679164cb0a4d575874e7b", null ],
+      [ "elliptic_smoothing_iters", "namespacem__global__parameters.html#a2f7dde0f5885194b414046d7dbd48474", null ],
       [ "file_per_process", "namespacem__global__parameters.html#acc9528b2fecd03ad3e257b912e5772b4", null ],
       [ "fluid_pp", "namespacem__global__parameters.html#a7297abec8863ecabf95e24ebdae46a17", null ],
       [ "fluid_rho", "namespacem__global__parameters.html#a9e109fe085cf20aaa501179e06aec417", null ],
@@ -261,9 +276,11 @@ var namespaces_dup =
       [ "thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
       [ "tw", "namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef", null ],
       [ "v0", "namespacem__global__parameters.html#a305998f039363f4b293d7f4e49948a45", null ],
+      [ "viscous", "namespacem__global__parameters.html#a5f9a190907c8af2aab7bde6945d53a5b", null ],
       [ "web", "namespacem__global__parameters.html#a043c4e3aa57a04b9c305d1412936a4fa", null ],
       [ "weight", "namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef", null ],
       [ "weno_order", "namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa", null ],
+      [ "weno_polyn", "namespacem__global__parameters.html#a351be005cfac23e82310e91393f5d535", null ],
       [ "x_a", "namespacem__global__parameters.html#adafd6b7b88ddfc13989fa13edc01ba30", null ],
       [ "x_b", "namespacem__global__parameters.html#a4f877f8a7deb109454bb9eb1236946b3", null ],
       [ "x_cb", "namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627", null ],
@@ -288,7 +305,8 @@ var namespaces_dup =
       [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
       [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
       [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ],
-      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ]
+      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ],
+      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#aeea04bb207edaea4bc668ef8ed1ea2b9", null ]
     ] ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#aec342b623ebff62f17b416ece04367aa", null ],
@@ -305,12 +323,13 @@ var namespaces_dup =
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#a2e66d6f04cbc2b6a882021f6b7afa50e", null ],
       [ "s_mpi_decompose_computational_domain", "namespacem__mpi__proxy.html#a381eb1e36bd87a09884d304d835d36db", null ],
-      [ "err_code", "namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982", null ],
       [ "ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_perturbation", "namespacem__perturbation.html", [
       [ "s_compute_equilibrium_state", "namespacem__perturbation.html#a935011289e8500cce5029cd4a0057fb3", null ],
+      [ "s_elliptic_smoothing", "namespacem__perturbation.html#aa1376bff31bbce288898a6c61a9cc12b", null ],
+      [ "s_finalize_perturbation_module", "namespacem__perturbation.html#a99c8b1f4da4daea9421512201df358ad", null ],
       [ "s_generate_wave", "namespacem__perturbation.html#a1c4f0408bd2add236726ce145792fedc", null ],
       [ "s_initialize_perturbation_module", "namespacem__perturbation.html#a967a017cec8d73fe0a3a6b6e60ca4573", null ],
       [ "s_instability_nonreflecting_subsonic_buffer_bc", "namespacem__perturbation.html#ae32f74a4e2b6cd25fdec074db43e4a80", null ],
@@ -319,11 +338,18 @@ var namespaces_dup =
       [ "s_perturb_surrounding_flow", "namespacem__perturbation.html#a058aa56ac810821ff7389395acb980ab", null ],
       [ "s_solve_linear_system", "namespacem__perturbation.html#aa534095d2175f5168e4fa2a16a0acc99", null ],
       [ "s_superposition_instability_wave", "namespacem__perturbation.html#af93db93e898d0480e138fc1f60560fc5", null ],
+      [ "bcxb", "namespacem__perturbation.html#ae530590ce3895669cb00adade56d3dd4", null ],
+      [ "bcxe", "namespacem__perturbation.html#a00295a64e0d723cb1e1404c3c3e4b7a5", null ],
+      [ "bcyb", "namespacem__perturbation.html#a4c06cb5ebc8f4015d49555f0627a3a7a", null ],
+      [ "bcye", "namespacem__perturbation.html#ab05f0d3f787bb558928b9502e3c10399", null ],
+      [ "bczb", "namespacem__perturbation.html#a8ff210be4cd7d2dd080dac69c77e5a85", null ],
+      [ "bcze", "namespacem__perturbation.html#a86f7daded7541c31aef5258c38e157b7", null ],
       [ "mixlayer_bc_fd", "namespacem__perturbation.html#a60650727d33977adeb35bc47a0b44889", null ],
       [ "mixlayer_nvar", "namespacem__perturbation.html#ac37762de5f3a535a726fc6f269358a41", null ],
       [ "mixlayer_var", "namespacem__perturbation.html#a07707ab93132630e44496213642a40db", null ],
       [ "n_bc_skip", "namespacem__perturbation.html#a08e164c495eedeeb7ee64e0cca9b2964", null ],
-      [ "nbp", "namespacem__perturbation.html#a958d427e8c94b02b11c857ee3c553bb0", null ]
+      [ "nbp", "namespacem__perturbation.html#a958d427e8c94b02b11c857ee3c553bb0", null ],
+      [ "q_prim_temp", "namespacem__perturbation.html#a84af4cc4dfb9d79db18734f7dafebfdd", null ]
     ] ],
     [ "m_precision_select", "namespacem__precision__select.html", [
       [ "double_precision", "namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e", null ],

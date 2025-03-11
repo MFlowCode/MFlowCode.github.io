@@ -1,5 +1,16 @@
 var namespaces_dup =
 [
+    [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
+      [ "s_axis", "namespacem__boundary__conditions.html#a3d6227c971fb98a1d518a645e3db5c41", null ],
+      [ "s_ghost_cell_extrapolation", "namespacem__boundary__conditions.html#a6b07b760d5e002f6fd09fbeb2e96c227", null ],
+      [ "s_no_slip_wall", "namespacem__boundary__conditions.html#addb7b32cdfa1a35e0b18f1b187ac6af4", null ],
+      [ "s_periodic", "namespacem__boundary__conditions.html#a29b132a26ddae2cd3afb4214f861dcfc", null ],
+      [ "s_populate_capillary_buffers", "namespacem__boundary__conditions.html#a2d5a6967c482027e9a757e15979a825d", null ],
+      [ "s_populate_variables_buffers", "namespacem__boundary__conditions.html#ac0f941b0622d2e701b2f20148440ba65", null ],
+      [ "s_qbmm_extrapolation", "namespacem__boundary__conditions.html#a655f4ef9edcb15614b91363aae213c65", null ],
+      [ "s_slip_wall", "namespacem__boundary__conditions.html#a00baa416b778d7fa702a0d6dbfe34eb3", null ],
+      [ "s_symmetry", "namespacem__boundary__conditions.html#a89094a3a651a34a2ff666e69e0cdcfb7", null ]
+    ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
       [ "s_create_directory", "namespacem__compile__specific.html#a44b8e18a2c76367e7090649e62dd7d8c", null ],
@@ -347,7 +358,8 @@ var namespaces_dup =
       [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
       [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
       [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ],
-      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ]
+      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ],
+      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#aeea04bb207edaea4bc668ef8ed1ea2b9", null ]
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_finalize_mpi_proxy_module", "namespacem__mpi__proxy.html#a64ab8748c8961a350a05fc821da924d5", null ],
