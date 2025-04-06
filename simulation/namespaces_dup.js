@@ -63,6 +63,7 @@ var namespaces_dup =
       [ "pshrnk", "namespacem__constants.html#a866d9813bbf4da2a74a5aab4e8696098", null ],
       [ "r_uni", "namespacem__constants.html#a80147c26022bec4383d74045e804ac0b", null ],
       [ "ray_tracing_threshold", "namespacem__constants.html#a26fa1d5822a4ccfb4ac407028a0fcb50", null ],
+      [ "relativity_cons_to_prim_max_iter", "namespacem__constants.html#a40dd8e42f1d768ce7c112ea571ba9a7d", null ],
       [ "rkck_c1", "namespacem__constants.html#a85a4579d139d0b1eaff14e7fcde83ac2", null ],
       [ "rkck_c2", "namespacem__constants.html#a61df70078ef94d8556edae5a957d4b28", null ],
       [ "rkck_c3", "namespacem__constants.html#a80cac54d703596e81cdd423eae4994b9", null ],

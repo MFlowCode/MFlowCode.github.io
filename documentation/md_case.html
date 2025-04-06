@@ -486,7 +486,7 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>mp_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Monotonicity preserving WENO    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>riemann_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*    </td></tr>
+<td class="markdownTableBodyRight"><code>riemann_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*; [4] HLLD (only for MHD)    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>low_Mach</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Low Mach number correction for HLLC Riemann solver: [0] None; [1] Pressure (Chen et al. 2022); [2] Velocity (Thornber et al. 2008)    </td></tr>
 <tr class="markdownTableRowEven">
@@ -550,7 +550,7 @@ Parameter Descriptions</h3>
 <li><code>teno_CT</code> specifies the threshold for the TENO scheme. This dimensionless constant, also known as $C_T$, sets a threshold to identify smooth and non-smooth stencils. Larger values make the scheme more robust but also more dissipative. A recommended value for teno_CT is <code>1e-6</code>. When adjusting this parameter, it is recommended to try values like <code>1e-5</code> or <code>1e-7</code> for TENO5. A smaller value can be used for TENO7.</li>
 <li><code>null_weights</code> activates nullification of the nonlinear WENO weights at the buffer regions outside the domain boundaries when the Riemann extrapolation boundary condition is specified (<code>bc_[x,y,z]%beg[end]} = -4</code>).</li>
 <li><code>mp_weno</code> activates monotonicity preservation in the WENO reconstruction (MPWENO) such that the values of reconstructed variables do not reside outside the range spanned by WENO stencil (<a href="references.md#Balsara00">Balsara and Shu, 2000</a>; <a href="references.md#Suresh97">Suresh and Huynh, 1997</a>).</li>
-<li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver = 1</code>, <code>2</code>, and <code>3</code> correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>).</li>
+<li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver = 1</code>, <code>2</code>, and <code>3</code> correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a href="references.md#Toro13">Toro, 2013</a>). <code>riemann_solver = 4</code> is only for MHD simulations. It resolves 5 of the full seven-wave structure of the MHD equations (<a href="references.md#Miyoshi05">Miyoshi and Kusano, 2005</a>).</li>
 <li><code>low_Mach</code> specifies the choice of the low Mach number correction scheme for the HLLC Riemann solver. <code>low_Mach = 0</code> is default value and does not apply any correction scheme. <code>low_Mach = 1</code> and <code>2</code> apply the anti-dissipation pressure correction method (<a href="references.md#Chen22">Chen et al., 2022</a>) and the improved velocity reconstruction method (<a href="references.md#Thornber08">Thornber et al., 2008</a>). This feature requires <code>riemann_solver = 2</code> and <code>model_eqns = 2</code>.</li>
 <li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state = 1</code> and <code>2</code> correspond to Roe- and arithmetic averages, respectively.</li>
 <li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds = 1</code> and <code>2</code> correspond to the direct method (<a href="references.md#Batten97">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a href="references.md#Toro13">Toro, 2013</a>), respectively.</li>
@@ -980,7 +980,35 @@ Adaptive Time-Stepping</h4>
 <p>$$ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). $$</p>
 <p>By convention, positive accelerations in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction.</p>
 <h2><a class="anchor" id="autotoc_md26"></a>
-14. Cylindrical Coordinates</h2>
+14. Magnetohydrodynamics (MHD)</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>mhd</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable ideal MHD simulation    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>relativity</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable relativistic MHD simulation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>powell</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable Powell's method for solenoidal constraint    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>fd_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Finite difference order for Powell's method    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>Bx[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Initial magnetic field in the x[y,z] direction    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>Bx0</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Constant magnetic field in the x direction (1D only)   </td></tr>
+</table>
+<ul>
+<li><code>mhd</code> is currently only available for single-component flows and 5-equation model. Its compatibility with most other features is work in progress.</li>
+<li><code>relativity</code> only works for <code>mhd</code> enabled and activates relativistic MHD (RMHD) simulation.</li>
+<li><code>powell</code> activates Powell's eight-wave method to impose the solenoidal constraint in the MHD simulation <a href="references.md#Powell94">Powell (1994)</a>. It should not be used in conjunction with HLLD (<code>riemann_solver = 4</code>).</li>
+<li><code>fd_order</code> specifies the finite difference order for computing the RHS of the Powell's method. <code>fd_order = 1</code>, <code>2</code>, and <code>4</code> are allowed.</li>
+<li><code>Bx0</code> is only used in 1D simulations to specify the constant magnetic field in the x direction. It must be specified in 1D simulations. <code>Bx</code> must not be used in 1D simulations.</li>
+<li><code>Bx</code>, <code>By</code>, and <code>Bz</code> are used to specify the initial magnetic field in the x, y, and z directions, respectively. They must be specified in all 1D/2D/3D MHD simulations, with the exception of <code>Bx</code> in 1D simulations.</li>
+</ul>
+<p>Note: In 1D/2D/3D simulations, all three velocity components are treated as state variables and must be specified in the case file.</p>
+<p>Note: For relativistic flow, the conservative and primitive densities are different. <code>rho_wrt</code> outputs the primitive (rest mass) density.</p>
+<h2><a class="anchor" id="autotoc_md27"></a>
+15. Cylindrical Coordinates</h2>
 <p>When <code>cyl_coord = 'T'</code> is set in 3D the following constraints must be met:</p>
 <ul>
 <li><code>bc_ybeg = -14</code> enables the axis boundary condition</li>
@@ -992,9 +1020,9 @@ Adaptive Time-Stepping</h4>
 <ul>
 <li><code>bc_ybeg = -2</code> to enable reflective boundary conditions</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md28"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1032,7 +1060,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_y%beg</code> when using cylindrical coordinates (<code>cyl_coord = 'T'</code> and 3D). For axisymmetric problems, use <code>bc_y%beg = -2</code> with <code>cyl_coord = 'T'</code> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a href="references.md#Thompson87">Thompson (1987)</a> and <a href="references.md#Thompson90">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Generalized Characteristic Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1057,7 +1085,7 @@ Generalized Characteristic Boundary conditions</h2>
 <td class="markdownTableBodyRight"><code>bc_[x,y,z]alpha_in</code>   </td><td class="markdownTableBodyCenter">Real Array   </td><td class="markdownTableBodyLeft">Inflow void fraction   </td></tr>
 </table>
 <p>This boundary condition can be used for subsonic inflow (<code>bc_[x,y,z]%[beg,end]</code> = -7) and subsonic outflow (<code>bc_[x,y,z]%[beg,end]</code> = -8) characteristic boundary conditions. These are based on <a href="references.md#Pirozzoli13">Pirozzoli (2013)</a>. This enables to provide inflow and outflow conditions outside the computational domain.</p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1106,7 +1134,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>model%filepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)%geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1168,7 +1196,7 @@ Acoustic Supports</h2>
 <li><code>%support = 10</code> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <code>%support = 9</code> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <code>%support = 9</code> around the x-axis.</li>
 <li><code>%support = 11</code> specifies a circular transducer array in 3D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 7</code>. The parameters <code>%num_elements</code>, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <code>%num_elements</code>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1194,7 +1222,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

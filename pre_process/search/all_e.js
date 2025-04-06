@@ -32,11 +32,12 @@ var searchData=
   ['num_5fray_29',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
   ['num_5fstcls_5fmin_30',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
   ['num_5fts_5frkck_31',['num_ts_rkck',['../namespacem__constants.html#a526153d2b2cd9b7caaa74691859f95d3',1,'m_constants']]],
-  ['nvtxendrange_32',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
-  ['nvtxeventattributes_33',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
-  ['nvtxrangepop_34',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx::nvtxrangepop'],['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop::nvtxrangepop()']]],
-  ['nvtxrangepush_35',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]],
-  ['nvtxrangepusha_36',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxrangepushex_37',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxstartrange_38',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]]
+  ['num_5fvels_32',['num_vels',['../namespacem__global__parameters.html#a8ca0573e3f7099650588d06aa62b8b9f',1,'m_global_parameters']]],
+  ['nvtxendrange_33',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
+  ['nvtxeventattributes_34',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
+  ['nvtxrangepop_35',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx::nvtxrangepop'],['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop::nvtxrangepop()']]],
+  ['nvtxrangepush_36',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]],
+  ['nvtxrangepusha_37',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxrangepushex_38',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxstartrange_39',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]]
 ];

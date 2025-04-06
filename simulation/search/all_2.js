@@ -9,5 +9,8 @@ var searchData=
   ['broadband_5fspectral_5flevel_5fconstant_6',['broadband_spectral_level_constant',['../namespacem__constants.html#aac0bc72075d1ecb51762a15ded73bf9a',1,'m_constants']]],
   ['broadband_5fspectral_5flevel_5fgrowth_5frate_7',['broadband_spectral_level_growth_rate',['../namespacem__constants.html#a780f498b501ce87bb36fa0a33fce28c5',1,'m_constants']]],
   ['bub_5fbounds_5finfo_8',['bub_bounds_info',['../structbub__bounds__info.html',1,'']]],
-  ['bubbles_5flagrange_5fparameters_9',['bubbles_lagrange_parameters',['../structbubbles__lagrange__parameters.html',1,'']]]
+  ['bubbles_5flagrange_5fparameters_9',['bubbles_lagrange_parameters',['../structbubbles__lagrange__parameters.html',1,'']]],
+  ['bx_10',['bx',['../structic__patch__parameters.html#ac756593ca2f45cb5764ccb835efdb01d',1,'ic_patch_parameters']]],
+  ['by_11',['by',['../structic__patch__parameters.html#a5e55ecbf1dff9dbd07cb91d68c159a47',1,'ic_patch_parameters']]],
+  ['bz_12',['bz',['../structic__patch__parameters.html#a992dd44c275cce34a962b596fc02fb97',1,'ic_patch_parameters']]]
 ];

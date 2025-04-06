@@ -12,6 +12,7 @@ var m__checker_8fpp_8f90 =
     [ "s_check_inputs_geometry_precision", "m__checker_8fpp_8f90.html#a97581e8fbf3e7e5851a080887b0f8fce", null ],
     [ "s_check_inputs_grcbc", "m__checker_8fpp_8f90.html#a81a6cf9985e236ecb2a9b24191d1dccc", null ],
     [ "s_check_inputs_hypoelasticity", "m__checker_8fpp_8f90.html#a3faaf9823edfbc75c4dc5b7fc44606e2", null ],
+    [ "s_check_inputs_mhd", "m__checker_8fpp_8f90.html#ade4873d166d3432fadbdfeed8f9506dd", null ],
     [ "s_check_inputs_misc", "m__checker_8fpp_8f90.html#a056bdbf07520073ed10595aca47b7669", null ],
     [ "s_check_inputs_model_eqns", "m__checker_8fpp_8f90.html#a61286e89b33872b9abb5005a1117514f", null ],
     [ "s_check_inputs_riemann_solver", "m__checker_8fpp_8f90.html#a9102145eeb698e567d1df3cc502fb3ca", null ],

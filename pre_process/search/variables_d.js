@@ -31,5 +31,6 @@ var searchData=
   ['num_5fprocs_28',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
   ['num_5fray_29',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
   ['num_5fstcls_5fmin_30',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
-  ['num_5fts_5frkck_31',['num_ts_rkck',['../namespacem__constants.html#a526153d2b2cd9b7caaa74691859f95d3',1,'m_constants']]]
+  ['num_5fts_5frkck_31',['num_ts_rkck',['../namespacem__constants.html#a526153d2b2cd9b7caaa74691859f95d3',1,'m_constants']]],
+  ['num_5fvels_32',['num_vels',['../namespacem__global__parameters.html#a8ca0573e3f7099650588d06aa62b8b9f',1,'m_global_parameters']]]
 ];

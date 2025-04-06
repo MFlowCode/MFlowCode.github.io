@@ -9,6 +9,7 @@ var m__checker__common_8fpp_8f90 =
     [ "s_check_inputs_hyperelasticity", "m__checker__common_8fpp_8f90.html#a74d976da13a3b275d1e9406cfc213a12", null ],
     [ "s_check_inputs_hypoelasticity", "m__checker__common_8fpp_8f90.html#accfb74f37212066b8bc82dd89ed2ed22", null ],
     [ "s_check_inputs_ibm", "m__checker__common_8fpp_8f90.html#a5f288df12e9ccee0eb013354410ebfa8", null ],
+    [ "s_check_inputs_mhd", "m__checker__common_8fpp_8f90.html#aca142f3b94ff2426533a507b40b44a75", null ],
     [ "s_check_inputs_model_eqns_and_num_fluids", "m__checker__common_8fpp_8f90.html#a62ef6c0450d3c2d10771bc88062ae6e4", null ],
     [ "s_check_inputs_moving_bc", "m__checker__common_8fpp_8f90.html#a697321811bee46ce0c7e4d23ef95fb9e", null ],
     [ "s_check_inputs_phase_change", "m__checker__common_8fpp_8f90.html#add5396f309ec2b5791b6e7e931a8a83a", null ],
