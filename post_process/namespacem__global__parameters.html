@@ -189,6 +189,17 @@ Variables</h2></td></tr>
 <tr class="separator:a1cbfce601c016d37f80ccb1bc67247c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bbde61f76fc10a0dead8a652b17deab" id="r_a6bbde61f76fc10a0dead8a652b17deab"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), dimension(1:3)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a></td></tr>
 <tr class="separator:a6bbde61f76fc10a0dead8a652b17deab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3747ab9b496e597f23499749229ff0" id="r_abd3747ab9b496e597f23499749229ff0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd3747ab9b496e597f23499749229ff0">shear_num</a></td></tr>
+<tr class="separator:abd3747ab9b496e597f23499749229ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd9b852dff690255ccb5dfae014d844f" id="r_abd9b852dff690255ccb5dfae014d844f"><td class="memItemLeft" align="right" valign="top">integer, dimension(3)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd9b852dff690255ccb5dfae014d844f">shear_indices</a></td></tr>
+<tr class="memdesc:abd9b852dff690255ccb5dfae014d844f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices of the stress components that represent shear stress.  <br /></td></tr>
+<tr class="separator:abd9b852dff690255ccb5dfae014d844f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a48aa96123743f5d309aa0c35f3601" id="r_a79a48aa96123743f5d309aa0c35f3601"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79a48aa96123743f5d309aa0c35f3601">shear_bc_flip_num</a></td></tr>
+<tr class="memdesc:a79a48aa96123743f5d309aa0c35f3601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of shear stress components to reflect for boundary conditions.  <br /></td></tr>
+<tr class="separator:a79a48aa96123743f5d309aa0c35f3601"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11cfacbcdd3d3695f1f68298f24379a0" id="r_a11cfacbcdd3d3695f1f68298f24379a0"><td class="memItemLeft" align="right" valign="top">integer, dimension(3, 2)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11cfacbcdd3d3695f1f68298f24379a0">shear_bc_flip_indices</a></td></tr>
+<tr class="memdesc:a11cfacbcdd3d3695f1f68298f24379a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices of shear stress components to reflect for boundary conditions. Size: (1:3, 1:shear_BC_flip_num) for (x/y/z, [indices])  <br /></td></tr>
+<tr class="separator:a11cfacbcdd3d3695f1f68298f24379a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac127ac2a9036e1cdb7e6c41159cacdfb" id="r_ac127ac2a9036e1cdb7e6c41159cacdfb"><td class="memItemLeft" align="right" valign="top">logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac127ac2a9036e1cdb7e6c41159cacdfb">parallel_io</a></td></tr>
 <tr class="memdesc:ac127ac2a9036e1cdb7e6c41159cacdfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format of the data files.  <br /></td></tr>
 <tr class="separator:ac127ac2a9036e1cdb7e6c41159cacdfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3033,6 +3044,68 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">logical m_global_parameters::schlieren_wrt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a11cfacbcdd3d3695f1f68298f24379a0" name="a11cfacbcdd3d3695f1f68298f24379a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11cfacbcdd3d3695f1f68298f24379a0">&#9670;&#160;</a></span>shear_bc_flip_indices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(3, 2) m_global_parameters::shear_bc_flip_indices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indices of shear stress components to reflect for boundary conditions. Size: (1:3, 1:shear_BC_flip_num) for (x/y/z, [indices]) </p>
+
+</div>
+</div>
+<a id="a79a48aa96123743f5d309aa0c35f3601" name="a79a48aa96123743f5d309aa0c35f3601"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a48aa96123743f5d309aa0c35f3601">&#9670;&#160;</a></span>shear_bc_flip_num</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters::shear_bc_flip_num</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of shear stress components to reflect for boundary conditions. </p>
+
+</div>
+</div>
+<a id="abd9b852dff690255ccb5dfae014d844f" name="abd9b852dff690255ccb5dfae014d844f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd9b852dff690255ccb5dfae014d844f">&#9670;&#160;</a></span>shear_indices</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(3) m_global_parameters::shear_indices</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Indices of the stress components that represent shear stress. </p>
+
+</div>
+</div>
+<a id="abd3747ab9b496e597f23499749229ff0" name="abd3747ab9b496e597f23499749229ff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3747ab9b496e597f23499749229ff0">&#9670;&#160;</a></span>shear_num</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters::shear_num</td>
         </tr>
       </table>
 </div><div class="memdoc">
