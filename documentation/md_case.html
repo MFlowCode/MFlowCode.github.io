@@ -280,24 +280,29 @@ Parameters</h1>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>vel(i)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Velocity in direction $i$.    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>tau_e(i)</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Elastic stresses.    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>hcid</code> *   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">N/A   </td><td class="markdownTableBodyLeft">Hard coded patch id    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>cf_val</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Supported   </td><td class="markdownTableBodyLeft">Surface tension color function value    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>model_filepath</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>model_scale(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>model_rotate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>model_translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>model_spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<td class="markdownTableBodyRight"><code>model_translate(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>model_spc</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>model_threshold</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyCenter">Not Supported   </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.   </td></tr>
 </table>
 <p>*: These parameters should be prepended with <code>patch_icpp(j)%</code> where $j$ is the patch index.</p>
 <p>The Table lists the patch parameters. The parameters define the geometries and physical parameters of fluid components (patch) in the domain at initial condition. Note that the domain must be fully filled with patche(s). The code outputs error messages when an empty region is left in the domain.</p>
+<ul>
+<li><code>tau_e(i)</code> is the <code>i</code>-th component of the elastic stress tensor, ordered as <code>tau_xx</code>, <code>tau_xy</code>, <code>tau_yy</code>, <code>tau_xz</code>, <code>tau_yz</code>, and <code>tau_zz</code>. 1D simulation requires <code>tau(1)</code>, 2D <code>tau(1:3)</code>, and 3D <code>tau(1:6)</code>.</li>
+</ul>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Analytical Definition of Primitive Variables</h3>
 <p>Some parameters, as described above, can be defined by analytical functions in the input file. For example, one can define the following patch:</p>
@@ -428,7 +433,9 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>qvp</code> **   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Stiffened-gas parameter $q'$ of fluid.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>sigma</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Surface tension coefficient   </td></tr>
+<td class="markdownTableBodyRight"><code>sigma</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Surface tension coefficient    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>G</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Shear modulus of solid.   </td></tr>
 </table>
 <p>Fluid material's parameters. All parameters except for sigma should be prepended with <code>fluid_pp(i)</code> where $i$ is the fluid index.</p>
 <p>*: Parameters that work only with <code>model_eqns = 2</code>.</p>
@@ -441,6 +448,7 @@ Parameter Descriptions</h3>
 <p>When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in <a href="references.md#Coralic15">Coralic (2015)</a>.</p>
 <ul>
 <li><code>fluid_pp(i)%cv</code>, <code>fluid_pp(i)%qv</code>, and <code>fluid_pp(i)%qvp</code> define $c_v$, $q$, and $q'$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
+<li><code>fluid_pp(i)%G</code> is required for <code>hypoelasticity</code>.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md15"></a>
 6. Simulation Algorithm</h2>
@@ -522,7 +530,9 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>surface_tension</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate surface tension    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>viscous</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate viscosity   </td></tr>
+<td class="markdownTableBodyRight"><code>viscous</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate viscosity    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>hypoelasticity</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate hypoelasticity*   </td></tr>
 </table>
 <ul>
 <li>* Options that work only with <code>model_eqns = 2</code>.</li>
@@ -558,6 +568,7 @@ Parameter Descriptions</h3>
 <li><code>weno_avg</code> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <code>weno_Re_flux</code> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
 <li><code>surface_tension</code> activates surface tension when set to <code>'T'</code>. Requires <code>sigma</code> to be set and <code>num_fluids</code>. The color function in each patch should be assigned such that <code>patch_icpp(i)cf_val = 1</code> in patches where <code>patch_icpp(i)alpha = 1 - eps</code> and <code>patch_icpp(i)cf_val = 0</code> in patches where <code>patch_icpp(i)alpha = eps</code>.</li>
 <li><code>viscous</code> activates viscosity when set to <code>'T'</code>. Requires <code>Re(1)</code> and <code>Re(2)</code> to be set.</li>
+<li><code>hypoelasticity</code> activates elastic stress calculations for fluid-solid interactions. Requires <code>G</code> to be set in the fluid material's parameters.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md16"></a>
 Constant Time-Stepping</h3>
@@ -625,20 +636,22 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>qm_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>tau_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the elastic stress components to the database    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>fd_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>schlieren_alpha(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <code>alpha(i)</code>    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>probe_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>num_probes</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of probes    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>output_partial_domain</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output part of the domain    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>[x,y,z]_outputbeg</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction    </td></tr>
+<td class="markdownTableBodyRight"><code>output_partial_domain</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output part of the domain    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>[x,y,z]_outputbeg</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>[x,y,z]_outputend</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction   </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
