@@ -21,11 +21,12 @@ var searchData=
   ['col_18',['col',['../namespacem__nvtx.html#af232470c550267867fedf74adc30cab4',1,'m_nvtx']]],
   ['color_19',['color',['../structm__nvtx_1_1nvtxeventattributes.html#ac3782bbbbe86784127af31797be53f98',1,'m_nvtx::nvtxeventattributes']]],
   ['colortype_20',['colortype',['../structm__nvtx_1_1nvtxeventattributes.html#a6c3d2c3996f7c755fe5fc92ab083744d',1,'m_nvtx::nvtxeventattributes']]],
-  ['cont_5fidx_21',['cont_idx',['../namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56',1,'m_global_parameters']]],
-  ['contxb_22',['contxb',['../namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b',1,'m_global_parameters']]],
-  ['contxe_23',['contxe',['../namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497',1,'m_global_parameters']]],
-  ['coord_24',['coord',['../structsource__spatial__type.html#a911e89938c3cbc54d115895a10ae9195',1,'source_spatial_type']]],
-  ['cp_5fv_25',['cp_v',['../structphysical__parameters.html#a8ae97561610d7e38bf7bbda2ea16679e',1,'physical_parameters']]],
-  ['cv_26',['cv',['../structic__patch__parameters.html#a54bee368deb78c819eb96a80e2f1f3ca',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#ae27ba8724cf25d4c4e22d70ad058c16d',1,'physical_parameters::cv']]],
-  ['cyl_5fcoord_27',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]]
+  ['cont_5fdamage_21',['cont_damage',['../namespacem__global__parameters.html#a1012302521370c3471fda3dfc059aab8',1,'m_global_parameters']]],
+  ['cont_5fidx_22',['cont_idx',['../namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56',1,'m_global_parameters']]],
+  ['contxb_23',['contxb',['../namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b',1,'m_global_parameters']]],
+  ['contxe_24',['contxe',['../namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497',1,'m_global_parameters']]],
+  ['coord_25',['coord',['../structsource__spatial__type.html#a911e89938c3cbc54d115895a10ae9195',1,'source_spatial_type']]],
+  ['cp_5fv_26',['cp_v',['../structphysical__parameters.html#a8ae97561610d7e38bf7bbda2ea16679e',1,'physical_parameters']]],
+  ['cv_27',['cv',['../structic__patch__parameters.html#a54bee368deb78c819eb96a80e2f1f3ca',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#ae27ba8724cf25d4c4e22d70ad058c16d',1,'physical_parameters::cv']]],
+  ['cyl_5fcoord_28',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]]
 ];

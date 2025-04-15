@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"namespacem__compute__cbc.html#a464cdf8e82aee66a294c38f9d0190711":[1,0,2,1],
+"namespacem__compute__cbc.html#a83da311a28959910c7bfa956c1f56b62":[1,0,2,3],
 "namespacem__compute__cbc.html#a8786f79b77186724789f238652a74a47":[1,0,2,0],
 "namespacem__compute__cbc.html#a8bc20ac103228a5f5854c78781f9a3cc":[1,0,2,5],
 "namespacem__constants.html":[1,0,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "structic__patch__parameters.html#a4039626d35668c1cd496fb379148be43":[2,0,10,16],
 "structic__patch__parameters.html#a4c52df5233da3661570096fff25dcd1e":[2,0,10,25],
 "structic__patch__parameters.html#a4c558e7f55ddfb01126725971b840f28":[2,0,10,20],
-"structic__patch__parameters.html#a4ce4836f327e27bd5ec46cf51697fc0f":[2,0,10,35],
-"structic__patch__parameters.html#a54bee368deb78c819eb96a80e2f1f3ca":[2,0,10,9],
-"structic__patch__parameters.html#a5e55ecbf1dff9dbd07cb91d68c159a47":[2,0,10,6]
+"structic__patch__parameters.html#a4ce4836f327e27bd5ec46cf51697fc0f":[2,0,10,35]
 };

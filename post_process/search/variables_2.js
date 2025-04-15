@@ -27,13 +27,14 @@ var searchData=
   ['color_24',['color',['../structm__nvtx_1_1nvtxeventattributes.html#ac3782bbbbe86784127af31797be53f98',1,'m_nvtx::nvtxeventattributes']]],
   ['colortype_25',['colortype',['../structm__nvtx_1_1nvtxeventattributes.html#a6c3d2c3996f7c755fe5fc92ab083744d',1,'m_nvtx::nvtxeventattributes']]],
   ['cons_5fvars_5fwrt_26',['cons_vars_wrt',['../namespacem__global__parameters.html#ad23223100223bdb6d7f59fed5ec7bbb9',1,'m_global_parameters']]],
-  ['cont_5fidx_27',['cont_idx',['../namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56',1,'m_global_parameters']]],
-  ['contxb_28',['contxb',['../namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b',1,'m_global_parameters']]],
-  ['contxe_29',['contxe',['../namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497',1,'m_global_parameters']]],
-  ['coord_30',['coord',['../structsource__spatial__type.html#a911e89938c3cbc54d115895a10ae9195',1,'source_spatial_type']]],
-  ['cp_5fv_31',['cp_v',['../structphysical__parameters.html#a8ae97561610d7e38bf7bbda2ea16679e',1,'physical_parameters']]],
-  ['cv_32',['cv',['../structic__patch__parameters.html#a54bee368deb78c819eb96a80e2f1f3ca',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#ae27ba8724cf25d4c4e22d70ad058c16d',1,'physical_parameters::cv']]],
-  ['cyl_5fcoord_33',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]],
-  ['cyl_5fq_5fsf_34',['cyl_q_sf',['../namespacem__data__output.html#a87f400362d917373451a6689b0234286',1,'m_data_output']]],
-  ['cyl_5fq_5fsf_5fs_35',['cyl_q_sf_s',['../namespacem__data__output.html#a1eeb172cfaf593890a16666f0cbc136a',1,'m_data_output']]]
+  ['cont_5fdamage_27',['cont_damage',['../namespacem__global__parameters.html#a1012302521370c3471fda3dfc059aab8',1,'m_global_parameters']]],
+  ['cont_5fidx_28',['cont_idx',['../namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56',1,'m_global_parameters']]],
+  ['contxb_29',['contxb',['../namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b',1,'m_global_parameters']]],
+  ['contxe_30',['contxe',['../namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497',1,'m_global_parameters']]],
+  ['coord_31',['coord',['../structsource__spatial__type.html#a911e89938c3cbc54d115895a10ae9195',1,'source_spatial_type']]],
+  ['cp_5fv_32',['cp_v',['../structphysical__parameters.html#a8ae97561610d7e38bf7bbda2ea16679e',1,'physical_parameters']]],
+  ['cv_33',['cv',['../structic__patch__parameters.html#a54bee368deb78c819eb96a80e2f1f3ca',1,'ic_patch_parameters::cv'],['../structphysical__parameters.html#ae27ba8724cf25d4c4e22d70ad058c16d',1,'physical_parameters::cv']]],
+  ['cyl_5fcoord_34',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]],
+  ['cyl_5fq_5fsf_35',['cyl_q_sf',['../namespacem__data__output.html#a87f400362d917373451a6689b0234286',1,'m_data_output']]],
+  ['cyl_5fq_5fsf_5fs_36',['cyl_q_sf_s',['../namespacem__data__output.html#a1eeb172cfaf593890a16666f0cbc136a',1,'m_data_output']]]
 ];

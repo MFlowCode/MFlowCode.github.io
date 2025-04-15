@@ -9,6 +9,7 @@ var m__checker_8fpp_8f90 =
     [ "s_check_inputs_bubbles_euler", "m__checker_8fpp_8f90.html#a3e9776ba1676e10c025fc3a7325fdf11", null ],
     [ "s_check_inputs_bubbles_lagrange", "m__checker_8fpp_8f90.html#a32439099aec521ca9e7a5de00bf53030", null ],
     [ "s_check_inputs_compilers", "m__checker_8fpp_8f90.html#a1ec74473406fc22a2f83913581b1d715", null ],
+    [ "s_check_inputs_continuum_damage", "m__checker_8fpp_8f90.html#acade55df5dec4fc713c8525d636fa3ad", null ],
     [ "s_check_inputs_geometry_precision", "m__checker_8fpp_8f90.html#a97581e8fbf3e7e5851a080887b0f8fce", null ],
     [ "s_check_inputs_grcbc", "m__checker_8fpp_8f90.html#a81a6cf9985e236ecb2a9b24191d1dccc", null ],
     [ "s_check_inputs_hypoelasticity", "m__checker_8fpp_8f90.html#a3faaf9823edfbc75c4dc5b7fc44606e2", null ],
