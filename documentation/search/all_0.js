@@ -11,7 +11,7 @@ var searchData=
   ['16_20cylindrical_20coordinates_8',['16. Cylindrical Coordinates',['../md_case.html#autotoc_md28',1,'']]],
   ['16m_20grid_20points_9',['16M Grid Points',['../md_expectedPerformance.html#autotoc_md90',1,'']]],
   ['1_3a_20setting_20up_20your_20environment_10',['Step 1: Setting up your Environment',['../md_visualization.html#autotoc_md121',1,'']]],
-  ['1d_11',['1D',['../md_examples.html#autotoc_md69',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md51',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md63',1,'Titarev-Toro problem (1D)']]],
-  ['1d_20multi_20component_20inert_20shock_20tube_12',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md60',1,'']]],
+  ['1d_11',['1D',['../md_examples.html#autotoc_md55',1,'Lax shock tube problem (1D)'],['../md_examples.html#autotoc_md37',1,'Shu-Osher problem (1D)'],['../md_examples.html#autotoc_md40',1,'Titarev-Toro problem (1D)']]],
+  ['1d_20multi_20component_20inert_20shock_20tube_12',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md63',1,'']]],
   ['1d_20multi_20component_20reactive_20shock_20tube_13',['1D Multi-Component Reactive Shock Tube',['../md_examples.html#autotoc_md74',1,'']]]
 ];
