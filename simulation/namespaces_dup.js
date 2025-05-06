@@ -1,15 +1,8 @@
 var namespaces_dup =
 [
     [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
-      [ "s_axis", "namespacem__boundary__conditions.html#a3d6227c971fb98a1d518a645e3db5c41", null ],
-      [ "s_ghost_cell_extrapolation", "namespacem__boundary__conditions.html#a6b07b760d5e002f6fd09fbeb2e96c227", null ],
-      [ "s_no_slip_wall", "namespacem__boundary__conditions.html#addb7b32cdfa1a35e0b18f1b187ac6af4", null ],
-      [ "s_periodic", "namespacem__boundary__conditions.html#a29b132a26ddae2cd3afb4214f861dcfc", null ],
-      [ "s_populate_capillary_buffers", "namespacem__boundary__conditions.html#a2d5a6967c482027e9a757e15979a825d", null ],
-      [ "s_populate_variables_buffers", "namespacem__boundary__conditions.html#ac0f941b0622d2e701b2f20148440ba65", null ],
-      [ "s_qbmm_extrapolation", "namespacem__boundary__conditions.html#a655f4ef9edcb15614b91363aae213c65", null ],
-      [ "s_slip_wall", "namespacem__boundary__conditions.html#a00baa416b778d7fa702a0d6dbfe34eb3", null ],
-      [ "s_symmetry", "namespacem__boundary__conditions.html#a89094a3a651a34a2ff666e69e0cdcfb7", null ]
+      [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__conditions.html#a050f9bdd5b4671d595458775c5aae767", null ],
+      [ "s_read_serial_boundary_condition_files", "namespacem__boundary__conditions.html#a406aff3ff4e2ef6537b4ff2b09fe110d", null ]
     ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
@@ -31,6 +24,23 @@ var namespaces_dup =
     ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "acoustic_spatial_support_width", "namespacem__constants.html#a92bc4d3446d8473183e165116932778f", null ],
+      [ "bc_axis", "namespacem__constants.html#a5c4bf41667b9de3aadb9f48071d37c7a", null ],
+      [ "bc_char_cp_sub_outflow", "namespacem__constants.html#aa923ad8ff5f55c9b4701a5cb97cf8fb7", null ],
+      [ "bc_char_ff_sub_outflow", "namespacem__constants.html#ac7e0afbb6e60b92c4d11173784bdff6b", null ],
+      [ "bc_char_nr_sub_buffer", "namespacem__constants.html#acd40252c4301f62b597827bf9d900f3a", null ],
+      [ "bc_char_nr_sub_inflow", "namespacem__constants.html#a4313ade00be58e197e9c0f4a109eadac", null ],
+      [ "bc_char_nr_sub_outflow", "namespacem__constants.html#ac45374e8974d9b9ec98b2ec93a13e5aa", null ],
+      [ "bc_char_slip_wall", "namespacem__constants.html#adfcbcad525ad9cfea6edf0d68eea3517", null ],
+      [ "bc_char_sup_inflow", "namespacem__constants.html#a779310d2f437b4830e7a2c815cf877d0", null ],
+      [ "bc_char_sup_outflow", "namespacem__constants.html#a15280ea1aa249cfd827a039bbea68fbd", null ],
+      [ "bc_dirichlet", "namespacem__constants.html#a562ae8aa9d111fe03cad816afefad838", null ],
+      [ "bc_ghost_extrap", "namespacem__constants.html#a3183b80e6560ba958cded8f6e52c58f7", null ],
+      [ "bc_no_slip_wall", "namespacem__constants.html#a3a3ed9a325a40af041100096406417ba", null ],
+      [ "bc_null", "namespacem__constants.html#a0c7e3c78582e1105041a8f3d8aafc5ab", null ],
+      [ "bc_periodic", "namespacem__constants.html#af02e45a1fd278a47990b046d12a3bf7c", null ],
+      [ "bc_reflective", "namespacem__constants.html#a725c11e86289f3ebbce9344b9311679e", null ],
+      [ "bc_riemann_extrap", "namespacem__constants.html#aa2c8d27122a154c7fc1768074ba7bd8d", null ],
+      [ "bc_slip_wall", "namespacem__constants.html#ac7e39dae5f81e52b38ac6f5e4e0af936", null ],
       [ "broadband_spectral_level_constant", "namespacem__constants.html#aac0bc72075d1ecb51762a15ded73bf9a", null ],
       [ "broadband_spectral_level_growth_rate", "namespacem__constants.html#a780f498b501ce87bb36fa0a33fce28c5", null ],
       [ "capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
@@ -50,6 +60,7 @@ var namespaces_dup =
       [ "mapcells", "namespacem__constants.html#ae89d49daff5ba33ed4286d11e767cea5", null ],
       [ "name_len", "namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757", null ],
       [ "nnode", "namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd", null ],
+      [ "num_bc_patches_max", "namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431", null ],
       [ "num_fluids_max", "namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1", null ],
       [ "num_patches_max", "namespacem__constants.html#a2678965621459e6045edb254772ffdb5", null ],
       [ "num_probes_max", "namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1", null ],
@@ -140,6 +151,7 @@ var namespaces_dup =
       [ "wp", "namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a", null ]
     ] ],
     [ "m_sim_helpers", "namespacem__sim__helpers.html", [
+      [ "s_assign_default_bc_type", "namespacem__sim__helpers.html#aa1cd339e7aa07731182ca9edee00aae1", null ],
       [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a3d187753f4e292887a3030707059b421", null ],
       [ "s_compute_enthalpy", "namespacem__sim__helpers.html#a728a849783a9c8a5a8f969daa627995b", null ],
       [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#ad7c9828a95b779c9c011d9d052df9eaa", null ]

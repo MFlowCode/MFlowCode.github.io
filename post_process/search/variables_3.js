@@ -17,7 +17,7 @@ var searchData=
   ['diffusion_14',['diffusion',['../structchemistry__parameters.html#aa5ec1ceb481f1dc38193faa0a4d44d90',1,'chemistry_parameters']]],
   ['dims_15',['dims',['../namespacem__data__output.html#a98d3ca969b0e32fa09436f1a9cfbd77c',1,'m_data_output']]],
   ['dipole_16',['dipole',['../structacoustic__parameters.html#a816eb41fe9cf7f3f3fa6810859180266',1,'acoustic_parameters']]],
-  ['dir_17',['dir',['../structacoustic__parameters.html#a5631c1b24a7d2365c76f08a84c51f8a4',1,'acoustic_parameters']]],
+  ['dir_17',['dir',['../structbc__patch__parameters.html#a2fc9acb3696a81a1bdc891cbd407a61b',1,'bc_patch_parameters::dir'],['../structacoustic__parameters.html#a5631c1b24a7d2365c76f08a84c51f8a4',1,'acoustic_parameters::dir']]],
   ['displs_18',['displs',['../namespacem__mpi__proxy.html#aebaa6e3cc66d2431c5fb49896d40d7e6',1,'m_mpi_proxy']]],
   ['double_5fprecision_19',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
   ['dp_20',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],

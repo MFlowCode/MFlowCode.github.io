@@ -147,13 +147,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a85b4dd70a4a233bc392d2e37afd97784" id="r_a85b4dd70a4a233bc392d2e37afd97784"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85b4dd70a4a233bc392d2e37afd97784">s_initialize_initial_condition_module</a></td></tr>
 <tr class="memdesc:a85b4dd70a4a233bc392d2e37afd97784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module.  <br /></td></tr>
 <tr class="separator:a85b4dd70a4a233bc392d2e37afd97784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec342b623ebff62f17b416ece04367aa" id="r_aec342b623ebff62f17b416ece04367aa"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec342b623ebff62f17b416ece04367aa">s_finalize_initial_condition_module</a></td></tr>
-<tr class="memdesc:aec342b623ebff62f17b416ece04367aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
-<tr class="separator:aec342b623ebff62f17b416ece04367aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a819a22af40efdd0fbeed368ebf6a0753" id="r_a819a22af40efdd0fbeed368ebf6a0753"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a819a22af40efdd0fbeed368ebf6a0753">s_generate_initial_condition</a></td></tr>
 <tr class="memdesc:a819a22af40efdd0fbeed368ebf6a0753"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine peruses the patches and depending on the type of geometry associated with a particular patch, it calls the related subroutine to setup the said geometry on the grid using the primitive variables included with the patch parameters. The subroutine is complete once the primitive variables are converted to conservative ones.  <br /></td></tr>
 <tr class="separator:a819a22af40efdd0fbeed368ebf6a0753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec342b623ebff62f17b416ece04367aa" id="r_aec342b623ebff62f17b416ece04367aa"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec342b623ebff62f17b416ece04367aa">s_finalize_initial_condition_module</a></td></tr>
+<tr class="memdesc:aec342b623ebff62f17b416ece04367aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
+<tr class="separator:aec342b623ebff62f17b416ece04367aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -166,6 +165,9 @@ Variables</h2></td></tr>
 <tr class="memitem:aa602f2787f8bf850b2abff07b2ff2dd2" id="r_aa602f2787f8bf850b2abff07b2ff2dd2"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structscalar__field.html">scalar_field</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa602f2787f8bf850b2abff07b2ff2dd2">q_t_sf</a></td></tr>
 <tr class="memdesc:aa602f2787f8bf850b2abff07b2ff2dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature field.  <br /></td></tr>
 <tr class="separator:aa602f2787f8bf850b2abff07b2ff2dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a421fbb4b059ce4969f18bbd57d4c5dc4" id="r_a421fbb4b059ce4969f18bbd57d4c5dc4"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structinteger__field.html">integer_field</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a421fbb4b059ce4969f18bbd57d4c5dc4">bc_type</a></td></tr>
+<tr class="memdesc:a421fbb4b059ce4969f18bbd57d4c5dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">bc_type fields  <br /></td></tr>
+<tr class="separator:a421fbb4b059ce4969f18bbd57d4c5dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d331c773a88029795462ae22c20d6c8" id="r_a5d331c773a88029795462ae22c20d6c8"><td class="memItemLeft" align="right" valign="top">integer, dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d331c773a88029795462ae22c20d6c8">patch_id_fp</a></td></tr>
 <tr class="memdesc:a5d331c773a88029795462ae22c20d6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bookkepping variable used to track the patch identities (id) associated with each of the cells in the computational domain. Note that only one patch identity may be associated with any one cell.  <br /></td></tr>
 <tr class="separator:a5d331c773a88029795462ae22c20d6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -209,10 +211,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>This subroutine peruses the patches and depending on the type of geometry associated with a particular patch, it calls the related subroutine to setup the said geometry on the grid using the primitive variables included with the patch parameters. The subroutine is complete once the primitive variables are converted to conservative ones. </p>
-<p>ICPP Patches</p>
-<p>IB Patches</p>
-<p>ICPP Patches</p>
-<p>IB Patches</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -248,6 +246,22 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a421fbb4b059ce4969f18bbd57d4c5dc4" name="a421fbb4b059ce4969f18bbd57d4c5dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a421fbb4b059ce4969f18bbd57d4c5dc4">&#9670;&#160;</a></span>bc_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structinteger__field.html">integer_field</a>), dimension(:, :), allocatable m_initial_condition::bc_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bc_type fields </p>
+
+</div>
+</div>
 <a id="a05e359f2cf998f50d805e9d86feaad51" name="a05e359f2cf998f50d805e9d86feaad51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a05e359f2cf998f50d805e9d86feaad51">&#9670;&#160;</a></span>ib_markers</h2>
 

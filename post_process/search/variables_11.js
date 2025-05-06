@@ -7,7 +7,7 @@ var searchData=
   ['r_5funi_4',['r_uni',['../namespacem__constants.html#a80147c26022bec4383d74045e804ac0b',1,'m_constants']]],
   ['r_5fv_5',['r_v',['../namespacem__global__parameters.html#a2c0e3b7503d1aaf1733a5ca915f52c31',1,'m_global_parameters']]],
   ['radii_6',['radii',['../structic__patch__parameters.html#ace37d7037b40477b2bd84b7f2e729544',1,'ic_patch_parameters']]],
-  ['radius_7',['radius',['../structic__patch__parameters.html#af78df682b8ae8ba7d77d003be4c2ee3e',1,'ic_patch_parameters::radius'],['../structib__patch__parameters.html#a239fe9e63b1b817fac38b8bb43c75599',1,'ib_patch_parameters::radius']]],
+  ['radius_7',['radius',['../structbc__patch__parameters.html#a161d88ac648e8f54c9d359fd06411b83',1,'bc_patch_parameters::radius'],['../structic__patch__parameters.html#af78df682b8ae8ba7d77d003be4c2ee3e',1,'ic_patch_parameters::radius'],['../structib__patch__parameters.html#a239fe9e63b1b817fac38b8bb43c75599',1,'ib_patch_parameters::radius']]],
   ['ray_5ftracing_5fthreshold_8',['ray_tracing_threshold',['../namespacem__constants.html#a26fa1d5822a4ccfb4ac407028a0fcb50',1,'m_constants']]],
   ['re_9',['re',['../structphysical__parameters.html#a66d7799714818b67e8044df8f8e83699',1,'physical_parameters']]],
   ['re_5finv_10',['re_inv',['../namespacem__global__parameters.html#a6c5bf9f340d1a35f1f226e5dce8353ae',1,'m_global_parameters']]],

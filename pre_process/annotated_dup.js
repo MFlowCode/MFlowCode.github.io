@@ -19,6 +19,7 @@ var annotated_dup =
       [ "s_read_abstract_ic_data_files", "interfacem__start__up_1_1s__read__abstract__ic__data__files.html", "interfacem__start__up_1_1s__read__abstract__ic__data__files" ]
     ] ],
     [ "acoustic_parameters", "structacoustic__parameters.html", "structacoustic__parameters" ],
+    [ "bc_patch_parameters", "structbc__patch__parameters.html", "structbc__patch__parameters" ],
     [ "bounds_info", "structbounds__info.html", "structbounds__info" ],
     [ "bub_bounds_info", "structbub__bounds__info.html", "structbub__bounds__info" ],
     [ "bubbles_lagrange_parameters", "structbubbles__lagrange__parameters.html", "structbubbles__lagrange__parameters" ],

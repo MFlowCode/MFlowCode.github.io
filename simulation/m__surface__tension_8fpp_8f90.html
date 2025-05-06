@@ -146,8 +146,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a78c9b4e200997fa2d482264d00acb99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71f43b74cd88b060da109d83606d0875" id="r_a71f43b74cd88b060da109d83606d0875"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a71f43b74cd88b060da109d83606d0875">s_compute_capilary_source_flux</a> (q_prim_vf, vsrc_rsx_vf, vsrc_rsy_vf, vsrc_rsz_vf, flux_src_vf, id, isx, isy, isz)</td></tr>
 <tr class="separator:a71f43b74cd88b060da109d83606d0875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5535d72a0f1459ff46e7eb6699d24551" id="r_a5535d72a0f1459ff46e7eb6699d24551"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5535d72a0f1459ff46e7eb6699d24551">s_get_capilary</a> (q_prim_vf)</td></tr>
-<tr class="separator:a5535d72a0f1459ff46e7eb6699d24551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae987e69e014c7ed4334ffe020a6b6e60" id="r_ae987e69e014c7ed4334ffe020a6b6e60"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae987e69e014c7ed4334ffe020a6b6e60">s_get_capilary</a> (q_prim_vf, bc_type)</td></tr>
+<tr class="separator:ae987e69e014c7ed4334ffe020a6b6e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6fd699311e0bc8b666bca1968cfb426c" id="r_a6fd699311e0bc8b666bca1968cfb426c"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fd699311e0bc8b666bca1968cfb426c">s_reconstruct_cell_boundary_values_capillary</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
 <tr class="separator:a6fd699311e0bc8b666bca1968cfb426c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad74fb95feb5dc6eec325d004f49d6eaf" id="r_ad74fb95feb5dc6eec325d004f49d6eaf"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad74fb95feb5dc6eec325d004f49d6eaf">s_finalize_surface_tension_module</a></td></tr>
@@ -168,7 +168,7 @@ Functions/Subroutines</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__surface__tension_8fpp_8f90_ab9b6955a7652c5a8bba2161da6c4cdd0_cgraph.svg" width="620" height="230"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__surface__tension_8fpp_8f90_ab9b6955a7652c5a8bba2161da6c4cdd0_cgraph.svg" width="100%" height="517"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -269,8 +269,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5535d72a0f1459ff46e7eb6699d24551" name="a5535d72a0f1459ff46e7eb6699d24551"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5535d72a0f1459ff46e7eb6699d24551">&#9670;&#160;</a></span>s_get_capilary()</h2>
+<a id="ae987e69e014c7ed4334ffe020a6b6e60" name="ae987e69e014c7ed4334ffe020a6b6e60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae987e69e014c7ed4334ffe020a6b6e60">&#9670;&#160;</a></span>s_get_capilary()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,8 +281,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_surface_tension_fpp_f90__::s_get_capilary </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">type(<a class="el" href="structinteger__field.html">integer_field</a>), dimension(1:num_dims, -1:1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -294,12 +298,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__surface__tension_8fpp_8f90_a5535d72a0f1459ff46e7eb6699d24551_cgraph.svg" width="378" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__surface__tension_8fpp_8f90_ae987e69e014c7ed4334ffe020a6b6e60_cgraph.svg" width="100%" height="511"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__surface__tension_8fpp_8f90_a5535d72a0f1459ff46e7eb6699d24551_icgraph.svg" width="100%" height="499"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__surface__tension_8fpp_8f90_ae987e69e014c7ed4334ffe020a6b6e60_icgraph.svg" width="100%" height="499"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

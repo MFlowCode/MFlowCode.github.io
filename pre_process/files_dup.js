@@ -1,6 +1,7 @@
 var files_dup =
 [
     [ "m_assign_variables.fpp.f90", "m__assign__variables_8fpp_8f90.html", "m__assign__variables_8fpp_8f90" ],
+    [ "m_boundary_common.fpp.f90", "m__boundary__common_8fpp_8f90.html", "m__boundary__common_8fpp_8f90" ],
     [ "m_boundary_conditions.fpp.f90", "m__boundary__conditions_8fpp_8f90.html", "m__boundary__conditions_8fpp_8f90" ],
     [ "m_check_ib_patches.fpp.f90", "m__check__ib__patches_8fpp_8f90.html", "m__check__ib__patches_8fpp_8f90" ],
     [ "m_check_patches.fpp.f90", "m__check__patches_8fpp_8f90.html", "m__check__patches_8fpp_8f90" ],

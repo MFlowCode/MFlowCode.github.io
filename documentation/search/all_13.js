@@ -1,14 +1,7 @@
 var searchData=
 [
-  ['mach_20number_0',['12. Artificial Mach Number',['../md_case.html#autotoc_md24',1,'']]],
-  ['magnetohydrodynamics_20mhd_1',['14. Magnetohydrodynamics (MHD)',['../md_case.html#autotoc_md26',1,'']]],
-  ['material’s_2',['5. Fluid Material’s',['../md_case.html#autotoc_md14',1,'']]],
-  ['merit_3a_20grind_20time_20performance_3',['Figure of merit: Grind time performance',['../md_expectedPerformance.html#autotoc_md83',1,'']]],
-  ['mfc_4',['MFC',['../md_getting-started.html#autotoc_md96',1,'Building MFC'],['../md_getting-started.html#autotoc_md94',1,'Fetching MFC']]],
-  ['mhd_5',['14. Magnetohydrodynamics (MHD)',['../md_case.html#autotoc_md26',1,'']]],
-  ['mi250x_20gpu_6',['AMD MI250X GPU',['../md_expectedPerformance.html#autotoc_md85',1,'']]],
-  ['model_7',['Model',['../md_case.html#autotoc_md23',1,'11. Phase Change Model'],['../md_case.html#autotoc_md20',1,'9.1 Ensemble-Averaged Bubble Model'],['../md_case.html#autotoc_md21',1,'9.2 Volume-Averaged Bubble Model']]],
-  ['models_8',['9. Sub-grid Bubble Models',['../md_case.html#autotoc_md19',1,'']]],
-  ['multi_20component_20inert_20shock_20tube_9',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md63',1,'']]],
-  ['multi_20component_20reactive_20shock_20tube_10',['1D Multi-Component Reactive Shock Tube',['../md_examples.html#autotoc_md74',1,'']]]
+  ['lax_20shock_20tube_20problem_201d_0',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md58',1,'']]],
+  ['lid_20driven_20cavity_20problem_202d_1',['Lid-Driven Cavity Problem (2D)',['../md_examples.html#autotoc_md44',1,'']]],
+  ['line_20arguments_2',['(Optional) Accepting command line arguments',['../md_case.html#autotoc_md3',1,'']]],
+  ['linear_20theory_3',['Linear Theory',['../md_examples.html#autotoc_md57',1,'Final Condition and Linear Theory'],['../md_examples.html#autotoc_md76',1,'Final Condition and Linear Theory']]]
 ];

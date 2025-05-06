@@ -10,11 +10,12 @@ var searchData=
   ['normal_7',['normal',['../structic__patch__parameters.html#a9931b4f9fe624a19c42a325d873afba8',1,'ic_patch_parameters']]],
   ['npulse_8',['npulse',['../structacoustic__parameters.html#a0b709585a50fe7983158b95e8943be7c',1,'acoustic_parameters']]],
   ['ntrs_9',['ntrs',['../structt__model.html#a5874cae6ec4158f7875555f1c8aff60e',1,'t_model']]],
-  ['num_5felements_10',['num_elements',['../structacoustic__parameters.html#a63e0603c74a70bc9febebe8ce09f3b85',1,'acoustic_parameters']]],
-  ['num_5ffluids_5fmax_11',['num_fluids_max',['../namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1',1,'m_constants']]],
-  ['num_5fpatches_5fmax_12',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
-  ['num_5fprobes_5fmax_13',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
-  ['num_5fray_14',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
-  ['num_5fstcls_5fmin_15',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
-  ['num_5fts_5frkck_16',['num_ts_rkck',['../namespacem__constants.html#a526153d2b2cd9b7caaa74691859f95d3',1,'m_constants']]]
+  ['num_5fbc_5fpatches_5fmax_10',['num_bc_patches_max',['../namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431',1,'m_constants']]],
+  ['num_5felements_11',['num_elements',['../structacoustic__parameters.html#a63e0603c74a70bc9febebe8ce09f3b85',1,'acoustic_parameters']]],
+  ['num_5ffluids_5fmax_12',['num_fluids_max',['../namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1',1,'m_constants']]],
+  ['num_5fpatches_5fmax_13',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
+  ['num_5fprobes_5fmax_14',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
+  ['num_5fray_15',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
+  ['num_5fstcls_5fmin_16',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
+  ['num_5fts_5frkck_17',['num_ts_rkck',['../namespacem__constants.html#a526153d2b2cd9b7caaa74691859f95d3',1,'m_constants']]]
 ];

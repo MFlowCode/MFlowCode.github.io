@@ -481,6 +481,14 @@ Variables</h2></td></tr>
 <tr class="memitem:ab5fc97fce88eefa124865cab08aa2250" id="r_ab5fc97fce88eefa124865cab08aa2250"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structic__patch__parameters.html">ic_patch_parameters</a>), dimension(num_patches_max)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab5fc97fce88eefa124865cab08aa2250">patch_icpp</a></td></tr>
 <tr class="memdesc:ab5fc97fce88eefa124865cab08aa2250"><td class="mdescLeft">&#160;</td><td class="mdescRight">Database of the initial condition patch parameters (icpp) for each of the patches employed in the configuration of the initial condition. Note that the maximum allowable number of patches, num_patches_max, may be changed in the module m_derived_types.f90.  <br /></td></tr>
 <tr class="separator:ab5fc97fce88eefa124865cab08aa2250"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65cc6742c19b776709ec273c57080bc7" id="r_a65cc6742c19b776709ec273c57080bc7"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65cc6742c19b776709ec273c57080bc7">num_bc_patches</a></td></tr>
+<tr class="memdesc:a65cc6742c19b776709ec273c57080bc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of boundary condition patches.  <br /></td></tr>
+<tr class="separator:a65cc6742c19b776709ec273c57080bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a496ef8774198893700cd0ecce1ef8611" id="r_a496ef8774198893700cd0ecce1ef8611"><td class="memItemLeft" align="right" valign="top">logical&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a496ef8774198893700cd0ecce1ef8611">bc_io</a></td></tr>
+<tr class="memdesc:a496ef8774198893700cd0ecce1ef8611"><td class="mdescLeft">&#160;</td><td class="mdescRight">whether or not to save BC data  <br /></td></tr>
+<tr class="separator:a496ef8774198893700cd0ecce1ef8611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b1614e83300be758fc9bc5dd2fa03f1" id="r_a6b1614e83300be758fc9bc5dd2fa03f1"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structbc__patch__parameters.html">bc_patch_parameters</a>), dimension(num_bc_patches_max)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b1614e83300be758fc9bc5dd2fa03f1">patch_bc</a></td></tr>
+<tr class="separator:a6b1614e83300be758fc9bc5dd2fa03f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7297abec8863ecabf95e24ebdae46a17" id="r_a7297abec8863ecabf95e24ebdae46a17"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structphysical__parameters.html">physical_parameters</a>), dimension(num_fluids_max)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7297abec8863ecabf95e24ebdae46a17">fluid_pp</a></td></tr>
 <tr class="memdesc:a7297abec8863ecabf95e24ebdae46a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Database of the physical parameters of each of the fluids that is present in the flow. These include the stiffened gas equation of state parameters, the Reynolds numbers and the Weber numbers.  <br /></td></tr>
 <tr class="separator:a7297abec8863ecabf95e24ebdae46a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -924,6 +932,22 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Number of components in the b tensor. </p>
+
+</div>
+</div>
+<a id="a496ef8774198893700cd0ecce1ef8611" name="a496ef8774198893700cd0ecce1ef8611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a496ef8774198893700cd0ecce1ef8611">&#9670;&#160;</a></span>bc_io</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical m_global_parameters::bc_io</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>whether or not to save BC data </p>
 
 </div>
 </div>
@@ -2333,6 +2357,22 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a65cc6742c19b776709ec273c57080bc7" name="a65cc6742c19b776709ec273c57080bc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65cc6742c19b776709ec273c57080bc7">&#9670;&#160;</a></span>num_bc_patches</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters::num_bc_patches</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of boundary condition patches. </p>
+
+</div>
+</div>
 <a id="a76e251296a28212df87bf9f653ff9a3b" name="a76e251296a28212df87bf9f653ff9a3b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76e251296a28212df87bf9f653ff9a3b">&#9670;&#160;</a></span>num_dims</h2>
 
@@ -2532,6 +2572,20 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Format of the data files. </p>
+
+</div>
+</div>
+<a id="a6b1614e83300be758fc9bc5dd2fa03f1" name="a6b1614e83300be758fc9bc5dd2fa03f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1614e83300be758fc9bc5dd2fa03f1">&#9670;&#160;</a></span>patch_bc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structbc__patch__parameters.html">bc_patch_parameters</a>), dimension(num_bc_patches_max) m_global_parameters::patch_bc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

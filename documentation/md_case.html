@@ -541,7 +541,7 @@ Parameter Descriptions</h3>
 </ul>
 <p>The table lists simulation algorithm parameters. The parameters are used to specify options in algorithms that are used to integrate the governing equations of the multi-component flow based on the initial condition. Models and assumptions that are used to formulate and discritize the governing equations are described in <a class="el" href="md_references.html">Bryngelson et al. (2019)</a>. Details of the simulation algorithms and implementation of the WENO scheme can be found in <a class="el" href="md_references.html">Coralic (2015)</a>.</p>
 <ul>
-<li><code>bc_[x,y,z]%[beg,end]</code> specifies the boundary conditions at the beginning and the end of domain boundaries in each coordinate direction by a negative integer from -1 through -12. See table Boundary Conditions for details.</li>
+<li><code>bc_[x,y,z]%[beg,end]</code> specifies the boundary conditions at the beginning and the end of domain boundaries in each coordinate direction by a negative integer from -1 through -16. See table Boundary Conditions for details. Boundary condition patches can be used with non-characteristic boundary conditions. Their use is detailed in Boundary Condition Patches.</li>
 <li><code>bc_[x,y,z]%vb[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]%beg</code> when using <code>bc_[x,y,z]%beg = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]%beg = -16</code> to work properly. Normal velocities require <code>bc_[x,y,z]%end = -15</code> or <code>\bc_[x,y,z]%end = -16</code> to work properly.</li>
 <li><code>bc_[x,y,z]%ve[1,2,3]</code> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <code>bc_[x,y,z]%beg</code> when using <code>bc_[x,y,z]%end = -16</code>. Tangential velocities require viscosity, <code>weno_avg = T</code>, and <code>bc_[x,y,z]%end = 16</code> to work properly. Normal velocities require <code>bc_[x,y,z]%end = -15</code> or <code>\bc_[x,y,z]%end = -16</code> to work properly.</li>
 <li><code>model_eqns</code> specifies the choice of the multi-component model that is used to formulate the dynamics of the flow using integers from 1 through 3. <code>model_eqns = 1</code>, <code>2</code>, and <code>3</code> correspond to $\Gamma$-$\Pi_\infty$ model (<a class="el" href="md_references.html">Johnsen, 2008</a>), 5-equation model (<a class="el" href="md_references.html">Allaire et al., 2002</a>), and 6-equation model (<a class="el" href="md_references.html">Saurel et al., 2009</a>), respectively. The difference of the two models is assessed by (<a class="el" href="md_references.html">Schmidmayer et al., 2019</a>). Note that some code parameters are only compatible with 5-equation model.</li>
@@ -571,13 +571,42 @@ Parameter Descriptions</h3>
 <li><code>hypoelasticity</code> activates elastic stress calculations for fluid-solid interactions. Requires <code>G</code> to be set in the fluid material's parameters.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md16"></a>
+Boundary Condition Patches</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>num_bc_patches</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of boundary condition patches    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>dir</code>*   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Direction of the boundary patch. [1]: x; [2]: y; [3]: z    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>loc</code>*   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Location of the patch in the domain    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>type</code>*   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">The geometry of the patch. [1]: Line [2]: Circle [3]: Rectangle    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>x[y,z]_centroid</code>*   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Centroid of the boundary patch in the x[y,z]-direction    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>length_x[y,z]</code>*   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Length of the boundary patch in the x[y,z]-direction    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>radius</code>*   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Radius of the boundary patch   </td></tr>
+</table>
+<p>*: These parameters should be prepended with <code>patch_bc(j)%</code> where $j$ is the patch index.</p>
+<p>Boundary condition patches can be used with the following boundary condition types:</p><ul>
+<li><code>-2</code> reflective</li>
+<li><code>-3</code> ghost cell extrapolation</li>
+<li><code>-15</code> slip wall</li>
+<li><code>-16</code> no-slip wall</li>
+<li><code>-17</code> Dirichlet</li>
+</ul>
+<p>Line segments along each domain edge are supported for 2D simulations. Squares and circles on each face are supported for 3D simulations.</p>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Constant Time-Stepping</h3>
 <ul>
 <li><code>dt</code> specifies the constant time step size used in the simulation. The value of <code>dt</code> needs to be sufficiently small to satisfy the Courant-Friedrichs-Lewy (CFL) condition.</li>
 <li><code>t_step_start</code> and <code>t_step_end</code> define the time steps at which the simulation starts and ends.</li>
 </ul>
 <p><code>t_step_save</code> is the time step interval for data output during simulation. To newly start the simulation, set <code>t_step_start = 0</code>. To restart the simulation from $k$-th time step, set <code>t_step_start = k</code>; see <a class="el" href="md_running.html">Restarting Cases</a>.</p>
-<h4><a class="anchor" id="autotoc_md17"></a>
+<h4><a class="anchor" id="autotoc_md18"></a>
 Adaptive Time-Stepping</h4>
 <ul>
 <li><code>cfl_adap_dt</code> enables adaptive time stepping with a constant CFL when true</li>
@@ -588,7 +617,7 @@ Adaptive Time-Stepping</h4>
 <li><code>t_stop</code> specifies at what time the simulation should stop</li>
 </ul>
 <p>To newly start the simulation, set <code>n_start = 0</code>. To restart the simulation from $k$-th time step, see <a class="el" href="md_running.html">Restarting Cases</a>.</p>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 7. Formatted Output</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -752,7 +781,7 @@ Adaptive Time-Stepping</h4>
 <li><code>%bb_bandwidth</code> specifies the bandwidth of the discretized frequencies.</li>
 <li><code>%bb_lowest_freq</code> specifies the lower frequency bound of the broadband acoustic wave. The upper frequency bound will be calculated as <code>%bb_lowest_freq + %bb_num_freq * %bb_bandwidth</code>. The wave is no longer broadband below the lower bound and above the upper bound.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="autotoc_md20"></a>
 9. Sub-grid Bubble Models</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -792,7 +821,7 @@ Adaptive Time-Stepping</h4>
 <li><code>bubble_model</code> specified a model for spherical bubble dynamics by an integer of 1 and 2. <code>bubble_model = 1</code>, <code>2</code>, and <code>3</code> correspond to the Gilmore, Keller-Miksis, and Rayleigh-Plesset models.</li>
 <li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, <code>k_v</code>, and <code>cp_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, <code>k_v</code>, and <code>cp_v</code> specify the specific heat ratio, molecular weight, viscosity, thermal conductivity and specific heat capacity of a chosen component (<code>cp_v</code> only for <code>bubbles_lagrange = 'T'</code>). Implementation of the parameters into the model follow <a class="el" href="md_references.html">Ando (2010)</a>.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md20"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 9.1 Ensemble-Averaged Bubble Model</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -846,7 +875,7 @@ Adaptive Time-Stepping</h4>
 <li><code>sigV</code> specifies the standard deviation of the PDF of bubble velocity required in the QBMM feature.</li>
 <li><code>rhoRV</code> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in the QBMM feature.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md21"></a>
+<h3><a class="anchor" id="autotoc_md22"></a>
 9.2 Volume-Averaged Bubble Model</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -903,7 +932,7 @@ Adaptive Time-Stepping</h4>
 <li><code>massTransfer_model</code> Activates the mass transfer model at the bubble's interface based on (<a class="el" href="md_references.html">Preston et al., 2007</a>).</li>
 <li><code>rkck_adap_dt</code> Activates the adaptive 4th/5th order Runge—Kutta–Cash–Karp (RKCK) time-stepping algorithm (requires <code>time_stepper ==4</code>). A maximum error between the 4th and 5th order Runge-Kutta-Cash-Karp solutions for the same time step size is calculated. If the error is smaller than a tolerance (<code>rkck_tolerance</code>), then the algorithm employs the 5th order solution, while if not, both eulerian/lagrangian variables are re-calculated with a smaller time step size.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 10. Velocity Field Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -942,7 +971,7 @@ Adaptive Time-Stepping</h4>
 <li><code>mixlayer_perturb</code> activates the perturbation of initial velocity by instability waves obtained from linear stability analysis for a mixing layer with hyperbolic tangent mean streamwise velocity profile. This option only works for <code>n &gt; 0</code>, <code>bc_y%[beg,end] = -6</code>, <code>num_fluids = 1</code>, <code>model_eqns = 2</code> and &lsquo;mixlayer_vel_profile = 'T&rsquo;`.</li>
 <li><code>mixlayer_domain</code> defines the domain size to compute spatial eigenvalues of the linear instability analysis when &lsquo;mixlayer_perturb = 'T&rsquo;<code>. For example, the spatial eigenvalue in</code>x` direction in 2D problem will be $2 \pi \alpha / (mixlayer_domain*patch_icpp(1)%length_y)$ for $\alpha = 1$, $2$ and $4$.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 11. Phase Change Model</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -962,7 +991,7 @@ Adaptive Time-Stepping</h4>
 <li><code>palpha_eps</code> Specifies the tolerance for the Newton Solvers used in the pT-equilibrium model.</li>
 <li><code>ptgalpha_eps</code> Specifies the tolerance used for the Newton Solvers used in the pTg-equilibrium model.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 12. Artificial Mach Number</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -973,7 +1002,7 @@ Adaptive Time-Stepping</h4>
 <ul>
 <li><code>pi_fac</code> specifies the ratio of artificial and true <code>pi_\infty</code> values (<code>=</code> artificial <code>pi_\infty</code> / true <code>pi_\infty</code>). This parameter enables the use of true <code>pi_\infty</code> in bubble dynamics models when the <code>pi_\infty</code> given in the <code>case.py</code> file is an artificial value.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 13. Body Forces</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -992,7 +1021,7 @@ Adaptive Time-Stepping</h4>
 <p><code>k_x[y,z]</code>, <code>w_x[y,z]</code>, <code>p_x[y,z]</code>, and <code>g_x[y,z]</code> define an oscillating acceleration in the <code>x[y,z]</code> direction with the form</p>
 <p>$$ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). $$</p>
 <p>By convention, positive accelerations in the <code>x[y,z]</code> direction are in the positive <code>x[y,z]</code> direction.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 14. Magnetohydrodynamics (MHD)</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1020,7 +1049,7 @@ Adaptive Time-Stepping</h4>
 </ul>
 <p>Note: In 1D/2D/3D simulations, all three velocity components are treated as state variables and must be specified in the case file.</p>
 <p>Note: For relativistic flow, the conservative and primitive densities are different. <code>rho_wrt</code> outputs the primitive (rest mass) density.</p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="autotoc_md28"></a>
 15. Elasticity</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1041,7 +1070,7 @@ Adaptive Time-Stepping</h4>
 <ul>
 <li><code>cont_damage</code> activates continuum damage model for solid materials. Requires <code>tau_star</code>, <code>cont_damage_s</code>, and <code>alpha_bar</code> to be set (empirically determined) (<a class="el" href="md_references.html">Cao et al., 2019</a>).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md29"></a>
 16. Cylindrical Coordinates</h2>
 <p>When <code>cyl_coord = 'T'</code> is set in 3D the following constraints must be met:</p>
 <ul>
@@ -1054,9 +1083,9 @@ Adaptive Time-Stepping</h4>
 <ul>
 <li><code>bc_ybeg = -2</code> to enable reflective boundary conditions</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md29"></a>
+<h1><a class="anchor" id="autotoc_md30"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1094,7 +1123,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_y%beg</code> when using cylindrical coordinates (<code>cyl_coord = 'T'</code> and 3D). For axisymmetric problems, use <code>bc_y%beg = -2</code> with <code>cyl_coord = 'T'</code> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a class="el" href="md_references.html">Thompson (1987)</a> and <a class="el" href="md_references.html">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Generalized Characteristic Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1119,7 +1148,7 @@ Generalized Characteristic Boundary conditions</h2>
 <td class="markdownTableBodyRight"><code>bc_[x,y,z]alpha_in</code>   </td><td class="markdownTableBodyCenter">Real Array   </td><td class="markdownTableBodyLeft">Inflow void fraction   </td></tr>
 </table>
 <p>This boundary condition can be used for subsonic inflow (<code>bc_[x,y,z]%[beg,end]</code> = -7) and subsonic outflow (<code>bc_[x,y,z]%[beg,end]</code> = -8) characteristic boundary conditions. These are based on <a class="el" href="md_references.html">Pirozzoli (2013)</a>. This enables to provide inflow and outflow conditions outside the computational domain.</p>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1168,7 +1197,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>model%filepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)%geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1230,7 +1259,7 @@ Acoustic Supports</h2>
 <li><code>%support = 10</code> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <code>%support = 9</code> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <code>%support = 9</code> around the x-axis.</li>
 <li><code>%support = 11</code> specifies a circular transducer array in 3D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 7</code>. The parameters <code>%num_elements</code>, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <code>%num_elements</code>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1256,7 +1285,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md36"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

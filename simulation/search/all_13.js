@@ -14,5 +14,6 @@ var searchData=
   ['threshold_5fbary_11',['threshold_bary',['../namespacem__constants.html#a515fed125471f30a2d2b1036e3c0d645',1,'m_constants']]],
   ['threshold_5fedge_5fzero_12',['threshold_edge_zero',['../namespacem__constants.html#a914f27dc4d08c231280a1cf0b66e0dad',1,'m_constants']]],
   ['threshold_5fvector_5fzero_13',['threshold_vector_zero',['../namespacem__constants.html#ab82b496762af930251f38efa6b54c1b0',1,'m_constants']]],
-  ['trs_14',['trs',['../structt__model.html#a2263885506ecea0b2c00f9de9c103848',1,'t_model']]]
+  ['trs_14',['trs',['../structt__model.html#a2263885506ecea0b2c00f9de9c103848',1,'t_model']]],
+  ['type_15',['type',['../structbc__patch__parameters.html#a306af07bc225a088f6bceb2c2f536576',1,'bc_patch_parameters']]]
 ];

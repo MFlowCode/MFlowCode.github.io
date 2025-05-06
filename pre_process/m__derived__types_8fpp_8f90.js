@@ -15,6 +15,7 @@ var m__derived__types_8fpp_8f90 =
     [ "riemann_states", "structriemann__states.html", "structriemann__states" ],
     [ "riemann_states_vec3", "structriemann__states__vec3.html", "structriemann__states__vec3" ],
     [ "int_bounds_info", "structint__bounds__info.html", "structint__bounds__info" ],
+    [ "bc_patch_parameters", "structbc__patch__parameters.html", "structbc__patch__parameters" ],
     [ "bounds_info", "structbounds__info.html", "structbounds__info" ],
     [ "bub_bounds_info", "structbub__bounds__info.html", "structbub__bounds__info" ],
     [ "ic_model_parameters", "structic__model__parameters.html", "structic__model__parameters" ],

@@ -6,6 +6,7 @@ var annotated_dup =
       [ "nvtxrangepush", "interfacem__nvtx_1_1nvtxrangepush.html", "interfacem__nvtx_1_1nvtxrangepush" ]
     ] ],
     [ "acoustic_parameters", "structacoustic__parameters.html", "structacoustic__parameters" ],
+    [ "bc_patch_parameters", "structbc__patch__parameters.html", "structbc__patch__parameters" ],
     [ "bounds_info", "structbounds__info.html", "structbounds__info" ],
     [ "bub_bounds_info", "structbub__bounds__info.html", "structbub__bounds__info" ],
     [ "bubbles_lagrange_parameters", "structbubbles__lagrange__parameters.html", "structbubbles__lagrange__parameters" ],

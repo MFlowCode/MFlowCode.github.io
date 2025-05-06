@@ -11,6 +11,7 @@ var m__patches_8fpp_8f90 =
     [ "s_3d_analytical", "m__patches_8fpp_8f90.html#aa1a00f3943c48f78749d1fe467c43255", null ],
     [ "s_3dvarcircle", "m__patches_8fpp_8f90.html#a9da67ac4b2021fadcbe3aeeb198b7205", null ],
     [ "s_airfoil", "m__patches_8fpp_8f90.html#a5f0dc2f493e0a2ee08d854ff7572812d", null ],
+    [ "s_apply_domain_patches", "m__patches_8fpp_8f90.html#a82456fc6660400500f28abe95c073342", null ],
     [ "s_circle", "m__patches_8fpp_8f90.html#af442edb2301afda722f9c348557024a3", null ],
     [ "s_convert_cylindrical_to_cartesian_coord", "m__patches_8fpp_8f90.html#a899dca857a7e7f2d7d8dbd4bbd92a5ed", null ],
     [ "s_convert_cylindrical_to_spherical_coord", "m__patches_8fpp_8f90.html#a07620469b61321f2795f545a9e98cd30", null ],

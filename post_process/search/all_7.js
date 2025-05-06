@@ -10,7 +10,7 @@ var searchData=
   ['gamma_5fwrt_7',['gamma_wrt',['../namespacem__global__parameters.html#a610d39b1d30ffa66fead89c936c83226',1,'m_global_parameters']]],
   ['gauss_5fsigma_5fdist_8',['gauss_sigma_dist',['../structacoustic__parameters.html#a7344fa90dd8495c83517a70608bfe5de',1,'acoustic_parameters']]],
   ['gauss_5fsigma_5ftime_9',['gauss_sigma_time',['../structacoustic__parameters.html#a9e1e9f41cfb9854e1c5adcd760fece74',1,'acoustic_parameters']]],
-  ['geometry_10',['geometry',['../structic__patch__parameters.html#adcd14f8609bf5dc1dca4edd77b75a10a',1,'ic_patch_parameters::geometry'],['../structib__patch__parameters.html#ab89e22e150dcf97121f5c894acfdadd7',1,'ib_patch_parameters::geometry']]],
+  ['geometry_10',['geometry',['../structbc__patch__parameters.html#af380895dcfeb5257e12a1f7ab09bb7f6',1,'bc_patch_parameters::geometry'],['../structic__patch__parameters.html#adcd14f8609bf5dc1dca4edd77b75a10a',1,'ic_patch_parameters::geometry'],['../structib__patch__parameters.html#ab89e22e150dcf97121f5c894acfdadd7',1,'ib_patch_parameters::geometry']]],
   ['ghost_5fpoint_11',['ghost_point',['../structghost__point.html',1,'']]],
   ['gm_5frho_5fsf_12',['gm_rho_sf',['../namespacem__derived__variables.html#a669ae824cc8ce04607c7753ec954739f',1,'m_derived_variables']]],
   ['gp_5flayers_13',['gp_layers',['../namespacem__constants.html#a4363660e82e633cc1947ab968706b26b',1,'m_constants']]],

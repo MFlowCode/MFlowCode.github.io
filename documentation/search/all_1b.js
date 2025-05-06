@@ -1,18 +1,5 @@
 var searchData=
 [
-  ['v100_20gpu_0',['V100 GPU',['../md_expectedPerformance.html#autotoc_md86',1,'NVIDIA V100 GPU'],['../md_expectedPerformance.html#autotoc_md89',1,'NVIDIA V100 GPU']]],
-  ['variables_1',['Analytical Definition of Primitive Variables',['../md_case.html#autotoc_md8',1,'']]],
-  ['variables_20ordering_2',['Variables Ordering',['../md_case.html#autotoc_md34',1,'Conservative Variables Ordering'],['../md_case.html#autotoc_md35',1,'Primitive Variables Ordering']]],
-  ['velocities_3',['Centerline Velocities',['../md_examples.html#autotoc_md45',1,'']]],
-  ['velocity_20field_20setup_4',['10. Velocity Field Setup',['../md_case.html#autotoc_md22',1,'']]],
-  ['visit_5',['Visualizing with VisIt',['../md_visualization.html#autotoc_md118',1,'']]],
-  ['visualization_6',['Flow visualization',['../md_visualization.html',1,'']]],
-  ['visualization_20on_20pace_20phoenix_7',['Remote Visualization on PACE Phoenix',['../md_visualization.html#autotoc_md120',1,'']]],
-  ['visualization_2emd_8',['visualization.md',['../visualization_8md.html',1,'']]],
-  ['visualizing_20data_20in_20cylindrical_20coordinates_9',['Visualizing data in cylindrical coordinates',['../md_visualization.html#autotoc_md117',1,'']]],
-  ['visualizing_20with_20paraview_10',['Visualizing with Paraview',['../md_visualization.html#autotoc_md116',1,'']]],
-  ['visualizing_20with_20visit_11',['Visualizing with VisIt',['../md_visualization.html#autotoc_md118',1,'']]],
-  ['volume_20averaged_20bubble_20model_12',['9.2 Volume-Averaged Bubble Model',['../md_case.html#autotoc_md21',1,'']]],
-  ['vortex_203d_13',['Taylor-Green Vortex (3D)',['../md_examples.html#autotoc_md61',1,'']]],
-  ['vortex_20problem_202d_14',['Isentropic vortex problem (2D)',['../md_examples.html#autotoc_md77',1,'']]]
+  ['up_20your_20environment_0',['Step 1: Setting up your Environment',['../md_visualization.html#autotoc_md124',1,'']]],
+  ['user_20documentation_1',['User Documentation',['../md_readme.html#autotoc_md104',1,'']]]
 ];

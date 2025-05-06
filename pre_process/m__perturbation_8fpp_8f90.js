@@ -1,7 +1,7 @@
 var m__perturbation_8fpp_8f90 =
 [
     [ "m_perturbation::s_compute_equilibrium_state", "namespacem__perturbation.html#a935011289e8500cce5029cd4a0057fb3", null ],
-    [ "m_perturbation::s_elliptic_smoothing", "namespacem__perturbation.html#aa1376bff31bbce288898a6c61a9cc12b", null ],
+    [ "m_perturbation::s_elliptic_smoothing", "namespacem__perturbation.html#a0bea1388b6e2414c8f29456cc4190b3d", null ],
     [ "m_perturbation::s_finalize_perturbation_module", "namespacem__perturbation.html#a99c8b1f4da4daea9421512201df358ad", null ],
     [ "m_perturbation::s_generate_wave", "namespacem__perturbation.html#a1c4f0408bd2add236726ce145792fedc", null ],
     [ "m_perturbation::s_initialize_perturbation_module", "namespacem__perturbation.html#a967a017cec8d73fe0a3a6b6e60ca4573", null ],
@@ -11,12 +11,6 @@ var m__perturbation_8fpp_8f90 =
     [ "m_perturbation::s_perturb_surrounding_flow", "namespacem__perturbation.html#a058aa56ac810821ff7389395acb980ab", null ],
     [ "m_perturbation::s_solve_linear_system", "namespacem__perturbation.html#aa534095d2175f5168e4fa2a16a0acc99", null ],
     [ "m_perturbation::s_superposition_instability_wave", "namespacem__perturbation.html#af93db93e898d0480e138fc1f60560fc5", null ],
-    [ "m_perturbation::bcxb", "namespacem__perturbation.html#ae530590ce3895669cb00adade56d3dd4", null ],
-    [ "m_perturbation::bcxe", "namespacem__perturbation.html#a00295a64e0d723cb1e1404c3c3e4b7a5", null ],
-    [ "m_perturbation::bcyb", "namespacem__perturbation.html#a4c06cb5ebc8f4015d49555f0627a3a7a", null ],
-    [ "m_perturbation::bcye", "namespacem__perturbation.html#ab05f0d3f787bb558928b9502e3c10399", null ],
-    [ "m_perturbation::bczb", "namespacem__perturbation.html#a8ff210be4cd7d2dd080dac69c77e5a85", null ],
-    [ "m_perturbation::bcze", "namespacem__perturbation.html#a86f7daded7541c31aef5258c38e157b7", null ],
     [ "m_perturbation::mixlayer_bc_fd", "namespacem__perturbation.html#a60650727d33977adeb35bc47a0b44889", null ],
     [ "m_perturbation::mixlayer_nvar", "namespacem__perturbation.html#ac37762de5f3a535a726fc6f269358a41", null ],
     [ "m_perturbation::mixlayer_var", "namespacem__perturbation.html#a07707ab93132630e44496213642a40db", null ],
