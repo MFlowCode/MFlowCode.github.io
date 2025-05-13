@@ -9,6 +9,6 @@ var searchData=
   ['mi250x_20gpu_6',['AMD MI250X GPU',['../md_expectedPerformance.html#autotoc_md88',1,'']]],
   ['model_7',['Model',['../md_case.html#autotoc_md24',1,'11. Phase Change Model'],['../md_case.html#autotoc_md21',1,'9.1 Ensemble-Averaged Bubble Model'],['../md_case.html#autotoc_md22',1,'9.2 Volume-Averaged Bubble Model']]],
   ['models_8',['9. Sub-grid Bubble Models',['../md_case.html#autotoc_md20',1,'']]],
-  ['multi_20component_20inert_20shock_20tube_9',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md61',1,'']]],
-  ['multi_20component_20reactive_20shock_20tube_10',['1D Multi-Component Reactive Shock Tube',['../md_examples.html#autotoc_md76',1,'']]]
+  ['multi_20component_20inert_20shock_20tube_9',['1D Multi-Component Inert Shock Tube',['../md_examples.html#autotoc_md66',1,'']]],
+  ['multi_20component_20reactive_20shock_20tube_10',['1D Multi-Component Reactive Shock Tube',['../md_examples.html#autotoc_md77',1,'']]]
 ];
