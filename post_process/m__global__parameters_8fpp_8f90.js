@@ -160,7 +160,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::relax_model", "namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58", null ],
     [ "m_global_parameters::rho_wrt", "namespacem__global__parameters.html#aabc3362b8f53b08f4f113e699d449754", null ],
     [ "m_global_parameters::rhoref", "namespacem__global__parameters.html#a2c96ac4d6bd49d9758366b63f3181169", null ],
-    [ "m_global_parameters::rkck_adap_dt", "namespacem__global__parameters.html#ab22a2b725774e79fedb346eaa7a79531", null ],
     [ "m_global_parameters::schlieren_alpha", "namespacem__global__parameters.html#a2ae9e61e94bde81b6241a55a2d28d91e", null ],
     [ "m_global_parameters::schlieren_wrt", "namespacem__global__parameters.html#acd86b6cea52b83b147f680d9d6da342c", null ],
     [ "m_global_parameters::shear_bc_flip_indices", "namespacem__global__parameters.html#a11cfacbcdd3d3695f1f68298f24379a0", null ],

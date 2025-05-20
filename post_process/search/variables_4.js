@@ -10,6 +10,5 @@ var searchData=
   ['epsilon_7',['epsilon',['../structic__patch__parameters.html#a061455df21c5818acde7a895f0f0e10a',1,'ic_patch_parameters']]],
   ['epsilonb_8',['epsilonb',['../structbubbles__lagrange__parameters.html#ab88c590a99573f40656509957a1e6016',1,'bubbles_lagrange_parameters']]],
   ['err_9',['err',['../namespacem__data__output.html#a9200025029de298307a47699927a60fa',1,'m_data_output']]],
-  ['err_5fcode_10',['err_code',['../namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982',1,'m_mpi_proxy']]],
-  ['errcon_11',['errcon',['../namespacem__constants.html#a1695bb92ecfb5b4dcb2c667917ab0e38',1,'m_constants']]]
+  ['err_5fcode_10',['err_code',['../namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982',1,'m_mpi_proxy']]]
 ];

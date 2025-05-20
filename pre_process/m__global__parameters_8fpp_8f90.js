@@ -166,7 +166,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::relax_model", "namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58", null ],
     [ "m_global_parameters::rhoref", "namespacem__global__parameters.html#a2c96ac4d6bd49d9758366b63f3181169", null ],
     [ "m_global_parameters::rhorv", "namespacem__global__parameters.html#aed531c029ab875fcad0b5ca8aaf72ee1", null ],
-    [ "m_global_parameters::rkck_adap_dt", "namespacem__global__parameters.html#ab22a2b725774e79fedb346eaa7a79531", null ],
     [ "m_global_parameters::shear_bc_flip_indices", "namespacem__global__parameters.html#a11cfacbcdd3d3695f1f68298f24379a0", null ],
     [ "m_global_parameters::shear_bc_flip_num", "namespacem__global__parameters.html#a79a48aa96123743f5d309aa0c35f3601", null ],
     [ "m_global_parameters::shear_indices", "namespacem__global__parameters.html#abd9b852dff690255ccb5dfae014d844f", null ],
