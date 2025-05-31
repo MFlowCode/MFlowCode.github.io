@@ -167,11 +167,17 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ad70e635bb415e54ec06aa5bd629b2805"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures needed to configure the chosen Riemann solver algorithm.  <br /></td></tr>
 <tr class="separator:ad70e635bb415e54ec06aa5bd629b2805"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1092b59f5ce84670f7fdd662c0b75e4a" id="r_a1092b59f5ce84670f7fdd662c0b75e4a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1092b59f5ce84670f7fdd662c0b75e4a">s_compute_cylindrical_viscous_source_flux</a> (vell_vf, dvell_dx_vf, dvell_dy_vf, dvell_dz_vf, velr_vf, dvelr_dx_vf, dvelr_dy_vf, dvelr_dz_vf, flux_src_vf, norm_dir, ix, iy, iz)</td></tr>
-<tr class="memdesc:a1092b59f5ce84670f7fdd662c0b75e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to evaluate and account for the contribution of viscous stresses in the source flux for the momentum and energy.  <br /></td></tr>
+<tr class="memdesc:a1092b59f5ce84670f7fdd662c0b75e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes cylindrical viscous source flux contributions for momentum and energy. Calculates Cartesian components of the stress tensor using averaged velocity derivatives and cylindrical geometric factors, then updates <code>flux_src_vf</code>. Assumes x-dir is axial (z_cyl), y-dir is radial (r_cyl), z-dir is azimuthal (theta_cyl for derivatives).  <br /></td></tr>
 <tr class="separator:a1092b59f5ce84670f7fdd662c0b75e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e640cfa9e90596c772833741d1839fc" id="r_a9e640cfa9e90596c772833741d1839fc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e640cfa9e90596c772833741d1839fc">s_compute_cartesian_viscous_source_flux</a> (vell_vf, dvell_dx_vf, dvell_dy_vf, dvell_dz_vf, velr_vf, dvelr_dx_vf, dvelr_dy_vf, dvelr_dz_vf, flux_src_vf, norm_dir, ix, iy, iz)</td></tr>
-<tr class="memdesc:a9e640cfa9e90596c772833741d1839fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to evaluate and account for the contribution of viscous stresses in the source flux for the momentum and energy.  <br /></td></tr>
+<tr class="memdesc:a9e640cfa9e90596c772833741d1839fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes Cartesian viscous source flux contributions for momentum and energy. Calculates averaged velocity gradients, gets Re and interface velocities, calls helpers for shear/bulk stress, then updates <code>flux_src_vf</code>.  <br /></td></tr>
 <tr class="separator:a9e640cfa9e90596c772833741d1839fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1725165c23d33e1a20f32d7f405d0268" id="r_a1725165c23d33e1a20f32d7f405d0268"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1725165c23d33e1a20f32d7f405d0268">s_calculate_shear_stress_tensor</a> (vel_grad_avg, re_shear, divergence_v, tau_shear_out)</td></tr>
+<tr class="memdesc:a1725165c23d33e1a20f32d7f405d0268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates shear stress tensor components. tau_ij_shear = ( (dui/dxj + duj/dxi) - (2/3)*(div_v)*delta_ij ) / Re_shear.  <br /></td></tr>
+<tr class="separator:a1725165c23d33e1a20f32d7f405d0268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a6de07200af5684b289af06b3a27695" id="r_a1a6de07200af5684b289af06b3a27695"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a6de07200af5684b289af06b3a27695">s_calculate_bulk_stress_tensor</a> (re_bulk, divergence_v, tau_bulk_out)</td></tr>
+<tr class="memdesc:a1a6de07200af5684b289af06b3a27695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates bulk stress tensor components (diagonal only). tau_ii_bulk = (div_v) / Re_bulk. Off-diagonals are zero.  <br /></td></tr>
+<tr class="separator:a1a6de07200af5684b289af06b3a27695"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ac28f70381f12ad4d2ba1f71d68dc15" id="r_a8ac28f70381f12ad4d2ba1f71d68dc15"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ac28f70381f12ad4d2ba1f71d68dc15">s_finalize_riemann_solver</a> (flux_vf, flux_src_vf, flux_gsrc_vf, norm_dir, ix, iy, iz)</td></tr>
 <tr class="memdesc:a8ac28f70381f12ad4d2ba1f71d68dc15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or disassociation procedures that are needed to finalize the selected Riemann problem solver.  <br /></td></tr>
 <tr class="separator:a8ac28f70381f12ad4d2ba1f71d68dc15"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -197,6 +203,110 @@ Functions/Subroutines</h2></td></tr>
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a8307be81e3cdbdafbf8e65f19b31fc30_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1a6de07200af5684b289af06b3a27695" name="a1a6de07200af5684b289af06b3a27695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a6de07200af5684b289af06b3a27695">&#9670;&#160;</a></span>s_calculate_bulk_stress_tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_riemann_solvers_fpp_f90__::s_calculate_bulk_stress_tensor </td>
+          <td>(</td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_bulk</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>divergence_v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), dimension(num_dims, num_dims), intent(out)</td>          <td class="paramname"><span class="paramname"><em>tau_bulk_out</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates bulk stress tensor components (diagonal only). tau_ii_bulk = (div_v) / Re_bulk. Off-diagonals are zero. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">Re_bulk</td><td>Bulk Reynolds number. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">divergence_v</td><td>Velocity divergence (du/dx + dv/dy + dw/dz). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tau_bulk_out</td><td>Calculated bulk stress tensor (stress on i-face, i-direction). </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a1a6de07200af5684b289af06b3a27695_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1725165c23d33e1a20f32d7f405d0268" name="a1725165c23d33e1a20f32d7f405d0268"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1725165c23d33e1a20f32d7f405d0268">&#9670;&#160;</a></span>s_calculate_shear_stress_tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_riemann_solvers_fpp_f90__::s_calculate_shear_stress_tensor </td>
+          <td>(</td>
+          <td class="paramtype">real(wp), dimension(num_dims, num_dims), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_grad_avg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_shear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>divergence_v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), dimension(num_dims, num_dims), intent(out)</td>          <td class="paramname"><span class="paramname"><em>tau_shear_out</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates shear stress tensor components. tau_ij_shear = ( (dui/dxj + duj/dxi) - (2/3)*(div_v)*delta_ij ) / Re_shear. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vel_grad_avg</td><td>Averaged velocity gradient tensor (d(vel_i)/d(coord_j)). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">Re_shear</td><td>Shear Reynolds number. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">divergence_v</td><td>Velocity divergence (du/dx + dv/dy + dw/dz). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tau_shear_out</td><td>Calculated shear stress tensor (stress on i-face, j-direction). </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a1725165c23d33e1a20f32d7f405d0268_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -283,25 +393,30 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The goal of this subroutine is to evaluate and account for the contribution of viscous stresses in the source flux for the momentum and energy. </p>
+<p>Computes Cartesian viscous source flux contributions for momentum and energy. Calculates averaged velocity gradients, gets Re and interface velocities, calls helpers for shear/bulk stress, then updates <code>flux_src_vf</code>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">velL_vf</td><td>Left, WENO reconstructed, cell-boundary values of the velocity </td></tr>
-    <tr><td class="paramname">velR_vf</td><td>Right, WENO reconstructed, cell-boundary values of the velocity </td></tr>
-    <tr><td class="paramname">dvelL_dx_vf</td><td>Left, WENO reconstructed cell-avg. x-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelL_dy_vf</td><td>Left, WENO reconstructed cell-avg. y-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelL_dz_vf</td><td>Left, WENO reconstructed cell-avg. z-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelR_dx_vf</td><td>Right, WENO reconstructed cell-avg. x-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelR_dy_vf</td><td>Right, WENO reconstructed cell-avg. y-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelR_dz_vf</td><td>Right, WENO reconstructed cell-avg. z-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">flux_src_vf</td><td>Intercell flux </td></tr>
-    <tr><td class="paramname">norm_dir</td><td>Dimensional splitting coordinate direction </td></tr>
-    <tr><td class="paramname">ix</td><td>Index bounds in first coordinate direction </td></tr>
-    <tr><td class="paramname">iy</td><td>Index bounds in second coordinate direction </td></tr>
-    <tr><td class="paramname">iz</td><td>Index bounds in third coordinate direction </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">velL_vf</td><td>Left boundary velocity (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelL_dx_vf</td><td>Left boundary d(vel)/dx (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelL_dy_vf</td><td>Left boundary d(vel)/dy (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelL_dz_vf</td><td>Left boundary d(vel)/dz (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">velR_vf</td><td>Right boundary velocity (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelR_dx_vf</td><td>Right boundary d(vel)/dx (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelR_dy_vf</td><td>Right boundary d(vel)/dy (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelR_dz_vf</td><td>Right boundary d(vel)/dz (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">flux_src_vf</td><td>Intercell source flux array to update (sys_size <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">norm_dir</td><td>Interface normal direction (1=x, 2=y, 3=z). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ix</td><td>X-direction loop bounds (<a class="el" href="structint__bounds__info.html" title="Integer bounds for variables.">int_bounds_info</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iy</td><td>Y-direction loop bounds (<a class="el" href="structint__bounds__info.html" title="Integer bounds for variables.">int_bounds_info</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iz</td><td>Z-direction loop bounds (<a class="el" href="structint__bounds__info.html" title="Integer bounds for variables.">int_bounds_info</a>). </td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a9e640cfa9e90596c772833741d1839fc_cgraph.svg" width="403" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -392,22 +507,22 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The goal of this subroutine is to evaluate and account for the contribution of viscous stresses in the source flux for the momentum and energy. </p>
+<p>Computes cylindrical viscous source flux contributions for momentum and energy. Calculates Cartesian components of the stress tensor using averaged velocity derivatives and cylindrical geometric factors, then updates <code>flux_src_vf</code>. Assumes x-dir is axial (z_cyl), y-dir is radial (r_cyl), z-dir is azimuthal (theta_cyl for derivatives). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">velL_vf</td><td>Left, WENO reconstructed, cell-boundary values of the velocity </td></tr>
-    <tr><td class="paramname">velR_vf</td><td>Right, WENO reconstructed, cell-boundary values of the velocity </td></tr>
-    <tr><td class="paramname">dvelL_dx_vf</td><td>Left, WENO reconstructed cell-avg. x-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelL_dy_vf</td><td>Left, WENO reconstructed cell-avg. y-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelL_dz_vf</td><td>Left, WENO reconstructed cell-avg. z-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelR_dx_vf</td><td>Right, WENO reconstructed cell-avg. x-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelR_dy_vf</td><td>Right, WENO reconstructed cell-avg. y-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">dvelR_dz_vf</td><td>Right, WENO reconstructed cell-avg. z-dir derivative of the velocity </td></tr>
-    <tr><td class="paramname">flux_src_vf</td><td>Intercell flux </td></tr>
-    <tr><td class="paramname">norm_dir</td><td>Dimensional splitting coordinate direction </td></tr>
-    <tr><td class="paramname">ix</td><td>Index bounds in first coordinate direction </td></tr>
-    <tr><td class="paramname">iy</td><td>Index bounds in second coordinate direction </td></tr>
-    <tr><td class="paramname">iz</td><td>Index bounds in third coordinate direction </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">velL_vf</td><td>Left boundary velocity ($v_x, v_y, v_z$) (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelL_dx_vf</td><td>Left boundary $\partial v_i/\partial x$ (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelL_dy_vf</td><td>Left boundary $\partial v_i/\partial y$ (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelL_dz_vf</td><td>Left boundary $\partial v_i/\partial z$ (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">velR_vf</td><td>Right boundary velocity ($v_x, v_y, v_z$) (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelR_dx_vf</td><td>Right boundary $\partial v_i/\partial x$ (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelR_dy_vf</td><td>Right boundary $\partial v_i/\partial y$ (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dvelR_dz_vf</td><td>Right boundary $\partial v_i/\partial z$ (num_dims <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">flux_src_vf</td><td>Intercell source flux array to update (sys_size <a class="el" href="structscalar__field.html" title="Derived type annexing a scalar field (SF)">scalar_field</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">norm_dir</td><td>Interface normal direction (1=x-face, 2=y-face, 3=z-face). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ix</td><td>Global X-direction loop bounds (<a class="el" href="structint__bounds__info.html" title="Integer bounds for variables.">int_bounds_info</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iy</td><td>Global Y-direction loop bounds (<a class="el" href="structint__bounds__info.html" title="Integer bounds for variables.">int_bounds_info</a>). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iz</td><td>Global Z-direction loop bounds (<a class="el" href="structint__bounds__info.html" title="Integer bounds for variables.">int_bounds_info</a>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -505,7 +620,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a95e9ef5ad9e1480c08e7db621b225a9a_cgraph.svg" width="456" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a95e9ef5ad9e1480c08e7db621b225a9a_cgraph.svg" width="100%" height="410"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -749,7 +864,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a7201ee610e9eb4d4777e257035d04705_cgraph.svg" width="664" height="358"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__riemann__solvers_8fpp_8f90_a7201ee610e9eb4d4777e257035d04705_cgraph.svg" width="100%" height="568"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

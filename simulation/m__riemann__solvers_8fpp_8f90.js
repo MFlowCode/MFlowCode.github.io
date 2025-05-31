@@ -1,6 +1,8 @@
 var m__riemann__solvers_8fpp_8f90 =
 [
     [ "__m_riemann_solvers_fpp_f90__", "m__riemann__solvers_8fpp_8f90.html#a8307be81e3cdbdafbf8e65f19b31fc30", null ],
+    [ "s_calculate_bulk_stress_tensor", "m__riemann__solvers_8fpp_8f90.html#a1a6de07200af5684b289af06b3a27695", null ],
+    [ "s_calculate_shear_stress_tensor", "m__riemann__solvers_8fpp_8f90.html#a1725165c23d33e1a20f32d7f405d0268", null ],
     [ "s_compute_cartesian_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a9e640cfa9e90596c772833741d1839fc", null ],
     [ "s_compute_cylindrical_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a1092b59f5ce84670f7fdd662c0b75e4a", null ],
     [ "s_compute_viscous_source_flux", "m__riemann__solvers_8fpp_8f90.html#a95e9ef5ad9e1480c08e7db621b225a9a", null ],
