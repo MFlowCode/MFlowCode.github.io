@@ -1,6 +1,7 @@
 var m__rhs_8fpp_8f90 =
 [
     [ "__m_rhs_fpp_f90__", "m__rhs_8fpp_8f90.html#a87616394067f1273cd06c4d299d10add", null ],
+    [ "s_add_directional_advection_source_terms", "m__rhs_8fpp_8f90.html#af45f15d6e6ca83c8ae92f98a2a72ff8d", null ],
     [ "s_compute_additional_physics_rhs", "m__rhs_8fpp_8f90.html#afeae1fd0756bb3772913a45329dd0d7e", null ],
     [ "s_compute_advection_source_term", "m__rhs_8fpp_8f90.html#a376bc3b64f78384ac773235ee7fbdd98", null ],
     [ "s_compute_rhs", "m__rhs_8fpp_8f90.html#a2f1d88515711b74423125cee4261e828", null ],
