@@ -1,8 +1,8 @@
 var m__patches_8fpp_8f90 =
 [
     [ "__m_patches_fpp_f90__", "m__patches_8fpp_8f90.html#a4a44c39189d79ff9c01b6372bf3dd856", null ],
-    [ "f_convert_cyl_to_cart", "m__patches_8fpp_8f90.html#ab573d8ed768a86ac50b907f44bac14c0", null ],
-    [ "f_r", "m__patches_8fpp_8f90.html#ab1a432985caf26ebcc67680e85f3e1d5", null ],
+    [ "f_convert_cyl_to_cart", "m__patches_8fpp_8f90.html#a1b9dae7d07360c88525c78db21e8a857", null ],
+    [ "f_r", "m__patches_8fpp_8f90.html#a317c42a28ef127d3944ae8e3ad356737", null ],
     [ "s_1d_analytical", "m__patches_8fpp_8f90.html#a877a50bac5c65d068153395c5e6b6ecb", null ],
     [ "s_1d_bubble_pulse", "m__patches_8fpp_8f90.html#acb9c479af598749a01bc7f2249d77bda", null ],
     [ "s_2d_analytical", "m__patches_8fpp_8f90.html#a3ab7435e1f733d4dfe54af0de782c4c4", null ],
@@ -11,7 +11,7 @@ var m__patches_8fpp_8f90 =
     [ "s_3d_analytical", "m__patches_8fpp_8f90.html#aa1a00f3943c48f78749d1fe467c43255", null ],
     [ "s_3dvarcircle", "m__patches_8fpp_8f90.html#a9da67ac4b2021fadcbe3aeeb198b7205", null ],
     [ "s_airfoil", "m__patches_8fpp_8f90.html#a5f0dc2f493e0a2ee08d854ff7572812d", null ],
-    [ "s_apply_domain_patches", "m__patches_8fpp_8f90.html#a82456fc6660400500f28abe95c073342", null ],
+    [ "s_apply_domain_patches", "m__patches_8fpp_8f90.html#af43e9148f010e851e66d33048b57e47e", null ],
     [ "s_circle", "m__patches_8fpp_8f90.html#af442edb2301afda722f9c348557024a3", null ],
     [ "s_convert_cylindrical_to_cartesian_coord", "m__patches_8fpp_8f90.html#a899dca857a7e7f2d7d8dbd4bbd92a5ed", null ],
     [ "s_convert_cylindrical_to_spherical_coord", "m__patches_8fpp_8f90.html#a07620469b61321f2795f545a9e98cd30", null ],
@@ -24,7 +24,7 @@ var m__patches_8fpp_8f90 =
     [ "s_rectangle", "m__patches_8fpp_8f90.html#a4adb39d64a05ee37bb7d02ee5d794ff2", null ],
     [ "s_sphere", "m__patches_8fpp_8f90.html#a12867ad8a73bc22da367c7d8b5b8381f", null ],
     [ "s_spherical_harmonic", "m__patches_8fpp_8f90.html#ac495040b73e45dc96e23a5a1ec55e569", null ],
-    [ "s_spiral", "m__patches_8fpp_8f90.html#adcb41d8b3a2c69d356c92a0af3f7853b", null ],
+    [ "s_spiral", "m__patches_8fpp_8f90.html#a36b281c4072e269e4c1df45e3be2312c", null ],
     [ "s_sweep_line", "m__patches_8fpp_8f90.html#a21e85b84406e2dd37807038d70f5aea2", null ],
     [ "s_sweep_plane", "m__patches_8fpp_8f90.html#abeee1a033809cdc97e1202f54daf6d01", null ],
     [ "s_varcircle", "m__patches_8fpp_8f90.html#aa6c7a1dbbeeb49707ffb4f50581d0026", null ]

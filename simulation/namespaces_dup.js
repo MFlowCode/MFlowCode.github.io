@@ -1,26 +1,26 @@
 var namespaces_dup =
 [
     [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
-      [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__conditions.html#a050f9bdd5b4671d595458775c5aae767", null ],
-      [ "s_read_serial_boundary_condition_files", "namespacem__boundary__conditions.html#a406aff3ff4e2ef6537b4ff2b09fe110d", null ]
+      [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__conditions.html#aa46c36d9d76a32ad557249477c9a1dfb", null ],
+      [ "s_read_serial_boundary_condition_files", "namespacem__boundary__conditions.html#a3c43a9cd3da78ca01c3331f53a239fed", null ]
     ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
-      [ "my_inquire", "namespacem__compile__specific.html#aa7f14da74305c1d061ce326b16a3263e", null ],
-      [ "s_create_directory", "namespacem__compile__specific.html#a44b8e18a2c76367e7090649e62dd7d8c", null ],
-      [ "s_delete_directory", "namespacem__compile__specific.html#a46d584d175683c9c0407cc07181d7bce", null ],
-      [ "s_delete_file", "namespacem__compile__specific.html#a9057a54e5ffadbe3bf1c7f5886e5834e", null ],
-      [ "s_get_basename", "namespacem__compile__specific.html#a02f67a5a331646ce335ad5b06f5e5473", null ],
-      [ "s_get_cwd", "namespacem__compile__specific.html#ae3383041a3e88fce84fcc7aa39a7c4d5", null ]
+      [ "my_inquire", "namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d", null ],
+      [ "s_create_directory", "namespacem__compile__specific.html#aa1b4e12a20e09147a215c3b5018484b0", null ],
+      [ "s_delete_directory", "namespacem__compile__specific.html#a60af946dc5a6e9ece1327c7cb756c4a2", null ],
+      [ "s_delete_file", "namespacem__compile__specific.html#a0adef25da3c26cee8c65b6d625615c82", null ],
+      [ "s_get_basename", "namespacem__compile__specific.html#a40a6fb65a46c294f5e20b076f3187bba", null ],
+      [ "s_get_cwd", "namespacem__compile__specific.html#a73c98d7d55ae5bdadd796d953752c50b", null ]
     ] ],
     [ "m_compute_cbc", "namespacem__compute__cbc.html", [
-      [ "s_compute_constant_pressure_subsonic_outflow_l", "namespacem__compute__cbc.html#a8786f79b77186724789f238652a74a47", null ],
-      [ "s_compute_force_free_subsonic_outflow_l", "namespacem__compute__cbc.html#a464cdf8e82aee66a294c38f9d0190711", null ],
-      [ "s_compute_nonreflecting_subsonic_buffer_l", "namespacem__compute__cbc.html#a3ed89568b020fb0ab93a0836cd99ba8e", null ],
-      [ "s_compute_nonreflecting_subsonic_inflow_l", "namespacem__compute__cbc.html#a83da311a28959910c7bfa956c1f56b62", null ],
-      [ "s_compute_nonreflecting_subsonic_outflow_l", "namespacem__compute__cbc.html#aaebbe5603a0b7f154c2b6c1c9bbd0d47", null ],
-      [ "s_compute_slip_wall_l", "namespacem__compute__cbc.html#a8bc20ac103228a5f5854c78781f9a3cc", null ],
-      [ "s_compute_supersonic_inflow_l", "namespacem__compute__cbc.html#a2eafc57dabbcb291bc86e9895d6fc918", null ],
-      [ "s_compute_supersonic_outflow_l", "namespacem__compute__cbc.html#a645b0d1fb8eb2b0390e9f3ad5fd91ed8", null ]
+      [ "s_compute_constant_pressure_subsonic_outflow_l", "namespacem__compute__cbc.html#af5eba6e6375a336afacbaea4de5eca1b", null ],
+      [ "s_compute_force_free_subsonic_outflow_l", "namespacem__compute__cbc.html#a732f45ecbd489ff15c2c8773d37c84d4", null ],
+      [ "s_compute_nonreflecting_subsonic_buffer_l", "namespacem__compute__cbc.html#a34909ca05d46044d70c04c017aa103b9", null ],
+      [ "s_compute_nonreflecting_subsonic_inflow_l", "namespacem__compute__cbc.html#a18a9be0bd05b09e8fd7f677c76a56c43", null ],
+      [ "s_compute_nonreflecting_subsonic_outflow_l", "namespacem__compute__cbc.html#a68d5fa7a23a11a0a5bd698f3ce482cd1", null ],
+      [ "s_compute_slip_wall_l", "namespacem__compute__cbc.html#aa6d63cd1bd6fc461c3ac614a387e6413", null ],
+      [ "s_compute_supersonic_inflow_l", "namespacem__compute__cbc.html#aed4d2661bc71ca9699a324f69d557483", null ],
+      [ "s_compute_supersonic_outflow_l", "namespacem__compute__cbc.html#a92bf825d0b077db1831cfa1d18a34891", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "acoustic_spatial_support_width", "namespacem__constants.html#a92bc4d3446d8473183e165116932778f", null ],
@@ -86,17 +86,17 @@ var namespaces_dup =
       [ "verysmall", "namespacem__constants.html#ae5ca79b5bbc3e0f374743575b3b27459", null ]
     ] ],
     [ "m_delay_file_access", "namespacem__delay__file__access.html", [
-      [ "delayfileaccess", "namespacem__delay__file__access.html#a2fdd67c672da87dc016f9262b75776a5", null ],
+      [ "delayfileaccess", "namespacem__delay__file__access.html#a9b90086a2cf6bbb569047c955d2e67fe", null ],
       [ "file_access_delay_unit", "namespacem__delay__file__access.html#ac86039f49509375179810ae226dac69b", null ],
       [ "n_processes_file_access", "namespacem__delay__file__access.html#ab213216c1359e4dac71415abf3e1b5fe", null ]
     ] ],
     [ "m_derived_variables", "namespacem__derived__variables.html", [
       [ "s_compute_derived_variables", "namespacem__derived__variables.html#a516a9808b3446b7b45029f6451d02b3f", null ],
-      [ "s_derive_acceleration_component", "namespacem__derived__variables.html#aeafec81c1b2cb37f1cea824b9fff4d9b", null ],
-      [ "s_derive_center_of_mass", "namespacem__derived__variables.html#ac51a7dfab9a499e0b94524a65a833f65", null ],
-      [ "s_finalize_derived_variables_module", "namespacem__derived__variables.html#ae8a62a7f25d9ea256e7c213c850c7070", null ],
-      [ "s_initialize_derived_variables", "namespacem__derived__variables.html#a1d5e183428b9bafe2175cfc63f7cd937", null ],
-      [ "s_initialize_derived_variables_module", "namespacem__derived__variables.html#a8edda55880064bbfb9f486156fb03423", null ],
+      [ "s_derive_acceleration_component", "namespacem__derived__variables.html#a7170414c447588f015d3cf4862410aed", null ],
+      [ "s_derive_center_of_mass", "namespacem__derived__variables.html#a3eb66e46af47e787f79a01e2236779b0", null ],
+      [ "s_finalize_derived_variables_module", "namespacem__derived__variables.html#ad5dfada9c933c6a4d3f9b41a8b7a98f9", null ],
+      [ "s_initialize_derived_variables", "namespacem__derived__variables.html#a2785f5e987c36bd2bfca4ce3d3731c3a", null ],
+      [ "s_initialize_derived_variables_module", "namespacem__derived__variables.html#a77b3f12eca15a93f0bbe8881f6bbcfd4", null ],
       [ "accel_mag", "namespacem__derived__variables.html#ac7c099651b1d00401355f738fdea1b5f", null ],
       [ "fd_coeff_x", "namespacem__derived__variables.html#a7de66037d4a2a2f399c88c87507778d4", null ],
       [ "fd_coeff_y", "namespacem__derived__variables.html#a33359529e69da3b8c0d3b43f219534e9", null ],
@@ -106,25 +106,25 @@ var namespaces_dup =
       [ "z_accel", "namespacem__derived__variables.html#ad6ca466f23d6828af52f82b010b18bc7", null ]
     ] ],
     [ "m_eigen_solver", "namespacem__eigen__solver.html", [
-      [ "cbabk2", "namespacem__eigen__solver.html#a6d35cffb5e64987dbbb6211356e9136f", null ],
-      [ "cbal", "namespacem__eigen__solver.html#a79d1a338e00b679ba5fcf166c529d77c", null ],
-      [ "cdiv", "namespacem__eigen__solver.html#a8537482af056a2e62fb0f03b0b60d951", null ],
-      [ "cg", "namespacem__eigen__solver.html#ae98c4a659de6724591ff45c1c72080b6", null ],
-      [ "comqr2", "namespacem__eigen__solver.html#a41c2d326d4ab6e1c50656217cbc84b51", null ],
-      [ "corth", "namespacem__eigen__solver.html#ab54bfcf38d40c65fcd0887727d3b00f0", null ],
-      [ "csroot", "namespacem__eigen__solver.html#a26981f13d48d92b739dfb0c30189417f", null ],
-      [ "pythag", "namespacem__eigen__solver.html#a8145cd8c987461951de2d17eab78c1a2", null ]
+      [ "cbabk2", "namespacem__eigen__solver.html#afe5d80a5a6c788da67adda9f6d084990", null ],
+      [ "cbal", "namespacem__eigen__solver.html#a1cf253da760f9e1cdb0c083de7100ec2", null ],
+      [ "cdiv", "namespacem__eigen__solver.html#a17488ee727264ec2f03bba43290108ea", null ],
+      [ "cg", "namespacem__eigen__solver.html#aefb5aec687cc395843bddeaa3fca02da", null ],
+      [ "comqr2", "namespacem__eigen__solver.html#a0554aa8887cd850437debd71f0469bdd", null ],
+      [ "corth", "namespacem__eigen__solver.html#a9d7bdad7cb058473d8a1683a4b399341", null ],
+      [ "csroot", "namespacem__eigen__solver.html#ac753696c245075b4785870a2fb52c9f0", null ],
+      [ "pythag", "namespacem__eigen__solver.html#aeecb6d18469aac6ba1a78db5ec25d122", null ]
     ] ],
     [ "m_finite_differences", "namespacem__finite__differences.html", [
-      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d", null ],
-      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a0b0c33d96d0127c1953ab1ca68ecac80", null ]
+      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#ae004aaed398319ade394c5410922468d", null ],
+      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a043964a944507a57cc511301a2c61a35", null ]
     ] ],
     [ "m_helper_basic", "namespacem__helper__basic.html", [
-      [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],
-      [ "f_approx_equal", "namespacem__helper__basic.html#a4d4fbabb3807eb662390dd48ef95330d", null ],
-      [ "f_is_default", "namespacem__helper__basic.html#af1ad5f2cff7ebf5c909a7fc212815ff2", null ],
-      [ "f_is_integer", "namespacem__helper__basic.html#a5dbf4be680a03b888700b9d0d4ad3a54", null ],
-      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#aeea04bb207edaea4bc668ef8ed1ea2b9", null ]
+      [ "f_all_default", "namespacem__helper__basic.html#a35696604e5c3c1eda9a1fcdfca99de4f", null ],
+      [ "f_approx_equal", "namespacem__helper__basic.html#a58590a12d49b9b884256a839f2be8610", null ],
+      [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
+      [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
+      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a619a8b5714a72c9064d84b14bd2089f9", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_precision_select", "namespacem__precision__select.html", [
@@ -137,26 +137,26 @@ var namespaces_dup =
       [ "wp", "namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a", null ]
     ] ],
     [ "m_sim_helpers", "namespacem__sim__helpers.html", [
-      [ "s_assign_default_bc_type", "namespacem__sim__helpers.html#aa1cd339e7aa07731182ca9edee00aae1", null ],
-      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a3d187753f4e292887a3030707059b421", null ],
-      [ "s_compute_enthalpy", "namespacem__sim__helpers.html#a728a849783a9c8a5a8f969daa627995b", null ],
-      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#ad7c9828a95b779c9c011d9d052df9eaa", null ]
+      [ "s_assign_default_bc_type", "namespacem__sim__helpers.html#a8a20d747a3ad8bbefb85169d179d2b90", null ],
+      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#ad5b39c05efea4c9c6636701cf657b4d0", null ],
+      [ "s_compute_enthalpy", "namespacem__sim__helpers.html#ab1dee44a2a4520f7cae62477e63dbf51", null ],
+      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a81d6cbdf616d51d6e6ba9f0bce912a13", null ]
     ] ],
     [ "m_start_up", "namespacem__start__up.html", [
-      [ "s_check_input_file", "namespacem__start__up.html#aba056c17994ffb88cd1effa3adb95789", null ],
-      [ "s_finalize_modules", "namespacem__start__up.html#a03f18bf4f529c5d7a47b6e8136b0a585", null ],
+      [ "s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
+      [ "s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
       [ "s_initialize_gpu_vars", "namespacem__start__up.html#a855eb78d2fa11b5bfc5f570069e6f2f8", null ],
       [ "s_initialize_internal_energy_equations", "namespacem__start__up.html#a38182f7fcc92c1c687840339a20e85cd", null ],
-      [ "s_initialize_modules", "namespacem__start__up.html#a14f564f341f1feca9308fe2579e5ced6", null ],
-      [ "s_initialize_mpi_domain", "namespacem__start__up.html#a90f45019dd8a980f2ea3fe2c5b83df6c", null ],
-      [ "s_perform_time_step", "namespacem__start__up.html#aaaeff91a52af5b8f17ed9efed8ac17bd", null ],
-      [ "s_populate_grid_variables_buffers", "namespacem__start__up.html#afabd4008f7a3bfbac32813507edf3c44", null ],
-      [ "s_read_data_files", "namespacem__start__up.html#a1eab3dec3b4d7c3842efccf52d2d35f6", null ],
-      [ "s_read_input_file", "namespacem__start__up.html#ad994100f67a9ff96149aafec24099f10", null ],
-      [ "s_read_parallel_data_files", "namespacem__start__up.html#a45c8fef6680263063a1c7d2fa1748013", null ],
-      [ "s_read_serial_data_files", "namespacem__start__up.html#abd3c3fd9fbb80ef2ddaf82945c1c1af9", null ],
-      [ "s_save_data", "namespacem__start__up.html#a0865c4378f1fdf7a9053530fb25fadaa", null ],
-      [ "s_save_performance_metrics", "namespacem__start__up.html#a9d9487d5a4bc44cf9541702999694fd7", null ],
+      [ "s_initialize_modules", "namespacem__start__up.html#a1fb7a3f9d412acd2a9cbcfe8b45006dd", null ],
+      [ "s_initialize_mpi_domain", "namespacem__start__up.html#ab64542f13c680e17ce8879c77c65c0e0", null ],
+      [ "s_perform_time_step", "namespacem__start__up.html#a0e9a0ef9de315450f9097edfa35265f5", null ],
+      [ "s_populate_grid_variables_buffers", "namespacem__start__up.html#a5458fd15857158048e5999b9bc75a028", null ],
+      [ "s_read_data_files", "namespacem__start__up.html#a25f79bc2aae3d0302d4a97247d84f92a", null ],
+      [ "s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
+      [ "s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
+      [ "s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
+      [ "s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
+      [ "s_save_performance_metrics", "namespacem__start__up.html#a7e576183ec6b363cc531e667647b0835", null ],
       [ "dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],
       [ "grad_x_vf", "namespacem__start__up.html#acd3b736578c59b1bd9dfc4b81f4a7279", null ],
       [ "grad_y_vf", "namespacem__start__up.html#a2e9ad6009d63488a8f8c7a3a548ba433", null ],
