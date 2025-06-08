@@ -156,9 +156,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a53a67bdfe2bea776a2cd445135e0100a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a63ba325e6315d6d7dc45c614d65347" id="r_a7a63ba325e6315d6d7dc45c614d65347"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a63ba325e6315d6d7dc45c614d65347">s_prohibit_abort</a> (condition, message)</td></tr>
 <tr class="separator:a7a63ba325e6315d6d7dc45c614d65347"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe13a3df7767dd00eb7b15aa5b6bc3d5" id="r_afe13a3df7767dd00eb7b15aa5b6bc3d5"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe13a3df7767dd00eb7b15aa5b6bc3d5">s_mpi_reduce_stability_criteria_extrema</a> (icfl_max_loc, vcfl_max_loc, ccfl_max_loc, rc_min_loc, icfl_max_glb, vcfl_max_glb, ccfl_max_glb, rc_min_glb)</td></tr>
-<tr class="memdesc:afe13a3df7767dd00eb7b15aa5b6bc3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkeept on the rank 0 processor.  <br /></td></tr>
-<tr class="separator:afe13a3df7767dd00eb7b15aa5b6bc3d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7000bf91b069c9b8064eeda7c8fdbafe" id="r_a7000bf91b069c9b8064eeda7c8fdbafe"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7000bf91b069c9b8064eeda7c8fdbafe">s_mpi_reduce_stability_criteria_extrema</a> (icfl_max_loc, vcfl_max_loc, rc_min_loc, icfl_max_glb, vcfl_max_glb, rc_min_glb)</td></tr>
+<tr class="memdesc:a7000bf91b069c9b8064eeda7c8fdbafe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkeept on the rank 0 processor.  <br /></td></tr>
+<tr class="separator:a7000bf91b069c9b8064eeda7c8fdbafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24ed3fee63870f02c535e9a137e12291" id="r_a24ed3fee63870f02c535e9a137e12291"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24ed3fee63870f02c535e9a137e12291">s_mpi_allreduce_sum</a> (var_loc, var_glb)</td></tr>
 <tr class="memdesc:a24ed3fee63870f02c535e9a137e12291"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following subroutine takes the input local variable from all processors and reduces to the sum of all values. The reduced variable is recorded back onto the original local variable on each processor.  <br /></td></tr>
 <tr class="separator:a24ed3fee63870f02c535e9a137e12291"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -703,8 +703,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="afe13a3df7767dd00eb7b15aa5b6bc3d5" name="afe13a3df7767dd00eb7b15aa5b6bc3d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe13a3df7767dd00eb7b15aa5b6bc3d5">&#9670;&#160;</a></span>s_mpi_reduce_stability_criteria_extrema()</h2>
+<a id="a7000bf91b069c9b8064eeda7c8fdbafe" name="a7000bf91b069c9b8064eeda7c8fdbafe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7000bf91b069c9b8064eeda7c8fdbafe">&#9670;&#160;</a></span>s_mpi_reduce_stability_criteria_extrema()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -725,11 +725,6 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ccfl_max_loc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rc_min_loc</em></span>, </td>
         </tr>
         <tr>
@@ -741,11 +736,6 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vcfl_max_glb</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>ccfl_max_glb</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -775,7 +765,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_afe13a3df7767dd00eb7b15aa5b6bc3d5_icgraph.svg" width="100%" height="489"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a7000bf91b069c9b8064eeda7c8fdbafe_icgraph.svg" width="100%" height="489"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

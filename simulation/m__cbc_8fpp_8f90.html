@@ -157,9 +157,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:af3c2be26e3a3683b52f5e7fc84731d0f" id="r_af3c2be26e3a3683b52f5e7fc84731d0f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c2be26e3a3683b52f5e7fc84731d0f">s_initialize_cbc</a> (q_prim_vf, flux_vf, flux_src_vf, ix, iy, iz)</td></tr>
 <tr class="memdesc:af3c2be26e3a3683b52f5e7fc84731d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the selected CBC.  <br /></td></tr>
 <tr class="separator:af3c2be26e3a3683b52f5e7fc84731d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f88feb90645fab7ac2576ccb0655b32" id="r_a5f88feb90645fab7ac2576ccb0655b32"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f88feb90645fab7ac2576ccb0655b32">s_finalize_cbc</a> (flux_vf, flux_src_vf, ix, iy, iz)</td></tr>
-<tr class="memdesc:a5f88feb90645fab7ac2576ccb0655b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or the disassociation procedures that are necessary in order to finalize the CBC application.  <br /></td></tr>
-<tr class="separator:a5f88feb90645fab7ac2576ccb0655b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a290408bab9cad9bcb123f49b82845580" id="r_a290408bab9cad9bcb123f49b82845580"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a290408bab9cad9bcb123f49b82845580">s_finalize_cbc</a> (flux_vf, flux_src_vf)</td></tr>
+<tr class="memdesc:a290408bab9cad9bcb123f49b82845580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or the disassociation procedures that are necessary in order to finalize the CBC application.  <br /></td></tr>
+<tr class="separator:a290408bab9cad9bcb123f49b82845580"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30c4040c641dbf415536cca445178e84" id="r_a30c4040c641dbf415536cca445178e84"><td class="memItemLeft" align="right" valign="top">pure elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30c4040c641dbf415536cca445178e84">s_any_cbc_boundaries</a> (toggle)</td></tr>
 <tr class="separator:a30c4040c641dbf415536cca445178e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac8679181a07d098cf600b99a2d616359" id="r_ac8679181a07d098cf600b99a2d616359"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8679181a07d098cf600b99a2d616359">s_finalize_cbc_module</a></td></tr>
@@ -390,8 +390,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a5f88feb90645fab7ac2576ccb0655b32" name="a5f88feb90645fab7ac2576ccb0655b32"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f88feb90645fab7ac2576ccb0655b32">&#9670;&#160;</a></span>s_finalize_cbc()</h2>
+<a id="a290408bab9cad9bcb123f49b82845580" name="a290408bab9cad9bcb123f49b82845580"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a290408bab9cad9bcb123f49b82845580">&#9670;&#160;</a></span>s_finalize_cbc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,22 +407,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ix</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>iy</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>iz</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -437,16 +422,13 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">flux_vf</td><td>Cell-boundary-average fluxes </td></tr>
     <tr><td class="paramname">flux_src_vf</td><td>Cell-boundary-average flux sources </td></tr>
-    <tr><td class="paramname">ix</td><td>Index bound in the first coordinate direction </td></tr>
-    <tr><td class="paramname">iy</td><td>Index bound in the second coordinate direction </td></tr>
-    <tr><td class="paramname">iz</td><td>Index bound in the third coordinate direction </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a5f88feb90645fab7ac2576ccb0655b32_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a290408bab9cad9bcb123f49b82845580_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

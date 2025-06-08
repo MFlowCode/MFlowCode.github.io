@@ -4,7 +4,7 @@ var m__time__steppers_8fpp_8f90 =
     [ "s_1st_order_tvd_rk", "m__time__steppers_8fpp_8f90.html#a95dcf858eaba9951c12d4590ec467f62", null ],
     [ "s_2nd_order_tvd_rk", "m__time__steppers_8fpp_8f90.html#a30504937d9153ef9e5d9990a8894e89a", null ],
     [ "s_3rd_order_tvd_rk", "m__time__steppers_8fpp_8f90.html#aa54ad1694d32cfe180d81112527699e4", null ],
-    [ "s_adaptive_dt_bubble", "m__time__steppers_8fpp_8f90.html#accaa4044beab1d2670f79a678e1f8f06", null ],
+    [ "s_adaptive_dt_bubble", "m__time__steppers_8fpp_8f90.html#ac88fae0ccfd624140b3c9caf3c7f2dd0", null ],
     [ "s_apply_bodyforces", "m__time__steppers_8fpp_8f90.html#a27fa5736201694314b08817bd8038d99", null ],
     [ "s_compute_dt", "m__time__steppers_8fpp_8f90.html#a7ad85772dc3154399535f2f164c2ce2b", null ],
     [ "s_finalize_time_steppers_module", "m__time__steppers_8fpp_8f90.html#ab6e5e6bce774c64083aacb7ab67dc52b", null ],

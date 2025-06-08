@@ -15,7 +15,7 @@ var m__mpi__common_8fpp_8f90 =
     [ "s_mpi_initialize", "m__mpi__common_8fpp_8f90.html#a7221e8d5622d25c3a4c4aa2987a92024", null ],
     [ "s_mpi_reduce_maxloc", "m__mpi__common_8fpp_8f90.html#acf46c8dcb9c7d78212cb32fa1b9ba958", null ],
     [ "s_mpi_reduce_min", "m__mpi__common_8fpp_8f90.html#a3d61661516eec669c5f8ec1113dac58b", null ],
-    [ "s_mpi_reduce_stability_criteria_extrema", "m__mpi__common_8fpp_8f90.html#afe13a3df7767dd00eb7b15aa5b6bc3d5", null ],
+    [ "s_mpi_reduce_stability_criteria_extrema", "m__mpi__common_8fpp_8f90.html#a7000bf91b069c9b8064eeda7c8fdbafe", null ],
     [ "s_mpi_sendrecv_capilary_variables_buffers", "m__mpi__common_8fpp_8f90.html#a767ff1f924147e7f0230c8a47f56b6c9", null ],
     [ "s_mpi_sendrecv_variables_buffers", "m__mpi__common_8fpp_8f90.html#a815e648dc99c14163990d199ff63d785", null ],
     [ "s_prohibit_abort", "m__mpi__common_8fpp_8f90.html#a7a63ba325e6315d6d7dc45c614d65347", null ]

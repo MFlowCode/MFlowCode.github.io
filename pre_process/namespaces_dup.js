@@ -3,10 +3,10 @@ var namespaces_dup =
     [ "m_assign_variables", "namespacem__assign__variables.html", "namespacem__assign__variables" ],
     [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
       [ "s_apply_boundary_patches", "namespacem__boundary__conditions.html#a500a9226a3b30cc8592a91d541745b99", null ],
-      [ "s_circle_bc", "namespacem__boundary__conditions.html#a04f0915a458ecae192d9bfd79c21a671", null ],
-      [ "s_line_segment_bc", "namespacem__boundary__conditions.html#aab315f2b347826e2b5141b3783c5d5ea", null ],
+      [ "s_circle_bc", "namespacem__boundary__conditions.html#a6c38ed1b10300c8b195701cf41e8b81b", null ],
+      [ "s_line_segment_bc", "namespacem__boundary__conditions.html#a704b0c4f3e1b164c986fdbf113301432", null ],
       [ "s_pack_boundary_condition_buffers", "namespacem__boundary__conditions.html#ad3137b8b4be6a3e008ae7f857d6b9608", null ],
-      [ "s_rectangle_bc", "namespacem__boundary__conditions.html#a7140c698fa0097b59c4cfe57d890658c", null ],
+      [ "s_rectangle_bc", "namespacem__boundary__conditions.html#a71fcd45a17cbb3b1a6497004968d848f", null ],
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__conditions.html#a51c29e698ebfe5f6df0b7fc9b47bc3ca", null ],
       [ "s_write_serial_boundary_condition_files", "namespacem__boundary__conditions.html#a66cf88971a9d73996adf1d6170360b63", null ],
       [ "length_x", "namespacem__boundary__conditions.html#a350db3f3dcccbb21be15a9944261c866", null ],

@@ -163,10 +163,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a38182f7fcc92c1c687840339a20e85cd" id="r_a38182f7fcc92c1c687840339a20e85cd"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38182f7fcc92c1c687840339a20e85cd">s_initialize_internal_energy_equations</a> (v_vf)</td></tr>
 <tr class="memdesc:a38182f7fcc92c1c687840339a20e85cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to initialize the values of the internal-energy equations of each phase from the mass of each phase, the mixture momentum and mixture-total-energy equations.  <br /></td></tr>
 <tr class="separator:a38182f7fcc92c1c687840339a20e85cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e9a0ef9de315450f9097edfa35265f5" id="r_a0e9a0ef9de315450f9097edfa35265f5"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e9a0ef9de315450f9097edfa35265f5">s_perform_time_step</a> (t_step, time_avg, time_final, io_time_avg, io_time_final, proc_time, io_proc_time, file_exists, start, finish, nt)</td></tr>
-<tr class="separator:a0e9a0ef9de315450f9097edfa35265f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e576183ec6b363cc531e667647b0835" id="r_a7e576183ec6b363cc531e667647b0835"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e576183ec6b363cc531e667647b0835">s_save_performance_metrics</a> (t_step, time_avg, time_final, io_time_avg, io_time_final, proc_time, io_proc_time, file_exists, start, finish, nt)</td></tr>
-<tr class="separator:a7e576183ec6b363cc531e667647b0835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae28835629de9baa7fd546672a0add0e5" id="r_ae28835629de9baa7fd546672a0add0e5"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae28835629de9baa7fd546672a0add0e5">s_perform_time_step</a> (t_step, time_avg)</td></tr>
+<tr class="separator:ae28835629de9baa7fd546672a0add0e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39b74a3be1912601a03c3190b6dbf5b3" id="r_a39b74a3be1912601a03c3190b6dbf5b3"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39b74a3be1912601a03c3190b6dbf5b3">s_save_performance_metrics</a> (time_avg, time_final, io_time_avg, io_time_final, proc_time, io_proc_time, file_exists)</td></tr>
+<tr class="separator:a39b74a3be1912601a03c3190b6dbf5b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47ade6ffcd98aafcccf10910f626142d" id="r_a47ade6ffcd98aafcccf10910f626142d"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47ade6ffcd98aafcccf10910f626142d">s_save_data</a> (t_step, start, finish, io_time_avg, nt)</td></tr>
 <tr class="separator:a47ade6ffcd98aafcccf10910f626142d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1fb7a3f9d412acd2a9cbcfe8b45006dd" id="r_a1fb7a3f9d412acd2a9cbcfe8b45006dd"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fb7a3f9d412acd2a9cbcfe8b45006dd">s_initialize_modules</a></td></tr>
@@ -346,8 +346,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a0e9a0ef9de315450f9097edfa35265f5" name="a0e9a0ef9de315450f9097edfa35265f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e9a0ef9de315450f9097edfa35265f5">&#9670;&#160;</a></span>s_perform_time_step()</h2>
+<a id="ae28835629de9baa7fd546672a0add0e5" name="ae28835629de9baa7fd546672a0add0e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28835629de9baa7fd546672a0add0e5">&#9670;&#160;</a></span>s_perform_time_step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,64 +360,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_final</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>io_time_avg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>io_time_final</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>proc_time</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>io_proc_time</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>file_exists</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>finish</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>nt</em></span>&#160;)</td>
+          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a0e9a0ef9de315450f9097edfa35265f5_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_ae28835629de9baa7fd546672a0add0e5_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a0e9a0ef9de315450f9097edfa35265f5_icgraph.svg" width="299" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_ae28835629de9baa7fd546672a0add0e5_icgraph.svg" width="299" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -609,8 +564,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a7e576183ec6b363cc531e667647b0835" name="a7e576183ec6b363cc531e667647b0835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e576183ec6b363cc531e667647b0835">&#9670;&#160;</a></span>s_save_performance_metrics()</h2>
+<a id="a39b74a3be1912601a03c3190b6dbf5b3" name="a39b74a3be1912601a03c3190b6dbf5b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39b74a3be1912601a03c3190b6dbf5b3">&#9670;&#160;</a></span>s_save_performance_metrics()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -618,11 +573,6 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine, public m_start_up::s_save_performance_metrics </td>
           <td>(</td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>, </td>
         </tr>
         <tr>
@@ -653,34 +603,19 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">logical, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>file_exists</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>finish</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>nt</em></span>&#160;)</td>
+          <td class="paramtype">logical, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>file_exists</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a7e576183ec6b363cc531e667647b0835_cgraph.svg" width="388" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a39b74a3be1912601a03c3190b6dbf5b3_cgraph.svg" width="388" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a7e576183ec6b363cc531e667647b0835_icgraph.svg" width="298" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a39b74a3be1912601a03c3190b6dbf5b3_icgraph.svg" width="298" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

@@ -177,8 +177,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a1fb7a3f9d412acd2a9cbcfe8b45006dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ff1609d736d72da1116824757e233c8" id="r_a7ff1609d736d72da1116824757e233c8"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ff1609d736d72da1116824757e233c8">s_read_grid</a> ()</td></tr>
 <tr class="separator:a7ff1609d736d72da1116824757e233c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f88ac9c3dcb3aba90d45f3ccff3379f" id="r_a9f88ac9c3dcb3aba90d45f3ccff3379f"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f88ac9c3dcb3aba90d45f3ccff3379f">s_apply_initial_condition</a> (start, finish, proc_time, time_avg, time_final, file_exists)</td></tr>
-<tr class="separator:a9f88ac9c3dcb3aba90d45f3ccff3379f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a513ef24d6c8beafb8b94c015db266100" id="r_a513ef24d6c8beafb8b94c015db266100"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a513ef24d6c8beafb8b94c015db266100">s_apply_initial_condition</a> (start, finish)</td></tr>
+<tr class="separator:a513ef24d6c8beafb8b94c015db266100"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a5bdd175d6ddb8c024887e4e18bbdd8" id="r_a2a5bdd175d6ddb8c024887e4e18bbdd8"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a5bdd175d6ddb8c024887e4e18bbdd8">s_save_data</a> (proc_time, time_avg, time_final, file_exists)</td></tr>
 <tr class="separator:a2a5bdd175d6ddb8c024887e4e18bbdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab64542f13c680e17ce8879c77c65c0e0" id="r_ab64542f13c680e17ce8879c77c65c0e0"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab64542f13c680e17ce8879c77c65c0e0">s_initialize_mpi_domain</a></td></tr>
@@ -202,8 +202,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module contains subroutines that read, and check consistency of, the user provided inputs, grid and data. This module also allocates and initializes the relevant variables sets up the mpi decomposition and initial condition procedures. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a9f88ac9c3dcb3aba90d45f3ccff3379f" name="a9f88ac9c3dcb3aba90d45f3ccff3379f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f88ac9c3dcb3aba90d45f3ccff3379f">&#9670;&#160;</a></span>s_apply_initial_condition()</h2>
+<a id="a513ef24d6c8beafb8b94c015db266100" name="a513ef24d6c8beafb8b94c015db266100"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a513ef24d6c8beafb8b94c015db266100">&#9670;&#160;</a></span>s_apply_initial_condition()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,39 +216,19 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>finish</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>proc_time</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_final</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>file_exists</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>finish</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a9f88ac9c3dcb3aba90d45f3ccff3379f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a513ef24d6c8beafb8b94c015db266100_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a9f88ac9c3dcb3aba90d45f3ccff3379f_icgraph.svg" width="283" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__start__up_a513ef24d6c8beafb8b94c015db266100_icgraph.svg" width="283" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

@@ -7,8 +7,8 @@ var m__qbmm_8fpp_8f90 =
     [ "s_coeff", "m__qbmm_8fpp_8f90.html#a7ce23edc398f55d0f2386c22ddfc5b4c", null ],
     [ "s_coeff_nonpoly", "m__qbmm_8fpp_8f90.html#a2e0bada0818ddd3288293caa7beed079", null ],
     [ "s_coeff_selector", "m__qbmm_8fpp_8f90.html#a57b251e89f00799ed8c7f1de6a0af5db", null ],
-    [ "s_compute_qbmm_rhs", "m__qbmm_8fpp_8f90.html#abbf5ea867b54031b7badbe253f96bcce", null ],
+    [ "s_compute_qbmm_rhs", "m__qbmm_8fpp_8f90.html#a11bd7e5b666fa4697cb480ccc67d7245", null ],
     [ "s_hyqmom", "m__qbmm_8fpp_8f90.html#adf515384cad7a90db1db603c8cb290a7", null ],
     [ "s_initialize_qbmm_module", "m__qbmm_8fpp_8f90.html#a466bcc585827465a6231d66c0b661f53", null ],
-    [ "s_mom_inv", "m__qbmm_8fpp_8f90.html#a07d4ab28f830cfd5b555868bbf8a17fe", null ]
+    [ "s_mom_inv", "m__qbmm_8fpp_8f90.html#a05c60cf307f72cbb3a1facd5532da64e", null ]
 ];

@@ -4,7 +4,7 @@ var m__phase__change_8fpp_8f90 =
     [ "s_compute_jacobian_matrix", "m__phase__change_8fpp_8f90.html#a113b07fe616547eaf19a32a5251fa587", null ],
     [ "s_compute_ptg_residue", "m__phase__change_8fpp_8f90.html#a234cefb54708bcff36e3f9be2662364c", null ],
     [ "s_finalize_relaxation_solver_module", "m__phase__change_8fpp_8f90.html#a833d9d23f8f2aa20520a8bd8ba86eefe", null ],
-    [ "s_infinite_pt_relaxation_k", "m__phase__change_8fpp_8f90.html#a0e27f3f9712513cbd3e089aa3014dc74", null ],
+    [ "s_infinite_pt_relaxation_k", "m__phase__change_8fpp_8f90.html#a83c53dc4ac184105e8ac5f4e3b36a41c", null ],
     [ "s_infinite_ptg_relaxation_k", "m__phase__change_8fpp_8f90.html#acaea3e6b49f88feb41739a4bc87b6740", null ],
     [ "s_infinite_relaxation_k", "m__phase__change_8fpp_8f90.html#aca8a633466e657c41bf1fbb131d7e9ea", null ],
     [ "s_initialize_phasechange_module", "m__phase__change_8fpp_8f90.html#ad0e1d61cb1a084744086ed81a0550f39", null ],
