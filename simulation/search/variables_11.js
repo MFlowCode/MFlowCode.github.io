@@ -17,6 +17,5 @@ var searchData=
   ['sp_14',['sp',['../namespacem__precision__select.html#a04a3d9dba8fd92244fa307d1c6423622',1,'m_precision_select']]],
   ['spc_15',['spc',['../structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc',1,'ic_model_parameters']]],
   ['ss_16',['ss',['../structphysical__parameters.html#ac090ed27ce6e3674d0123ad98c08ed72',1,'physical_parameters']]],
-  ['sum_5falpha_17',['sum_alpha',['../m__rhs_8fpp_8f90.html#a7576704841a12937d09847a96ad8f0e3',1,'m_rhs.fpp.f90']]],
-  ['support_18',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]]
+  ['support_17',['support',['../structacoustic__parameters.html#aa6171e426a48fe0998846880ec5d9739',1,'acoustic_parameters']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['g_0',['g',['../structphysical__parameters.html#a38b1f48d3529ce86d7e163e441578121',1,'physical_parameters']]],
-  ['gamma_1',['gamma',['../structic__patch__parameters.html#aa49f950a6909fc704205adc11757fa6d',1,'ic_patch_parameters::gamma'],['../structphysical__parameters.html#a6ae97595efc31b7493146aa25b283647',1,'physical_parameters::gamma'],['../m__rhs_8fpp_8f90.html#ad1436eab297dc437550ded478e2d026e',1,'gamma:&#160;m_rhs.fpp.f90']]],
+  ['gamma_1',['gamma',['../structic__patch__parameters.html#aa49f950a6909fc704205adc11757fa6d',1,'ic_patch_parameters::gamma'],['../structphysical__parameters.html#a6ae97595efc31b7493146aa25b283647',1,'physical_parameters::gamma']]],
   ['gamma_5fmethod_2',['gamma_method',['../structchemistry__parameters.html#a25b946824fcab30f8c915bf5790db62d',1,'chemistry_parameters']]],
   ['gamma_5fv_3',['gamma_v',['../structphysical__parameters.html#a4f3e501580c3bae08f8ded68870bd336',1,'physical_parameters']]],
   ['gauss_5fsigma_5fdist_4',['gauss_sigma_dist',['../structacoustic__parameters.html#a7344fa90dd8495c83517a70608bfe5de',1,'acoustic_parameters']]],

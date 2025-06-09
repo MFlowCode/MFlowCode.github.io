@@ -153,60 +153,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:af45f15d6e6ca83c8ae92f98a2a72ff8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeae1fd0756bb3772913a45329dd0d7e" id="r_afeae1fd0756bb3772913a45329dd0d7e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afeae1fd0756bb3772913a45329dd0d7e">s_compute_additional_physics_rhs</a> (idir, q_prim_vf, rhs_vf, flux_src_n, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf)</td></tr>
 <tr class="separator:afeae1fd0756bb3772913a45329dd0d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader">Relaxed pressure, initial partial pressures, function f(p) and its partial</h2></td></tr>
-<tr><td class="ititle" colspan="2"><p>The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-average conservative variables </td></tr>
-  </table>
-  </dd>
-</dl>
-</td></tr>
-<tr class="memitem:a15a989bebea7f706f638b38a2da97dd8" id="r_a15a989bebea7f706f638b38a2da97dd8"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15a989bebea7f706f638b38a2da97dd8">pres_relax</a></td></tr>
-<tr class="separator:a15a989bebea7f706f638b38a2da97dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a846039d4e1b7ee50d2747685b795b30b" id="r_a846039d4e1b7ee50d2747685b795b30b"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(num_fluids)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a846039d4e1b7ee50d2747685b795b30b">pres_k_init</a></td></tr>
-<tr class="separator:a846039d4e1b7ee50d2747685b795b30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9727167b85aa45b14e9502e5b3fbec90" id="r_a9727167b85aa45b14e9502e5b3fbec90"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9727167b85aa45b14e9502e5b3fbec90">f_pres</a></td></tr>
-<tr class="separator:a9727167b85aa45b14e9502e5b3fbec90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f7e708e9aa34c9110c3347289cea4a3" id="r_a3f7e708e9aa34c9110c3347289cea4a3"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f7e708e9aa34c9110c3347289cea4a3">df_pres</a></td></tr>
-<tr class="separator:a3f7e708e9aa34c9110c3347289cea4a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a075e5e8124f478d72c1b880c64a7bd22" id="r_a075e5e8124f478d72c1b880c64a7bd22"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(num_fluids)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a075e5e8124f478d72c1b880c64a7bd22">rho_k_s</a></td></tr>
-<tr class="separator:a075e5e8124f478d72c1b880c64a7bd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd01f363cb9ef010ca250453349bcc8b" id="r_afd01f363cb9ef010ca250453349bcc8b"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(num_fluids)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd01f363cb9ef010ca250453349bcc8b">alpha_rho</a></td></tr>
-<tr class="separator:afd01f363cb9ef010ca250453349bcc8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0992dd09de53aba4faf7a797aad75ae" id="r_ad0992dd09de53aba4faf7a797aad75ae"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(num_fluids)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0992dd09de53aba4faf7a797aad75ae">alpha</a></td></tr>
-<tr class="separator:ad0992dd09de53aba4faf7a797aad75ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7576704841a12937d09847a96ad8f0e3" id="r_a7576704841a12937d09847a96ad8f0e3"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7576704841a12937d09847a96ad8f0e3">sum_alpha</a></td></tr>
-<tr class="separator:a7576704841a12937d09847a96ad8f0e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1adc244ddf111bde5ae4e9ecc136e571" id="r_a1adc244ddf111bde5ae4e9ecc136e571"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1adc244ddf111bde5ae4e9ecc136e571">rho</a></td></tr>
-<tr class="separator:a1adc244ddf111bde5ae4e9ecc136e571"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de07ec483a161c26ec55909f358ad6f" id="r_a2de07ec483a161c26ec55909f358ad6f"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2de07ec483a161c26ec55909f358ad6f">dyn_pres</a></td></tr>
-<tr class="separator:a2de07ec483a161c26ec55909f358ad6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1436eab297dc437550ded478e2d026e" id="r_ad1436eab297dc437550ded478e2d026e"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1436eab297dc437550ded478e2d026e">gamma</a></td></tr>
-<tr class="separator:ad1436eab297dc437550ded478e2d026e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af54f51a649b7920ce86a942fc95ef6b9" id="r_af54f51a649b7920ce86a942fc95ef6b9"><td class="memItemLeft" align="right" valign="top">real(wp)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af54f51a649b7920ce86a942fc95ef6b9">pi_inf</a></td></tr>
-<tr class="separator:af54f51a649b7920ce86a942fc95ef6b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad295610464d260e3a29dd80e8771856a" id="r_ad295610464d260e3a29dd80e8771856a"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(2)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad295610464d260e3a29dd80e8771856a">re</a></td></tr>
-<tr class="separator:ad295610464d260e3a29dd80e8771856a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaea4baed8fd8b780f6938f0dc1fb0f72" id="r_aaea4baed8fd8b780f6938f0dc1fb0f72"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaea4baed8fd8b780f6938f0dc1fb0f72">i</a></td></tr>
-<tr class="separator:aaea4baed8fd8b780f6938f0dc1fb0f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeadbc0ce9b66517f8fde156199772ec1" id="r_aeadbc0ce9b66517f8fde156199772ec1"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeadbc0ce9b66517f8fde156199772ec1">j</a></td></tr>
-<tr class="separator:aeadbc0ce9b66517f8fde156199772ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af22c486581933c52df7d4aa306382074" id="r_af22c486581933c52df7d4aa306382074"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af22c486581933c52df7d4aa306382074">k</a></td></tr>
-<tr class="separator:af22c486581933c52df7d4aa306382074"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ac747380de0e6e5e11b01f4137fb75c" id="r_a2ac747380de0e6e5e11b01f4137fb75c"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ac747380de0e6e5e11b01f4137fb75c">l</a></td></tr>
-<tr class="separator:a2ac747380de0e6e5e11b01f4137fb75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac913953da65ff7c5eed9784fdde07c47" id="r_ac913953da65ff7c5eed9784fdde07c47"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac913953da65ff7c5eed9784fdde07c47">q</a></td></tr>
-<tr class="separator:ac913953da65ff7c5eed9784fdde07c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0579cdf6d579b6ff5e6a5945a99c42c" id="r_ae0579cdf6d579b6ff5e6a5945a99c42c"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0579cdf6d579b6ff5e6a5945a99c42c">iter</a></td></tr>
-<tr class="memdesc:ae0579cdf6d579b6ff5e6a5945a99c42c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic loop iterators.  <br /></td></tr>
-<tr class="separator:ae0579cdf6d579b6ff5e6a5945a99c42c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0048c79fcd5325fffae011dc032b86fb" id="r_a0048c79fcd5325fffae011dc032b86fb"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0048c79fcd5325fffae011dc032b86fb">relax</a></td></tr>
-<tr class="memdesc:a0048c79fcd5325fffae011dc032b86fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relaxation procedure determination variable.  <br /></td></tr>
-<tr class="separator:a0048c79fcd5325fffae011dc032b86fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26833f559de36f1d15b4f6b3d28cfc79" id="r_a26833f559de36f1d15b4f6b3d28cfc79"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26833f559de36f1d15b4f6b3d28cfc79">s_reconstruct_cell_boundary_values</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
-<tr class="memdesc:a26833f559de36f1d15b4f6b3d28cfc79"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables.  <br /></td></tr>
+<tr class="memdesc:a26833f559de36f1d15b4f6b3d28cfc79"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation.  <br /></td></tr>
 <tr class="separator:a26833f559de36f1d15b4f6b3d28cfc79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bcce95b1cef498290e90372dc0b5ac8" id="r_a1bcce95b1cef498290e90372dc0b5ac8"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bcce95b1cef498290e90372dc0b5ac8">s_reconstruct_cell_boundary_values_first_order</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
 <tr class="separator:a1bcce95b1cef498290e90372dc0b5ac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -517,6 +465,11 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 <div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_aca22ae3820bba1d1665f4ef81b69680e_cgraph.svg" width="376" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_aca22ae3820bba1d1665f4ef81b69680e_icgraph.svg" width="508" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
@@ -545,6 +498,11 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_aed20e76f096227c0d2f92e7fd9c174ba_cgraph.svg" width="388" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -610,8 +568,8 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation. </p>
+<p>The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v_vf</td><td>Cell-average variables </td></tr>
     <tr><td class="paramname">vL_qp</td><td>Left WENO-reconstructed, cell-boundary values including the values at the quadrature points, of the cell-average variables </td></tr>
@@ -694,291 +652,6 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__rhs_8fpp_8f90_a1bcce95b1cef498290e90372dc0b5ac8_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="ad0992dd09de53aba4faf7a797aad75ae" name="ad0992dd09de53aba4faf7a797aad75ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0992dd09de53aba4faf7a797aad75ae">&#9670;&#160;</a></span>alpha</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(num_fluids) alpha</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="afd01f363cb9ef010ca250453349bcc8b" name="afd01f363cb9ef010ca250453349bcc8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd01f363cb9ef010ca250453349bcc8b">&#9670;&#160;</a></span>alpha_rho</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(num_fluids) alpha_rho</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a3f7e708e9aa34c9110c3347289cea4a3" name="a3f7e708e9aa34c9110c3347289cea4a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f7e708e9aa34c9110c3347289cea4a3">&#9670;&#160;</a></span>df_pres</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) df_pres</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2de07ec483a161c26ec55909f358ad6f" name="a2de07ec483a161c26ec55909f358ad6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2de07ec483a161c26ec55909f358ad6f">&#9670;&#160;</a></span>dyn_pres</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) dyn_pres</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9727167b85aa45b14e9502e5b3fbec90" name="a9727167b85aa45b14e9502e5b3fbec90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9727167b85aa45b14e9502e5b3fbec90">&#9670;&#160;</a></span>f_pres</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) f_pres</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad1436eab297dc437550ded478e2d026e" name="ad1436eab297dc437550ded478e2d026e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1436eab297dc437550ded478e2d026e">&#9670;&#160;</a></span>gamma</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) gamma</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aaea4baed8fd8b780f6938f0dc1fb0f72" name="aaea4baed8fd8b780f6938f0dc1fb0f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaea4baed8fd8b780f6938f0dc1fb0f72">&#9670;&#160;</a></span>i</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer i</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae0579cdf6d579b6ff5e6a5945a99c42c" name="ae0579cdf6d579b6ff5e6a5945a99c42c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0579cdf6d579b6ff5e6a5945a99c42c">&#9670;&#160;</a></span>iter</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer iter</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generic loop iterators. </p>
-
-</div>
-</div>
-<a id="aeadbc0ce9b66517f8fde156199772ec1" name="aeadbc0ce9b66517f8fde156199772ec1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeadbc0ce9b66517f8fde156199772ec1">&#9670;&#160;</a></span>j</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer j</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af22c486581933c52df7d4aa306382074" name="af22c486581933c52df7d4aa306382074"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af22c486581933c52df7d4aa306382074">&#9670;&#160;</a></span>k</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer k</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2ac747380de0e6e5e11b01f4137fb75c" name="a2ac747380de0e6e5e11b01f4137fb75c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ac747380de0e6e5e11b01f4137fb75c">&#9670;&#160;</a></span>l</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer l</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af54f51a649b7920ce86a942fc95ef6b9" name="af54f51a649b7920ce86a942fc95ef6b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af54f51a649b7920ce86a942fc95ef6b9">&#9670;&#160;</a></span>pi_inf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) pi_inf</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a846039d4e1b7ee50d2747685b795b30b" name="a846039d4e1b7ee50d2747685b795b30b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a846039d4e1b7ee50d2747685b795b30b">&#9670;&#160;</a></span>pres_k_init</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(num_fluids) pres_k_init</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a15a989bebea7f706f638b38a2da97dd8" name="a15a989bebea7f706f638b38a2da97dd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a989bebea7f706f638b38a2da97dd8">&#9670;&#160;</a></span>pres_relax</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) pres_relax</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac913953da65ff7c5eed9784fdde07c47" name="ac913953da65ff7c5eed9784fdde07c47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac913953da65ff7c5eed9784fdde07c47">&#9670;&#160;</a></span>q</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer q</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad295610464d260e3a29dd80e8771856a" name="ad295610464d260e3a29dd80e8771856a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad295610464d260e3a29dd80e8771856a">&#9670;&#160;</a></span>re</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(2) re</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0048c79fcd5325fffae011dc032b86fb" name="a0048c79fcd5325fffae011dc032b86fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0048c79fcd5325fffae011dc032b86fb">&#9670;&#160;</a></span>relax</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer relax</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Relaxation procedure determination variable. </p>
-
-</div>
-</div>
-<a id="a1adc244ddf111bde5ae4e9ecc136e571" name="a1adc244ddf111bde5ae4e9ecc136e571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1adc244ddf111bde5ae4e9ecc136e571">&#9670;&#160;</a></span>rho</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) rho</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a075e5e8124f478d72c1b880c64a7bd22" name="a075e5e8124f478d72c1b880c64a7bd22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a075e5e8124f478d72c1b880c64a7bd22">&#9670;&#160;</a></span>rho_k_s</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(num_fluids) rho_k_s</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7576704841a12937d09847a96ad8f0e3" name="a7576704841a12937d09847a96ad8f0e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7576704841a12937d09847a96ad8f0e3">&#9670;&#160;</a></span>sum_alpha</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp) sum_alpha</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
