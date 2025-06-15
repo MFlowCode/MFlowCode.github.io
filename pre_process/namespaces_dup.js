@@ -5,10 +5,7 @@ var namespaces_dup =
       [ "s_apply_boundary_patches", "namespacem__boundary__conditions.html#a500a9226a3b30cc8592a91d541745b99", null ],
       [ "s_circle_bc", "namespacem__boundary__conditions.html#a6c38ed1b10300c8b195701cf41e8b81b", null ],
       [ "s_line_segment_bc", "namespacem__boundary__conditions.html#a704b0c4f3e1b164c986fdbf113301432", null ],
-      [ "s_pack_boundary_condition_buffers", "namespacem__boundary__conditions.html#ad3137b8b4be6a3e008ae7f857d6b9608", null ],
       [ "s_rectangle_bc", "namespacem__boundary__conditions.html#a71fcd45a17cbb3b1a6497004968d848f", null ],
-      [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__conditions.html#a51c29e698ebfe5f6df0b7fc9b47bc3ca", null ],
-      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__conditions.html#a66cf88971a9d73996adf1d6170360b63", null ],
       [ "length_x", "namespacem__boundary__conditions.html#a350db3f3dcccbb21be15a9944261c866", null ],
       [ "length_y", "namespacem__boundary__conditions.html#a770da87d4de4edaca582ea74f7014c12", null ],
       [ "length_z", "namespacem__boundary__conditions.html#a9a11f86a798a784e1ab450bfa3cbcca2", null ],
@@ -349,12 +346,7 @@ var namespaces_dup =
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#a43a3477cf47a222d9c74e4371b51c919", null ],
-      [ "s_mpi_decompose_computational_domain", "namespacem__mpi__proxy.html#a47407b84f1c737f5a6372dd407c5d9e0", null ],
-      [ "err_code", "namespacem__mpi__proxy.html#ae5709407e3600d19d79b183e409bb982", null ],
-      [ "ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ],
-      [ "q_prims_buff_recv", "namespacem__mpi__proxy.html#aa4f5e161bc5952c85dc1246d4cb90160", null ],
-      [ "q_prims_buff_send", "namespacem__mpi__proxy.html#a0973c1731355a372aa1d46420f6202bf", null ],
-      [ "v_size", "namespacem__mpi__proxy.html#a4642e60e390e98384e597f5445021431", null ]
+      [ "ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_perturbation", "namespacem__perturbation.html", [

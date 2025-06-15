@@ -1,9 +1,5 @@
 var namespaces_dup =
 [
-    [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
-      [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__conditions.html#aa46c36d9d76a32ad557249477c9a1dfb", null ],
-      [ "s_read_serial_boundary_condition_files", "namespacem__boundary__conditions.html#a3c43a9cd3da78ca01c3331f53a239fed", null ]
-    ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d", null ],
       [ "s_create_directory", "namespacem__compile__specific.html#aa1b4e12a20e09147a215c3b5018484b0", null ],
@@ -142,7 +138,6 @@ var namespaces_dup =
       [ "wp", "namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a", null ]
     ] ],
     [ "m_sim_helpers", "namespacem__sim__helpers.html", [
-      [ "s_assign_default_bc_type", "namespacem__sim__helpers.html#a8a20d747a3ad8bbefb85169d179d2b90", null ],
       [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#ad5b39c05efea4c9c6636701cf657b4d0", null ],
       [ "s_compute_enthalpy", "namespacem__sim__helpers.html#ab1dee44a2a4520f7cae62477e63dbf51", null ],
       [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a81d6cbdf616d51d6e6ba9f0bce912a13", null ]
@@ -155,7 +150,6 @@ var namespaces_dup =
       [ "s_initialize_modules", "namespacem__start__up.html#a1fb7a3f9d412acd2a9cbcfe8b45006dd", null ],
       [ "s_initialize_mpi_domain", "namespacem__start__up.html#ab64542f13c680e17ce8879c77c65c0e0", null ],
       [ "s_perform_time_step", "namespacem__start__up.html#ae28835629de9baa7fd546672a0add0e5", null ],
-      [ "s_populate_grid_variables_buffers", "namespacem__start__up.html#a5458fd15857158048e5999b9bc75a028", null ],
       [ "s_read_data_files", "namespacem__start__up.html#a25f79bc2aae3d0302d4a97247d84f92a", null ],
       [ "s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
       [ "s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],

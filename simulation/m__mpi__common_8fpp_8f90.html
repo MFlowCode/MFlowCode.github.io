@@ -183,11 +183,15 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a61167ac96b381a36a7187b19072b1f38" id="r_a61167ac96b381a36a7187b19072b1f38"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61167ac96b381a36a7187b19072b1f38">s_mpi_finalize</a></td></tr>
 <tr class="memdesc:a61167ac96b381a36a7187b19072b1f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">The subroutine finalizes the MPI execution environment.  <br /></td></tr>
 <tr class="separator:a61167ac96b381a36a7187b19072b1f38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a815e648dc99c14163990d199ff63d785" id="r_a815e648dc99c14163990d199ff63d785"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a815e648dc99c14163990d199ff63d785">s_mpi_sendrecv_variables_buffers</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, pb, mv, mpi_dir, pbc_loc)</td></tr>
-<tr class="memdesc:a815e648dc99c14163990d199ff63d785"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
-<tr class="separator:a815e648dc99c14163990d199ff63d785"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a767ff1f924147e7f0230c8a47f56b6c9" id="r_a767ff1f924147e7f0230c8a47f56b6c9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a767ff1f924147e7f0230c8a47f56b6c9">s_mpi_sendrecv_capilary_variables_buffers</a> (c_divs_vf, mpi_dir, pbc_loc)</td></tr>
-<tr class="separator:a767ff1f924147e7f0230c8a47f56b6c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adca5044be1cccaebbd82a5dfa628b0b4" id="r_adca5044be1cccaebbd82a5dfa628b0b4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adca5044be1cccaebbd82a5dfa628b0b4">s_mpi_sendrecv_variables_buffers</a> (q_comm, mpi_dir, pbc_loc, nvar, pb, mv)</td></tr>
+<tr class="memdesc:adca5044be1cccaebbd82a5dfa628b0b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
+<tr class="separator:adca5044be1cccaebbd82a5dfa628b0b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c5e68f4da2c83dec923fd9c47aa7d4" id="r_a75c5e68f4da2c83dec923fd9c47aa7d4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75c5e68f4da2c83dec923fd9c47aa7d4">s_mpi_decompose_computational_domain</a></td></tr>
+<tr class="memdesc:a75c5e68f4da2c83dec923fd9c47aa7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to optimally decompose the computational domain among the available processors. This is performed by attempting to award each processor, in each of the coordinate directions, approximately the same number of cells, and then recomputing the affected global parameters.  <br /></td></tr>
+<tr class="separator:a75c5e68f4da2c83dec923fd9c47aa7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7cefdf560b2c94729b92080a97ffa1b" id="r_aa7cefdf560b2c94729b92080a97ffa1b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7cefdf560b2c94729b92080a97ffa1b">s_mpi_sendrecv_grid_variables_buffers</a> (mpi_dir, pbc_loc)</td></tr>
+<tr class="memdesc:aa7cefdf560b2c94729b92080a97ffa1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions.  <br /></td></tr>
+<tr class="separator:aa7cefdf560b2c94729b92080a97ffa1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada1c0e0d70bc0b0057e4ff2a29ddbf80" id="r_ada1c0e0d70bc0b0057e4ff2a29ddbf80"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada1c0e0d70bc0b0057e4ff2a29ddbf80">s_finalize_mpi_common_module</a></td></tr>
 <tr class="memdesc:ada1c0e0d70bc0b0057e4ff2a29ddbf80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 <tr class="separator:ada1c0e0d70bc0b0057e4ff2a29ddbf80"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -540,6 +544,40 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a75c5e68f4da2c83dec923fd9c47aa7d4" name="a75c5e68f4da2c83dec923fd9c47aa7d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c5e68f4da2c83dec923fd9c47aa7d4">&#9670;&#160;</a></span>s_mpi_decompose_computational_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine __m_mpi_common_fpp_f90__::s_mpi_decompose_computational_domain</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The purpose of this procedure is to optimally decompose the computational domain among the available processors. This is performed by attempting to award each processor, in each of the coordinate directions, approximately the same number of cells, and then recomputing the affected global parameters. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a75c5e68f4da2c83dec923fd9c47aa7d4_cgraph.svg" width="406" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a75c5e68f4da2c83dec923fd9c47aa7d4_icgraph.svg" width="595" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a61167ac96b381a36a7187b19072b1f38" name="a61167ac96b381a36a7187b19072b1f38"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61167ac96b381a36a7187b19072b1f38">&#9670;&#160;</a></span>s_mpi_finalize()</h2>
 
@@ -770,8 +808,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a767ff1f924147e7f0230c8a47f56b6c9" name="a767ff1f924147e7f0230c8a47f56b6c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a767ff1f924147e7f0230c8a47f56b6c9">&#9670;&#160;</a></span>s_mpi_sendrecv_capilary_variables_buffers()</h2>
+<a id="aa7cefdf560b2c94729b92080a97ffa1b" name="aa7cefdf560b2c94729b92080a97ffa1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7cefdf560b2c94729b92080a97ffa1b">&#9670;&#160;</a></span>s_mpi_sendrecv_grid_variables_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -780,13 +818,8 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine __m_mpi_common_fpp_f90__::s_mpi_sendrecv_capilary_variables_buffers </td>
+          <td class="memname">subroutine __m_mpi_common_fpp_f90__::s_mpi_sendrecv_grid_variables_buffers </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(num_dims + 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c_divs_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>mpi_dir</em></span>, </td>
         </tr>
         <tr>
@@ -801,21 +834,25 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a767ff1f924147e7f0230c8a47f56b6c9_cgraph.svg" width="420" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+
+<p>The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mpi_dir</td><td>MPI communication coordinate direction </td></tr>
+    <tr><td class="paramname">pbc_loc</td><td>Processor boundary condition (PBC) location </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a767ff1f924147e7f0230c8a47f56b6c9_icgraph.svg" width="100%" height="491"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_aa7cefdf560b2c94729b92080a97ffa1b_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a815e648dc99c14163990d199ff63d785" name="a815e648dc99c14163990d199ff63d785"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a815e648dc99c14163990d199ff63d785">&#9670;&#160;</a></span>s_mpi_sendrecv_variables_buffers()</h2>
+<a id="adca5044be1cccaebbd82a5dfa628b0b4" name="adca5044be1cccaebbd82a5dfa628b0b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adca5044be1cccaebbd82a5dfa628b0b4">&#9670;&#160;</a></span>s_mpi_sendrecv_variables_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -826,17 +863,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine __m_mpi_common_fpp_f90__::s_mpi_sendrecv_variables_buffers </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(idwbuff(1)%beg:, idwbuff(2)%beg:, idwbuff(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pb</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(idwbuff(1)%beg:, idwbuff(2)%beg:, idwbuff(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>mv</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_comm</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -846,7 +873,22 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nvar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), dimension(idwbuff(1)%beg:, idwbuff(2)%beg:, idwbuff(3)%beg:, 1:, 1:), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>pb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(wp), dimension(idwbuff(1)%beg:, idwbuff(2)%beg:, idwbuff(3)%beg:, 1:, 1:), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>mv</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -868,12 +910,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a815e648dc99c14163990d199ff63d785_cgraph.svg" width="428" height="184"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_adca5044be1cccaebbd82a5dfa628b0b4_cgraph.svg" width="375" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_a815e648dc99c14163990d199ff63d785_icgraph.svg" width="100%" height="507"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__mpi__common_8fpp_8f90_adca5044be1cccaebbd82a5dfa628b0b4_icgraph.svg" width="100%" height="479"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

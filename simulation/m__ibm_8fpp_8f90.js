@@ -9,5 +9,6 @@ var m__ibm_8fpp_8f90 =
     [ "s_ibm_correct_state", "m__ibm_8fpp_8f90.html#a76651f99bfc98a15dfb4ebb1a4ad1350", null ],
     [ "s_ibm_setup", "m__ibm_8fpp_8f90.html#a785766d9bbf5c71f0646c9b763364b17", null ],
     [ "s_initialize_ibm_module", "m__ibm_8fpp_8f90.html#a1b9d9fce949e23ae7dc7f45dcafcb085", null ],
-    [ "s_interpolate_image_point", "m__ibm_8fpp_8f90.html#a35d845ff62ca040bc52252344f339f71", null ]
+    [ "s_interpolate_image_point", "m__ibm_8fpp_8f90.html#a35d845ff62ca040bc52252344f339f71", null ],
+    [ "s_populate_ib_buffers", "m__ibm_8fpp_8f90.html#a8cd9d1ea1953598bb5b630ba51e998dd", null ]
 ];

@@ -149,15 +149,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a43a3477cf47a222d9c74e4371b51c919" id="r_a43a3477cf47a222d9c74e4371b51c919"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43a3477cf47a222d9c74e4371b51c919">s_mpi_bcast_user_inputs</a></td></tr>
 <tr class="memdesc:a43a3477cf47a222d9c74e4371b51c919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Since only processor with rank 0 is in charge of reading and checking the consistency of the user provided inputs, these are not available to the remaining processors. This subroutine is then in charge of broadcasting the required information.  <br /></td></tr>
 <tr class="separator:a43a3477cf47a222d9c74e4371b51c919"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47407b84f1c737f5a6372dd407c5d9e0" id="r_a47407b84f1c737f5a6372dd407c5d9e0"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47407b84f1c737f5a6372dd407c5d9e0">s_mpi_decompose_computational_domain</a></td></tr>
-<tr class="memdesc:a47407b84f1c737f5a6372dd407c5d9e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine takes care of efficiently distributing the computational domain among the available processors as well as recomputing some of the global parameters so that they reflect the configuration of sub-domain that is overseen by the local processor.  <br /></td></tr>
-<tr class="separator:a47407b84f1c737f5a6372dd407c5d9e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6367f5ee093449d97546896c16985b5b" id="r_a6367f5ee093449d97546896c16985b5b"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6367f5ee093449d97546896c16985b5b">s_mpi_sendrecv_grid_vars_buffer_regions</a> (pbc_loc, sweep_coord)</td></tr>
-<tr class="memdesc:a6367f5ee093449d97546896c16985b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates the buffer regions associated with the grid variables with processors in charge of the neighboring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated.  <br /></td></tr>
-<tr class="separator:a6367f5ee093449d97546896c16985b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ed5341912a9aff6b213f343199beef3" id="r_a1ed5341912a9aff6b213f343199beef3"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ed5341912a9aff6b213f343199beef3">s_mpi_sendrecv_cons_vars_buffer_regions</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, pbc_loc, sweep_coord, q_particle)</td></tr>
-<tr class="memdesc:a1ed5341912a9aff6b213f343199beef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Communicates buffer regions associated with conservative variables with processors in charge of the neighboring sub-domains.  <br /></td></tr>
-<tr class="separator:a1ed5341912a9aff6b213f343199beef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c7826d6e0b57eda2cb47f817bddc243" id="r_a2c7826d6e0b57eda2cb47f817bddc243"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c7826d6e0b57eda2cb47f817bddc243">s_mpi_gather_spatial_extents</a> (spatial_extents)</td></tr>
 <tr class="memdesc:a2c7826d6e0b57eda2cb47f817bddc243"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gathers the Silo database metadata for the spatial extents in order to boost the performance of the multidimensional visualization.  <br /></td></tr>
 <tr class="separator:a2c7826d6e0b57eda2cb47f817bddc243"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,13 +167,6 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Buffers of the conservative variables received/sent from/to neighboring</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p>processors. Note that these variables are structured as vectors rather than arrays. </p>
-</div></td></tr>
-<tr class="memitem:a1dd1a7a9b62361d7810f49d3cdc5d77d" id="r_a1dd1a7a9b62361d7810f49d3cdc5d77d"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dd1a7a9b62361d7810f49d3cdc5d77d">q_cons_buffer_in</a></td></tr>
-<tr class="separator:a1dd1a7a9b62361d7810f49d3cdc5d77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2728585443f6e7066d591dd04c06c22" id="r_ab2728585443f6e7066d591dd04c06c22"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2728585443f6e7066d591dd04c06c22">q_cons_buffer_out</a></td></tr>
-<tr class="separator:ab2728585443f6e7066d591dd04c06c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Receive counts and displacement vector variables, respectively, used in</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>enabling MPI to gather varying amounts of data from all processes to the root process </p>
 </div></td></tr>
@@ -191,8 +175,6 @@ Variables</h2></td></tr>
 <tr class="memitem:aebaa6e3cc66d2431c5fb49896d40d7e6" id="r_aebaa6e3cc66d2431c5fb49896d40d7e6"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebaa6e3cc66d2431c5fb49896d40d7e6">displs</a></td></tr>
 <tr class="separator:aebaa6e3cc66d2431c5fb49896d40d7e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Generic flags used to identify and report MPI errors</div></td></tr>
-<tr class="memitem:ae5709407e3600d19d79b183e409bb982" id="r_ae5709407e3600d19d79b183e409bb982"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5709407e3600d19d79b183e409bb982">err_code</a></td></tr>
-<tr class="separator:ae5709407e3600d19d79b183e409bb982"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a306ba163b09cfc692125f2c0ba82ef8c" id="r_a306ba163b09cfc692125f2c0ba82ef8c"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a306ba163b09cfc692125f2c0ba82ef8c">ierr</a></td></tr>
 <tr class="separator:a306ba163b09cfc692125f2c0ba82ef8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -258,27 +240,6 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__mpi__proxy_a43a3477cf47a222d9c74e4371b51c919_icgraph.svg" width="508" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a47407b84f1c737f5a6372dd407c5d9e0" name="a47407b84f1c737f5a6372dd407c5d9e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47407b84f1c737f5a6372dd407c5d9e0">&#9670;&#160;</a></span>s_mpi_decompose_computational_domain()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_mpi_proxy::s_mpi_decompose_computational_domain</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This subroutine takes care of efficiently distributing the computational domain among the available processors as well as recomputing some of the global parameters so that they reflect the configuration of sub-domain that is overseen by the local processor. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__mpi__proxy_a47407b84f1c737f5a6372dd407c5d9e0_icgraph.svg" width="556" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -404,88 +365,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a1ed5341912a9aff6b213f343199beef3" name="a1ed5341912a9aff6b213f343199beef3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ed5341912a9aff6b213f343199beef3">&#9670;&#160;</a></span>s_mpi_sendrecv_cons_vars_buffer_regions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_mpi_proxy::s_mpi_sendrecv_cons_vars_buffer_regions </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character(len=3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character, intent(in)</td>          <td class="paramname"><span class="paramname"><em>sweep_coord</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>q_particle</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Communicates buffer regions associated with conservative variables with processors in charge of the neighboring sub-domains. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
-    <tr><td class="paramname">pbc_loc</td><td>Processor boundary condition (PBC) location </td></tr>
-    <tr><td class="paramname">sweep_coord</td><td>Coordinate direction normal to the processor boundary </td></tr>
-    <tr><td class="paramname">q_particle</td><td>Projection of the lagrangian particles in the Eulerian framework </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__mpi__proxy_a1ed5341912a9aff6b213f343199beef3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a6367f5ee093449d97546896c16985b5b" name="a6367f5ee093449d97546896c16985b5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6367f5ee093449d97546896c16985b5b">&#9670;&#160;</a></span>s_mpi_sendrecv_grid_vars_buffer_regions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_mpi_proxy::s_mpi_sendrecv_grid_vars_buffer_regions </td>
-          <td>(</td>
-          <td class="paramtype">character(len=3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">character, intent(in)</td>          <td class="paramname"><span class="paramname"><em>sweep_coord</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Communicates the buffer regions associated with the grid variables with processors in charge of the neighboring sub-domains. Note that only cell-width spacings feature buffer regions so that no information relating to the cell-boundary locations is communicated. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pbc_loc</td><td>Processor boundary condition (PBC) location </td></tr>
-    <tr><td class="paramname">sweep_coord</td><td>Coordinate direction normal to the processor boundary </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__mpi__proxy_a6367f5ee093449d97546896c16985b5b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="aebaa6e3cc66d2431c5fb49896d40d7e6" name="aebaa6e3cc66d2431c5fb49896d40d7e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aebaa6e3cc66d2431c5fb49896d40d7e6">&#9670;&#160;</a></span>displs</h2>
@@ -497,28 +376,6 @@ Here is the caller graph for this function:</div>
           <td class="memname">integer, dimension(:), allocatable m_mpi_proxy::displs</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae5709407e3600d19d79b183e409bb982" name="ae5709407e3600d19d79b183e409bb982"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5709407e3600d19d79b183e409bb982">&#9670;&#160;</a></span>err_code</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, private m_mpi_proxy::err_code</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
@@ -541,34 +398,6 @@ Here is the caller graph for this function:</div>
 <span class="mlabels"><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1dd1a7a9b62361d7810f49d3cdc5d77d" name="a1dd1a7a9b62361d7810f49d3cdc5d77d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dd1a7a9b62361d7810f49d3cdc5d77d">&#9670;&#160;</a></span>q_cons_buffer_in</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(:), allocatable m_mpi_proxy::q_cons_buffer_in</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab2728585443f6e7066d591dd04c06c22" name="ab2728585443f6e7066d591dd04c06c22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2728585443f6e7066d591dd04c06c22">&#9670;&#160;</a></span>q_cons_buffer_out</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(wp), dimension(:), allocatable m_mpi_proxy::q_cons_buffer_out</td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>

@@ -3,7 +3,6 @@ var files_dup =
     [ "m_acoustic_src.fpp.f90", "m__acoustic__src_8fpp_8f90.html", "m__acoustic__src_8fpp_8f90" ],
     [ "m_body_forces.fpp.f90", "m__body__forces_8fpp_8f90.html", "m__body__forces_8fpp_8f90" ],
     [ "m_boundary_common.fpp.f90", "m__boundary__common_8fpp_8f90.html", "m__boundary__common_8fpp_8f90" ],
-    [ "m_boundary_conditions.fpp.f90", "m__boundary__conditions_8fpp_8f90.html", "m__boundary__conditions_8fpp_8f90" ],
     [ "m_bubbles.fpp.f90", "m__bubbles_8fpp_8f90.html", "m__bubbles_8fpp_8f90" ],
     [ "m_bubbles_EE.fpp.f90", "m__bubbles__EE_8fpp_8f90.html", "m__bubbles__EE_8fpp_8f90" ],
     [ "m_bubbles_EL.fpp.f90", "m__bubbles__EL_8fpp_8f90.html", "m__bubbles__EL_8fpp_8f90" ],
