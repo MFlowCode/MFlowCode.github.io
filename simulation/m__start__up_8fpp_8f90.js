@@ -13,9 +13,5 @@ var m__start__up_8fpp_8f90 =
     [ "m_start_up::s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
     [ "m_start_up::s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
     [ "m_start_up::s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
-    [ "m_start_up::dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],
-    [ "m_start_up::grad_x_vf", "namespacem__start__up.html#acd3b736578c59b1bd9dfc4b81f4a7279", null ],
-    [ "m_start_up::grad_y_vf", "namespacem__start__up.html#a2e9ad6009d63488a8f8c7a3a548ba433", null ],
-    [ "m_start_up::grad_z_vf", "namespacem__start__up.html#ada153b7f1b2f725b026b89cd187d3206", null ],
-    [ "m_start_up::norm_vf", "namespacem__start__up.html#ae380781597535aa125ff18847b85a206", null ]
+    [ "m_start_up::dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ]
 ];

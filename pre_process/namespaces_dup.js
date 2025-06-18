@@ -327,6 +327,7 @@ var namespaces_dup =
     [ "m_helper_basic", "namespacem__helper__basic.html", [
       [ "f_all_default", "namespacem__helper__basic.html#a35696604e5c3c1eda9a1fcdfca99de4f", null ],
       [ "f_approx_equal", "namespacem__helper__basic.html#a58590a12d49b9b884256a839f2be8610", null ],
+      [ "f_approx_in_array", "namespacem__helper__basic.html#a369aba14f5888ee29e17199525655efe", null ],
       [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
       [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
       [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a619a8b5714a72c9064d84b14bd2089f9", null ]
@@ -353,7 +354,7 @@ var namespaces_dup =
       [ "s_compute_equilibrium_state", "namespacem__perturbation.html#a16bddc763f4f7e1d585eb470382e35f4", null ],
       [ "s_elliptic_smoothing", "namespacem__perturbation.html#a035378d69a4ac383a84227d47b13cb0b", null ],
       [ "s_finalize_perturbation_module", "namespacem__perturbation.html#a8f2edeeafb4b5041889c21a647356173", null ],
-      [ "s_generate_wave", "namespacem__perturbation.html#a1f21a6b74e354360bb4bffb5e7956a46", null ],
+      [ "s_generate_wave", "namespacem__perturbation.html#abb96709b7cccdc8eb0637c9917e92cee", null ],
       [ "s_initialize_perturbation_module", "namespacem__perturbation.html#ab8022684d54ccc3a65750b339c915e57", null ],
       [ "s_instability_nonreflecting_subsonic_buffer_bc", "namespacem__perturbation.html#a50408520dee6e810e8e862d90c1b0eef", null ],
       [ "s_instability_wave", "namespacem__perturbation.html#a2083de284651fe7033948177c00dcf1b", null ],

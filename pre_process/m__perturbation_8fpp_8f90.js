@@ -3,7 +3,7 @@ var m__perturbation_8fpp_8f90 =
     [ "m_perturbation::s_compute_equilibrium_state", "namespacem__perturbation.html#a16bddc763f4f7e1d585eb470382e35f4", null ],
     [ "m_perturbation::s_elliptic_smoothing", "namespacem__perturbation.html#a035378d69a4ac383a84227d47b13cb0b", null ],
     [ "m_perturbation::s_finalize_perturbation_module", "namespacem__perturbation.html#a8f2edeeafb4b5041889c21a647356173", null ],
-    [ "m_perturbation::s_generate_wave", "namespacem__perturbation.html#a1f21a6b74e354360bb4bffb5e7956a46", null ],
+    [ "m_perturbation::s_generate_wave", "namespacem__perturbation.html#abb96709b7cccdc8eb0637c9917e92cee", null ],
     [ "m_perturbation::s_initialize_perturbation_module", "namespacem__perturbation.html#ab8022684d54ccc3a65750b339c915e57", null ],
     [ "m_perturbation::s_instability_nonreflecting_subsonic_buffer_bc", "namespacem__perturbation.html#a50408520dee6e810e8e862d90c1b0eef", null ],
     [ "m_perturbation::s_instability_wave", "namespacem__perturbation.html#a2083de284651fe7033948177c00dcf1b", null ],

@@ -59,7 +59,7 @@ var NAVTREEINDEX =
 "annotated.html",
 "namespacem__constants.html#a40dd8e42f1d768ce7c112ea571ba9a7d",
 "namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555",
-"structbubbles__lagrange__parameters.html#afde6c18c5e9a2764d8c08b6407b6e588"
+"structbubbles__lagrange__parameters.html#af8ceb7622bf40124bbece274f9efc77c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

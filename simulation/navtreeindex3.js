@@ -1,8 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"structib__patch__parameters.html#af0e6463a5f12bfade32d6dd9a7c7b6d5":[2,0,9,16],
-"structic__model__parameters.html":[2,0,10],
-"structic__model__parameters.html#a1f9f79e75387b664c17f9df77e50e7cc":[2,0,10,1],
 "structic__model__parameters.html#a3e40399b248972eb0ff31258b991817f":[2,0,10,0],
 "structic__model__parameters.html#a418d96c9f3f697b7ef5106cdd7de002b":[2,0,10,2],
 "structic__patch__parameters.html":[2,0,11],

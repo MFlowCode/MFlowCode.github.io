@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structbubbles__lagrange__parameters.html#af8ceb7622bf40124bbece274f9efc77c":[2,0,6,5],
 "structbubbles__lagrange__parameters.html#afde6c18c5e9a2764d8c08b6407b6e588":[2,0,6,17],
 "structchemistry__parameters.html":[2,0,7],
 "structchemistry__parameters.html#a25b946824fcab30f8c915bf5790db62d":[2,0,7,2],

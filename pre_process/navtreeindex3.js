@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"namespacem__perturbation.html#ac37762de5f3a535a726fc6f269358a41":[1,0,14,12],
 "namespacem__precision__select.html":[1,0,15],
 "namespacem__precision__select.html#a04a3d9dba8fd92244fa307d1c6423622":[1,0,15,5],
 "namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e":[1,0,15,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structintegral__parameters.html":[2,0,18],
 "structintegral__parameters.html#a05e55d2577ecb7694a99d45c013e6bad":[2,0,18,1],
 "structintegral__parameters.html#a0cbd082d589aa969666f61ef46dd3d8b":[2,0,18,2],
-"structintegral__parameters.html#a393cfa6b095a806fc6d02b1adbb3cf5d":[2,0,18,0],
-"structintegral__parameters.html#a54b726c4ecf58179ebcc5767bfc46e87":[2,0,18,3]
+"structintegral__parameters.html#a393cfa6b095a806fc6d02b1adbb3cf5d":[2,0,18,0]
 };
