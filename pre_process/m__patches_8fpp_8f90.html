@@ -141,6 +141,7 @@ $(function(){initNavTree('m__patches_8fpp_8f90.html',''); initResizable(true); }
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a4a44c39189d79ff9c01b6372bf3dd856" id="r_a4a44c39189d79ff9c01b6372bf3dd856"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a44c39189d79ff9c01b6372bf3dd856">__m_patches_fpp_f90__</a></td></tr>
+<tr class="memdesc:a4a44c39189d79ff9c01b6372bf3dd856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate memory and read initial condition data for IC extrusion.  <br /></td></tr>
 <tr class="separator:a4a44c39189d79ff9c01b6372bf3dd856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a643440c3316ec8583c02dba30f9da8eb" id="r_a643440c3316ec8583c02dba30f9da8eb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a643440c3316ec8583c02dba30f9da8eb">s_line_segment</a> (patch_id, patch_id_fp, q_prim_vf)</td></tr>
 <tr class="memdesc:a643440c3316ec8583c02dba30f9da8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The line segment patch is a 1D geometry that may be used, for example, in creating a Riemann problem. The geometry of the patch is well-defined when its centroid and length in the x-coordinate direction are provided. Note that the line segment patch DOES NOT allow for the smearing of its boundaries.  <br /></td></tr>
@@ -229,6 +230,40 @@ Functions/Subroutines</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Allocate memory and read initial condition data for IC extrusion. </p>
+<p>This macro handles the complete initialization process for IC extrusion by:</p>
+<p><b>Memory Allocation:</b></p><ul>
+<li>stored_values(xRows, yRows, sys_size) - stores primitive variable data from files</li>
+<li>x_coords(nrows) - stores x-coordinates from input files</li>
+<li>y_coords(nrows) - stores y-coordinates from input files (3D case only)</li>
+</ul>
+<p><b>File Reading Operations:</b></p><ul>
+<li>Reads primitive variable data from multiple files with pattern: <code>prim.&lt;file_number&gt;.00.&lt;timestep&gt;.dat</code> where timestep uses <code>zeros_default</code> padding</li>
+<li>Files are read from directory specified by <code>init_dir</code> parameter</li>
+<li>Supports 1D, 2D, and 3D computational domains</li>
+</ul>
+<p><b>Grid Structure Detection:</b></p><ul>
+<li>1D/2D: Counts lines in first file to determine xRows</li>
+<li>3D: Analyzes coordinate patterns to determine xRows and yRows structure</li>
+</ul>
+<p><b>MPI Domain Mapping:</b></p><ul>
+<li>Calculates global_offset_x and global_offset_y for MPI subdomain positioning</li>
+<li>Maps file coordinates to local computational grid coordinates</li>
+</ul>
+<p><b>Data Assignment:</b></p><ul>
+<li>Populates q_prim_vf primitive variable arrays with file data</li>
+<li>Handles momentum component indexing with special treatment for momxe</li>
+<li>Sets momxe component to zero for 2D/3D cases</li>
+</ul>
+<p><b>State Management:</b></p><ul>
+<li>Uses files_loaded flag to prevent redundant file operations</li>
+<li>Preserves data across multiple macro calls within same simulation</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>File pattern uses <code>zeros_default</code> parameter (default: "000000") for timestep padding </dd>
+<dd>
+Directory path is hardcoded in <code>init_dir</code> parameter - modify as needed </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Aborts execution if file reading errors occur. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
