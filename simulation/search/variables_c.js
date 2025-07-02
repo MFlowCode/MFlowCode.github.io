@@ -12,10 +12,12 @@ var searchData=
   ['model_5ffilepath_9',['model_filepath',['../structic__patch__parameters.html#a81ee374f5bacf64229f15270e688db4c',1,'ic_patch_parameters::model_filepath'],['../structib__patch__parameters.html#a759fa03c0bbe4f4267052855bf8da8e9',1,'ib_patch_parameters::model_filepath']]],
   ['model_5fspc_10',['model_spc',['../structic__patch__parameters.html#ac0413acf072c367e5b24cfbfcc872939',1,'ic_patch_parameters::model_spc'],['../structib__patch__parameters.html#adbb24b6ea6abe411f009938436b4dbc6',1,'ib_patch_parameters::model_spc']]],
   ['model_5fthreshold_11',['model_threshold',['../structic__patch__parameters.html#a4c558e7f55ddfb01126725971b840f28',1,'ic_patch_parameters::model_threshold'],['../structib__patch__parameters.html#a77d557ca8f524fa5a5f46cbb087c1e33',1,'ib_patch_parameters::model_threshold']]],
-  ['moms_12',['moms',['../structbub__bounds__info.html#a1b426f4c1ac7d9200daac990a125b163',1,'bub_bounds_info']]],
-  ['mpi_5f2p_13',['mpi_2p',['../namespacem__precision__select.html#a2b608490c14fd56612c88ae5b505da4c',1,'m_precision_select']]],
-  ['mpi_5fp_14',['mpi_p',['../namespacem__precision__select.html#a40bfd97e30d4c33e317f21fbfefe8aad',1,'m_precision_select']]],
-  ['ms_15',['ms',['../structbub__bounds__info.html#a038a7ae16f7bcd2ebbdbd087c9a6a5d4',1,'bub_bounds_info']]],
-  ['mu_5fv_16',['mu_v',['../structphysical__parameters.html#a91f6f2517985aa14c9930b7fbae3a6e3',1,'physical_parameters']]],
-  ['mul0_17',['mul0',['../structphysical__parameters.html#ab47060b334653db60b653b4be817b73f',1,'physical_parameters']]]
+  ['modulus_12',['modulus',['../namespacem__constants.html#ab6a85a618a05e2cd09a2ad06b27d7d45',1,'m_constants']]],
+  ['moms_13',['moms',['../structbub__bounds__info.html#a1b426f4c1ac7d9200daac990a125b163',1,'bub_bounds_info']]],
+  ['mpi_5f2p_14',['mpi_2p',['../namespacem__precision__select.html#a2b608490c14fd56612c88ae5b505da4c',1,'m_precision_select']]],
+  ['mpi_5fp_15',['mpi_p',['../namespacem__precision__select.html#a40bfd97e30d4c33e317f21fbfefe8aad',1,'m_precision_select']]],
+  ['ms_16',['ms',['../structbub__bounds__info.html#a038a7ae16f7bcd2ebbdbd087c9a6a5d4',1,'bub_bounds_info']]],
+  ['mu_5fv_17',['mu_v',['../structphysical__parameters.html#a91f6f2517985aa14c9930b7fbae3a6e3',1,'physical_parameters']]],
+  ['mul0_18',['mul0',['../structphysical__parameters.html#ab47060b334653db60b653b4be817b73f',1,'physical_parameters']]],
+  ['multiplier_19',['multiplier',['../namespacem__constants.html#ab669e1862f7d937318cd697cd2a68a04',1,'m_constants']]]
 ];

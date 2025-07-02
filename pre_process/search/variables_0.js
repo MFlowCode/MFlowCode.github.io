@@ -19,6 +19,7 @@ var searchData=
   ['alpha_5frho_16',['alpha_rho',['../structic__patch__parameters.html#acd64b4adc39ad4b1b8b73e61037aa7aa',1,'ic_patch_parameters']]],
   ['alpha_5frho_5fin_17',['alpha_rho_in',['../structint__bounds__info.html#a01aefb3eb00de343804583b7bbd51817',1,'int_bounds_info']]],
   ['alter_5fpatch_18',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
-  ['angle_19',['angle',['../structsource__spatial__type.html#ad2c01fbf31d03341044ae068d036e80c',1,'source_spatial_type']]],
-  ['aperture_20',['aperture',['../structacoustic__parameters.html#a07d9d10ff01ca92ec8b0a850c697d2db',1,'acoustic_parameters']]]
+  ['amplifier_19',['amplifier',['../namespacem__constants.html#a1f52e85430eb7f1fba1d46370791e877',1,'m_constants']]],
+  ['angle_20',['angle',['../structsource__spatial__type.html#ad2c01fbf31d03341044ae068d036e80c',1,'source_spatial_type']]],
+  ['aperture_21',['aperture',['../structacoustic__parameters.html#a07d9d10ff01ca92ec8b0a850c697d2db',1,'acoustic_parameters']]]
 ];

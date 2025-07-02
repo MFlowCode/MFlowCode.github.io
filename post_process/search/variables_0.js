@@ -17,7 +17,8 @@ var searchData=
   ['alpha_5fwrt_14',['alpha_wrt',['../namespacem__global__parameters.html#a61f570bcde70f7013523e11d93c66929',1,'m_global_parameters']]],
   ['alt_5fsoundspeed_15',['alt_soundspeed',['../namespacem__global__parameters.html#a5a19b6ba65c32dfc21f4762eceb25f29',1,'m_global_parameters']]],
   ['alter_5fpatch_16',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
-  ['angle_17',['angle',['../structsource__spatial__type.html#ad2c01fbf31d03341044ae068d036e80c',1,'source_spatial_type']]],
-  ['aperture_18',['aperture',['../structacoustic__parameters.html#a07d9d10ff01ca92ec8b0a850c697d2db',1,'acoustic_parameters']]],
-  ['avg_5fstate_19',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
+  ['amplifier_17',['amplifier',['../namespacem__constants.html#a1f52e85430eb7f1fba1d46370791e877',1,'m_constants']]],
+  ['angle_18',['angle',['../structsource__spatial__type.html#ad2c01fbf31d03341044ae068d036e80c',1,'source_spatial_type']]],
+  ['aperture_19',['aperture',['../structacoustic__parameters.html#a07d9d10ff01ca92ec8b0a850c697d2db',1,'acoustic_parameters']]],
+  ['avg_5fstate_20',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
 ];

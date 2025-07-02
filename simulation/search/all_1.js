@@ -10,7 +10,8 @@ var searchData=
   ['alpha_5frho_7',['alpha_rho',['../structic__patch__parameters.html#acd64b4adc39ad4b1b8b73e61037aa7aa',1,'ic_patch_parameters']]],
   ['alpha_5frho_5fin_8',['alpha_rho_in',['../structint__bounds__info.html#a01aefb3eb00de343804583b7bbd51817',1,'int_bounds_info']]],
   ['alter_5fpatch_9',['alter_patch',['../structic__patch__parameters.html#a10f9edd7266af0f6df917f44f739133e',1,'ic_patch_parameters']]],
-  ['angle_10',['angle',['../structsource__spatial__type.html#ad2c01fbf31d03341044ae068d036e80c',1,'source_spatial_type']]],
-  ['aperture_11',['aperture',['../structacoustic__parameters.html#a07d9d10ff01ca92ec8b0a850c697d2db',1,'acoustic_parameters']]],
-  ['associated_5flegendre_12',['associated_legendre',['../m__helper_8fpp_8f90.html#a181b745e00e4a6f70a4d4300798c56b9',1,'m_helper.fpp.f90']]]
+  ['amplifier_10',['amplifier',['../namespacem__constants.html#a1f52e85430eb7f1fba1d46370791e877',1,'m_constants']]],
+  ['angle_11',['angle',['../structsource__spatial__type.html#ad2c01fbf31d03341044ae068d036e80c',1,'source_spatial_type']]],
+  ['aperture_12',['aperture',['../structacoustic__parameters.html#a07d9d10ff01ca92ec8b0a850c697d2db',1,'acoustic_parameters']]],
+  ['associated_5flegendre_13',['associated_legendre',['../m__helper_8fpp_8f90.html#a181b745e00e4a6f70a4d4300798c56b9',1,'m_helper.fpp.f90']]]
 ];

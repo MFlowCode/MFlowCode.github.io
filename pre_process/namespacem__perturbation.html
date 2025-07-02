@@ -150,76 +150,75 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:a2a73896e9dae92c7a3d973e069eef753"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f301707648fd0f0f5c215c439cdc171" id="r_a2f301707648fd0f0f5c215c439cdc171"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f301707648fd0f0f5c215c439cdc171">s_perturb_surrounding_flow</a> (q_prim_vf)</td></tr>
 <tr class="separator:a2f301707648fd0f0f5c215c439cdc171"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e0d6637f82ef127f3bce4fc8064e99" id="r_a68e0d6637f82ef127f3bce4fc8064e99"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68e0d6637f82ef127f3bce4fc8064e99">s_superposition_instability_wave</a> (q_prim_vf)</td></tr>
-<tr class="memdesc:a68e0d6637f82ef127f3bce4fc8064e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes velocity perturbations for a temporal mixing layer with hypertangent mean streamwise velocity profile obtained from linear stability analysis. For a 2D case, instability waves with spatial wavenumbers, (4,0), (2,0), and (1,0) are superposed. For a 3D waves, (4,4), (4,-4), (2,2), (2,-2), (1,1), (1,-1) areadded on top of 2D waves.  <br /></td></tr>
-<tr class="separator:a68e0d6637f82ef127f3bce4fc8064e99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16bddc763f4f7e1d585eb470382e35f4" id="r_a16bddc763f4f7e1d585eb470382e35f4"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16bddc763f4f7e1d585eb470382e35f4">s_compute_equilibrium_state</a> (fp, fr0, fr)</td></tr>
-<tr class="memdesc:a16bddc763f4f7e1d585eb470382e35f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes equilibrium bubble radius of the perturbed pressure field.  <br /></td></tr>
-<tr class="separator:a16bddc763f4f7e1d585eb470382e35f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2083de284651fe7033948177c00dcf1b" id="r_a2083de284651fe7033948177c00dcf1b"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2083de284651fe7033948177c00dcf1b">s_instability_wave</a> (alpha, beta, wave, shift)</td></tr>
-<tr class="memdesc:a2083de284651fe7033948177c00dcf1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes instability waves for a given set of spatial wavenumbers (alpha, beta) in x and z directions. The eigenvalue problem is derived from the linearized Euler equations with parallel mean flow assumption (See Sandham 1989 PhD thesis for details).  <br /></td></tr>
-<tr class="separator:a2083de284651fe7033948177c00dcf1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41cb29ef03f665ae5238147ea8d98ffe" id="r_a41cb29ef03f665ae5238147ea8d98ffe"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41cb29ef03f665ae5238147ea8d98ffe">s_solve_linear_system</a> (alpha, beta, u_mean, rho_mean, p_mean, d, gam, pi_inf, mach, wave, shift)</td></tr>
-<tr class="memdesc:a41cb29ef03f665ae5238147ea8d98ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine solves linear system from linear stability analysis and generate instability waves for the given set of spatial wave numbers and phase shift.  <br /></td></tr>
-<tr class="separator:a41cb29ef03f665ae5238147ea8d98ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50408520dee6e810e8e862d90c1b0eef" id="r_a50408520dee6e810e8e862d90c1b0eef"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50408520dee6e810e8e862d90c1b0eef">s_instability_nonreflecting_subsonic_buffer_bc</a> (ar, ai, hr, hi, rho_mean, mach)</td></tr>
-<tr class="memdesc:a50408520dee6e810e8e862d90c1b0eef"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine applies non-reflecting subsonic buffer boundary condition to the linear system of equations (i.e. matrix A).  <br /></td></tr>
-<tr class="separator:a50408520dee6e810e8e862d90c1b0eef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb96709b7cccdc8eb0637c9917e92cee" id="r_abb96709b7cccdc8eb0637c9917e92cee"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb96709b7cccdc8eb0637c9917e92cee">s_generate_wave</a> (wi, zr, zi, rho_mean, mach, alpha, beta, wave, shift)</td></tr>
-<tr class="memdesc:abb96709b7cccdc8eb0637c9917e92cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine generates an instability wave using the most unstable eigenvalue and corresponding eigenvector among the given set of eigenvalues and eigenvectors.  <br /></td></tr>
-<tr class="separator:abb96709b7cccdc8eb0637c9917e92cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a035378d69a4ac383a84227d47b13cb0b" id="r_a035378d69a4ac383a84227d47b13cb0b"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a035378d69a4ac383a84227d47b13cb0b">s_elliptic_smoothing</a> (q_prim_vf, bc_type)</td></tr>
 <tr class="separator:a035378d69a4ac383a84227d47b13cb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa02cfb00a8406637b02037a5d8a05ae" id="r_afa02cfb00a8406637b02037a5d8a05ae"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa02cfb00a8406637b02037a5d8a05ae">s_perturb_mixlayer</a> (q_prim_vf)</td></tr>
+<tr class="memdesc:afa02cfb00a8406637b02037a5d8a05ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes velocity perturbations for a temporal mixing layer with a hyperbolic tangent mean streamwise velocity profile, using an inverter version of the spectrum-based synthetic turbulence generation method proposed by Guo et al. (2023, JFM).  <br /></td></tr>
+<tr class="separator:afa02cfb00a8406637b02037a5d8a05ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49336011b98f1698ccd754d19a70db20" id="r_a49336011b98f1698ccd754d19a70db20"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49336011b98f1698ccd754d19a70db20">s_generate_random_perturbation</a> (khat, xi, phi, ik, yloc)</td></tr>
+<tr class="separator:a49336011b98f1698ccd754d19a70db20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a492ba3cf7b2070a7db7d75f7868eedc4" id="r_a492ba3cf7b2070a7db7d75f7868eedc4"><td class="memItemLeft" align="right" valign="top">real(wp) function, dimension(3)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a492ba3cf7b2070a7db7d75f7868eedc4">f_unit_vector</a> (theta, eta)</td></tr>
+<tr class="separator:a492ba3cf7b2070a7db7d75f7868eedc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54bbfa24f96c984b26015bddcfb59ee4" id="r_a54bbfa24f96c984b26015bddcfb59ee4"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54bbfa24f96c984b26015bddcfb59ee4">s_prng</a> (var, seed)</td></tr>
+<tr class="memdesc:a54bbfa24f96c984b26015bddcfb59ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function generates a pseudo-random number between 0 and 1 based on linear congruential generator.  <br /></td></tr>
+<tr class="separator:a54bbfa24f96c984b26015bddcfb59ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c2d38b30e2c0aacd18b87e2d43a2249" id="r_a0c2d38b30e2c0aacd18b87e2d43a2249"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c2d38b30e2c0aacd18b87e2d43a2249">modmul</a> (a)</td></tr>
+<tr class="separator:a0c2d38b30e2c0aacd18b87e2d43a2249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f2edeeafb4b5041889c21a647356173" id="r_a8f2edeeafb4b5041889c21a647356173"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f2edeeafb4b5041889c21a647356173">s_finalize_perturbation_module</a> ()</td></tr>
 <tr class="separator:a8f2edeeafb4b5041889c21a647356173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ac37762de5f3a535a726fc6f269358a41" id="r_ac37762de5f3a535a726fc6f269358a41"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a></td></tr>
-<tr class="separator:ac37762de5f3a535a726fc6f269358a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07707ab93132630e44496213642a40db" id="r_a07707ab93132630e44496213642a40db"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07707ab93132630e44496213642a40db">mixlayer_var</a></td></tr>
-<tr class="separator:a07707ab93132630e44496213642a40db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a958d427e8c94b02b11c857ee3c553bb0" id="r_a958d427e8c94b02b11c857ee3c553bb0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a></td></tr>
-<tr class="separator:a958d427e8c94b02b11c857ee3c553bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60650727d33977adeb35bc47a0b44889" id="r_a60650727d33977adeb35bc47a0b44889"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60650727d33977adeb35bc47a0b44889">mixlayer_bc_fd</a></td></tr>
-<tr class="separator:a60650727d33977adeb35bc47a0b44889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08e164c495eedeeb7ee64e0cca9b2964" id="r_a08e164c495eedeeb7ee64e0cca9b2964"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a></td></tr>
-<tr class="separator:a08e164c495eedeeb7ee64e0cca9b2964"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84af4cc4dfb9d79db18734f7dafebfdd" id="r_a84af4cc4dfb9d79db18734f7dafebfdd"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84af4cc4dfb9d79db18734f7dafebfdd">q_prim_temp</a></td></tr>
+<tr class="memitem:a84af4cc4dfb9d79db18734f7dafebfdd" id="r_a84af4cc4dfb9d79db18734f7dafebfdd"><td class="memItemLeft" align="right" valign="top">real(wp), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84af4cc4dfb9d79db18734f7dafebfdd">q_prim_temp</a></td></tr>
 <tr class="separator:a84af4cc4dfb9d79db18734f7dafebfdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module contains subroutines that compute perturbations to the initial mean flow fields. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a16bddc763f4f7e1d585eb470382e35f4" name="a16bddc763f4f7e1d585eb470382e35f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16bddc763f4f7e1d585eb470382e35f4">&#9670;&#160;</a></span>s_compute_equilibrium_state()</h2>
+<a id="a492ba3cf7b2070a7db7d75f7868eedc4" name="a492ba3cf7b2070a7db7d75f7868eedc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492ba3cf7b2070a7db7d75f7868eedc4">&#9670;&#160;</a></span>f_unit_vector()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine m_perturbation::s_compute_equilibrium_state </td>
+          <td class="memname">real(wp) function, dimension(3) m_perturbation::f_unit_vector </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fp</em></span>, </td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>theta</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fr0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>fr</em></span>&#160;)</td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>eta</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>This subroutine computes equilibrium bubble radius of the perturbed pressure field. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a16bddc763f4f7e1d585eb470382e35f4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a492ba3cf7b2070a7db7d75f7868eedc4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0c2d38b30e2c0aacd18b87e2d43a2249" name="a0c2d38b30e2c0aacd18b87e2d43a2249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2d38b30e2c0aacd18b87e2d43a2249">&#9670;&#160;</a></span>modmul()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function m_perturbation::modmul </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a0c2d38b30e2c0aacd18b87e2d43a2249_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -269,77 +268,48 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="abb96709b7cccdc8eb0637c9917e92cee" name="abb96709b7cccdc8eb0637c9917e92cee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb96709b7cccdc8eb0637c9917e92cee">&#9670;&#160;</a></span>s_generate_wave()</h2>
+<a id="a49336011b98f1698ccd754d19a70db20" name="a49336011b98f1698ccd754d19a70db20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49336011b98f1698ccd754d19a70db20">&#9670;&#160;</a></span>s_generate_random_perturbation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pure subroutine m_perturbation::s_generate_wave </td>
+          <td class="memname">subroutine m_perturbation::s_generate_random_perturbation </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+          <td class="paramtype">real(wp), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>khat</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1, 0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>zr</em></span>, </td>
+          <td class="paramtype">real(wp), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>xi</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1, 0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>zi</em></span>, </td>
+          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>phi</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_mean</em></span>, </td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ik</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mach</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>, 0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>wave</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>shift</em></span>&#160;)</td>
+          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>yloc</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>This subroutine generates an instability wave using the most unstable eigenvalue and corresponding eigenvector among the given set of eigenvalues and eigenvectors. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">wi</td><td>eigenvalues </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">zi</td><td>eigenvectors </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_abb96709b7cccdc8eb0637c9917e92cee_cgraph.svg" width="492" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a49336011b98f1698ccd754d19a70db20_cgraph.svg" width="667" height="152"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_abb96709b7cccdc8eb0637c9917e92cee_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a49336011b98f1698ccd754d19a70db20_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -358,109 +328,31 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a50408520dee6e810e8e862d90c1b0eef" name="a50408520dee6e810e8e862d90c1b0eef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50408520dee6e810e8e862d90c1b0eef">&#9670;&#160;</a></span>s_instability_nonreflecting_subsonic_buffer_bc()</h2>
+<a id="afa02cfb00a8406637b02037a5d8a05ae" name="afa02cfb00a8406637b02037a5d8a05ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa02cfb00a8406637b02037a5d8a05ae">&#9670;&#160;</a></span>s_perturb_mixlayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pure subroutine m_perturbation::s_instability_nonreflecting_subsonic_buffer_bc </td>
+          <td class="memname">subroutine m_perturbation::s_perturb_mixlayer </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1, 0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ar</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1, 0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1, 0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1), intent(out)</td>          <td class="paramname"><span class="paramname"><em>hr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1, 0:<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>*<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> - <a class="el" href="#a08e164c495eedeeb7ee64e0cca9b2964">n_bc_skip</a> - 1), intent(out)</td>          <td class="paramname"><span class="paramname"><em>hi</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_mean</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mach</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine applies non-reflecting subsonic buffer boundary condition to the linear system of equations (i.e. matrix A). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ai</td><td>matrices for eigenvalue problem </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">hi</td><td>matrices for eigenvalue problem </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rho_mean</td><td>mean density profiles </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a50408520dee6e810e8e862d90c1b0eef_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a2083de284651fe7033948177c00dcf1b" name="a2083de284651fe7033948177c00dcf1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2083de284651fe7033948177c00dcf1b">&#9670;&#160;</a></span>s_instability_wave()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure subroutine m_perturbation::s_instability_wave </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>, 0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>wave</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>shift</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This subroutine computes instability waves for a given set of spatial wavenumbers (alpha, beta) in x and z directions. The eigenvalue problem is derived from the linearized Euler equations with parallel mean flow assumption (See Sandham 1989 PhD thesis for details). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">beta</td><td>spatial wavenumbers </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">wave</td><td>instability wave </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">shift</td><td>phase shift </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>This subroutine computes velocity perturbations for a temporal mixing layer with a hyperbolic tangent mean streamwise velocity profile, using an inverter version of the spectrum-based synthetic turbulence generation method proposed by Guo et al. (2023, JFM). </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a2083de284651fe7033948177c00dcf1b_cgraph.svg" width="100%" height="565"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_afa02cfb00a8406637b02037a5d8a05ae_cgraph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a2083de284651fe7033948177c00dcf1b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_afa02cfb00a8406637b02037a5d8a05ae_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -479,11 +371,6 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a2a73896e9dae92c7a3d973e069eef753_cgraph.svg" width="439" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -514,193 +401,40 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a41cb29ef03f665ae5238147ea8d98ffe" name="a41cb29ef03f665ae5238147ea8d98ffe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41cb29ef03f665ae5238147ea8d98ffe">&#9670;&#160;</a></span>s_solve_linear_system()</h2>
+<a id="a54bbfa24f96c984b26015bddcfb59ee4" name="a54bbfa24f96c984b26015bddcfb59ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54bbfa24f96c984b26015bddcfb59ee4">&#9670;&#160;</a></span>s_prng()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pure subroutine m_perturbation::s_solve_linear_system </td>
+          <td class="memname">subroutine m_perturbation::s_prng </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
+          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>var</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>u_mean</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_mean</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>p_mean</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1, 0:<a class="el" href="#a958d427e8c94b02b11c857ee3c553bb0">nbp</a> - 1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gam</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mach</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="#ac37762de5f3a535a726fc6f269358a41">mixlayer_nvar</a>, 0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>wave</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>shift</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>seed</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine solves linear system from linear stability analysis and generate instability waves for the given set of spatial wave numbers and phase shift. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">beta</td><td>spatial wavenumbers </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">u_mean</td><td>mean velocity profiles </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">p_mean</td><td>mean density and pressure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>differential operator in y dir </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>This function generates a pseudo-random number between 0 and 1 based on linear congruential generator. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a41cb29ef03f665ae5238147ea8d98ffe_cgraph.svg" width="100%" height="565"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a54bbfa24f96c984b26015bddcfb59ee4_cgraph.svg" width="416" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a41cb29ef03f665ae5238147ea8d98ffe_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a68e0d6637f82ef127f3bce4fc8064e99" name="a68e0d6637f82ef127f3bce4fc8064e99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68e0d6637f82ef127f3bce4fc8064e99">&#9670;&#160;</a></span>s_superposition_instability_wave()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_perturbation::s_superposition_instability_wave </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This subroutine computes velocity perturbations for a temporal mixing layer with hypertangent mean streamwise velocity profile obtained from linear stability analysis. For a 2D case, instability waves with spatial wavenumbers, (4,0), (2,0), and (1,0) are superposed. For a 3D waves, (4,4), (4,-4), (2,2), (2,-2), (1,1), (1,-1) areadded on top of 2D waves. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a68e0d6637f82ef127f3bce4fc8064e99_cgraph.svg" width="100%" height="565"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a68e0d6637f82ef127f3bce4fc8064e99_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__perturbation_a54bbfa24f96c984b26015bddcfb59ee4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a60650727d33977adeb35bc47a0b44889" name="a60650727d33977adeb35bc47a0b44889"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60650727d33977adeb35bc47a0b44889">&#9670;&#160;</a></span>mixlayer_bc_fd</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_perturbation::mixlayer_bc_fd</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac37762de5f3a535a726fc6f269358a41" name="ac37762de5f3a535a726fc6f269358a41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac37762de5f3a535a726fc6f269358a41">&#9670;&#160;</a></span>mixlayer_nvar</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_perturbation::mixlayer_nvar</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a07707ab93132630e44496213642a40db" name="a07707ab93132630e44496213642a40db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07707ab93132630e44496213642a40db">&#9670;&#160;</a></span>mixlayer_var</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_perturbation::mixlayer_var</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a08e164c495eedeeb7ee64e0cca9b2964" name="a08e164c495eedeeb7ee64e0cca9b2964"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08e164c495eedeeb7ee64e0cca9b2964">&#9670;&#160;</a></span>n_bc_skip</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_perturbation::n_bc_skip</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a958d427e8c94b02b11c857ee3c553bb0" name="a958d427e8c94b02b11c857ee3c553bb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a958d427e8c94b02b11c857ee3c553bb0">&#9670;&#160;</a></span>nbp</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_perturbation::nbp</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a84af4cc4dfb9d79db18734f7dafebfdd" name="a84af4cc4dfb9d79db18734f7dafebfdd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a84af4cc4dfb9d79db18734f7dafebfdd">&#9670;&#160;</a></span>q_prim_temp</h2>
 
@@ -708,7 +442,7 @@ Here is the caller graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_perturbation::q_prim_temp</td>
+          <td class="memname">real(wp), dimension(:, :, :, :), allocatable m_perturbation::q_prim_temp</td>
         </tr>
       </table>
 </div><div class="memdoc">
