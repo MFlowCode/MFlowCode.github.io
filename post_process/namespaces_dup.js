@@ -145,10 +145,6 @@ var namespaces_dup =
       [ "csroot", "namespacem__eigen__solver.html#ac753696c245075b4785870a2fb52c9f0", null ],
       [ "pythag", "namespacem__eigen__solver.html#aeecb6d18469aac6ba1a78db5ec25d122", null ]
     ] ],
-    [ "m_finite_differences", "namespacem__finite__differences.html", [
-      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#ae004aaed398319ade394c5410922468d", null ],
-      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a043964a944507a57cc511301a2c61a35", null ]
-    ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
       [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a15979aa7789736321146104abdb129ea", null ],
       [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#a16ad4c64940e4b092652f3c1c6df76c7", null ],
@@ -365,14 +361,6 @@ var namespaces_dup =
       [ "z_cc", "namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e", null ],
       [ "z_output", "namespacem__global__parameters.html#a7300817a97c11941b4b6b1fb7e4f1662", null ],
       [ "z_output_idx", "namespacem__global__parameters.html#a462197f1d200764c9a08659fb9c38b8f", null ]
-    ] ],
-    [ "m_helper_basic", "namespacem__helper__basic.html", [
-      [ "f_all_default", "namespacem__helper__basic.html#a35696604e5c3c1eda9a1fcdfca99de4f", null ],
-      [ "f_approx_equal", "namespacem__helper__basic.html#a58590a12d49b9b884256a839f2be8610", null ],
-      [ "f_approx_in_array", "namespacem__helper__basic.html#a369aba14f5888ee29e17199525655efe", null ],
-      [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
-      [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
-      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a619a8b5714a72c9064d84b14bd2089f9", null ]
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
       [ "s_finalize_mpi_proxy_module", "namespacem__mpi__proxy.html#acfc82a2a7cff0d6ee80d3b2677acea02", null ],

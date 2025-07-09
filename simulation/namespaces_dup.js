@@ -8,21 +8,6 @@ var namespaces_dup =
       [ "s_get_basename", "namespacem__compile__specific.html#a40a6fb65a46c294f5e20b076f3187bba", null ],
       [ "s_get_cwd", "namespacem__compile__specific.html#a73c98d7d55ae5bdadd796d953752c50b", null ]
     ] ],
-    [ "m_compute_cbc", "namespacem__compute__cbc.html", [
-      [ "f_base_l1", "namespacem__compute__cbc.html#a43a95a8f5fba461f1a1aa5f8b69e7a89", null ],
-      [ "s_compute_constant_pressure_subsonic_outflow_l", "namespacem__compute__cbc.html#af5eba6e6375a336afacbaea4de5eca1b", null ],
-      [ "s_compute_force_free_subsonic_outflow_l", "namespacem__compute__cbc.html#a732f45ecbd489ff15c2c8773d37c84d4", null ],
-      [ "s_compute_nonreflecting_subsonic_buffer_l", "namespacem__compute__cbc.html#a34909ca05d46044d70c04c017aa103b9", null ],
-      [ "s_compute_nonreflecting_subsonic_inflow_l", "namespacem__compute__cbc.html#aee809ea708c74d20194bf51453f6dfe8", null ],
-      [ "s_compute_nonreflecting_subsonic_outflow_l", "namespacem__compute__cbc.html#a68d5fa7a23a11a0a5bd698f3ce482cd1", null ],
-      [ "s_compute_slip_wall_l", "namespacem__compute__cbc.html#add8dc44b2079d6269d02cabca431cd03", null ],
-      [ "s_compute_supersonic_inflow_l", "namespacem__compute__cbc.html#a5baeb85f06f0a3f6534d77281a2cedd7", null ],
-      [ "s_compute_supersonic_outflow_l", "namespacem__compute__cbc.html#a92bf825d0b077db1831cfa1d18a34891", null ],
-      [ "s_fill_advection_l", "namespacem__compute__cbc.html#a74880092326e75470a2d9c280b7a04ac", null ],
-      [ "s_fill_chemistry_l", "namespacem__compute__cbc.html#a3a8fd829927ab2218f570d97cbb7087b", null ],
-      [ "s_fill_density_l", "namespacem__compute__cbc.html#addf675a0a09c1ee2cb72c190fa2c55f4", null ],
-      [ "s_fill_velocity_l", "namespacem__compute__cbc.html#a8b8ae8cdb983562cf41f680526885fde", null ]
-    ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "acoustic_spatial_support_width", "namespacem__constants.html#a92bc4d3446d8473183e165116932778f", null ],
       [ "adap_dt_max_iters", "namespacem__constants.html#a477a840004aa506fa11f1d934d037d44", null ],
@@ -121,18 +106,6 @@ var namespaces_dup =
       [ "csroot", "namespacem__eigen__solver.html#ac753696c245075b4785870a2fb52c9f0", null ],
       [ "pythag", "namespacem__eigen__solver.html#aeecb6d18469aac6ba1a78db5ec25d122", null ]
     ] ],
-    [ "m_finite_differences", "namespacem__finite__differences.html", [
-      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#ae004aaed398319ade394c5410922468d", null ],
-      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a043964a944507a57cc511301a2c61a35", null ]
-    ] ],
-    [ "m_helper_basic", "namespacem__helper__basic.html", [
-      [ "f_all_default", "namespacem__helper__basic.html#a35696604e5c3c1eda9a1fcdfca99de4f", null ],
-      [ "f_approx_equal", "namespacem__helper__basic.html#a58590a12d49b9b884256a839f2be8610", null ],
-      [ "f_approx_in_array", "namespacem__helper__basic.html#a369aba14f5888ee29e17199525655efe", null ],
-      [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
-      [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
-      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a619a8b5714a72c9064d84b14bd2089f9", null ]
-    ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_precision_select", "namespacem__precision__select.html", [
       [ "double_precision", "namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e", null ],
@@ -142,28 +115,5 @@ var namespaces_dup =
       [ "single_precision", "namespacem__precision__select.html#a8e215e7c91f83ee6dc188b8ab12cd368", null ],
       [ "sp", "namespacem__precision__select.html#a04a3d9dba8fd92244fa307d1c6423622", null ],
       [ "wp", "namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a", null ]
-    ] ],
-    [ "m_sim_helpers", "namespacem__sim__helpers.html", [
-      [ "f_compute_filtered_dtheta", "namespacem__sim__helpers.html#ad18a9f401c1f61284b8ea5b3f9013a1a", null ],
-      [ "f_compute_multidim_cfl_terms", "namespacem__sim__helpers.html#a88f43eb8b4a161228ed4db6d31de828d", null ],
-      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#ad5b39c05efea4c9c6636701cf657b4d0", null ],
-      [ "s_compute_enthalpy", "namespacem__sim__helpers.html#ab1dee44a2a4520f7cae62477e63dbf51", null ],
-      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a81d6cbdf616d51d6e6ba9f0bce912a13", null ]
-    ] ],
-    [ "m_start_up", "namespacem__start__up.html", [
-      [ "s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
-      [ "s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
-      [ "s_initialize_gpu_vars", "namespacem__start__up.html#a855eb78d2fa11b5bfc5f570069e6f2f8", null ],
-      [ "s_initialize_internal_energy_equations", "namespacem__start__up.html#a38182f7fcc92c1c687840339a20e85cd", null ],
-      [ "s_initialize_modules", "namespacem__start__up.html#a1fb7a3f9d412acd2a9cbcfe8b45006dd", null ],
-      [ "s_initialize_mpi_domain", "namespacem__start__up.html#ab64542f13c680e17ce8879c77c65c0e0", null ],
-      [ "s_perform_time_step", "namespacem__start__up.html#ae28835629de9baa7fd546672a0add0e5", null ],
-      [ "s_read_data_files", "namespacem__start__up.html#a25f79bc2aae3d0302d4a97247d84f92a", null ],
-      [ "s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
-      [ "s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
-      [ "s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
-      [ "s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
-      [ "s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
-      [ "dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ]
     ] ]
 ];

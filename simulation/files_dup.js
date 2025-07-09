@@ -19,6 +19,7 @@ var files_dup =
     [ "m_finite_differences.fpp.f90", "m__finite__differences_8fpp_8f90.html", "m__finite__differences_8fpp_8f90" ],
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
     [ "m_helper.fpp.f90", "m__helper_8fpp_8f90.html", "m__helper_8fpp_8f90" ],
+    [ "m_helper_basic.fpp.f90", "m__helper__basic_8fpp_8f90.html", "m__helper__basic_8fpp_8f90" ],
     [ "m_hyperelastic.fpp.f90", "m__hyperelastic_8fpp_8f90.html", "m__hyperelastic_8fpp_8f90" ],
     [ "m_hypoelastic.fpp.f90", "m__hypoelastic_8fpp_8f90.html", "m__hypoelastic_8fpp_8f90" ],
     [ "m_ibm.fpp.f90", "m__ibm_8fpp_8f90.html", "m__ibm_8fpp_8f90" ],
@@ -30,6 +31,7 @@ var files_dup =
     [ "m_qbmm.fpp.f90", "m__qbmm_8fpp_8f90.html", "m__qbmm_8fpp_8f90" ],
     [ "m_rhs.fpp.f90", "m__rhs_8fpp_8f90.html", "m__rhs_8fpp_8f90" ],
     [ "m_riemann_solvers.fpp.f90", "m__riemann__solvers_8fpp_8f90.html", "m__riemann__solvers_8fpp_8f90" ],
+    [ "m_sim_helpers.fpp.f90", "m__sim__helpers_8fpp_8f90.html", "m__sim__helpers_8fpp_8f90" ],
     [ "m_start_up.fpp.f90", "m__start__up_8fpp_8f90.html", "m__start__up_8fpp_8f90" ],
     [ "m_surface_tension.fpp.f90", "m__surface__tension_8fpp_8f90.html", "m__surface__tension_8fpp_8f90" ],
     [ "m_time_steppers.fpp.f90", "m__time__steppers_8fpp_8f90.html", "m__time__steppers_8fpp_8f90" ],
@@ -40,9 +42,7 @@ var files_dup =
     [ "m_compile_specific.f90", "m__compile__specific_8f90.html", "m__compile__specific_8f90" ],
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
-    [ "m_helper_basic.f90", "m__helper__basic_8f90.html", "m__helper__basic_8f90" ],
     [ "m_nvtx.f90", "m__nvtx_8f90.html", "m__nvtx_8f90" ],
     [ "m_precision_select.f90", "m__precision__select_8f90.html", "m__precision__select_8f90" ],
-    [ "m_derived_variables.f90", "m__derived__variables_8f90.html", "m__derived__variables_8f90" ],
-    [ "m_sim_helpers.f90", "m__sim__helpers_8f90.html", "m__sim__helpers_8f90" ]
+    [ "m_derived_variables.f90", "m__derived__variables_8f90.html", "m__derived__variables_8f90" ]
 ];

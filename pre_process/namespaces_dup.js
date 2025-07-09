@@ -1,6 +1,5 @@
 var namespaces_dup =
 [
-    [ "m_assign_variables", "namespacem__assign__variables.html", "namespacem__assign__variables" ],
     [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
       [ "s_apply_boundary_patches", "namespacem__boundary__conditions.html#a500a9226a3b30cc8592a91d541745b99", null ],
       [ "s_circle_bc", "namespacem__boundary__conditions.html#a6c38ed1b10300c8b195701cf41e8b81b", null ],
@@ -108,10 +107,6 @@ var namespaces_dup =
       [ "corth", "namespacem__eigen__solver.html#a9d7bdad7cb058473d8a1683a4b399341", null ],
       [ "csroot", "namespacem__eigen__solver.html#ac753696c245075b4785870a2fb52c9f0", null ],
       [ "pythag", "namespacem__eigen__solver.html#aeecb6d18469aac6ba1a78db5ec25d122", null ]
-    ] ],
-    [ "m_finite_differences", "namespacem__finite__differences.html", [
-      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#ae004aaed398319ade394c5410922468d", null ],
-      [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a043964a944507a57cc511301a2c61a35", null ]
     ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
       [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a15979aa7789736321146104abdb129ea", null ],
@@ -330,14 +325,6 @@ var namespaces_dup =
       [ "z_domain", "namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc", null ]
     ] ],
     [ "m_grid", "namespacem__grid.html", "namespacem__grid" ],
-    [ "m_helper_basic", "namespacem__helper__basic.html", [
-      [ "f_all_default", "namespacem__helper__basic.html#a35696604e5c3c1eda9a1fcdfca99de4f", null ],
-      [ "f_approx_equal", "namespacem__helper__basic.html#a58590a12d49b9b884256a839f2be8610", null ],
-      [ "f_approx_in_array", "namespacem__helper__basic.html#a369aba14f5888ee29e17199525655efe", null ],
-      [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
-      [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
-      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a619a8b5714a72c9064d84b14bd2089f9", null ]
-    ] ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#a88ee83e53b4663f4597318f7ee336587", null ],
       [ "s_generate_initial_condition", "namespacem__initial__condition.html#ae5ca036f43a2eebe1e2cc84fc9c61d28", null ],

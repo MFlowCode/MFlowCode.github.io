@@ -6,10 +6,10 @@ var searchData=
   ['test_202d_3',['2D Riemann Test (2D)',['../md_examples.html#autotoc_md62',1,'']]],
   ['test_20suite_4',['Running the Test Suite',['../md_getting-started.html#autotoc_md100',1,'']]],
   ['testing_5',['Testing',['../md_testing.html',1,'']]],
-  ['testing_20post_20process_6',['Testing Post Process',['../md_testing.html#autotoc_md117',1,'']]],
+  ['testing_20post_20process_6',['Testing Post Process',['../md_testing.html#autotoc_md131',1,'']]],
   ['testing_2emd_7',['testing.md',['../testing_8md.html',1,'']]],
-  ['tests_8',['Creating Tests',['../md_testing.html#autotoc_md116',1,'']]],
-  ['the_20script_9',['Step 2: Customizing the script',['../md_visualization.html#autotoc_md125',1,'']]],
+  ['tests_8',['Creating Tests',['../md_testing.html#autotoc_md130',1,'']]],
+  ['the_20script_9',['Step 2: Customizing the script',['../md_visualization.html#autotoc_md139',1,'']]],
   ['the_20test_20suite_10',['Running the Test Suite',['../md_getting-started.html#autotoc_md100',1,'']]],
   ['theory_11',['Theory',['../md_examples.html#autotoc_md42',1,'Final Condition and Linear Theory'],['../md_examples.html#autotoc_md55',1,'Final Condition and Linear Theory']]],
   ['time_12',['Numerical Schlieren at Final Time',['../md_examples.html#autotoc_md48',1,'']]],
@@ -20,6 +20,7 @@ var searchData=
   ['triple_20point_202d_17',['2D Triple Point (2D)',['../md_examples.html#autotoc_md47',1,'']]],
   ['tube_18',['Tube',['../md_examples.html#autotoc_md38',1,'1D Multi-Component Inert Shock Tube'],['../md_examples.html#autotoc_md56',1,'1D Multi-Component Reactive Shock Tube']]],
   ['tube_20problem_201d_19',['Lax shock tube problem (1D)',['../md_examples.html#autotoc_md44',1,'']]],
-  ['types_20',['Immersed Boundary Patch Types',['../md_case.html#autotoc_md34',1,'']]],
-  ['types_21',['Patch types',['../md_case.html#autotoc_md33',1,'']]]
+  ['type_20meanings_20',['Data Type Meanings',['../md_gpuParallelization.html#autotoc_md105',1,'']]],
+  ['types_21',['Immersed Boundary Patch Types',['../md_case.html#autotoc_md34',1,'']]],
+  ['types_22',['Patch types',['../md_case.html#autotoc_md33',1,'']]]
 ];

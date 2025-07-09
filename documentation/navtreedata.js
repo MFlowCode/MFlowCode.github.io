@@ -161,33 +161,43 @@ var NAVTREE =
       [ "Running the Test Suite", "md_getting-started.html#autotoc_md100", null ],
       [ "Running an Example Case", "md_getting-started.html#autotoc_md101", null ]
     ] ],
+    [ "GPU Parallelization", "md_gpuParallelization.html", [
+      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md104", [
+        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md105", null ],
+        [ "Data Flow", "md_gpuParallelization.html#autotoc_md106", null ],
+        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md108", null ],
+        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md110", null ],
+        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md112", null ],
+        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md114", null ]
+      ] ]
+    ] ],
     [ "Papers", "md_papers.html", null ],
     [ "Documentation", "md_readme.html", [
-      [ "User Documentation", "md_readme.html#autotoc_md104", null ],
-      [ "Code/API Documentation", "md_readme.html#autotoc_md105", null ]
+      [ "User Documentation", "md_readme.html#autotoc_md118", null ],
+      [ "Code/API Documentation", "md_readme.html#autotoc_md119", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md108", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md109", [
-        [ "GPU Profiling", "md_running.html#autotoc_md110", [
-          [ "NVIDIA GPUs", "md_running.html#autotoc_md111", null ],
-          [ "AMD GPUs", "md_running.html#autotoc_md112", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md122", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md123", [
+        [ "GPU Profiling", "md_running.html#autotoc_md124", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md125", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md126", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md113", null ],
-        [ "Example Runs", "md_running.html#autotoc_md114", null ]
+        [ "Restarting Cases", "md_running.html#autotoc_md127", null ],
+        [ "Example Runs", "md_running.html#autotoc_md128", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md121", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md122", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md123", [
-        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md119", null ],
-        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md120", null ],
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md124", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md125", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md126", null ]
+      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md135", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md136", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md137", [
+        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md133", null ],
+        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md134", null ],
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md138", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md139", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md140", null ]
       ] ]
     ] ]
   ] ]
