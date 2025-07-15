@@ -34,5 +34,6 @@ var m__derived__types_8fpp_8f90 =
     [ "species_parameters", "structspecies__parameters.html", "structspecies__parameters" ],
     [ "chemistry_parameters", "structchemistry__parameters.html", "structchemistry__parameters" ],
     [ "bubbles_lagrange_parameters", "structbubbles__lagrange__parameters.html", "structbubbles__lagrange__parameters" ],
+    [ "cell_num_bounds", "structcell__num__bounds.html", "structcell__num__bounds" ],
     [ "__m_derived_types_fpp_f90__", "m__derived__types_8fpp_8f90.html#a433c72ee0b246578363fd76cc6001f09", null ]
 ];

@@ -232,13 +232,14 @@ var searchData=
   ['s_5ftransform_5ftriangle_229',['s_transform_triangle',['../m__helper_8fpp_8f90.html#a2ec8ad5c45ddd5d8ca677874914e5335',1,'m_helper.fpp.f90']]],
   ['s_5ftransform_5fvec_230',['s_transform_vec',['../m__helper_8fpp_8f90.html#a98c40ee9604cd9866c7a4b8ba12bfcbd',1,'m_helper.fpp.f90']]],
   ['s_5ftsat_231',['s_tsat',['../m__phase__change_8fpp_8f90.html#a767af4c7fecc3c2c2f61370c51913715',1,'m_phase_change.fpp.f90']]],
-  ['s_5fvarcircle_232',['s_varcircle',['../m__patches_8fpp_8f90.html#aa6c7a1dbbeeb49707ffb4f50581d0026',1,'m_patches.fpp.f90']]],
-  ['s_5fwrite_5fabstract_5fdata_5ffiles_233',['s_write_abstract_data_files',['../interfacem__data__output_1_1s__write__abstract__data__files.html#aa9139f0f12ad881f86194408a953d0b8',1,'m_data_output::s_write_abstract_data_files']]],
-  ['s_5fwrite_5fobj_234',['s_write_obj',['../m__model_8fpp_8f90.html#a9b174d7c54539faab4411c11189a88c9',1,'m_model.fpp.f90']]],
-  ['s_5fwrite_5fparallel_5fboundary_5fcondition_5ffiles_235',['s_write_parallel_boundary_condition_files',['../m__boundary__common_8fpp_8f90.html#a0a7b1aeefb0ae1bee683bc03f05f2699',1,'m_boundary_common.fpp.f90']]],
-  ['s_5fwrite_5fparallel_5fdata_5ffiles_236',['s_write_parallel_data_files',['../namespacem__data__output.html#a196669b970e1cc01a8daacef837aaa56',1,'m_data_output']]],
-  ['s_5fwrite_5fserial_5fboundary_5fcondition_5ffiles_237',['s_write_serial_boundary_condition_files',['../m__boundary__common_8fpp_8f90.html#ab58066eb819ecdab612e13cb60d205c1',1,'m_boundary_common.fpp.f90']]],
-  ['s_5fwrite_5fserial_5fdata_5ffiles_238',['s_write_serial_data_files',['../namespacem__data__output.html#a20f84c6a7731dd102e10c7e9e1ff4a2f',1,'m_data_output']]],
-  ['s_5fwrite_5fstl_239',['s_write_stl',['../m__model_8fpp_8f90.html#ad24a37038553994999cc8455abe09cbd',1,'m_model.fpp.f90']]],
-  ['spherical_5fharmonic_5ffunc_240',['spherical_harmonic_func',['../m__helper_8fpp_8f90.html#a992b76c6fedb74a4623a28379b743ced',1,'m_helper.fpp.f90']]]
+  ['s_5fupdate_5fcell_5fbounds_232',['s_update_cell_bounds',['../m__helper__basic_8fpp_8f90.html#a14ee7b0da061150d7ba4590f8f059012',1,'m_helper_basic.fpp.f90']]],
+  ['s_5fvarcircle_233',['s_varcircle',['../m__patches_8fpp_8f90.html#aa6c7a1dbbeeb49707ffb4f50581d0026',1,'m_patches.fpp.f90']]],
+  ['s_5fwrite_5fabstract_5fdata_5ffiles_234',['s_write_abstract_data_files',['../interfacem__data__output_1_1s__write__abstract__data__files.html#aa9139f0f12ad881f86194408a953d0b8',1,'m_data_output::s_write_abstract_data_files']]],
+  ['s_5fwrite_5fobj_235',['s_write_obj',['../m__model_8fpp_8f90.html#a9b174d7c54539faab4411c11189a88c9',1,'m_model.fpp.f90']]],
+  ['s_5fwrite_5fparallel_5fboundary_5fcondition_5ffiles_236',['s_write_parallel_boundary_condition_files',['../m__boundary__common_8fpp_8f90.html#a0a7b1aeefb0ae1bee683bc03f05f2699',1,'m_boundary_common.fpp.f90']]],
+  ['s_5fwrite_5fparallel_5fdata_5ffiles_237',['s_write_parallel_data_files',['../namespacem__data__output.html#a196669b970e1cc01a8daacef837aaa56',1,'m_data_output']]],
+  ['s_5fwrite_5fserial_5fboundary_5fcondition_5ffiles_238',['s_write_serial_boundary_condition_files',['../m__boundary__common_8fpp_8f90.html#ab58066eb819ecdab612e13cb60d205c1',1,'m_boundary_common.fpp.f90']]],
+  ['s_5fwrite_5fserial_5fdata_5ffiles_239',['s_write_serial_data_files',['../namespacem__data__output.html#a20f84c6a7731dd102e10c7e9e1ff4a2f',1,'m_data_output']]],
+  ['s_5fwrite_5fstl_240',['s_write_stl',['../m__model_8fpp_8f90.html#ad24a37038553994999cc8455abe09cbd',1,'m_model.fpp.f90']]],
+  ['spherical_5fharmonic_5ffunc_241',['spherical_harmonic_func',['../m__helper_8fpp_8f90.html#a992b76c6fedb74a4623a28379b743ced',1,'m_helper.fpp.f90']]]
 ];

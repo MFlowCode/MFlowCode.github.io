@@ -6,5 +6,6 @@ var m__helper__basic_8fpp_8f90 =
     [ "f_approx_in_array", "m__helper__basic_8fpp_8f90.html#a03a7f4726a8b8ad96e2139c527d5af87", null ],
     [ "f_is_default", "m__helper__basic_8fpp_8f90.html#af13561cd8191e20b0ee3bdf335944ce5", null ],
     [ "f_is_integer", "m__helper__basic_8fpp_8f90.html#aab19ceb4ce00a8b4fc72dadd52afa072", null ],
-    [ "s_configure_coordinate_bounds", "m__helper__basic_8fpp_8f90.html#aabbe251551c70088cf843f2c992ce862", null ]
+    [ "s_configure_coordinate_bounds", "m__helper__basic_8fpp_8f90.html#aabbe251551c70088cf843f2c992ce862", null ],
+    [ "s_update_cell_bounds", "m__helper__basic_8fpp_8f90.html#a14ee7b0da061150d7ba4590f8f059012", null ]
 ];

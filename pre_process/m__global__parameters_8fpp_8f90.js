@@ -30,6 +30,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::c_idx", "namespacem__global__parameters.html#ad8b54d825523de113bda2a127a62dc73", null ],
     [ "m_global_parameters::ca", "namespacem__global__parameters.html#a8d1cb80880dd8ee5b2e0ce84b12e9dff", null ],
     [ "m_global_parameters::case_dir", "namespacem__global__parameters.html#ab3482dd78520fd94475375479fe1befb", null ],
+    [ "m_global_parameters::cells_bounds", "namespacem__global__parameters.html#ac88969e65ea0f64b4bd736df5b06eee9", null ],
     [ "m_global_parameters::cfl_adap_dt", "namespacem__global__parameters.html#a24abeb4b0424635758fe2fc1afcae5f0", null ],
     [ "m_global_parameters::cfl_const_dt", "namespacem__global__parameters.html#a5f24d68771870a4a6b7840eb832129e9", null ],
     [ "m_global_parameters::cfl_dt", "namespacem__global__parameters.html#afdfa7d87d094d7ded9d41b6c724d159a", null ],

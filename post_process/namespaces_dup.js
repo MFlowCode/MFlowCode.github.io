@@ -178,6 +178,7 @@ var namespaces_dup =
       [ "c_wrt", "namespacem__global__parameters.html#a56a071ae0b79b39a826646ace37972eb", null ],
       [ "ca", "namespacem__global__parameters.html#a8d1cb80880dd8ee5b2e0ce84b12e9dff", null ],
       [ "case_dir", "namespacem__global__parameters.html#ab3482dd78520fd94475375479fe1befb", null ],
+      [ "cells_bounds", "namespacem__global__parameters.html#ac88969e65ea0f64b4bd736df5b06eee9", null ],
       [ "cf_wrt", "namespacem__global__parameters.html#a73cc9669577b7bff07f23946dbf78cc6", null ],
       [ "cfl_adap_dt", "namespacem__global__parameters.html#a24abeb4b0424635758fe2fc1afcae5f0", null ],
       [ "cfl_const_dt", "namespacem__global__parameters.html#a5f24d68771870a4a6b7840eb832129e9", null ],
