@@ -1,21 +1,12 @@
 var searchData=
 [
-  ['x_0',['x',['../structvec3__dt.html#a420ddb087921c82a03d2e1075a192d28',1,'vec3_dt']]],
-  ['x0_1',['x0',['../structbubbles__lagrange__parameters.html#afde6c18c5e9a2764d8c08b6407b6e588',1,'bubbles_lagrange_parameters']]],
-  ['x_5fcb_2',['x_cb',['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters']]],
-  ['x_5fcb_5fs_3',['x_cb_s',['../namespacem__global__parameters.html#a8089bedf1cbc67a7a3e762630a4ae64c',1,'m_global_parameters']]],
-  ['x_5fcc_4',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
-  ['x_5fcc_5fs_5',['x_cc_s',['../namespacem__global__parameters.html#a0393dae47b831cd3b98063a33d258829',1,'m_global_parameters']]],
-  ['x_5fcentroid_6',['x_centroid',['../structic__patch__parameters.html#ad7887b4527e7b87f961565154a2d06db',1,'ic_patch_parameters::x_centroid'],['../structib__patch__parameters.html#a503df1b2d30656b0e93669ba5fc891b3',1,'ib_patch_parameters::x_centroid']]],
-  ['x_5foutput_7',['x_output',['../namespacem__global__parameters.html#a4b7e3508ffb5fd7d40989289de560a80',1,'m_global_parameters']]],
-  ['x_5foutput_5fidx_8',['x_output_idx',['../namespacem__global__parameters.html#a7cece33c4a92790d7e46790883492afb',1,'m_global_parameters']]],
-  ['x_5froot_5fcb_9',['x_root_cb',['../namespacem__global__parameters.html#a5f6e8492eaf45d6a9d1ce8ade1cda4a6',1,'m_global_parameters']]],
-  ['x_5froot_5fcc_10',['x_root_cc',['../namespacem__global__parameters.html#a428ef177339a14bcb933e4c59db0b02a',1,'m_global_parameters']]],
-  ['x_5froot_5fcc_5fs_11',['x_root_cc_s',['../namespacem__global__parameters.html#af0abe82216f3cae1170e7aae4304dae9',1,'m_global_parameters']]],
-  ['xi_5fidx_12',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
-  ['xibeg_13',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
-  ['xiend_14',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
-  ['xmax_15',['xmax',['../structintegral__parameters.html#a393cfa6b095a806fc6d02b1adbb3cf5d',1,'integral_parameters']]],
-  ['xmin_16',['xmin',['../structintegral__parameters.html#a05e55d2577ecb7694a99d45c013e6bad',1,'integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_17',['xyz_to_r_ratios',['../structsource__spatial__type.html#a45d042e6eee7917c7ce95f45a02caa9d',1,'source_spatial_type']]]
+  ['y_0',['y',['../structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e',1,'m_derived_types::vec3_dt::y'],['../structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee',1,'m_derived_types::ic_patch_parameters::y']]],
+  ['y_5fcb_1',['y_cb',['../namespacem__global__parameters.html#a49b2b37d6e18e34be6bd6bf5aa3ed476',1,'m_global_parameters']]],
+  ['y_5fcb_5fs_2',['y_cb_s',['../namespacem__global__parameters.html#a22e9f10fc34a9c028925a85dac0ecf62',1,'m_global_parameters']]],
+  ['y_5fcc_3',['y_cc',['../namespacem__global__parameters.html#a353ab56efc0b78fea27c11158c2cf536',1,'m_global_parameters']]],
+  ['y_5fcentroid_4',['y_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a8441b883b97fbc475ece672cd519fe33',1,'m_derived_types::ic_patch_parameters::y_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a234982179567711b441a5a395448efdc',1,'m_derived_types::ib_patch_parameters::y_centroid']]],
+  ['y_5foutput_5',['y_output',['../namespacem__global__parameters.html#aff552ba64f3c2b0c2b291c53ab3f0a5c',1,'m_global_parameters']]],
+  ['y_5foutput_5fidx_6',['y_output_idx',['../namespacem__global__parameters.html#ab5aba5a65e3e646de07025297bcb137b',1,'m_global_parameters']]],
+  ['ymax_7',['ymax',['../structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94',1,'m_derived_types::integral_parameters']]],
+  ['ymin_8',['ymin',['../structm__derived__types_1_1integral__parameters.html#af95a8f5863854c6d6f1f0869aee1a819',1,'m_derived_types::integral_parameters']]]
 ];

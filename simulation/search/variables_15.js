@@ -1,10 +1,24 @@
 var searchData=
 [
-  ['x_0',['x',['../structvec3__dt.html#a420ddb087921c82a03d2e1075a192d28',1,'vec3_dt']]],
-  ['x0_1',['x0',['../structbubbles__lagrange__parameters.html#afde6c18c5e9a2764d8c08b6407b6e588',1,'bubbles_lagrange_parameters']]],
-  ['x_5faccel_2',['x_accel',['../namespacem__derived__variables.html#af97fa6cff54325e7fa1454c412cca24c',1,'m_derived_variables']]],
-  ['x_5fcentroid_3',['x_centroid',['../structic__patch__parameters.html#ad7887b4527e7b87f961565154a2d06db',1,'ic_patch_parameters::x_centroid'],['../structib__patch__parameters.html#a503df1b2d30656b0e93669ba5fc891b3',1,'ib_patch_parameters::x_centroid']]],
-  ['xmax_4',['xmax',['../structintegral__parameters.html#a393cfa6b095a806fc6d02b1adbb3cf5d',1,'integral_parameters']]],
-  ['xmin_5',['xmin',['../structintegral__parameters.html#a05e55d2577ecb7694a99d45c013e6bad',1,'integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_6',['xyz_to_r_ratios',['../structsource__spatial__type.html#a45d042e6eee7917c7ce95f45a02caa9d',1,'source_spatial_type']]]
+  ['w_5fx_0',['w_x',['../namespacem__global__parameters.html#a04316d272b181c3c8496d1b0ce088c64',1,'m_global_parameters']]],
+  ['w_5fy_1',['w_y',['../namespacem__global__parameters.html#ac5836965fc47e3cda0ac04bd3f33e347',1,'m_global_parameters']]],
+  ['w_5fz_2',['w_z',['../namespacem__global__parameters.html#aa11528d15dfa6e313e1298dee5ca42cd',1,'m_global_parameters']]],
+  ['wa_5fflg_3',['wa_flg',['../namespacem__global__parameters.html#a03ef84feb5fc99a2defcad7261f6d5d0',1,'m_global_parameters']]],
+  ['wave_5fspeeds_4',['wave_speeds',['../namespacem__global__parameters.html#a0f798e4b3d19b7d49d747cc89cbe0b69',1,'m_global_parameters']]],
+  ['wavelength_5',['wavelength',['../structm__derived__types_1_1acoustic__parameters.html#abbd722a2dc80054a7785b77a9b97d56c',1,'m_derived_types::acoustic_parameters::wavelength'],['../namespacem__acoustic__src.html#a5ce56cb8e55cb802bd8c2f7e9135521e',1,'m_acoustic_src::wavelength']]],
+  ['web_6',['web',['../namespacem__global__parameters.html#a043c4e3aa57a04b9c305d1412936a4fa',1,'m_global_parameters']]],
+  ['weight_7',['weight',['../namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef',1,'m_global_parameters']]],
+  ['weno_5favg_8',['weno_avg',['../namespacem__global__parameters.html#a1b38593c502f05d17607529d38c97a82',1,'m_global_parameters']]],
+  ['weno_5feps_9',['weno_eps',['../namespacem__global__parameters.html#ab358e79bf9282a07ceaefe7a79369f38',1,'m_global_parameters']]],
+  ['weno_5fflat_10',['weno_flat',['../namespacem__global__parameters.html#a20823a68105756ce895d79f03080def4',1,'m_global_parameters']]],
+  ['weno_5fnum_5fstencils_11',['weno_num_stencils',['../namespacem__global__parameters.html#a02aee9e4b246029b00e4917b7170712a',1,'m_global_parameters']]],
+  ['weno_5forder_12',['weno_order',['../namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa',1,'m_global_parameters']]],
+  ['weno_5fpolyn_13',['weno_polyn',['../namespacem__global__parameters.html#a351be005cfac23e82310e91393f5d535',1,'m_global_parameters']]],
+  ['weno_5fre_5fflux_14',['weno_re_flux',['../namespacem__global__parameters.html#a3c3cd38abc3ece085bab77788afece73',1,'m_global_parameters']]],
+  ['wenojs_15',['wenojs',['../namespacem__global__parameters.html#adbbe92a657488b25ad55590edae52ec1',1,'m_global_parameters']]],
+  ['wenoz_16',['wenoz',['../namespacem__global__parameters.html#a21623c842ce2c8be565b19c3341a3f72',1,'m_global_parameters']]],
+  ['wenoz_5fq_17',['wenoz_q',['../namespacem__global__parameters.html#a6b1a28726f52e0aabac490f24fae0980',1,'m_global_parameters']]],
+  ['wp_18',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
+  ['write_5fbubbles_19',['write_bubbles',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['write_5fbubbles_5fstats_20',['write_bubbles_stats',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7',1,'m_derived_types::bubbles_lagrange_parameters']]]
 ];

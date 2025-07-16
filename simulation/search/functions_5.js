@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['mpi_5fbcast_5ftime_5fstep_5fvalues_0',['mpi_bcast_time_step_values',['../m__mpi__common_8fpp_8f90.html#a53a67bdfe2bea776a2cd445135e0100a',1,'m_mpi_common.fpp.f90']]],
-  ['my_5finquire_1',['my_inquire',['../namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d',1,'m_compile_specific']]]
+  ['nvtxendrange_0',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
+  ['nvtxrangepop_1',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop']]],
+  ['nvtxrangepusha_2',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxrangepushex_3',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxstartrange_4',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]]
 ];

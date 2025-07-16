@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['wavelength_0',['wavelength',['../structacoustic__parameters.html#ae83efb841ba4ae49bf5368b561448406',1,'acoustic_parameters']]],
-  ['web_1',['web',['../namespacem__global__parameters.html#a043c4e3aa57a04b9c305d1412936a4fa',1,'m_global_parameters']]],
-  ['weight_2',['weight',['../namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef',1,'m_global_parameters']]],
-  ['weno_5forder_3',['weno_order',['../namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa',1,'m_global_parameters']]],
-  ['wp_4',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
-  ['write_5fbubbles_5',['write_bubbles',['../structbubbles__lagrange__parameters.html#a121b99dead0cacdc4f2d955fe32471f6',1,'bubbles_lagrange_parameters']]],
-  ['write_5fbubbles_5fstats_6',['write_bubbles_stats',['../structbubbles__lagrange__parameters.html#a29afbd4c673fd77f9b3f303fe66dd882',1,'bubbles_lagrange_parameters']]]
+  ['x_0',['x',['../structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3',1,'m_derived_types::vec3_dt']]],
+  ['x0_1',['x0',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a26a38e8d454feaea98b6e247a79ac996',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['x_5fcb_2',['x_cb',['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters']]],
+  ['x_5fcb_5fs_3',['x_cb_s',['../namespacem__global__parameters.html#a8089bedf1cbc67a7a3e762630a4ae64c',1,'m_global_parameters']]],
+  ['x_5fcc_4',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
+  ['x_5fcc_5fs_5',['x_cc_s',['../namespacem__global__parameters.html#a0393dae47b831cd3b98063a33d258829',1,'m_global_parameters']]],
+  ['x_5fcentroid_6',['x_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#aef7ef14d93a66bf0e9517bb79a7ebd6f',1,'m_derived_types::ic_patch_parameters::x_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b',1,'m_derived_types::ib_patch_parameters::x_centroid']]],
+  ['x_5foutput_7',['x_output',['../namespacem__global__parameters.html#a4b7e3508ffb5fd7d40989289de560a80',1,'m_global_parameters']]],
+  ['x_5foutput_5fidx_8',['x_output_idx',['../namespacem__global__parameters.html#a7cece33c4a92790d7e46790883492afb',1,'m_global_parameters']]],
+  ['x_5froot_5fcb_9',['x_root_cb',['../namespacem__global__parameters.html#a5f6e8492eaf45d6a9d1ce8ade1cda4a6',1,'m_global_parameters']]],
+  ['x_5froot_5fcc_10',['x_root_cc',['../namespacem__global__parameters.html#a428ef177339a14bcb933e4c59db0b02a',1,'m_global_parameters']]],
+  ['x_5froot_5fcc_5fs_11',['x_root_cc_s',['../namespacem__global__parameters.html#af0abe82216f3cae1170e7aae4304dae9',1,'m_global_parameters']]],
+  ['xi_5fidx_12',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
+  ['xibeg_13',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
+  ['xiend_14',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
+  ['xmax_15',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
+  ['xmin_16',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
+  ['xyz_5fto_5fr_5fratios_17',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#a319e02351cc330a4c3bda4cd9bd89e7b',1,'m_derived_types::source_spatial_type']]]
 ];

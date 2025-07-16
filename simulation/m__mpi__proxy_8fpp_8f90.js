@@ -1,9 +1,12 @@
 var m__mpi__proxy_8fpp_8f90 =
 [
-    [ "__m_mpi_proxy_fpp_f90__", "m__mpi__proxy_8fpp_8f90.html#a5c7d33647fdb2737e53d778c5a199c4e", null ],
-    [ "s_finalize_mpi_proxy_module", "m__mpi__proxy_8fpp_8f90.html#aed5e69351e389cdca5b8deff13ba1a92", null ],
-    [ "s_initialize_mpi_proxy_module", "m__mpi__proxy_8fpp_8f90.html#a17ccc4b91663699dfa335a421a558fa6", null ],
-    [ "s_mpi_bcast_user_inputs", "m__mpi__proxy_8fpp_8f90.html#a09e3063a5372c764e13cbb806dc94510", null ],
-    [ "s_mpi_send_random_number", "m__mpi__proxy_8fpp_8f90.html#a4784f0af0b06e78a9702ffe9f4d63346", null ],
-    [ "s_mpi_sendrecv_ib_buffers", "m__mpi__proxy_8fpp_8f90.html#afc71d28caae0f493daff12412a1b9898", null ]
+    [ "m_mpi_proxy::s_finalize_mpi_proxy_module", "namespacem__mpi__proxy.html#ac984c84fe4140876d6600250af9807da", null ],
+    [ "m_mpi_proxy::s_initialize_mpi_proxy_module", "namespacem__mpi__proxy.html#a015ee2c0892e9cfcb858da8f27b646d5", null ],
+    [ "m_mpi_proxy::s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#af90ff0c1a1201411176602946199f96c", null ],
+    [ "m_mpi_proxy::s_mpi_send_random_number", "namespacem__mpi__proxy.html#a7fd7006df83da0fe282503cd5f126870", null ],
+    [ "m_mpi_proxy::s_mpi_sendrecv_ib_buffers", "namespacem__mpi__proxy.html#a0e3fd97ebfeb76c9ece1a975b2be98f2", null ],
+    [ "m_mpi_proxy::i_halo_size", "namespacem__mpi__proxy.html#a27c37570263b75dbeada1687d5990d08", null ],
+    [ "m_mpi_proxy::ib_buff_recv", "namespacem__mpi__proxy.html#a54e5acdc9f00af88eb577debcb5e354b", null ],
+    [ "m_mpi_proxy::ib_buff_send", "namespacem__mpi__proxy.html#a205043d174d9113dce8def64c9282261", null ],
+    [ "m_mpi_proxy::ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ]
 ];

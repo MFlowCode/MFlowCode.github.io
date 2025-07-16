@@ -133,433 +133,144 @@ $(function(){initNavTree('m__cbc_8fpp_8f90.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#namespaces">Modules</a> &#124;
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">m_cbc.fpp.f90 File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Modules</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html">m_cbc</a></td></tr>
+<tr class="memdesc:namespacem__cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The module features a large database of characteristic boundary conditions (CBC) for the Euler system of equations. This system is augmented by the appropriate advection equations utilized to capture the material interfaces. The closure is achieved by the stiffened equation of state and mixture relations. At this time, the following CBC are available: 1) Slip Wall 2) Nonreflecting Subsonic Buffer 3) Nonreflecting Subsonic Inflow 4) Nonreflecting Subsonic Outflow 5) Force-Free Subsonic Outflow 6) Constant Pressure Subsonic Outflow 7) Supersonic Inflow 8) Supersonic Outflow Please refer to Thompson (1987, 1990) for detailed descriptions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a8aaac759a23fea3b31210aa89c940745" id="r_a8aaac759a23fea3b31210aa89c940745"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aaac759a23fea3b31210aa89c940745">__m_cbc_fpp_f90__</a></td></tr>
-<tr class="memdesc:a8aaac759a23fea3b31210aa89c940745"><td class="mdescLeft">&#160;</td><td class="mdescRight">The module features a large database of characteristic boundary conditions (CBC) for the Euler system of equations. This system is augmented by the appropriate advection equations utilized to capture the material interfaces. The closure is achieved by the stiffened equation of state and mixture relations. At this time, the following CBC are available: 1) Slip Wall 2) Nonreflecting Subsonic Buffer 3) Nonreflecting Subsonic Inflow 4) Nonreflecting Subsonic Outflow 5) Force-Free Subsonic Outflow 6) Constant Pressure Subsonic Outflow 7) Supersonic Inflow 8) Supersonic Outflow Please refer to Thompson (1987, 1990) for detailed descriptions.  <br /></td></tr>
-<tr class="separator:a8aaac759a23fea3b31210aa89c940745"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f9829e4327e1dbfde890d3eca73da8" id="r_a93f9829e4327e1dbfde890d3eca73da8"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93f9829e4327e1dbfde890d3eca73da8">s_initialize_cbc_module</a></td></tr>
-<tr class="memdesc:a93f9829e4327e1dbfde890d3eca73da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
-<tr class="separator:a93f9829e4327e1dbfde890d3eca73da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a72c44fba4b33c0653e1ad21b9423b06a" id="r_a72c44fba4b33c0653e1ad21b9423b06a"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72c44fba4b33c0653e1ad21b9423b06a">s_compute_cbc_coefficients</a> (cbc_dir_in, cbc_loc_in)</td></tr>
-<tr class="memdesc:a72c44fba4b33c0653e1ad21b9423b06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute CBC coefficients.  <br /></td></tr>
-<tr class="separator:a72c44fba4b33c0653e1ad21b9423b06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81f1e20487e1a09ae314610505070a7e" id="r_a81f1e20487e1a09ae314610505070a7e"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81f1e20487e1a09ae314610505070a7e">s_associate_cbc_coefficients_pointers</a> (cbc_dir_in, cbc_loc_in)</td></tr>
-<tr class="separator:a81f1e20487e1a09ae314610505070a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9771aa6ccf00c0970db70784acd622b5" id="r_a9771aa6ccf00c0970db70784acd622b5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9771aa6ccf00c0970db70784acd622b5">s_cbc</a> (q_prim_vf, flux_vf, flux_src_vf, cbc_dir_norm, cbc_loc_norm, ix, iy, iz)</td></tr>
-<tr class="memdesc:a9771aa6ccf00c0970db70784acd622b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following is the implementation of the CBC based on the work of Thompson (1987, 1990) on hyperbolic systems. The CBC is indirectly applied in the computation of the right-hand-side (RHS) near the relevant domain boundary through the modification of the fluxes.  <br /></td></tr>
-<tr class="separator:a9771aa6ccf00c0970db70784acd622b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3c2be26e3a3683b52f5e7fc84731d0f" id="r_af3c2be26e3a3683b52f5e7fc84731d0f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c2be26e3a3683b52f5e7fc84731d0f">s_initialize_cbc</a> (q_prim_vf, flux_vf, flux_src_vf, ix, iy, iz)</td></tr>
-<tr class="memdesc:af3c2be26e3a3683b52f5e7fc84731d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the selected CBC.  <br /></td></tr>
-<tr class="separator:af3c2be26e3a3683b52f5e7fc84731d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a290408bab9cad9bcb123f49b82845580" id="r_a290408bab9cad9bcb123f49b82845580"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a290408bab9cad9bcb123f49b82845580">s_finalize_cbc</a> (flux_vf, flux_src_vf)</td></tr>
-<tr class="memdesc:a290408bab9cad9bcb123f49b82845580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or the disassociation procedures that are necessary in order to finalize the CBC application.  <br /></td></tr>
-<tr class="separator:a290408bab9cad9bcb123f49b82845580"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30c4040c641dbf415536cca445178e84" id="r_a30c4040c641dbf415536cca445178e84"><td class="memItemLeft" align="right" valign="top">pure elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30c4040c641dbf415536cca445178e84">s_any_cbc_boundaries</a> (toggle)</td></tr>
-<tr class="separator:a30c4040c641dbf415536cca445178e84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8679181a07d098cf600b99a2d616359" id="r_ac8679181a07d098cf600b99a2d616359"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8679181a07d098cf600b99a2d616359">s_finalize_cbc_module</a></td></tr>
-<tr class="memdesc:ac8679181a07d098cf600b99a2d616359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
-<tr class="separator:ac8679181a07d098cf600b99a2d616359"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a593a755c1b3a5814a076d4ce7321cc28" id="r_a593a755c1b3a5814a076d4ce7321cc28"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a593a755c1b3a5814a076d4ce7321cc28">m_cbc::s_initialize_cbc_module</a></td></tr>
+<tr class="memdesc:a593a755c1b3a5814a076d4ce7321cc28"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
+<tr class="separator:a593a755c1b3a5814a076d4ce7321cc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a460b0f51b92de710648d9088801b1cde" id="r_a460b0f51b92de710648d9088801b1cde"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a460b0f51b92de710648d9088801b1cde">m_cbc::s_compute_cbc_coefficients</a> (cbc_dir_in, cbc_loc_in)</td></tr>
+<tr class="memdesc:a460b0f51b92de710648d9088801b1cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute CBC coefficients.  <br /></td></tr>
+<tr class="separator:a460b0f51b92de710648d9088801b1cde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0860f3f0c146b497f05ed57e07e0d4d9" id="r_a0860f3f0c146b497f05ed57e07e0d4d9"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a0860f3f0c146b497f05ed57e07e0d4d9">m_cbc::s_associate_cbc_coefficients_pointers</a> (cbc_dir_in, cbc_loc_in)</td></tr>
+<tr class="separator:a0860f3f0c146b497f05ed57e07e0d4d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1463206b8a0492feba405c93fbdc1929" id="r_a1463206b8a0492feba405c93fbdc1929"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a1463206b8a0492feba405c93fbdc1929">m_cbc::s_cbc</a> (q_prim_vf, flux_vf, flux_src_vf, cbc_dir_norm, cbc_loc_norm, ix, iy, iz)</td></tr>
+<tr class="memdesc:a1463206b8a0492feba405c93fbdc1929"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following is the implementation of the CBC based on the work of Thompson (1987, 1990) on hyperbolic systems. The CBC is indirectly applied in the computation of the right-hand-side (RHS) near the relevant domain boundary through the modification of the fluxes.  <br /></td></tr>
+<tr class="separator:a1463206b8a0492feba405c93fbdc1929"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae32673f5dc3342969a7b48e4348271eb" id="r_ae32673f5dc3342969a7b48e4348271eb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#ae32673f5dc3342969a7b48e4348271eb">m_cbc::s_initialize_cbc</a> (q_prim_vf, flux_vf, flux_src_vf, ix, iy, iz)</td></tr>
+<tr class="memdesc:ae32673f5dc3342969a7b48e4348271eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the selected CBC.  <br /></td></tr>
+<tr class="separator:ae32673f5dc3342969a7b48e4348271eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a539198fcae8bf46592bd75907429ea" id="r_a7a539198fcae8bf46592bd75907429ea"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a7a539198fcae8bf46592bd75907429ea">m_cbc::s_finalize_cbc</a> (flux_vf, flux_src_vf)</td></tr>
+<tr class="memdesc:a7a539198fcae8bf46592bd75907429ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or the disassociation procedures that are necessary in order to finalize the CBC application.  <br /></td></tr>
+<tr class="separator:a7a539198fcae8bf46592bd75907429ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38160b454562d74625f00b98cd204841" id="r_a38160b454562d74625f00b98cd204841"><td class="memItemLeft" align="right" valign="top">pure elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a38160b454562d74625f00b98cd204841">m_cbc::s_any_cbc_boundaries</a> (toggle)</td></tr>
+<tr class="separator:a38160b454562d74625f00b98cd204841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae4c997bc61332ed3b4bd983f1e1294c" id="r_aae4c997bc61332ed3b4bd983f1e1294c"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#aae4c997bc61332ed3b4bd983f1e1294c">m_cbc::s_finalize_cbc_module</a></td></tr>
+<tr class="memdesc:aae4c997bc61332ed3b4bd983f1e1294c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
+<tr class="separator:aae4c997bc61332ed3b4bd983f1e1294c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a416acb7eec5c859bfcbf5aba0e28072a" id="r_a416acb7eec5c859bfcbf5aba0e28072a"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a416acb7eec5c859bfcbf5aba0e28072a">m_cbc::q_prim_rsx_vf</a></td></tr>
+<tr class="separator:a416acb7eec5c859bfcbf5aba0e28072a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bdf1556d22633db3be01646dec94a45" id="r_a9bdf1556d22633db3be01646dec94a45"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a9bdf1556d22633db3be01646dec94a45">m_cbc::q_prim_rsy_vf</a></td></tr>
+<tr class="separator:a9bdf1556d22633db3be01646dec94a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfaf6c029797472b2ac5d3c2f9f71121" id="r_acfaf6c029797472b2ac5d3c2f9f71121"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#acfaf6c029797472b2ac5d3c2f9f71121">m_cbc::q_prim_rsz_vf</a></td></tr>
+<tr class="separator:acfaf6c029797472b2ac5d3c2f9f71121"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643d630d41b6eebe2df18c263b41f3e9" id="r_a643d630d41b6eebe2df18c263b41f3e9"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a643d630d41b6eebe2df18c263b41f3e9">m_cbc::f_rsx_vf</a></td></tr>
+<tr class="separator:a643d630d41b6eebe2df18c263b41f3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91de76684e3703ed00ba6042e307f3c9" id="r_a91de76684e3703ed00ba6042e307f3c9"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a91de76684e3703ed00ba6042e307f3c9">m_cbc::f_src_rsx_vf</a></td></tr>
+<tr class="separator:a91de76684e3703ed00ba6042e307f3c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef36fb3a83d1e24c6a2328b2c44f3f93" id="r_aef36fb3a83d1e24c6a2328b2c44f3f93"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#aef36fb3a83d1e24c6a2328b2c44f3f93">m_cbc::f_rsy_vf</a></td></tr>
+<tr class="separator:aef36fb3a83d1e24c6a2328b2c44f3f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90173ce28e585a29a01dcd3f61c4af52" id="r_a90173ce28e585a29a01dcd3f61c4af52"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a90173ce28e585a29a01dcd3f61c4af52">m_cbc::f_src_rsy_vf</a></td></tr>
+<tr class="separator:a90173ce28e585a29a01dcd3f61c4af52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74b851a89fa8e6077a3abad67d1f9f51" id="r_a74b851a89fa8e6077a3abad67d1f9f51"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a74b851a89fa8e6077a3abad67d1f9f51">m_cbc::f_rsz_vf</a></td></tr>
+<tr class="separator:a74b851a89fa8e6077a3abad67d1f9f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b03204e7c08cea93b1fb46da9e9da72" id="r_a1b03204e7c08cea93b1fb46da9e9da72"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a1b03204e7c08cea93b1fb46da9e9da72">m_cbc::f_src_rsz_vf</a></td></tr>
+<tr class="separator:a1b03204e7c08cea93b1fb46da9e9da72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ecfb10a32a1c22b7bd5e7c95dfc0360" id="r_a9ecfb10a32a1c22b7bd5e7c95dfc0360"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a9ecfb10a32a1c22b7bd5e7c95dfc0360">m_cbc::flux_rsx_vf_l</a></td></tr>
+<tr class="separator:a9ecfb10a32a1c22b7bd5e7c95dfc0360"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c6d398967a059f2d5ecc38f75c101b" id="r_a28c6d398967a059f2d5ecc38f75c101b"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a28c6d398967a059f2d5ecc38f75c101b">m_cbc::flux_src_rsx_vf_l</a></td></tr>
+<tr class="separator:a28c6d398967a059f2d5ecc38f75c101b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2d92ac61714b5ad5b3d4fe4e070de87" id="r_aa2d92ac61714b5ad5b3d4fe4e070de87"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#aa2d92ac61714b5ad5b3d4fe4e070de87">m_cbc::flux_rsy_vf_l</a></td></tr>
+<tr class="separator:aa2d92ac61714b5ad5b3d4fe4e070de87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6672f99ff1cffc617f30dc8895599bf0" id="r_a6672f99ff1cffc617f30dc8895599bf0"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a6672f99ff1cffc617f30dc8895599bf0">m_cbc::flux_src_rsy_vf_l</a></td></tr>
+<tr class="separator:a6672f99ff1cffc617f30dc8895599bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4151c4981ca40427041f58ccbd70e117" id="r_a4151c4981ca40427041f58ccbd70e117"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a4151c4981ca40427041f58ccbd70e117">m_cbc::flux_rsz_vf_l</a></td></tr>
+<tr class="separator:a4151c4981ca40427041f58ccbd70e117"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10c694a99b36b1a9e761bfcc8eddbdf4" id="r_a10c694a99b36b1a9e761bfcc8eddbdf4"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a10c694a99b36b1a9e761bfcc8eddbdf4">m_cbc::flux_src_rsz_vf_l</a></td></tr>
+<tr class="separator:a10c694a99b36b1a9e761bfcc8eddbdf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4accdde20b1970b19b3cdd4e6397d745" id="r_a4accdde20b1970b19b3cdd4e6397d745"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a4accdde20b1970b19b3cdd4e6397d745">m_cbc::dpres_ds</a></td></tr>
+<tr class="memdesc:a4accdde20b1970b19b3cdd4e6397d745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spatial derivatives in s-dir of pressure.  <br /></td></tr>
+<tr class="separator:a4accdde20b1970b19b3cdd4e6397d745"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf77af7dba37b705f55c9d88c0317e18" id="r_abf77af7dba37b705f55c9d88c0317e18"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#abf77af7dba37b705f55c9d88c0317e18">m_cbc::ds</a></td></tr>
+<tr class="memdesc:abf77af7dba37b705f55c9d88c0317e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell-width distribution in the s-direction.  <br /></td></tr>
+<tr class="separator:abf77af7dba37b705f55c9d88c0317e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a39f644fa6f5eabedd139a3168b8f6f" id="r_a1a39f644fa6f5eabedd139a3168b8f6f"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a1a39f644fa6f5eabedd139a3168b8f6f">m_cbc::fd_coef_x</a></td></tr>
+<tr class="memdesc:a1a39f644fa6f5eabedd139a3168b8f6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finite diff. coefficients x-dir.  <br /></td></tr>
+<tr class="separator:a1a39f644fa6f5eabedd139a3168b8f6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61fc075b1beceb3a69af1d5e268efe8" id="r_ab61fc075b1beceb3a69af1d5e268efe8"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#ab61fc075b1beceb3a69af1d5e268efe8">m_cbc::fd_coef_y</a></td></tr>
+<tr class="memdesc:ab61fc075b1beceb3a69af1d5e268efe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finite diff. coefficients y-dir.  <br /></td></tr>
+<tr class="separator:ab61fc075b1beceb3a69af1d5e268efe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a174fea1fa71b5392f07fd53f5bedb946" id="r_a174fea1fa71b5392f07fd53f5bedb946"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a174fea1fa71b5392f07fd53f5bedb946">m_cbc::fd_coef_z</a></td></tr>
+<tr class="memdesc:a174fea1fa71b5392f07fd53f5bedb946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finite diff. coefficients z-dir.  <br /></td></tr>
+<tr class="separator:a174fea1fa71b5392f07fd53f5bedb946"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61b389d4066a62537ada016b57858066" id="r_a61b389d4066a62537ada016b57858066"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a61b389d4066a62537ada016b57858066">m_cbc::pi_coef_x</a></td></tr>
+<tr class="memdesc:a61b389d4066a62537ada016b57858066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial interpolant coefficients in x-dir.  <br /></td></tr>
+<tr class="separator:a61b389d4066a62537ada016b57858066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c829a7b4e3188fd5485f3433236688b" id="r_a9c829a7b4e3188fd5485f3433236688b"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a9c829a7b4e3188fd5485f3433236688b">m_cbc::pi_coef_y</a></td></tr>
+<tr class="memdesc:a9c829a7b4e3188fd5485f3433236688b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial interpolant coefficients in y-dir.  <br /></td></tr>
+<tr class="separator:a9c829a7b4e3188fd5485f3433236688b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86244c266a3cb8f6e055290e55c35705" id="r_a86244c266a3cb8f6e055290e55c35705"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a86244c266a3cb8f6e055290e55c35705">m_cbc::pi_coef_z</a></td></tr>
+<tr class="memdesc:a86244c266a3cb8f6e055290e55c35705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polynomial interpolant coefficients in z-dir.  <br /></td></tr>
+<tr class="separator:a86244c266a3cb8f6e055290e55c35705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc811037b627070ef6a4b1eec3f3501" id="r_adfc811037b627070ef6a4b1eec3f3501"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#adfc811037b627070ef6a4b1eec3f3501">m_cbc::is1</a></td></tr>
+<tr class="separator:adfc811037b627070ef6a4b1eec3f3501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae26e64a6835a313f76c1250a96b4431e" id="r_ae26e64a6835a313f76c1250a96b4431e"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#ae26e64a6835a313f76c1250a96b4431e">m_cbc::is2</a></td></tr>
+<tr class="separator:ae26e64a6835a313f76c1250a96b4431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b09adc4ac6c01169696f2a26c9c641a" id="r_a5b09adc4ac6c01169696f2a26c9c641a"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a5b09adc4ac6c01169696f2a26c9c641a">m_cbc::is3</a></td></tr>
+<tr class="memdesc:a5b09adc4ac6c01169696f2a26c9c641a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indical bounds in the s1-, s2- and s3-directions.  <br /></td></tr>
+<tr class="separator:a5b09adc4ac6c01169696f2a26c9c641a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a161582f9efcabed3402291750ed066d8" id="r_a161582f9efcabed3402291750ed066d8"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a161582f9efcabed3402291750ed066d8">m_cbc::dj</a></td></tr>
+<tr class="separator:a161582f9efcabed3402291750ed066d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d6663df1dc2de023be78f4fb4eb9e24" id="r_a4d6663df1dc2de023be78f4fb4eb9e24"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a4d6663df1dc2de023be78f4fb4eb9e24">m_cbc::bcxb</a></td></tr>
+<tr class="separator:a4d6663df1dc2de023be78f4fb4eb9e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1d4bdb11b0711fd054dc1b2acc8c5e2" id="r_ac1d4bdb11b0711fd054dc1b2acc8c5e2"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#ac1d4bdb11b0711fd054dc1b2acc8c5e2">m_cbc::bcxe</a></td></tr>
+<tr class="separator:ac1d4bdb11b0711fd054dc1b2acc8c5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3518c06061bcb54e1ba4eec8d2781fcf" id="r_a3518c06061bcb54e1ba4eec8d2781fcf"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a3518c06061bcb54e1ba4eec8d2781fcf">m_cbc::bcyb</a></td></tr>
+<tr class="separator:a3518c06061bcb54e1ba4eec8d2781fcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463e9a932f84b26e4e5ed69088b7ddd9" id="r_a463e9a932f84b26e4e5ed69088b7ddd9"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a463e9a932f84b26e4e5ed69088b7ddd9">m_cbc::bcye</a></td></tr>
+<tr class="separator:a463e9a932f84b26e4e5ed69088b7ddd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47d71cefa6a973966910d76c700ea8f1" id="r_a47d71cefa6a973966910d76c700ea8f1"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a47d71cefa6a973966910d76c700ea8f1">m_cbc::bczb</a></td></tr>
+<tr class="separator:a47d71cefa6a973966910d76c700ea8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e79fbcc86a51bae5d05b5c04a559de0" id="r_a5e79fbcc86a51bae5d05b5c04a559de0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a5e79fbcc86a51bae5d05b5c04a559de0">m_cbc::bcze</a></td></tr>
+<tr class="separator:a5e79fbcc86a51bae5d05b5c04a559de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c31f68754c60018285c75c77be07ff0" id="r_a9c31f68754c60018285c75c77be07ff0"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a9c31f68754c60018285c75c77be07ff0">m_cbc::cbc_dir</a></td></tr>
+<tr class="separator:a9c31f68754c60018285c75c77be07ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a823b0bbc10a35ac51bd48d3210aff962" id="r_a823b0bbc10a35ac51bd48d3210aff962"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a823b0bbc10a35ac51bd48d3210aff962">m_cbc::cbc_loc</a></td></tr>
+<tr class="separator:a823b0bbc10a35ac51bd48d3210aff962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81a149e64629bfdafbac7cddd5d19e5" id="r_af81a149e64629bfdafbac7cddd5d19e5"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#af81a149e64629bfdafbac7cddd5d19e5">m_cbc::flux_cbc_index</a></td></tr>
+<tr class="separator:af81a149e64629bfdafbac7cddd5d19e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fdc4f4f0bed688c768ef9ab275e8179" id="r_a7fdc4f4f0bed688c768ef9ab275e8179"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a7fdc4f4f0bed688c768ef9ab275e8179">m_cbc::pres_in</a></td></tr>
+<tr class="separator:a7fdc4f4f0bed688c768ef9ab275e8179"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46dd3fd39eb024d7652510cae075f939" id="r_a46dd3fd39eb024d7652510cae075f939"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a46dd3fd39eb024d7652510cae075f939">m_cbc::pres_out</a></td></tr>
+<tr class="separator:a46dd3fd39eb024d7652510cae075f939"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade5b2fb3031363ae74eea8038a9dcede" id="r_ade5b2fb3031363ae74eea8038a9dcede"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#ade5b2fb3031363ae74eea8038a9dcede">m_cbc::del_in</a></td></tr>
+<tr class="separator:ade5b2fb3031363ae74eea8038a9dcede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76c7f93457a0b4c1d713a64f977f302d" id="r_a76c7f93457a0b4c1d713a64f977f302d"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a76c7f93457a0b4c1d713a64f977f302d">m_cbc::del_out</a></td></tr>
+<tr class="separator:a76c7f93457a0b4c1d713a64f977f302d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa77a6af63a61025c0f8b8d52fddf09c3" id="r_aa77a6af63a61025c0f8b8d52fddf09c3"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#aa77a6af63a61025c0f8b8d52fddf09c3">m_cbc::vel_in</a></td></tr>
+<tr class="separator:aa77a6af63a61025c0f8b8d52fddf09c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aceb9a31661e625bded09738166107dd5" id="r_aceb9a31661e625bded09738166107dd5"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#aceb9a31661e625bded09738166107dd5">m_cbc::vel_out</a></td></tr>
+<tr class="separator:aceb9a31661e625bded09738166107dd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad667f2dcafe04a419748bb2fed155445" id="r_ad667f2dcafe04a419748bb2fed155445"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#ad667f2dcafe04a419748bb2fed155445">m_cbc::alpha_rho_in</a></td></tr>
+<tr class="separator:ad667f2dcafe04a419748bb2fed155445"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b171b7ef5d96ebf1be6c25b4f2c18e8" id="r_a1b171b7ef5d96ebf1be6c25b4f2c18e8"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__cbc.html#a1b171b7ef5d96ebf1be6c25b4f2c18e8">m_cbc::alpha_in</a></td></tr>
+<tr class="separator:a1b171b7ef5d96ebf1be6c25b4f2c18e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a8aaac759a23fea3b31210aa89c940745" name="a8aaac759a23fea3b31210aa89c940745"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8aaac759a23fea3b31210aa89c940745">&#9670;&#160;</a></span>__m_cbc_fpp_f90__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">program __m_cbc_fpp_f90__</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The module features a large database of characteristic boundary conditions (CBC) for the Euler system of equations. This system is augmented by the appropriate advection equations utilized to capture the material interfaces. The closure is achieved by the stiffened equation of state and mixture relations. At this time, the following CBC are available: 1) Slip Wall 2) Nonreflecting Subsonic Buffer 3) Nonreflecting Subsonic Inflow 4) Nonreflecting Subsonic Outflow 5) Force-Free Subsonic Outflow 6) Constant Pressure Subsonic Outflow 7) Supersonic Inflow 8) Supersonic Outflow Please refer to Thompson (1987, 1990) for detailed descriptions. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a8aaac759a23fea3b31210aa89c940745_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a30c4040c641dbf415536cca445178e84" name="a30c4040c641dbf415536cca445178e84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30c4040c641dbf415536cca445178e84">&#9670;&#160;</a></span>s_any_cbc_boundaries()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure elemental subroutine __m_cbc_fpp_f90__::s_any_cbc_boundaries </td>
-          <td>(</td>
-          <td class="paramtype">logical, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>toggle</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a30c4040c641dbf415536cca445178e84_icgraph.svg" width="100%" height="401"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a81f1e20487e1a09ae314610505070a7e" name="a81f1e20487e1a09ae314610505070a7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81f1e20487e1a09ae314610505070a7e">&#9670;&#160;</a></span>s_associate_cbc_coefficients_pointers()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_cbc_fpp_f90__::s_associate_cbc_coefficients_pointers </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cbc_dir_in</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cbc_loc_in</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a81f1e20487e1a09ae314610505070a7e_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a9771aa6ccf00c0970db70784acd622b5" name="a9771aa6ccf00c0970db70784acd622b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9771aa6ccf00c0970db70784acd622b5">&#9670;&#160;</a></span>s_cbc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_cbc_fpp_f90__::s_cbc </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cbc_dir_norm</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cbc_loc_norm</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ix</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>iy</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>iz</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The following is the implementation of the CBC based on the work of Thompson (1987, 1990) on hyperbolic systems. The CBC is indirectly applied in the computation of the right-hand-side (RHS) near the relevant domain boundary through the modification of the fluxes. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-average primitive variables </td></tr>
-    <tr><td class="paramname">flux_vf</td><td>Cell-boundary-average fluxes </td></tr>
-    <tr><td class="paramname">flux_src_vf</td><td>Cell-boundary-average flux sources </td></tr>
-    <tr><td class="paramname">cbc_dir_norm</td><td>CBC coordinate direction </td></tr>
-    <tr><td class="paramname">cbc_loc_norm</td><td>CBC coordinate location </td></tr>
-    <tr><td class="paramname">ix</td><td>Index bound in the first coordinate direction </td></tr>
-    <tr><td class="paramname">iy</td><td>Index bound in the second coordinate direction </td></tr>
-    <tr><td class="paramname">iz</td><td>Index bound in the third coordinate direction </td></tr>
-  </table>
-  </dd>
-</dl>
-<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
-<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
-<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
-<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
-<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
-<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a9771aa6ccf00c0970db70784acd622b5_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a9771aa6ccf00c0970db70784acd622b5_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a72c44fba4b33c0653e1ad21b9423b06a" name="a72c44fba4b33c0653e1ad21b9423b06a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72c44fba4b33c0653e1ad21b9423b06a">&#9670;&#160;</a></span>s_compute_cbc_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_cbc_fpp_f90__::s_compute_cbc_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cbc_dir_in</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cbc_loc_in</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compute CBC coefficients. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cbc_dir_in</td><td>CBC coordinate direction </td></tr>
-    <tr><td class="paramname">cbc_loc_in</td><td>CBC coordinate location </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a72c44fba4b33c0653e1ad21b9423b06a_cgraph.svg" width="472" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a72c44fba4b33c0653e1ad21b9423b06a_icgraph.svg" width="100%" height="382"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a290408bab9cad9bcb123f49b82845580" name="a290408bab9cad9bcb123f49b82845580"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a290408bab9cad9bcb123f49b82845580">&#9670;&#160;</a></span>s_finalize_cbc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_cbc_fpp_f90__::s_finalize_cbc </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deallocation and/or the disassociation procedures that are necessary in order to finalize the CBC application. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">flux_vf</td><td>Cell-boundary-average fluxes </td></tr>
-    <tr><td class="paramname">flux_src_vf</td><td>Cell-boundary-average flux sources </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a290408bab9cad9bcb123f49b82845580_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ac8679181a07d098cf600b99a2d616359" name="ac8679181a07d098cf600b99a2d616359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8679181a07d098cf600b99a2d616359">&#9670;&#160;</a></span>s_finalize_cbc_module()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_cbc_fpp_f90__::s_finalize_cbc_module</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Module deallocation and/or disassociation procedures. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_ac8679181a07d098cf600b99a2d616359_cgraph.svg" width="395" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_ac8679181a07d098cf600b99a2d616359_icgraph.svg" width="602" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af3c2be26e3a3683b52f5e7fc84731d0f" name="af3c2be26e3a3683b52f5e7fc84731d0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3c2be26e3a3683b52f5e7fc84731d0f">&#9670;&#160;</a></span>s_initialize_cbc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine __m_cbc_fpp_f90__::s_initialize_cbc </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ix</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>iy</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structint__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>iz</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the selected CBC. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-average primitive variables </td></tr>
-    <tr><td class="paramname">flux_vf</td><td>Cell-boundary-average fluxes </td></tr>
-    <tr><td class="paramname">flux_src_vf</td><td>Cell-boundary-average flux sources </td></tr>
-    <tr><td class="paramname">ix</td><td>Index bound in the first coordinate direction </td></tr>
-    <tr><td class="paramname">iy</td><td>Index bound in the second coordinate direction </td></tr>
-    <tr><td class="paramname">iz</td><td>Index bound in the third coordinate direction </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_af3c2be26e3a3683b52f5e7fc84731d0f_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a93f9829e4327e1dbfde890d3eca73da8" name="a93f9829e4327e1dbfde890d3eca73da8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93f9829e4327e1dbfde890d3eca73da8">&#9670;&#160;</a></span>s_initialize_cbc_module()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_cbc_fpp_f90__::s_initialize_cbc_module</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a93f9829e4327e1dbfde890d3eca73da8_cgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__cbc_8fpp_8f90_a93f9829e4327e1dbfde890d3eca73da8_icgraph.svg" width="618" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

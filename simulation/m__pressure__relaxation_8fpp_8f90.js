@@ -1,12 +1,14 @@
 var m__pressure__relaxation_8fpp_8f90 =
 [
-    [ "__m_pressure_relaxation_fpp_f90__", "m__pressure__relaxation_8fpp_8f90.html#a2a32c4f5a75fa16fe59cf2280f81d0cc", null ],
-    [ "s_correct_internal_energies", "m__pressure__relaxation_8fpp_8f90.html#a09c93dd4786fb6ffbb32932de4bfd85a", null ],
-    [ "s_correct_volume_fractions", "m__pressure__relaxation_8fpp_8f90.html#abcbf6fc9b1a2228b8ec5672129410bb3", null ],
-    [ "s_equilibrate_pressure", "m__pressure__relaxation_8fpp_8f90.html#a0c17e04abeee955b9816a8b465fe7023", null ],
-    [ "s_finalize_pressure_relaxation_module", "m__pressure__relaxation_8fpp_8f90.html#a4891accfc6e6c8d35f5b9cf7f15eb400", null ],
-    [ "s_initialize_pressure_relaxation_module", "m__pressure__relaxation_8fpp_8f90.html#af92a24fa7e62bdb485dbdc86df6e126a", null ],
-    [ "s_needs_pressure_relaxation", "m__pressure__relaxation_8fpp_8f90.html#a070f295e8a7ba5a70d327a14ecd770ee", null ],
-    [ "s_pressure_relaxation_procedure", "m__pressure__relaxation_8fpp_8f90.html#ae64c6b4de321282d0929f2fc9081d13b", null ],
-    [ "s_relax_cell_pressure", "m__pressure__relaxation_8fpp_8f90.html#a958ffec3423837a06f15b41b76062b72", null ]
+    [ "m_pressure_relaxation::s_correct_internal_energies", "namespacem__pressure__relaxation.html#aa0ab821cb4ad3bf1639d8163a10f2423", null ],
+    [ "m_pressure_relaxation::s_correct_volume_fractions", "namespacem__pressure__relaxation.html#a9efb0aa111b5e94e2f7dc321bdf8b29c", null ],
+    [ "m_pressure_relaxation::s_equilibrate_pressure", "namespacem__pressure__relaxation.html#aa5999e6e47695b35f389b756058f47e2", null ],
+    [ "m_pressure_relaxation::s_finalize_pressure_relaxation_module", "namespacem__pressure__relaxation.html#a15079fdbc60ab60af60388c90359b9ab", null ],
+    [ "m_pressure_relaxation::s_initialize_pressure_relaxation_module", "namespacem__pressure__relaxation.html#adc8d5cd34a26d3c1a50d8865a5d851bf", null ],
+    [ "m_pressure_relaxation::s_needs_pressure_relaxation", "namespacem__pressure__relaxation.html#a34357ee84952de8358113733f6d457c0", null ],
+    [ "m_pressure_relaxation::s_pressure_relaxation_procedure", "namespacem__pressure__relaxation.html#a37306a2fbe3887ca51eac1a59a2504ef", null ],
+    [ "m_pressure_relaxation::s_relax_cell_pressure", "namespacem__pressure__relaxation.html#ab49d1c2d5e1c5bd43d0225aec811f549", null ],
+    [ "m_pressure_relaxation::gamma_min", "namespacem__pressure__relaxation.html#a0d178e3d3073f517798fd3a2e433fa9b", null ],
+    [ "m_pressure_relaxation::pres_inf", "namespacem__pressure__relaxation.html#a01bea9e1a00c0b613875b61afcf59295", null ],
+    [ "m_pressure_relaxation::res", "namespacem__pressure__relaxation.html#a43e449f4c4ba2c332d020c793c87bda3", null ]
 ];

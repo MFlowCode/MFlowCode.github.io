@@ -133,657 +133,116 @@ $(function(){initNavTree('m__acoustic__src_8fpp_8f90.html',''); initResizable(tr
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#namespaces">Modules</a> &#124;
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">m_acoustic_src.fpp.f90 File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Modules</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html">m_acoustic_src</a></td></tr>
+<tr class="memdesc:namespacem__acoustic__src"><td class="mdescLeft">&#160;</td><td class="mdescRight">The module contains the subroutines used to create a acoustic source pressure source term. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a6188e1e3f202697dbe014d7856777502" id="r_a6188e1e3f202697dbe014d7856777502"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6188e1e3f202697dbe014d7856777502">__m_acoustic_src_fpp_f90__</a></td></tr>
-<tr class="separator:a6188e1e3f202697dbe014d7856777502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af831e41c72f5b6ca9204e6b91b5a0f45" id="r_af831e41c72f5b6ca9204e6b91b5a0f45"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af831e41c72f5b6ca9204e6b91b5a0f45">s_initialize_acoustic_src</a></td></tr>
-<tr class="memdesc:af831e41c72f5b6ca9204e6b91b5a0f45"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine initializes the acoustic source module.  <br /></td></tr>
-<tr class="separator:af831e41c72f5b6ca9204e6b91b5a0f45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39c2ea1473275d2287856788c0d21d7a" id="r_a39c2ea1473275d2287856788c0d21d7a"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39c2ea1473275d2287856788c0d21d7a">s_acoustic_src_calculations</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, t_step, rhs_vf)</td></tr>
-<tr class="memdesc:a39c2ea1473275d2287856788c0d21d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine updates the rhs by computing the mass, mom, energy sources.  <br /></td></tr>
-<tr class="separator:a39c2ea1473275d2287856788c0d21d7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d7b39dd65978c101de5c5fcb1d45f91" id="r_a7d7b39dd65978c101de5c5fcb1d45f91"><td class="memItemLeft" align="right" valign="top">pure elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d7b39dd65978c101de5c5fcb1d45f91">s_source_temporal</a> (sim_time, c, ai, term_index, frequency_local, gauss_sigma_time_local, source, sum_bb)</td></tr>
-<tr class="memdesc:a7d7b39dd65978c101de5c5fcb1d45f91"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gives the temporally varying amplitude of the pulse.  <br /></td></tr>
-<tr class="separator:a7d7b39dd65978c101de5c5fcb1d45f91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8a8a19e583a2c2ea5bb6c2cf3285bfa" id="r_af8a8a19e583a2c2ea5bb6c2cf3285bfa"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8a8a19e583a2c2ea5bb6c2cf3285bfa">s_precalculate_acoustic_spatial_sources</a></td></tr>
-<tr class="memdesc:af8a8a19e583a2c2ea5bb6c2cf3285bfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine identifies and precalculates the non-zero acoustic spatial sources before time-stepping.  <br /></td></tr>
-<tr class="separator:af8a8a19e583a2c2ea5bb6c2cf3285bfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4151028fcdf8728708fa365aeb57df5c" id="r_a4151028fcdf8728708fa365aeb57df5c"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4151028fcdf8728708fa365aeb57df5c">s_source_spatial</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, loc, ai, source, angle, xyz_to_r_ratios)</td></tr>
-<tr class="memdesc:a4151028fcdf8728708fa365aeb57df5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gives the spatial support of the acoustic source.  <br /></td></tr>
-<tr class="separator:a4151028fcdf8728708fa365aeb57df5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c98d7c3759122b3baf873896cd5cd2" id="r_ac7c98d7c3759122b3baf873896cd5cd2"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7c98d7c3759122b3baf873896cd5cd2">s_source_spatial_planar</a> (ai, sig, r, source)</td></tr>
-<tr class="memdesc:ac7c98d7c3759122b3baf873896cd5cd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the spatial support for planar acoustic sources in 1D, 2D, and 3D.  <br /></td></tr>
-<tr class="separator:ac7c98d7c3759122b3baf873896cd5cd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9f0b015fd9a479127d2ff59b03c06ba" id="r_aa9f0b015fd9a479127d2ff59b03c06ba"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9f0b015fd9a479127d2ff59b03c06ba">s_source_spatial_transducer</a> (ai, sig, r, source, angle, xyz_to_r_ratios)</td></tr>
-<tr class="memdesc:aa9f0b015fd9a479127d2ff59b03c06ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the spatial support for a single transducer in 2D, 2D axisymmetric, and 3D.  <br /></td></tr>
-<tr class="separator:aa9f0b015fd9a479127d2ff59b03c06ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0815c1d9b9bcbbe5bd76586dd2f20163" id="r_a0815c1d9b9bcbbe5bd76586dd2f20163"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0815c1d9b9bcbbe5bd76586dd2f20163">s_source_spatial_transducer_array</a> (ai, sig, r, source, angle, xyz_to_r_ratios)</td></tr>
-<tr class="memdesc:a0815c1d9b9bcbbe5bd76586dd2f20163"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the spatial support for multiple transducers in 2D, 2D axisymmetric, and 3D.  <br /></td></tr>
-<tr class="separator:a0815c1d9b9bcbbe5bd76586dd2f20163"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb20cd3619a956ef6c73ce656461e650" id="r_adb20cd3619a956ef6c73ce656461e650"><td class="memItemLeft" align="right" valign="top">pure elemental real(wp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb20cd3619a956ef6c73ce656461e650">f_frequency_local</a> (freq_conv_flag, ai, c)</td></tr>
-<tr class="memdesc:adb20cd3619a956ef6c73ce656461e650"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function performs wavelength to frequency conversion.  <br /></td></tr>
-<tr class="separator:adb20cd3619a956ef6c73ce656461e650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c68cb6fc8fb6d6bb872f2e033e9a732" id="r_a7c68cb6fc8fb6d6bb872f2e033e9a732"><td class="memItemLeft" align="right" valign="top">pure elemental real(wp) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c68cb6fc8fb6d6bb872f2e033e9a732">f_gauss_sigma_time_local</a> (gauss_conv_flag, ai, c)</td></tr>
-<tr class="memdesc:a7c68cb6fc8fb6d6bb872f2e033e9a732"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function performs Gaussian sigma dist to time conversion.  <br /></td></tr>
-<tr class="separator:a7c68cb6fc8fb6d6bb872f2e033e9a732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab35bc877e24a62748ab7df0548ebd08d" id="r_ab35bc877e24a62748ab7df0548ebd08d"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ab35bc877e24a62748ab7df0548ebd08d">m_acoustic_src::s_initialize_acoustic_src</a></td></tr>
+<tr class="memdesc:ab35bc877e24a62748ab7df0548ebd08d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine initializes the acoustic source module.  <br /></td></tr>
+<tr class="separator:ab35bc877e24a62748ab7df0548ebd08d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1c00c5b11d80e493e5e4289b5b11096" id="r_ac1c00c5b11d80e493e5e4289b5b11096"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ac1c00c5b11d80e493e5e4289b5b11096">m_acoustic_src::s_acoustic_src_calculations</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, t_step, rhs_vf)</td></tr>
+<tr class="memdesc:ac1c00c5b11d80e493e5e4289b5b11096"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine updates the rhs by computing the mass, mom, energy sources.  <br /></td></tr>
+<tr class="separator:ac1c00c5b11d80e493e5e4289b5b11096"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a885488219492767304f352730e72c1a9" id="r_a885488219492767304f352730e72c1a9"><td class="memItemLeft" align="right" valign="top">pure elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a885488219492767304f352730e72c1a9">m_acoustic_src::s_source_temporal</a> (sim_time, c, ai, term_index, frequency_local, gauss_sigma_time_local, source, sum_bb)</td></tr>
+<tr class="memdesc:a885488219492767304f352730e72c1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gives the temporally varying amplitude of the pulse.  <br /></td></tr>
+<tr class="separator:a885488219492767304f352730e72c1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40f6c71199c072410336b34829823c6f" id="r_a40f6c71199c072410336b34829823c6f"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a40f6c71199c072410336b34829823c6f">m_acoustic_src::s_precalculate_acoustic_spatial_sources</a></td></tr>
+<tr class="memdesc:a40f6c71199c072410336b34829823c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine identifies and precalculates the non-zero acoustic spatial sources before time-stepping.  <br /></td></tr>
+<tr class="separator:a40f6c71199c072410336b34829823c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a847cb47e637f57ac3367792804fb88" id="r_a4a847cb47e637f57ac3367792804fb88"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a4a847cb47e637f57ac3367792804fb88">m_acoustic_src::s_source_spatial</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, loc, ai, source, angle, xyz_to_r_ratios)</td></tr>
+<tr class="memdesc:a4a847cb47e637f57ac3367792804fb88"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gives the spatial support of the acoustic source.  <br /></td></tr>
+<tr class="separator:a4a847cb47e637f57ac3367792804fb88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b13d0bd1d29aa2e80b113d2b6c151aa" id="r_a8b13d0bd1d29aa2e80b113d2b6c151aa"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a8b13d0bd1d29aa2e80b113d2b6c151aa">m_acoustic_src::s_source_spatial_planar</a> (ai, sig, r, source)</td></tr>
+<tr class="memdesc:a8b13d0bd1d29aa2e80b113d2b6c151aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the spatial support for planar acoustic sources in 1D, 2D, and 3D.  <br /></td></tr>
+<tr class="separator:a8b13d0bd1d29aa2e80b113d2b6c151aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab03e57308bfd6b2fe2b3c6e9751cf875" id="r_ab03e57308bfd6b2fe2b3c6e9751cf875"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ab03e57308bfd6b2fe2b3c6e9751cf875">m_acoustic_src::s_source_spatial_transducer</a> (ai, sig, r, source, angle, xyz_to_r_ratios)</td></tr>
+<tr class="memdesc:ab03e57308bfd6b2fe2b3c6e9751cf875"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the spatial support for a single transducer in 2D, 2D axisymmetric, and 3D.  <br /></td></tr>
+<tr class="separator:ab03e57308bfd6b2fe2b3c6e9751cf875"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75c527e914eb6b9a2b939f4ae1b491d4" id="r_a75c527e914eb6b9a2b939f4ae1b491d4"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a75c527e914eb6b9a2b939f4ae1b491d4">m_acoustic_src::s_source_spatial_transducer_array</a> (ai, sig, r, source, angle, xyz_to_r_ratios)</td></tr>
+<tr class="memdesc:a75c527e914eb6b9a2b939f4ae1b491d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the spatial support for multiple transducers in 2D, 2D axisymmetric, and 3D.  <br /></td></tr>
+<tr class="separator:a75c527e914eb6b9a2b939f4ae1b491d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6315bcf53e21632dd2f195bc91e3bbea" id="r_a6315bcf53e21632dd2f195bc91e3bbea"><td class="memItemLeft" align="right" valign="top">pure elemental real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a6315bcf53e21632dd2f195bc91e3bbea">m_acoustic_src::f_frequency_local</a> (freq_conv_flag, ai, c)</td></tr>
+<tr class="memdesc:a6315bcf53e21632dd2f195bc91e3bbea"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function performs wavelength to frequency conversion.  <br /></td></tr>
+<tr class="separator:a6315bcf53e21632dd2f195bc91e3bbea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fa71afc874a09b76cbf320361d44e37" id="r_a0fa71afc874a09b76cbf320361d44e37"><td class="memItemLeft" align="right" valign="top">pure elemental real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a0fa71afc874a09b76cbf320361d44e37">m_acoustic_src::f_gauss_sigma_time_local</a> (gauss_conv_flag, ai, c)</td></tr>
+<tr class="memdesc:a0fa71afc874a09b76cbf320361d44e37"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function performs Gaussian sigma dist to time conversion.  <br /></td></tr>
+<tr class="separator:a0fa71afc874a09b76cbf320361d44e37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a18d26a5188134d9afb7df1a553815ed7" id="r_a18d26a5188134d9afb7df1a553815ed7"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a18d26a5188134d9afb7df1a553815ed7">m_acoustic_src::pulse</a></td></tr>
+<tr class="separator:a18d26a5188134d9afb7df1a553815ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c0f8a431e60962834c768a742b0f258" id="r_a5c0f8a431e60962834c768a742b0f258"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a5c0f8a431e60962834c768a742b0f258">m_acoustic_src::support</a></td></tr>
+<tr class="separator:a5c0f8a431e60962834c768a742b0f258"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6beeb95f75dd54bb24f403e5b427b50" id="r_ac6beeb95f75dd54bb24f403e5b427b50"><td class="memItemLeft" align="right" valign="top">logical, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ac6beeb95f75dd54bb24f403e5b427b50">m_acoustic_src::dipole</a></td></tr>
+<tr class="separator:ac6beeb95f75dd54bb24f403e5b427b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078f97a836fc1d72f6a879d16548d2f1" id="r_a078f97a836fc1d72f6a879d16548d2f1"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, target&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a078f97a836fc1d72f6a879d16548d2f1">m_acoustic_src::loc_acoustic</a></td></tr>
+<tr class="separator:a078f97a836fc1d72f6a879d16548d2f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0d813204f7c406c2f7a0475c0eb51cd" id="r_ad0d813204f7c406c2f7a0475c0eb51cd"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ad0d813204f7c406c2f7a0475c0eb51cd">m_acoustic_src::mag</a></td></tr>
+<tr class="separator:ad0d813204f7c406c2f7a0475c0eb51cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4372de68aa9acfaac0d209cc589e61b5" id="r_a4372de68aa9acfaac0d209cc589e61b5"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a4372de68aa9acfaac0d209cc589e61b5">m_acoustic_src::length</a></td></tr>
+<tr class="separator:a4372de68aa9acfaac0d209cc589e61b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1399d6be8d2ee628dc37fc0e0be80016" id="r_a1399d6be8d2ee628dc37fc0e0be80016"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a1399d6be8d2ee628dc37fc0e0be80016">m_acoustic_src::height</a></td></tr>
+<tr class="separator:a1399d6be8d2ee628dc37fc0e0be80016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ce56cb8e55cb802bd8c2f7e9135521e" id="r_a5ce56cb8e55cb802bd8c2f7e9135521e"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a5ce56cb8e55cb802bd8c2f7e9135521e">m_acoustic_src::wavelength</a></td></tr>
+<tr class="separator:a5ce56cb8e55cb802bd8c2f7e9135521e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae58e593fe352876d15a8514a284f9355" id="r_ae58e593fe352876d15a8514a284f9355"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ae58e593fe352876d15a8514a284f9355">m_acoustic_src::frequency</a></td></tr>
+<tr class="separator:ae58e593fe352876d15a8514a284f9355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af58a9cc009161a0f1be2309bcede4efa" id="r_af58a9cc009161a0f1be2309bcede4efa"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#af58a9cc009161a0f1be2309bcede4efa">m_acoustic_src::gauss_sigma_dist</a></td></tr>
+<tr class="separator:af58a9cc009161a0f1be2309bcede4efa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02134d5f60f1d8a83a5203521be2a366" id="r_a02134d5f60f1d8a83a5203521be2a366"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a02134d5f60f1d8a83a5203521be2a366">m_acoustic_src::gauss_sigma_time</a></td></tr>
+<tr class="separator:a02134d5f60f1d8a83a5203521be2a366"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a655c5d7e665cca0629af3a9d2f9a7e68" id="r_a655c5d7e665cca0629af3a9d2f9a7e68"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a655c5d7e665cca0629af3a9d2f9a7e68">m_acoustic_src::npulse</a></td></tr>
+<tr class="separator:a655c5d7e665cca0629af3a9d2f9a7e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f007079188b565ff7b029a9d4490be5" id="r_a3f007079188b565ff7b029a9d4490be5"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a3f007079188b565ff7b029a9d4490be5">m_acoustic_src::dir</a></td></tr>
+<tr class="separator:a3f007079188b565ff7b029a9d4490be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e2e879f79f1087ba9ce6f338a47478" id="r_af5e2e879f79f1087ba9ce6f338a47478"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#af5e2e879f79f1087ba9ce6f338a47478">m_acoustic_src::delay</a></td></tr>
+<tr class="separator:af5e2e879f79f1087ba9ce6f338a47478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7baa621323551ca5c47125d35e32df11" id="r_a7baa621323551ca5c47125d35e32df11"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a7baa621323551ca5c47125d35e32df11">m_acoustic_src::foc_length</a></td></tr>
+<tr class="separator:a7baa621323551ca5c47125d35e32df11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b6d9532f559aa1bacbcc103862f69bc" id="r_a7b6d9532f559aa1bacbcc103862f69bc"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc">m_acoustic_src::aperture</a></td></tr>
+<tr class="separator:a7b6d9532f559aa1bacbcc103862f69bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9bf6404d23eac74eb650328a8f68513" id="r_ae9bf6404d23eac74eb650328a8f68513"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ae9bf6404d23eac74eb650328a8f68513">m_acoustic_src::element_spacing_angle</a></td></tr>
+<tr class="separator:ae9bf6404d23eac74eb650328a8f68513"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2f344aa8b872540864a00c20d97663" id="r_aef2f344aa8b872540864a00c20d97663"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#aef2f344aa8b872540864a00c20d97663">m_acoustic_src::element_polygon_ratio</a></td></tr>
+<tr class="separator:aef2f344aa8b872540864a00c20d97663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a578cbd0beda40c1253e10866cbc4429c" id="r_a578cbd0beda40c1253e10866cbc4429c"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a578cbd0beda40c1253e10866cbc4429c">m_acoustic_src::rotate_angle</a></td></tr>
+<tr class="separator:a578cbd0beda40c1253e10866cbc4429c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2d136ef242278a53b52156f3f7d07ec" id="r_af2d136ef242278a53b52156f3f7d07ec"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#af2d136ef242278a53b52156f3f7d07ec">m_acoustic_src::bb_bandwidth</a></td></tr>
+<tr class="separator:af2d136ef242278a53b52156f3f7d07ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e874bb4bca9aefaa7e1a7c7985c18c6" id="r_a9e874bb4bca9aefaa7e1a7c7985c18c6"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a9e874bb4bca9aefaa7e1a7c7985c18c6">m_acoustic_src::bb_lowest_freq</a></td></tr>
+<tr class="separator:a9e874bb4bca9aefaa7e1a7c7985c18c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa61bb1c56fc5a2785663d01aeda60ac4" id="r_aa61bb1c56fc5a2785663d01aeda60ac4"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#aa61bb1c56fc5a2785663d01aeda60ac4">m_acoustic_src::num_elements</a></td></tr>
+<tr class="separator:aa61bb1c56fc5a2785663d01aeda60ac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71f2dfa6774e56e16fcc4a0d014687d7" id="r_a71f2dfa6774e56e16fcc4a0d014687d7"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a71f2dfa6774e56e16fcc4a0d014687d7">m_acoustic_src::element_on</a></td></tr>
+<tr class="separator:a71f2dfa6774e56e16fcc4a0d014687d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3debf2dbde510cddad3b89cab1190867" id="r_a3debf2dbde510cddad3b89cab1190867"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a3debf2dbde510cddad3b89cab1190867">m_acoustic_src::bb_num_freq</a></td></tr>
+<tr class="separator:a3debf2dbde510cddad3b89cab1190867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa0bfd14e7b469ab4e4e499f995691f" id="r_aeaa0bfd14e7b469ab4e4e499f995691f"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#aeaa0bfd14e7b469ab4e4e499f995691f">m_acoustic_src::source_spatials_num_points</a></td></tr>
+<tr class="memdesc:aeaa0bfd14e7b469ab4e4e499f995691f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of non-zero source grid points for each source.  <br /></td></tr>
+<tr class="separator:aeaa0bfd14e7b469ab4e4e499f995691f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1036c4e51494617873916e9d4b15786c" id="r_a1036c4e51494617873916e9d4b15786c"><td class="memItemLeft" align="right" valign="top">type(<a class="el" href="structm__derived__types_1_1source__spatial__type.html">source_spatial_type</a>), dimension(:), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a1036c4e51494617873916e9d4b15786c">m_acoustic_src::source_spatials</a></td></tr>
+<tr class="memdesc:a1036c4e51494617873916e9d4b15786c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data of non-zero source grid points for each source.  <br /></td></tr>
+<tr class="separator:a1036c4e51494617873916e9d4b15786c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Acoustic source terms</div></td></tr>
+<tr class="memitem:a15285b5a85fb1a6a11834568c49fc7de" id="r_a15285b5a85fb1a6a11834568c49fc7de"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a15285b5a85fb1a6a11834568c49fc7de">m_acoustic_src::mass_src</a></td></tr>
+<tr class="separator:a15285b5a85fb1a6a11834568c49fc7de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac69d95717928bd1635b2fda39557d95a" id="r_ac69d95717928bd1635b2fda39557d95a"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#ac69d95717928bd1635b2fda39557d95a">m_acoustic_src::e_src</a></td></tr>
+<tr class="separator:ac69d95717928bd1635b2fda39557d95a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b767c9ac77c7adf753cce985d74c0b5" id="r_a2b767c9ac77c7adf753cce985d74c0b5"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__acoustic__src.html#a2b767c9ac77c7adf753cce985d74c0b5">m_acoustic_src::mom_src</a></td></tr>
+<tr class="separator:a2b767c9ac77c7adf753cce985d74c0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a6188e1e3f202697dbe014d7856777502" name="a6188e1e3f202697dbe014d7856777502"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6188e1e3f202697dbe014d7856777502">&#9670;&#160;</a></span>__m_acoustic_src_fpp_f90__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">program __m_acoustic_src_fpp_f90__</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a6188e1e3f202697dbe014d7856777502_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="adb20cd3619a956ef6c73ce656461e650" name="adb20cd3619a956ef6c73ce656461e650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb20cd3619a956ef6c73ce656461e650">&#9670;&#160;</a></span>f_frequency_local()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure elemental real(wp) function __m_acoustic_src_fpp_f90__::f_frequency_local </td>
-          <td>(</td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>freq_conv_flag</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function performs wavelength to frequency conversion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">freq_conv_flag</td><td>Determines if frequency is given or wavelength </td></tr>
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-    <tr><td class="paramname">c</td><td>Speed of sound </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>frequency_local Converted frequency </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_adb20cd3619a956ef6c73ce656461e650_cgraph.svg" width="148" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_adb20cd3619a956ef6c73ce656461e650_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a7c68cb6fc8fb6d6bb872f2e033e9a732" name="a7c68cb6fc8fb6d6bb872f2e033e9a732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c68cb6fc8fb6d6bb872f2e033e9a732">&#9670;&#160;</a></span>f_gauss_sigma_time_local()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure elemental real(wp) function __m_acoustic_src_fpp_f90__::f_gauss_sigma_time_local </td>
-          <td>(</td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>gauss_conv_flag</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This function performs Gaussian sigma dist to time conversion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gauss_conv_flag</td><td>Determines if sigma_dist is given or sigma_time </td></tr>
-    <tr><td class="paramname">c</td><td>Speed of sound </td></tr>
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>gauss_sigma_time_local Converted Gaussian sigma time </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a7c68cb6fc8fb6d6bb872f2e033e9a732_cgraph.svg" width="167" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a7c68cb6fc8fb6d6bb872f2e033e9a732_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a39c2ea1473275d2287856788c0d21d7a" name="a39c2ea1473275d2287856788c0d21d7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39c2ea1473275d2287856788c0d21d7a">&#9670;&#160;</a></span>s_acoustic_src_calculations()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_acoustic_src_fpp_f90__::s_acoustic_src_calculations </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine updates the rhs by computing the mass, mom, energy sources. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">t_step</td><td>Current time step </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">rhs_vf</td><td>rhs variables </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q_cons_vf</td><td>This variable contains the WENO-reconstructed values of the cell-average conservative variables, which are located in q_cons_vf, at cell-interior Gaussian quadrature points (QP). </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">q_prim_vf</td><td>The primitive variables at cell-interior Gaussian quadrature points. These are calculated from the conservative variables and gradient magnitude (GM) of the volume fractions, q_cons_qp and gm_alpha_qp, respectively. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a39c2ea1473275d2287856788c0d21d7a_cgraph.svg" width="644" height="298"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a39c2ea1473275d2287856788c0d21d7a_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="af831e41c72f5b6ca9204e6b91b5a0f45" name="af831e41c72f5b6ca9204e6b91b5a0f45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af831e41c72f5b6ca9204e6b91b5a0f45">&#9670;&#160;</a></span>s_initialize_acoustic_src()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_acoustic_src_fpp_f90__::s_initialize_acoustic_src</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine initializes the acoustic source module. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_af831e41c72f5b6ca9204e6b91b5a0f45_cgraph.svg" width="507" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_af831e41c72f5b6ca9204e6b91b5a0f45_icgraph.svg" width="628" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af8a8a19e583a2c2ea5bb6c2cf3285bfa" name="af8a8a19e583a2c2ea5bb6c2cf3285bfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8a8a19e583a2c2ea5bb6c2cf3285bfa">&#9670;&#160;</a></span>s_precalculate_acoustic_spatial_sources()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_acoustic_src_fpp_f90__::s_precalculate_acoustic_spatial_sources</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine identifies and precalculates the non-zero acoustic spatial sources before time-stepping. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_af8a8a19e583a2c2ea5bb6c2cf3285bfa_cgraph.svg" width="622" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_af8a8a19e583a2c2ea5bb6c2cf3285bfa_icgraph.svg" width="627" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4151028fcdf8728708fa365aeb57df5c" name="a4151028fcdf8728708fa365aeb57df5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4151028fcdf8728708fa365aeb57df5c">&#9670;&#160;</a></span>s_source_spatial()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure subroutine __m_acoustic_src_fpp_f90__::s_source_spatial </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>loc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>xyz_to_r_ratios</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine gives the spatial support of the acoustic source. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">j</td><td>x-index </td></tr>
-    <tr><td class="paramname">k</td><td>y-index </td></tr>
-    <tr><td class="paramname">l</td><td>z-index </td></tr>
-    <tr><td class="paramname">loc</td><td>Nominal source term location </td></tr>
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-    <tr><td class="paramname">source</td><td>Source term amplitude </td></tr>
-    <tr><td class="paramname">angle</td><td>Angle of the source term with respect to the x-axis (for 2D or 2D axisymmetric) </td></tr>
-    <tr><td class="paramname">xyz_to_r_ratios</td><td>Ratios of the [xyz]-component of the source term to the magnitude (for 3D) </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a4151028fcdf8728708fa365aeb57df5c_cgraph.svg" width="396" height="151"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a4151028fcdf8728708fa365aeb57df5c_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ac7c98d7c3759122b3baf873896cd5cd2" name="ac7c98d7c3759122b3baf873896cd5cd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7c98d7c3759122b3baf873896cd5cd2">&#9670;&#160;</a></span>s_source_spatial_planar()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure subroutine __m_acoustic_src_fpp_f90__::s_source_spatial_planar </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sig</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine calculates the spatial support for planar acoustic sources in 1D, 2D, and 3D. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-    <tr><td class="paramname">sig</td><td>Sigma value for the Gaussian distribution </td></tr>
-    <tr><td class="paramname">r</td><td>Displacement from source to current point </td></tr>
-    <tr><td class="paramname">source</td><td>Source term amplitude </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_ac7c98d7c3759122b3baf873896cd5cd2_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aa9f0b015fd9a479127d2ff59b03c06ba" name="aa9f0b015fd9a479127d2ff59b03c06ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9f0b015fd9a479127d2ff59b03c06ba">&#9670;&#160;</a></span>s_source_spatial_transducer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure subroutine __m_acoustic_src_fpp_f90__::s_source_spatial_transducer </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sig</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>xyz_to_r_ratios</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine calculates the spatial support for a single transducer in 2D, 2D axisymmetric, and 3D. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-    <tr><td class="paramname">sig</td><td>Sigma value for the Gaussian distribution </td></tr>
-    <tr><td class="paramname">r</td><td>Displacement from source to current point </td></tr>
-    <tr><td class="paramname">source</td><td>Source term amplitude </td></tr>
-    <tr><td class="paramname">angle</td><td>Angle of the source term with respect to the x-axis (for 2D or 2D axisymmetric) </td></tr>
-    <tr><td class="paramname">xyz_to_r_ratios</td><td>Ratios of the [xyz]-component of the source term to the magnitude (for 3D) </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_aa9f0b015fd9a479127d2ff59b03c06ba_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a0815c1d9b9bcbbe5bd76586dd2f20163" name="a0815c1d9b9bcbbe5bd76586dd2f20163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0815c1d9b9bcbbe5bd76586dd2f20163">&#9670;&#160;</a></span>s_source_spatial_transducer_array()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure subroutine __m_acoustic_src_fpp_f90__::s_source_spatial_transducer_array </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sig</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>xyz_to_r_ratios</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine calculates the spatial support for multiple transducers in 2D, 2D axisymmetric, and 3D. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-    <tr><td class="paramname">sig</td><td>Sigma value for the Gaussian distribution </td></tr>
-    <tr><td class="paramname">r</td><td>Displacement from source to current point </td></tr>
-    <tr><td class="paramname">source</td><td>Source term amplitude </td></tr>
-    <tr><td class="paramname">angle</td><td>Angle of the source term with respect to the x-axis (for 2D or 2D axisymmetric) </td></tr>
-    <tr><td class="paramname">xyz_to_r_ratios</td><td>Ratios of the [xyz]-component of the source term to the magnitude (for 3D) </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a0815c1d9b9bcbbe5bd76586dd2f20163_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a7d7b39dd65978c101de5c5fcb1d45f91" name="a7d7b39dd65978c101de5c5fcb1d45f91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d7b39dd65978c101de5c5fcb1d45f91">&#9670;&#160;</a></span>s_source_temporal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">pure elemental subroutine __m_acoustic_src_fpp_f90__::s_source_temporal </td>
-          <td>(</td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sim_time</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ai</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>term_index</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>frequency_local</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gauss_sigma_time_local</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(out)</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sum_bb</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This subroutine gives the temporally varying amplitude of the pulse. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sim_time</td><td>Simulation time </td></tr>
-    <tr><td class="paramname">c</td><td>Sound speed </td></tr>
-    <tr><td class="paramname">ai</td><td>Acoustic source index </td></tr>
-    <tr><td class="paramname">term_index</td><td>Index of the term to be calculated (1: mass source, 2: momentum source) </td></tr>
-    <tr><td class="paramname">frequency_local</td><td>Frequency at the spatial location for sine and square waves </td></tr>
-    <tr><td class="paramname">gauss_sigma_time_local</td><td>sigma in time for Gaussian pulse </td></tr>
-    <tr><td class="paramname">source</td><td>Source term amplitude </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__acoustic__src_8fpp_8f90_a7d7b39dd65978c101de5c5fcb1d45f91_icgraph.svg" width="100%" height="478"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

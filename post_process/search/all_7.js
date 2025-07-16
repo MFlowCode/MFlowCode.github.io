@@ -1,21 +1,11 @@
 var searchData=
 [
-  ['g_0',['g',['../structphysical__parameters.html#a38b1f48d3529ce86d7e163e441578121',1,'physical_parameters::g'],['../namespacem__global__parameters.html#a0c85c5be6515cada6b48592a222f7b2c',1,'m_global_parameters::g']]],
-  ['gamma_1',['gamma',['../structic__patch__parameters.html#aa49f950a6909fc704205adc11757fa6d',1,'ic_patch_parameters::gamma'],['../structphysical__parameters.html#a6ae97595efc31b7493146aa25b283647',1,'physical_parameters::gamma']]],
-  ['gamma_5fidx_2',['gamma_idx',['../namespacem__global__parameters.html#a4ecdedaf3db880f8d71dbefc816322f8',1,'m_global_parameters']]],
-  ['gamma_5fm_3',['gamma_m',['../namespacem__global__parameters.html#a8e231f445cc1e2d702a24da9de08b618',1,'m_global_parameters']]],
-  ['gamma_5fmethod_4',['gamma_method',['../structchemistry__parameters.html#a25b946824fcab30f8c915bf5790db62d',1,'chemistry_parameters']]],
-  ['gamma_5fn_5',['gamma_n',['../namespacem__global__parameters.html#a15e2537d30b20023bcc0db1f8d3b8016',1,'m_global_parameters']]],
-  ['gamma_5fv_6',['gamma_v',['../structphysical__parameters.html#a4f3e501580c3bae08f8ded68870bd336',1,'physical_parameters::gamma_v'],['../namespacem__global__parameters.html#a8a766f89514abff8eca418b72ffe2a57',1,'m_global_parameters::gamma_v']]],
-  ['gamma_5fwrt_7',['gamma_wrt',['../namespacem__global__parameters.html#a610d39b1d30ffa66fead89c936c83226',1,'m_global_parameters']]],
-  ['gauss_5fsigma_5fdist_8',['gauss_sigma_dist',['../structacoustic__parameters.html#a7344fa90dd8495c83517a70608bfe5de',1,'acoustic_parameters']]],
-  ['gauss_5fsigma_5ftime_9',['gauss_sigma_time',['../structacoustic__parameters.html#a9e1e9f41cfb9854e1c5adcd760fece74',1,'acoustic_parameters']]],
-  ['geometry_10',['geometry',['../structbc__patch__parameters.html#af380895dcfeb5257e12a1f7ab09bb7f6',1,'bc_patch_parameters::geometry'],['../structic__patch__parameters.html#adcd14f8609bf5dc1dca4edd77b75a10a',1,'ic_patch_parameters::geometry'],['../structib__patch__parameters.html#ab89e22e150dcf97121f5c894acfdadd7',1,'ib_patch_parameters::geometry']]],
-  ['ghost_5fpoint_11',['ghost_point',['../structghost__point.html',1,'']]],
-  ['gm_5frho_5fsf_12',['gm_rho_sf',['../namespacem__derived__variables.html#a669ae824cc8ce04607c7753ec954739f',1,'m_derived_variables']]],
-  ['gp_5flayers_13',['gp_layers',['../namespacem__constants.html#a4363660e82e633cc1947ab968706b26b',1,'m_constants']]],
-  ['grcbc_5fin_14',['grcbc_in',['../structint__bounds__info.html#aa9d56daed1d8fd4834237b26997bd89d',1,'int_bounds_info']]],
-  ['grcbc_5fout_15',['grcbc_out',['../structint__bounds__info.html#afade6721d65fe765656c9af35f3f8b9b',1,'int_bounds_info']]],
-  ['grcbc_5fvel_5fout_16',['grcbc_vel_out',['../structint__bounds__info.html#ab45bdefe7ad25277ecd2356bbd8d7878',1,'int_bounds_info']]],
-  ['grid_5fgeometry_17',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]]
+  ['halo_5fsize_0',['halo_size',['../namespacem__mpi__common.html#ad3e3ff3936b6b830f96ecd0659673772',1,'m_mpi_common']]],
+  ['hcid_1',['hcid',['../structm__derived__types_1_1ic__patch__parameters.html#a2de6f3a8120793a3901507dbd3b15588',1,'m_derived_types::ic_patch_parameters']]],
+  ['heat_5fratio_5fwrt_2',['heat_ratio_wrt',['../namespacem__global__parameters.html#ad9c6ef3b20d42a8c3dababd60c20cca3',1,'m_global_parameters']]],
+  ['heattransfer_5fmodel_3',['heattransfer_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a7abbc0138bee7397be51f5d42eaa1474',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['height_4',['height',['../structm__derived__types_1_1acoustic__parameters.html#aa013826904d904e484c24cc2d6178cfa',1,'m_derived_types::acoustic_parameters']]],
+  ['hi_5foffset_5',['hi_offset',['../namespacem__data__output.html#a1a779679774e1161511609f18e8d9c27',1,'m_data_output']]],
+  ['hyperelasticity_6',['hyperelasticity',['../namespacem__global__parameters.html#a6fe63b247d95292a893cfc1a49bff915',1,'m_global_parameters']]],
+  ['hypoelasticity_7',['hypoelasticity',['../namespacem__global__parameters.html#a138f81f8ff7d760956ffcf281e928f9b',1,'m_global_parameters']]]
 ];

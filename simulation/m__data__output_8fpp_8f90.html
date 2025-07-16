@@ -133,638 +133,114 @@ $(function(){initNavTree('m__data__output_8fpp_8f90.html',''); initResizable(tru
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions/Subroutines</a>  </div>
+<a href="#namespaces">Modules</a> &#124;
+<a href="#func-members">Functions/Subroutines</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">m_data_output.fpp.f90 File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Modules</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">module &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html">m_data_output</a></td></tr>
+<tr class="memdesc:namespacem__data__output"><td class="mdescLeft">&#160;</td><td class="mdescRight">The primary purpose of this module is to output the grid and the conservative variables data at the chosen time-step interval. In addition, this module is also in charge of outputting a run-time information file which summarizes the time-dependent behavior !of the stability criteria. The latter include the inviscid Courant– Friedrichs–Lewy (ICFL), viscous CFL (VCFL), capillary CFL (CCFL) and cell Reynolds (Rc) numbers. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a979b8a2cf4215a8122fc461c0512dbba" id="r_a979b8a2cf4215a8122fc461c0512dbba"><td class="memItemLeft" align="right" valign="top">program&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a979b8a2cf4215a8122fc461c0512dbba">__m_data_output_fpp_f90__</a></td></tr>
-<tr class="separator:a979b8a2cf4215a8122fc461c0512dbba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d8566ed05d923060e9914679222ebd1" id="r_a2d8566ed05d923060e9914679222ebd1"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d8566ed05d923060e9914679222ebd1">s_write_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, q_prim_vf, t_step, beta)</td></tr>
-<tr class="memdesc:a2d8566ed05d923060e9914679222ebd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data files. Dispatch subroutine that replaces procedure pointer.  <br /></td></tr>
-<tr class="separator:a2d8566ed05d923060e9914679222ebd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab16360567a101c0c164e569c79ce8c80" id="r_ab16360567a101c0c164e569c79ce8c80"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab16360567a101c0c164e569c79ce8c80">s_open_run_time_information_file</a></td></tr>
-<tr class="memdesc:ab16360567a101c0c164e569c79ce8c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to open a new or pre- existing run-time information file and append to it the basic header information relevant to current simulation. In general, this requires generating a table header for those stability criteria which will be written at every time-step.  <br /></td></tr>
-<tr class="separator:ab16360567a101c0c164e569c79ce8c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30bcb54b9ba0a921e7487aaf5d4e8ce5" id="r_a30bcb54b9ba0a921e7487aaf5d4e8ce5"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30bcb54b9ba0a921e7487aaf5d4e8ce5">s_open_com_files</a> ()</td></tr>
-<tr class="memdesc:a30bcb54b9ba0a921e7487aaf5d4e8ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This opens a formatted data file where the root processor can write out the CoM information.  <br /></td></tr>
-<tr class="separator:a30bcb54b9ba0a921e7487aaf5d4e8ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad76386c05cde7c0410475efac8e16755" id="r_ad76386c05cde7c0410475efac8e16755"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad76386c05cde7c0410475efac8e16755">s_open_probe_files</a></td></tr>
-<tr class="memdesc:ad76386c05cde7c0410475efac8e16755"><td class="mdescLeft">&#160;</td><td class="mdescRight">This opens a formatted data file where the root processor can write out flow probe information.  <br /></td></tr>
-<tr class="separator:ad76386c05cde7c0410475efac8e16755"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f3dafb38455425825590217313d8ee3" id="r_a4f3dafb38455425825590217313d8ee3"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f3dafb38455425825590217313d8ee3">s_write_run_time_information</a> (q_prim_vf, t_step)</td></tr>
-<tr class="memdesc:a4f3dafb38455425825590217313d8ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of the procedure is to output to the run-time information file the stability criteria extrema in the entire computational domain and at the given time-step. Moreover, the subroutine is also in charge of tracking these stability criteria extrema over all time-steps.  <br /></td></tr>
-<tr class="separator:a4f3dafb38455425825590217313d8ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81cdc0dd327f2dd53343cad8d7f74ede" id="r_a81cdc0dd327f2dd53343cad8d7f74ede"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81cdc0dd327f2dd53343cad8d7f74ede">s_write_serial_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, q_prim_vf, t_step, beta)</td></tr>
-<tr class="memdesc:a81cdc0dd327f2dd53343cad8d7f74ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to output the grid and conservative variables data files for given time-step.  <br /></td></tr>
-<tr class="separator:a81cdc0dd327f2dd53343cad8d7f74ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92010ace6ee28e7e2ed5975b1de0780a" id="r_a92010ace6ee28e7e2ed5975b1de0780a"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92010ace6ee28e7e2ed5975b1de0780a">s_write_parallel_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, t_step, beta)</td></tr>
-<tr class="memdesc:a92010ace6ee28e7e2ed5975b1de0780a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to output the grid and conservative variables data files for given time-step.  <br /></td></tr>
-<tr class="separator:a92010ace6ee28e7e2ed5975b1de0780a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca7ca4b86ed9d7a2b42c8683835df353" id="r_aca7ca4b86ed9d7a2b42c8683835df353"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca7ca4b86ed9d7a2b42c8683835df353">s_write_com_files</a> (t_step, c_mass)</td></tr>
-<tr class="memdesc:aca7ca4b86ed9d7a2b42c8683835df353"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file where the root processor can write out the CoM information.  <br /></td></tr>
-<tr class="separator:aca7ca4b86ed9d7a2b42c8683835df353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0eb579b4fb6abd1205444045aff3e448" id="r_a0eb579b4fb6abd1205444045aff3e448"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0eb579b4fb6abd1205444045aff3e448">s_write_probe_files</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, accel_mag)</td></tr>
-<tr class="memdesc:a0eb579b4fb6abd1205444045aff3e448"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file for the flow probe information.  <br /></td></tr>
-<tr class="separator:a0eb579b4fb6abd1205444045aff3e448"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f2958b928ff738eb255f61821df258e" id="r_a2f2958b928ff738eb255f61821df258e"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f2958b928ff738eb255f61821df258e">s_close_run_time_information_file</a></td></tr>
-<tr class="memdesc:a2f2958b928ff738eb255f61821df258e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to write to the run-time information file basic footer information applicable to the current computation and to close the file when done. The footer contains the stability criteria extrema over all of the time-steps and the simulation run-time.  <br /></td></tr>
-<tr class="separator:a2f2958b928ff738eb255f61821df258e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92b2c6de4ff60c23ba6dba714e67cc42" id="r_a92b2c6de4ff60c23ba6dba714e67cc42"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92b2c6de4ff60c23ba6dba714e67cc42">s_close_com_files</a> ()</td></tr>
-<tr class="memdesc:a92b2c6de4ff60c23ba6dba714e67cc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes communication files.  <br /></td></tr>
-<tr class="separator:a92b2c6de4ff60c23ba6dba714e67cc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab21d0e2d610542ddedc8acdc130dcfbf" id="r_ab21d0e2d610542ddedc8acdc130dcfbf"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab21d0e2d610542ddedc8acdc130dcfbf">s_close_probe_files</a></td></tr>
-<tr class="memdesc:ab21d0e2d610542ddedc8acdc130dcfbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes probe files.  <br /></td></tr>
-<tr class="separator:ab21d0e2d610542ddedc8acdc130dcfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96760f956949bfd8e826ce150b41c27d" id="r_a96760f956949bfd8e826ce150b41c27d"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96760f956949bfd8e826ce150b41c27d">s_initialize_data_output_module</a></td></tr>
-<tr class="memdesc:a96760f956949bfd8e826ce150b41c27d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
-<tr class="separator:a96760f956949bfd8e826ce150b41c27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05b7c052fd896cc5d93a97033008ea0f" id="r_a05b7c052fd896cc5d93a97033008ea0f"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05b7c052fd896cc5d93a97033008ea0f">s_finalize_data_output_module</a></td></tr>
-<tr class="memdesc:a05b7c052fd896cc5d93a97033008ea0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
-<tr class="separator:a05b7c052fd896cc5d93a97033008ea0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbfda5552d101aa75a809185c6c3edfe" id="r_acbfda5552d101aa75a809185c6c3edfe"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#acbfda5552d101aa75a809185c6c3edfe">m_data_output::s_write_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, q_prim_vf, t_step, beta)</td></tr>
+<tr class="memdesc:acbfda5552d101aa75a809185c6c3edfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data files. Dispatch subroutine that replaces procedure pointer.  <br /></td></tr>
+<tr class="separator:acbfda5552d101aa75a809185c6c3edfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac525e4309582580c5aa3773e03245ed6" id="r_ac525e4309582580c5aa3773e03245ed6"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#ac525e4309582580c5aa3773e03245ed6">m_data_output::s_open_run_time_information_file</a></td></tr>
+<tr class="memdesc:ac525e4309582580c5aa3773e03245ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to open a new or pre- existing run-time information file and append to it the basic header information relevant to current simulation. In general, this requires generating a table header for those stability criteria which will be written at every time-step.  <br /></td></tr>
+<tr class="separator:ac525e4309582580c5aa3773e03245ed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af540d4f9ab19dc261e7342dd75564f21" id="r_af540d4f9ab19dc261e7342dd75564f21"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#af540d4f9ab19dc261e7342dd75564f21">m_data_output::s_open_com_files</a> ()</td></tr>
+<tr class="memdesc:af540d4f9ab19dc261e7342dd75564f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">This opens a formatted data file where the root processor can write out the CoM information.  <br /></td></tr>
+<tr class="separator:af540d4f9ab19dc261e7342dd75564f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31" id="r_a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31">m_data_output::s_open_probe_files</a></td></tr>
+<tr class="memdesc:a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31"><td class="mdescLeft">&#160;</td><td class="mdescRight">This opens a formatted data file where the root processor can write out flow probe information.  <br /></td></tr>
+<tr class="separator:a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4254f90208d2808b6b214e857e79d9a" id="r_ac4254f90208d2808b6b214e857e79d9a"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#ac4254f90208d2808b6b214e857e79d9a">m_data_output::s_write_run_time_information</a> (q_prim_vf, t_step)</td></tr>
+<tr class="memdesc:ac4254f90208d2808b6b214e857e79d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of the procedure is to output to the run-time information file the stability criteria extrema in the entire computational domain and at the given time-step. Moreover, the subroutine is also in charge of tracking these stability criteria extrema over all time-steps.  <br /></td></tr>
+<tr class="separator:ac4254f90208d2808b6b214e857e79d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41f6f226c6bb3ab0a1c1d1dfb9ff1b92" id="r_a41f6f226c6bb3ab0a1c1d1dfb9ff1b92"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a41f6f226c6bb3ab0a1c1d1dfb9ff1b92">m_data_output::s_write_serial_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, q_prim_vf, t_step, beta)</td></tr>
+<tr class="memdesc:a41f6f226c6bb3ab0a1c1d1dfb9ff1b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to output the grid and conservative variables data files for given time-step.  <br /></td></tr>
+<tr class="separator:a41f6f226c6bb3ab0a1c1d1dfb9ff1b92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4979ae04fdea7f2a75f58209e17af62d" id="r_a4979ae04fdea7f2a75f58209e17af62d"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a4979ae04fdea7f2a75f58209e17af62d">m_data_output::s_write_parallel_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, t_step, beta)</td></tr>
+<tr class="memdesc:a4979ae04fdea7f2a75f58209e17af62d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to output the grid and conservative variables data files for given time-step.  <br /></td></tr>
+<tr class="separator:a4979ae04fdea7f2a75f58209e17af62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79fdb37e5357ff34c98d93cc8e57f87d" id="r_a79fdb37e5357ff34c98d93cc8e57f87d"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a79fdb37e5357ff34c98d93cc8e57f87d">m_data_output::s_write_com_files</a> (t_step, <a class="el" href="namespacem__data__output.html#a876bb6f3c7b9d49e6fc51690ec075f63">c_mass</a>)</td></tr>
+<tr class="memdesc:a79fdb37e5357ff34c98d93cc8e57f87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file where the root processor can write out the CoM information.  <br /></td></tr>
+<tr class="separator:a79fdb37e5357ff34c98d93cc8e57f87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52814dea8c93b2edeaab7f76eb9a89e5" id="r_a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a52814dea8c93b2edeaab7f76eb9a89e5">m_data_output::s_write_probe_files</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, accel_mag)</td></tr>
+<tr class="memdesc:a52814dea8c93b2edeaab7f76eb9a89e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file for the flow probe information.  <br /></td></tr>
+<tr class="separator:a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a897ce85a3bae7848132ce991a9389df1" id="r_a897ce85a3bae7848132ce991a9389df1"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a897ce85a3bae7848132ce991a9389df1">m_data_output::s_close_run_time_information_file</a></td></tr>
+<tr class="memdesc:a897ce85a3bae7848132ce991a9389df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to write to the run-time information file basic footer information applicable to the current computation and to close the file when done. The footer contains the stability criteria extrema over all of the time-steps and the simulation run-time.  <br /></td></tr>
+<tr class="separator:a897ce85a3bae7848132ce991a9389df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac19d0dbc33765e1f78a4e1e2e943c780" id="r_ac19d0dbc33765e1f78a4e1e2e943c780"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#ac19d0dbc33765e1f78a4e1e2e943c780">m_data_output::s_close_com_files</a> ()</td></tr>
+<tr class="memdesc:ac19d0dbc33765e1f78a4e1e2e943c780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes communication files.  <br /></td></tr>
+<tr class="separator:ac19d0dbc33765e1f78a4e1e2e943c780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abeb42ab4ffa4110da8e14af7ee30cc87" id="r_abeb42ab4ffa4110da8e14af7ee30cc87"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#abeb42ab4ffa4110da8e14af7ee30cc87">m_data_output::s_close_probe_files</a></td></tr>
+<tr class="memdesc:abeb42ab4ffa4110da8e14af7ee30cc87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes probe files.  <br /></td></tr>
+<tr class="separator:abeb42ab4ffa4110da8e14af7ee30cc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a795efa6dc563a04a903c13a960089a58" id="r_a795efa6dc563a04a903c13a960089a58"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a795efa6dc563a04a903c13a960089a58">m_data_output::s_initialize_data_output_module</a></td></tr>
+<tr class="memdesc:a795efa6dc563a04a903c13a960089a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
+<tr class="separator:a795efa6dc563a04a903c13a960089a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81d3138233e0f1a797c930dbf9543d71" id="r_a81d3138233e0f1a797c930dbf9543d71"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a81d3138233e0f1a797c930dbf9543d71">m_data_output::s_finalize_data_output_module</a></td></tr>
+<tr class="memdesc:a81d3138233e0f1a797c930dbf9543d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
+<tr class="separator:a81d3138233e0f1a797c930dbf9543d71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a68ecedee539f676716e528c7b8601419" id="r_a68ecedee539f676716e528c7b8601419"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a68ecedee539f676716e528c7b8601419">m_data_output::icfl_sf</a></td></tr>
+<tr class="memdesc:a68ecedee539f676716e528c7b8601419"><td class="mdescLeft">&#160;</td><td class="mdescRight">ICFL stability criterion.  <br /></td></tr>
+<tr class="separator:a68ecedee539f676716e528c7b8601419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff706b848b8b9a1a73f81bfd6816fdb5" id="r_aff706b848b8b9a1a73f81bfd6816fdb5"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#aff706b848b8b9a1a73f81bfd6816fdb5">m_data_output::vcfl_sf</a></td></tr>
+<tr class="memdesc:aff706b848b8b9a1a73f81bfd6816fdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">VCFL stability criterion.  <br /></td></tr>
+<tr class="separator:aff706b848b8b9a1a73f81bfd6816fdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8074e32dcbe2b5dd1597126d95a7943d" id="r_a8074e32dcbe2b5dd1597126d95a7943d"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a8074e32dcbe2b5dd1597126d95a7943d">m_data_output::ccfl_sf</a></td></tr>
+<tr class="memdesc:a8074e32dcbe2b5dd1597126d95a7943d"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCFL stability criterion.  <br /></td></tr>
+<tr class="separator:a8074e32dcbe2b5dd1597126d95a7943d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10896895bf16822bfb075d0e41d7f028" id="r_a10896895bf16822bfb075d0e41d7f028"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a10896895bf16822bfb075d0e41d7f028">m_data_output::rc_sf</a></td></tr>
+<tr class="memdesc:a10896895bf16822bfb075d0e41d7f028"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rc stability criterion.  <br /></td></tr>
+<tr class="separator:a10896895bf16822bfb075d0e41d7f028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a876bb6f3c7b9d49e6fc51690ec075f63" id="r_a876bb6f3c7b9d49e6fc51690ec075f63"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a876bb6f3c7b9d49e6fc51690ec075f63">m_data_output::c_mass</a></td></tr>
+<tr class="separator:a876bb6f3c7b9d49e6fc51690ec075f63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d125fcf14d1590bd2862418aba76ea3" id="r_a5d125fcf14d1590bd2862418aba76ea3"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a5d125fcf14d1590bd2862418aba76ea3">m_data_output::icfl_max_loc</a></td></tr>
+<tr class="separator:a5d125fcf14d1590bd2862418aba76ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac329ee8639e4d47a8ad6f9ff8cd8f0f8" id="r_ac329ee8639e4d47a8ad6f9ff8cd8f0f8"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#ac329ee8639e4d47a8ad6f9ff8cd8f0f8">m_data_output::icfl_max_glb</a></td></tr>
+<tr class="memdesc:ac329ee8639e4d47a8ad6f9ff8cd8f0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ICFL stability extrema on local and global grids.  <br /></td></tr>
+<tr class="separator:ac329ee8639e4d47a8ad6f9ff8cd8f0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a724c83535e64779d6b74aab498cdf5fa" id="r_a724c83535e64779d6b74aab498cdf5fa"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a724c83535e64779d6b74aab498cdf5fa">m_data_output::vcfl_max_loc</a></td></tr>
+<tr class="separator:a724c83535e64779d6b74aab498cdf5fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d7ad7004726717da55240de52e01eeb" id="r_a9d7ad7004726717da55240de52e01eeb"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a9d7ad7004726717da55240de52e01eeb">m_data_output::vcfl_max_glb</a></td></tr>
+<tr class="memdesc:a9d7ad7004726717da55240de52e01eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">VCFL stability extrema on local and global grids.  <br /></td></tr>
+<tr class="separator:a9d7ad7004726717da55240de52e01eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7f54d426c66d1e8e7030fe8338c3cf" id="r_a4b7f54d426c66d1e8e7030fe8338c3cf"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a4b7f54d426c66d1e8e7030fe8338c3cf">m_data_output::ccfl_max_loc</a></td></tr>
+<tr class="separator:a4b7f54d426c66d1e8e7030fe8338c3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa327874a6666746eb24b1c30e7b1f173" id="r_aa327874a6666746eb24b1c30e7b1f173"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#aa327874a6666746eb24b1c30e7b1f173">m_data_output::ccfl_max_glb</a></td></tr>
+<tr class="memdesc:aa327874a6666746eb24b1c30e7b1f173"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCFL stability extrema on local and global grids.  <br /></td></tr>
+<tr class="separator:aa327874a6666746eb24b1c30e7b1f173"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac858dd923a6d41f9f8a0279ff12ec00c" id="r_ac858dd923a6d41f9f8a0279ff12ec00c"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#ac858dd923a6d41f9f8a0279ff12ec00c">m_data_output::rc_min_loc</a></td></tr>
+<tr class="separator:ac858dd923a6d41f9f8a0279ff12ec00c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62801f0ffff484b8740e67a97e881e9a" id="r_a62801f0ffff484b8740e67a97e881e9a"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a62801f0ffff484b8740e67a97e881e9a">m_data_output::rc_min_glb</a></td></tr>
+<tr class="memdesc:a62801f0ffff484b8740e67a97e881e9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rc stability extrema on local and global grids.  <br /></td></tr>
+<tr class="separator:a62801f0ffff484b8740e67a97e881e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">ICFL, VCFL, CCFL and Rc stability criteria extrema over all the time-steps</div></td></tr>
+<tr class="memitem:acdf5ad3cda28e64c928597b8796c057c" id="r_acdf5ad3cda28e64c928597b8796c057c"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#acdf5ad3cda28e64c928597b8796c057c">m_data_output::icfl_max</a></td></tr>
+<tr class="memdesc:acdf5ad3cda28e64c928597b8796c057c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ICFL criterion maximum.  <br /></td></tr>
+<tr class="separator:acdf5ad3cda28e64c928597b8796c057c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4566bfca1a62d6dc4a2ae2e390b8be45" id="r_a4566bfca1a62d6dc4a2ae2e390b8be45"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a4566bfca1a62d6dc4a2ae2e390b8be45">m_data_output::vcfl_max</a></td></tr>
+<tr class="memdesc:a4566bfca1a62d6dc4a2ae2e390b8be45"><td class="mdescLeft">&#160;</td><td class="mdescRight">VCFL criterion maximum.  <br /></td></tr>
+<tr class="separator:a4566bfca1a62d6dc4a2ae2e390b8be45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affec31bf6f467e3f0013442abdf65aeb" id="r_affec31bf6f467e3f0013442abdf65aeb"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#affec31bf6f467e3f0013442abdf65aeb">m_data_output::ccfl_max</a></td></tr>
+<tr class="memdesc:affec31bf6f467e3f0013442abdf65aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">CCFL criterion maximum.  <br /></td></tr>
+<tr class="separator:affec31bf6f467e3f0013442abdf65aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a420dff0ba83cd92dc6fb32ee5b26e139" id="r_a420dff0ba83cd92dc6fb32ee5b26e139"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacem__data__output.html#a420dff0ba83cd92dc6fb32ee5b26e139">m_data_output::rc_min</a></td></tr>
+<tr class="memdesc:a420dff0ba83cd92dc6fb32ee5b26e139"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rc criterion maximum.  <br /></td></tr>
+<tr class="separator:a420dff0ba83cd92dc6fb32ee5b26e139"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a979b8a2cf4215a8122fc461c0512dbba" name="a979b8a2cf4215a8122fc461c0512dbba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a979b8a2cf4215a8122fc461c0512dbba">&#9670;&#160;</a></span>__m_data_output_fpp_f90__()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">program __m_data_output_fpp_f90__</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a979b8a2cf4215a8122fc461c0512dbba_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a92b2c6de4ff60c23ba6dba714e67cc42" name="a92b2c6de4ff60c23ba6dba714e67cc42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92b2c6de4ff60c23ba6dba714e67cc42">&#9670;&#160;</a></span>s_close_com_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_close_com_files</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes communication files. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a92b2c6de4ff60c23ba6dba714e67cc42_icgraph.svg" width="100%" height="405"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ab21d0e2d610542ddedc8acdc130dcfbf" name="ab21d0e2d610542ddedc8acdc130dcfbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab21d0e2d610542ddedc8acdc130dcfbf">&#9670;&#160;</a></span>s_close_probe_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_close_probe_files</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes probe files. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_ab21d0e2d610542ddedc8acdc130dcfbf_icgraph.svg" width="100%" height="405"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a2f2958b928ff738eb255f61821df258e" name="a2f2958b928ff738eb255f61821df258e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f2958b928ff738eb255f61821df258e">&#9670;&#160;</a></span>s_close_run_time_information_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_close_run_time_information_file</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The goal of this subroutine is to write to the run-time information file basic footer information applicable to the current computation and to close the file when done. The footer contains the stability criteria extrema over all of the time-steps and the simulation run-time. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a2f2958b928ff738eb255f61821df258e_icgraph.svg" width="100%" height="399"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a05b7c052fd896cc5d93a97033008ea0f" name="a05b7c052fd896cc5d93a97033008ea0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05b7c052fd896cc5d93a97033008ea0f">&#9670;&#160;</a></span>s_finalize_data_output_module()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_finalize_data_output_module</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Module deallocation and/or disassociation procedures. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a05b7c052fd896cc5d93a97033008ea0f_icgraph.svg" width="616" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a96760f956949bfd8e826ce150b41c27d" name="a96760f956949bfd8e826ce150b41c27d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96760f956949bfd8e826ce150b41c27d">&#9670;&#160;</a></span>s_initialize_data_output_module()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_initialize_data_output_module</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a96760f956949bfd8e826ce150b41c27d_icgraph.svg" width="626" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a30bcb54b9ba0a921e7487aaf5d4e8ce5" name="a30bcb54b9ba0a921e7487aaf5d4e8ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30bcb54b9ba0a921e7487aaf5d4e8ce5">&#9670;&#160;</a></span>s_open_com_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_open_com_files</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This opens a formatted data file where the root processor can write out the CoM information. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a30bcb54b9ba0a921e7487aaf5d4e8ce5_icgraph.svg" width="100%" height="405"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ad76386c05cde7c0410475efac8e16755" name="ad76386c05cde7c0410475efac8e16755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad76386c05cde7c0410475efac8e16755">&#9670;&#160;</a></span>s_open_probe_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_open_probe_files</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This opens a formatted data file where the root processor can write out flow probe information. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_ad76386c05cde7c0410475efac8e16755_icgraph.svg" width="100%" height="405"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ab16360567a101c0c164e569c79ce8c80" name="ab16360567a101c0c164e569c79ce8c80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab16360567a101c0c164e569c79ce8c80">&#9670;&#160;</a></span>s_open_run_time_information_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_open_run_time_information_file</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The purpose of this subroutine is to open a new or pre- existing run-time information file and append to it the basic header information relevant to current simulation. In general, this requires generating a table header for those stability criteria which will be written at every time-step. </p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_ab16360567a101c0c164e569c79ce8c80_icgraph.svg" width="100%" height="399"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aca7ca4b86ed9d7a2b42c8683835df353" name="aca7ca4b86ed9d7a2b42c8683835df353"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca7ca4b86ed9d7a2b42c8683835df353">&#9670;&#160;</a></span>s_write_com_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_write_com_files </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(num_fluids, 5), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c_mass</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This writes a formatted data file where the root processor can write out the CoM information. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-    <tr><td class="paramname">q_com</td><td>Center of mass information </td></tr>
-    <tr><td class="paramname">moments</td><td>Higher moment information </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_aca7ca4b86ed9d7a2b42c8683835df353_icgraph.svg" width="100%" height="405"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a2d8566ed05d923060e9914679222ebd1" name="a2d8566ed05d923060e9914679222ebd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d8566ed05d923060e9914679222ebd1">&#9670;&#160;</a></span>s_write_data_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_write_data_files </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Write data files. Dispatch subroutine that replaces procedure pointer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">t_step</td><td>Current time step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a2d8566ed05d923060e9914679222ebd1_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a2d8566ed05d923060e9914679222ebd1_icgraph.svg" width="587" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a92010ace6ee28e7e2ed5975b1de0780a" name="a92010ace6ee28e7e2ed5975b1de0780a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92010ace6ee28e7e2ed5975b1de0780a">&#9670;&#160;</a></span>s_write_parallel_data_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_write_parallel_data_files </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The goal of this subroutine is to output the grid and conservative variables data files for given time-step. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-average conservative variables </td></tr>
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-    <tr><td class="paramname">beta</td><td>Eulerian void fraction from lagrangian bubbles </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a92010ace6ee28e7e2ed5975b1de0780a_cgraph.svg" width="380" height="328"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a92010ace6ee28e7e2ed5975b1de0780a_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a0eb579b4fb6abd1205444045aff3e448" name="a0eb579b4fb6abd1205444045aff3e448"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0eb579b4fb6abd1205444045aff3e448">&#9670;&#160;</a></span>s_write_probe_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_write_probe_files </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(wp), dimension(0:m, 0:n, 0:p), intent(in)</td>          <td class="paramname"><span class="paramname"><em>accel_mag</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>This writes a formatted data file for the flow probe information. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
-    <tr><td class="paramname">accel_mag</td><td>Acceleration magnitude information </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a0eb579b4fb6abd1205444045aff3e448_cgraph.svg" width="623" height="314"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a0eb579b4fb6abd1205444045aff3e448_icgraph.svg" width="100%" height="405"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a4f3dafb38455425825590217313d8ee3" name="a4f3dafb38455425825590217313d8ee3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f3dafb38455425825590217313d8ee3">&#9670;&#160;</a></span>s_write_run_time_information()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_write_run_time_information </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The goal of the procedure is to output to the run-time information file the stability criteria extrema in the entire computational domain and at the given time-step. Moreover, the subroutine is also in charge of tracking these stability criteria extrema over all time-steps. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-average primitive variables </td></tr>
-    <tr><td class="paramname">t_step</td><td>Current time step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a4f3dafb38455425825590217313d8ee3_cgraph.svg" width="100%" height="588"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a4f3dafb38455425825590217313d8ee3_icgraph.svg" width="100%" height="489"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a81cdc0dd327f2dd53343cad8d7f74ede" name="a81cdc0dd327f2dd53343cad8d7f74ede"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81cdc0dd327f2dd53343cad8d7f74ede">&#9670;&#160;</a></span>s_write_serial_data_files()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine __m_data_output_fpp_f90__::s_write_serial_data_files </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), dimension(sys_size), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structscalar__field.html">scalar_field</a>), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>beta</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The goal of this subroutine is to output the grid and conservative variables data files for given time-step. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-average conservative variables </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Cell-average primitive variables </td></tr>
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a81cdc0dd327f2dd53343cad8d7f74ede_cgraph.svg" width="100%" height="557"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="m__data__output_8fpp_8f90_a81cdc0dd327f2dd53343cad8d7f74ede_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

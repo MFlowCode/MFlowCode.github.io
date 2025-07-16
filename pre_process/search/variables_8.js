@@ -2,10 +2,10 @@ var searchData=
 [
   ['ib_0',['ib',['../namespacem__global__parameters.html#a633a3701bad8d6798d03dfd1a083fac5',1,'m_global_parameters']]],
   ['ib_5fmarkers_1',['ib_markers',['../namespacem__initial__condition.html#a05e359f2cf998f50d805e9d86feaad51',1,'m_initial_condition']]],
-  ['ib_5fpatch_5fid_2',['ib_patch_id',['../structghost__point.html#a9c634cca0e5514c720193d0c79947c3c',1,'ghost_point']]],
+  ['ib_5fpatch_5fid_2',['ib_patch_id',['../structm__derived__types_1_1ghost__point.html#a9d3df6e996facf4a53a91130027a3579',1,'m_derived_types::ghost_point']]],
   ['idwbuff_3',['idwbuff',['../namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab',1,'m_global_parameters']]],
   ['idwint_4',['idwint',['../namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8',1,'m_global_parameters']]],
-  ['ierr_5',['ierr',['../namespacem__global__parameters.html#a46461347b5094736adfa94ef005b49a6',1,'m_global_parameters::ierr'],['../namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c',1,'m_mpi_proxy::ierr']]],
+  ['ierr_5',['ierr',['../namespacem__global__parameters.html#a46461347b5094736adfa94ef005b49a6',1,'m_global_parameters::ierr'],['../namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c',1,'m_mpi_proxy::ierr'],['../namespacem__mpi__common.html#af554ae18658426bbac4c4c0066506c04',1,'m_mpi_common::ierr']]],
   ['ifactor_5f2d_6',['ifactor_2d',['../namespacem__constants.html#ae0a7eafec5ea0d0ec6d74c5064f2414b',1,'m_constants']]],
   ['ifactor_5f3d_7',['ifactor_3d',['../namespacem__constants.html#a1495dfa0d93a4fa455e4faf14fd4e900',1,'m_constants']]],
   ['ifactor_5fbary_5f3d_8',['ifactor_bary_3d',['../namespacem__constants.html#aa55824b7d702be1e449c539ed96fc7d8',1,'m_constants']]],
@@ -14,9 +14,16 @@ var searchData=
   ['increment_11',['increment',['../namespacem__constants.html#ab66dfe89cea87b9c55fbfb4f6783c5d3',1,'m_constants']]],
   ['initial_5fdistance_5fbuffer_12',['initial_distance_buffer',['../namespacem__constants.html#a68b996f09be6b7277b80efd676f8daec',1,'m_constants']]],
   ['internalenergies_5fidx_13',['internalenergies_idx',['../namespacem__global__parameters.html#a9eb3789b90381530338a223c99cf1090',1,'m_global_parameters']]],
-  ['interp_5fcoeffs_14',['interp_coeffs',['../structghost__point.html#a1878ade61b0afe4fb6dbe4efeda99b33',1,'ghost_point']]],
+  ['interp_5fcoeffs_14',['interp_coeffs',['../structm__derived__types_1_1ghost__point.html#a8d0cf4ddfd195cf0935b02e5c5267a57',1,'m_derived_types::ghost_point']]],
   ['intxb_15',['intxb',['../namespacem__global__parameters.html#ace71c8ec227d7c6364893107bc131dae',1,'m_global_parameters']]],
   ['intxe_16',['intxe',['../namespacem__global__parameters.html#af08928c5b9bde727869334ee7067e89c',1,'m_global_parameters']]],
-  ['ip_5fgrid_17',['ip_grid',['../structghost__point.html#a6a3c27213fcd46b20cc54d4cec16039f',1,'ghost_point']]],
-  ['ip_5floc_18',['ip_loc',['../structghost__point.html#a8598d01034e3fac7e02ae596b98aaf0a',1,'ghost_point']]]
+  ['ip_5fgrid_17',['ip_grid',['../structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646',1,'m_derived_types::ghost_point']]],
+  ['ip_5floc_18',['ip_loc',['../structm__derived__types_1_1ghost__point.html#a04d76b5bb46de3a1c2432f972893961d',1,'m_derived_types::ghost_point']]],
+  ['is1b_19',['is1b',['../namespacem__variables__conversion.html#ab51339ba1647f204905efdb6ad1b9459',1,'m_variables_conversion']]],
+  ['is1e_20',['is1e',['../namespacem__variables__conversion.html#ac6ef13046c1ccd16dc9a9dee32d886c0',1,'m_variables_conversion']]],
+  ['is2b_21',['is2b',['../namespacem__variables__conversion.html#ae37d14b87eb3bfb5eb066e764fe51cea',1,'m_variables_conversion']]],
+  ['is2e_22',['is2e',['../namespacem__variables__conversion.html#aad965403f327ed31ada1f384b3853891',1,'m_variables_conversion']]],
+  ['is3b_23',['is3b',['../namespacem__variables__conversion.html#a695c81a3b5c8cb2c4fac65a4cd236901',1,'m_variables_conversion']]],
+  ['is3e_24',['is3e',['../namespacem__variables__conversion.html#a494b160cf0c59565ee6f2585841f66de',1,'m_variables_conversion']]],
+  ['istr_25',['istr',['../namespacem__check__ib__patches.html#a40a6e90e36d5d1527b2981105a4cb357',1,'m_check_ib_patches::istr'],['../namespacem__check__patches.html#a1595128fdb31c7579893e18f2b9b5165',1,'m_check_patches::istr'],['../namespacem__patches.html#a569d9de47f66868ba75242b28a181a0f',1,'m_patches::istr']]]
 ];
