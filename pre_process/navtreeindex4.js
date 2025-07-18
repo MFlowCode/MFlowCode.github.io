@@ -1,11 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e":[1,0,13,4,1],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e":[2,0,2,4,1],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#aefb3159d495c9629cdde4cd923a6f5ce":[1,0,13,4,3],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#aefb3159d495c9629cdde4cd923a6f5ce":[2,0,2,4,3],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#af2a1172ea32b05fd97d53fd331486cc9":[1,0,13,4,8],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#af2a1172ea32b05fd97d53fd331486cc9":[2,0,2,4,8],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#af3e80b8d35eb28a803af17366c66d3e6":[1,0,13,4,12],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#af3e80b8d35eb28a803af17366c66d3e6":[2,0,2,4,12],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#af7e775a975b57bac1f45ca41b1abae58":[1,0,13,4,4],
@@ -249,5 +243,11 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1integral__parameters.html":[1,0,13,14],
 "structm__derived__types_1_1integral__parameters.html":[2,0,2,14],
 "structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[1,0,13,14,5],
-"structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[2,0,2,14,5]
+"structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[2,0,2,14,5],
+"structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94":[1,0,13,14,2],
+"structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94":[2,0,2,14,2],
+"structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9":[1,0,13,14,0],
+"structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9":[2,0,2,14,0],
+"structm__derived__types_1_1integral__parameters.html#a9a02b02409a262539735d487ca5bd5c3":[1,0,13,14,4],
+"structm__derived__types_1_1integral__parameters.html#a9a02b02409a262539735d487ca5bd5c3":[2,0,2,14,4]
 };

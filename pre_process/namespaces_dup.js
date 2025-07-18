@@ -59,10 +59,7 @@ var namespaces_dup =
       [ "istr", "namespacem__check__ib__patches.html#a40a6e90e36d5d1527b2981105a4cb357", null ]
     ] ],
     [ "m_check_patches", "namespacem__check__patches.html", [
-      [ "s_check_1d_analytical_patch_geometry", "namespacem__check__patches.html#ad056eea96020cdf6ae1e89ce79141858", null ],
-      [ "s_check_2d_analytical_patch_geometry", "namespacem__check__patches.html#a060f4b4df9448c80b864e6e1fa3ce57d", null ],
       [ "s_check_2d_taylorgreen_vortex_patch_geometry", "namespacem__check__patches.html#a76a3840c18a9465a2e8a5dd3f5690c77", null ],
-      [ "s_check_3d_analytical_patch_geometry", "namespacem__check__patches.html#a8ce3808d5c77d527b8ca0801e79c8082", null ],
       [ "s_check_active_patch_alteration_rights", "namespacem__check__patches.html#a85726210700570c3c7cf87e00959088b", null ],
       [ "s_check_active_patch_primitive_variables", "namespacem__check__patches.html#abcc37fb6bf5cba50d9df215c7425ce22", null ],
       [ "s_check_circle_patch_geometry", "namespacem__check__patches.html#a2152c985b5ddb60fc3c9c9fffb7737b1", null ],
@@ -551,12 +548,9 @@ var namespaces_dup =
     [ "m_patches", "namespacem__patches.html", [
       [ "f_convert_cyl_to_cart", "namespacem__patches.html#a329ed801c2657c103ce8c99244752984", null ],
       [ "f_r", "namespacem__patches.html#a10c26f6e409da4681dff51642adef6b6", null ],
-      [ "s_1d_analytical", "namespacem__patches.html#a4944c1c8380967128308bb2fd955d0d1", null ],
       [ "s_1d_bubble_pulse", "namespacem__patches.html#aa872db74e8cb219dfb5f60fbc3386cf0", null ],
-      [ "s_2d_analytical", "namespacem__patches.html#a3e0659a95f4ee87abce3096d93b1973e", null ],
       [ "s_2d_taylorgreen_vortex", "namespacem__patches.html#a70c13ac3ff6b04d5281c0af02a3c7e31", null ],
       [ "s_3d_airfoil", "namespacem__patches.html#a3c4b58d7f76eb307053b4947c057cd93", null ],
-      [ "s_3d_analytical", "namespacem__patches.html#aee9097761614cebfe97cd5b95cb80bab", null ],
       [ "s_3dvarcircle", "namespacem__patches.html#a7de2781f86c6c565b57e8a4434311e59", null ],
       [ "s_airfoil", "namespacem__patches.html#a4e05dee15519b5480a25f692fa87de5d", null ],
       [ "s_apply_domain_patches", "namespacem__patches.html#a8e59a0238c7ebbacf12d0c2bc2cf6d81", null ],

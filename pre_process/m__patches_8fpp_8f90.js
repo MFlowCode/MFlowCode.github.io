@@ -2,12 +2,9 @@ var m__patches_8fpp_8f90 =
 [
     [ "m_patches::f_convert_cyl_to_cart", "namespacem__patches.html#a329ed801c2657c103ce8c99244752984", null ],
     [ "m_patches::f_r", "namespacem__patches.html#a10c26f6e409da4681dff51642adef6b6", null ],
-    [ "m_patches::s_1d_analytical", "namespacem__patches.html#a4944c1c8380967128308bb2fd955d0d1", null ],
     [ "m_patches::s_1d_bubble_pulse", "namespacem__patches.html#aa872db74e8cb219dfb5f60fbc3386cf0", null ],
-    [ "m_patches::s_2d_analytical", "namespacem__patches.html#a3e0659a95f4ee87abce3096d93b1973e", null ],
     [ "m_patches::s_2d_taylorgreen_vortex", "namespacem__patches.html#a70c13ac3ff6b04d5281c0af02a3c7e31", null ],
     [ "m_patches::s_3d_airfoil", "namespacem__patches.html#a3c4b58d7f76eb307053b4947c057cd93", null ],
-    [ "m_patches::s_3d_analytical", "namespacem__patches.html#aee9097761614cebfe97cd5b95cb80bab", null ],
     [ "m_patches::s_3dvarcircle", "namespacem__patches.html#a7de2781f86c6c565b57e8a4434311e59", null ],
     [ "m_patches::s_airfoil", "namespacem__patches.html#a4e05dee15519b5480a25f692fa87de5d", null ],
     [ "m_patches::s_apply_domain_patches", "namespacem__patches.html#a8e59a0238c7ebbacf12d0c2bc2cf6d81", null ],
