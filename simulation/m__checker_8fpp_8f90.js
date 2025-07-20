@@ -12,6 +12,7 @@ var m__checker_8fpp_8f90 =
     [ "m_checker::s_check_inputs_geometry_precision", "namespacem__checker.html#aa69f6c9d17c37cfcbe580aaa9b1aa864", null ],
     [ "m_checker::s_check_inputs_grcbc", "namespacem__checker.html#a8077d9978c9d615e5842749cb3efea24", null ],
     [ "m_checker::s_check_inputs_hypoelasticity", "namespacem__checker.html#a9612174de873a05dab3922f9eddc11b0", null ],
+    [ "m_checker::s_check_inputs_igr", "namespacem__checker.html#ad9455d1d7a63e7e090a23a779d3e7cf3", null ],
     [ "m_checker::s_check_inputs_mhd", "namespacem__checker.html#aacc9d722e445416a9d8965676f2b5b0b", null ],
     [ "m_checker::s_check_inputs_misc", "namespacem__checker.html#a4a14987dcf7b3ff20915136de95cb2f6", null ],
     [ "m_checker::s_check_inputs_model_eqns", "namespacem__checker.html#a886c16e10613db9388ef8f92554f684a", null ],

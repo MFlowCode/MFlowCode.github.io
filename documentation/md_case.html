@@ -539,7 +539,21 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>viscous</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate viscosity    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>hypoelasticity</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate hypoelasticity*   </td></tr>
+<td class="markdownTableBodyRight"><code>hypoelasticity</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate hypoelasticity*    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>igr</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable solution via information geometric regularization (IGR) <a class="el" href="md_references.html">Cao (2024)</a>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>igr_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Order of reconstruction for IGR [3,5]    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>alf_factor</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Alpha factor for IGR entropic pressure (default 10)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>igr_pres_lim</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Limit IGR pressure to avoid negative values (default F)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>igr_iter_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Solution method for IGR elliptic solve [1] Jacobi [2] Gauss-Seidel    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>num_igr_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of iterations for for the IGR elliptic solve (default 2)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>num_igr_warm_start_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of iterations for the IGR elliptic solve at the first time step (default 50)   </td></tr>
 </table>
 <ul>
 <li>* Options that work only with <code>model_eqns = 2</code>.</li>
@@ -595,7 +609,7 @@ Boundary Condition Patches</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>length_x[y,z]</code>*   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Length of the boundary patch in the x[y,z]-direction    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>radius</code>*   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Radius of the boundary patch   </td></tr>
+<td class="markdownTableBodyRight"><code>radiue</code>*   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Radius of the boundary patch   </td></tr>
 </table>
 <p>*: These parameters should be prepended with <code>patch_bc(j)%</code> where $j$ is the patch index.</p>
 <p>Boundary condition patches can be used with the following boundary condition types:</p><ul>

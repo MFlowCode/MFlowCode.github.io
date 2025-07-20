@@ -8,6 +8,7 @@ var m__checker__common_8fpp_8f90 =
     [ "m_checker_common::s_check_inputs_hyperelasticity", "namespacem__checker__common.html#a38888af6ff1133c0d45035fa1c836d9b", null ],
     [ "m_checker_common::s_check_inputs_hypoelasticity", "namespacem__checker__common.html#a153da7580e45121dd5804b62050a3341", null ],
     [ "m_checker_common::s_check_inputs_ibm", "namespacem__checker__common.html#a4f50e9fd68b983d11ffc37227992b540", null ],
+    [ "m_checker_common::s_check_inputs_igr", "namespacem__checker__common.html#a4d7eb10d2a0d42d94c58cf93277143c0", null ],
     [ "m_checker_common::s_check_inputs_mhd", "namespacem__checker__common.html#a970fc65314cddafcf0102f416d66f4ce", null ],
     [ "m_checker_common::s_check_inputs_model_eqns_and_num_fluids", "namespacem__checker__common.html#a68304b96a2df65e461a7cfbca6b6bd01", null ],
     [ "m_checker_common::s_check_inputs_moving_bc", "namespacem__checker__common.html#ac720d2624a3a195282a578f567830432", null ],

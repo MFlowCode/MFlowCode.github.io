@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['k_0',['k',['../m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa',1,'m_phase_change.fpp.f90']]],
+  ['k_0',['k',['../namespacem__igr.html#a778e1f9e1f53d6d0bd688ddb43ceb080',1,'m_igr::k'],['../m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa',1,'k:&#160;m_phase_change.fpp.f90']]],
   ['k_5fmw_1',['k_mw',['../namespacem__bubbles.html#a5553a622f61df640bb073c9bd8cc5562',1,'m_bubbles']]],
   ['k_5fn_2',['k_n',['../namespacem__global__parameters.html#a976fae06de2ed4c5034c94a09e48dda0',1,'m_global_parameters']]],
   ['k_5fnl_3',['k_nl',['../namespacem__global__parameters.html#a2223684a75a4b37507f3d2218bf04e19',1,'m_global_parameters']]],

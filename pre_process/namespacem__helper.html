@@ -200,6 +200,15 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ab95c4d42c66ca62bbcf8bfe69fdc14e8" id="r_ab95c4d42c66ca62bbcf8bfe69fdc14e8"><td class="memItemLeft" align="right" valign="top">pure elemental integer(kind=int64_kind) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab95c4d42c66ca62bbcf8bfe69fdc14e8">factorial</a> (<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>)</td></tr>
 <tr class="memdesc:ab95c4d42c66ca62bbcf8bfe69fdc14e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The following function calculates the factorial value of an integer.  <br /></td></tr>
 <tr class="separator:ab95c4d42c66ca62bbcf8bfe69fdc14e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a413a13fad04174ecec58d6f51395d44c" id="r_a413a13fad04174ecec58d6f51395d44c"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a413a13fad04174ecec58d6f51395d44c">f_cut_on</a> (x, eps)</td></tr>
+<tr class="memdesc:a413a13fad04174ecec58d6f51395d44c"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates a smooth cut-on function that is zero for x values smaller than zero and goes to one. It can be used for generating smooth initial conditions.  <br /></td></tr>
+<tr class="separator:a413a13fad04174ecec58d6f51395d44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ba2d3fb1ef5e4a67288444a2d371c5" id="r_aa9ba2d3fb1ef5e4a67288444a2d371c5"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9ba2d3fb1ef5e4a67288444a2d371c5">f_cut_off</a> (x, eps)</td></tr>
+<tr class="memdesc:aa9ba2d3fb1ef5e4a67288444a2d371c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates a smooth cut-off function that is one for x values smaller than zero and goes to zero. It can be used for generating smooth initial conditions.  <br /></td></tr>
+<tr class="separator:aa9ba2d3fb1ef5e4a67288444a2d371c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f8d74b3cd3f39b69d285906e65eb0e9" id="r_a5f8d74b3cd3f39b69d285906e65eb0e9"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f8d74b3cd3f39b69d285906e65eb0e9">f_gx</a> (x)</td></tr>
+<tr class="memdesc:a5f8d74b3cd3f39b69d285906e65eb0e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is a helper function for the functions f_cut_on and f_cut_off.  <br /></td></tr>
+<tr class="separator:a5f8d74b3cd3f39b69d285906e65eb0e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function/Subroutine Documentation</h2>
 <a id="a188ae3d03abe8c31be4adbcf2099a6f5" name="a188ae3d03abe8c31be4adbcf2099a6f5"></a>
@@ -368,6 +377,109 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__helper_aded4fe6025b2194ba0b5cc5a264af9ec_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aa9ba2d3fb1ef5e4a67288444a2d371c5" name="aa9ba2d3fb1ef5e4a67288444a2d371c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ba2d3fb1ef5e4a67288444a2d371c5">&#9670;&#160;</a></span>f_cut_off()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_helper::f_cut_off </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>eps</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function calculates a smooth cut-off function that is one for x values smaller than zero and goes to zero. It can be used for generating smooth initial conditions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>is the input value </td></tr>
+    <tr><td class="paramname">eps</td><td>is the smoothing parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fx is the cut-ff function evaluated at x </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__helper_aa9ba2d3fb1ef5e4a67288444a2d371c5_cgraph.svg" width="324" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a413a13fad04174ecec58d6f51395d44c" name="a413a13fad04174ecec58d6f51395d44c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a413a13fad04174ecec58d6f51395d44c">&#9670;&#160;</a></span>f_cut_on()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_helper::f_cut_on </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>eps</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function calculates a smooth cut-on function that is zero for x values smaller than zero and goes to one. It can be used for generating smooth initial conditions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>is the input value </td></tr>
+    <tr><td class="paramname">eps</td><td>is the smoothing parameter </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>fx is the cut-on function evaluated at x </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__helper_a413a13fad04174ecec58d6f51395d44c_cgraph.svg" width="324" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5f8d74b3cd3f39b69d285906e65eb0e9" name="a5f8d74b3cd3f39b69d285906e65eb0e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f8d74b3cd3f39b69d285906e65eb0e9">&#9670;&#160;</a></span>f_gx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_helper::f_gx </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function is a helper function for the functions f_cut_on and f_cut_off. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>is the input value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>gx is the result </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__helper_a5f8d74b3cd3f39b69d285906e65eb0e9_icgraph.svg" width="324" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

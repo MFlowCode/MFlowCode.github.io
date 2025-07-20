@@ -14,6 +14,7 @@ var m__boundary__common_8fpp_8f90 =
     [ "m_boundary_common::s_pack_boundary_condition_buffers", "namespacem__boundary__common.html#a2e01dd2beffea80860bb348cf62d4cb3", null ],
     [ "m_boundary_common::s_periodic", "namespacem__boundary__common.html#a1299214558db2cae72a20703dda1ec14", null ],
     [ "m_boundary_common::s_populate_capillary_buffers", "namespacem__boundary__common.html#aeccc008b62b57a4eadc1b6d2e53a0259", null ],
+    [ "m_boundary_common::s_populate_f_igr_buffers", "namespacem__boundary__common.html#a14eecfad7fc20fd883828fca29fbca9a", null ],
     [ "m_boundary_common::s_populate_grid_variables_buffers", "namespacem__boundary__common.html#aaa280302ca5033a37f9e83f72a7bbd62", null ],
     [ "m_boundary_common::s_populate_variables_buffers", "namespacem__boundary__common.html#a5cfee61d385e9facad4200a61dc5fe04", null ],
     [ "m_boundary_common::s_qbmm_extrapolation", "namespacem__boundary__common.html#a9dd5116c9435343d42812a2b4e13c6bf", null ],
@@ -24,6 +25,7 @@ var m__boundary__common_8fpp_8f90 =
     [ "m_boundary_common::s_write_parallel_boundary_condition_files", "namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f", null ],
     [ "m_boundary_common::s_write_serial_boundary_condition_files", "namespacem__boundary__common.html#a72feacd796049a87e0e08f5fb735c3ad", null ],
     [ "m_boundary_common::bc_buffers", "namespacem__boundary__common.html#a8f6afe5fcc6a630fcb2156a910bfb5b2", null ],
+    [ "m_boundary_common::jac_sf", "namespacem__boundary__common.html#aec5d8b79f300f8c4693ff16ada8c0971", null ],
     [ "m_boundary_common::mpi_bc_buffer_type", "namespacem__boundary__common.html#aae9b73b745e6f343fa36e5df5fcc1422", null ],
     [ "m_boundary_common::mpi_bc_type_type", "namespacem__boundary__common.html#aaaae5cc2e22bc42640e3962f31d09719", null ]
 ];

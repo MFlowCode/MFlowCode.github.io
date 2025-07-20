@@ -23,6 +23,7 @@ var files_dup =
     [ "m_hyperelastic.fpp.f90", "m__hyperelastic_8fpp_8f90.html", "m__hyperelastic_8fpp_8f90" ],
     [ "m_hypoelastic.fpp.f90", "m__hypoelastic_8fpp_8f90.html", "m__hypoelastic_8fpp_8f90" ],
     [ "m_ibm.fpp.f90", "m__ibm_8fpp_8f90.html", "m__ibm_8fpp_8f90" ],
+    [ "m_igr.fpp.f90", "m__igr_8fpp_8f90.html", "m__igr_8fpp_8f90" ],
     [ "m_mhd.fpp.f90", "m__mhd_8fpp_8f90.html", "m__mhd_8fpp_8f90" ],
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],
     [ "m_mpi_proxy.fpp.f90", "m__mpi__proxy_8fpp_8f90.html", "m__mpi__proxy_8fpp_8f90" ],

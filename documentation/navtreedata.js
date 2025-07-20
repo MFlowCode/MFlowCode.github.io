@@ -76,51 +76,51 @@ var NAVTREE =
       [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md38", [
         [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md39", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md40", [
-        [ "Initial Condition and Result", "md_examples.html#autotoc_md41", null ]
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md40", [
+        [ "Initial Condition", "md_examples.html#autotoc_md41", null ],
+        [ "Result", "md_examples.html#autotoc_md42", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md42", [
-        [ "Initial Condition", "md_examples.html#autotoc_md43", null ],
-        [ "Result", "md_examples.html#autotoc_md44", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md43", [
+        [ "Initial Condition", "md_examples.html#autotoc_md44", null ],
+        [ "Result", "md_examples.html#autotoc_md45", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md45", [
-        [ "Initial Condition", "md_examples.html#autotoc_md46", null ],
-        [ "Result", "md_examples.html#autotoc_md47", null ]
+      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md46", [
+        [ "Final Condition", "md_examples.html#autotoc_md47", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md48", null ]
       ] ],
-      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md48", [
-        [ "Final Condition", "md_examples.html#autotoc_md49", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md50", null ]
+      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md49", [
+        [ "Density Initial and Final Conditions", "md_examples.html#autotoc_md50", null ]
       ] ],
-      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md51", [
-        [ "Density Initial and Final Conditions", "md_examples.html#autotoc_md52", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md51", [
+        [ "Density", "md_examples.html#autotoc_md52", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md53", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md53", [
-        [ "Density", "md_examples.html#autotoc_md54", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md55", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md54", [
+        [ "Initial Condition", "md_examples.html#autotoc_md55", null ],
+        [ "Result", "md_examples.html#autotoc_md56", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md56", [
-        [ "Initial Condition", "md_examples.html#autotoc_md57", null ],
-        [ "Result", "md_examples.html#autotoc_md58", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md57", [
+        [ "Initial Condition", "md_examples.html#autotoc_md58", null ],
+        [ "Result", "md_examples.html#autotoc_md59", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md59", [
-        [ "Initial Condition", "md_examples.html#autotoc_md60", null ],
-        [ "Result", "md_examples.html#autotoc_md61", null ]
+      [ "1D Multi-Component Reactive Shock Tube", "md_examples.html#autotoc_md60", [
+        [ "Initial Condition", "md_examples.html#autotoc_md61", null ],
+        [ "Results", "md_examples.html#autotoc_md62", null ]
       ] ],
-      [ "1D Multi-Component Reactive Shock Tube", "md_examples.html#autotoc_md62", [
-        [ "Initial Condition", "md_examples.html#autotoc_md63", null ],
-        [ "Results", "md_examples.html#autotoc_md64", null ]
+      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md63", [
+        [ "Final Condition", "md_examples.html#autotoc_md64", null ]
       ] ],
-      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md65", [
-        [ "Final Condition", "md_examples.html#autotoc_md66", null ]
+      [ "Perfectly Stirred Reactor", "md_examples.html#autotoc_md65", null ],
+      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md66", [
+        [ "Weak Scaling", "md_examples.html#autotoc_md67", null ],
+        [ "Strong Scaling", "md_examples.html#autotoc_md68", null ],
+        [ "Example", "md_examples.html#autotoc_md69", null ]
       ] ],
-      [ "Perfectly Stirred Reactor", "md_examples.html#autotoc_md67", null ],
-      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md68", [
-        [ "Weak Scaling", "md_examples.html#autotoc_md69", null ],
-        [ "Strong Scaling", "md_examples.html#autotoc_md70", null ],
-        [ "Example", "md_examples.html#autotoc_md71", null ]
+      [ "2D Triple Point (2D)", "md_examples.html#autotoc_md70", [
+        [ "Numerical Schlieren at Final Time", "md_examples.html#autotoc_md71", null ]
       ] ],
-      [ "2D Triple Point (2D)", "md_examples.html#autotoc_md72", [
-        [ "Numerical Schlieren at Final Time", "md_examples.html#autotoc_md73", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md72", [
+        [ "Initial Condition and Result", "md_examples.html#autotoc_md73", null ]
       ] ],
       [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md74", [
         [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md75", null ]
@@ -161,43 +161,57 @@ var NAVTREE =
       [ "Running the Test Suite", "md_getting-started.html#autotoc_md100", null ],
       [ "Running an Example Case", "md_getting-started.html#autotoc_md101", null ]
     ] ],
+    [ "Debugging Tools and Tips for GPUs", "md_gpuDebugging.html", [
+      [ "Compiler agnostic tools", "md_gpuDebugging.html#autotoc_md103", null ],
+      [ "OpenMP tools", "md_gpuDebugging.html#autotoc_md104", null ],
+      [ "Cray Compiler Tools", "md_gpuDebugging.html#autotoc_md105", [
+        [ "Cray General Options", "md_gpuDebugging.html#autotoc_md106", null ],
+        [ "Cray OpenACC Options", "md_gpuDebugging.html#autotoc_md107", null ]
+      ] ],
+      [ "NVHPC Compiler Options", "md_gpuDebugging.html#autotoc_md108", [
+        [ "NVHPC General Options", "md_gpuDebugging.html#autotoc_md109", null ],
+        [ "NVHPC OpenACC Options", "md_gpuDebugging.html#autotoc_md110", null ],
+        [ "NVHPC OpenMP Options", "md_gpuDebugging.html#autotoc_md111", null ]
+      ] ],
+      [ "Compiler Documentation", "md_gpuDebugging.html#autotoc_md112", null ]
+    ] ],
     [ "GPU Parallelization", "md_gpuParallelization.html", [
-      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md104", [
-        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md105", null ],
-        [ "Data Flow", "md_gpuParallelization.html#autotoc_md106", null ],
-        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md108", null ],
-        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md110", null ],
-        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md112", null ],
-        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md114", null ]
+      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md115", [
+        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md116", null ],
+        [ "Data Flow", "md_gpuParallelization.html#autotoc_md117", null ],
+        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md119", null ],
+        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md121", null ],
+        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md123", null ],
+        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md125", null ]
       ] ]
     ] ],
     [ "Papers", "md_papers.html", null ],
     [ "Documentation", "md_readme.html", [
-      [ "User Documentation", "md_readme.html#autotoc_md118", null ],
-      [ "Code/API Documentation", "md_readme.html#autotoc_md119", null ]
+      [ "User Documentation", "md_readme.html#autotoc_md129", null ],
+      [ "Code/API Documentation", "md_readme.html#autotoc_md130", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md122", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md123", [
-        [ "GPU Profiling", "md_running.html#autotoc_md124", [
-          [ "NVIDIA GPUs", "md_running.html#autotoc_md125", null ],
-          [ "AMD GPUs", "md_running.html#autotoc_md126", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md133", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md134", [
+        [ "GPU Profiling", "md_running.html#autotoc_md135", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md136", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md137", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md127", null ],
-        [ "Example Runs", "md_running.html#autotoc_md128", null ]
+        [ "Restarting Cases", "md_running.html#autotoc_md138", null ],
+        [ "Example Runs", "md_running.html#autotoc_md139", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md135", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md136", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md137", [
-        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md133", null ],
-        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md134", null ],
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md138", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md139", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md140", null ]
+      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md146", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md147", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md148", [
+        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md144", null ],
+        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md145", null ],
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md149", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md150", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md151", null ]
       ] ]
     ] ]
   ] ]

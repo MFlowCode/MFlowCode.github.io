@@ -77,6 +77,8 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::idwbuff", "namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab", null ],
     [ "m_global_parameters::idwint", "namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8", null ],
     [ "m_global_parameters::ierr", "namespacem__global__parameters.html#a46461347b5094736adfa94ef005b49a6", null ],
+    [ "m_global_parameters::igr", "namespacem__global__parameters.html#a1106201db32843ef3bcd5e170d3de86a", null ],
+    [ "m_global_parameters::igr_order", "namespacem__global__parameters.html#ae007ab80021e18ba6db79f9261322293", null ],
     [ "m_global_parameters::im_trans_c", "namespacem__global__parameters.html#a1acf0ecc974673284ad75ebe30751453", null ],
     [ "m_global_parameters::im_trans_t", "namespacem__global__parameters.html#a329bdc21184f2d058145d236c3c1b699", null ],
     [ "m_global_parameters::internalenergies_idx", "namespacem__global__parameters.html#a9eb3789b90381530338a223c99cf1090", null ],
