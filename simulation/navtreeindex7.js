@@ -1,9 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structm__derived__types_1_1integer__field.html":[2,0,0,13],
-"structm__derived__types_1_1integer__field.html#a929f0612802a909f71ca5bfde5082b98":[1,0,16,13,0],
-"structm__derived__types_1_1integer__field.html#a929f0612802a909f71ca5bfde5082b98":[2,0,0,13,0],
-"structm__derived__types_1_1integral__parameters.html":[1,0,16,14],
 "structm__derived__types_1_1integral__parameters.html":[2,0,0,14],
 "structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[1,0,16,14,5],
 "structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[2,0,0,14,5],

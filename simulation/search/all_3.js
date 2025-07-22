@@ -38,7 +38,7 @@ var searchData=
   ['dir_5fidx_5ftau_35',['dir_idx_tau',['../namespacem__global__parameters.html#a75b70db5c274efb6ca4be60c0a53e01b',1,'m_global_parameters']]],
   ['divu_36',['divu',['../namespacem__bubbles__ee.html#ae9393d87630a1375f916d38f6c525a89',1,'m_bubbles_ee']]],
   ['dj_37',['dj',['../namespacem__cbc.html#a161582f9efcabed3402291750ed066d8',1,'m_cbc']]],
-  ['double_5ffactorial_38',['double_factorial',['../namespacem__helper.html#a737c9c1d814d6f5596f286c38cf5167f',1,'m_helper']]],
+  ['double_5ffactorial_38',['double_factorial',['../namespacem__helper.html#a78033ea89e3630bd233dfa3d90fcb5d6',1,'m_helper']]],
   ['double_5fprecision_39',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
   ['dp_40',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
   ['dpres_5fds_41',['dpres_ds',['../namespacem__cbc.html#a4accdde20b1970b19b3cdd4e6397d745',1,'m_cbc']]],

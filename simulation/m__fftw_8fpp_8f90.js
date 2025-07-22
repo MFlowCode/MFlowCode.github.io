@@ -21,7 +21,6 @@ var m__fftw_8fpp_8f90 =
     [ "m_fftw::gpu_fft_size", "namespacem__fftw.html#a9228875b8fefcbca30b37151eac26253", null ],
     [ "m_fftw::idist", "namespacem__fftw.html#af92bc489fa165d52099ed245f72bef27", null ],
     [ "m_fftw::iembed", "namespacem__fftw.html#a807026aba03c75071ccc30fbe064c456", null ],
-    [ "m_fftw::ierr", "namespacem__fftw.html#aa823a332b4e6744c5d1201454f356673", null ],
     [ "m_fftw::istride", "namespacem__fftw.html#ad859b5ce8ea600e6a2b32206979254bb", null ],
     [ "m_fftw::nfq", "namespacem__fftw.html#adeadeb1390115870e33a00c9b1d8f8fc", null ],
     [ "m_fftw::odist", "namespacem__fftw.html#a22909641652b8929f8809252c7c6088c", null ],

@@ -1,8 +1,8 @@
 var m__surface__tension_8fpp_8f90 =
 [
-    [ "m_surface_tension::s_compute_capilary_source_flux", "namespacem__surface__tension.html#a43941bb5f8f10f36c81f9c87d8738181", null ],
+    [ "m_surface_tension::s_compute_capillary_source_flux", "namespacem__surface__tension.html#aacfdfb890f8ea30ba1207ddfdcd0992e", null ],
     [ "m_surface_tension::s_finalize_surface_tension_module", "namespacem__surface__tension.html#acfee64be67c2ca10b9e1ed0e759ed517", null ],
-    [ "m_surface_tension::s_get_capilary", "namespacem__surface__tension.html#ab8d1e8be2fba914663a84589ff69d5de", null ],
+    [ "m_surface_tension::s_get_capillary", "namespacem__surface__tension.html#a57a8d87ff4910eadaabd1b65ced7d8d7", null ],
     [ "m_surface_tension::s_initialize_surface_tension_module", "namespacem__surface__tension.html#aa4565334b85e2519cf6dfda4ab6c2091", null ],
     [ "m_surface_tension::s_reconstruct_cell_boundary_values_capillary", "namespacem__surface__tension.html#a23518c58e3b14316763dde1e68e6a08b", null ],
     [ "m_surface_tension::c_divs", "namespacem__surface__tension.html#a3968d7b7224aa8ea0040a5061df390d9", null ],

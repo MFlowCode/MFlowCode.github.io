@@ -96,7 +96,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::ib", "namespacem__global__parameters.html#a633a3701bad8d6798d03dfd1a083fac5", null ],
     [ "m_global_parameters::idwbuff", "namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab", null ],
     [ "m_global_parameters::idwint", "namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8", null ],
-    [ "m_global_parameters::ierr", "namespacem__global__parameters.html#a46461347b5094736adfa94ef005b49a6", null ],
     [ "m_global_parameters::igr", "namespacem__global__parameters.html#a1106201db32843ef3bcd5e170d3de86a", null ],
     [ "m_global_parameters::igr_iter_solver", "namespacem__global__parameters.html#af4aa7b91d92a2f1b28237dce7b78227c", null ],
     [ "m_global_parameters::igr_order", "namespacem__global__parameters.html#ae007ab80021e18ba6db79f9261322293", null ],

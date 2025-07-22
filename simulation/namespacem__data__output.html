@@ -165,9 +165,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a4979ae04fdea7f2a75f58209e17af62d" id="r_a4979ae04fdea7f2a75f58209e17af62d"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4979ae04fdea7f2a75f58209e17af62d">s_write_parallel_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, t_step, beta)</td></tr>
 <tr class="memdesc:a4979ae04fdea7f2a75f58209e17af62d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to output the grid and conservative variables data files for given time-step.  <br /></td></tr>
 <tr class="separator:a4979ae04fdea7f2a75f58209e17af62d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79fdb37e5357ff34c98d93cc8e57f87d" id="r_a79fdb37e5357ff34c98d93cc8e57f87d"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79fdb37e5357ff34c98d93cc8e57f87d">s_write_com_files</a> (t_step, <a class="el" href="#a876bb6f3c7b9d49e6fc51690ec075f63">c_mass</a>)</td></tr>
-<tr class="memdesc:a79fdb37e5357ff34c98d93cc8e57f87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file where the root processor can write out the CoM information.  <br /></td></tr>
-<tr class="separator:a79fdb37e5357ff34c98d93cc8e57f87d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e92efb50b956fd5ceeedfccac1faeb" id="r_a70e92efb50b956fd5ceeedfccac1faeb"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a70e92efb50b956fd5ceeedfccac1faeb">s_write_com_files</a> (t_step, c_mass_in)</td></tr>
+<tr class="memdesc:a70e92efb50b956fd5ceeedfccac1faeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file where the root processor can write out the CoM information.  <br /></td></tr>
+<tr class="separator:a70e92efb50b956fd5ceeedfccac1faeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52814dea8c93b2edeaab7f76eb9a89e5" id="r_a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52814dea8c93b2edeaab7f76eb9a89e5">s_write_probe_files</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, accel_mag)</td></tr>
 <tr class="memdesc:a52814dea8c93b2edeaab7f76eb9a89e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">This writes a formatted data file for the flow probe information.  <br /></td></tr>
 <tr class="separator:a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -398,8 +398,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a79fdb37e5357ff34c98d93cc8e57f87d" name="a79fdb37e5357ff34c98d93cc8e57f87d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79fdb37e5357ff34c98d93cc8e57f87d">&#9670;&#160;</a></span>s_write_com_files()</h2>
+<a id="a70e92efb50b956fd5ceeedfccac1faeb" name="a70e92efb50b956fd5ceeedfccac1faeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70e92efb50b956fd5ceeedfccac1faeb">&#9670;&#160;</a></span>s_write_com_files()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -412,7 +412,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>, 5), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c_mass</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>, 5), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c_mass_in</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -429,7 +429,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a79fdb37e5357ff34c98d93cc8e57f87d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__data__output_a70e92efb50b956fd5ceeedfccac1faeb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

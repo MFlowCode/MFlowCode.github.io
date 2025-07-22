@@ -185,9 +185,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a50d271a607262a2f55d7a00f7e692e38" id="r_a50d271a607262a2f55d7a00f7e692e38"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50d271a607262a2f55d7a00f7e692e38">s_mpi_finalize</a></td></tr>
 <tr class="memdesc:a50d271a607262a2f55d7a00f7e692e38"><td class="mdescLeft">&#160;</td><td class="mdescRight">The subroutine finalizes the MPI execution environment.  <br /></td></tr>
 <tr class="separator:a50d271a607262a2f55d7a00f7e692e38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7156c9188e108951c185a3e615be5d24" id="r_a7156c9188e108951c185a3e615be5d24"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7156c9188e108951c185a3e615be5d24">s_mpi_sendrecv_variables_buffers</a> (q_comm, mpi_dir, pbc_loc, nvar, <a class="el" href="namespacem__global__parameters.html#ae8adbeb16cfec4040a887f2ff80be2fc">pb</a>, <a class="el" href="namespacem__global__parameters.html#ac0f2b9f46268623e7b3f82f0b222588f">mv</a>)</td></tr>
-<tr class="memdesc:a7156c9188e108951c185a3e615be5d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
-<tr class="separator:a7156c9188e108951c185a3e615be5d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a489959387c97e03d8e09eba0ed6280ec" id="r_a489959387c97e03d8e09eba0ed6280ec"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a489959387c97e03d8e09eba0ed6280ec">s_mpi_sendrecv_variables_buffers</a> (q_comm, mpi_dir, pbc_loc, nvar, pb_in, mv_in)</td></tr>
+<tr class="memdesc:a489959387c97e03d8e09eba0ed6280ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
+<tr class="separator:a489959387c97e03d8e09eba0ed6280ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe54fe25c12eda7afe195fbf0fa166fc" id="r_afe54fe25c12eda7afe195fbf0fa166fc"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe54fe25c12eda7afe195fbf0fa166fc">s_mpi_decompose_computational_domain</a></td></tr>
 <tr class="memdesc:afe54fe25c12eda7afe195fbf0fa166fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to optimally decompose the computational domain among the available processors. This is performed by attempting to award each processor, in each of the coordinate directions, approximately the same number of cells, and then recomputing the affected global parameters.  <br /></td></tr>
 <tr class="separator:afe54fe25c12eda7afe195fbf0fa166fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,8 +200,6 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:af554ae18658426bbac4c4c0066506c04" id="r_af554ae18658426bbac4c4c0066506c04"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af554ae18658426bbac4c4c0066506c04">ierr</a></td></tr>
-<tr class="separator:af554ae18658426bbac4c4c0066506c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f9044f9e60879f65ae11de6de95c213" id="r_a8f9044f9e60879f65ae11de6de95c213"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f9044f9e60879f65ae11de6de95c213">v_size</a></td></tr>
 <tr class="separator:a8f9044f9e60879f65ae11de6de95c213"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3deaeac1e239299664faa426e15f3285" id="r_a3deaeac1e239299664faa426e15f3285"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3deaeac1e239299664faa426e15f3285">buff_send</a></td></tr>
@@ -708,8 +706,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a7156c9188e108951c185a3e615be5d24" name="a7156c9188e108951c185a3e615be5d24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7156c9188e108951c185a3e615be5d24">&#9670;&#160;</a></span>s_mpi_sendrecv_variables_buffers()</h2>
+<a id="a489959387c97e03d8e09eba0ed6280ec" name="a489959387c97e03d8e09eba0ed6280ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a489959387c97e03d8e09eba0ed6280ec">&#9670;&#160;</a></span>s_mpi_sendrecv_variables_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -737,12 +735,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>pb</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>pb_in</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>mv</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>mv_in</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -844,28 +842,6 @@ Here is the call graph for this function:</div>
           <td class="memname">integer m_mpi_common::halo_size</td>
         </tr>
       </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af554ae18658426bbac4c4c0066506c04" name="af554ae18658426bbac4c4c0066506c04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af554ae18658426bbac4c4c0066506c04">&#9670;&#160;</a></span>ierr</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, private m_mpi_common::ierr</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>

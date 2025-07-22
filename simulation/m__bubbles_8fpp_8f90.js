@@ -14,7 +14,7 @@ var m__bubbles_8fpp_8f90 =
     [ "m_bubbles::s_advance_el", "namespacem__bubbles.html#ad2e1a7c7cf62b063d370eb787ff65917", null ],
     [ "m_bubbles::s_advance_step", "namespacem__bubbles.html#a8fa7693467966aebe329db289e1fd8e0", null ],
     [ "m_bubbles::s_advance_substep", "namespacem__bubbles.html#a58b32597dfaefbb21cf23ca74203c5ad", null ],
-    [ "m_bubbles::s_bwproperty", "namespacem__bubbles.html#a1e3b9bf3d73b73268449b4363af974ef", null ],
+    [ "m_bubbles::s_bwproperty", "namespacem__bubbles.html#ae59f3c2a72518583eaea709fd113629b", null ],
     [ "m_bubbles::s_initial_substep_h", "namespacem__bubbles.html#ab94791da6f5cbc767853c8c5208a3eb0", null ],
     [ "m_bubbles::s_vflux", "namespacem__bubbles.html#a5330f81530c36486d6a4aa540f2e76e3", null ],
     [ "m_bubbles::chi_vw", "namespacem__bubbles.html#adf27a9408c9ea6efc46e4a4c35c51656", null ],

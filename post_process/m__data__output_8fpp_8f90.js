@@ -24,7 +24,6 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::dims", "namespacem__data__output.html#a98d3ca969b0e32fa09436f1a9cfbd77c", null ],
     [ "m_data_output::err", "namespacem__data__output.html#a9200025029de298307a47699927a60fa", null ],
     [ "m_data_output::hi_offset", "namespacem__data__output.html#a1a779679774e1161511609f18e8d9c27", null ],
-    [ "m_data_output::ierr", "namespacem__data__output.html#afa88ae36e1e20ff64867261ef6c9be15", null ],
     [ "m_data_output::lo_offset", "namespacem__data__output.html#a4b7e6567b3bb7fdd4384180d1a7475af", null ],
     [ "m_data_output::optlist", "namespacem__data__output.html#a21c768216c63e43ea9e1f13e498a3558", null ],
     [ "m_data_output::proc_rank_dir", "namespacem__data__output.html#ac9711cb2f20dace017da2bf94fd68118", null ],

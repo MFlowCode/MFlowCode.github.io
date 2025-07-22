@@ -148,11 +148,11 @@ Functions/Subroutines</h2></td></tr>
 <tr class="separator:acdf857ad6b9f389ee1bd4dd81bbc23a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65e001b6d3809e3e37b7a2dfa45a114b" id="r_a65e001b6d3809e3e37b7a2dfa45a114b"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65e001b6d3809e3e37b7a2dfa45a114b">s_comp_alpha_from_n</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
 <tr class="separator:a65e001b6d3809e3e37b7a2dfa45a114b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14d3a77766aae14bed0e8777b99c8d48" id="r_a14d3a77766aae14bed0e8777b99c8d48"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14d3a77766aae14bed0e8777b99c8d48">s_compute_bubbles_ee_rhs</a> (idir, q_prim_vf, <a class="el" href="#ae9393d87630a1375f916d38f6c525a89">divu</a>)</td></tr>
-<tr class="separator:a14d3a77766aae14bed0e8777b99c8d48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0c9f592b8ecf50f74370dc2c7f6ec5d" id="r_ad0c9f592b8ecf50f74370dc2c7f6ec5d"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0c9f592b8ecf50f74370dc2c7f6ec5d">s_compute_bubble_ee_source</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, rhs_vf)</td></tr>
-<tr class="memdesc:ad0c9f592b8ecf50f74370dc2c7f6ec5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to compute the source terms that are needed for the bubble modeling.  <br /></td></tr>
-<tr class="separator:ad0c9f592b8ecf50f74370dc2c7f6ec5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15582ae3f7bec17ecdc0d159ead273c2" id="r_a15582ae3f7bec17ecdc0d159ead273c2"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15582ae3f7bec17ecdc0d159ead273c2">s_compute_bubbles_ee_rhs</a> (idir, q_prim_vf, divu_in)</td></tr>
+<tr class="separator:a15582ae3f7bec17ecdc0d159ead273c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab15ff78772125079eec3132ae9a5bea1" id="r_ab15ff78772125079eec3132ae9a5bea1"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab15ff78772125079eec3132ae9a5bea1">s_compute_bubble_ee_source</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, rhs_vf, divu_in)</td></tr>
+<tr class="memdesc:ab15ff78772125079eec3132ae9a5bea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to compute the source terms that are needed for the bubble modeling.  <br /></td></tr>
+<tr class="separator:ab15ff78772125079eec3132ae9a5bea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -198,8 +198,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad0c9f592b8ecf50f74370dc2c7f6ec5d" name="ad0c9f592b8ecf50f74370dc2c7f6ec5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0c9f592b8ecf50f74370dc2c7f6ec5d">&#9670;&#160;</a></span>s_compute_bubble_ee_source()</h2>
+<a id="ab15ff78772125079eec3132ae9a5bea1" name="ab15ff78772125079eec3132ae9a5bea1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15ff78772125079eec3132ae9a5bea1">&#9670;&#160;</a></span>s_compute_bubble_ee_source()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -217,7 +217,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>divu_in</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -225,16 +230,17 @@ Variables</h2></td></tr>
 <p>The purpose of this procedure is to compute the source terms that are needed for the bubble modeling. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">q_cons_vf</td><td>Conservative variables </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">divu_in</td><td>matrix for div(u) </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a14d3a77766aae14bed0e8777b99c8d48" name="a14d3a77766aae14bed0e8777b99c8d48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14d3a77766aae14bed0e8777b99c8d48">&#9670;&#160;</a></span>s_compute_bubbles_ee_rhs()</h2>
+<a id="a15582ae3f7bec17ecdc0d159ead273c2" name="a15582ae3f7bec17ecdc0d159ead273c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15582ae3f7bec17ecdc0d159ead273c2">&#9670;&#160;</a></span>s_compute_bubbles_ee_rhs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,13 +258,13 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>divu</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>divu_in</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">divu</td><td>matrix for div(u) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">divu_in</td><td>matrix for div(u) </td></tr>
   </table>
   </dd>
 </dl>

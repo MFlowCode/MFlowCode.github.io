@@ -1,9 +1,9 @@
 var m__rhs_8fpp_8f90 =
 [
     [ "s_add_directional_advection_source_terms", "m__rhs_8fpp_8f90.html#af45f15d6e6ca83c8ae92f98a2a72ff8d", null ],
-    [ "m_rhs::s_compute_additional_physics_rhs", "namespacem__rhs.html#a0e5e2cc5ac3c431cb5ddabcc65eb4d38", null ],
+    [ "m_rhs::s_compute_additional_physics_rhs", "namespacem__rhs.html#a2df6b2a1323afaca022b5ef77dd4c0e0", null ],
     [ "m_rhs::s_compute_advection_source_term", "namespacem__rhs.html#a5809a021c8e55e523aa8bfabb41a3e1e", null ],
-    [ "m_rhs::s_compute_rhs", "namespacem__rhs.html#a33524887d64556fcfdd706e2a36173a5", null ],
+    [ "m_rhs::s_compute_rhs", "namespacem__rhs.html#a2ae49f9ae363fe7f37509d8526ac7f03", null ],
     [ "m_rhs::s_finalize_rhs_module", "namespacem__rhs.html#aeefd0e45989eb229ad465d3f56cda6f9", null ],
     [ "m_rhs::s_initialize_rhs_module", "namespacem__rhs.html#ac1a58ddfd0761eea057f097f428a36ba", null ],
     [ "m_rhs::s_reconstruct_cell_boundary_values", "namespacem__rhs.html#a48c0b3313ccec916c5cb2652f8cad5b0", null ],

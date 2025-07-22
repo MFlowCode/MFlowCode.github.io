@@ -8,6 +8,5 @@ var m__mpi__proxy_8fpp_8f90 =
     [ "m_mpi_proxy::s_mpi_gather_data_extents", "namespacem__mpi__proxy.html#aa8376d4fe1d9829af56e78cecfb50d13", null ],
     [ "m_mpi_proxy::s_mpi_gather_spatial_extents", "namespacem__mpi__proxy.html#a2c7826d6e0b57eda2cb47f817bddc243", null ],
     [ "m_mpi_proxy::displs", "namespacem__mpi__proxy.html#aebaa6e3cc66d2431c5fb49896d40d7e6", null ],
-    [ "m_mpi_proxy::ierr", "namespacem__mpi__proxy.html#a306ba163b09cfc692125f2c0ba82ef8c", null ],
     [ "m_mpi_proxy::recvcounts", "namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee", null ]
 ];
