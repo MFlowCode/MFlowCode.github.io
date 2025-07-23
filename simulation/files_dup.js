@@ -15,6 +15,7 @@ var files_dup =
     [ "m_constants.fpp.f90", "m__constants_8fpp_8f90.html", "m__constants_8fpp_8f90" ],
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
     [ "m_derived_types.fpp.f90", "m__derived__types_8fpp_8f90.html", "m__derived__types_8fpp_8f90" ],
+    [ "m_derived_variables.fpp.f90", "m__derived__variables_8fpp_8f90.html", "m__derived__variables_8fpp_8f90" ],
     [ "m_fftw.fpp.f90", "m__fftw_8fpp_8f90.html", "m__fftw_8fpp_8f90" ],
     [ "m_finite_differences.fpp.f90", "m__finite__differences_8fpp_8f90.html", "m__finite__differences_8fpp_8f90" ],
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
@@ -44,6 +45,5 @@ var files_dup =
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
     [ "m_nvtx.f90", "m__nvtx_8f90.html", "m__nvtx_8f90" ],
-    [ "m_precision_select.f90", "m__precision__select_8f90.html", "m__precision__select_8f90" ],
-    [ "m_derived_variables.f90", "m__derived__variables_8f90.html", "m__derived__variables_8f90" ]
+    [ "m_precision_select.f90", "m__precision__select_8f90.html", "m__precision__select_8f90" ]
 ];

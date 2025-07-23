@@ -17,7 +17,7 @@ var searchData=
   ['m_5fdata_5foutput_2efpp_2ef90_14',['m_data_output.fpp.f90',['../m__data__output_8fpp_8f90.html',1,'']]],
   ['m_5fdelay_5ffile_5faccess_2ef90_15',['m_delay_file_access.f90',['../m__delay__file__access_8f90.html',1,'']]],
   ['m_5fderived_5ftypes_2efpp_2ef90_16',['m_derived_types.fpp.f90',['../m__derived__types_8fpp_8f90.html',1,'']]],
-  ['m_5fderived_5fvariables_2ef90_17',['m_derived_variables.f90',['../m__derived__variables_8f90.html',1,'']]],
+  ['m_5fderived_5fvariables_2efpp_2ef90_17',['m_derived_variables.fpp.f90',['../m__derived__variables_8fpp_8f90.html',1,'']]],
   ['m_5feigen_5fsolver_2ef90_18',['m_eigen_solver.f90',['../m__eigen__solver_8f90.html',1,'']]],
   ['m_5ffftw_2efpp_2ef90_19',['m_fftw.fpp.f90',['../m__fftw_8fpp_8f90.html',1,'']]],
   ['m_5ffinite_5fdifferences_2efpp_2ef90_20',['m_finite_differences.fpp.f90',['../m__finite__differences_8fpp_8f90.html',1,'']]],
