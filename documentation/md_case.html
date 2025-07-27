@@ -483,6 +483,10 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>adap_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Strang splitting scheme with adaptive time stepping    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>adap_dt_tol</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Tolerance for adaptive time stepping in Strang splitting scheme    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>adap_dt_max_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Max iteration for adaptive time stepping in Strang splitting scheme    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
@@ -571,7 +575,7 @@ Parameter Descriptions</h3>
 <li><code>mpp_lim</code> activates correction of solutions to avoid a negative void fraction of each component in each grid cell, such that $\alpha_i&gt;\varepsilon$ is satisfied at each time step.</li>
 <li><code>mixture_err</code> activates correction of solutions to avoid imaginary speed of sound at each grid cell.</li>
 <li><code>time_stepper</code> specifies the order of the Runge-Kutta (RK) time integration scheme that is used for temporal integration in simulation, from the 1st to 5th order by corresponding integer. Note that <code>time_stepper = 3</code> specifies the total variation diminishing (TVD), third order RK scheme (<a class="el" href="md_references.html">Gottlieb and Shu, 1998</a>).</li>
-<li><code>adap_dt</code> activates the Strang operator splitting scheme which splits flux and source terms in time marching, and an adaptive time stepping strategy is implemented for the source term. It requires <code>bubbles_euler = 'T'</code>, <code>polytropic = 'T'</code>, <code>adv_n = 'T'</code> and <code>time_stepper = 3</code>. Additionally, it can be used with <code>bubbles_lagrange = 'T'</code> and <code>time_stepper = 3</code></li>
+<li><code>adap_dt</code> activates the Strang operator splitting scheme which splits flux and source terms in time marching, and an adaptive time stepping strategy is implemented for the source term. It requires <code>bubbles_euler = 'T'</code>, <code>polytropic = 'T'</code>, <code>adv_n = 'T'</code> and <code>time_stepper = 3</code>. Additionally, it can be used with <code>bubbles_lagrange = 'T'</code> and <code>time_stepper = 3</code>. <code>adap_dt_tol</code> and <code>adap_dt_max_iters</code> are 1e-4 and 100, respectively, by default.</li>
 <li><code>weno_order</code> specifies the order of WENO scheme that is used for spatial reconstruction of variables by an integer of 1, 3, 5, and 7, that correspond to the 1st, 3rd, 5th, and 7th order, respectively.</li>
 <li><code>weno_eps</code> specifies the lower bound of the WENO nonlinear weights. It is recommended to set <code>weno_eps</code> to $10^{-6}$ for WENO-JS, and to $10^{-40}$ for other WENO variants.</li>
 <li><code>mapped_weno</code> activates the WENO-M scheme in place of the default WENO-JS scheme (<a class="el" href="md_references.html">Henrick et al., 2005</a>). WENO-M a variant of the WENO scheme that remaps the nonlinear WENO-JS weights by assigning larger weights to non-smooth stencils, reducing dissipation compared to the default WENO-JS scheme, at the expense of higher computational cost. Only one of <code>mapped_weno</code>, <code>wenoz</code>, and <code>teno</code> can be activated.</li>
@@ -862,32 +866,29 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>poly_sigma</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for probability density function of polydisperse bubble populations    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>R0_type</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Quadrature rule for probability density function of polydisperse bubble populations    </td></tr>
-<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>Ca</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Cavitation number    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>Web</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Weber number    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>Re_inv</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Inverse Reynolds number    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>qbmm</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Quadrature by method of moments    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>dist_type</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Joint probability density function for bubble radius and velocity (only for <code>qbmm = 'T'</code>)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>sigR</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for the probability density function of bubble radius (only for <code>qbmm = 'T'</code>) (EE)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>sigV</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for the probability density function of bubble velocity (only for <code>qbmm = 'T'</code>) (EE)    </td></tr>
+<td class="markdownTableBodyRight"><code>sigR</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for the probability density function of bubble radius (only for <code>qbmm = 'T'</code>) (EE)    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>sigV</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for the probability density function of bubble velocity (only for <code>qbmm = 'T'</code>) (EE)    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>rhoRV</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Correlation coefficient for the joint probability density function of bubble radius and velocity (only for <code>qbmm = 'T'</code>)   </td></tr>
 </table>
 <p>This table lists the ensemble-averaged bubble model parameters.</p>
 <ul>
 <li><code>polytropic</code> activates polytropic gas compression in the bubble. When <code>polytropic = 'F'</code>, the gas compression is modeled as non-polytropic due to heat and mass transfer across the bubble wall with constant heat and mass transfer coefficients based on (<a class="el" href="md_references.html">Preston et al., 2007</a>).</li>
 <li><code>thermal</code> specifies a model for heat transfer across the bubble interface by an integer from 1 through 3. <code>thermal = 1</code>, <code>2</code>, and <code>3</code> correspond to no heat transfer (adiabatic gas compression), isothermal heat transfer, and heat transfer with a constant heat transfer coefficient based on <a class="el" href="md_references.html">Preston et al., 2007</a>, respectively.</li>
-<li><code>polydisperse</code> activates polydispersity in the bubble model through a probability density function (PDF) of the equilibrium bubble radius.</li>
+<li><code>polydisperse</code> activates polydispersity in the bubble model through a probability density function (PDF) of the equilibrium bubble radius. Simpson's rule is used for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations.</li>
 <li><code>R0ref</code> specifies the reference bubble radius.</li>
 <li><code>nb</code> specifies the number of discrete bins that define the probability density function (PDF) of the equilibrium bubble radius.</li>
-<li><code>R0_type</code> specifies the quadrature rule for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations. <code>R0_type = 1</code> corresponds to Simpson's rule.</li>
 <li><code>poly_sigma</code> specifies the standard deviation of the log-normal PDF of equilibrium bubble radius for polydisperse populations.</li>
 <li><code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</li>
 <li><code>qbmm</code> activates quadrature by method of moments, which assumes a PDF for bubble radius and velocity.</li>

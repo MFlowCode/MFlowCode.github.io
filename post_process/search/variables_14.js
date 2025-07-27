@@ -1,7 +1,7 @@
 var searchData=
 [
   ['v_0',['v',['../structm__derived__types_1_1t__triangle.html#a451b03a8ba6d6096f20b2382f5b4e466',1,'m_derived_types::t_triangle']]],
-  ['v0_1',['v0',['../structm__derived__types_1_1ic__patch__parameters.html#a65ef1568a2e85603c4c6566831714b74',1,'m_derived_types::ic_patch_parameters::v0'],['../namespacem__global__parameters.html#a305998f039363f4b293d7f4e49948a45',1,'m_global_parameters::v0']]],
+  ['v0_1',['v0',['../structm__derived__types_1_1ic__patch__parameters.html#a65ef1568a2e85603c4c6566831714b74',1,'m_derived_types::ic_patch_parameters']]],
   ['v_5fsize_2',['v_size',['../namespacem__mpi__common.html#a8f9044f9e60879f65ae11de6de95c213',1,'m_mpi_common']]],
   ['val_3',['val',['../structm__derived__types_1_1source__spatial__type.html#a32e81a28a4ff43f3e841b90ac1bf6f7d',1,'m_derived_types::source_spatial_type']]],
   ['valmaxvoid_4',['valmaxvoid',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a587e6fa031e86f87be87dfc840a851e5',1,'m_derived_types::bubbles_lagrange_parameters']]],

@@ -81,7 +81,6 @@ var namespaces_dup =
     ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "acoustic_spatial_support_width", "namespacem__constants.html#a92bc4d3446d8473183e165116932778f", null ],
-      [ "adap_dt_max_iters", "namespacem__constants.html#a477a840004aa506fa11f1d934d037d44", null ],
       [ "amplifier", "namespacem__constants.html#a1f52e85430eb7f1fba1d46370791e877", null ],
       [ "bc_axis", "namespacem__constants.html#a5c4bf41667b9de3aadb9f48071d37c7a", null ],
       [ "bc_char_cp_sub_outflow", "namespacem__constants.html#aa923ad8ff5f55c9b4701a5cb97cf8fb7", null ],
@@ -105,6 +104,7 @@ var namespaces_dup =
       [ "capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
       [ "case_file_error_code", "namespacem__constants.html#a78dc466963174e056c559059e09704cc", null ],
       [ "decimal_trim", "namespacem__constants.html#a661e16fd10454ba78431f0053c08bd32", null ],
+      [ "dflt_adap_dt_max_iters", "namespacem__constants.html#ab4e2edff4a650d9f7610dfc9c2f01132", null ],
       [ "dflt_adap_dt_tol", "namespacem__constants.html#a75d5411a4b261c3d2ace983fa082f41f", null ],
       [ "dflt_alf_factor", "namespacem__constants.html#a5d89c349567c67a10150e73627911cc3", null ],
       [ "dflt_char", "namespacem__constants.html#a89491724fc8077006ff1b62f981400ac", null ],
@@ -414,7 +414,6 @@ var namespaces_dup =
       [ "tensor_size", "namespacem__global__parameters.html#a6aa3c84fdfc687e41106afd2e1d8ebbb", null ],
       [ "thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
       [ "tw", "namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef", null ],
-      [ "v0", "namespacem__global__parameters.html#a305998f039363f4b293d7f4e49948a45", null ],
       [ "vel_wrt", "namespacem__global__parameters.html#ae4ab7caa7dee5e616b217437f7f2b87f", null ],
       [ "web", "namespacem__global__parameters.html#a043c4e3aa57a04b9c305d1412936a4fa", null ],
       [ "weight", "namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef", null ],

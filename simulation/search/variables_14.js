@@ -1,7 +1,7 @@
 var searchData=
 [
   ['v_0',['v',['../structm__derived__types_1_1t__triangle.html#a451b03a8ba6d6096f20b2382f5b4e466',1,'m_derived_types::t_triangle']]],
-  ['v0_1',['v0',['../structm__derived__types_1_1ic__patch__parameters.html#a65ef1568a2e85603c4c6566831714b74',1,'m_derived_types::ic_patch_parameters::v0'],['../namespacem__global__parameters.html#a305998f039363f4b293d7f4e49948a45',1,'m_global_parameters::v0']]],
+  ['v0_1',['v0',['../structm__derived__types_1_1ic__patch__parameters.html#a65ef1568a2e85603c4c6566831714b74',1,'m_derived_types::ic_patch_parameters']]],
   ['v_5frs_5fws_5fx_2',['v_rs_ws_x',['../namespacem__weno.html#a94b9675cb684fbcfbe95487426c23083',1,'m_weno']]],
   ['v_5frs_5fws_5fy_3',['v_rs_ws_y',['../namespacem__weno.html#afaf0e48c2925f399f2c01e0c65a77a84',1,'m_weno']]],
   ['v_5frs_5fws_5fz_4',['v_rs_ws_z',['../namespacem__weno.html#a8fbc9a906ebaf8073d773a4df1409289',1,'m_weno']]],

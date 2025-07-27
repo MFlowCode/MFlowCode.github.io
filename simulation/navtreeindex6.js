@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e":[1,0,16,4,1],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e":[2,0,0,4,1],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#aefb3159d495c9629cdde4cd923a6f5ce":[1,0,16,4,3],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#aefb3159d495c9629cdde4cd923a6f5ce":[2,0,0,4,3],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1integral__parameters.html":[1,0,16,14],
 "structm__derived__types_1_1integral__parameters.html":[2,0,0,14],
 "structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[1,0,16,14,5],
-"structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[2,0,0,14,5]
+"structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2":[2,0,0,14,5],
+"structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94":[1,0,16,14,2]
 };

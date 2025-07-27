@@ -190,7 +190,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::tensor_size", "namespacem__global__parameters.html#a6aa3c84fdfc687e41106afd2e1d8ebbb", null ],
     [ "m_global_parameters::thermal", "namespacem__global__parameters.html#a17169a5387f8f1efd5ac34cb4eae7c81", null ],
     [ "m_global_parameters::tw", "namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef", null ],
-    [ "m_global_parameters::v0", "namespacem__global__parameters.html#a305998f039363f4b293d7f4e49948a45", null ],
     [ "m_global_parameters::vel_wrt", "namespacem__global__parameters.html#ae4ab7caa7dee5e616b217437f7f2b87f", null ],
     [ "m_global_parameters::web", "namespacem__global__parameters.html#a043c4e3aa57a04b9c305d1412936a4fa", null ],
     [ "m_global_parameters::weight", "namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef", null ],
