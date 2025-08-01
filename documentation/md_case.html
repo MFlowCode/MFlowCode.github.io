@@ -483,27 +483,39 @@ Parameter Descriptions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>adap_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Strang splitting scheme with adaptive time stepping    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>recon_type</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Reconstruction Type: [1] WENO; [2] MUSCL    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>adap_dt_tol</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Tolerance for adaptive time stepping in Strang splitting scheme    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>adap_dt_max_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Max iteration for adaptive time stepping in Strang splitting scheme    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mapped_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-M (WENO with mapping of nonlinear weights)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>wenoz</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-Z    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>wenoz_q</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO-Z power parameter q (only for WENO7)    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>teno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">TENO (Targeted ENO)    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>teno_CT</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">TENO threshold for smoothness detection    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>null_weights</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Null WENO weights at boundaries    </td></tr>
+<td class="markdownTableBodyRight"><code>teno_CT</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">TENO threshold for smoothness detection    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>null_weights</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Null WENO weights at boundaries    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>mp_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Monotonicity preserving WENO    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>muscl_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">MUSCL order [1,2]    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>muscl_lim</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">MUSCL Slope Limiter: [1] minmod; [2] monotonized central; [3] Van Albada; [4] Van Leer; [5] SUPERBEE    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>int_comp</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">THINC Interface Compression    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>ic_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Interface compression threshold (default: 1e-4)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>ic_beta</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Interface compression sharpness parameter (default: 1.6)    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>riemann_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*; [4] HLLD (only for MHD)    </td></tr>
 <tr class="markdownTableRowOdd">
@@ -585,7 +597,10 @@ Parameter Descriptions</h3>
 <li><code>teno_CT</code> specifies the threshold for the TENO scheme. This dimensionless constant, also known as $C_T$, sets a threshold to identify smooth and non-smooth stencils. Larger values make the scheme more robust but also more dissipative. A recommended value for teno_CT is <code>1e-6</code>. When adjusting this parameter, it is recommended to try values like <code>1e-5</code> or <code>1e-7</code> for TENO5. A smaller value can be used for TENO7.</li>
 <li><code>null_weights</code> activates nullification of the nonlinear WENO weights at the buffer regions outside the domain boundaries when the Riemann extrapolation boundary condition is specified (<code>bc_[x,y,z]%beg[end]} = -4</code>).</li>
 <li><code>mp_weno</code> activates monotonicity preservation in the WENO reconstruction (MPWENO) such that the values of reconstructed variables do not reside outside the range spanned by WENO stencil (<a class="el" href="md_references.html">Balsara and Shu, 2000</a>; <a class="el" href="md_references.html">Suresh and Huynh, 1997</a>).</li>
-<li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 3. <code>riemann_solver = 1</code>, <code>2</code>, and <code>3</code> correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a class="el" href="md_references.html">Toro, 2013</a>). <code>riemann_solver = 4</code> is only for MHD simulations. It resolves 5 of the full seven-wave structure of the MHD equations (<a class="el" href="md_references.html">Miyoshi and Kusano, 2005</a>).</li>
+<li><code>muscl_order</code> specifies the order of the MUSCL scheme that is used for spatial reconstruction of variables by an integer of 1, or 2, that corresponds to the 1st, and 2nd order respectively. When using <code>muscl_order = 2</code>, <code>muscl_lim</code> must be defined.</li>
+<li><code>muscl_lim</code> specifies the slope limiter that is used in 2nd order MUSCL Reconstruction by an integer from 1 through 5. <code>muscl_lim = 1</code>, <code>2</code>, <code>3</code>, <code>4</code>, and <code>5</code> correspond to minmod, monotonized central, Van Albada, Van Leer, and SUPERBEE, respectively.</li>
+<li><code>int_comp</code> activates interface compression using THINC used in MUSCL Reconstruction, with control parameters (<code>ic_eps</code>, and <code>ic_beta</code>).</li>
+<li><code>riemann_solver</code> specifies the choice of the Riemann solver that is used in simulation by an integer from 1 through 4. <code>riemann_solver = 1</code>, <code>2</code>, and <code>3</code> correspond to HLL, HLLC, and Exact Riemann solver, respectively (<a class="el" href="md_references.html">Toro, 2013</a>). <code>riemann_solver = 4</code> is only for MHD simulations. It resolves 5 of the full seven-wave structure of the MHD equations (<a class="el" href="md_references.html">Miyoshi and Kusano, 2005</a>).</li>
 <li><code>low_Mach</code> specifies the choice of the low Mach number correction scheme for the HLLC Riemann solver. <code>low_Mach = 0</code> is default value and does not apply any correction scheme. <code>low_Mach = 1</code> and <code>2</code> apply the anti-dissipation pressure correction method (<a class="el" href="md_references.html">Chen et al., 2022</a>) and the improved velocity reconstruction method (<a class="el" href="md_references.html">Thornber et al., 2008</a>). This feature requires <code>model_eqns = 2</code> or <code>3</code>. <code>low_Mach = 1</code> works for <code>riemann_solver = 1</code> and <code>2</code>, but <code>low_Mach = 2</code> only works for <code>riemann_solver = 2</code>.</li>
 <li><code>avg_state</code> specifies the choice of the method to compute averaged variables at the cell-boundaries from the left and the right states in the Riemann solver by an integer of 1 or 2. <code>avg_state = 1</code> and <code>2</code> correspond to Roe- and arithmetic averages, respectively.</li>
 <li><code>wave_speeds</code> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <code>wave_speeds = 1</code> and <code>2</code> correspond to the direct method (<a class="el" href="md_references.html">Batten et al., 1997</a>), and indirect method that approximates the pressures and velocity (<a class="el" href="md_references.html">Toro, 2013</a>), respectively.</li>

@@ -12,6 +12,7 @@ var m__checker__common_8fpp_8f90 =
     [ "m_checker_common::s_check_inputs_mhd", "namespacem__checker__common.html#a970fc65314cddafcf0102f416d66f4ce", null ],
     [ "m_checker_common::s_check_inputs_model_eqns_and_num_fluids", "namespacem__checker__common.html#a68304b96a2df65e461a7cfbca6b6bd01", null ],
     [ "m_checker_common::s_check_inputs_moving_bc", "namespacem__checker__common.html#ac720d2624a3a195282a578f567830432", null ],
+    [ "m_checker_common::s_check_inputs_muscl", "namespacem__checker__common.html#a799f031bb6612816625d841ba4e19e00", null ],
     [ "m_checker_common::s_check_inputs_phase_change", "namespacem__checker__common.html#aaf5d0bed53807e600991f52f8d75c1b5", null ],
     [ "m_checker_common::s_check_inputs_qbmm_and_polydisperse", "namespacem__checker__common.html#a10215566de1fcb267572be90fdf5d31a", null ],
     [ "m_checker_common::s_check_inputs_simulation_domain", "namespacem__checker__common.html#ab25376cf36f85affad64b168ac1362df", null ],
