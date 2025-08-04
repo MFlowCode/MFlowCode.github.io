@@ -168,6 +168,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aaaf67304fb1174d9874c8ba243b4ca4d" id="r_aaaf67304fb1174d9874c8ba243b4ca4d"><td class="memItemLeft" align="right" valign="top">pure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaaf67304fb1174d9874c8ba243b4ca4d">s_derive_qm</a> (q_prim_vf, q_sf)</td></tr>
 <tr class="memdesc:aaaf67304fb1174d9874c8ba243b4ca4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gets as inputs the primitive variables. From those inputs, it proceeds to calculate the value of the Q_M function, which are subsequently stored in the derived flow quantity storage variable, q_sf.  <br /></td></tr>
 <tr class="separator:aaaf67304fb1174d9874c8ba243b4ca4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b62ebc7a990612b539c29a6b07667aa" id="r_a3b62ebc7a990612b539c29a6b07667aa"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b62ebc7a990612b539c29a6b07667aa">s_derive_liutex</a> (q_prim_vf, liutex_mag, liutex_axis)</td></tr>
+<tr class="memdesc:a3b62ebc7a990612b539c29a6b07667aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gets as inputs the primitive variables. From those inputs, it proceeds to calculate the Liutex vector and its magnitude based on Xu et al. (2019).  <br /></td></tr>
+<tr class="separator:a3b62ebc7a990612b539c29a6b07667aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3dc133ba9fba88ec6fbfa312760d018" id="r_ac3dc133ba9fba88ec6fbfa312760d018"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3dc133ba9fba88ec6fbfa312760d018">s_derive_numerical_schlieren_function</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_sf)</td></tr>
 <tr class="memdesc:ac3dc133ba9fba88ec6fbfa312760d018"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gets as inputs the conservative variables and density. From those inputs, it proceeds to calculate the values of the numerical Schlieren function, which are subsequently stored in the derived flow quantity storage variable, q_sf.  <br /></td></tr>
 <tr class="separator:ac3dc133ba9fba88ec6fbfa312760d018"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -268,6 +271,49 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_a12f774c56cea42de68a019c77c632b59_icgraph.svg" width="552" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3b62ebc7a990612b539c29a6b07667aa" name="a3b62ebc7a990612b539c29a6b07667aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b62ebc7a990612b539c29a6b07667aa">&#9670;&#160;</a></span>s_derive_liutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_derived_variables::s_derive_liutex </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-<a class="el" href="namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e">offset_x</a>%beg:m + <a class="el" href="namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e">offset_x</a>%end,                       -<a class="el" href="namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036">offset_y</a>%beg:n + <a class="el" href="namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036">offset_y</a>%end,                       -<a class="el" href="namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06">offset_z</a>%beg:p + <a class="el" href="namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06">offset_z</a>%end), intent(out)</td>          <td class="paramname"><span class="paramname"><em>liutex_mag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-<a class="el" href="namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e">offset_x</a>%beg:m + <a class="el" href="namespacem__global__parameters.html#a9909e93a618d47198fd0f80246c25a3e">offset_x</a>%end,                       -<a class="el" href="namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036">offset_y</a>%beg:n + <a class="el" href="namespacem__global__parameters.html#a2379eaf3cadb1088109eb3bdd8ce2036">offset_y</a>%end,                       -<a class="el" href="namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06">offset_z</a>%beg:p + <a class="el" href="namespacem__global__parameters.html#ab89002e709bc1eba6703aa37c68d0d06">offset_z</a>%end, nm), intent(out)</td>          <td class="paramname"><span class="paramname"><em>liutex_axis</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This subroutine gets as inputs the primitive variables. From those inputs, it proceeds to calculate the Liutex vector and its magnitude based on Xu et al. (2019). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">liutex_mag</td><td>Liutex magnitude </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">liutex_axis</td><td>Liutex axis </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">liutex_mag</td><td>Liutex magnitude </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">liutex_axis</td><td>Liutex rigid rotation axis </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__derived__variables_a3b62ebc7a990612b539c29a6b07667aa_icgraph.svg" width="520" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

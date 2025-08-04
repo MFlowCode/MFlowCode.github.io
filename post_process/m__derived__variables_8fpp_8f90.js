@@ -2,6 +2,7 @@ var m__derived__variables_8fpp_8f90 =
 [
     [ "m_derived_variables::s_derive_flux_limiter", "namespacem__derived__variables.html#ab957ca125f5539b9112c2d4940cdb31f", null ],
     [ "m_derived_variables::s_derive_liquid_stiffness", "namespacem__derived__variables.html#a12f774c56cea42de68a019c77c632b59", null ],
+    [ "m_derived_variables::s_derive_liutex", "namespacem__derived__variables.html#a3b62ebc7a990612b539c29a6b07667aa", null ],
     [ "m_derived_variables::s_derive_numerical_schlieren_function", "namespacem__derived__variables.html#ac3dc133ba9fba88ec6fbfa312760d018", null ],
     [ "m_derived_variables::s_derive_qm", "namespacem__derived__variables.html#aaaf67304fb1174d9874c8ba243b4ca4d", null ],
     [ "m_derived_variables::s_derive_sound_speed", "namespacem__derived__variables.html#a5339801c6ab6dcaed1b24d33e23d2165", null ],

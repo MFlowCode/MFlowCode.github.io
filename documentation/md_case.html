@@ -705,22 +705,24 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>qm_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>liutex_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the Liutex to the database    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>tau_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Add the elastic stress components to the database    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>fd_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>schlieren_alpha(i)</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <code>alpha(i)</code>    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>probe_wrt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>num_probes</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of probes    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>probe(i)%[x,y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Coordinates of probe $i$    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>output_partial_domain</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output part of the domain    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>[x,y,z]_outputbeg</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction    </td></tr>
+<td class="markdownTableBodyRight"><code>output_partial_domain</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Output part of the domain    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>[x,y,z]_outputbeg</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>[x,y,z]_outputend</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction   </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
@@ -734,7 +736,7 @@ Adaptive Time-Stepping</h4>
 <li><code>schlieren_alpha(i)</code> specifies the intensity of the numerical Schlieren of $i$-th component.</li>
 <li><code>fd_order</code> specifies the order of the finite difference scheme used to compute the vorticity from the velocity field and the numerical schlieren from the density field using an integer of 1, 2, and 4. <code>fd_order = 1</code>, <code>2</code>, and <code>4</code> correspond to the first, second, and fourth-order finite difference schemes.</li>
 <li><code>probe_wrt</code> activates the output of state variables at coordinates specified by <code>probe(i)%[x;y,z]</code>.</li>
-<li><code>output_partial_domain</code> activates the output of part of the domain specified by <code>[x,y,z]_outputbeg</code> and <code>[x,y,z]_outputend</code>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <code>precision = 1</code> and <code>format = 1</code>. It also cannot be enabled with <code>flux_wrt</code>, <code>heat_ratio_wrt</code>, <code>pres_inf_wrt</code>, <code>c_wrt</code>, <code>omega_wrt</code>, <code>ib</code>, <code>schlieren_wrt</code>, or <code>qm_wrt</code>.</li>
+<li><code>output_partial_domain</code> activates the output of part of the domain specified by <code>[x,y,z]_outputbeg</code> and <code>[x,y,z]_outputend</code>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <code>precision = 1</code> and <code>format = 1</code>. It also cannot be enabled with <code>flux_wrt</code>, <code>heat_ratio_wrt</code>, <code>pres_inf_wrt</code>, <code>c_wrt</code>, <code>omega_wrt</code>, <code>ib</code>, <code>schlieren_wrt</code>, <code>qm_wrt</code>, or 'liutex_wrt'.</li>
 </ul>
 <h2><a class="anchor" id="acoustic-source"></a>
 8. Acoustic Source</h2>

@@ -132,13 +132,13 @@ var namespaces_dup =
       [ "s_get_cwd", "namespacem__compile__specific.html#a73c98d7d55ae5bdadd796d953752c50b", null ]
     ] ],
     [ "m_compute_levelset", "namespacem__compute__levelset.html", [
-      [ "s_3d_airfoil_levelset", "namespacem__compute__levelset.html#af9c8ead8f96b78d4cd8dfb60605c204a", null ],
-      [ "s_airfoil_levelset", "namespacem__compute__levelset.html#ae80c1c0cd48547b61669af2dca9305fb", null ],
-      [ "s_circle_levelset", "namespacem__compute__levelset.html#a14193636474dad16733697b882b43bf9", null ],
-      [ "s_cuboid_levelset", "namespacem__compute__levelset.html#abfe007b63e4dadb02ac4e9a217aee29c", null ],
-      [ "s_cylinder_levelset", "namespacem__compute__levelset.html#a9f33cd7b2ff3dbdece6409049f06c586", null ],
-      [ "s_rectangle_levelset", "namespacem__compute__levelset.html#abd6776c7669fbfd57619860b4ff72a2d", null ],
-      [ "s_sphere_levelset", "namespacem__compute__levelset.html#a8a633446889e943f0c9fe2c0ec4d5380", null ]
+      [ "s_3d_airfoil_levelset", "namespacem__compute__levelset.html#a76f29847323e54f6c4be32e38cf3bd0f", null ],
+      [ "s_airfoil_levelset", "namespacem__compute__levelset.html#ab3efdf5d98f59bab1048476ac07343e0", null ],
+      [ "s_circle_levelset", "namespacem__compute__levelset.html#a8c0292014d30a571af461c3b9f83ce22", null ],
+      [ "s_cuboid_levelset", "namespacem__compute__levelset.html#a788b59616d8bb6246eef3919b1652531", null ],
+      [ "s_cylinder_levelset", "namespacem__compute__levelset.html#a5cbcd2009672a68d700f13001f55753c", null ],
+      [ "s_rectangle_levelset", "namespacem__compute__levelset.html#a91a341850fcf15495b14015296599a37", null ],
+      [ "s_sphere_levelset", "namespacem__compute__levelset.html#aec87c27e7298c22e8e591c5d4dc4fd07", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "acoustic_spatial_support_width", "namespacem__constants.html#a92bc4d3446d8473183e165116932778f", null ],
@@ -282,6 +282,7 @@ var namespaces_dup =
       [ "cyl_coord", "namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c", null ],
       [ "damage_idx", "namespacem__global__parameters.html#a9b62d10b1daae13c7f40d7bf39a5c1c3", null ],
       [ "dist_type", "namespacem__global__parameters.html#a34297551dccfd5771f543ff8902042bc", null ],
+      [ "down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
       [ "dx", "namespacem__global__parameters.html#a742174580da5b9b325a2f00c24aca536", null ],
       [ "dy", "namespacem__global__parameters.html#a380743bc7a4af4ab7143cb0c8679d972", null ],
       [ "dz", "namespacem__global__parameters.html#a29818b2dd42d5384d99765393d965049", null ],
@@ -351,7 +352,7 @@ var namespaces_dup =
       [ "n_start", "namespacem__global__parameters.html#a40705646cad72f98e2b1c05d9d23329a", null ],
       [ "n_start_old", "namespacem__global__parameters.html#a5a8e4066c133714d5ffad8beb1b98149", null ],
       [ "nb", "namespacem__global__parameters.html#ad76c4758994b52559f478d251dc0cba5", null ],
-      [ "nglobal", "namespacem__global__parameters.html#a58143d8d3f8549f5fc87559074fae12b", null ],
+      [ "nglobal", "namespacem__global__parameters.html#afdeeb5a77c2db5d602e79f7fd4bd26d8", null ],
       [ "nmom", "namespacem__global__parameters.html#ac3fd452ac5e7b6b4a094dccb59ea476b", null ],
       [ "non_axis_sym", "namespacem__global__parameters.html#a35b233c1a1324bdcd462ac3a1bb8bd45", null ],
       [ "np", "namespacem__global__parameters.html#ad50d987f0c26b5e1af27a3d883db988b", null ],
@@ -471,6 +472,7 @@ var namespaces_dup =
       [ "factorial", "namespacem__helper.html#a0cf8030408f5ac3a9cf996769d227f4e", null ],
       [ "s_comp_n_from_cons", "namespacem__helper.html#a0a36e69f1a89adce98dd4011e60809a3", null ],
       [ "s_comp_n_from_prim", "namespacem__helper.html#a5299b7b375a1c47d79dbe2053210b4ff", null ],
+      [ "s_downsample_data", "namespacem__helper.html#adf827c606652ea511bd0befcc9164c03", null ],
       [ "s_initialize_nonpoly", "namespacem__helper.html#a23ee37a0676e042dc2a2754df0c21f52", null ],
       [ "s_int_to_str", "namespacem__helper.html#a6b74248bdd19bc6b0b43f757a3212275", null ],
       [ "s_print_2d_array", "namespacem__helper.html#abbd5b22c98850611aad33bc330a4691d", null ],
@@ -480,6 +482,7 @@ var namespaces_dup =
       [ "s_transform_model", "namespacem__helper.html#a7a16907fa17bb126b2d32fe425f184db", null ],
       [ "s_transform_triangle", "namespacem__helper.html#a85cd0366d9a4adb1021d51e43c751568", null ],
       [ "s_transform_vec", "namespacem__helper.html#a3ee9f718587c72c1a90eceb0afc4a238", null ],
+      [ "s_upsample_data", "namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629", null ],
       [ "spherical_harmonic_func", "namespacem__helper.html#a475f9d231de3550d64d274bd96a5ee92", null ],
       [ "unassociated_legendre", "namespacem__helper.html#a04fec6aab97dff0a14c6a7236728be1e", null ]
     ] ],
@@ -489,7 +492,7 @@ var namespaces_dup =
       [ "f_approx_in_array", "namespacem__helper__basic.html#a369aba14f5888ee29e17199525655efe", null ],
       [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
       [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
-      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a06946e8943e3955a57d083cc2d5ec182", null ],
+      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a55f2977c8dbee7cd0cabaa9583fa5103", null ],
       [ "s_update_cell_bounds", "namespacem__helper__basic.html#a136fdea4dc45a54a616248d66f4bc29e", null ]
     ] ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
@@ -536,6 +539,7 @@ var namespaces_dup =
       [ "s_finalize_mpi_common_module", "namespacem__mpi__common.html#ab9e557649b1fca986ee793073abae4d4", null ],
       [ "s_initialize_mpi_common_module", "namespacem__mpi__common.html#a056c92bf55bd24a6cb43936abd313f4e", null ],
       [ "s_initialize_mpi_data", "namespacem__mpi__common.html#a2b579eba6293e56232ba5129614b5a18", null ],
+      [ "s_initialize_mpi_data_ds", "namespacem__mpi__common.html#a564644bad898d940dc6caea3297bb424", null ],
       [ "s_mpi_abort", "namespacem__mpi__common.html#a04cfc0bdb377a0ce2f9fd478e4bb3807", null ],
       [ "s_mpi_allreduce_max", "namespacem__mpi__common.html#a65728020613f88febe83c74836abb371", null ],
       [ "s_mpi_allreduce_min", "namespacem__mpi__common.html#a40f3c1242840a184d017acef92cce7d4", null ],

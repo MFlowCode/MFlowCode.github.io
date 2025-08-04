@@ -122,96 +122,99 @@ var NAVTREE =
       [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md72", [
         [ "Initial Condition and Result", "md_examples.html#autotoc_md73", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md74", [
-        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md75", null ]
+      [ "3D Turbulent Mixing layer (3D)", "md_examples.html#autotoc_md74", [
+        [ "Liutex visualization at transitional state", "md_examples.html#autotoc_md75", null ]
       ] ],
-      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md76", [
-        [ "Final Condition", "md_examples.html#autotoc_md77", null ]
+      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md76", [
+        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md77", null ]
       ] ],
-      [ "Gas Jet (2D)", "md_examples.html#autotoc_md78", [
+      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md78", [
         [ "Final Condition", "md_examples.html#autotoc_md79", null ]
       ] ],
-      [ "1D Multi-Component Inert Shock Tube", "md_examples.html#autotoc_md80", [
-        [ "Initial Condition", "md_examples.html#autotoc_md81", null ],
-        [ "Results", "md_examples.html#autotoc_md82", null ]
+      [ "Gas Jet (2D)", "md_examples.html#autotoc_md80", [
+        [ "Final Condition", "md_examples.html#autotoc_md81", null ]
       ] ],
-      [ "2D IBM CFL dt (2D)", "md_examples.html#autotoc_md83", [
-        [ "Result", "md_examples.html#autotoc_md84", null ]
+      [ "1D Multi-Component Inert Shock Tube", "md_examples.html#autotoc_md82", [
+        [ "Initial Condition", "md_examples.html#autotoc_md83", null ],
+        [ "Results", "md_examples.html#autotoc_md84", null ]
+      ] ],
+      [ "2D IBM CFL dt (2D)", "md_examples.html#autotoc_md85", [
+        [ "Result", "md_examples.html#autotoc_md86", null ]
       ] ]
     ] ],
     [ "Performance", "md_expectedPerformance.html", [
-      [ "Figure of merit: Grind time performance", "md_expectedPerformance.html#autotoc_md86", null ],
-      [ "Weak scaling", "md_expectedPerformance.html#autotoc_md87", [
-        [ "AMD MI250X GPU", "md_expectedPerformance.html#autotoc_md88", null ],
-        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md89", null ],
-        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md90", null ]
+      [ "Figure of merit: Grind time performance", "md_expectedPerformance.html#autotoc_md88", null ],
+      [ "Weak scaling", "md_expectedPerformance.html#autotoc_md89", [
+        [ "AMD MI250X GPU", "md_expectedPerformance.html#autotoc_md90", null ],
+        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md91", null ],
+        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md92", null ]
       ] ],
-      [ "Strong scaling", "md_expectedPerformance.html#autotoc_md91", [
-        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md92", [
-          [ "16M Grid Points", "md_expectedPerformance.html#autotoc_md93", null ],
-          [ "64M Grid Points", "md_expectedPerformance.html#autotoc_md94", null ]
+      [ "Strong scaling", "md_expectedPerformance.html#autotoc_md93", [
+        [ "NVIDIA V100 GPU", "md_expectedPerformance.html#autotoc_md94", [
+          [ "16M Grid Points", "md_expectedPerformance.html#autotoc_md95", null ],
+          [ "64M Grid Points", "md_expectedPerformance.html#autotoc_md96", null ]
         ] ],
-        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md95", null ]
+        [ "IBM Power9 CPU", "md_expectedPerformance.html#autotoc_md97", null ]
       ] ]
     ] ],
     [ "Getting Started", "md_getting-started.html", [
-      [ "Fetching MFC", "md_getting-started.html#autotoc_md97", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md98", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md99", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md100", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md101", null ]
+      [ "Fetching MFC", "md_getting-started.html#autotoc_md99", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md100", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md101", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md102", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md103", null ]
     ] ],
     [ "Debugging Tools and Tips for GPUs", "md_gpuDebugging.html", [
-      [ "Compiler agnostic tools", "md_gpuDebugging.html#autotoc_md103", null ],
-      [ "OpenMP tools", "md_gpuDebugging.html#autotoc_md104", null ],
-      [ "Cray Compiler Tools", "md_gpuDebugging.html#autotoc_md105", [
-        [ "Cray General Options", "md_gpuDebugging.html#autotoc_md106", null ],
-        [ "Cray OpenACC Options", "md_gpuDebugging.html#autotoc_md107", null ]
+      [ "Compiler agnostic tools", "md_gpuDebugging.html#autotoc_md105", null ],
+      [ "OpenMP tools", "md_gpuDebugging.html#autotoc_md106", null ],
+      [ "Cray Compiler Tools", "md_gpuDebugging.html#autotoc_md107", [
+        [ "Cray General Options", "md_gpuDebugging.html#autotoc_md108", null ],
+        [ "Cray OpenACC Options", "md_gpuDebugging.html#autotoc_md109", null ]
       ] ],
-      [ "NVHPC Compiler Options", "md_gpuDebugging.html#autotoc_md108", [
-        [ "NVHPC General Options", "md_gpuDebugging.html#autotoc_md109", null ],
-        [ "NVHPC OpenACC Options", "md_gpuDebugging.html#autotoc_md110", null ],
-        [ "NVHPC OpenMP Options", "md_gpuDebugging.html#autotoc_md111", null ]
+      [ "NVHPC Compiler Options", "md_gpuDebugging.html#autotoc_md110", [
+        [ "NVHPC General Options", "md_gpuDebugging.html#autotoc_md111", null ],
+        [ "NVHPC OpenACC Options", "md_gpuDebugging.html#autotoc_md112", null ],
+        [ "NVHPC OpenMP Options", "md_gpuDebugging.html#autotoc_md113", null ]
       ] ],
-      [ "Compiler Documentation", "md_gpuDebugging.html#autotoc_md112", null ]
+      [ "Compiler Documentation", "md_gpuDebugging.html#autotoc_md114", null ]
     ] ],
     [ "GPU Parallelization", "md_gpuParallelization.html", [
-      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md115", [
-        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md116", null ],
-        [ "Data Flow", "md_gpuParallelization.html#autotoc_md117", null ],
-        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md119", null ],
-        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md121", null ],
-        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md123", null ],
-        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md125", null ]
+      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md117", [
+        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md118", null ],
+        [ "Data Flow", "md_gpuParallelization.html#autotoc_md119", null ],
+        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md121", null ],
+        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md123", null ],
+        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md125", null ],
+        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md127", null ]
       ] ]
     ] ],
     [ "Papers", "md_papers.html", null ],
     [ "Documentation", "md_readme.html", [
-      [ "User Documentation", "md_readme.html#autotoc_md129", null ],
-      [ "Code/API Documentation", "md_readme.html#autotoc_md130", null ]
+      [ "User Documentation", "md_readme.html#autotoc_md131", null ],
+      [ "Code/API Documentation", "md_readme.html#autotoc_md132", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md133", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md134", [
-        [ "GPU Profiling", "md_running.html#autotoc_md135", [
-          [ "NVIDIA GPUs", "md_running.html#autotoc_md136", null ],
-          [ "AMD GPUs", "md_running.html#autotoc_md137", null ]
+      [ "Interactive Execution", "md_running.html#autotoc_md135", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md136", [
+        [ "GPU Profiling", "md_running.html#autotoc_md137", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md138", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md139", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md138", null ],
-        [ "Example Runs", "md_running.html#autotoc_md139", null ]
+        [ "Restarting Cases", "md_running.html#autotoc_md140", null ],
+        [ "Example Runs", "md_running.html#autotoc_md141", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md146", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md147", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md148", [
-        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md144", null ],
-        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md145", null ],
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md149", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md150", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md151", null ]
+      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md148", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md149", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md150", [
+        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md146", null ],
+        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md147", null ],
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md151", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md152", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md153", null ]
       ] ]
     ] ]
   ] ]

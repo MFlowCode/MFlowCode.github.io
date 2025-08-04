@@ -10,7 +10,7 @@ var searchData=
   ['name_5flen_7',['name_len',['../namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757',1,'m_constants']]],
   ['nb_8',['nb',['../namespacem__global__parameters.html#ad76c4758994b52559f478d251dc0cba5',1,'m_global_parameters']]],
   ['nbubs_5fglb_9',['nbubs_glb',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a661aecd7b1fff55ec587900cc15c9f3e',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['nglobal_10',['nglobal',['../namespacem__global__parameters.html#a58143d8d3f8549f5fc87559074fae12b',1,'m_global_parameters']]],
+  ['nglobal_10',['nglobal',['../namespacem__global__parameters.html#afdeeb5a77c2db5d602e79f7fd4bd26d8',1,'m_global_parameters']]],
   ['nmom_11',['nmom',['../namespacem__global__parameters.html#ac3fd452ac5e7b6b4a094dccb59ea476b',1,'m_global_parameters']]],
   ['nnode_12',['nnode',['../namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd',1,'m_constants']]],
   ['non_5faxis_5fsym_13',['non_axis_sym',['../structm__derived__types_1_1ic__patch__parameters.html#a49998b4b26dbc45fc65b4b66b1c8336c',1,'m_derived_types::ic_patch_parameters']]],
