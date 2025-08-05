@@ -30,5 +30,5 @@ var searchData=
   ['sub_20grid_20bubble_20models_27',['9. Sub-grid Bubble Models',['../md_case.html#autotoc_md20',1,'']]],
   ['suite_28',['Running the Test Suite',['../md_getting-started.html#autotoc_md102',1,'']]],
   ['supports_29',['Acoustic Supports',['../md_case.html#acoustic-supports',1,'']]],
-  ['synchronization_20macros_30',['Synchronization Macros',['../md_gpuParallelization.html#autotoc_md125',1,'']]]
+  ['synchronization_20macros_30',['Synchronization Macros',['../md_gpuParallelization.html#autotoc_md114',1,'']]]
 ];

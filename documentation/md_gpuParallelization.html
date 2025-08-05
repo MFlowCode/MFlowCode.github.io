@@ -135,16 +135,16 @@ $(function(){initNavTree('md_gpuParallelization.html',''); initResizable(true); 
   <div class="headertitle"><div class="title">GPU Parallelization</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md115"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md104"></a></p>
 <p>MFC compiles GPU code via OpenACC and in the future OpenMP as well.</p>
 <p>In order to swap between OpenACC and OpenMP, custom GPU macros are used that translate to equivalent OpenACC and OpenMP directives. FYPP is used to process the GPU macros.</p>
 <p><a href="https://openacc-best-practices-guide.readthedocs.io/en/latest/01-Introduction.html">OpenACC Quick start Guide</a></p>
 <p><a href="https://www.openacc.org/sites/default/files/inline-files/API%20Guide%202.7.pdf">OpenACC API Documentation</a></p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md117"></a>
+<h1><a class="anchor" id="autotoc_md106"></a>
 Macro API Documentation</h1>
 <p>Note: Ordering is not guaranteed or stable, so use key-value pairing when using macros</p>
-<h2><a class="anchor" id="autotoc_md118"></a>
+<h2><a class="anchor" id="autotoc_md107"></a>
 Data Type Meanings</h2>
 <ul>
 <li>Integer is a number</li>
@@ -158,7 +158,7 @@ Data Type Meanings</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md119"></a>
+<h2><a class="anchor" id="autotoc_md108"></a>
 Data Flow</h2>
 <ul>
 <li>Data on the GPU has a reference counter</li>
@@ -168,7 +168,7 @@ Data Flow</h2>
 <li>When data is referred to being detached, it means that the attachment counter is decremented. If attachment counter is zero, then actually detached</li>
 </ul>
 <hr  />
-<h2><a class="anchor" id="autotoc_md121"></a>
+<h2><a class="anchor" id="autotoc_md110"></a>
 Computation Macros</h2>
 <details >
 <summary >
@@ -359,7 +359,7 @@ Computation Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h2><a class="anchor" id="autotoc_md123"></a>
+<h2><a class="anchor" id="autotoc_md112"></a>
 Data Control Macros</h2>
 <details >
 <summary >
@@ -573,7 +573,7 @@ Data Control Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h2><a class="anchor" id="autotoc_md125"></a>
+<h2><a class="anchor" id="autotoc_md114"></a>
 Synchronization Macros</h2>
 <details >
 <summary >
@@ -646,7 +646,7 @@ Synchronization Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h2><a class="anchor" id="autotoc_md127"></a>
+<h2><a class="anchor" id="autotoc_md116"></a>
 Miscellaneous Macros</h2>
 <details >
 <summary >
@@ -709,7 +709,159 @@ Miscellaneous Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
- </div></div><!-- contents -->
+<h1><a class="anchor" id="autotoc_md118"></a>
+Debugging Tools and Tips for GPUs</h1>
+<h2><a class="anchor" id="autotoc_md119"></a>
+Compiler agnostic tools</h2>
+<h2><a class="anchor" id="autotoc_md120"></a>
+OpenMP tools</h2>
+<div class="fragment"><div class="line">OMP_DISPLAY_ENV=true | false | verbose</div>
+</div><!-- fragment --><ul>
+<li>Prints out the internal control values and environment variables at the beginning of the program if <code>true</code> or <code>verbose</code></li>
+<li><code>verbose</code> will also print out vendor-specific internal control values and environment variables</li>
+</ul>
+<div class="fragment"><div class="line">OMP_TARGET_OFFLOAD = MANDATORY | DISABLED | DEFAULT</div>
+</div><!-- fragment --><ul>
+<li>Quick way to turn off off-load (<code>DISABLED</code>) or make it abort if a GPU isn't found (<code>MANDATORY</code>)</li>
+<li>Great first test: does the problem disappear when you drop back to the CPU?</li>
+</ul>
+<div class="fragment"><div class="line">OMP_THREAD_LIMIT=&lt;positive_integer&gt;</div>
+</div><!-- fragment --><ul>
+<li>Sets the maximum number of OpenMP threads to use in a contention group</li>
+<li>Might be useful in checking for issues with contention or race conditions</li>
+</ul>
+<div class="fragment"><div class="line">OMP_DISPLAY_AFFINITY=TRUE</div>
+</div><!-- fragment --><ul>
+<li>Will display affinity bindings for each OpenMP thread, containing hostname, process identifier, OS thread identifier, OpenMP thread identifier, and affinity binding.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md121"></a>
+Cray Compiler Tools</h2>
+<h3><a class="anchor" id="autotoc_md122"></a>
+Cray General Options</h3>
+<div class="fragment"><div class="line">CRAY_ACC_DEBUG: 0 (off), 1, 2, 3 (very noisy)</div>
+</div><!-- fragment --><ul>
+<li>Dumps a time-stamped log line (<code>ACC: ...</code>) for every allocation, data transfer, kernel launch, wait, etc. Great first stop when "nothing seems to run on the GPU".</li>
+<li>Outputs on STDERR by default. Can be changed by setting <code>CRAY_ACC_DEBUG_FILE</code>.<ul>
+<li>Recognizes <code>stderr</code>, <code>stdout</code>, and <code>process</code>.</li>
+<li><code>process</code> automatically generates a new file based on <code>pid</code> (each MPI process will have a different file)</li>
+</ul>
+</li>
+<li>While this environment variable specifies ACC, it can be used for both OpenACC and OpenMP</li>
+</ul>
+<div class="fragment"><div class="line">CRAY_ACC_FORCE_EARLY_INIT=1</div>
+</div><!-- fragment --><ul>
+<li>Force full GPU initialization at program start so you can see start-up hangs immediately</li>
+<li>Default behavior without an environment variable is to defer initialization on first use</li>
+<li>Device initialization includes initializing the GPU vendor’s low-level device runtime library (e.g., libcuda for NVIDIA GPUs) and establishing all necessary software contexts for interacting with the device</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md123"></a>
+Cray OpenACC Options</h3>
+<div class="fragment"><div class="line">CRAY_ACC_PRESENT_DUMP_SAVE_NAMES=1</div>
+</div><!-- fragment --><ul>
+<li>Will cause <code>acc_present_dump()</code> to output variable names and file locations in addition to variable mappings</li>
+<li>Add <code>acc_present_dump()</code> around hotspots to help find problems with data movements<ul>
+<li>Helps more if adding <code>CRAY_ACC_DEBUG</code> environment variable</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md124"></a>
+NVHPC Compiler Options</h2>
+<h3><a class="anchor" id="autotoc_md125"></a>
+NVHPC General Options</h3>
+<div class="fragment"><div class="line">STATIC_RANDOM_SEED=1</div>
+</div><!-- fragment --><ul>
+<li>Forces the seed returned by <code>RANDOM_SEED</code> to be constant, so it generates the same sequence of random numbers</li>
+<li>Useful for testing issues with randomized data</li>
+</ul>
+<div class="fragment"><div class="line">NVCOMPILER_TERM=option[,option]</div>
+</div><!-- fragment --><ul>
+<li><code>[no]debug</code>: Enables/disables just-in-time debugging (debugging invoked on error)</li>
+<li><code>[no]trace</code>: Enables/disables stack traceback on error</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md126"></a>
+NVHPC OpenACC Options</h3>
+<div class="fragment"><div class="line">NVCOMPILER_ACC_NOTIFY= &lt;bitmask&gt;</div>
+</div><!-- fragment --><ul>
+<li>Assign the environment variable to a bitmask to print out information to stderr for the following<ul>
+<li>kernel launches: 1</li>
+<li>data transfers: 2</li>
+<li>region entry/exit: 4</li>
+<li>wait operation of synchronizations with the device: 8</li>
+<li>device memory allocations and deallocations: 16</li>
+</ul>
+</li>
+<li>1 (kernels only) is the usual first step.3 (kernels + copies) is great for "why is it so slow?"</li>
+</ul>
+<div class="fragment"><div class="line">NVCOMPILER_ACC_TIME=1</div>
+</div><!-- fragment --><ul>
+<li>Lightweight profiler</li>
+<li>prints a tidy end-of-run table with per-region and per-kernel times and bytes moved</li>
+<li>Do not use with CUDA profiler at the same time</li>
+</ul>
+<div class="fragment"><div class="line">NVCOMPILER_ACC_DEBUG=1</div>
+</div><!-- fragment --><ul>
+<li>Spews everything the runtime sees: host/device addresses, mapping events, present-table look-ups, etc.</li>
+<li>Great for "partially present" or "pointer went missing" errors.</li>
+<li><a href="https://docs.nvidia.com/hpc-sdk/archive/20.9/pdf/hpc209openacc_gs.pdf">Doc for NVCOMPILER_ACC_DEBUG</a><ul>
+<li>Ctrl+F for <code>NVCOMPILER_ACC_DEBUG</code></li>
+</ul>
+</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md127"></a>
+NVHPC OpenMP Options</h3>
+<div class="fragment"><div class="line">LIBOMPTARGET_PROFILE=run.json</div>
+</div><!-- fragment --><ul>
+<li>Emits a Chrome-trace (JSON) timeline you can open in chrome://tracing or Speedscope</li>
+<li>Great lightweight profiler when Nsight is overkill.</li>
+<li>Granularity in µs via <code>LIBOMPTARGET_PROFILE_GRANULARITY</code> (default 500).</li>
+</ul>
+<div class="fragment"><div class="line">LIBOMPTARGET_INFO=&lt;bitmask&gt;</div>
+</div><!-- fragment --><ul>
+<li>Prints out different types of runtime information</li>
+<li>Human-readable log of data-mapping inserts/updates, kernel launches, copies, waits.</li>
+<li>Perfect first stop for "why is nothing copied?"</li>
+<li>Flags<ul>
+<li>Print all data arguments upon entering an OpenMP device kernel: 0x01</li>
+<li>Indicate when a mapped address already exists in the device mapping table: 0x02</li>
+<li>Dump the contents of the device pointer map at kernel exit: 0x04</li>
+<li>Indicate when an entry is changed in the device mapping table: 0x08</li>
+<li>Print OpenMP kernel information from device plugins: 0x10</li>
+<li>Indicate when data is copied to and from the device: 0x20</li>
+</ul>
+</li>
+</ul>
+<div class="fragment"><div class="line">LIBOMPTARGET_DEBUG=1</div>
+</div><!-- fragment --><ul>
+<li>Developer-level trace (host-side)</li>
+<li>Much noisier than <code>INFO</code></li>
+<li>Only works if the runtime was built with <code>-DOMPTARGET_DEBUG</code>.</li>
+</ul>
+<div class="fragment"><div class="line">LIBOMPTARGET_JIT_OPT_LEVEL=-O{0,1,2,3}</div>
+</div><!-- fragment --><ul>
+<li>This environment variable can be used to change the optimization pipeline used to optimize the embedded device code as part of the device JIT.</li>
+<li>The value corresponds to the <code>-O{0,1,2,3}</code> command line argument passed to clang.</li>
+</ul>
+<div class="fragment"><div class="line">LIBOMPTARGET_JIT_SKIP_OPT=1</div>
+</div><!-- fragment --><ul>
+<li>This environment variable can be used to skip the optimization pipeline during JIT compilation.</li>
+<li>If set, the image will only be passed through the backend.</li>
+<li>The backend is invoked with the <code>LIBOMPTARGET_JIT_OPT_LEVEL</code> flag.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md128"></a>
+Compiler Documentation</h2>
+<ul>
+<li><a href="https://cpe.ext.hpe.com/docs/24.11/cce/man7/intro_openmp.7.html#environment-variables">Cray &amp; OpenMP Docs</a></li>
+<li><a href="https://cpe.ext.hpe.com/docs/24.11/cce/man7/intro_openacc.7.html#environment-variables">Cray &amp; OpenACC Docs</a></li>
+<li><a href="https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/index.html?highlight=NVCOMPILER_#environment-variables">NVHPC &amp; OpenACC Docs</a></li>
+<li><a href="https://docs.nvidia.com/hpc-sdk/compilers/hpc-compilers-user-guide/index.html?highlight=NVCOMPILER_#id2">NVHPC &amp; OpenMP Docs</a></li>
+<li><a href="https://openmp.llvm.org/design/Runtimes.html">LLVM &amp; OpenMP Docs</a><ul>
+<li>NVHPC is built on top of LLVM</li>
+</ul>
+</li>
+<li><a href="https://www.openmp.org/spec-html/5.1/openmp.html">OpenMP Docs</a></li>
+<li><a href="https://www.openacc.org/sites/default/files/inline-files/OpenACC.2.7.pdf">OpenACC Docs</a> </li>
+</ul>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- HTML footer for doxygen 1.9.1-->

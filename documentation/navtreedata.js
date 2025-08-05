@@ -164,28 +164,28 @@ var NAVTREE =
       [ "Running the Test Suite", "md_getting-started.html#autotoc_md102", null ],
       [ "Running an Example Case", "md_getting-started.html#autotoc_md103", null ]
     ] ],
-    [ "Debugging Tools and Tips for GPUs", "md_gpuDebugging.html", [
-      [ "Compiler agnostic tools", "md_gpuDebugging.html#autotoc_md105", null ],
-      [ "OpenMP tools", "md_gpuDebugging.html#autotoc_md106", null ],
-      [ "Cray Compiler Tools", "md_gpuDebugging.html#autotoc_md107", [
-        [ "Cray General Options", "md_gpuDebugging.html#autotoc_md108", null ],
-        [ "Cray OpenACC Options", "md_gpuDebugging.html#autotoc_md109", null ]
-      ] ],
-      [ "NVHPC Compiler Options", "md_gpuDebugging.html#autotoc_md110", [
-        [ "NVHPC General Options", "md_gpuDebugging.html#autotoc_md111", null ],
-        [ "NVHPC OpenACC Options", "md_gpuDebugging.html#autotoc_md112", null ],
-        [ "NVHPC OpenMP Options", "md_gpuDebugging.html#autotoc_md113", null ]
-      ] ],
-      [ "Compiler Documentation", "md_gpuDebugging.html#autotoc_md114", null ]
-    ] ],
     [ "GPU Parallelization", "md_gpuParallelization.html", [
-      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md117", [
-        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md118", null ],
-        [ "Data Flow", "md_gpuParallelization.html#autotoc_md119", null ],
-        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md121", null ],
-        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md123", null ],
-        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md125", null ],
-        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md127", null ]
+      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md106", [
+        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md107", null ],
+        [ "Data Flow", "md_gpuParallelization.html#autotoc_md108", null ],
+        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md110", null ],
+        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md112", null ],
+        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md114", null ],
+        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md116", null ]
+      ] ],
+      [ "Debugging Tools and Tips for GPUs", "md_gpuParallelization.html#autotoc_md118", [
+        [ "Compiler agnostic tools", "md_gpuParallelization.html#autotoc_md119", null ],
+        [ "OpenMP tools", "md_gpuParallelization.html#autotoc_md120", null ],
+        [ "Cray Compiler Tools", "md_gpuParallelization.html#autotoc_md121", [
+          [ "Cray General Options", "md_gpuParallelization.html#autotoc_md122", null ],
+          [ "Cray OpenACC Options", "md_gpuParallelization.html#autotoc_md123", null ]
+        ] ],
+        [ "NVHPC Compiler Options", "md_gpuParallelization.html#autotoc_md124", [
+          [ "NVHPC General Options", "md_gpuParallelization.html#autotoc_md125", null ],
+          [ "NVHPC OpenACC Options", "md_gpuParallelization.html#autotoc_md126", null ],
+          [ "NVHPC OpenMP Options", "md_gpuParallelization.html#autotoc_md127", null ]
+        ] ],
+        [ "Compiler Documentation", "md_gpuParallelization.html#autotoc_md128", null ]
       ] ]
     ] ],
     [ "Papers", "md_papers.html", null ],
