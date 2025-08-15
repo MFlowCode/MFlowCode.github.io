@@ -17,6 +17,7 @@ var m__checker_8fpp_8f90 =
     [ "m_checker::s_check_inputs_misc", "namespacem__checker.html#a4a14987dcf7b3ff20915136de95cb2f6", null ],
     [ "m_checker::s_check_inputs_model_eqns", "namespacem__checker.html#a886c16e10613db9388ef8f92554f684a", null ],
     [ "m_checker::s_check_inputs_muscl", "namespacem__checker.html#a96654b50668ae39c0b9eca1426a3fe56", null ],
+    [ "m_checker::s_check_inputs_nvidia_uvm", "namespacem__checker.html#aceda94ae9a006496d062f1e764db5b67", null ],
     [ "m_checker::s_check_inputs_riemann_solver", "namespacem__checker.html#a6d3a9da7c35063469ecc2df03b4c90e1", null ],
     [ "m_checker::s_check_inputs_stiffened_eos_viscosity", "namespacem__checker.html#a45be1868d8f0598be1781280e39078d3", null ],
     [ "m_checker::s_check_inputs_time_stepping", "namespacem__checker.html#a2bee59c2049ad8165e2788175b6cd030", null ],
