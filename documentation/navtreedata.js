@@ -73,79 +73,79 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Example Cases", "md_examples.html", [
-      [ "1D Multi-Component Inert Shock Tube", "md_examples.html#autotoc_md38", [
+      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md38", [
         [ "Initial Condition", "md_examples.html#autotoc_md39", null ],
-        [ "Results", "md_examples.html#autotoc_md40", null ]
+        [ "Result", "md_examples.html#autotoc_md40", null ]
       ] ],
-      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md41", [
-        [ "Initial Condition", "md_examples.html#autotoc_md42", null ],
-        [ "Result", "md_examples.html#autotoc_md43", null ]
+      [ "Gas Jet (2D)", "md_examples.html#autotoc_md41", [
+        [ "Final Condition", "md_examples.html#autotoc_md42", null ]
       ] ],
-      [ "Perfectly Stirred Reactor", "md_examples.html#autotoc_md44", null ],
-      [ "2D Triple Point (2D)", "md_examples.html#autotoc_md45", [
-        [ "Numerical Schlieren at Final Time", "md_examples.html#autotoc_md46", null ]
+      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md43", [
+        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md44", null ]
       ] ],
-      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md47", [
-        [ "Initial Condition", "md_examples.html#autotoc_md48", null ],
-        [ "Result", "md_examples.html#autotoc_md49", null ]
+      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md45", [
+        [ "Weak Scaling", "md_examples.html#autotoc_md46", null ],
+        [ "Strong Scaling", "md_examples.html#autotoc_md47", null ],
+        [ "Example", "md_examples.html#autotoc_md48", null ]
       ] ],
-      [ "2D IBM CFL dt (2D)", "md_examples.html#autotoc_md50", [
-        [ "Result", "md_examples.html#autotoc_md51", null ]
+      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md49", [
+        [ "Initial Condition and Result", "md_examples.html#autotoc_md50", null ]
       ] ],
-      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md52", [
-        [ "Density", "md_examples.html#autotoc_md53", null ],
-        [ "Density Norms", "md_examples.html#autotoc_md54", null ]
+      [ "2D IBM CFL dt (2D)", "md_examples.html#autotoc_md51", [
+        [ "Result", "md_examples.html#autotoc_md52", null ]
       ] ],
-      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md55", [
-        [ "Final Condition", "md_examples.html#autotoc_md56", null ],
-        [ "Centerline Velocities", "md_examples.html#autotoc_md57", null ]
+      [ "Perfectly Stirred Reactor", "md_examples.html#autotoc_md53", null ],
+      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md54", [
+        [ "Final Condition", "md_examples.html#autotoc_md55", null ]
       ] ],
-      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md58", [
-        [ "Weak Scaling", "md_examples.html#autotoc_md59", null ],
-        [ "Strong Scaling", "md_examples.html#autotoc_md60", null ],
-        [ "Example", "md_examples.html#autotoc_md61", null ]
+      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md56", [
+        [ "Initial Condition", "md_examples.html#autotoc_md57", null ],
+        [ "Result", "md_examples.html#autotoc_md58", null ]
       ] ],
-      [ "Backward Facing Step (2D)", "md_examples.html#autotoc_md62", [
-        [ "Final Condition (Density)", "md_examples.html#autotoc_md63", null ]
+      [ "Lid-Driven Cavity Problem (2D)", "md_examples.html#autotoc_md59", [
+        [ "Final Condition", "md_examples.html#autotoc_md60", null ],
+        [ "Centerline Velocities", "md_examples.html#autotoc_md61", null ]
       ] ],
-      [ "Forward Facing Step (2D)", "md_examples.html#autotoc_md64", [
-        [ "Final Condition (Density)", "md_examples.html#autotoc_md65", null ]
+      [ "2D Triple Point (2D)", "md_examples.html#autotoc_md62", [
+        [ "Numerical Schlieren at Final Time", "md_examples.html#autotoc_md63", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md66", [
-        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md67", null ]
+      [ "Shock Droplet (2D)", "md_examples.html#autotoc_md64", [
+        [ "Initial Condition", "md_examples.html#autotoc_md65", null ],
+        [ "Result", "md_examples.html#autotoc_md66", null ]
       ] ],
-      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md68", [
-        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md69", null ]
+      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md67", [
+        [ "Density Initial and Final Conditions", "md_examples.html#autotoc_md68", null ]
       ] ],
-      [ "Gas Jet (2D)", "md_examples.html#autotoc_md70", [
-        [ "Final Condition", "md_examples.html#autotoc_md71", null ]
+      [ "1D Multi-Component Reactive Shock Tube", "md_examples.html#autotoc_md69", [
+        [ "Initial Condition", "md_examples.html#autotoc_md70", null ],
+        [ "Results", "md_examples.html#autotoc_md71", null ]
       ] ],
-      [ "3D Turbulent Mixing layer (3D)", "md_examples.html#autotoc_md72", [
-        [ "Liutex visualization at transitional state", "md_examples.html#autotoc_md73", null ]
+      [ "Backward Facing Step (2D)", "md_examples.html#autotoc_md72", [
+        [ "Final Condition (Density)", "md_examples.html#autotoc_md73", null ]
       ] ],
-      [ "2D Riemann Test (2D)", "md_examples.html#autotoc_md74", [
-        [ "Density Initial and Final Conditions", "md_examples.html#autotoc_md75", null ]
+      [ "Rayleigh-Taylor Instability (2D)", "md_examples.html#autotoc_md74", [
+        [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md75", null ]
       ] ],
-      [ "Taylor-Green Vortex (3D)", "md_examples.html#autotoc_md76", [
+      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md76", [
         [ "Final Condition", "md_examples.html#autotoc_md77", null ]
       ] ],
-      [ "Titarev-Toro problem (1D)", "md_examples.html#autotoc_md78", [
-        [ "Initial Condition", "md_examples.html#autotoc_md79", null ],
-        [ "Result", "md_examples.html#autotoc_md80", null ]
+      [ "Forward Facing Step (2D)", "md_examples.html#autotoc_md78", [
+        [ "Final Condition (Density)", "md_examples.html#autotoc_md79", null ]
       ] ],
-      [ "Lax shock tube problem (1D)", "md_examples.html#autotoc_md81", [
-        [ "Initial Condition", "md_examples.html#autotoc_md82", null ],
-        [ "Result", "md_examples.html#autotoc_md83", null ]
+      [ "1D Multi-Component Inert Shock Tube", "md_examples.html#autotoc_md80", [
+        [ "Initial Condition", "md_examples.html#autotoc_md81", null ],
+        [ "Results", "md_examples.html#autotoc_md82", null ]
       ] ],
-      [ "1D Multi-Component Reactive Shock Tube", "md_examples.html#autotoc_md84", [
-        [ "Initial Condition", "md_examples.html#autotoc_md85", null ],
-        [ "Results", "md_examples.html#autotoc_md86", null ]
+      [ "3D Turbulent Mixing layer (3D)", "md_examples.html#autotoc_md83", [
+        [ "Liutex visualization at transitional state", "md_examples.html#autotoc_md84", null ]
       ] ],
-      [ "IBM Bow Shock (3D)", "md_examples.html#autotoc_md87", [
-        [ "Final Condition", "md_examples.html#autotoc_md88", null ]
+      [ "Shu-Osher problem (1D)", "md_examples.html#autotoc_md85", [
+        [ "Initial Condition", "md_examples.html#autotoc_md86", null ],
+        [ "Result", "md_examples.html#autotoc_md87", null ]
       ] ],
-      [ "2D Hardcodied IC Example", "md_examples.html#autotoc_md89", [
-        [ "Initial Condition and Result", "md_examples.html#autotoc_md90", null ]
+      [ "Isentropic vortex problem (2D)", "md_examples.html#autotoc_md88", [
+        [ "Density", "md_examples.html#autotoc_md89", null ],
+        [ "Density Norms", "md_examples.html#autotoc_md90", null ]
       ] ]
     ] ],
     [ "Performance", "md_expectedPerformance.html", [
