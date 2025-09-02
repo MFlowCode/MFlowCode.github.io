@@ -124,7 +124,7 @@ var searchData=
   ['s_5fcompute_5fviscous_5fsource_5fflux_121',['s_compute_viscous_source_flux',['../namespacem__riemann__solvers.html#a7f2bd0f420c6ce09d6363676d07c3c20',1,'m_riemann_solvers']]],
   ['s_5fcompute_5fviscous_5fstress_5ftensor_122',['s_compute_viscous_stress_tensor',['../namespacem__viscous.html#a8afc814dda0a24bf059badbd8c69de46',1,'m_viscous']]],
   ['s_5fcompute_5fweno_5fcoefficients_123',['s_compute_weno_coefficients',['../namespacem__weno.html#acd4f52b755635cf7b0e75d1352b27b1d',1,'m_weno']]],
-  ['s_5fconfigure_5fcoordinate_5fbounds_124',['s_configure_coordinate_bounds',['../namespacem__helper__basic.html#a55f2977c8dbee7cd0cabaa9583fa5103',1,'m_helper_basic']]],
+  ['s_5fconfigure_5fcoordinate_5fbounds_124',['s_configure_coordinate_bounds',['../namespacem__helper__basic.html#ad942ac3bfa5b260e9688aef1742b2db5',1,'m_helper_basic']]],
   ['s_5fconvert_5fconservative_5fto_5fprimitive_5fvariables_125',['s_convert_conservative_to_primitive_variables',['../namespacem__variables__conversion.html#a7d567315b057c0da0cb37f89ef298031',1,'m_variables_conversion']]],
   ['s_5fconvert_5fmixture_5fto_5fmixture_5fvariables_126',['s_convert_mixture_to_mixture_variables',['../namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847',1,'m_variables_conversion']]],
   ['s_5fconvert_5fprimitive_5fto_5fconservative_5fvariables_127',['s_convert_primitive_to_conservative_variables',['../namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e',1,'m_variables_conversion']]],

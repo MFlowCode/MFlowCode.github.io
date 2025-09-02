@@ -818,7 +818,7 @@ var namespaces_dup =
       [ "f_approx_in_array", "namespacem__helper__basic.html#a369aba14f5888ee29e17199525655efe", null ],
       [ "f_is_default", "namespacem__helper__basic.html#a345e205ced0b0674a22f59a2c1549eb4", null ],
       [ "f_is_integer", "namespacem__helper__basic.html#a8f17ba5c5fd6ae301c3c5ebd3c15dcd3", null ],
-      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a55f2977c8dbee7cd0cabaa9583fa5103", null ],
+      [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#ad942ac3bfa5b260e9688aef1742b2db5", null ],
       [ "s_update_cell_bounds", "namespacem__helper__basic.html#a136fdea4dc45a54a616248d66f4bc29e", null ]
     ] ],
     [ "m_hyperelastic", "namespacem__hyperelastic.html", [

@@ -57,7 +57,7 @@ var searchData=
   ['s_5fcompute_5fq_5ft_5fsf_54',['s_compute_q_t_sf',['../namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9',1,'m_chemistry']]],
   ['s_5fcompute_5fspeed_5fof_5fsound_55',['s_compute_speed_of_sound',['../namespacem__variables__conversion.html#a60ddc6ed73bfdd209a70ceda211e2cf7',1,'m_variables_conversion']]],
   ['s_5fcompute_5ft_5ffrom_5fprimitives_56',['s_compute_t_from_primitives',['../namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f',1,'m_chemistry']]],
-  ['s_5fconfigure_5fcoordinate_5fbounds_57',['s_configure_coordinate_bounds',['../namespacem__helper__basic.html#a55f2977c8dbee7cd0cabaa9583fa5103',1,'m_helper_basic']]],
+  ['s_5fconfigure_5fcoordinate_5fbounds_57',['s_configure_coordinate_bounds',['../namespacem__helper__basic.html#ad942ac3bfa5b260e9688aef1742b2db5',1,'m_helper_basic']]],
   ['s_5fconvert_5fconservative_5fto_5fprimitive_5fvariables_58',['s_convert_conservative_to_primitive_variables',['../namespacem__variables__conversion.html#a7d567315b057c0da0cb37f89ef298031',1,'m_variables_conversion']]],
   ['s_5fconvert_5fmixture_5fto_5fmixture_5fvariables_59',['s_convert_mixture_to_mixture_variables',['../namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847',1,'m_variables_conversion']]],
   ['s_5fconvert_5fprimitive_5fto_5fconservative_5fvariables_60',['s_convert_primitive_to_conservative_variables',['../namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e',1,'m_variables_conversion']]],
