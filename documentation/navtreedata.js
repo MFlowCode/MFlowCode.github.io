@@ -83,7 +83,7 @@ var NAVTREE =
       [ "Rayleigh-Taylor Instability (3D)", "md_examples.html#autotoc_md43", [
         [ "Final Condition and Linear Theory", "md_examples.html#autotoc_md44", null ]
       ] ],
-      [ "Strong- & Weak-scaling", "md_examples.html#autotoc_md45", [
+      [ "Scaling and Performance test", "md_examples.html#autotoc_md45", [
         [ "Weak Scaling", "md_examples.html#autotoc_md46", null ],
         [ "Strong Scaling", "md_examples.html#autotoc_md47", null ],
         [ "Example", "md_examples.html#autotoc_md48", null ]
