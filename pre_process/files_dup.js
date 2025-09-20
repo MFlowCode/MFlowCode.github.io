@@ -27,7 +27,6 @@ var files_dup =
     [ "m_variables_conversion.fpp.f90", "m__variables__conversion_8fpp_8f90.html", "m__variables__conversion_8fpp_8f90" ],
     [ "m_compile_specific.f90", "m__compile__specific_8f90.html", "m__compile__specific_8f90" ],
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
-    [ "m_eigen_solver.f90", "m__eigen__solver_8f90.html", "m__eigen__solver_8f90" ],
     [ "m_nvtx.f90", "m__nvtx_8f90.html", "m__nvtx_8f90" ],
     [ "m_precision_select.f90", "m__precision__select_8f90.html", "m__precision__select_8f90" ],
     [ "m_grid.f90", "m__grid_8f90.html", "m__grid_8f90" ],

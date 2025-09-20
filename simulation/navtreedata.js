@@ -57,13 +57,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__bubbles__el.html#a2c7848b196fd74c2d41369c433f1e179",
-"namespacem__data__output.html#a026c8308a5f15c063d11e2429b3e4d88",
-"namespacem__global__parameters.html#a89fde47fbf14a9c93f6033542fe123db",
-"namespacem__igr.html#ace33dea5cdbbc00d98b15468fe49c64d",
-"namespacem__surface__tension.html#aa56ba2b27af25425940b5173a1c4682b",
-"structm__derived__types_1_1bounds__info.html#a4724a0cc6ee6eeb8df5645908c629dd8",
-"structm__derived__types_1_1ic__patch__parameters.html#af44c2ae97b7e04eb71578f71f7ead51c"
+"namespacem__bubbles__el.html#a380e92c53e3fc9298b7443a4fe7ac7af",
+"namespacem__data__output.html#a10896895bf16822bfb075d0e41d7f028",
+"namespacem__global__parameters.html#a8e98a8bb493c6baf9ecbee1d258bc35b",
+"namespacem__mhd.html#a7bc9fc429870674808183da8e504b426",
+"namespacem__time__steppers.html#a0a0e2da600220776b77722c60ca47176",
+"structm__derived__types_1_1bub__bounds__info.html#a6bed3e7dc94afeeb61216758ecf733dd",
+"structm__derived__types_1_1int__bounds__info.html#a2f7bff2b19ae5b866d64480a1b8cfb2a"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

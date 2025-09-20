@@ -441,16 +441,6 @@ var namespaces_dup =
       [ "y_accel", "namespacem__derived__variables.html#acebd6d60b26f56f9fb5ec801decc9dad", null ],
       [ "z_accel", "namespacem__derived__variables.html#ad6ca466f23d6828af52f82b010b18bc7", null ]
     ] ],
-    [ "m_eigen_solver", "namespacem__eigen__solver.html", [
-      [ "cbabk2", "namespacem__eigen__solver.html#afe5d80a5a6c788da67adda9f6d084990", null ],
-      [ "cbal", "namespacem__eigen__solver.html#a1cf253da760f9e1cdb0c083de7100ec2", null ],
-      [ "cdiv", "namespacem__eigen__solver.html#a17488ee727264ec2f03bba43290108ea", null ],
-      [ "cg", "namespacem__eigen__solver.html#aefb5aec687cc395843bddeaa3fca02da", null ],
-      [ "comqr2", "namespacem__eigen__solver.html#a0554aa8887cd850437debd71f0469bdd", null ],
-      [ "corth", "namespacem__eigen__solver.html#a9d7bdad7cb058473d8a1683a4b399341", null ],
-      [ "csroot", "namespacem__eigen__solver.html#ac753696c245075b4785870a2fb52c9f0", null ],
-      [ "pythag", "namespacem__eigen__solver.html#aeecb6d18469aac6ba1a78db5ec25d122", null ]
-    ] ],
     [ "m_fftw", "namespacem__fftw.html", [
       [ "s_apply_fourier_filter", "namespacem__fftw.html#a6332e572a766b4d460e031dfb890e9f3", null ],
       [ "s_finalize_fftw_module", "namespacem__fftw.html#af2941eb61a53cf144a4ae896764ac89b", null ],

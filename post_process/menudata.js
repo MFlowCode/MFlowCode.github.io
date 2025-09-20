@@ -57,12 +57,10 @@ var menudata={children:[
 {text:"z",url:"namespacemembers_z.html#index_z"}]},
 {text:"Functions/Subroutines",url:"namespacemembers_func.html",children:[
 {text:"a",url:"namespacemembers_func.html#index_a"},
-{text:"c",url:"namespacemembers_func_c.html#index_c"},
 {text:"d",url:"namespacemembers_func_d.html#index_d"},
 {text:"f",url:"namespacemembers_func_f.html#index_f"},
 {text:"m",url:"namespacemembers_func_m.html#index_m"},
 {text:"n",url:"namespacemembers_func_n.html#index_n"},
-{text:"p",url:"namespacemembers_func_p.html#index_p"},
 {text:"s",url:"namespacemembers_func_s.html#index_s"},
 {text:"u",url:"namespacemembers_func_u.html#index_u"}]},
 {text:"Variables",url:"namespacemembers_vars.html",children:[
