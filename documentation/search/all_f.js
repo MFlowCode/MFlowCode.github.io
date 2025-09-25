@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gas_20jet_202d_0',['Gas Jet (2D)',['../md_examples.html#autotoc_md41',1,'']]],
+  ['gas_20jet_202d_0',['Gas Jet (2D)',['../md_examples.html#autotoc_md52',1,'']]],
   ['general_20options_1',['General Options',['../md_gpuParallelization.html#autotoc_md126',1,'Cray General Options'],['../md_gpuParallelization.html#autotoc_md129',1,'NVHPC General Options']]],
   ['generalized_20characteristic_20boundary_20conditions_2',['Generalized Characteristic Boundary conditions',['../md_case.html#autotoc_md32',1,'']]],
   ['getting_20started_3',['Getting Started',['../md_getting-started.html',1,'']]],
@@ -10,7 +10,7 @@ var searchData=
   ['gpu_20profiling_7',['GPU Profiling',['../md_running.html#autotoc_md141',1,'']]],
   ['gpuparallelization_2emd_8',['gpuParallelization.md',['../gpuParallelization_8md.html',1,'']]],
   ['gpus_9',['GPUs',['../md_running.html#autotoc_md143',1,'AMD GPUs'],['../md_gpuParallelization.html#autotoc_md122',1,'Debugging Tools and Tips for GPUs'],['../md_running.html#autotoc_md142',1,'NVIDIA GPUs']]],
-  ['green_20vortex_203d_10',['Taylor-Green Vortex (3D)',['../md_examples.html#autotoc_md54',1,'']]],
+  ['green_20vortex_203d_10',['Taylor-Green Vortex (3D)',['../md_examples.html#autotoc_md78',1,'']]],
   ['grid_20bubble_20models_11',['9. Sub-grid Bubble Models',['../md_case.html#autotoc_md20',1,'']]],
   ['grid_20points_12',['Grid Points',['../md_expectedPerformance.html#autotoc_md99',1,'16M Grid Points'],['../md_expectedPerformance.html#autotoc_md100',1,'64M Grid Points']]],
   ['grind_20time_20performance_13',['Figure of merit: Grind time performance',['../md_expectedPerformance.html#autotoc_md92',1,'']]]

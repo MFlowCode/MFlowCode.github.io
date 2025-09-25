@@ -148,42 +148,78 @@ Initial Condition</h2>
 Result</h2>
 <p><img src="result-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
 <h1><a class="anchor" id="autotoc_md41"></a>
-Gas Jet (2D)</h1>
-<h2><a class="anchor" id="autotoc_md42"></a>
-Final Condition</h2>
-<p><img src="final_condition-2D_jet-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md43"></a>
-Rayleigh-Taylor Instability (3D)</h1>
-<h2><a class="anchor" id="autotoc_md44"></a>
-Final Condition and Linear Theory</h2>
-<p><img src="final_condition-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/> <img src="linear_theory-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md45"></a>
 Scaling and Performance test</h1>
 <p>The scaling case can exercise both weak- and strong-scaling. It adjusts itself depending on the number of requested ranks.</p>
 <p>This directory also contains a collection of scripts used to test strong and weak scaling on OLCF Frontier.</p>
-<h2><a class="anchor" id="autotoc_md46"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Weak Scaling</h2>
 <p>Pass <code>--scaling weak</code>. The <code>--memory</code> option controls (approximately) how much memory each rank should use, in Gigabytes. The number of cells in each dimension is then adjusted according to the number of requested ranks and an approximation for the relation between cell count and memory usage. The problem size increases linearly with the number of ranks.</p>
-<h2><a class="anchor" id="autotoc_md47"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Strong Scaling</h2>
 <p>Pass <code>--scaling strong</code>. The <code>--memory</code> option controls (approximately) how much memory should be used in total during simulation, across all ranks, in Gigabytes. The problem size remains constant as the number of ranks increases.</p>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md44"></a>
 Example</h2>
 <p>For example, to run a weak-scaling test that uses ~4GB of GPU memory per rank on 8 2-rank nodes with case optimization, one could:</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/scaling/case.py -t pre_process simulation                    \</div>
 <div class="line">             -e batch -p mypartition -N 8 -n 2 -w &quot;01:00:00&quot; -# &quot;MFC Weak Scaling&quot; \</div>
 <div class="line">             --case-optimization -j 32 -- --scaling weak --memory 4</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md49"></a>
-2D Hardcodied IC Example</h1>
-<h2><a class="anchor" id="autotoc_md50"></a>
-Initial Condition and Result</h2>
-<p><img src="initial-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/> <img src="result-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md51"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md45"></a>
+Rayleigh-Taylor Instability (3D)</h1>
+<h2><a class="anchor" id="autotoc_md46"></a>
+Final Condition and Linear Theory</h2>
+<p><img src="final_condition-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/> <img src="linear_theory-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md47"></a>
 2D IBM CFL dt (2D)</h1>
-<h2><a class="anchor" id="autotoc_md52"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Result</h2>
 <p><img src="result-2D_ibm_cfl_dt-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md53"></a>
+<h1><a class="anchor" id="autotoc_md49"></a>
+Shu-Osher problem (1D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md50"></a>
+Initial Condition</h2>
+<p><img src="initial-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md51"></a>
+Result</h2>
+<p><img src="result-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md52"></a>
+Gas Jet (2D)</h1>
+<h2><a class="anchor" id="autotoc_md53"></a>
+Final Condition</h2>
+<p><img src="final_condition-2D_jet-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md54"></a>
+1D Multi-Component Reactive Shock Tube</h1>
+<p>References: </p><blockquote class="doxtable">
+<p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>H. Chen, C. Si, Y. Wu, H. Hu, and Y. Zhu, “Numerical investigation of the effect of equivalence ratio on the propagation characteristics and performance of rotating detonation engine”, Int. J. Hydrogen Energy, Mar. 2023. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.ijhydene.2023.03.190">https://doi.org/10.1016/j.ijhydene.2023.03.190</a> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md55"></a>
+Initial Condition</h2>
+<p><img src="initial-1D_reactive_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md56"></a>
+Results</h2>
+<p><img src="result-1D_reactive_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md57"></a>
+Forward Facing Step (2D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Woodward, P. <em>(1984). The numerical simulation of two-dimensional fluid flow with strong shocks. Journal of Computational Physics, 54(1), 115–173. <a href="https://doi.org/10.1016/0021-9991(84)90140-2">https://doi.org/10.1016/0021-9991(84)90140-2</a></em> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md58"></a>
+Final Condition (Density)</h2>
+<p><img src="final-2D_forward_facing_step-example.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md59"></a>
+2D Riemann Test (2D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Chamarthi, A., &amp; Hoffmann, N., &amp; Nishikawa, H., &amp; Frankel S. (2023). Implicit gradients based conservative numerical scheme for compressible flows. arXiv:2110.05461 </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md60"></a>
+Density Initial and Final Conditions</h2>
+<p><img src="alpha_rho1_initial-2D_riemann_test-example.png" alt="" width="45%" class="inline"/> <img src="alpha_rho1_final-2D_riemann_test-example.png" alt="" width="45%" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md61"></a>
 Perfectly Stirred Reactor</h1>
 <p>Reference: </p><blockquote class="doxtable">
 <p>G. B. Skinner and G. H. Ringrose, “Ignition Delays of a Hydrogen—Oxygen—Argon Mixture at Relatively Low Temperatures”, J. Chem. Phys., vol. 42, no. 6, pp. 2190–2192, Mar. 1965. Accessed: Oct. 13, 2024. </p>
@@ -194,27 +230,7 @@ Perfectly Stirred Reactor</h1>
 <div class="line"> + Cantera:        5.130e-05 s</div>
 <div class="line"> + (Che)MFC:       5.130e-05 s</div>
 </div><!-- fragment --><p><img src="result-nD_perfect_reactor-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md54"></a>
-Taylor-Green Vortex (3D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Hillewaert, K. (2013). TestCase C3.5 - DNS of the transition of the Taylor-Green vortex, Re=1600 - Introduction and result summary. 2nd International Workshop on high-order methods for CFD. </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md55"></a>
-Final Condition</h2>
-<p>This figure shows the isosurface with zero q-criterion.</p>
-<p><img src="result-3D_TaylorGreenVortex-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md56"></a>
-Titarev-Toro problem (1D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>V. A. Titarev, E. F. Toro, Finite-volume WENO schemes for three-dimensional conservation laws, Journal of Computational Physics 201 (1) (2004) 238–260. </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md57"></a>
-Initial Condition</h2>
-<p><img src="initial-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md58"></a>
-Result</h2>
-<p><img src="result-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md59"></a>
+<h1><a class="anchor" id="autotoc_md62"></a>
 Lid-Driven Cavity Problem (2D)</h1>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Bezgin, D. A., &amp; Buhendwa A. B., &amp; Adams N. A. (2022). JAX-FLUIDS: A fully-differentiable high-order computational fluid dynamics solver for compressible two-phase flows. arXiv:2203.13760 </p>
@@ -222,114 +238,98 @@ Lid-Driven Cavity Problem (2D)</h1>
 <blockquote class="doxtable">
 <p>Ghia, U., &amp; Ghia, K. N., &amp; Shin, C. T. (1982). High-re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. Journal of Computational Physics, 48, 387-411 </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md60"></a>
+<h2><a class="anchor" id="autotoc_md63"></a>
 Final Condition</h2>
 <p><img src="final_condition-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md61"></a>
+<h2><a class="anchor" id="autotoc_md64"></a>
 Centerline Velocities</h2>
 <p><img src="centerline_velocities-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md62"></a>
-2D Triple Point (2D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Trojak, W., &amp; Dzanic, T. Positivity-preserving discoutinous spectral element method for compressible multi-species flows. arXiv:2308.02426 </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md63"></a>
-Numerical Schlieren at Final Time</h2>
-<p><img src="final-2D_triple_point-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md64"></a>
-Shock Droplet (2D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023) </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md65"></a>
-Initial Condition</h2>
-<p><img src="initial-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md66"></a>
-Result</h2>
-<p><img src="result-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md67"></a>
-2D Riemann Test (2D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Chamarthi, A., &amp; Hoffmann, N., &amp; Nishikawa, H., &amp; Frankel S. (2023). Implicit gradients based conservative numerical scheme for compressible flows. arXiv:2110.05461 </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md68"></a>
-Density Initial and Final Conditions</h2>
-<p><img src="alpha_rho1_initial-2D_riemann_test-example.png" alt="" width="45%" class="inline"/> <img src="alpha_rho1_final-2D_riemann_test-example.png" alt="" width="45%" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md69"></a>
-1D Multi-Component Reactive Shock Tube</h1>
-<p>References: </p><blockquote class="doxtable">
-<p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>H. Chen, C. Si, Y. Wu, H. Hu, and Y. Zhu, “Numerical investigation of the effect of equivalence ratio on the propagation characteristics and performance of rotating detonation engine”, Int. J. Hydrogen Energy, Mar. 2023. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.ijhydene.2023.03.190">https://doi.org/10.1016/j.ijhydene.2023.03.190</a> </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md70"></a>
-Initial Condition</h2>
-<p><img src="initial-1D_reactive_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md71"></a>
-Results</h2>
-<p><img src="result-1D_reactive_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md72"></a>
-Backward Facing Step (2D)</h1>
-<h2><a class="anchor" id="autotoc_md73"></a>
-Final Condition (Density)</h2>
-<p><img src="final-2D_backward_facing_step-example.png" alt="" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md74"></a>
-Rayleigh-Taylor Instability (2D)</h1>
-<h2><a class="anchor" id="autotoc_md75"></a>
-Final Condition and Linear Theory</h2>
-<p><img src="result-2D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md76"></a>
-IBM Bow Shock (3D)</h1>
-<h2><a class="anchor" id="autotoc_md77"></a>
-Final Condition</h2>
-<p><img src="result-3D_ibm_bowshock-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md78"></a>
-Forward Facing Step (2D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Woodward, P. <em>(1984). The numerical simulation of two-dimensional fluid flow with strong shocks. Journal of Computational Physics, 54(1), 115–173. <a href="https://doi.org/10.1016/0021-9991(84)90140-2">https://doi.org/10.1016/0021-9991(84)90140-2</a></em> </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md79"></a>
-Final Condition (Density)</h2>
-<p><img src="final-2D_forward_facing_step-example.png" alt="" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md80"></a>
-1D Multi-Component Inert Shock Tube</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md81"></a>
-Initial Condition</h2>
-<p><img src="initial-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md82"></a>
-Results</h2>
-<p><img src="result-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md83"></a>
-3D Turbulent Mixing layer (3D)</h1>
-<h2><a class="anchor" id="autotoc_md84"></a>
-Liutex visualization at transitional state</h2>
-<p><img src="result-3D_turb_mixing-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md85"></a>
-Shu-Osher problem (1D)</h1>
-<p>Reference: </p><blockquote class="doxtable">
-<p>C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5. </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md86"></a>
-Initial Condition</h2>
-<p><img src="initial-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md87"></a>
-Result</h2>
-<p><img src="result-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md88"></a>
+<h1><a class="anchor" id="autotoc_md65"></a>
 Isentropic vortex problem (2D)</h1>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Coralic, V., &amp; Colonius, T. (2014). Finite-volume Weno scheme for viscous compressible multicomponent flows. Journal of Computational Physics, 274, 95–121. <a href="https://doi.org/10.1016/j.jcp.2014.06.003">https://doi.org/10.1016/j.jcp.2014.06.003</a> </p>
 </blockquote>
-<h2><a class="anchor" id="autotoc_md89"></a>
+<h2><a class="anchor" id="autotoc_md66"></a>
 Density</h2>
 <p><img src="alpha_rho1-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md90"></a>
+<h2><a class="anchor" id="autotoc_md67"></a>
 Density Norms</h2>
-<p><img src="density_norms-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/> </p>
+<p><img src="density_norms-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md68"></a>
+Titarev-Toro problem (1D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>V. A. Titarev, E. F. Toro, Finite-volume WENO schemes for three-dimensional conservation laws, Journal of Computational Physics 201 (1) (2004) 238–260. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md69"></a>
+Initial Condition</h2>
+<p><img src="initial-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md70"></a>
+Result</h2>
+<p><img src="result-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md71"></a>
+2D Hardcodied IC Example</h1>
+<h2><a class="anchor" id="autotoc_md72"></a>
+Initial Condition and Result</h2>
+<p><img src="initial-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/> <img src="result-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md73"></a>
+Backward Facing Step (2D)</h1>
+<h2><a class="anchor" id="autotoc_md74"></a>
+Final Condition (Density)</h2>
+<p><img src="final-2D_backward_facing_step-example.png" alt="" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md75"></a>
+Shock Droplet (2D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023) </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md76"></a>
+Initial Condition</h2>
+<p><img src="initial-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md77"></a>
+Result</h2>
+<p><img src="result-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md78"></a>
+Taylor-Green Vortex (3D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Hillewaert, K. (2013). TestCase C3.5 - DNS of the transition of the Taylor-Green vortex, Re=1600 - Introduction and result summary. 2nd International Workshop on high-order methods for CFD. </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md79"></a>
+Final Condition</h2>
+<p>This figure shows the isosurface with zero q-criterion.</p>
+<p><img src="result-3D_TaylorGreenVortex-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md80"></a>
+Rayleigh-Taylor Instability (2D)</h1>
+<h2><a class="anchor" id="autotoc_md81"></a>
+Final Condition and Linear Theory</h2>
+<p><img src="result-2D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md82"></a>
+2D Triple Point (2D)</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Trojak, W., &amp; Dzanic, T. Positivity-preserving discoutinous spectral element method for compressible multi-species flows. arXiv:2308.02426 </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md83"></a>
+Numerical Schlieren at Final Time</h2>
+<p><img src="final-2D_triple_point-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md84"></a>
+3D Turbulent Mixing layer (3D)</h1>
+<h2><a class="anchor" id="autotoc_md85"></a>
+Liutex visualization at transitional state</h2>
+<p><img src="result-3D_turb_mixing-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md86"></a>
+1D Multi-Component Inert Shock Tube</h1>
+<p>Reference: </p><blockquote class="doxtable">
+<p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
+</blockquote>
+<h2><a class="anchor" id="autotoc_md87"></a>
+Initial Condition</h2>
+<p><img src="initial-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<h2><a class="anchor" id="autotoc_md88"></a>
+Results</h2>
+<p><img src="result-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md89"></a>
+IBM Bow Shock (3D)</h1>
+<h2><a class="anchor" id="autotoc_md90"></a>
+Final Condition</h2>
+<p><img src="result-3D_ibm_bowshock-example.png" alt="" height="400" class="inline"/> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
