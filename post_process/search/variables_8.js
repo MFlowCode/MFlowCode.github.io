@@ -25,5 +25,8 @@ var searchData=
   ['is2b_22',['is2b',['../namespacem__variables__conversion.html#ae37d14b87eb3bfb5eb066e764fe51cea',1,'m_variables_conversion']]],
   ['is2e_23',['is2e',['../namespacem__variables__conversion.html#aad965403f327ed31ada1f384b3853891',1,'m_variables_conversion']]],
   ['is3b_24',['is3b',['../namespacem__variables__conversion.html#a695c81a3b5c8cb2c4fac65a4cd236901',1,'m_variables_conversion']]],
-  ['is3e_25',['is3e',['../namespacem__variables__conversion.html#a494b160cf0c59565ee6f2585841f66de',1,'m_variables_conversion']]]
+  ['is3e_25',['is3e',['../namespacem__variables__conversion.html#a494b160cf0c59565ee6f2585841f66de',1,'m_variables_conversion']]],
+  ['isc1_26',['isc1',['../namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d',1,'m_chemistry']]],
+  ['isc2_27',['isc2',['../namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f',1,'m_chemistry']]],
+  ['isc3_28',['isc3',['../namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d',1,'m_chemistry']]]
 ];
