@@ -57,11 +57,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d",
-"namespacem__global__parameters.html#a98ddabe1c45996064589ca24ce5d8fe3",
-"namespacem__phase__change.html#a4666ad0a83a07cf88daa10124fc36c4d",
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265",
-"structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80"
+"namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6",
+"namespacem__global__parameters.html#a971692c50b4725d4724238b8a01a722e",
+"namespacem__mpi__common.html#a750c773a9421c7837f197be9bdc4fb73",
+"structm__derived__types_1_1bub__bounds__info.html#a01730fa85d33e3174561ad5182d2e052",
+"structm__derived__types_1_1ic__patch__parameters.html#af58040cc55ea4db392014eedc3cf5df9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

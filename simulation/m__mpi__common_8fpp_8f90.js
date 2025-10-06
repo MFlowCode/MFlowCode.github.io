@@ -6,6 +6,7 @@ var m__mpi__common_8fpp_8f90 =
     [ "m_mpi_common::s_initialize_mpi_data", "namespacem__mpi__common.html#a2b579eba6293e56232ba5129614b5a18", null ],
     [ "m_mpi_common::s_initialize_mpi_data_ds", "namespacem__mpi__common.html#a564644bad898d940dc6caea3297bb424", null ],
     [ "m_mpi_common::s_mpi_abort", "namespacem__mpi__common.html#a04cfc0bdb377a0ce2f9fd478e4bb3807", null ],
+    [ "m_mpi_common::s_mpi_allreduce_integer_sum", "namespacem__mpi__common.html#a750c773a9421c7837f197be9bdc4fb73", null ],
     [ "m_mpi_common::s_mpi_allreduce_max", "namespacem__mpi__common.html#a65728020613f88febe83c74836abb371", null ],
     [ "m_mpi_common::s_mpi_allreduce_min", "namespacem__mpi__common.html#a40f3c1242840a184d017acef92cce7d4", null ],
     [ "m_mpi_common::s_mpi_allreduce_sum", "namespacem__mpi__common.html#a3b287a39841538011798d6f5e59d41ac", null ],

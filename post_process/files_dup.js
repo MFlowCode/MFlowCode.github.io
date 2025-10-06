@@ -12,6 +12,7 @@ var files_dup =
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
     [ "m_helper.fpp.f90", "m__helper_8fpp_8f90.html", "m__helper_8fpp_8f90" ],
     [ "m_helper_basic.fpp.f90", "m__helper__basic_8fpp_8f90.html", "m__helper__basic_8fpp_8f90" ],
+    [ "m_model.fpp.f90", "m__model_8fpp_8f90.html", "m__model_8fpp_8f90" ],
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],
     [ "m_mpi_proxy.fpp.f90", "m__mpi__proxy_8fpp_8f90.html", "m__mpi__proxy_8fpp_8f90" ],
     [ "m_phase_change.fpp.f90", "m__phase__change_8fpp_8f90.html", "m__phase__change_8fpp_8f90" ],

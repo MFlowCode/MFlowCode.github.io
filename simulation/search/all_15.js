@@ -21,7 +21,7 @@ var searchData=
   ['ve3_18',['ve3',['../structm__derived__types_1_1int__bounds__info.html#a2f7bff2b19ae5b866d64480a1b8cfb2a',1,'m_derived_types::int_bounds_info']]],
   ['vec3_5fdt_19',['vec3_dt',['../structm__derived__types_1_1vec3__dt.html',1,'m_derived_types']]],
   ['vector_5ffield_20',['vector_field',['../structm__derived__types_1_1vector__field.html',1,'m_derived_types']]],
-  ['vel_21',['vel',['../structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139',1,'m_derived_types::ic_patch_parameters']]],
+  ['vel_21',['vel',['../structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139',1,'m_derived_types::ic_patch_parameters::vel'],['../structm__derived__types_1_1ib__patch__parameters.html#a98912b082c30f25c788059a38f298f4a',1,'m_derived_types::ib_patch_parameters::vel']]],
   ['vel_5fin_22',['vel_in',['../structm__derived__types_1_1int__bounds__info.html#a605e1e77b7e92b13861ed1c97c2de515',1,'m_derived_types::int_bounds_info::vel_in'],['../namespacem__cbc.html#aa77a6af63a61025c0f8b8d52fddf09c3',1,'m_cbc::vel_in']]],
   ['vel_5fout_23',['vel_out',['../structm__derived__types_1_1int__bounds__info.html#af343b628e182ad5917268d34db727ead',1,'m_derived_types::int_bounds_info::vel_out'],['../namespacem__cbc.html#aceb9a31661e625bded09738166107dd5',1,'m_cbc::vel_out']]],
   ['vel_5fsrc_5frsx_5fvf_24',['vel_src_rsx_vf',['../namespacem__riemann__solvers.html#a3f21ca619381678e5eb0fb95689ee9bd',1,'m_riemann_solvers']]],

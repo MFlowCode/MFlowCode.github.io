@@ -12,7 +12,7 @@ var searchData=
   ['ve1_9',['ve1',['../structm__derived__types_1_1int__bounds__info.html#ac8587bb869114965d03cc68524af61ed',1,'m_derived_types::int_bounds_info']]],
   ['ve2_10',['ve2',['../structm__derived__types_1_1int__bounds__info.html#a28ab6c67f4184eaa7ec02f14fde5d169',1,'m_derived_types::int_bounds_info']]],
   ['ve3_11',['ve3',['../structm__derived__types_1_1int__bounds__info.html#a2f7bff2b19ae5b866d64480a1b8cfb2a',1,'m_derived_types::int_bounds_info']]],
-  ['vel_12',['vel',['../structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139',1,'m_derived_types::ic_patch_parameters']]],
+  ['vel_12',['vel',['../structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139',1,'m_derived_types::ic_patch_parameters::vel'],['../structm__derived__types_1_1ib__patch__parameters.html#a98912b082c30f25c788059a38f298f4a',1,'m_derived_types::ib_patch_parameters::vel']]],
   ['vel_5fin_13',['vel_in',['../structm__derived__types_1_1int__bounds__info.html#a605e1e77b7e92b13861ed1c97c2de515',1,'m_derived_types::int_bounds_info']]],
   ['vel_5fout_14',['vel_out',['../structm__derived__types_1_1int__bounds__info.html#af343b628e182ad5917268d34db727ead',1,'m_derived_types::int_bounds_info']]],
   ['vel_5fwrt_15',['vel_wrt',['../namespacem__global__parameters.html#ae4ab7caa7dee5e616b217437f7f2b87f',1,'m_global_parameters']]],
