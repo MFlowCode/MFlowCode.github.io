@@ -147,18 +147,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a1694b8625ff0c8865b20b7888842f7b2" id="r_a1694b8625ff0c8865b20b7888842f7b2"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1694b8625ff0c8865b20b7888842f7b2">s_initialize_time_steppers_module</a></td></tr>
 <tr class="memdesc:a1694b8625ff0c8865b20b7888842f7b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
 <tr class="separator:a1694b8625ff0c8865b20b7888842f7b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4c95c0229a96a341859a53536b8d92f" id="r_af4c95c0229a96a341859a53536b8d92f"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4c95c0229a96a341859a53536b8d92f">s_1st_order_tvd_rk</a> (t_step, time_avg)</td></tr>
-<tr class="memdesc:af4c95c0229a96a341859a53536b8d92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">1st order TVD RK time-stepping algorithm  <br /></td></tr>
-<tr class="separator:af4c95c0229a96a341859a53536b8d92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8415bba91d6c3d4c581410ad7e4b5521" id="r_a8415bba91d6c3d4c581410ad7e4b5521"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8415bba91d6c3d4c581410ad7e4b5521">s_2nd_order_tvd_rk</a> (t_step, time_avg)</td></tr>
-<tr class="memdesc:a8415bba91d6c3d4c581410ad7e4b5521"><td class="mdescLeft">&#160;</td><td class="mdescRight">2nd order TVD RK time-stepping algorithm  <br /></td></tr>
-<tr class="separator:a8415bba91d6c3d4c581410ad7e4b5521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1f42911bd91fb730857fa8fff4063b5" id="r_ae1f42911bd91fb730857fa8fff4063b5"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1f42911bd91fb730857fa8fff4063b5">s_3rd_order_tvd_rk</a> (t_step, time_avg)</td></tr>
-<tr class="memdesc:ae1f42911bd91fb730857fa8fff4063b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">3rd order TVD RK time-stepping algorithm  <br /></td></tr>
-<tr class="separator:ae1f42911bd91fb730857fa8fff4063b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50e95aeb220d4610cccde3051b52962" id="r_ac50e95aeb220d4610cccde3051b52962"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac50e95aeb220d4610cccde3051b52962">s_strang_splitting</a> (t_step, time_avg)</td></tr>
-<tr class="memdesc:ac50e95aeb220d4610cccde3051b52962"><td class="mdescLeft">&#160;</td><td class="mdescRight">Strang splitting scheme with 3rd order TVD RK time-stepping algorithm for the flux term and adaptive time stepping algorithm for the source term.  <br /></td></tr>
-<tr class="separator:ac50e95aeb220d4610cccde3051b52962"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8912bf24b14160a2d3b6f52595cb868" id="r_ae8912bf24b14160a2d3b6f52595cb868"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8912bf24b14160a2d3b6f52595cb868">s_tvd_rk</a> (t_step, time_avg, nstage)</td></tr>
+<tr class="separator:ae8912bf24b14160a2d3b6f52595cb868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a478ee89172580cccd27e418731bc09b6" id="r_a478ee89172580cccd27e418731bc09b6"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a478ee89172580cccd27e418731bc09b6">s_adaptive_dt_bubble</a> (stage)</td></tr>
 <tr class="memdesc:a478ee89172580cccd27e418731bc09b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble source part in Strang operator splitting scheme.  <br /></td></tr>
 <tr class="separator:a478ee89172580cccd27e418731bc09b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +193,11 @@ Variables</h2></td></tr>
 <tr class="memitem:af1bbf3b693b9d269249a93dca5069b56" id="r_af1bbf3b693b9d269249a93dca5069b56"><td class="memItemLeft" align="right" valign="top">integer, private&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1bbf3b693b9d269249a93dca5069b56">num_ts</a></td></tr>
 <tr class="memdesc:af1bbf3b693b9d269249a93dca5069b56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of time stages in the time-stepping scheme.  <br /></td></tr>
 <tr class="separator:af1bbf3b693b9d269249a93dca5069b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff56a5b526c68569aa9da7590b5eff12" id="r_aff56a5b526c68569aa9da7590b5eff12"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff56a5b526c68569aa9da7590b5eff12">stor</a></td></tr>
+<tr class="memdesc:aff56a5b526c68569aa9da7590b5eff12"><td class="mdescLeft">&#160;</td><td class="mdescRight">storage index  <br /></td></tr>
+<tr class="separator:aff56a5b526c68569aa9da7590b5eff12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a993d2d21d55d2d2cfe29d434608ef7cc" id="r_a993d2d21d55d2d2cfe29d434608ef7cc"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a993d2d21d55d2d2cfe29d434608ef7cc">rk_coef</a></td></tr>
+<tr class="separator:a993d2d21d55d2d2cfe29d434608ef7cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acdcb08229f0b4d954514e9894a7817a0" id="r_acdcb08229f0b4d954514e9894a7817a0"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acdcb08229f0b4d954514e9894a7817a0">pinned</a></td></tr>
 <tr class="separator:acdcb08229f0b4d954514e9894a7817a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b6c4905c22edf32db5330114bcba7c" id="r_a58b6c4905c22edf32db5330114bcba7c"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58b6c4905c22edf32db5330114bcba7c">target</a></td></tr>
@@ -219,123 +214,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The following module features a variety of time-stepping schemes. Currently, it includes the following Runge-Kutta (RK) algorithms: 1) 1st Order TVD RK 2) 2nd Order TVD RK 3) 3rd Order TVD RK where TVD designates a total-variation-diminishing time-stepper. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="af4c95c0229a96a341859a53536b8d92f" name="af4c95c0229a96a341859a53536b8d92f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4c95c0229a96a341859a53536b8d92f">&#9670;&#160;</a></span>s_1st_order_tvd_rk()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_time_steppers::s_1st_order_tvd_rk </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>1st order TVD RK time-stepping algorithm </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_af4c95c0229a96a341859a53536b8d92f_cgraph.svg" width="360" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_af4c95c0229a96a341859a53536b8d92f_icgraph.svg" width="498" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8415bba91d6c3d4c581410ad7e4b5521" name="a8415bba91d6c3d4c581410ad7e4b5521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8415bba91d6c3d4c581410ad7e4b5521">&#9670;&#160;</a></span>s_2nd_order_tvd_rk()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_time_steppers::s_2nd_order_tvd_rk </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>2nd order TVD RK time-stepping algorithm </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_a8415bba91d6c3d4c581410ad7e4b5521_cgraph.svg" width="360" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_a8415bba91d6c3d4c581410ad7e4b5521_icgraph.svg" width="498" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae1f42911bd91fb730857fa8fff4063b5" name="ae1f42911bd91fb730857fa8fff4063b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1f42911bd91fb730857fa8fff4063b5">&#9670;&#160;</a></span>s_3rd_order_tvd_rk()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine m_time_steppers::s_3rd_order_tvd_rk </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>3rd order TVD RK time-stepping algorithm </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_ae1f42911bd91fb730857fa8fff4063b5_cgraph.svg" width="360" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_ae1f42911bd91fb730857fa8fff4063b5_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="a478ee89172580cccd27e418731bc09b6" name="a478ee89172580cccd27e418731bc09b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a478ee89172580cccd27e418731bc09b6">&#9670;&#160;</a></span>s_adaptive_dt_bubble()</h2>
 
@@ -405,7 +283,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_a2238f553b1b6228709f9e3387d41cb01_icgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_a2238f553b1b6228709f9e3387d41cb01_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -471,45 +349,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ac50e95aeb220d4610cccde3051b52962" name="ac50e95aeb220d4610cccde3051b52962"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac50e95aeb220d4610cccde3051b52962">&#9670;&#160;</a></span>s_strang_splitting()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_time_steppers::s_strang_splitting </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Strang splitting scheme with 3rd order TVD RK time-stepping algorithm for the flux term and adaptive time stepping algorithm for the source term. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_ac50e95aeb220d4610cccde3051b52962_cgraph.svg" width="566" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_ac50e95aeb220d4610cccde3051b52962_icgraph.svg" width="498" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="a575aa7f95bf96994f49d81d71d19c192" name="a575aa7f95bf96994f49d81d71d19c192"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a575aa7f95bf96994f49d81d71d19c192">&#9670;&#160;</a></span>s_time_step_cycling()</h2>
 
@@ -535,7 +374,43 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_a575aa7f95bf96994f49d81d71d19c192_icgraph.svg" width="100%" height="462"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_a575aa7f95bf96994f49d81d71d19c192_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae8912bf24b14160a2d3b6f52595cb868" name="ae8912bf24b14160a2d3b6f52595cb868"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8912bf24b14160a2d3b6f52595cb868">&#9670;&#160;</a></span>s_tvd_rk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_time_steppers::s_tvd_rk </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>time_avg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nstage</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="367" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_icgraph.svg" width="498" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -770,6 +645,36 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Cell-average RHS variables at the current time-stage. </p>
+
+</div>
+</div>
+<a id="a993d2d21d55d2d2cfe29d434608ef7cc" name="a993d2d21d55d2d2cfe29d434608ef7cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a993d2d21d55d2d2cfe29d434608ef7cc">&#9670;&#160;</a></span>rk_coef</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable m_time_steppers::rk_coef</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff56a5b526c68569aa9da7590b5eff12" name="aff56a5b526c68569aa9da7590b5eff12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff56a5b526c68569aa9da7590b5eff12">&#9670;&#160;</a></span>stor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_time_steppers::stor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>storage index </p>
 
 </div>
 </div>

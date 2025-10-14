@@ -1236,16 +1236,13 @@ var namespaces_dup =
       [ "iv", "namespacem__surface__tension.html#aed209dbc658354dfee2539024db688fb", null ]
     ] ],
     [ "m_time_steppers", "namespacem__time__steppers.html", [
-      [ "s_1st_order_tvd_rk", "namespacem__time__steppers.html#af4c95c0229a96a341859a53536b8d92f", null ],
-      [ "s_2nd_order_tvd_rk", "namespacem__time__steppers.html#a8415bba91d6c3d4c581410ad7e4b5521", null ],
-      [ "s_3rd_order_tvd_rk", "namespacem__time__steppers.html#ae1f42911bd91fb730857fa8fff4063b5", null ],
       [ "s_adaptive_dt_bubble", "namespacem__time__steppers.html#a478ee89172580cccd27e418731bc09b6", null ],
       [ "s_apply_bodyforces", "namespacem__time__steppers.html#a2238f553b1b6228709f9e3387d41cb01", null ],
       [ "s_compute_dt", "namespacem__time__steppers.html#ac56d2ccae6e6dbce231569d173aae88a", null ],
       [ "s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
       [ "s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],
-      [ "s_strang_splitting", "namespacem__time__steppers.html#ac50e95aeb220d4610cccde3051b52962", null ],
       [ "s_time_step_cycling", "namespacem__time__steppers.html#a575aa7f95bf96994f49d81d71d19c192", null ],
+      [ "s_tvd_rk", "namespacem__time__steppers.html#ae8912bf24b14160a2d3b6f52595cb868", null ],
       [ "bc_type", "namespacem__time__steppers.html#a2977f6fd5a23ed0bef5ddcac03fbf2a9", null ],
       [ "max_dt", "namespacem__time__steppers.html#a69287ab593b1c75a46956d3adcfc693f", null ],
       [ "num_ts", "namespacem__time__steppers.html#af1bbf3b693b9d269249a93dca5069b56", null ],
@@ -1261,6 +1258,8 @@ var namespaces_dup =
       [ "rhs_mv", "namespacem__time__steppers.html#a5ea4315d7cb33b710e8a0e572278e7f8", null ],
       [ "rhs_pb", "namespacem__time__steppers.html#a49c29eac0854a7b6b0e302cc72a82898", null ],
       [ "rhs_vf", "namespacem__time__steppers.html#a3d0867c3c2572c712d2aed6d677e6fc2", null ],
+      [ "rk_coef", "namespacem__time__steppers.html#a993d2d21d55d2d2cfe29d434608ef7cc", null ],
+      [ "stor", "namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12", null ],
       [ "target", "namespacem__time__steppers.html#a58b6c4905c22edf32db5330114bcba7c", null ]
     ] ],
     [ "m_variables_conversion", "namespacem__variables__conversion.html", [
