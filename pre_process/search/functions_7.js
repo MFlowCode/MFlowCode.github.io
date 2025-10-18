@@ -244,13 +244,14 @@ var searchData=
   ['s_5ftransform_5fvec_241',['s_transform_vec',['../namespacem__helper.html#a3ee9f718587c72c1a90eceb0afc4a238',1,'m_helper']]],
   ['s_5ftsat_242',['s_tsat',['../namespacem__phase__change.html#a57394d44907a0645748c6f46789fc633',1,'m_phase_change']]],
   ['s_5fupdate_5fcell_5fbounds_243',['s_update_cell_bounds',['../namespacem__helper__basic.html#a136fdea4dc45a54a616248d66f4bc29e',1,'m_helper_basic']]],
-  ['s_5fupsample_5fdata_244',['s_upsample_data',['../namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629',1,'m_helper']]],
-  ['s_5fwrite_5fabstract_5fdata_5ffiles_245',['s_write_abstract_data_files',['../interfacem__data__output_1_1s__write__abstract__data__files.html#a047897adc52a7b4809d7191c55b91f69',1,'m_data_output::s_write_abstract_data_files']]],
-  ['s_5fwrite_5fobj_246',['s_write_obj',['../namespacem__model.html#aa597a4a14472f275cf65844c532fa5bb',1,'m_model']]],
-  ['s_5fwrite_5fparallel_5fboundary_5fcondition_5ffiles_247',['s_write_parallel_boundary_condition_files',['../namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f',1,'m_boundary_common']]],
-  ['s_5fwrite_5fparallel_5fdata_5ffiles_248',['s_write_parallel_data_files',['../namespacem__data__output.html#a5553a586765788ee6dcce99679a82f35',1,'m_data_output']]],
-  ['s_5fwrite_5fserial_5fboundary_5fcondition_5ffiles_249',['s_write_serial_boundary_condition_files',['../namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b',1,'m_boundary_common']]],
-  ['s_5fwrite_5fserial_5fdata_5ffiles_250',['s_write_serial_data_files',['../namespacem__data__output.html#a3592c85a5b5a76ff5035209211ad7cf7',1,'m_data_output']]],
-  ['s_5fwrite_5fstl_251',['s_write_stl',['../namespacem__model.html#a10a8828badc74b34ff6d30655c22d383',1,'m_model']]],
-  ['spherical_5fharmonic_5ffunc_252',['spherical_harmonic_func',['../namespacem__helper.html#a475f9d231de3550d64d274bd96a5ee92',1,'m_helper']]]
+  ['s_5fupdate_5fib_5frotation_5fmatrix_244',['s_update_ib_rotation_matrix',['../namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb',1,'m_ib_patches']]],
+  ['s_5fupsample_5fdata_245',['s_upsample_data',['../namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629',1,'m_helper']]],
+  ['s_5fwrite_5fabstract_5fdata_5ffiles_246',['s_write_abstract_data_files',['../interfacem__data__output_1_1s__write__abstract__data__files.html#a047897adc52a7b4809d7191c55b91f69',1,'m_data_output::s_write_abstract_data_files']]],
+  ['s_5fwrite_5fobj_247',['s_write_obj',['../namespacem__model.html#aa597a4a14472f275cf65844c532fa5bb',1,'m_model']]],
+  ['s_5fwrite_5fparallel_5fboundary_5fcondition_5ffiles_248',['s_write_parallel_boundary_condition_files',['../namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f',1,'m_boundary_common']]],
+  ['s_5fwrite_5fparallel_5fdata_5ffiles_249',['s_write_parallel_data_files',['../namespacem__data__output.html#a5553a586765788ee6dcce99679a82f35',1,'m_data_output']]],
+  ['s_5fwrite_5fserial_5fboundary_5fcondition_5ffiles_250',['s_write_serial_boundary_condition_files',['../namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b',1,'m_boundary_common']]],
+  ['s_5fwrite_5fserial_5fdata_5ffiles_251',['s_write_serial_data_files',['../namespacem__data__output.html#a3592c85a5b5a76ff5035209211ad7cf7',1,'m_data_output']]],
+  ['s_5fwrite_5fstl_252',['s_write_stl',['../namespacem__model.html#a10a8828badc74b34ff6d30655c22d383',1,'m_model']]],
+  ['spherical_5fharmonic_5ffunc_253',['spherical_harmonic_func',['../namespacem__helper.html#a475f9d231de3550d64d274bd96a5ee92',1,'m_helper']]]
 ];

@@ -1,5 +1,7 @@
 var structm__derived__types_1_1ib__patch__parameters =
 [
+    [ "angles", "structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42", null ],
+    [ "angular_vel", "structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0", null ],
     [ "c", "structm__derived__types_1_1ib__patch__parameters.html#a1fe9f79c816d007e48dc48a323b36416", null ],
     [ "geometry", "structm__derived__types_1_1ib__patch__parameters.html#a1f6b2f17dbe349203141acfd3e71fd4f", null ],
     [ "length_x", "structm__derived__types_1_1ib__patch__parameters.html#a067b8bdf34ad93b27971e36a6c570efb", null ],
@@ -15,7 +17,15 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "moving_ibm", "structm__derived__types_1_1ib__patch__parameters.html#abb8e097e5c073a19db8bced8d50b08c8", null ],
     [ "p", "structm__derived__types_1_1ib__patch__parameters.html#acb62f0032783e1d58b8850c7bd9fac6a", null ],
     [ "radius", "structm__derived__types_1_1ib__patch__parameters.html#a8d4bed578b10e00c1b528310be67dcca", null ],
+    [ "rotation_matrix", "structm__derived__types_1_1ib__patch__parameters.html#a4e906f43df37e150c16204d2538f4417", null ],
+    [ "rotation_matrix_inverse", "structm__derived__types_1_1ib__patch__parameters.html#a5e6e76f7952329af085fd8281344e89d", null ],
     [ "slip", "structm__derived__types_1_1ib__patch__parameters.html#af7f4778de0a02949c5c51518b0b703ef", null ],
+    [ "step_angles", "structm__derived__types_1_1ib__patch__parameters.html#a9b37f14c7a0a870912e060d227e07dde", null ],
+    [ "step_angular_vel", "structm__derived__types_1_1ib__patch__parameters.html#a0b5f52d7c011c4fd5d92532534945dc5", null ],
+    [ "step_vel", "structm__derived__types_1_1ib__patch__parameters.html#a3bde934a9f3428e2ff39149470f5d049", null ],
+    [ "step_x_centroid", "structm__derived__types_1_1ib__patch__parameters.html#aea846ac4f1c0578ab25251ee984fd072", null ],
+    [ "step_y_centroid", "structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63", null ],
+    [ "step_z_centroid", "structm__derived__types_1_1ib__patch__parameters.html#a65fd8284fb98b908833e32ccfe18e6c1", null ],
     [ "t", "structm__derived__types_1_1ib__patch__parameters.html#af6395dc33c366b9efbadb5d23708c0aa", null ],
     [ "theta", "structm__derived__types_1_1ib__patch__parameters.html#aab2e7c2c38256b3d9363ecc580e9e495", null ],
     [ "vel", "structm__derived__types_1_1ib__patch__parameters.html#a98912b082c30f25c788059a38f298f4a", null ],

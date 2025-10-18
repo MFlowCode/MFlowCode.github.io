@@ -31,5 +31,7 @@ var searchData=
   ['rootdir_28',['rootdir',['../namespacem__data__output.html#afe3f36ee866946447f08d94c4bdaa6de',1,'m_data_output']]],
   ['rotate_29',['rotate',['../structm__derived__types_1_1ic__model__parameters.html#aa6b7366353d9604339918a8dba679fb0',1,'m_derived_types::ic_model_parameters']]],
   ['rotate_5fangle_30',['rotate_angle',['../structm__derived__types_1_1acoustic__parameters.html#a2a5926c776adbec01398ff354324b836',1,'m_derived_types::acoustic_parameters']]],
-  ['rs_31',['rs',['../structm__derived__types_1_1bub__bounds__info.html#aa3a7d88d4bc7e857c54d3e7b09784f85',1,'m_derived_types::bub_bounds_info']]]
+  ['rotation_5fmatrix_31',['rotation_matrix',['../structm__derived__types_1_1ib__patch__parameters.html#a4e906f43df37e150c16204d2538f4417',1,'m_derived_types::ib_patch_parameters']]],
+  ['rotation_5fmatrix_5finverse_32',['rotation_matrix_inverse',['../structm__derived__types_1_1ib__patch__parameters.html#a5e6e76f7952329af085fd8281344e89d',1,'m_derived_types::ib_patch_parameters']]],
+  ['rs_33',['rs',['../structm__derived__types_1_1bub__bounds__info.html#aa3a7d88d4bc7e857c54d3e7b09784f85',1,'m_derived_types::bub_bounds_info']]]
 ];

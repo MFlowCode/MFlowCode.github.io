@@ -13,6 +13,7 @@ var m__ib__patches_8fpp_8f90 =
     [ "m_ib_patches::s_ib_model", "namespacem__ib__patches.html#ab91168784d19567f4abbf082eef50996", null ],
     [ "m_ib_patches::s_ib_rectangle", "namespacem__ib__patches.html#a2892a8348954f682e7a701cc01b28eb4", null ],
     [ "m_ib_patches::s_ib_sphere", "namespacem__ib__patches.html#ac197860f87d3c1c7efe3c7c0098a5030", null ],
+    [ "m_ib_patches::s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ],
     [ "m_ib_patches::cart_x", "namespacem__ib__patches.html#a1e45f7dce070a0e9ec2c713e6a9c6fb3", null ],
     [ "m_ib_patches::cart_y", "namespacem__ib__patches.html#aef359c949bd0c9602c43887a6a8367fa", null ],
     [ "m_ib_patches::cart_z", "namespacem__ib__patches.html#a641055256357558666e5a98d42906153", null ],

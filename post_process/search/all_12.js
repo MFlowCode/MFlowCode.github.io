@@ -226,10 +226,16 @@ var searchData=
   ['spherical_5fharmonic_5ffunc_223',['spherical_harmonic_func',['../namespacem__helper.html#a475f9d231de3550d64d274bd96a5ee92',1,'m_helper']]],
   ['ss_224',['ss',['../structm__derived__types_1_1physical__parameters.html#ad64400417d537dbd01e01c97d05d38c0',1,'m_derived_types::physical_parameters::ss'],['../namespacem__global__parameters.html#a1943e3ee91d78fc8fda27a276e6f7496',1,'m_global_parameters::ss']]],
   ['start_5fidx_225',['start_idx',['../namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d',1,'m_global_parameters']]],
-  ['stress_5fidx_226',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
-  ['strxb_227',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
-  ['strxe_228',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
-  ['support_229',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
-  ['surface_5ftension_230',['surface_tension',['../namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477',1,'m_global_parameters']]],
-  ['sys_5fsize_231',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
+  ['step_5fangles_226',['step_angles',['../structm__derived__types_1_1ib__patch__parameters.html#a9b37f14c7a0a870912e060d227e07dde',1,'m_derived_types::ib_patch_parameters']]],
+  ['step_5fangular_5fvel_227',['step_angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a0b5f52d7c011c4fd5d92532534945dc5',1,'m_derived_types::ib_patch_parameters']]],
+  ['step_5fvel_228',['step_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a3bde934a9f3428e2ff39149470f5d049',1,'m_derived_types::ib_patch_parameters']]],
+  ['step_5fx_5fcentroid_229',['step_x_centroid',['../structm__derived__types_1_1ib__patch__parameters.html#aea846ac4f1c0578ab25251ee984fd072',1,'m_derived_types::ib_patch_parameters']]],
+  ['step_5fy_5fcentroid_230',['step_y_centroid',['../structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63',1,'m_derived_types::ib_patch_parameters']]],
+  ['step_5fz_5fcentroid_231',['step_z_centroid',['../structm__derived__types_1_1ib__patch__parameters.html#a65fd8284fb98b908833e32ccfe18e6c1',1,'m_derived_types::ib_patch_parameters']]],
+  ['stress_5fidx_232',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
+  ['strxb_233',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
+  ['strxe_234',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
+  ['support_235',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
+  ['surface_5ftension_236',['surface_tension',['../namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477',1,'m_global_parameters']]],
+  ['sys_5fsize_237',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
 ];

@@ -30,6 +30,8 @@ var searchData=
   ['alter_5fpatch_27',['alter_patch',['../structm__derived__types_1_1ic__patch__parameters.html#a4069bfb6be1aba121be3fcffb2d660f0',1,'m_derived_types::ic_patch_parameters']]],
   ['amplifier_28',['amplifier',['../namespacem__constants.html#a1f52e85430eb7f1fba1d46370791e877',1,'m_constants']]],
   ['angle_29',['angle',['../structm__derived__types_1_1source__spatial__type.html#a37a68f93074823bf645cca3e698e9015',1,'m_derived_types::source_spatial_type']]],
-  ['aperture_30',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters::aperture'],['../namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc',1,'m_acoustic_src::aperture']]],
-  ['avg_5fstate_31',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
+  ['angles_30',['angles',['../structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42',1,'m_derived_types::ib_patch_parameters']]],
+  ['angular_5fvel_31',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
+  ['aperture_32',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters::aperture'],['../namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc',1,'m_acoustic_src::aperture']]],
+  ['avg_5fstate_33',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
 ];

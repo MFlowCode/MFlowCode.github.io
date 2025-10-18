@@ -20,5 +20,7 @@ var searchData=
   ['alter_5fpatch_17',['alter_patch',['../structm__derived__types_1_1ic__patch__parameters.html#a4069bfb6be1aba121be3fcffb2d660f0',1,'m_derived_types::ic_patch_parameters']]],
   ['amplifier_18',['amplifier',['../namespacem__constants.html#a1f52e85430eb7f1fba1d46370791e877',1,'m_constants']]],
   ['angle_19',['angle',['../structm__derived__types_1_1source__spatial__type.html#a37a68f93074823bf645cca3e698e9015',1,'m_derived_types::source_spatial_type']]],
-  ['aperture_20',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]]
+  ['angles_20',['angles',['../structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42',1,'m_derived_types::ib_patch_parameters']]],
+  ['angular_5fvel_21',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
+  ['aperture_22',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]]
 ];
