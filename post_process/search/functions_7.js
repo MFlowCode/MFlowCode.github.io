@@ -185,11 +185,13 @@ var searchData=
   ['s_5fwrite_5fenergy_5fdata_5ffile_182',['s_write_energy_data_file',['../namespacem__data__output.html#a46f36ecca7ea4f45bba6abddb3b01e7b',1,'m_data_output']]],
   ['s_5fwrite_5fgrid_5fto_5fformatted_5fdatabase_5ffile_183',['s_write_grid_to_formatted_database_file',['../namespacem__data__output.html#a00a1df7dd9a54fe10ae510fc59f56c7f',1,'m_data_output']]],
   ['s_5fwrite_5fintf_5fdata_5ffile_184',['s_write_intf_data_file',['../namespacem__data__output.html#a4ff7f31077c26f589e452791649af471',1,'m_data_output']]],
-  ['s_5fwrite_5flag_5fbubbles_5fresults_185',['s_write_lag_bubbles_results',['../namespacem__data__output.html#a2acea5243a6afde91b34697b7eb8c5a7',1,'m_data_output']]],
-  ['s_5fwrite_5fobj_186',['s_write_obj',['../namespacem__model.html#aa597a4a14472f275cf65844c532fa5bb',1,'m_model']]],
-  ['s_5fwrite_5fparallel_5fboundary_5fcondition_5ffiles_187',['s_write_parallel_boundary_condition_files',['../namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f',1,'m_boundary_common']]],
-  ['s_5fwrite_5fserial_5fboundary_5fcondition_5ffiles_188',['s_write_serial_boundary_condition_files',['../namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b',1,'m_boundary_common']]],
-  ['s_5fwrite_5fstl_189',['s_write_stl',['../namespacem__model.html#a10a8828badc74b34ff6d30655c22d383',1,'m_model']]],
-  ['s_5fwrite_5fvariable_5fto_5fformatted_5fdatabase_5ffile_190',['s_write_variable_to_formatted_database_file',['../namespacem__data__output.html#a342bb45ac15ca3a5da40fc6e2c8434bd',1,'m_data_output']]],
-  ['spherical_5fharmonic_5ffunc_191',['spherical_harmonic_func',['../namespacem__helper.html#a475f9d231de3550d64d274bd96a5ee92',1,'m_helper']]]
+  ['s_5fwrite_5flag_5fbubbles_5fresults_5fto_5ftext_185',['s_write_lag_bubbles_results_to_text',['../namespacem__data__output.html#a8740dbd203f9e9c054ceac628fcb53c2',1,'m_data_output']]],
+  ['s_5fwrite_5flag_5fbubbles_5fto_5fformatted_5fdatabase_5ffile_186',['s_write_lag_bubbles_to_formatted_database_file',['../namespacem__data__output.html#a4b51c66195d7d2c5d6b8b504783621f9',1,'m_data_output']]],
+  ['s_5fwrite_5flag_5fvariable_5fto_5fformatted_5fdatabase_5ffile_187',['s_write_lag_variable_to_formatted_database_file',['../namespacem__data__output.html#ade07913434048799e610ebd64584658d',1,'m_data_output']]],
+  ['s_5fwrite_5fobj_188',['s_write_obj',['../namespacem__model.html#aa597a4a14472f275cf65844c532fa5bb',1,'m_model']]],
+  ['s_5fwrite_5fparallel_5fboundary_5fcondition_5ffiles_189',['s_write_parallel_boundary_condition_files',['../namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f',1,'m_boundary_common']]],
+  ['s_5fwrite_5fserial_5fboundary_5fcondition_5ffiles_190',['s_write_serial_boundary_condition_files',['../namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b',1,'m_boundary_common']]],
+  ['s_5fwrite_5fstl_191',['s_write_stl',['../namespacem__model.html#a10a8828badc74b34ff6d30655c22d383',1,'m_model']]],
+  ['s_5fwrite_5fvariable_5fto_5fformatted_5fdatabase_5ffile_192',['s_write_variable_to_formatted_database_file',['../namespacem__data__output.html#a342bb45ac15ca3a5da40fc6e2c8434bd',1,'m_data_output']]],
+  ['spherical_5fharmonic_5ffunc_193',['spherical_harmonic_func',['../namespacem__helper.html#a475f9d231de3550d64d274bd96a5ee92',1,'m_helper']]]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"namespacem__riemann__solvers.html#a00d1f9ddce268407200d21ff409474d7":[1,0,40,25],
 "namespacem__riemann__solvers.html#a0327c671d0b10413b333946ded103423":[1,0,40,14],
 "namespacem__riemann__solvers.html#a05200607014f44c73b33b389567fcbab":[1,0,40,36],
 "namespacem__riemann__solvers.html#a067025c284688f69e97906b77f57d0c0":[1,0,40,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "namespacemembers_z.html":[1,1,0,25],
 "namespaces.html":[1,0],
 "p__main_8fpp_8f90.html":[3,0,44],
-"p__main_8fpp_8f90.html#aeec10ee8e2940c953967da3e374e1579":[3,0,44,0],
-"pages.html":[]
+"p__main_8fpp_8f90.html#aeec10ee8e2940c953967da3e374e1579":[3,0,44,0]
 };

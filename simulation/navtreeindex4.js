@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"namespacem__ibm.html#a344f449cb9696fae6e6bc532085913f2":[1,0,27,3],
 "namespacem__ibm.html#a38f37eda1ee706319633cd6aa3b7c613":[1,0,27,10],
 "namespacem__ibm.html#a3d1e00a7ccc9e6016f14d294bf0f29f5":[1,0,27,2],
 "namespacem__ibm.html#a3d7e47c58127b8a61046b4251160f535":[1,0,27,12],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "namespacem__rhs.html#af8877adde949c76a9d77fdba44fd349c":[1,0,39,8],
 "namespacem__rhs.html#aff186feb455523d0f171c71706632311":[1,0,39,20],
 "namespacem__riemann__solvers.html":[1,0,40],
-"namespacem__riemann__solvers.html#a00571de3c5571a731fbb093c00c77ed8":[1,0,40,9],
-"namespacem__riemann__solvers.html#a00d1f9ddce268407200d21ff409474d7":[1,0,40,25]
+"namespacem__riemann__solvers.html#a00571de3c5571a731fbb093c00c77ed8":[1,0,40,9]
 };

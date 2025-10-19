@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structm__derived__types_1_1bub__bounds__info.html":[2,0,2,3],
 "structm__derived__types_1_1bub__bounds__info.html#a01730fa85d33e3174561ad5182d2e052":[1,0,13,3,1],
 "structm__derived__types_1_1bub__bounds__info.html#a01730fa85d33e3174561ad5182d2e052":[2,0,2,3,1],
 "structm__derived__types_1_1bub__bounds__info.html#a0aeed04f8b8072c124ed2cec4e23e78c":[1,0,13,3,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1ic__patch__parameters.html#aac9c24fd83804f3cfd692adece86e3f2":[2,0,2,11,4],
 "structm__derived__types_1_1ic__patch__parameters.html#abea7135cdb959c01e9096d66e1f28554":[1,0,13,11,32],
 "structm__derived__types_1_1ic__patch__parameters.html#abea7135cdb959c01e9096d66e1f28554":[2,0,2,11,32],
-"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[1,0,13,11,34],
-"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[2,0,2,11,34]
+"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[1,0,13,11,34]
 };

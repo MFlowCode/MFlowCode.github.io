@@ -58,10 +58,10 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6",
-"namespacem__global__parameters.html#a971692c50b4725d4724238b8a01a722e",
-"namespacem__mpi__common.html#a65728020613f88febe83c74836abb371",
-"structm__derived__types_1_1bub__bounds__info.html#a01730fa85d33e3174561ad5182d2e052",
-"structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980"
+"namespacem__global__parameters.html#a9648048cbecc834252ec7e0c259b1111",
+"namespacem__mpi__common.html#a564644bad898d940dc6caea3297bb424",
+"structm__derived__types_1_1bub__bounds__info.html",
+"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
