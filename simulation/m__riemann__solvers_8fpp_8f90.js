@@ -12,6 +12,7 @@ var m__riemann__solvers_8fpp_8f90 =
     [ "m_riemann_solvers::s_hlld_riemann_solver", "namespacem__riemann__solvers.html#a00571de3c5571a731fbb093c00c77ed8", null ],
     [ "m_riemann_solvers::s_initialize_riemann_solver", "namespacem__riemann__solvers.html#a99ceccfbf2d02b81c21cddbe156af054", null ],
     [ "m_riemann_solvers::s_initialize_riemann_solvers_module", "namespacem__riemann__solvers.html#adb2da01d113ee9a470616c67a3a8a5da", null ],
+    [ "m_riemann_solvers::s_lf_riemann_solver", "namespacem__riemann__solvers.html#a9874501694c99874d02ce0eefa258ce9", null ],
     [ "m_riemann_solvers::s_populate_riemann_states_variables_buffers", "namespacem__riemann__solvers.html#a44904d3bd77a85446482eacbe696bac3", null ],
     [ "m_riemann_solvers::s_riemann_solver", "namespacem__riemann__solvers.html#aff6e3d5abdabe6ce6fccbb7a081766e6", null ],
     [ "m_riemann_solvers::flux_gsrc_rsx_vf", "namespacem__riemann__solvers.html#a0327c671d0b10413b333946ded103423", null ],

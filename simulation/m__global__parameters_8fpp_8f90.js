@@ -77,6 +77,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::elasticity", "namespacem__global__parameters.html#ad3ab5ce00c74b0050cc1a9e96d9e14b6", null ],
     [ "m_global_parameters::fd_number", "namespacem__global__parameters.html#a60d7ab72fdab2b005144a5a45aa572de", null ],
     [ "m_global_parameters::fd_order", "namespacem__global__parameters.html#a8892cc67c7d04be4d8e6d02a86e209bc", null ],
+    [ "m_global_parameters::fft_wrt", "namespacem__global__parameters.html#a5a7c91ecf1d5ed57f9d249bd3c7185d1", null ],
     [ "m_global_parameters::file_per_process", "namespacem__global__parameters.html#acc9528b2fecd03ad3e257b912e5772b4", null ],
     [ "m_global_parameters::finaltime", "namespacem__global__parameters.html#af1c4c70f11dfc6304ff2e7cffd3e6683", null ],
     [ "m_global_parameters::fluid_pp", "namespacem__global__parameters.html#a7297abec8863ecabf95e24ebdae46a17", null ],

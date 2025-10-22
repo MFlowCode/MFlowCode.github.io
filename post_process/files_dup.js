@@ -16,12 +16,12 @@ var files_dup =
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],
     [ "m_mpi_proxy.fpp.f90", "m__mpi__proxy_8fpp_8f90.html", "m__mpi__proxy_8fpp_8f90" ],
     [ "m_phase_change.fpp.f90", "m__phase__change_8fpp_8f90.html", "m__phase__change_8fpp_8f90" ],
+    [ "m_start_up.fpp.f90", "m__start__up_8fpp_8f90.html", "m__start__up_8fpp_8f90" ],
     [ "m_variables_conversion.fpp.f90", "m__variables__conversion_8fpp_8f90.html", "m__variables__conversion_8fpp_8f90" ],
     [ "p_main.fpp.f90", "p__main_8fpp_8f90.html", "p__main_8fpp_8f90" ],
     [ "m_compile_specific.f90", "m__compile__specific_8f90.html", "m__compile__specific_8f90" ],
     [ "m_delay_file_access.f90", "m__delay__file__access_8f90.html", "m__delay__file__access_8f90" ],
     [ "m_nvtx.f90", "m__nvtx_8f90.html", "m__nvtx_8f90" ],
     [ "m_precision_select.f90", "m__precision__select_8f90.html", "m__precision__select_8f90" ],
-    [ "m_data_input.f90", "m__data__input_8f90.html", "m__data__input_8f90" ],
-    [ "m_start_up.f90", "m__start__up_8f90.html", "m__start__up_8f90" ]
+    [ "m_data_input.f90", "m__data__input_8f90.html", "m__data__input_8f90" ]
 ];
