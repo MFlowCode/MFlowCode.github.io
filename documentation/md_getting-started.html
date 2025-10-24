@@ -135,20 +135,20 @@ $(function(){initNavTree('md_getting-started.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Getting Started</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md102"></a></p>
-<h1><a class="anchor" id="autotoc_md103"></a>
+<div class="textblock"><p><a class="anchor" id="autotoc_md117"></a></p>
+<h1><a class="anchor" id="autotoc_md118"></a>
 Fetching MFC</h1>
 <p>You can either download MFC's <a href="https://github.com/MFlowCode/MFC/releases/latest">latest release from GitHub</a> or clone the repository:</p>
 <div class="fragment"><div class="line">git clone https://github.com/MFlowCode/MFC.git</div>
 <div class="line">cd MFC</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md104"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md119"></a>
 Build Environment</h1>
-<p>MFC can be built in multiple ways on various operating systems. Please select your desired configuration from the list bellow:</p>
+<p>MFC can be built in multiple ways on various operating systems. Please select your desired configuration from the list below:</p>
 <h2>*nix</h2>
 <ul>
 <li><b>On supported clusters:</b> Load environment modules</li>
 </ul>
-<div class="fragment"><div class="line">. ./mfc.sh load</div>
+<div class="fragment"><div class="line">source ./mfc.sh load</div>
 </div><!-- fragment --><ul>
 <li><b>Via Aptitude:</b></li>
 </ul>
@@ -207,41 +207,43 @@ Native Windows (Intel)</summary>
 <div class="line">. ~/.bash_profile 2&gt;/dev/null || . ~/.zshrc 2&gt;/dev/null</div>
 <div class="line">! [ -z &quot;${BOOST_INCLUDE+x}&quot; ] &amp;&amp; echo &#39;Environment is ready!&#39; || echo &#39;Error: $BOOST_INCLUDE is unset. Please adjust the previous commands to fit with your environment.&#39;</div>
 </div><!-- fragment --><p>They will download the dependencies MFC requires to build itself.</p>
-<h1><a class="anchor" id="autotoc_md105"></a>
+<h1><a class="anchor" id="autotoc_md120"></a>
 Building MFC</h1>
 <p>MFC can be built with support for various (compile-time) features:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadCenter">Feature   </th><th class="markdownTableHeadCenter">Enable   </th><th class="markdownTableHeadCenter">Disable   </th><th class="markdownTableHeadCenter">Default   </th><th class="markdownTableHeadNone">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><b>MPI</b>   </td><td class="markdownTableBodyCenter"><code>--mpi</code>   </td><td class="markdownTableBodyCenter"><code>--no-mpi</code>   </td><td class="markdownTableBodyCenter">On   </td><td class="markdownTableBodyNone">Lets MFC run on multiple processors (and nodes) simultaneously.    </td></tr>
+<td class="markdownTableBodyCenter"><b>MPI</b>   </td><td class="markdownTableBodyCenter"><code>--mpi</code>   </td><td class="markdownTableBodyCenter"><code>--no-mpi</code>   </td><td class="markdownTableBodyCenter">On   </td><td class="markdownTableBodyNone">Allows MFC to run on multiple processors (and nodes).    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter"><b>GPU</b>   </td><td class="markdownTableBodyCenter"><code>--gpu</code>   </td><td class="markdownTableBodyCenter"><code>--no-gpu</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Enables GPU acceleration via OpenACC.    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyCenter"><b>Debug</b>   </td><td class="markdownTableBodyCenter"><code>--debug</code>   </td><td class="markdownTableBodyCenter"><code>--no-debug</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Requests the compiler build MFC in debug mode.    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><b>GCov</b>   </td><td class="markdownTableBodyCenter"><code>--gcov</code>   </td><td class="markdownTableBodyCenter"><code>--no-gcov</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Builds MFC with coverage flags on.    </td></tr>
+<td class="markdownTableBodyCenter"><b>GCov</b>   </td><td class="markdownTableBodyCenter"><code>--gcov</code>   </td><td class="markdownTableBodyCenter"><code>--no-gcov</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Build MFC with coverage flags on.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter"><b>Unified Memory</b>   </td><td class="markdownTableBodyCenter"><code>--unified</code>   </td><td class="markdownTableBodyCenter"><code>--no-unified</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Builds MFC with unified CPU/GPU memory (GH-200 superchip only)    </td></tr>
+<td class="markdownTableBodyCenter"><b>Unified Memory</b>   </td><td class="markdownTableBodyCenter"><code>--unified</code>   </td><td class="markdownTableBodyCenter"><code>--no-unified</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Build MFC with unified CPU/GPU memory (GH200 superchip only)    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter"><b>Single</b>   </td><td class="markdownTableBodyCenter"><code>--single</code>   </td><td class="markdownTableBodyCenter"><code>--no-single</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Builds MFC in single precision   </td></tr>
+<td class="markdownTableBodyCenter"><b>Single</b>   </td><td class="markdownTableBodyCenter"><code>--single</code>   </td><td class="markdownTableBodyCenter"><code>--no-single</code>   </td><td class="markdownTableBodyCenter">Off   </td><td class="markdownTableBodyNone">Build MFC in single precision   </td></tr>
 </table>
 <p><em>⚠️ The <code>--gpu</code> option requires that your compiler supports OpenACC for Fortran for your target GPU architecture.</em></p>
 <p>When these options are given to <code>mfc.sh</code>, they will be remembered when you issue future commands. You can enable and disable features anytime by passing any of the arguments above. For example, if you previously built MFC with MPI support and no longer wish to run using MPI, you can pass <code>--no-mpi</code> once, making the change permanent.</p>
 <p>MFC comprises three codes, each being a separate <em>target</em>. By default, all targets (<code>pre_process</code>, <code>simulation</code>, and <code>post_process</code>) are selected. To only select a subset, use the <code>-t</code> (i.e., <code>--targets</code>) argument. For a detailed list of options, arguments, and features, please refer to <code>./mfc.sh build --help</code>.</p>
 <p>Most first-time users will want to build MFC using 8 threads (or more!) with MPI support: </p><div class="fragment"><div class="line">./mfc.sh build -j 8</div>
-</div><!-- fragment --><p>Examples:</p>
-<ul>
+</div><!-- fragment --><p>Some examples:</p><ul>
 <li>Build MFC using 8 threads with MPI and GPU acceleration: <code>./mfc.sh build --gpu -j 8</code>.</li>
 <li>Build MFC using a single thread without MPI, GPU, and Debug support: <code>./mfc.sh build --no-mpi</code>.</li>
 <li>Build MFC's <code>simulation</code> code in Debug mode with MPI and GPU support: <code>./mfc.sh build --debug --gpu -t simulation</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md106"></a>
+<h1><a class="anchor" id="autotoc_md121"></a>
+Using Containers</h1>
+<p>Instead of building MFC from scratch, you can use containers to quickly access a pre-built version of MFC and its dependencies. In brief, you can run the latest MFC container: </p><div class="fragment"><div class="line">docker run -it --rm --entrypoint bash sbryngelson/mfc:latest-cpu</div>
+</div><!-- fragment --><p> Please refer to the <a href="https://mflowcode.github.io/documentation/docker.html">Docker</a> document for more information.</p>
+<h1><a class="anchor" id="autotoc_md122"></a>
 Running the Test Suite</h1>
-<p>Run MFC's test suite with 8 threads:</p>
-<div class="fragment"><div class="line">./mfc.sh test -j 8</div>
+<p>Run MFC's test suite with 8 threads: </p><div class="fragment"><div class="line">./mfc.sh test -j 8</div>
 </div><!-- fragment --><p>Please refer to the <a class="el" href="md_testing.html">Testing</a> document for more information.</p>
-<h1><a class="anchor" id="autotoc_md107"></a>
+<h1><a class="anchor" id="autotoc_md123"></a>
 Running an Example Case</h1>
 <p>MFC has example cases in the <code>examples</code> folder. You can run such a case interactively using 2 tasks by typing:</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -n 2</div>

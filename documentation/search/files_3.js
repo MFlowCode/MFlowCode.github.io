@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['getting_2dstarted_2emd_0',['getting-started.md',['../getting-started_8md.html',1,'']]],
-  ['gpuparallelization_2emd_1',['gpuParallelization.md',['../gpuParallelization_8md.html',1,'']]]
+  ['examples_2emd_0',['examples.md',['../examples_8md.html',1,'']]],
+  ['expectedperformance_2emd_1',['expectedPerformance.md',['../expectedPerformance_8md.html',1,'']]]
 ];
