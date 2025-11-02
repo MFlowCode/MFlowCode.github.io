@@ -19,6 +19,6 @@ var searchData=
   ['grcbc_5fout_16',['grcbc_out',['../structm__derived__types_1_1int__bounds__info.html#a6a1dbe9bff662fd81ad5dc56f3c6ee35',1,'m_derived_types::int_bounds_info']]],
   ['grcbc_5fvel_5fout_17',['grcbc_vel_out',['../structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80',1,'m_derived_types::int_bounds_info']]],
   ['grid_5fgeometry_18',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]],
-  ['gs_19',['gs',['../namespacem__variables__conversion.html#a269aa06280750288452acc962300d42e',1,'m_variables_conversion']]],
-  ['gs_5fmin_20',['gs_min',['../namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908',1,'m_variables_conversion']]]
+  ['gs_5fmin_19',['gs_min',['../namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908',1,'m_variables_conversion']]],
+  ['gs_5fvc_20',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
 ];

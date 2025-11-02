@@ -161,8 +161,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a7a539198fcae8bf46592bd75907429ea" id="r_a7a539198fcae8bf46592bd75907429ea"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a539198fcae8bf46592bd75907429ea">s_finalize_cbc</a> (flux_vf, flux_src_vf)</td></tr>
 <tr class="memdesc:a7a539198fcae8bf46592bd75907429ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or the disassociation procedures that are necessary in order to finalize the CBC application.  <br /></td></tr>
 <tr class="separator:a7a539198fcae8bf46592bd75907429ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38160b454562d74625f00b98cd204841" id="r_a38160b454562d74625f00b98cd204841"><td class="memItemLeft" align="right" valign="top">pure elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38160b454562d74625f00b98cd204841">s_any_cbc_boundaries</a> (toggle)</td></tr>
-<tr class="separator:a38160b454562d74625f00b98cd204841"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d212d5b96a594d15a230119318c5577" id="r_a7d212d5b96a594d15a230119318c5577"><td class="memItemLeft" align="right" valign="top">elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d212d5b96a594d15a230119318c5577">s_any_cbc_boundaries</a> (toggle)</td></tr>
+<tr class="separator:a7d212d5b96a594d15a230119318c5577"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae4c997bc61332ed3b4bd983f1e1294c" id="r_aae4c997bc61332ed3b4bd983f1e1294c"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae4c997bc61332ed3b4bd983f1e1294c">s_finalize_cbc_module</a></td></tr>
 <tr class="memdesc:aae4c997bc61332ed3b4bd983f1e1294c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 <tr class="separator:aae4c997bc61332ed3b4bd983f1e1294c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -270,14 +270,14 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The module features a large database of characteristic boundary conditions (CBC) for the Euler system of equations. This system is augmented by the appropriate advection equations utilized to capture the material interfaces. The closure is achieved by the stiffened equation of state and mixture relations. At this time, the following CBC are available: 1) Slip Wall 2) Nonreflecting Subsonic Buffer 3) Nonreflecting Subsonic Inflow 4) Nonreflecting Subsonic Outflow 5) Force-Free Subsonic Outflow 6) Constant Pressure Subsonic Outflow 7) Supersonic Inflow 8) Supersonic Outflow Please refer to Thompson (1987, 1990) for detailed descriptions. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a38160b454562d74625f00b98cd204841" name="a38160b454562d74625f00b98cd204841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38160b454562d74625f00b98cd204841">&#9670;&#160;</a></span>s_any_cbc_boundaries()</h2>
+<a id="a7d212d5b96a594d15a230119318c5577" name="a7d212d5b96a594d15a230119318c5577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d212d5b96a594d15a230119318c5577">&#9670;&#160;</a></span>s_any_cbc_boundaries()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pure elemental subroutine m_cbc::s_any_cbc_boundaries </td>
+          <td class="memname">elemental subroutine m_cbc::s_any_cbc_boundaries </td>
           <td>(</td>
           <td class="paramtype">logical, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>toggle</em></span></td><td>)</td>
           <td></td>
@@ -287,7 +287,7 @@ Variables</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__cbc_a38160b454562d74625f00b98cd204841_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__cbc_a7d212d5b96a594d15a230119318c5577_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -381,6 +381,18 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
+<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
+<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
+<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
+<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
+<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
+<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
+<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
+<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
+<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
+<p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
+<p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
 <p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>
 <p>gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</p>
 <p>gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</p>

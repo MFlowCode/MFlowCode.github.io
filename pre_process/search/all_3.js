@@ -23,7 +23,7 @@ var searchData=
   ['dipole_20',['dipole',['../structm__derived__types_1_1acoustic__parameters.html#aa4ba699fa87f54cb9ea63cf7a3f5a6c9',1,'m_derived_types::acoustic_parameters']]],
   ['dir_21',['dir',['../structm__derived__types_1_1bc__patch__parameters.html#af8285d960e49a96e8f0d1b738366041d',1,'m_derived_types::bc_patch_parameters::dir'],['../structm__derived__types_1_1acoustic__parameters.html#a7c1bc17e6471b4ba5421714bf29cabc2',1,'m_derived_types::acoustic_parameters::dir']]],
   ['dist_5ftype_22',['dist_type',['../namespacem__global__parameters.html#a34297551dccfd5771f543ff8902042bc',1,'m_global_parameters']]],
-  ['double_5ffactorial_23',['double_factorial',['../namespacem__helper.html#a78033ea89e3630bd233dfa3d90fcb5d6',1,'m_helper']]],
+  ['double_5ffactorial_23',['double_factorial',['../namespacem__helper.html#a6ca53d0a74e18a215cddb79c83a1a6b7',1,'m_helper']]],
   ['double_5fprecision_24',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
   ['down_5fsample_25',['down_sample',['../namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0',1,'m_global_parameters']]],
   ['dp_26',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],

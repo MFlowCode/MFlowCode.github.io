@@ -36,7 +36,7 @@ var searchData=
   ['bub_5fidx_33',['bub_idx',['../namespacem__global__parameters.html#a9a425d1bd91d1765043adf8410b98bf7',1,'m_global_parameters']]],
   ['bubbles_5feuler_34',['bubbles_euler',['../namespacem__global__parameters.html#a04cbfd496a4957519236d8be24b343bd',1,'m_global_parameters']]],
   ['bubbles_5flagrange_35',['bubbles_lagrange',['../namespacem__global__parameters.html#a89fde47fbf14a9c93f6033542fe123db',1,'m_global_parameters']]],
-  ['bubrs_36',['bubrs',['../namespacem__variables__conversion.html#adf365a7d842572eb657e0f9082081716',1,'m_variables_conversion']]],
+  ['bubrs_5fvc_36',['bubrs_vc',['../namespacem__variables__conversion.html#abc019c747ff4300fd22628fdcf259575',1,'m_variables_conversion']]],
   ['bubxb_37',['bubxb',['../namespacem__global__parameters.html#a0b5e4db635f8e008713c89bd4b476341',1,'m_global_parameters']]],
   ['bubxe_38',['bubxe',['../namespacem__global__parameters.html#af2c761d2439270ca189b7e3912ab1f70',1,'m_global_parameters']]],
   ['buff_5frecv_39',['buff_recv',['../namespacem__mpi__common.html#a2427f77cebecdbb0d52fafc4b458b369',1,'m_mpi_common']]],

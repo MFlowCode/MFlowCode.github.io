@@ -42,6 +42,9 @@ var searchData=
   ['grcbc_5fout_39',['grcbc_out',['../structm__derived__types_1_1int__bounds__info.html#a6a1dbe9bff662fd81ad5dc56f3c6ee35',1,'m_derived_types::int_bounds_info']]],
   ['grcbc_5fvel_5fout_40',['grcbc_vel_out',['../structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80',1,'m_derived_types::int_bounds_info']]],
   ['grid_5fgeometry_41',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]],
-  ['gs_42',['gs',['../namespacem__hyperelastic.html#a63409271eb85717cd31daae7c2cc541d',1,'m_hyperelastic::gs'],['../namespacem__hypoelastic.html#a89dc2d7ce1127961ebe2df8c90c5c825',1,'m_hypoelastic::gs'],['../namespacem__riemann__solvers.html#ac89adc897ee49a6346b36b0d9bb6cf15',1,'m_riemann_solvers::gs'],['../namespacem__variables__conversion.html#a269aa06280750288452acc962300d42e',1,'m_variables_conversion::gs']]],
-  ['gs_5fmin_43',['gs_min',['../namespacem__global__parameters.html#aeff0b4922a35a8bbef1dafa9bf74b6db',1,'m_global_parameters::gs_min'],['../namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908',1,'m_variables_conversion::gs_min']]]
+  ['gs_5fhyper_42',['gs_hyper',['../namespacem__hyperelastic.html#a7a6b676720a380983d277663cacb8f5e',1,'m_hyperelastic']]],
+  ['gs_5fhypo_43',['gs_hypo',['../namespacem__hypoelastic.html#a0b609359bab5eda290ed1467b1162420',1,'m_hypoelastic']]],
+  ['gs_5fmin_44',['gs_min',['../namespacem__global__parameters.html#aeff0b4922a35a8bbef1dafa9bf74b6db',1,'m_global_parameters::gs_min'],['../namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908',1,'m_variables_conversion::gs_min']]],
+  ['gs_5frs_45',['gs_rs',['../namespacem__riemann__solvers.html#aec207280763d90d7236d693b51a5889f',1,'m_riemann_solvers']]],
+  ['gs_5fvc_46',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
 ];

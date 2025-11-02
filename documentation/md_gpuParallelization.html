@@ -175,46 +175,52 @@ Computation Macros</h2>
 <code>GPU_PARALLEL_LOOP</code> &ndash; <code>(Execute the following loop on the GPU in parallel)</code></summary>
 <p></p>
 <p><b>Macro Invocation</b></p>
-<p>Uses FYPP eval directive using <code>$:</code></p>
-<p><code>$:GPU_PARALLEL_LOOP(...)</code></p>
-<p><b>Parameters</b></p>
+<p>Uses FYPP eval directive using <code>#:call</code></p>
+<div class="fragment"><div class="line"><span class="preprocessor">#:call GPU_PARALLEL_LOOP(...)</span></div>
+<div class="line">   {code}</div>
+<div class="line"><span class="preprocessor">#:endcall GPU_PARALLEL_LOOP</span></div>
+</div><!-- fragment --><p><b>Parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">name   </th><th class="markdownTableHeadNone">data type   </th><th class="markdownTableHeadNone">Default Value   </th><th class="markdownTableHeadNone">description    </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>code</code>   </td><td class="markdownTableBodyNone">code   </td><td class="markdownTableBodyNone">Required   </td><td class="markdownTableBodyNone">Region of code where the GPU parallelizes loops    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>collapse</code>   </td><td class="markdownTableBodyNone">integer   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Number of loops to combine into 1 loop    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>parallelism</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">'[gang,vector]'   </td><td class="markdownTableBodyNone">Parallelism granularity to use for this loop    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>default</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">'present'   </td><td class="markdownTableBodyNone">Implicit assumptions compiler should make    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>private</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Variables that are private to each iteration/thread    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>firstprivate</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Initialized variables that are private to each iteration/thread    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>reduction</code>   </td><td class="markdownTableBodyNone">2-level string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Variables unique to each iteration and reduced at the end    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>reductionOp</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Operator that each list of reduction will reduce with    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>copy</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates and copies data to GPU on entrance, then deallocated and copies to CPU on exit    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>copyin</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates and copies data to GPU on entrance and then deallocated on exit    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>copyinReadOnly</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates and copies readonly data to GPU and then deallocated on exit    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>copyout</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates data on GPU on entrance and then deallocates and copies to CPU on exit    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>create</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates data on GPU on entrance and then deallocates on exit    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>no_create</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Use data in CPU memory unless data is already in GPU memory    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>present</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Data that must be present in GPU memory. Increment counter on entrance, decrement on exit    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>deviceptr</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Pointer variables that are already allocated on GPU memory    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>attach</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Attaches device pointer to device targets on entrance, then detach on exit    </td></tr>
+<td class="markdownTableBodyNone"><code>deviceptr</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Pointer variables that are already allocated on GPU memory    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>attach</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Attaches device pointer to device targets on entrance, then detach on exit    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -236,8 +242,14 @@ Computation Macros</h2>
 <li>A reduction implies a copy, so it does not need to be added for both</li>
 </ul>
 <p><b>Example</b></p>
-<div class="fragment"><div class="line">$:GPU_PARALLEL_LOOP(collapse=3, private=<span class="stringliteral">&#39;[tmp, r]&#39;</span>, reduction=<span class="stringliteral">&#39;[[vol, avg], [max_val]]&#39;</span>, reductionOp=<span class="stringliteral">&#39;[+, MAX]&#39;</span>)</div>
-<div class="line">$:GPU_PARALLEL_LOOP(collapse=2, private=<span class="stringliteral">&#39;[sum_holder]&#39;</span>, copyin=<span class="stringliteral">&#39;[starting_sum]&#39;</span>, copyout=<span class="stringliteral">&#39;[eigenval,C]&#39;</span>)</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#:call GPU_PARALLEL_LOOP(collapse=3, private=&#39;[tmp, r]&#39;, reduction=&#39;[[vol, avg], [max_val]]&#39;, reductionOp=&#39;[+, MAX]&#39;)</span></div>
+<div class="line">  {code}</div>
+<div class="line">  ...</div>
+<div class="line">#:endcall GPU_PARALLEL_LOOP</div>
+<div class="line"><span class="preprocessor">#:call GPU_PARALLEL_LOOP(collapse=2, private=&#39;[sum_holder]&#39;, copyin=&#39;[starting_sum]&#39;, copyout=&#39;[eigenval,C]&#39;)</span></div>
+<div class="line">   {code}</div>
+<div class="line">  ...</div>
+<div class="line">#:endcall GPU_PARALLEL_LOOP</div>
 </div><!-- fragment --><p></p>
 </details>
 <details >
@@ -264,7 +276,9 @@ Computation Macros</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>reductionOp</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Operator that each list of reduction will reduce with    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -302,35 +316,39 @@ Computation Macros</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">name   </th><th class="markdownTableHeadNone">data type   </th><th class="markdownTableHeadNone">Default Value   </th><th class="markdownTableHeadNone">description    </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>code</code>   </td><td class="markdownTableBodyNone">code   </td><td class="markdownTableBodyNone">Required   </td><td class="markdownTableBodyNone">Region of code where a kernel is launched on the GPU    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>default</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">'present'   </td><td class="markdownTableBodyNone">Implicit assumptions compiler should make    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>private</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Variables that are private to each iteration/thread    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>firstprivate</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Initialized variables that are private to each iteration/thread    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>reduction</code>   </td><td class="markdownTableBodyNone">2-level string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Variables unique to each iteration and reduced at the end    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>reductionOp</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Operator that each list of reduction will reduce with    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>copy</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates and copies data to GPU on entrance, then deallocated and copies to CPU on exit    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>copyin</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates and copies data to GPU on entrance and then deallocated on exit    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>copyinReadOnly</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates and copies readonly data to GPU and then deallocated on exit    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>copyout</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates data on GPU on entrance and then deallocates and copies to CPU on exit    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>create</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Allocates data on GPU on entrance and then deallocates on exit    </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>no_create</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Use data in CPU memory unless data is already in GPU memory    </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>present</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Data that must be present in GPU memory. Increment counter on entrance, decrement on exit    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>deviceptr</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Pointer variables that are already allocated on GPU memory    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>attach</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Attaches device pointer to device targets on entrance, then detach on exit    </td></tr>
+<td class="markdownTableBodyNone"><code>deviceptr</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Pointer variables that are already allocated on GPU memory    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>attach</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Attaches device pointer to device targets on entrance, then detach on exit    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -397,7 +415,9 @@ Data Control Macros</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>default</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Implicit assumptions compiler should make    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -437,7 +457,9 @@ Data Control Macros</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>attach</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Attaches device pointer to device targets on entrance    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Example</b></p>
 <div class="fragment"><div class="line">$:GPU_ENTER_DATA(copyin=<span class="stringliteral">&#39;[pixels_arr]&#39;</span>, copyinReadOnly=<span class="stringliteral">&#39;[starting_pixels, initial_index]&#39;</span>)</div>
@@ -462,7 +484,9 @@ Data Control Macros</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>detach</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Detach device pointer from device targets on exit    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Example</b></p>
 <div class="fragment"><div class="line">$:GPU_EXIT_DATA(copyout=<span class="stringliteral">&#39;[pixels_arr]&#39;</span>, delete=<span class="stringliteral">&#39;[starting_pixels, initial_index]&#39;</span>)</div>
@@ -497,7 +521,9 @@ Data Control Macros</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>link</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Declare global link, and only allocate when variable used in data clause.    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Additional information</b></p>
 <ul>
@@ -527,7 +553,9 @@ Data Control Macros</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>device</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Updates data from CPU to GPU    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Example</b></p>
 <div class="fragment"><div class="line">$:GPU_UPDATE(host=<span class="stringliteral">&#39;[arr1, arr2]&#39;</span>)</div>
@@ -550,9 +578,13 @@ Data Control Macros</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>code</code>   </td><td class="markdownTableBodyNone">code   </td><td class="markdownTableBodyNone">Required   </td><td class="markdownTableBodyNone">Region of code where GPU memory addresses is accessible    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>use_device</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Use GPU memory address of variable instead of CPU memory address    </td></tr>
+<td class="markdownTableBodyNone"><code>use_device_addr</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Use GPU memory address of variable instead of CPU memory address    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>use_device_ptr</code>   </td><td class="markdownTableBodyNone">string list   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">Use GPU pointer of pointers instead of CPU pointer    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -587,7 +619,9 @@ Synchronization Macros</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">name   </th><th class="markdownTableHeadNone">data type   </th><th class="markdownTableHeadNone">Default Value   </th><th class="markdownTableHeadNone">description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Example</b></p>
 <div class="fragment"><div class="line">$:GPU_WAIT()</div>
@@ -607,7 +641,9 @@ Synchronization Macros</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>atomic</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">Required   </td><td class="markdownTableBodyNone">Which atomic operation is performed    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -668,7 +704,9 @@ Miscellaneous Macros</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>cray_inline</code>   </td><td class="markdownTableBodyNone">boolean   </td><td class="markdownTableBodyNone">False   </td><td class="markdownTableBodyNone">Inline procedure on cray compiler    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
+<td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><code>extraOmpArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenMP directive   </td></tr>
 </table>
 <p><b>Parameter Restrictions</b></p>
 <table class="markdownTable">
@@ -704,6 +742,7 @@ Miscellaneous Macros</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><code>extraAccArgs</code>   </td><td class="markdownTableBodyNone">string   </td><td class="markdownTableBodyNone">None   </td><td class="markdownTableBodyNone">String of any extra arguments added to the OpenACC directive   </td></tr>
 </table>
+<p><b>NOTE</b> Does not do anything for OpenMP currently</p>
 <p><b>Example</b></p>
 <div class="fragment"><div class="line">$:GPU_CACHE(cache=<span class="stringliteral">&#39;[pixels_arr]&#39;</span>)</div>
 </div><!-- fragment --><p></p>

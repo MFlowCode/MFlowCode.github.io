@@ -1,7 +1,7 @@
 var m__icpp__patches_8fpp_8f90 =
 [
-    [ "m_icpp_patches::f_convert_cyl_to_cart", "namespacem__icpp__patches.html#a66bffa996447b4667609af6420605db4", null ],
-    [ "m_icpp_patches::f_r", "namespacem__icpp__patches.html#a87082839bf1f7646e016ee798313fb64", null ],
+    [ "m_icpp_patches::f_convert_cyl_to_cart", "namespacem__icpp__patches.html#a0c902f53d362fec05b33ac8314a8d9c9", null ],
+    [ "m_icpp_patches::f_r", "namespacem__icpp__patches.html#acc0affb72127287df0765f4c4535fc77", null ],
     [ "m_icpp_patches::s_apply_icpp_patches", "namespacem__icpp__patches.html#a82d33950641130d1348d1d3a2eb72c3f", null ],
     [ "m_icpp_patches::s_convert_cylindrical_to_cartesian_coord", "namespacem__icpp__patches.html#acbe8a03d5a5b6d11880bb904f91e9e0b", null ],
     [ "m_icpp_patches::s_convert_cylindrical_to_spherical_coord", "namespacem__icpp__patches.html#a38536fdbafa3aab3d0d374af6bc372f9", null ],

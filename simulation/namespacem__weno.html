@@ -155,9 +155,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:abfda0cbb1abbc46a10f662f098a7d84a" id="r_abfda0cbb1abbc46a10f662f098a7d84a"><td class="memItemLeft" align="right" valign="top">subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfda0cbb1abbc46a10f662f098a7d84a">s_initialize_weno</a> (v_vf, weno_dir)</td></tr>
 <tr class="memdesc:abfda0cbb1abbc46a10f662f098a7d84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are required for the setup of the WENO reconstruction.  <br /></td></tr>
 <tr class="separator:abfda0cbb1abbc46a10f662f098a7d84a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7732f6399947b7d2989735cfbbcf7aa8" id="r_a7732f6399947b7d2989735cfbbcf7aa8"><td class="memItemLeft" align="right" valign="top">pure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7732f6399947b7d2989735cfbbcf7aa8">s_preserve_monotonicity</a> (v_rs_ws, vl_rs_vf, vr_rs_vf)</td></tr>
-<tr class="memdesc:a7732f6399947b7d2989735cfbbcf7aa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to ensure that the WENO reconstruction is monotonic. The latter is achieved by enforcing monotonicity preserving bounds of Suresh and Huynh (1997). The resulting MPWENO reconstruction, see Balsara and Shu (2000), ensures that the reconstructed values do not reside outside the range spanned by WENO stencil.  <br /></td></tr>
-<tr class="separator:a7732f6399947b7d2989735cfbbcf7aa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c518e5d3cd83824f2d4c8cb76528555" id="r_a8c518e5d3cd83824f2d4c8cb76528555"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c518e5d3cd83824f2d4c8cb76528555">s_preserve_monotonicity</a> (v_rs_ws, vl_rs_vf, vr_rs_vf)</td></tr>
+<tr class="memdesc:a8c518e5d3cd83824f2d4c8cb76528555"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to ensure that the WENO reconstruction is monotonic. The latter is achieved by enforcing monotonicity preserving bounds of Suresh and Huynh (1997). The resulting MPWENO reconstruction, see Balsara and Shu (2000), ensures that the reconstructed values do not reside outside the range spanned by WENO stencil.  <br /></td></tr>
+<tr class="separator:a8c518e5d3cd83824f2d4c8cb76528555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc23d265ba703e5a92adb409b67c22b3" id="r_afc23d265ba703e5a92adb409b67c22b3"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc23d265ba703e5a92adb409b67c22b3">s_finalize_weno_module</a> ()</td></tr>
 <tr class="memdesc:afc23d265ba703e5a92adb409b67c22b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 <tr class="separator:afc23d265ba703e5a92adb409b67c22b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -349,14 +349,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a7732f6399947b7d2989735cfbbcf7aa8" name="a7732f6399947b7d2989735cfbbcf7aa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7732f6399947b7d2989735cfbbcf7aa8">&#9670;&#160;</a></span>s_preserve_monotonicity()</h2>
+<a id="a8c518e5d3cd83824f2d4c8cb76528555" name="a8c518e5d3cd83824f2d4c8cb76528555"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c518e5d3cd83824f2d4c8cb76528555">&#9670;&#160;</a></span>s_preserve_monotonicity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pure subroutine m_weno::s_preserve_monotonicity </td>
+          <td class="memname">subroutine m_weno::s_preserve_monotonicity </td>
           <td>(</td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v_rs_ws</em></span>, </td>
         </tr>
@@ -386,7 +386,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__weno_a7732f6399947b7d2989735cfbbcf7aa8_icgraph.svg" width="350" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__weno_a8c518e5d3cd83824f2d4c8cb76528555_icgraph.svg" width="350" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
