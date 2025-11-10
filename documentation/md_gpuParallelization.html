@@ -135,16 +135,16 @@ $(function(){initNavTree('md_gpuParallelization.html',''); initResizable(true); 
   <div class="headertitle"><div class="title">GPU Parallelization</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="autotoc_md124"></a></p>
+<div class="textblock"><p><a class="anchor" id="autotoc_md125"></a></p>
 <p>MFC compiles GPU code via OpenACC and in the future OpenMP as well.</p>
 <p>In order to swap between OpenACC and OpenMP, custom GPU macros are used that translate to equivalent OpenACC and OpenMP directives. FYPP is used to process the GPU macros.</p>
 <p><a href="https://openacc-best-practices-guide.readthedocs.io/en/latest/01-Introduction.html">OpenACC Quick start Guide</a></p>
 <p><a href="https://www.openacc.org/sites/default/files/inline-files/API%20Guide%202.7.pdf">OpenACC API Documentation</a></p>
 <hr  />
-<h1><a class="anchor" id="autotoc_md126"></a>
+<h1><a class="anchor" id="autotoc_md127"></a>
 Macro API Documentation</h1>
 <p>Note: Ordering is not guaranteed or stable, so use key-value pairing when using macros</p>
-<h2><a class="anchor" id="autotoc_md127"></a>
+<h2><a class="anchor" id="autotoc_md128"></a>
 Data Type Meanings</h2>
 <ul>
 <li>Integer is a number</li>
@@ -158,7 +158,7 @@ Data Type Meanings</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md128"></a>
+<h2><a class="anchor" id="autotoc_md129"></a>
 Data Flow</h2>
 <ul>
 <li>Data on the GPU has a reference counter</li>
@@ -168,7 +168,7 @@ Data Flow</h2>
 <li>When data is referred to being detached, it means that the attachment counter is decremented. If attachment counter is zero, then actually detached</li>
 </ul>
 <hr  />
-<h2><a class="anchor" id="autotoc_md130"></a>
+<h2><a class="anchor" id="autotoc_md131"></a>
 Computation Macros</h2>
 <details >
 <summary >
@@ -377,7 +377,7 @@ Computation Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h2><a class="anchor" id="autotoc_md132"></a>
+<h2><a class="anchor" id="autotoc_md133"></a>
 Data Control Macros</h2>
 <details >
 <summary >
@@ -605,7 +605,7 @@ Data Control Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h2><a class="anchor" id="autotoc_md134"></a>
+<h2><a class="anchor" id="autotoc_md135"></a>
 Synchronization Macros</h2>
 <details >
 <summary >
@@ -682,7 +682,7 @@ Synchronization Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h2><a class="anchor" id="autotoc_md136"></a>
+<h2><a class="anchor" id="autotoc_md137"></a>
 Miscellaneous Macros</h2>
 <details >
 <summary >
@@ -748,11 +748,11 @@ Miscellaneous Macros</h2>
 </div><!-- fragment --><p></p>
 </details>
 <hr  />
-<h1><a class="anchor" id="autotoc_md138"></a>
+<h1><a class="anchor" id="autotoc_md139"></a>
 Debugging Tools and Tips for GPUs</h1>
-<h2><a class="anchor" id="autotoc_md139"></a>
-Compiler agnostic tools</h2>
 <h2><a class="anchor" id="autotoc_md140"></a>
+Compiler agnostic tools</h2>
+<h2><a class="anchor" id="autotoc_md141"></a>
 OpenMP tools</h2>
 <div class="fragment"><div class="line">OMP_DISPLAY_ENV=true | false | verbose</div>
 </div><!-- fragment --><ul>
@@ -773,9 +773,9 @@ OpenMP tools</h2>
 </div><!-- fragment --><ul>
 <li>Will display affinity bindings for each OpenMP thread, containing hostname, process identifier, OS thread identifier, OpenMP thread identifier, and affinity binding.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md141"></a>
+<h2><a class="anchor" id="autotoc_md142"></a>
 Cray Compiler Tools</h2>
-<h3><a class="anchor" id="autotoc_md142"></a>
+<h3><a class="anchor" id="autotoc_md143"></a>
 Cray General Options</h3>
 <div class="fragment"><div class="line">CRAY_ACC_DEBUG: 0 (off), 1, 2, 3 (very noisy)</div>
 </div><!-- fragment --><ul>
@@ -793,7 +793,7 @@ Cray General Options</h3>
 <li>Default behavior without an environment variable is to defer initialization on first use</li>
 <li>Device initialization includes initializing the GPU vendor’s low-level device runtime library (e.g., libcuda for NVIDIA GPUs) and establishing all necessary software contexts for interacting with the device</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md143"></a>
+<h3><a class="anchor" id="autotoc_md144"></a>
 Cray OpenACC Options</h3>
 <div class="fragment"><div class="line">CRAY_ACC_PRESENT_DUMP_SAVE_NAMES=1</div>
 </div><!-- fragment --><ul>
@@ -803,9 +803,9 @@ Cray OpenACC Options</h3>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md144"></a>
+<h2><a class="anchor" id="autotoc_md145"></a>
 NVHPC Compiler Options</h2>
-<h3><a class="anchor" id="autotoc_md145"></a>
+<h3><a class="anchor" id="autotoc_md146"></a>
 NVHPC General Options</h3>
 <div class="fragment"><div class="line">STATIC_RANDOM_SEED=1</div>
 </div><!-- fragment --><ul>
@@ -817,7 +817,7 @@ NVHPC General Options</h3>
 <li><code>[no]debug</code>: Enables/disables just-in-time debugging (debugging invoked on error)</li>
 <li><code>[no]trace</code>: Enables/disables stack traceback on error</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md146"></a>
+<h3><a class="anchor" id="autotoc_md147"></a>
 NVHPC OpenACC Options</h3>
 <div class="fragment"><div class="line">NVCOMPILER_ACC_NOTIFY= &lt;bitmask&gt;</div>
 </div><!-- fragment --><ul>
@@ -846,7 +846,7 @@ NVHPC OpenACC Options</h3>
 </ul>
 </li>
 </ul>
-<h3><a class="anchor" id="autotoc_md147"></a>
+<h3><a class="anchor" id="autotoc_md148"></a>
 NVHPC OpenMP Options</h3>
 <div class="fragment"><div class="line">LIBOMPTARGET_PROFILE=run.json</div>
 </div><!-- fragment --><ul>
@@ -886,7 +886,7 @@ NVHPC OpenMP Options</h3>
 <li>If set, the image will only be passed through the backend.</li>
 <li>The backend is invoked with the <code>LIBOMPTARGET_JIT_OPT_LEVEL</code> flag.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md148"></a>
+<h2><a class="anchor" id="autotoc_md149"></a>
 Compiler Documentation</h2>
 <ul>
 <li><a href="https://cpe.ext.hpe.com/docs/24.11/cce/man7/intro_openmp.7.html#environment-variables">Cray &amp; OpenMP Docs</a></li>

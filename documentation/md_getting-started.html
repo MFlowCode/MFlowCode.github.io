@@ -142,6 +142,20 @@ Fetching MFC</h1>
 <div class="fragment"><div class="line">git clone https://github.com/MFlowCode/MFC.git</div>
 <div class="line">cd MFC</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md119"></a>
+Install via Homebrew (macOS)</h1>
+<p>On macOS, install prebuilt MFC via Homebrew:</p>
+<div class="fragment"><div class="line">brew install mflowcode/mfc/mfc</div>
+</div><!-- fragment --><p>Run a quick example:</p>
+<div class="fragment"><div class="line">mkdir -p ~/mfc_quickstart &amp;&amp; cd ~/mfc_quickstart</div>
+<div class="line">cp $(brew --prefix mfc)/examples/1D_sodshocktube/case.py .</div>
+<div class="line"># Use -n X to choose the number of MPI processes</div>
+<div class="line">mfc run case.py -n 2</div>
+</div><!-- fragment --><p>Notes:</p><ul>
+<li>The Homebrew wrapper supports only <code>mfc run ...</code>. Developer commands like <code>build</code>, <code>test</code>, <code>clean</code> are available when you clone the repo and use <code>./mfc.sh</code>.</li>
+<li>The package bundles a Python venv and prebuilt binaries; no additional setup is required.</li>
+<li>Examples are installed at <code>$(brew --prefix mfc)/examples/</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md120"></a>
 Build Environment</h1>
 <p>MFC can be built in multiple ways on various operating systems. Please select your desired configuration from the list below:</p>
 <h2>*nix</h2>
@@ -207,7 +221,7 @@ Native Windows (Intel)</summary>
 <div class="line">. ~/.bash_profile 2&gt;/dev/null || . ~/.zshrc 2&gt;/dev/null</div>
 <div class="line">! [ -z &quot;${BOOST_INCLUDE+x}&quot; ] &amp;&amp; echo &#39;Environment is ready!&#39; || echo &#39;Error: $BOOST_INCLUDE is unset. Please adjust the previous commands to fit with your environment.&#39;</div>
 </div><!-- fragment --><p>They will download the dependencies MFC requires to build itself.</p>
-<h1><a class="anchor" id="autotoc_md120"></a>
+<h1><a class="anchor" id="autotoc_md121"></a>
 Building MFC</h1>
 <p>MFC can be built with support for various (compile-time) features:</p>
 <table class="markdownTable">
@@ -235,15 +249,15 @@ Building MFC</h1>
 <li>Build MFC using a single thread without MPI, GPU, and Debug support: <code>./mfc.sh build --no-mpi</code>.</li>
 <li>Build MFC's <code>simulation</code> code in Debug mode with MPI and GPU support: <code>./mfc.sh build --debug --gpu -t simulation</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md121"></a>
+<h1><a class="anchor" id="autotoc_md122"></a>
 Using Containers</h1>
 <p>Instead of building MFC from scratch, you can use containers to quickly access a pre-built version of MFC and its dependencies. In brief, you can run the latest MFC container: </p><div class="fragment"><div class="line">docker run -it --rm --entrypoint bash sbryngelson/mfc:latest-cpu</div>
 </div><!-- fragment --><p> Please refer to the <a href="https://mflowcode.github.io/documentation/docker.html">Docker</a> document for more information.</p>
-<h1><a class="anchor" id="autotoc_md122"></a>
+<h1><a class="anchor" id="autotoc_md123"></a>
 Running the Test Suite</h1>
 <p>Run MFC's test suite with 8 threads: </p><div class="fragment"><div class="line">./mfc.sh test -j 8</div>
 </div><!-- fragment --><p>Please refer to the <a class="el" href="md_testing.html">Testing</a> document for more information.</p>
-<h1><a class="anchor" id="autotoc_md123"></a>
+<h1><a class="anchor" id="autotoc_md124"></a>
 Running an Example Case</h1>
 <p>MFC has example cases in the <code>examples</code> folder. You can run such a case interactively using 2 tasks by typing:</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -n 2</div>

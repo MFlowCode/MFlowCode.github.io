@@ -185,63 +185,65 @@ var NAVTREE =
     ] ],
     [ "Getting Started", "md_getting-started.html", [
       [ "Fetching MFC", "md_getting-started.html#autotoc_md118", null ],
-      [ "Build Environment", "md_getting-started.html#autotoc_md119", null ],
-      [ "Building MFC", "md_getting-started.html#autotoc_md120", null ],
-      [ "Using Containers", "md_getting-started.html#autotoc_md121", null ],
-      [ "Running the Test Suite", "md_getting-started.html#autotoc_md122", null ],
-      [ "Running an Example Case", "md_getting-started.html#autotoc_md123", null ]
+      [ "Install via Homebrew (macOS)", "md_getting-started.html#autotoc_md119", null ],
+      [ "Build Environment", "md_getting-started.html#autotoc_md120", null ],
+      [ "Building MFC", "md_getting-started.html#autotoc_md121", null ],
+      [ "Using Containers", "md_getting-started.html#autotoc_md122", null ],
+      [ "Running the Test Suite", "md_getting-started.html#autotoc_md123", null ],
+      [ "Running an Example Case", "md_getting-started.html#autotoc_md124", null ]
     ] ],
     [ "GPU Parallelization", "md_gpuParallelization.html", [
-      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md126", [
-        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md127", null ],
-        [ "Data Flow", "md_gpuParallelization.html#autotoc_md128", null ],
-        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md130", null ],
-        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md132", null ],
-        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md134", null ],
-        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md136", null ]
+      [ "Macro API Documentation", "md_gpuParallelization.html#autotoc_md127", [
+        [ "Data Type Meanings", "md_gpuParallelization.html#autotoc_md128", null ],
+        [ "Data Flow", "md_gpuParallelization.html#autotoc_md129", null ],
+        [ "Computation Macros", "md_gpuParallelization.html#autotoc_md131", null ],
+        [ "Data Control Macros", "md_gpuParallelization.html#autotoc_md133", null ],
+        [ "Synchronization Macros", "md_gpuParallelization.html#autotoc_md135", null ],
+        [ "Miscellaneous Macros", "md_gpuParallelization.html#autotoc_md137", null ]
       ] ],
-      [ "Debugging Tools and Tips for GPUs", "md_gpuParallelization.html#autotoc_md138", [
-        [ "Compiler agnostic tools", "md_gpuParallelization.html#autotoc_md139", null ],
-        [ "OpenMP tools", "md_gpuParallelization.html#autotoc_md140", null ],
-        [ "Cray Compiler Tools", "md_gpuParallelization.html#autotoc_md141", [
-          [ "Cray General Options", "md_gpuParallelization.html#autotoc_md142", null ],
-          [ "Cray OpenACC Options", "md_gpuParallelization.html#autotoc_md143", null ]
+      [ "Debugging Tools and Tips for GPUs", "md_gpuParallelization.html#autotoc_md139", [
+        [ "Compiler agnostic tools", "md_gpuParallelization.html#autotoc_md140", null ],
+        [ "OpenMP tools", "md_gpuParallelization.html#autotoc_md141", null ],
+        [ "Cray Compiler Tools", "md_gpuParallelization.html#autotoc_md142", [
+          [ "Cray General Options", "md_gpuParallelization.html#autotoc_md143", null ],
+          [ "Cray OpenACC Options", "md_gpuParallelization.html#autotoc_md144", null ]
         ] ],
-        [ "NVHPC Compiler Options", "md_gpuParallelization.html#autotoc_md144", [
-          [ "NVHPC General Options", "md_gpuParallelization.html#autotoc_md145", null ],
-          [ "NVHPC OpenACC Options", "md_gpuParallelization.html#autotoc_md146", null ],
-          [ "NVHPC OpenMP Options", "md_gpuParallelization.html#autotoc_md147", null ]
+        [ "NVHPC Compiler Options", "md_gpuParallelization.html#autotoc_md145", [
+          [ "NVHPC General Options", "md_gpuParallelization.html#autotoc_md146", null ],
+          [ "NVHPC OpenACC Options", "md_gpuParallelization.html#autotoc_md147", null ],
+          [ "NVHPC OpenMP Options", "md_gpuParallelization.html#autotoc_md148", null ]
         ] ],
-        [ "Compiler Documentation", "md_gpuParallelization.html#autotoc_md148", null ]
+        [ "Compiler Documentation", "md_gpuParallelization.html#autotoc_md149", null ]
       ] ]
     ] ],
     [ "Papers", "md_papers.html", null ],
     [ "Documentation", "md_readme.html", [
-      [ "User Documentation", "md_readme.html#autotoc_md151", null ],
-      [ "Code/API Documentation", "md_readme.html#autotoc_md152", null ]
+      [ "User Documentation", "md_readme.html#autotoc_md152", null ],
+      [ "Code/API Documentation", "md_readme.html#autotoc_md153", null ]
     ] ],
     [ "References", "md_references.html", null ],
     [ "Running", "md_running.html", [
-      [ "Interactive Execution", "md_running.html#autotoc_md155", null ],
-      [ "Batch Execution", "md_running.html#autotoc_md156", [
-        [ "GPU Profiling", "md_running.html#autotoc_md157", [
-          [ "NVIDIA GPUs", "md_running.html#autotoc_md158", null ],
-          [ "AMD GPUs", "md_running.html#autotoc_md159", null ]
+      [ "Using the Homebrew package (macOS)", "md_running.html#autotoc_md156", null ],
+      [ "Interactive Execution", "md_running.html#autotoc_md157", null ],
+      [ "Batch Execution", "md_running.html#autotoc_md158", [
+        [ "GPU Profiling", "md_running.html#autotoc_md159", [
+          [ "NVIDIA GPUs", "md_running.html#autotoc_md160", null ],
+          [ "AMD GPUs", "md_running.html#autotoc_md161", null ]
         ] ],
-        [ "Restarting Cases", "md_running.html#autotoc_md160", null ],
-        [ "Example Runs", "md_running.html#autotoc_md161", null ]
+        [ "Restarting Cases", "md_running.html#autotoc_md162", null ],
+        [ "Example Runs", "md_running.html#autotoc_md163", null ]
       ] ]
     ] ],
     [ "Testing", "md_testing.html", null ],
     [ "Flow visualization", "md_visualization.html", [
-      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md168", null ],
-      [ "Serial data output", "md_visualization.html#autotoc_md169", null ],
-      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md170", [
-        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md166", null ],
-        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md167", null ],
-        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md171", null ],
-        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md172", null ],
-        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md173", null ]
+      [ "Visualizing with VisIt", "md_visualization.html#autotoc_md170", null ],
+      [ "Serial data output", "md_visualization.html#autotoc_md171", null ],
+      [ "Remote Visualization on PACE Phoenix", "md_visualization.html#autotoc_md172", [
+        [ "Visualizing with Paraview", "md_visualization.html#autotoc_md168", null ],
+        [ "Visualizing data in cylindrical coordinates", "md_visualization.html#autotoc_md169", null ],
+        [ "Step 1: Setting up your Environment", "md_visualization.html#autotoc_md173", null ],
+        [ "Step 2: Customizing the script", "md_visualization.html#autotoc_md174", null ],
+        [ "Step 3: Running pace-paraview-server", "md_visualization.html#autotoc_md175", null ]
       ] ]
     ] ]
   ] ]
