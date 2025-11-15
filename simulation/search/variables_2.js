@@ -46,13 +46,15 @@ var searchData=
   ['cont_5fidx_43',['cont_idx',['../namespacem__global__parameters.html#a5d234ed722013d06fbb2d1ee5f8aab56',1,'m_global_parameters']]],
   ['contxb_44',['contxb',['../namespacem__global__parameters.html#a091928109ad0beba74f9320633dac17b',1,'m_global_parameters']]],
   ['contxe_45',['contxe',['../namespacem__global__parameters.html#aa8c3473491c8954fa322dd81a8f8c497',1,'m_global_parameters']]],
-  ['coord_46',['coord',['../structm__derived__types_1_1source__spatial__type.html#ad47644e8ad43eb96acf3b50d080e8fad',1,'m_derived_types::source_spatial_type']]],
+  ['coord_46',['coord',['../structm__derived__types_1_1source__spatial__type.html#aebf16c0b34b9000ca27681724424b3ca',1,'m_derived_types::source_spatial_type']]],
   ['cp_5fn_47',['cp_n',['../namespacem__global__parameters.html#a5dc0570905e968a29cd366e303e7f6ff',1,'m_global_parameters']]],
   ['cp_5fv_48',['cp_v',['../structm__derived__types_1_1physical__parameters.html#afae52a852c2d372455aaf6e80646ce63',1,'m_derived_types::physical_parameters::cp_v'],['../namespacem__global__parameters.html#ac61c3f39815c1f2ae9fafda99202044a',1,'m_global_parameters::cp_v']]],
-  ['cpu_5fend_49',['cpu_end',['../namespacem__global__parameters.html#a8ed3dee47bbaa5de7ae564ca9d770404',1,'m_global_parameters']]],
-  ['cpu_5frate_50',['cpu_rate',['../namespacem__global__parameters.html#aa513ad8900dd8de41a5bd8a17e7943c7',1,'m_global_parameters']]],
-  ['cpu_5fstart_51',['cpu_start',['../namespacem__global__parameters.html#a5422a3820409740b5c3b0b2e88bdb2b0',1,'m_global_parameters']]],
-  ['cv_52',['cv',['../structm__derived__types_1_1ic__patch__parameters.html#a74ec415eaa9c2a738c44331e28b754ab',1,'m_derived_types::ic_patch_parameters::cv'],['../structm__derived__types_1_1physical__parameters.html#ad777ad2c8b76b8d502d43056720ef4b4',1,'m_derived_types::physical_parameters::cv']]],
-  ['cvs_53',['cvs',['../namespacem__global__parameters.html#a7aeab17a6b8e890fb0e0f22c4b4e04da',1,'m_global_parameters::cvs'],['../namespacem__variables__conversion.html#a5834620bed23766a40b8cb049170cba1',1,'m_variables_conversion::cvs']]],
-  ['cyl_5fcoord_54',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]]
+  ['cptr_5fdevice_49',['cptr_device',['../namespacem__time__steppers.html#a5fe41d5ea9565d475f4d3889e893ea59',1,'m_time_steppers']]],
+  ['cptr_5fhost_50',['cptr_host',['../namespacem__time__steppers.html#adc40de6532efcaa5ab7a7d44b401c788',1,'m_time_steppers']]],
+  ['cpu_5fend_51',['cpu_end',['../namespacem__global__parameters.html#a8ed3dee47bbaa5de7ae564ca9d770404',1,'m_global_parameters']]],
+  ['cpu_5frate_52',['cpu_rate',['../namespacem__global__parameters.html#aa513ad8900dd8de41a5bd8a17e7943c7',1,'m_global_parameters']]],
+  ['cpu_5fstart_53',['cpu_start',['../namespacem__global__parameters.html#a5422a3820409740b5c3b0b2e88bdb2b0',1,'m_global_parameters']]],
+  ['cv_54',['cv',['../structm__derived__types_1_1ic__patch__parameters.html#a74ec415eaa9c2a738c44331e28b754ab',1,'m_derived_types::ic_patch_parameters::cv'],['../structm__derived__types_1_1physical__parameters.html#ad777ad2c8b76b8d502d43056720ef4b4',1,'m_derived_types::physical_parameters::cv']]],
+  ['cvs_55',['cvs',['../namespacem__global__parameters.html#a7aeab17a6b8e890fb0e0f22c4b4e04da',1,'m_global_parameters::cvs'],['../namespacem__variables__conversion.html#a5834620bed23766a40b8cb049170cba1',1,'m_variables_conversion::cvs']]],
+  ['cyl_5fcoord_56',['cyl_coord',['../namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c',1,'m_global_parameters']]]
 ];

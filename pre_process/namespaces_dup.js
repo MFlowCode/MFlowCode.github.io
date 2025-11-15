@@ -27,8 +27,8 @@ var namespaces_dup =
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f", null ],
       [ "s_write_serial_boundary_condition_files", "namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b", null ],
       [ "bc_buffers", "namespacem__boundary__common.html#a8f6afe5fcc6a630fcb2156a910bfb5b2", null ],
-      [ "mpi_bc_buffer_type", "namespacem__boundary__common.html#aae9b73b745e6f343fa36e5df5fcc1422", null ],
-      [ "mpi_bc_type_type", "namespacem__boundary__common.html#aaaae5cc2e22bc42640e3962f31d09719", null ]
+      [ "mpi_bc_buffer_type", "namespacem__boundary__common.html#ac250a7ab543fe3fe81a5269ecf355abe", null ],
+      [ "mpi_bc_type_type", "namespacem__boundary__common.html#a1f82285994f166b9903d05d1046358dc", null ]
     ] ],
     [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
       [ "s_apply_boundary_patches", "namespacem__boundary__conditions.html#a500a9226a3b30cc8592a91d541745b99", null ],
@@ -93,7 +93,8 @@ var namespaces_dup =
       [ "s_check_inputs_qbmm_and_polydisperse", "namespacem__checker.html#a587d2773706f73b2f2c8934ac14e7c11", null ],
       [ "s_check_inputs_restart", "namespacem__checker.html#a594607d7638e8f30cc1634e7df736aa6", null ],
       [ "s_check_moving_ibm", "namespacem__checker.html#a9d1ec55f875467eba223129aec1539c2", null ],
-      [ "s_check_parallel_io", "namespacem__checker.html#aa0ed4f563534d127e31f38a16ff73821", null ]
+      [ "s_check_parallel_io", "namespacem__checker.html#aa0ed4f563534d127e31f38a16ff73821", null ],
+      [ "s_check_simplex_noise", "namespacem__checker.html#abf2c5093d987c9e402a24033de090b84", null ]
     ] ],
     [ "m_checker_common", "namespacem__checker__common.html", [
       [ "s_check_inputs_adv_n", "namespacem__checker__common.html#a987a0208e0d67e49938e8f7d9185f90e", null ],
@@ -416,6 +417,8 @@ var namespaces_dup =
       [ "sigma", "namespacem__global__parameters.html#a649b9acc00557b55b1e6048e4b4ff17a", null ],
       [ "sigr", "namespacem__global__parameters.html#a110fd9994e2a988f9e77b89abbd54e7b", null ],
       [ "sigv", "namespacem__global__parameters.html#a7b12b31ebff742b18b54e964e509e5a6", null ],
+      [ "simplex_params", "namespacem__global__parameters.html#a528a57911db155d8072523917336c6d6", null ],
+      [ "simplex_perturb", "namespacem__global__parameters.html#a51b07cc319a8d90a4811d6a505f389d7", null ],
       [ "species_idx", "namespacem__global__parameters.html#aec1678b3aa04a509735e9da103a9cf0e", null ],
       [ "ss", "namespacem__global__parameters.html#a1943e3ee91d78fc8fda27a276e6f7496", null ],
       [ "start_idx", "namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d", null ],
@@ -631,7 +634,7 @@ var namespaces_dup =
       [ "s_prohibit_abort", "namespacem__mpi__common.html#a4d03f5fc95657b6bec1f89221295b0cc", null ],
       [ "buff_recv", "namespacem__mpi__common.html#a2427f77cebecdbb0d52fafc4b458b369", null ],
       [ "buff_send", "namespacem__mpi__common.html#a3deaeac1e239299664faa426e15f3285", null ],
-      [ "halo_size", "namespacem__mpi__common.html#ad3e3ff3936b6b830f96ecd0659673772", null ],
+      [ "halo_size", "namespacem__mpi__common.html#af2cb4d00741a037730c041b4c5795b2e", null ],
       [ "v_size", "namespacem__mpi__common.html#a8f9044f9e60879f65ae11de6de95c213", null ]
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
@@ -646,6 +649,7 @@ var namespaces_dup =
       [ "s_generate_random_perturbation", "namespacem__perturbation.html#a49336011b98f1698ccd754d19a70db20", null ],
       [ "s_initialize_perturbation_module", "namespacem__perturbation.html#ab8022684d54ccc3a65750b339c915e57", null ],
       [ "s_perturb_mixlayer", "namespacem__perturbation.html#afa02cfb00a8406637b02037a5d8a05ae", null ],
+      [ "s_perturb_simplex", "namespacem__perturbation.html#ab924ad132a3b19adeaa3494830f63937", null ],
       [ "s_perturb_sphere", "namespacem__perturbation.html#a2a73896e9dae92c7a3d973e069eef753", null ],
       [ "s_perturb_surrounding_flow", "namespacem__perturbation.html#a2f301707648fd0f0f5c215c439cdc171", null ],
       [ "s_prng", "namespacem__perturbation.html#a54bbfa24f96c984b26015bddcfb59ee4", null ],
@@ -675,11 +679,24 @@ var namespaces_dup =
     [ "m_precision_select", "namespacem__precision__select.html", [
       [ "double_precision", "namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e", null ],
       [ "dp", "namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315", null ],
+      [ "half_precision", "namespacem__precision__select.html#a16f72dfa5c6ac1e1c25971ca9ab85443", null ],
+      [ "hp", "namespacem__precision__select.html#aae1265756d05d3113702b0a0383a50c9", null ],
       [ "mpi_2p", "namespacem__precision__select.html#a2b608490c14fd56612c88ae5b505da4c", null ],
+      [ "mpi_io_p", "namespacem__precision__select.html#a2823609812c944857e9491ea2728815e", null ],
+      [ "mpi_io_type", "namespacem__precision__select.html#a5bf02cdf1175e7fe7137a3dbfe4bb30c", null ],
       [ "mpi_p", "namespacem__precision__select.html#a40bfd97e30d4c33e317f21fbfefe8aad", null ],
       [ "single_precision", "namespacem__precision__select.html#a8e215e7c91f83ee6dc188b8ab12cd368", null ],
       [ "sp", "namespacem__precision__select.html#a04a3d9dba8fd92244fa307d1c6423622", null ],
+      [ "stp", "namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23", null ],
       [ "wp", "namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a", null ]
+    ] ],
+    [ "m_simplex_noise", "namespacem__simplex__noise.html", [
+      [ "dot2", "namespacem__simplex__noise.html#aa122143d0fd18514780681015b2eab26", null ],
+      [ "f_simplex2d", "namespacem__simplex__noise.html#a570c7aecc2e4af4362d24a2c15c92b3b", null ],
+      [ "f_simplex3d", "namespacem__simplex__noise.html#acfab8f28b5f8ed34aba0607717a04ef8", null ],
+      [ "grad2", "namespacem__simplex__noise.html#a95900c2d98c31dd9e2c54abf241aeda5", null ],
+      [ "grad3", "namespacem__simplex__noise.html#a6bbd962dd74896e9da0764e8ca9a4095", null ],
+      [ "p_vec", "namespacem__simplex__noise.html#a4e12eb1a02653a4183c3e88fc4f2682a", null ]
     ] ],
     [ "m_start_up", "namespacem__start__up.html", "namespacem__start__up" ],
     [ "m_variables_conversion", "namespacem__variables__conversion.html", [

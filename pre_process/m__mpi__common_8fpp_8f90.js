@@ -23,6 +23,6 @@ var m__mpi__common_8fpp_8f90 =
     [ "m_mpi_common::s_prohibit_abort", "namespacem__mpi__common.html#a4d03f5fc95657b6bec1f89221295b0cc", null ],
     [ "m_mpi_common::buff_recv", "namespacem__mpi__common.html#a2427f77cebecdbb0d52fafc4b458b369", null ],
     [ "m_mpi_common::buff_send", "namespacem__mpi__common.html#a3deaeac1e239299664faa426e15f3285", null ],
-    [ "m_mpi_common::halo_size", "namespacem__mpi__common.html#ad3e3ff3936b6b830f96ecd0659673772", null ],
+    [ "m_mpi_common::halo_size", "namespacem__mpi__common.html#af2cb4d00741a037730c041b4c5795b2e", null ],
     [ "m_mpi_common::v_size", "namespacem__mpi__common.html#a8f9044f9e60879f65ae11de6de95c213", null ]
 ];

@@ -26,8 +26,8 @@ var namespaces_dup =
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f", null ],
       [ "s_write_serial_boundary_condition_files", "namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b", null ],
       [ "bc_buffers", "namespacem__boundary__common.html#a8f6afe5fcc6a630fcb2156a910bfb5b2", null ],
-      [ "mpi_bc_buffer_type", "namespacem__boundary__common.html#aae9b73b745e6f343fa36e5df5fcc1422", null ],
-      [ "mpi_bc_type_type", "namespacem__boundary__common.html#aaaae5cc2e22bc42640e3962f31d09719", null ]
+      [ "mpi_bc_buffer_type", "namespacem__boundary__common.html#ac250a7ab543fe3fe81a5269ecf355abe", null ],
+      [ "mpi_bc_type_type", "namespacem__boundary__common.html#a1f82285994f166b9903d05d1046358dc", null ]
     ] ],
     [ "m_checker", "namespacem__checker.html", [
       [ "s_check_inputs", "namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072", null ],
@@ -559,7 +559,7 @@ var namespaces_dup =
       [ "s_prohibit_abort", "namespacem__mpi__common.html#a4d03f5fc95657b6bec1f89221295b0cc", null ],
       [ "buff_recv", "namespacem__mpi__common.html#a2427f77cebecdbb0d52fafc4b458b369", null ],
       [ "buff_send", "namespacem__mpi__common.html#a3deaeac1e239299664faa426e15f3285", null ],
-      [ "halo_size", "namespacem__mpi__common.html#ad3e3ff3936b6b830f96ecd0659673772", null ],
+      [ "halo_size", "namespacem__mpi__common.html#af2cb4d00741a037730c041b4c5795b2e", null ],
       [ "v_size", "namespacem__mpi__common.html#a8f9044f9e60879f65ae11de6de95c213", null ]
     ] ],
     [ "m_mpi_proxy", "namespacem__mpi__proxy.html", [
@@ -598,10 +598,15 @@ var namespaces_dup =
     [ "m_precision_select", "namespacem__precision__select.html", [
       [ "double_precision", "namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e", null ],
       [ "dp", "namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315", null ],
+      [ "half_precision", "namespacem__precision__select.html#a16f72dfa5c6ac1e1c25971ca9ab85443", null ],
+      [ "hp", "namespacem__precision__select.html#aae1265756d05d3113702b0a0383a50c9", null ],
       [ "mpi_2p", "namespacem__precision__select.html#a2b608490c14fd56612c88ae5b505da4c", null ],
+      [ "mpi_io_p", "namespacem__precision__select.html#a2823609812c944857e9491ea2728815e", null ],
+      [ "mpi_io_type", "namespacem__precision__select.html#a5bf02cdf1175e7fe7137a3dbfe4bb30c", null ],
       [ "mpi_p", "namespacem__precision__select.html#a40bfd97e30d4c33e317f21fbfefe8aad", null ],
       [ "single_precision", "namespacem__precision__select.html#a8e215e7c91f83ee6dc188b8ab12cd368", null ],
       [ "sp", "namespacem__precision__select.html#a04a3d9dba8fd92244fa307d1c6423622", null ],
+      [ "stp", "namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23", null ],
       [ "wp", "namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a", null ]
     ] ],
     [ "m_start_up", "namespacem__start__up.html", [

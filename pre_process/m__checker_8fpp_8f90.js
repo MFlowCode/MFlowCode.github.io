@@ -9,5 +9,6 @@ var m__checker_8fpp_8f90 =
     [ "m_checker::s_check_inputs_qbmm_and_polydisperse", "namespacem__checker.html#a587d2773706f73b2f2c8934ac14e7c11", null ],
     [ "m_checker::s_check_inputs_restart", "namespacem__checker.html#a594607d7638e8f30cc1634e7df736aa6", null ],
     [ "m_checker::s_check_moving_ibm", "namespacem__checker.html#a9d1ec55f875467eba223129aec1539c2", null ],
-    [ "m_checker::s_check_parallel_io", "namespacem__checker.html#aa0ed4f563534d127e31f38a16ff73821", null ]
+    [ "m_checker::s_check_parallel_io", "namespacem__checker.html#aa0ed4f563534d127e31f38a16ff73821", null ],
+    [ "m_checker::s_check_simplex_noise", "namespacem__checker.html#abf2c5093d987c9e402a24033de090b84", null ]
 ];

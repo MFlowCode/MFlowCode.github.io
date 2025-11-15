@@ -180,6 +180,8 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::sigma", "namespacem__global__parameters.html#a649b9acc00557b55b1e6048e4b4ff17a", null ],
     [ "m_global_parameters::sigr", "namespacem__global__parameters.html#a110fd9994e2a988f9e77b89abbd54e7b", null ],
     [ "m_global_parameters::sigv", "namespacem__global__parameters.html#a7b12b31ebff742b18b54e964e509e5a6", null ],
+    [ "m_global_parameters::simplex_params", "namespacem__global__parameters.html#a528a57911db155d8072523917336c6d6", null ],
+    [ "m_global_parameters::simplex_perturb", "namespacem__global__parameters.html#a51b07cc319a8d90a4811d6a505f389d7", null ],
     [ "m_global_parameters::species_idx", "namespacem__global__parameters.html#aec1678b3aa04a509735e9da103a9cf0e", null ],
     [ "m_global_parameters::ss", "namespacem__global__parameters.html#a1943e3ee91d78fc8fda27a276e6f7496", null ],
     [ "m_global_parameters::start_idx", "namespacem__global__parameters.html#a4bd117ae744eab60f3d681fd03d6e90d", null ],

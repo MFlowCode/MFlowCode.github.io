@@ -154,7 +154,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2df6b2a1323afaca022b5ef77dd4c0e0" id="r_a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2df6b2a1323afaca022b5ef77dd4c0e0">s_compute_additional_physics_rhs</a> (idir, q_prim_vf, rhs_vf, flux_src_n_in, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf)</td></tr>
 <tr class="separator:a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48c0b3313ccec916c5cb2652f8cad5b0" id="r_a48c0b3313ccec916c5cb2652f8cad5b0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48c0b3313ccec916c5cb2652f8cad5b0">s_reconstruct_cell_boundary_values</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
-<tr class="memdesc:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation.  <br /></td></tr>
+<tr class="memdesc:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables.  <br /></td></tr>
 <tr class="separator:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28b3de48d795ac9f0ec2d0c83ef50ef5" id="r_a28b3de48d795ac9f0ec2d0c83ef50ef5"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28b3de48d795ac9f0ec2d0c83ef50ef5">s_reconstruct_cell_boundary_values_first_order</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
 <tr class="separator:a28b3de48d795ac9f0ec2d0c83ef50ef5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -395,7 +395,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>, -1:1), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -405,7 +405,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pb_in</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23">stp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pb_in</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -415,7 +415,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>mv_in</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23">stp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>mv_in</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -538,8 +538,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this procedure is to infinitely relax the pressures from the internal-energy equations to a unique pressure, from which the corresponding volume fraction of each phase are recomputed. For conservation purpose, this pressure is finally corrected using the mixture-total-energy equation. </p>
-<p>The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v_vf</td><td>Cell-average variables </td></tr>
     <tr><td class="paramname">vL_qp</td><td>Left WENO-reconstructed, cell-boundary values including the values at the quadrature points, of the cell-average variables </td></tr>

@@ -28,6 +28,7 @@ var annotated_dup =
       [ "riemann_states", "structm__derived__types_1_1riemann__states.html", "structm__derived__types_1_1riemann__states" ],
       [ "riemann_states_vec3", "structm__derived__types_1_1riemann__states__vec3.html", "structm__derived__types_1_1riemann__states__vec3" ],
       [ "scalar_field", "structm__derived__types_1_1scalar__field.html", "structm__derived__types_1_1scalar__field" ],
+      [ "simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ],
       [ "source_spatial_type", "structm__derived__types_1_1source__spatial__type.html", "structm__derived__types_1_1source__spatial__type" ],
       [ "species_parameters", "structm__derived__types_1_1species__parameters.html", "structm__derived__types_1_1species__parameters" ],
       [ "t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],

@@ -45,7 +45,7 @@ var m__bubbles__EL_8fpp_8f90 =
     [ "m_bubbles_el::mtn_s", "namespacem__bubbles__el.html#a035c8939e30d21e3c404219f1ec5802d", null ],
     [ "m_bubbles_el::mtn_vel", "namespacem__bubbles__el.html#afc453e264afffa583b32f04491aac431", null ],
     [ "m_bubbles_el::nbubs", "namespacem__bubbles__el.html#a41aeee87ab43fb6c2e77b300b3f93eac", null ],
-    [ "m_bubbles_el::q_beta", "namespacem__bubbles__el.html#ab9ea7d0123ccee04643177d411432bef", null ],
+    [ "m_bubbles_el::q_beta", "namespacem__bubbles__el.html#ac2feec1265bc9137083e18e9990f84d5", null ],
     [ "m_bubbles_el::q_beta_idx", "namespacem__bubbles__el.html#a1dcd08fa3035b05ffb6a62b2f7a119f7", null ],
     [ "m_bubbles_el::rmax_glb", "namespacem__bubbles__el.html#ae16644b5aa173a62697bc9309f03e0cd", null ],
     [ "m_bubbles_el::rmax_stats", "namespacem__bubbles__el.html#a97e789449cf58a0d7f5b036e233dfbf8", null ],

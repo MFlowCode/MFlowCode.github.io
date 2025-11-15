@@ -58,13 +58,13 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "namespacem__bubbles__el.html#a27233b20af3d8d83f1e61eea443f4efa",
-"namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140",
-"namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b",
-"namespacem__ibm.html#a14f4b0cb1d4933c3e8e0a30f301da3ad",
-"namespacem__riemann__solvers.html",
-"namespaces.html",
-"structm__derived__types_1_1ic__model__parameters.html#a4ff2a5cb0954f7e17fcf5657aeb25264",
-"structm__derived__types_1_1source__spatial__type.html#a32e81a28a4ff43f3e841b90ac1bf6f7d"
+"namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183",
+"namespacem__global__parameters.html#a829d601cfc997840116b884698329161",
+"namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e",
+"namespacem__rhs.html#aeefd0e45989eb229ad465d3f56cda6f9",
+"namespacemembers_vars_s.html",
+"structm__derived__types_1_1ib__patch__parameters.html#aea846ac4f1c0578ab25251ee984fd072",
+"structm__derived__types_1_1riemann__states__vec3.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

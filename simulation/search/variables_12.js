@@ -3,7 +3,7 @@ var searchData=
   ['scale_0',['scale',['../structm__derived__types_1_1ic__model__parameters.html#a4ff2a5cb0954f7e17fcf5657aeb25264',1,'m_derived_types::ic_model_parameters']]],
   ['scale_5ffirst_5fguess_1',['scale_first_guess',['../namespacem__constants.html#a7445b3bcbf08965f023eaef2f43cf7e8',1,'m_constants']]],
   ['scale_5fguess_2',['scale_guess',['../namespacem__constants.html#aead8affb76f9c8ce2e1d8c0171eb450d',1,'m_constants']]],
-  ['sf_3',['sf',['../structm__derived__types_1_1scalar__field.html#ad15fd02e97594071043149e7e798b3f5',1,'m_derived_types::scalar_field::sf'],['../structm__derived__types_1_1pres__field.html#a93746a24058ac92309add175d17564fe',1,'m_derived_types::pres_field::sf'],['../structm__derived__types_1_1integer__field.html#a929f0612802a909f71ca5bfde5082b98',1,'m_derived_types::integer_field::sf'],['../structm__derived__types_1_1levelset__field.html#ab8a31cde5d29feccfa93121367629749',1,'m_derived_types::levelset_field::sf'],['../structm__derived__types_1_1levelset__norm__field.html#afc89d9770a23d41365adb5335cea55aa',1,'m_derived_types::levelset_norm_field::sf']]],
+  ['sf_3',['sf',['../structm__derived__types_1_1scalar__field.html#acfd8cde6b6dd14275b8abf48d6064aae',1,'m_derived_types::scalar_field::sf'],['../structm__derived__types_1_1pres__field.html#a56cdb133d6a52871d12e33ba57766c5d',1,'m_derived_types::pres_field::sf'],['../structm__derived__types_1_1integer__field.html#a99192b6156ab839d9a7fec301e464559',1,'m_derived_types::integer_field::sf'],['../structm__derived__types_1_1integer__field.html#a929f0612802a909f71ca5bfde5082b98',1,'m_derived_types::integer_field::sf'],['../structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2',1,'m_derived_types::levelset_field::sf'],['../structm__derived__types_1_1levelset__norm__field.html#aa3eba036cf0888c5c7d24c5b0d899ad3',1,'m_derived_types::levelset_norm_field::sf']]],
   ['sgm_5feps_4',['sgm_eps',['../namespacem__constants.html#a519657d0f4b6e1301eedfbd71926c5cc',1,'m_constants']]],
   ['shear_5fbc_5fflip_5findices_5',['shear_bc_flip_indices',['../namespacem__global__parameters.html#a11cfacbcdd3d3695f1f68298f24379a0',1,'m_global_parameters']]],
   ['shear_5fbc_5fflip_5fnum_6',['shear_bc_flip_num',['../namespacem__global__parameters.html#a79a48aa96123743f5d309aa0c35f3601',1,'m_global_parameters']]],
@@ -36,10 +36,11 @@ var searchData=
   ['step_5fy_5fcentroid_33',['step_y_centroid',['../structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63',1,'m_derived_types::ib_patch_parameters']]],
   ['step_5fz_5fcentroid_34',['step_z_centroid',['../structm__derived__types_1_1ib__patch__parameters.html#a65fd8284fb98b908833e32ccfe18e6c1',1,'m_derived_types::ib_patch_parameters']]],
   ['stor_35',['stor',['../namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12',1,'m_time_steppers']]],
-  ['stress_5fidx_36',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
-  ['strxb_37',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
-  ['strxe_38',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
-  ['support_39',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters::support'],['../namespacem__acoustic__src.html#a5c0f8a431e60962834c768a742b0f258',1,'m_acoustic_src::support']]],
-  ['surface_5ftension_40',['surface_tension',['../namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477',1,'m_global_parameters']]],
-  ['sys_5fsize_41',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
+  ['stp_36',['stp',['../namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23',1,'m_precision_select']]],
+  ['stress_5fidx_37',['stress_idx',['../namespacem__global__parameters.html#a35c137784611ee5f7b01cd21feeb34d7',1,'m_global_parameters']]],
+  ['strxb_38',['strxb',['../namespacem__global__parameters.html#a8ea53db151f807ced8925f659ecc2a7f',1,'m_global_parameters']]],
+  ['strxe_39',['strxe',['../namespacem__global__parameters.html#a59f10cfe28c1478382aa1ee4cd3793b9',1,'m_global_parameters']]],
+  ['support_40',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters::support'],['../namespacem__acoustic__src.html#a5c0f8a431e60962834c768a742b0f258',1,'m_acoustic_src::support']]],
+  ['surface_5ftension_41',['surface_tension',['../namespacem__global__parameters.html#acdbe546c7ab8a757a82aee80295b9477',1,'m_global_parameters']]],
+  ['sys_5fsize_42',['sys_size',['../namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b',1,'m_global_parameters']]]
 ];

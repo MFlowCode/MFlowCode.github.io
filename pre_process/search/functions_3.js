@@ -28,8 +28,10 @@ var searchData=
   ['f_5fr_25',['f_r',['../namespacem__icpp__patches.html#acc0affb72127287df0765f4c4535fc77',1,'m_icpp_patches::f_r()'],['../namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564',1,'m_ib_patches::f_r()']]],
   ['f_5fread_5fline_26',['f_read_line',['../namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc',1,'m_model']]],
   ['f_5fregister_5fedge_27',['f_register_edge',['../namespacem__model.html#aa9890f295c7390fe3074c65d9210d952',1,'m_model']]],
-  ['f_5ftri_5farea_28',['f_tri_area',['../namespacem__model.html#aafe2387b8e59c1f77c18858d9150d807',1,'m_model']]],
-  ['f_5funit_5fvector_29',['f_unit_vector',['../namespacem__perturbation.html#a492ba3cf7b2070a7db7d75f7868eedc4',1,'m_perturbation']]],
-  ['f_5fxor_30',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['factorial_31',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5fsimplex2d_28',['f_simplex2d',['../namespacem__simplex__noise.html#a570c7aecc2e4af4362d24a2c15c92b3b',1,'m_simplex_noise']]],
+  ['f_5fsimplex3d_29',['f_simplex3d',['../namespacem__simplex__noise.html#acfab8f28b5f8ed34aba0607717a04ef8',1,'m_simplex_noise']]],
+  ['f_5ftri_5farea_30',['f_tri_area',['../namespacem__model.html#aafe2387b8e59c1f77c18858d9150d807',1,'m_model']]],
+  ['f_5funit_5fvector_31',['f_unit_vector',['../namespacem__perturbation.html#a492ba3cf7b2070a7db7d75f7868eedc4',1,'m_perturbation']]],
+  ['f_5fxor_32',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['factorial_33',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];
