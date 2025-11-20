@@ -176,7 +176,7 @@ var namespaces_dup =
       [ "s_deltafunc", "namespacem__bubbles__el__kernels.html#af113cc86b3a1871d381e246c36d96762", null ],
       [ "s_gaussian", "namespacem__bubbles__el__kernels.html#a4236a62c45846f9546a10a88a19e4eff", null ],
       [ "s_get_cell", "namespacem__bubbles__el__kernels.html#ae949e3cc1b67de45cd774a28d8d98b19", null ],
-      [ "s_get_char_vol", "namespacem__bubbles__el__kernels.html#a993f78793522934d81a400d319d3dfeb", null ],
+      [ "s_get_char_vol", "namespacem__bubbles__el__kernels.html#acddf1e9af84379465a92629167e64a17", null ],
       [ "s_shift_cell_symmetric_bc", "namespacem__bubbles__el__kernels.html#aa3d9eceb02c1dcaf6b264ff716944828", null ],
       [ "s_smoothfunction", "namespacem__bubbles__el__kernels.html#a0ff2f2eff59c7b976dd1019ae64c0483", null ]
     ] ],

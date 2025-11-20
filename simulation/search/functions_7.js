@@ -190,7 +190,7 @@ var searchData=
   ['s_5fget_5fbasename_187',['s_get_basename',['../namespacem__compile__specific.html#a40a6fb65a46c294f5e20b076f3187bba',1,'m_compile_specific']]],
   ['s_5fget_5fcapillary_188',['s_get_capillary',['../namespacem__surface__tension.html#a57a8d87ff4910eadaabd1b65ced7d8d7',1,'m_surface_tension']]],
   ['s_5fget_5fcell_189',['s_get_cell',['../namespacem__bubbles__el__kernels.html#ae949e3cc1b67de45cd774a28d8d98b19',1,'m_bubbles_el_kernels']]],
-  ['s_5fget_5fchar_5fvol_190',['s_get_char_vol',['../namespacem__bubbles__el__kernels.html#a993f78793522934d81a400d319d3dfeb',1,'m_bubbles_el_kernels']]],
+  ['s_5fget_5fchar_5fvol_190',['s_get_char_vol',['../namespacem__bubbles__el__kernels.html#acddf1e9af84379465a92629167e64a17',1,'m_bubbles_el_kernels']]],
   ['s_5fget_5fcwd_191',['s_get_cwd',['../namespacem__compile__specific.html#a73c98d7d55ae5bdadd796d953752c50b',1,'m_compile_specific']]],
   ['s_5fget_5fderived_5fstates_192',['s_get_derived_states',['../namespacem__igr.html#a8e41a7549c2ded407967bfceb17273c0',1,'m_igr']]],
   ['s_5fget_5fpinf_193',['s_get_pinf',['../namespacem__bubbles__el.html#afe5c1d9044b73531faaf8e9406a6082c',1,'m_bubbles_el']]],

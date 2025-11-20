@@ -175,11 +175,12 @@ Computation Macros</h2>
 <code>GPU_PARALLEL_LOOP</code> &ndash; <code>(Execute the following loop on the GPU in parallel)</code></summary>
 <p></p>
 <p><b>Macro Invocation</b></p>
-<p>Uses FYPP eval directive using <code>#:call</code></p>
-<div class="fragment"><div class="line"><span class="preprocessor">#:call GPU_PARALLEL_LOOP(...)</span></div>
+<p>In order to parallelize a loop, simply place two macro calls on either end of the loop:</p>
+<div class="fragment"><div class="line">$:$GPU_PARALLEL_LOOP(...)</div>
 <div class="line">   {code}</div>
-<div class="line"><span class="preprocessor">#:endcall GPU_PARALLEL_LOOP</span></div>
-</div><!-- fragment --><p><b>Parameters</b></p>
+<div class="line">$:END_GPU_PARALLEL_LOOP()</div>
+</div><!-- fragment --><p>This wraps the lines in <code>code</code> with parallelization calls to openACC or openMP, depending on environment and compiler settings.</p>
+<p><b>Parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">name   </th><th class="markdownTableHeadNone">data type   </th><th class="markdownTableHeadNone">Default Value   </th><th class="markdownTableHeadNone">description    </th></tr>
