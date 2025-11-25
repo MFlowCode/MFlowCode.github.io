@@ -2,7 +2,7 @@ var m__variables__conversion_8fpp_8f90 =
 [
     [ "m_variables_conversion::s_compute_fast_magnetosonic_speed", "namespacem__variables__conversion.html#a03d13e39beb1daa9f6a59a469b10ebb5", null ],
     [ "m_variables_conversion::s_compute_pressure", "namespacem__variables__conversion.html#a58c19a9ba2767016cd7c916cd52b8d0e", null ],
-    [ "m_variables_conversion::s_compute_speed_of_sound", "namespacem__variables__conversion.html#a812d29cc47e80e7173d8f4f877d7b6f6", null ],
+    [ "m_variables_conversion::s_compute_speed_of_sound", "namespacem__variables__conversion.html#a2592c29f5aae1605bdcf12dcf6315748", null ],
     [ "m_variables_conversion::s_convert_conservative_to_primitive_variables", "namespacem__variables__conversion.html#a7d567315b057c0da0cb37f89ef298031", null ],
     [ "m_variables_conversion::s_convert_mixture_to_mixture_variables", "namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847", null ],
     [ "m_variables_conversion::s_convert_primitive_to_conservative_variables", "namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e", null ],
