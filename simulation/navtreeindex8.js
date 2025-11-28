@@ -1,7 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"structm__derived__types_1_1riemann__states__vec3.html":[2,0,0,25],
-"structm__derived__types_1_1riemann__states__vec3.html#a2223ab6e52e6986c5fc9819049ed8ee2":[1,0,17,25,1],
 "structm__derived__types_1_1riemann__states__vec3.html#a2223ab6e52e6986c5fc9819049ed8ee2":[2,0,0,25,1],
 "structm__derived__types_1_1riemann__states__vec3.html#ab36ff8fd69ae4e57df3d956f3755100c":[1,0,17,25,0],
 "structm__derived__types_1_1riemann__states__vec3.html#ab36ff8fd69ae4e57df3d956f3755100c":[2,0,0,25,0],
