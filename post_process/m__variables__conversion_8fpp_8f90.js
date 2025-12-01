@@ -2,6 +2,7 @@ var m__variables__conversion_8fpp_8f90 =
 [
     [ "m_variables_conversion::s_compute_fast_magnetosonic_speed", "namespacem__variables__conversion.html#a03d13e39beb1daa9f6a59a469b10ebb5", null ],
     [ "m_variables_conversion::s_compute_pressure", "namespacem__variables__conversion.html#a58c19a9ba2767016cd7c916cd52b8d0e", null ],
+    [ "m_variables_conversion::s_compute_species_fraction", "namespacem__variables__conversion.html#a21906a4c29bbb1187212feb969c00502", null ],
     [ "m_variables_conversion::s_compute_speed_of_sound", "namespacem__variables__conversion.html#a2592c29f5aae1605bdcf12dcf6315748", null ],
     [ "m_variables_conversion::s_convert_conservative_to_primitive_variables", "namespacem__variables__conversion.html#a7d567315b057c0da0cb37f89ef298031", null ],
     [ "m_variables_conversion::s_convert_mixture_to_mixture_variables", "namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847", null ],
@@ -9,8 +10,6 @@ var m__variables__conversion_8fpp_8f90 =
     [ "m_variables_conversion::s_convert_primitive_to_flux_variables", "namespacem__variables__conversion.html#a103ba56044f0a89e365ed91ca11eb38a", null ],
     [ "m_variables_conversion::s_convert_species_to_mixture_variables", "namespacem__variables__conversion.html#a7f3bffa0ba13432f79f095a78fcf6e5a", null ],
     [ "m_variables_conversion::s_convert_species_to_mixture_variables_acc", "namespacem__variables__conversion.html#af1bda14464459b0fd9448dd8885741c7", null ],
-    [ "m_variables_conversion::s_convert_species_to_mixture_variables_bubbles", "namespacem__variables__conversion.html#a57f893a44db2368e82339b2993a05ff4", null ],
-    [ "m_variables_conversion::s_convert_species_to_mixture_variables_bubbles_acc", "namespacem__variables__conversion.html#a26c6917f419e63e2c721b2e184cc955f", null ],
     [ "m_variables_conversion::s_convert_to_mixture_variables", "namespacem__variables__conversion.html#ad79dc943a9108e838d80bb2b264fba8e", null ],
     [ "m_variables_conversion::s_finalize_variables_conversion_module", "namespacem__variables__conversion.html#aceaf9a1f34881d42e50dca63cbde506b", null ],
     [ "m_variables_conversion::s_initialize_mv", "namespacem__variables__conversion.html#a55f61a59d5d979886829dab99e00b4e8", null ],
