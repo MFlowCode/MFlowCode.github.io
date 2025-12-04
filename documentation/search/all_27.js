@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['🚀_20common_20configuration_20patterns_0',['🚀 Common Configuration Patterns',['../md_case__constraints.html#autotoc_md43',1,'']]]
+];
