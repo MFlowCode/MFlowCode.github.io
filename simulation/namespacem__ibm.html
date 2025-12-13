@@ -173,11 +173,15 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac62e47c0f28b708ae85d0ab0d3675486" id="r_ac62e47c0f28b708ae85d0ab0d3675486"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac62e47c0f28b708ae85d0ab0d3675486">s_update_mib</a> (<a class="el" href="namespacem__global__parameters.html#af65a8b8e1a7209eab79c732e7d8b823f">num_ibs</a>, <a class="el" href="#a774432271f9497f1fed0c26c364fe721">levelset</a>, <a class="el" href="#a98b309499acf40f3734efab61e9a5327">levelset_norm</a>)</td></tr>
 <tr class="memdesc:ac62e47c0f28b708ae85d0ab0d3675486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the current indexes of immersed boundaries and replaces them after updating the position of each moving immersed boundary.  <br /></td></tr>
 <tr class="separator:ac62e47c0f28b708ae85d0ab0d3675486"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8547ba9622347897f7ef4eb35029fc0" id="r_aa8547ba9622347897f7ef4eb35029fc0"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8547ba9622347897f7ef4eb35029fc0">s_compute_ib_forces</a> (pressure)</td></tr>
+<tr class="separator:aa8547ba9622347897f7ef4eb35029fc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a344f449cb9696fae6e6bc532085913f2" id="r_a344f449cb9696fae6e6bc532085913f2"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a344f449cb9696fae6e6bc532085913f2">s_finalize_ibm_module</a> ()</td></tr>
 <tr class="memdesc:a344f449cb9696fae6e6bc532085913f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine to deallocate memory reserved for the IBM module.  <br /></td></tr>
 <tr class="separator:a344f449cb9696fae6e6bc532085913f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab8d353eb069986c7d611cee3bd19deb" id="r_aab8d353eb069986c7d611cee3bd19deb"><td class="memItemLeft" align="right" valign="top">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, dimension(3)&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab8d353eb069986c7d611cee3bd19deb">cross_product</a> (a, b)</td></tr>
-<tr class="separator:aab8d353eb069986c7d611cee3bd19deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e46de67a50e4a2435341ff9c9c5afb" id="r_a84e46de67a50e4a2435341ff9c9c5afb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84e46de67a50e4a2435341ff9c9c5afb">s_compute_moment_of_inertia</a> (ib_marker, axis)</td></tr>
+<tr class="separator:a84e46de67a50e4a2435341ff9c9c5afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6587005cc0ff6a5cd4ea18c44eb693" id="r_a8c6587005cc0ff6a5cd4ea18c44eb693"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c6587005cc0ff6a5cd4ea18c44eb693">s_cross_product</a> (a, b, c)</td></tr>
+<tr class="separator:a8c6587005cc0ff6a5cd4ea18c44eb693"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -205,28 +209,24 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module is used to handle all operations related to immersed boundary methods (IBMs) </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="aab8d353eb069986c7d611cee3bd19deb" name="aab8d353eb069986c7d611cee3bd19deb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab8d353eb069986c7d611cee3bd19deb">&#9670;&#160;</a></span>cross_product()</h2>
+<a id="aa8547ba9622347897f7ef4eb35029fc0" name="aa8547ba9622347897f7ef4eb35029fc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8547ba9622347897f7ef4eb35029fc0">&#9670;&#160;</a></span>s_compute_ib_forces()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, dimension(3) m_ibm::cross_product </td>
+          <td class="memname">subroutine m_ibm::s_compute_ib_forces </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pressure</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_aab8d353eb069986c7d611cee3bd19deb_icgraph.svg" width="391" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_aa8547ba9622347897f7ef4eb35029fc0_cgraph.svg" width="403" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -308,6 +308,64 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a2f678e57ffbd9f2e83e9d6eeb0be871e_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a84e46de67a50e4a2435341ff9c9c5afb" name="a84e46de67a50e4a2435341ff9c9c5afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84e46de67a50e4a2435341ff9c9c5afb">&#9670;&#160;</a></span>s_compute_moment_of_inertia()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_ibm::s_compute_moment_of_inertia </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marker</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), optional</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">axis</td><td>the axis about which we compute the moment. Only required in 3D. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8c6587005cc0ff6a5cd4ea18c44eb693" name="a8c6587005cc0ff6a5cd4ea18c44eb693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6587005cc0ff6a5cd4ea18c44eb693">&#9670;&#160;</a></span>s_cross_product()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_ibm::s_cross_product </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a8c6587005cc0ff6a5cd4ea18c44eb693_icgraph.svg" width="404" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -444,7 +502,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_adaced843ac419db411b064ccf39b6104_cgraph.svg" width="391" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_adaced843ac419db411b064ccf39b6104_cgraph.svg" width="404" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

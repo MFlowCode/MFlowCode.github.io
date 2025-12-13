@@ -516,6 +516,7 @@ var namespaces_dup =
       [ "s_mpi_allreduce_max", "namespacem__mpi__common.html#a65728020613f88febe83c74836abb371", null ],
       [ "s_mpi_allreduce_min", "namespacem__mpi__common.html#a40f3c1242840a184d017acef92cce7d4", null ],
       [ "s_mpi_allreduce_sum", "namespacem__mpi__common.html#a3b287a39841538011798d6f5e59d41ac", null ],
+      [ "s_mpi_allreduce_vectors_sum", "namespacem__mpi__common.html#a22620175f94237b04b08d371ae891467", null ],
       [ "s_mpi_barrier", "namespacem__mpi__common.html#a1073fc1fcb6f3b9394606d5c9285e9f0", null ],
       [ "s_mpi_decompose_computational_domain", "namespacem__mpi__common.html#afe54fe25c12eda7afe195fbf0fa166fc", null ],
       [ "s_mpi_finalize", "namespacem__mpi__common.html#a50d271a607262a2f55d7a00f7e692e38", null ],

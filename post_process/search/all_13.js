@@ -24,8 +24,9 @@ var searchData=
   ['threshold_5ffirst_5fguess_21',['threshold_first_guess',['../namespacem__constants.html#ad6a16fddedb72d1e8a561901042ccd4a',1,'m_constants']]],
   ['threshold_5fsecond_5fguess_22',['threshold_second_guess',['../namespacem__constants.html#aa03b80d8ec31c8a1edf63511b1948ec7',1,'m_constants']]],
   ['threshold_5fvector_5fzero_23',['threshold_vector_zero',['../namespacem__constants.html#ab82b496762af930251f38efa6b54c1b0',1,'m_constants']]],
-  ['translate_24',['translate',['../structm__derived__types_1_1ic__model__parameters.html#af1e8c1987454e6d51d3a81e531b631f4',1,'m_derived_types::ic_model_parameters']]],
-  ['trs_25',['trs',['../structm__derived__types_1_1t__model.html#a75e7285b8b0633654ee63891e0423a8d',1,'m_derived_types::t_model']]],
-  ['tw_26',['tw',['../namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef',1,'m_global_parameters']]],
-  ['type_27',['type',['../structm__derived__types_1_1bc__patch__parameters.html#a55ea2d5cce3624c5da2d61dc5f33142b',1,'m_derived_types::bc_patch_parameters']]]
+  ['torque_24',['torque',['../structm__derived__types_1_1ib__patch__parameters.html#a96078b76676fc79d97fb4ad01664b127',1,'m_derived_types::ib_patch_parameters']]],
+  ['translate_25',['translate',['../structm__derived__types_1_1ic__model__parameters.html#af1e8c1987454e6d51d3a81e531b631f4',1,'m_derived_types::ic_model_parameters']]],
+  ['trs_26',['trs',['../structm__derived__types_1_1t__model.html#a75e7285b8b0633654ee63891e0423a8d',1,'m_derived_types::t_model']]],
+  ['tw_27',['tw',['../namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef',1,'m_global_parameters']]],
+  ['type_28',['type',['../structm__derived__types_1_1bc__patch__parameters.html#a55ea2d5cce3624c5da2d61dc5f33142b',1,'m_derived_types::bc_patch_parameters']]]
 ];

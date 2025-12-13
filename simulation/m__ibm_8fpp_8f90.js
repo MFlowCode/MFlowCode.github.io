@@ -1,8 +1,10 @@
 var m__ibm_8fpp_8f90 =
 [
-    [ "m_ibm::cross_product", "namespacem__ibm.html#aab8d353eb069986c7d611cee3bd19deb", null ],
+    [ "m_ibm::s_compute_ib_forces", "namespacem__ibm.html#aa8547ba9622347897f7ef4eb35029fc0", null ],
     [ "m_ibm::s_compute_image_points", "namespacem__ibm.html#ab7a568a7c20d763f353f319f4fa5beba", null ],
     [ "m_ibm::s_compute_interpolation_coeffs", "namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e", null ],
+    [ "m_ibm::s_compute_moment_of_inertia", "namespacem__ibm.html#a84e46de67a50e4a2435341ff9c9c5afb", null ],
+    [ "m_ibm::s_cross_product", "namespacem__ibm.html#a8c6587005cc0ff6a5cd4ea18c44eb693", null ],
     [ "m_ibm::s_finalize_ibm_module", "namespacem__ibm.html#a344f449cb9696fae6e6bc532085913f2", null ],
     [ "m_ibm::s_find_ghost_points", "namespacem__ibm.html#a07a2684834c77cdbad742523f3e9595e", null ],
     [ "m_ibm::s_find_num_ghost_points", "namespacem__ibm.html#ae2e4e865df2b419bad364c0126009c28", null ],
