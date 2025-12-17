@@ -30,6 +30,7 @@ var namespacem__derived__types =
     [ "simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ],
     [ "source_spatial_type", "structm__derived__types_1_1source__spatial__type.html", "structm__derived__types_1_1source__spatial__type" ],
     [ "species_parameters", "structm__derived__types_1_1species__parameters.html", "structm__derived__types_1_1species__parameters" ],
+    [ "subgrid_bubble_physical_parameters", "structm__derived__types_1_1subgrid__bubble__physical__parameters.html", "structm__derived__types_1_1subgrid__bubble__physical__parameters" ],
     [ "t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],
     [ "t_model", "structm__derived__types_1_1t__model.html", "structm__derived__types_1_1t__model" ],
     [ "t_ray", "structm__derived__types_1_1t__ray.html", "structm__derived__types_1_1t__ray" ],

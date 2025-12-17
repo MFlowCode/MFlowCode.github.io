@@ -776,50 +776,96 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>bubbles_lagrange</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Volume-averaged bubble modeling    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>bubble_model</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">[1] Gilmore; [2] Keller&ndash;Miksis    </td></tr>
+<td class="markdownTableBodyRight"><code>bubble_model</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">[1] Gilmore; [2] Keller&ndash;Miksis; [3] Rayleigh-Plesset    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>mu_l0</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Liquid viscosity (only specify in liquid phase)    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppR0ref</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference bubble radius    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>ss</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Surface tension (only specify in liquid phase)    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppp0ref</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference pressure    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>pv</code> *   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Vapor pressure (only specify in liquid phase)    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_pprho0ref</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference density    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>gamma_v</code> †   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specific heat ratio    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppT0ref</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference temperature    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>M_v</code> †   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Molecular weight    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppss</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Surface tension between host and gas (bubble)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>mu_v</code> †   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Viscosity    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_pppv</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Vapor pressure of host    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>k_v</code> †   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Thermal conductivity    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppvd</code>† ‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Vapor diffusivity in gas (bubble)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>cp_v</code> †   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specific heat capacity    </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppmu_l</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Viscosity of host in liquid state    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>D_v</code> †   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Vapor diffusivity in the gas   </td></tr>
+<td class="markdownTableBodyRight"><code>bub_ppmu_v</code>†   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Viscosity of host in vapor state    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bub_ppmu_g</code>†   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Viscosity of gas (bubble)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bub_ppgam_v</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specific heat ratio of host in vapor state    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bub_ppgam_g</code>*†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specific heat ratio of gas (bubble)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bub_ppM_v</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Molecular weight of host    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bub_ppM_g</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Molecular weight of gas (bubble)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bub_ppk_v</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Thermal conductivity of host in vapor state    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bub_ppk_g</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Thermal conductivity of gas (bubble)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bub_ppcp_v</code>‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specific heat capacity in constant pressure of host in vapor state    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bub_ppcp_g</code>‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specific heat capacity in constant pressure of gas (bubble)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bub_ppR_v</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Gas constant of host in vapor state    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bub_ppR_g</code>†‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Gas constant of gas (bubble)   </td></tr>
 </table>
-<p>These options work only for gas-liquid two-component flows. Component indexes are required to be 1 for liquid and 2 for gas.</p>
 <ul>
-<li>* These parameters should be prepended with patch index $1$ that is filled with liquid: <code>fluid_pp(1)%</code>.</li>
-<li>† These parameters should be prepended with patch indexes filled with liquid and gas: <code>fluid_pp(1)%</code> and <code>fluid_pp(2)%</code>.</li>
+<li>* These parameters are required for ensemble-averaged bubble model.</li>
+<li>† These parameters are required for ensemble-averaged bubble model with <code>polytropic = F</code>.</li>
+<li>‡ These parameters are required for volume-averaged bubble model with <code>polytropic = F</code>.</li>
 </ul>
 <p>This table lists the sub-grid bubble model parameters, which can be utilized in both the ensemble-averaged and volume-averaged bubble models.</p>
 <ul>
 <li><code>bubbles_euler</code> activates the ensemble-averaged bubble model.</li>
 <li><code>bubbles_lagrange</code> activates the volume-averaged bubble model.</li>
-<li><code>bubble_model</code> specified a model for spherical bubble dynamics by an integer of 1 and 2. <code>bubble_model = 1</code>, <code>2</code>, and <code>3</code> correspond to the Gilmore, Keller-Miksis, and Rayleigh-Plesset models.</li>
-<li><code>mu_l0</code>, <code>ss</code>, and <code>pv</code>, <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, <code>k_v</code>, and <code>cp_v</code> specify simulation parameters for the non-polytropic gas compression model. <code>mu_l0</code>, <code>ss</code>, and <code>pv</code> correspond to the liquid viscosity, surface tension, and vapor pressure, respectively. <code>gamma_v</code>, <code>M_v</code>, <code>mu_v</code>, <code>k_v</code>, and <code>cp_v</code> specify the specific heat ratio, molecular weight, viscosity, thermal conductivity and specific heat capacity of a chosen component (<code>cp_v</code> only for <code>bubbles_lagrange = 'T'</code>). Implementation of the parameters into the model follow <a class="el" href="md_references.html">Ando (2010)</a>.</li>
+<li><code>bubble_model</code> specifies a model for spherical bubble dynamics by an integer of <code>1</code>, <code>2</code>, or <code>3</code>. <code>bubble_model = 1</code>, <code>2</code>, and <code>3</code> correspond to the Gilmore, Keller-Miksis, and Rayleigh-Plesset models.</li>
+<li><code>bub_pp</code> specifies simulation parameters for the EE and/or EL bubble model.</li>
 </ul>
+<p>Implementation of the parameters into the model follow <a class="el" href="md_references.html">Ando (2010)</a>.</p>
 <h3><a class="anchor" id="autotoc_md22"></a>
 9.1 Ensemble-Averaged Bubble Model</h3>
-<p>| Parameter . | Type | Description | | &mdash;: . | :-&mdash;: | :&mdash; | | <code>bubbles_euler</code>. | Logical | Ensemble-averaged bubble modeling | | <code>polytropic</code> | Logical | Polytropic gas compression | | <code>thermal</code> | Integer | Thermal model: [1] Adiabatic; [2] Isothermal; [3] Transfer | | <code>R0ref</code> | Real | Reference bubble radius | | <code>polydisperse</code> | Logical | Polydispersity in equilibrium bubble radius R0 | | <code>nb</code> | Integer | Number of bins: [1] Monodisperse; [$&gt;1$] Polydisperse | | <code>poly_sigma</code> | Real | Standard deviation for probability density function of polydisperse bubble populations | | <code>Ca</code> | Real | Cavitation number | | <code>Web</code> | Real | Weber number | | <code>Re_inv</code> | Real | Inverse Reynolds number | | <code>qbmm</code> | Logical | Quadrature by method of moments | | <code>dist_type</code> | Integer | Joint probability density function for bubble radius and velocity (only for <code>qbmm = 'T'</code>) | | <code>sigR</code> | Real | Standard deviation for the probability density function of bubble radius (only for <code>qbmm = 'T'</code>) (EE)| | <code>sigV</code> | Real | Standard deviation for the probability density function of bubble velocity (only for <code>qbmm = 'T'</code>) (EE)| | <code>rhoRV</code> | Real | Correlation coefficient for the joint probability density function of bubble radius and velocity (only for <code>qbmm = 'T'</code>) |</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bubbles_euler</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Ensemble-averaged bubble modeling    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>polytropic</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Polytropic gas compression    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>thermal</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Thermal model: [1] Adiabatic; [2] Isothermal; [3] Transfer    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>polydisperse</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Polydispersity in equilibrium bubble radius R0    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>nb</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of bins: [1] Monodisperse; [$&gt;1$] Polydisperse    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>poly_sigma</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for probability density function of polydisperse bubble populations    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>qbmm</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Quadrature by method of moments    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>dist_type</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Joint probability density function for bubble radius and velocity (only for <code>qbmm = 'T'</code>)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>sigR</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for the probability density function of bubble radius (only for <code>qbmm = 'T'</code>) (EE)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>sigV</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Standard deviation for the probability density function of bubble velocity (only for <code>qbmm = 'T'</code>) (EE)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>rhoRV</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Correlation coefficient for the joint probability density function of bubble radius and velocity (only for <code>qbmm = 'T'</code>)   </td></tr>
+</table>
 <p>This table lists the ensemble-averaged bubble model parameters.</p>
 <ul>
 <li><code>polytropic</code> activates polytropic gas compression in the bubble. When <code>polytropic = 'F'</code>, the gas compression is modeled as non-polytropic due to heat and mass transfer across the bubble wall with constant heat and mass transfer coefficients based on (<a class="el" href="md_references.html">Preston et al., 2007</a>).</li>
 <li><code>thermal</code> specifies a model for heat transfer across the bubble interface by an integer from 1 through 3. <code>thermal = 1</code>, <code>2</code>, and <code>3</code> correspond to no heat transfer (adiabatic gas compression), isothermal heat transfer, and heat transfer with a constant heat transfer coefficient based on <a class="el" href="md_references.html">Preston et al., 2007</a>, respectively.</li>
 <li><code>polydisperse</code> activates polydispersity in the bubble model through a probability density function (PDF) of the equilibrium bubble radius. Simpson's rule is used for integrating the log-normal PDF of equilibrium bubble radius for polydisperse populations.</li>
-<li><code>R0ref</code> specifies the reference bubble radius.</li>
 <li><code>nb</code> specifies the number of discrete bins that define the probability density function (PDF) of the equilibrium bubble radius.</li>
 <li><code>poly_sigma</code> specifies the standard deviation of the log-normal PDF of equilibrium bubble radius for polydisperse populations.</li>
-<li><code>Ca</code>, <code>Web</code>, and <code>Re_inv</code> respectively specify the Cavitation number, Weber number, and the inverse Reynolds number that characterize the offset of the gas pressure from the vapor pressure, surface tension, and liquid viscosity when the polytropic gas compression model is used.</li>
 <li><code>qbmm</code> activates quadrature by method of moments, which assumes a PDF for bubble radius and velocity.</li>
 <li><code>dist_type</code> specifies the initial joint PDF of initial bubble radius and bubble velocity required in qbmm. <code>dist_type = 1</code> and <code>2</code> correspond to binormal and lognormal-normal distributions respectively.</li>
 <li><code>sigR</code> specifies the standard deviation of the PDF of bubble radius required in the QBMM feature.</li>
@@ -856,17 +902,7 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>charwidth</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Domain virtual depth (z direction, for 2D simulations)    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>valmaxvoid</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Maximum void fraction permitted    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>c0</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference speed    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>rho0</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference density    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>T0</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference temperature    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>x0</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Reference length    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>Thost</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Temperature of the surrounding liquid (host)   </td></tr>
+<td class="markdownTableBodyRight"><code>valmaxvoid</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Maximum void fraction permitted   </td></tr>
 </table>
 <ul>
 <li><code>nBubs_glb</code> Total number of bubbles. Their initial conditions need to be specified in the ./input/lag_bubbles.dat file. See the example cases for additional information.</li>

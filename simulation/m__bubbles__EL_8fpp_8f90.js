@@ -16,7 +16,6 @@ var m__bubbles__EL_8fpp_8f90 =
     [ "m_bubbles_el::s_remove_lag_bubble", "namespacem__bubbles__el.html#ab8eaa7a372df2424b5577884fd57505d", null ],
     [ "m_bubbles_el::s_restart_bubbles", "namespacem__bubbles__el.html#a73d29f366d826f822f780ebdcc3660ba", null ],
     [ "m_bubbles_el::s_smear_voidfraction", "namespacem__bubbles__el.html#a7e80211bc6335e01d4b15fa5f6ed2652", null ],
-    [ "m_bubbles_el::s_start_lagrange_inputs", "namespacem__bubbles__el.html#a102735026dc3b11c9883673d8143144b", null ],
     [ "m_bubbles_el::s_transfer_data_to_tmp", "namespacem__bubbles__el.html#aa0c5b6674d08854ad7c1b0947c8dc9af", null ],
     [ "m_bubbles_el::s_update_lagrange_tdv_rk", "namespacem__bubbles__el.html#a552ef563e0052a315b8d9cab7a0fe26d", null ],
     [ "m_bubbles_el::s_write_lag_bubble_stats", "namespacem__bubbles__el.html#a00f224f76db49025f0c974450db5fb2f", null ],

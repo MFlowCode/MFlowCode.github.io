@@ -26,6 +26,7 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::ic_patch_parameters", "structm__derived__types_1_1ic__patch__parameters.html", "structm__derived__types_1_1ic__patch__parameters" ],
     [ "m_derived_types::ib_patch_parameters", "structm__derived__types_1_1ib__patch__parameters.html", "structm__derived__types_1_1ib__patch__parameters" ],
     [ "m_derived_types::physical_parameters", "structm__derived__types_1_1physical__parameters.html", "structm__derived__types_1_1physical__parameters" ],
+    [ "m_derived_types::subgrid_bubble_physical_parameters", "structm__derived__types_1_1subgrid__bubble__physical__parameters.html", "structm__derived__types_1_1subgrid__bubble__physical__parameters" ],
     [ "m_derived_types::mpi_io_airfoil_ib_var", "structm__derived__types_1_1mpi__io__airfoil__ib__var.html", "structm__derived__types_1_1mpi__io__airfoil__ib__var" ],
     [ "m_derived_types::integral_parameters", "structm__derived__types_1_1integral__parameters.html", "structm__derived__types_1_1integral__parameters" ],
     [ "m_derived_types::acoustic_parameters", "structm__derived__types_1_1acoustic__parameters.html", "structm__derived__types_1_1acoustic__parameters" ],
