@@ -63,8 +63,8 @@ var NAVTREEINDEX =
 "namespacem__igr.html#a390670630c9e5966b37f0035976cdd08",
 "namespacem__riemann__solvers.html#a76b109d025ccc60affdc73f169f2a890",
 "structm__derived__types_1_1acoustic__parameters.html#a239997f41790fc0342874da21dcd0cd3",
-"structm__derived__types_1_1ic__patch__parameters.html",
-"structm__derived__types_1_1species__parameters.html"
+"structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51",
+"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a233254ff267d5741ea2a2177aecb292f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

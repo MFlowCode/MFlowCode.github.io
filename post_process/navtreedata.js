@@ -60,8 +60,8 @@ var NAVTREEINDEX =
 "namespacem__data__output.html#a1a779679774e1161511609f18e8d9c27",
 "namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544",
 "namespacem__variables__conversion.html#a572d64fd75d1710f3dbce61d9b6e6c0d",
-"structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646",
-"structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2"
+"structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44",
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a6b0981a060c97ca959c8d44e018e65d0"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

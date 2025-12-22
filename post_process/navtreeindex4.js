@@ -1,15 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646":[2,0,1,8,3],
-"structm__derived__types_1_1ghost__point.html#a8d0cf4ddfd195cf0935b02e5c5267a57":[1,0,9,8,2],
-"structm__derived__types_1_1ghost__point.html#a8d0cf4ddfd195cf0935b02e5c5267a57":[2,0,1,8,2],
-"structm__derived__types_1_1ghost__point.html#a9d3df6e996facf4a53a91130027a3579":[1,0,9,8,1],
-"structm__derived__types_1_1ghost__point.html#a9d3df6e996facf4a53a91130027a3579":[2,0,1,8,1],
-"structm__derived__types_1_1ghost__point.html#abb6741d6f09ca4fbd71491deff59feca":[1,0,9,8,0],
-"structm__derived__types_1_1ghost__point.html#abb6741d6f09ca4fbd71491deff59feca":[2,0,1,8,0],
-"structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab":[1,0,9,8,6],
-"structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab":[2,0,1,8,6],
-"structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44":[1,0,9,8,5],
 "structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44":[2,0,1,8,5],
 "structm__derived__types_1_1ib__patch__parameters.html":[1,0,9,9],
 "structm__derived__types_1_1ib__patch__parameters.html":[2,0,1,9],
@@ -249,5 +239,15 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1integral__parameters.html#af95a8f5863854c6d6f1f0869aee1a819":[2,0,1,14,3],
 "structm__derived__types_1_1levelset__field.html":[1,0,9,15],
 "structm__derived__types_1_1levelset__field.html":[2,0,1,15],
-"structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2":[1,0,9,15,0]
+"structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2":[1,0,9,15,0],
+"structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2":[2,0,1,15,0],
+"structm__derived__types_1_1levelset__norm__field.html":[1,0,9,16],
+"structm__derived__types_1_1levelset__norm__field.html":[2,0,1,16],
+"structm__derived__types_1_1levelset__norm__field.html#aa3eba036cf0888c5c7d24c5b0d899ad3":[1,0,9,16,0],
+"structm__derived__types_1_1levelset__norm__field.html#aa3eba036cf0888c5c7d24c5b0d899ad3":[2,0,1,16,0],
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html":[1,0,9,17],
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html":[2,0,1,17],
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a3a3fc494e55a042620cdaca5faba9091":[1,0,9,17,0],
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a3a3fc494e55a042620cdaca5faba9091":[2,0,1,17,0],
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a6b0981a060c97ca959c8d44e018e65d0":[1,0,9,17,1]
 };
