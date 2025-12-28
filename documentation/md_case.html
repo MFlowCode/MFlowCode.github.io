@@ -476,8 +476,118 @@ Parameter Descriptions</h3>
 </ul>
 <h2><a class="anchor" id="autotoc_md16"></a>
 6. Simulation Algorithm</h2>
-<p><br  />
- | Parameter . | Type | Description | | &mdash;: . | :-&mdash;: | :&mdash; | | <code>bc_[x,y,z]%beg[end]</code> . | Integer | Beginning [ending] boundary condition in the $[x,y,z]$-direction (negative integer, see table Boundary Conditions) | | <code>bc_[x,y,z]%vb[1,2,3]</code>‡. | Real | Velocity in the (x,1), (y, 2), (z,3) direction applied to <code>bc_[x,y,z]%beg</code> | | <code>bc_[x,y,z]%ve[1,2,3]</code>‡. | Real | Velocity in the (x,1), (y, 2), (z,3) direction applied to <code>bc_[x,y,z]%end</code> | | <code>model_eqns</code> | Integer | Multicomponent model: [1] $\Gamma/\Pi_\infty$; [2] 5-equation; [3] 6-equation; [4] 4-equation | | <code>alt_soundspeed</code> * | Logical | Alternate sound speed and $K \nabla \cdot u$ for 5-equation model | | <code>adv_n</code> | Logical | Solving directly for the number density (in the method of classes) and compute void fraction from the number density | | <code>mpp_lim</code> | Logical | Mixture physical parameters limits | | <code>mixture_err</code> | Logical | Mixture properties correction | | <code>time_stepper</code> | Integer | Runge&ndash;Kutta order [1-3] | | <code>adap_dt</code> | Logical | Strang splitting scheme with adaptive time stepping | | <code>recon_type</code> | Integer | Reconstruction Type: [1] WENO; [2] MUSCL | | <code>adap_dt_tol</code> | Real | Tolerance for adaptive time stepping in Strang splitting scheme| | <code>adap_dt_max_iters</code> | Integer | Max iteration for adaptive time stepping in Strang splitting scheme | | <code>weno_order</code> | Integer | WENO order [1,3,5] | | <code>weno_eps</code> | Real | WENO perturbation (avoid division by zero) | | <code>mapped_weno</code> | Logical | WENO-M (WENO with mapping of nonlinear weights) | | <code>wenoz</code> | Logical | WENO-Z | | <code>wenoz_q</code> | Real | WENO-Z power parameter q (only for WENO7) | | <code>teno</code> | Logical | TENO (Targeted ENO) | | <code>teno_CT</code> | Real | TENO threshold for smoothness detection | | <code>null_weights</code> | Logical | Null WENO weights at boundaries | | <code>mp_weno</code> | Logical | Monotonicity preserving WENO | | <code>muscl_order</code> | Integer | MUSCL order [1,2] | | <code>muscl_lim</code> | Integer | MUSCL Slope Limiter: [1] minmod; [2] monotonized central; [3] Van Albada; [4] Van Leer; [5] SUPERBEE | | <code>int_comp</code> | Logical | THINC Interface Compression | | <code>ic_eps</code> | Real | Interface compression threshold (default: 1e-4) | | <code>ic_beta</code> | Real | Interface compression sharpness parameter (default: 1.6) | | <code>riemann_solver</code> | Integer | Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*; [4] HLLD (only for MHD) | | <code>low_Mach</code> | Integer | Low Mach number correction for HLLC Riemann solver: [0] None; [1] Pressure (Chen et al. 2022); [2] Velocity (Thornber et al. 2008) | | <code>avg_state</code> | Integer | Averaged state evaluation method: [1] Roe average*; [2] Arithmetic mean | | <code>wave_speeds</code> | Integer | Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999) | | <code>weno_Re_flux</code> | Logical | Compute velocity gradient using scalar divergence theorem | | <code>weno_avg</code> | Logical | Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values | | <code>dt</code> | Real | Time step size | | <code>t_step_start</code> | Integer | Simulation starting time step | | <code>t_step_stop</code> | Integer | Simulation stopping time step | | <code>t_step_save</code> | Integer | Frequency to output data | | <code>t_step_print</code> | Integer | Frequency to print the current step number to standard output (default 1) | | <code>cfl_adap_dt</code> | Logical | CFL based adaptive time-stepping | | <code>cfl_const_dt</code> | Logical | CFL based non-adaptive time-stepping | | <code>cfl_target</code> | Real | Specified CFL value | | <code>n_start</code> | Integer | Save file from which to start simulation | | <code>t_save</code> | Real | Time duration between data output | | <code>t_stop</code> | Real | Simulation stop time | | <code>surface_tension</code> | Logical | Activate surface tension | | <code>viscous</code> | Logical | Activate viscosity | | <code>hypoelasticity</code> | Logical | Activate hypoelasticity* | | <code>igr</code> | Logical | Enable solution via information geometric regularization (IGR) <a class="el" href="md_references.html">Cao (2024)</a> | | <code>igr_order</code> | Integer | Order of reconstruction for IGR [3,5] | | <code>alf_factor</code> | Real | Alpha factor for IGR entropic pressure (default 10) | | <code>igr_pres_lim</code> | Logical | Limit IGR pressure to avoid negative values (default F) | | <code>igr_iter_solver</code> | Integer | Solution method for IGR elliptic solve [1] Jacobi [2] Gauss-Seidel | | <code>num_igr_iters</code> | Integer | Number of iterations for for the IGR elliptic solve (default 2) | | <code>num_igr_warm_start_iters</code> | Integer | Number of iterations for the IGR elliptic solve at the first time step (default 50) |</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bc_[x,y,z]%beg[end]</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Beginning [ending] boundary condition in the $[x,y,z]$-direction (negative integer, see table Boundary Conditions)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>bc_[x,y,z]%vb[1,2,3]</code>‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Velocity in the (x,1), (y, 2), (z,3) direction applied to <code>bc_[x,y,z]%beg</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>bc_[x,y,z]%ve[1,2,3]</code>‡   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Velocity in the (x,1), (y, 2), (z,3) direction applied to <code>bc_[x,y,z]%end</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>model_eqns</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Multicomponent model: [1] $\Gamma/\Pi_\infty$; [2] 5-equation; [3] 6-equation; [4] 4-equation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>alt_soundspeed</code> *   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Alternate sound speed and $K \nabla \cdot u$ for 5-equation model    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>adv_n</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Solving directly for the number density (in the method of classes) and compute void fraction from the number density    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>mpp_lim</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture physical parameters limits    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>mixture_err</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Mixture properties correction    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>time_stepper</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Runge&ndash;Kutta order [1-3]    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>adap_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Strang splitting scheme with adaptive time stepping    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>recon_type</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Reconstruction Type: [1] WENO; [2] MUSCL    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>adap_dt_tol</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Tolerance for adaptive time stepping in Strang splitting scheme    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>adap_dt_max_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Max iteration for adaptive time stepping in Strang splitting scheme    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>weno_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">WENO order [1,3,5]    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>weno_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO perturbation (avoid division by zero)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>mapped_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-M (WENO with mapping of nonlinear weights)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>wenoz</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">WENO-Z    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>wenoz_q</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">WENO-Z power parameter q (only for WENO7)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>teno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">TENO (Targeted ENO)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>teno_CT</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">TENO threshold for smoothness detection    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>null_weights</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Null WENO weights at boundaries    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>mp_weno</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Monotonicity preserving WENO    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>muscl_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">MUSCL order [1,2]    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>muscl_lim</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">MUSCL Slope Limiter: [1] minmod; [2] monotonized central; [3] Van Albada; [4] Van Leer; [5] SUPERBEE    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>int_comp</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">THINC Interface Compression    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>ic_eps</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Interface compression threshold (default: 1e-4)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>ic_beta</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Interface compression sharpness parameter (default: 1.6)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>riemann_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*; [4] HLLD (only for MHD)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>low_Mach</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Low Mach number correction for HLLC Riemann solver: [0] None; [1] Pressure (Chen et al. 2022); [2] Velocity (Thornber et al. 2008)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>avg_state</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe average*; [2] Arithmetic mean    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>wave_speeds</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. 1997); [2] Pressure-velocity* (Toro 1999)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>weno_Re_flux</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Compute velocity gradient using scalar divergence theorem    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>weno_avg</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>dt</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time step size    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_step_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation starting time step    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>t_step_stop</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Simulation stopping time step    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_step_save</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to output data    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>t_step_print</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Frequency to print the current step number to standard output (default 1)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>cfl_adap_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">CFL based adaptive time-stepping    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>cfl_const_dt</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">CFL based non-adaptive time-stepping    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>cfl_target</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Specified CFL value    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>n_start</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Save file from which to start simulation    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>t_save</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Time duration between data output    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>t_stop</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Simulation stop time    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>surface_tension</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate surface tension    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>viscous</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate viscosity    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>hypoelasticity</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Activate hypoelasticity*    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>igr</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable solution via information geometric regularization (IGR) <a class="el" href="md_references.html">Cao (2024)</a>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>igr_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Order of reconstruction for IGR [3,5]    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>alf_factor</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Alpha factor for IGR entropic pressure (default 10)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>igr_pres_lim</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Limit IGR pressure to avoid negative values (default F)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>igr_iter_solver</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Solution method for IGR elliptic solve [1] Jacobi [2] Gauss-Seidel    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>num_igr_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of iterations for for the IGR elliptic solve (default 2)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>num_igr_warm_start_iters</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Number of iterations for the IGR elliptic solve at the first time step (default 50)   </td></tr>
+</table>
 <ul>
 <li>* Options that work only with <code>model_eqns = 2</code>.</li>
 <li>† Options that work only with <code>cyl_coord = 'F'</code>.</li>
