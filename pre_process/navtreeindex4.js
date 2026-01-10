@@ -1,5 +1,6 @@
 var NAVTREEINDEX4 =
 {
+"structm__derived__types_1_1bub__bounds__info.html":[1,0,13,3],
 "structm__derived__types_1_1bub__bounds__info.html":[2,0,2,3],
 "structm__derived__types_1_1bub__bounds__info.html#a01730fa85d33e3174561ad5182d2e052":[1,0,13,3,1],
 "structm__derived__types_1_1bub__bounds__info.html#a01730fa85d33e3174561ad5182d2e052":[2,0,2,3,1],
@@ -71,6 +72,8 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1chemistry__parameters.html#a462d16aed0477dda722268218eee7b32":[2,0,2,6,2],
 "structm__derived__types_1_1chemistry__parameters.html#ade6050a0e2081006aa193ee9b860df77":[1,0,13,6,1],
 "structm__derived__types_1_1chemistry__parameters.html#ade6050a0e2081006aa193ee9b860df77":[2,0,2,6,1],
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[1,0,13,6,4],
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[2,0,2,6,4],
 "structm__derived__types_1_1field__position.html":[1,0,13,7],
 "structm__derived__types_1_1field__position.html":[2,0,2,7],
 "structm__derived__types_1_1field__position.html#a31d3a45f43336d8b5b7982feeef6080c":[1,0,13,7,0],
@@ -246,8 +249,5 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1ic__patch__parameters.html#abea7135cdb959c01e9096d66e1f28554":[1,0,13,11,32],
 "structm__derived__types_1_1ic__patch__parameters.html#abea7135cdb959c01e9096d66e1f28554":[2,0,2,11,32],
 "structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[1,0,13,11,34],
-"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[2,0,2,11,34],
-"structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980":[1,0,13,11,7],
-"structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980":[2,0,2,11,7],
-"structm__derived__types_1_1ic__patch__parameters.html#ac7dd180a79d14067de1cd3930779339d":[1,0,13,11,38]
+"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[2,0,2,11,34]
 };

@@ -23,7 +23,8 @@ var searchData=
   ['threshold_5fvector_5fzero_20',['threshold_vector_zero',['../namespacem__constants.html#ab82b496762af930251f38efa6b54c1b0',1,'m_constants']]],
   ['torque_21',['torque',['../structm__derived__types_1_1ib__patch__parameters.html#a96078b76676fc79d97fb4ad01664b127',1,'m_derived_types::ib_patch_parameters']]],
   ['translate_22',['translate',['../structm__derived__types_1_1ic__model__parameters.html#af1e8c1987454e6d51d3a81e531b631f4',1,'m_derived_types::ic_model_parameters']]],
-  ['trs_23',['trs',['../structm__derived__types_1_1t__model.html#a75e7285b8b0633654ee63891e0423a8d',1,'m_derived_types::t_model']]],
-  ['tw_24',['tw',['../namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef',1,'m_global_parameters']]],
-  ['type_25',['type',['../structm__derived__types_1_1bc__patch__parameters.html#a55ea2d5cce3624c5da2d61dc5f33142b',1,'m_derived_types::bc_patch_parameters']]]
+  ['transport_5fmodel_23',['transport_model',['../structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a',1,'m_derived_types::chemistry_parameters']]],
+  ['trs_24',['trs',['../structm__derived__types_1_1t__model.html#a75e7285b8b0633654ee63891e0423a8d',1,'m_derived_types::t_model']]],
+  ['tw_25',['tw',['../namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef',1,'m_global_parameters']]],
+  ['type_26',['type',['../structm__derived__types_1_1bc__patch__parameters.html#a55ea2d5cce3624c5da2d61dc5f33142b',1,'m_derived_types::bc_patch_parameters']]]
 ];

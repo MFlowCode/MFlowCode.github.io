@@ -242,6 +242,7 @@ var namespaces_dup =
       [ "cfl_const_dt", "namespacem__global__parameters.html#a5f24d68771870a4a6b7840eb832129e9", null ],
       [ "cfl_dt", "namespacem__global__parameters.html#afdfa7d87d094d7ded9d41b6c724d159a", null ],
       [ "cfl_target", "namespacem__global__parameters.html#ac34518054f32240fc2e06d2c6fcbdfdb", null ],
+      [ "chem_params", "namespacem__global__parameters.html#a8617063e88a25d9bc5d8aec3189e0862", null ],
       [ "chem_wrt_t", "namespacem__global__parameters.html#a47c47975a0cf5173d1113466a31e9e35", null ],
       [ "chem_wrt_y", "namespacem__global__parameters.html#aeca6669400147d334a6b77025da6a7d9", null ],
       [ "chemistry", "namespacem__global__parameters.html#a206f9fba2814a2fd594e9b884e183347", null ],

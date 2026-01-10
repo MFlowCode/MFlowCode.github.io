@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"namespacem__mpi__proxy.html":[1,0,24],
 "namespacem__mpi__proxy.html#a43a3477cf47a222d9c74e4371b51c919":[1,0,24,0],
 "namespacem__nvtx.html":[1,0,25],
 "namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861":[1,0,25,4],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "structm__derived__types_1_1bounds__info.html#a4724a0cc6ee6eeb8df5645908c629dd8":[1,0,13,2,1],
 "structm__derived__types_1_1bounds__info.html#a4724a0cc6ee6eeb8df5645908c629dd8":[2,0,2,2,1],
 "structm__derived__types_1_1bounds__info.html#ab224633fb0a47a0c3e45525ccca94be1":[1,0,13,2,0],
-"structm__derived__types_1_1bounds__info.html#ab224633fb0a47a0c3e45525ccca94be1":[2,0,2,2,0],
-"structm__derived__types_1_1bub__bounds__info.html":[1,0,13,3]
+"structm__derived__types_1_1bounds__info.html#ab224633fb0a47a0c3e45525ccca94be1":[2,0,2,2,0]
 };

@@ -35,6 +35,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::cfl_adap_dt", "namespacem__global__parameters.html#a24abeb4b0424635758fe2fc1afcae5f0", null ],
     [ "m_global_parameters::cfl_const_dt", "namespacem__global__parameters.html#a5f24d68771870a4a6b7840eb832129e9", null ],
     [ "m_global_parameters::cfl_dt", "namespacem__global__parameters.html#afdfa7d87d094d7ded9d41b6c724d159a", null ],
+    [ "m_global_parameters::chem_params", "namespacem__global__parameters.html#a8617063e88a25d9bc5d8aec3189e0862", null ],
     [ "m_global_parameters::chemistry", "namespacem__global__parameters.html#a206f9fba2814a2fd594e9b884e183347", null ],
     [ "m_global_parameters::chemxb", "namespacem__global__parameters.html#a5f33ec34f1c2b1347e839b4355f07c8f", null ],
     [ "m_global_parameters::chemxe", "namespacem__global__parameters.html#a7421b88b31c39db3bd42b0c8502dc260", null ],

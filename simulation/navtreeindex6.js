@@ -132,6 +132,8 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1chemistry__parameters.html#a462d16aed0477dda722268218eee7b32":[2,0,0,6,2],
 "structm__derived__types_1_1chemistry__parameters.html#ade6050a0e2081006aa193ee9b860df77":[1,0,17,6,1],
 "structm__derived__types_1_1chemistry__parameters.html#ade6050a0e2081006aa193ee9b860df77":[2,0,0,6,1],
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[1,0,17,6,4],
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[2,0,0,6,4],
 "structm__derived__types_1_1field__position.html":[1,0,17,7],
 "structm__derived__types_1_1field__position.html":[2,0,0,7],
 "structm__derived__types_1_1field__position.html#a31d3a45f43336d8b5b7982feeef6080c":[1,0,17,7,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1ic__patch__parameters.html#a0bb1de07c2ae2a527f0a7d22aa4e76fc":[1,0,17,11,12],
 "structm__derived__types_1_1ic__patch__parameters.html#a0bb1de07c2ae2a527f0a7d22aa4e76fc":[2,0,0,11,12],
 "structm__derived__types_1_1ic__patch__parameters.html#a0f1f173356b1a6fd398e7632edb09bf7":[1,0,17,11,22],
-"structm__derived__types_1_1ic__patch__parameters.html#a0f1f173356b1a6fd398e7632edb09bf7":[2,0,0,11,22],
-"structm__derived__types_1_1ic__patch__parameters.html#a14ab0ad536844406d181e43519aa3ec0":[1,0,17,11,37],
-"structm__derived__types_1_1ic__patch__parameters.html#a14ab0ad536844406d181e43519aa3ec0":[2,0,0,11,37]
+"structm__derived__types_1_1ic__patch__parameters.html#a0f1f173356b1a6fd398e7632edb09bf7":[2,0,0,11,22]
 };

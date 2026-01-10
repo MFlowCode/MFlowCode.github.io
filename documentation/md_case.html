@@ -1170,9 +1170,31 @@ Adaptive Time-Stepping</h4>
 <ul>
 <li><code>bc_ybeg = -2</code> to enable reflective boundary conditions</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md31"></a>
+17. Chemistry</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter   </th><th class="markdownTableHeadCenter">Type   </th><th class="markdownTableHeadLeft">Description    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>chemistry</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable chemistry simulation    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>chem_paramsdiffusion</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable multispecies diffusion    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>chem_paramsreactions</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable chemical reactions    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>chem_paramsgamma_method</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Methodology for calculating the heat capacity ratio    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><code>chem_paramstransport_model</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Methodology for calculating the diffusion coefficients    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>cantera_file</code>   </td><td class="markdownTableBodyCenter">String   </td><td class="markdownTableBodyLeft">Cantera-format mechanism file (e.g., .yaml)   </td></tr>
+</table>
+<ul>
+<li><code>chem_paramstransport_model</code> specifies the methodology for calculating diffusion coefficients and other transport properties, <code>1</code> for mixture-average, <code>2</code> for Unity-Lewis</li>
+<li><code>cantera_file</code> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <code>case.py</code> file</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md32"></a>
 Enumerations</h1>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1210,7 +1232,7 @@ Boundary conditions</h2>
 </table>
 <p>*: This boundary condition is only used for <code>bc_y%beg</code> when using cylindrical coordinates (<code>cyl_coord = 'T'</code> and 3D). For axisymmetric problems, use <code>bc_y%beg = -2</code> with <code>cyl_coord = 'T'</code> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table Boundary Conditions. Their number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>bc_[x,y,z]%[beg,end]</code> (see table Simulation Algorithm Parameters). The entries labeled "Characteristic." are characteristic boundary conditions based on <a class="el" href="md_references.html">Thompson (1987)</a> and <a class="el" href="md_references.html">Thompson (1990)</a>.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Generalized Characteristic Boundary conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1235,7 +1257,7 @@ Generalized Characteristic Boundary conditions</h2>
 <td class="markdownTableBodyRight"><code>bc_[x,y,z]alpha_in</code>   </td><td class="markdownTableBodyCenter">Real Array   </td><td class="markdownTableBodyLeft">Inflow void fraction   </td></tr>
 </table>
 <p>This boundary condition can be used for subsonic inflow (<code>bc_[x,y,z]%[beg,end]</code> = -7) and subsonic outflow (<code>bc_[x,y,z]%[beg,end]</code> = -8) characteristic boundary conditions. These are based on <a class="el" href="md_references.html">Pirozzoli (2013)</a>. This enables to provide inflow and outflow conditions outside the computational domain.</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Patch types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1284,7 +1306,7 @@ Patch types</h2>
 <td class="markdownTableBodyRight">21   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">2 &amp; 3   </td><td class="markdownTableBodyCenter">Y   </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <code>model%filepath</code>.   </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table Patch Types. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<code>#</code>) corresponds to the input value in <code>input.py</code> labeled <code>patch_icpp(j)%geometry</code> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md36"></a>
 Immersed Boundary Patch Types</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1346,7 +1368,7 @@ Acoustic Supports</h2>
 <li><code>%support = 10</code> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <code>%support = 9</code> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <code>%support = 9</code> around the x-axis.</li>
 <li><code>%support = 11</code> specifies a circular transducer array in 3D simulation. The total aperture of the array is <code>%aperture</code>, which is similar to <code>%support = 7</code>. The parameters <code>%num_elements</code>, <code>%element_polygon_ratio</code>, and <code>%rotate_angle</code> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <code>%num_elements</code>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md37"></a>
 Conservative Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1372,7 +1394,7 @@ Conservative Variables Ordering</h2>
 <td class="markdownTableBodyNone">hypoelastic variables   </td><td class="markdownTableBodyNone">N/A   </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md38"></a>
 Primitive Variables Ordering</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
