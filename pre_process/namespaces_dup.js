@@ -52,6 +52,7 @@ var namespaces_dup =
       [ "s_check_circle_ib_patch_geometry", "namespacem__check__ib__patches.html#a0648432b33326c1444f255d05ae0fea1", null ],
       [ "s_check_cuboid_ib_patch_geometry", "namespacem__check__ib__patches.html#a9ff8acf607daae3aa26dd6fae770e363", null ],
       [ "s_check_cylinder_ib_patch_geometry", "namespacem__check__ib__patches.html#a6038072031a3bbd109bd7d08cee7d3d2", null ],
+      [ "s_check_ellipse_ib_patch_geometry", "namespacem__check__ib__patches.html#a2bdd1417e29be558d25359b6c73d76cc", null ],
       [ "s_check_ib_patches", "namespacem__check__ib__patches.html#a189c38a75fdc3b1991f07898544e40b4", null ],
       [ "s_check_inactive_ib_patch_geometry", "namespacem__check__ib__patches.html#a7866e42dc0bbc949c68c2a7377ae17af", null ],
       [ "s_check_model_ib_patch_geometry", "namespacem__check__ib__patches.html#a68b73efb723ebd9ef26004a95c1497fe", null ],
@@ -116,6 +117,7 @@ var namespaces_dup =
       [ "s_circle_levelset", "namespacem__compute__levelset.html#adcc4647bb4d72ef974db37f95156ca37", null ],
       [ "s_cuboid_levelset", "namespacem__compute__levelset.html#ab3ab185d1ad0bf271d4d6296ce46784b", null ],
       [ "s_cylinder_levelset", "namespacem__compute__levelset.html#aba30090c78eab580a1b9aae147b5ad5b", null ],
+      [ "s_ellipse_levelset", "namespacem__compute__levelset.html#a216d94a6dbea1ba3ba5af0a518fbdef5", null ],
       [ "s_rectangle_levelset", "namespacem__compute__levelset.html#a7d5e568c877466755798c52492d2707f", null ],
       [ "s_sphere_levelset", "namespacem__compute__levelset.html#adfbb8e93521bdcd88cce0534c0e4da0c", null ]
     ] ],
@@ -493,6 +495,7 @@ var namespaces_dup =
       [ "s_ib_circle", "namespacem__ib__patches.html#ab2c5ccc0d54ac3fa53e4098e952b9553", null ],
       [ "s_ib_cuboid", "namespacem__ib__patches.html#ab3d2fd322a686f918a4715cbb4430af1", null ],
       [ "s_ib_cylinder", "namespacem__ib__patches.html#af27bb89dad26efe5e97177d8f24862fd", null ],
+      [ "s_ib_ellipse", "namespacem__ib__patches.html#a7fc375676817f3553e7d6554421bffe4", null ],
       [ "s_ib_model", "namespacem__ib__patches.html#ab91168784d19567f4abbf082eef50996", null ],
       [ "s_ib_rectangle", "namespacem__ib__patches.html#a2892a8348954f682e7a701cc01b28eb4", null ],
       [ "s_ib_sphere", "namespacem__ib__patches.html#ac197860f87d3c1c7efe3c7c0098a5030", null ],

@@ -285,6 +285,7 @@ var namespaces_dup =
       [ "s_circle_levelset", "namespacem__compute__levelset.html#adcc4647bb4d72ef974db37f95156ca37", null ],
       [ "s_cuboid_levelset", "namespacem__compute__levelset.html#ab3ab185d1ad0bf271d4d6296ce46784b", null ],
       [ "s_cylinder_levelset", "namespacem__compute__levelset.html#aba30090c78eab580a1b9aae147b5ad5b", null ],
+      [ "s_ellipse_levelset", "namespacem__compute__levelset.html#a216d94a6dbea1ba3ba5af0a518fbdef5", null ],
       [ "s_rectangle_levelset", "namespacem__compute__levelset.html#a7d5e568c877466755798c52492d2707f", null ],
       [ "s_sphere_levelset", "namespacem__compute__levelset.html#adfbb8e93521bdcd88cce0534c0e4da0c", null ]
     ] ],
@@ -407,7 +408,7 @@ var namespaces_dup =
     ] ],
     [ "m_derived_types", "namespacem__derived__types.html", "namespacem__derived__types" ],
     [ "m_derived_variables", "namespacem__derived__variables.html", [
-      [ "s_compute_derived_variables", "namespacem__derived__variables.html#a516a9808b3446b7b45029f6451d02b3f", null ],
+      [ "s_compute_derived_variables", "namespacem__derived__variables.html#a2ad32df44939f53838dc6fe272c28ccb", null ],
       [ "s_derive_acceleration_component", "namespacem__derived__variables.html#aeafec81c1b2cb37f1cea824b9fff4d9b", null ],
       [ "s_derive_center_of_mass", "namespacem__derived__variables.html#a3eb66e46af47e787f79a01e2236779b0", null ],
       [ "s_finalize_derived_variables_module", "namespacem__derived__variables.html#ad5dfada9c933c6a4d3f9b41a8b7a98f9", null ],
@@ -844,6 +845,7 @@ var namespaces_dup =
       [ "s_ib_circle", "namespacem__ib__patches.html#ab2c5ccc0d54ac3fa53e4098e952b9553", null ],
       [ "s_ib_cuboid", "namespacem__ib__patches.html#ab3d2fd322a686f918a4715cbb4430af1", null ],
       [ "s_ib_cylinder", "namespacem__ib__patches.html#af27bb89dad26efe5e97177d8f24862fd", null ],
+      [ "s_ib_ellipse", "namespacem__ib__patches.html#a7fc375676817f3553e7d6554421bffe4", null ],
       [ "s_ib_model", "namespacem__ib__patches.html#ab91168784d19567f4abbf082eef50996", null ],
       [ "s_ib_rectangle", "namespacem__ib__patches.html#a2892a8348954f682e7a701cc01b28eb4", null ],
       [ "s_ib_sphere", "namespacem__ib__patches.html#ac197860f87d3c1c7efe3c7c0098a5030", null ],
@@ -867,7 +869,7 @@ var namespaces_dup =
       [ "z_centroid", "namespacem__ib__patches.html#aac137ea1fddcfabcc8f4ccc9d395b1cb", null ]
     ] ],
     [ "m_ibm", "namespacem__ibm.html", [
-      [ "s_compute_ib_forces", "namespacem__ibm.html#aa8547ba9622347897f7ef4eb35029fc0", null ],
+      [ "s_compute_ib_forces", "namespacem__ibm.html#a97ff6e79b4fff54d932d4a082b3ab38b", null ],
       [ "s_compute_image_points", "namespacem__ibm.html#ab7a568a7c20d763f353f319f4fa5beba", null ],
       [ "s_compute_interpolation_coeffs", "namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e", null ],
       [ "s_compute_moment_of_inertia", "namespacem__ibm.html#a84e46de67a50e4a2435341ff9c9c5afb", null ],
@@ -1292,7 +1294,8 @@ var namespaces_dup =
     [ "m_viscous", "namespacem__viscous.html", [
       [ "s_apply_scalar_divergence_theorem", "namespacem__viscous.html#abb9caed22e1825ad5437454a97053509", null ],
       [ "s_compute_fd_gradient", "namespacem__viscous.html#acd9de9c89fd8e78eea15d7eb1f6a6b68", null ],
-      [ "s_compute_viscous_stress_tensor", "namespacem__viscous.html#a8afc814dda0a24bf059badbd8c69de46", null ],
+      [ "s_compute_viscous_stress_cylindrical_boundary", "namespacem__viscous.html#aae94249734e8bf23fa1af7ef74f5290a", null ],
+      [ "s_compute_viscous_stress_tensor", "namespacem__viscous.html#a76dbf0ac974111f9b71711991cde32bc", null ],
       [ "s_finalize_viscous_module", "namespacem__viscous.html#aa3ef25c06b9615bed453231e9c9d69e9", null ],
       [ "s_get_viscous", "namespacem__viscous.html#a053d62a222e638f9529280b9af6d0406", null ],
       [ "s_initialize_viscous_module", "namespacem__viscous.html#aa1a81172de199531cec223318c914df9", null ],

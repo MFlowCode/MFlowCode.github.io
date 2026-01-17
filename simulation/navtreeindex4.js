@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"namespacem__igr.html#a1f5525ecdb7f9eb5ece664c7ecad8540":[1,0,28,11],
+"namespacem__igr.html#a38e0ae67c89eca8f17de15779874ef3f":[1,0,28,8],
 "namespacem__igr.html#a390670630c9e5966b37f0035976cdd08":[1,0,28,2],
 "namespacem__igr.html#a3cffbdd65c140ecb0e46a019a4fe30d1":[1,0,28,13],
 "namespacem__igr.html#a45b4bc73d97852ee93e78a4e3179c5c2":[1,0,28,10],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "namespacem__riemann__solvers.html#a553def06ce640330bcb9f4485931f250":[1,0,40,32],
 "namespacem__riemann__solvers.html#a5e3bcf740bc77db45d356bda00cfbb39":[1,0,40,28],
 "namespacem__riemann__solvers.html#a5ec7dc97428aac015faa4ec58d1a22f4":[1,0,40,40],
-"namespacem__riemann__solvers.html#a6649906000f121d43833493a8536987a":[1,0,40,6],
-"namespacem__riemann__solvers.html#a6c9d70572e9b98586bab20b028557a5a":[1,0,40,8],
-"namespacem__riemann__solvers.html#a6cea0144511b3c7e347b17078472dd9a":[1,0,40,1]
+"namespacem__riemann__solvers.html#a6649906000f121d43833493a8536987a":[1,0,40,6]
 };

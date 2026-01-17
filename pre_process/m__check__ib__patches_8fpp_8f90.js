@@ -5,6 +5,7 @@ var m__check__ib__patches_8fpp_8f90 =
     [ "m_check_ib_patches::s_check_circle_ib_patch_geometry", "namespacem__check__ib__patches.html#a0648432b33326c1444f255d05ae0fea1", null ],
     [ "m_check_ib_patches::s_check_cuboid_ib_patch_geometry", "namespacem__check__ib__patches.html#a9ff8acf607daae3aa26dd6fae770e363", null ],
     [ "m_check_ib_patches::s_check_cylinder_ib_patch_geometry", "namespacem__check__ib__patches.html#a6038072031a3bbd109bd7d08cee7d3d2", null ],
+    [ "m_check_ib_patches::s_check_ellipse_ib_patch_geometry", "namespacem__check__ib__patches.html#a2bdd1417e29be558d25359b6c73d76cc", null ],
     [ "m_check_ib_patches::s_check_ib_patches", "namespacem__check__ib__patches.html#a189c38a75fdc3b1991f07898544e40b4", null ],
     [ "m_check_ib_patches::s_check_inactive_ib_patch_geometry", "namespacem__check__ib__patches.html#a7866e42dc0bbc949c68c2a7377ae17af", null ],
     [ "m_check_ib_patches::s_check_model_ib_patch_geometry", "namespacem__check__ib__patches.html#a68b73efb723ebd9ef26004a95c1497fe", null ],

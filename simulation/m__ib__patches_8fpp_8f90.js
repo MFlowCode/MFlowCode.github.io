@@ -10,6 +10,7 @@ var m__ib__patches_8fpp_8f90 =
     [ "m_ib_patches::s_ib_circle", "namespacem__ib__patches.html#ab2c5ccc0d54ac3fa53e4098e952b9553", null ],
     [ "m_ib_patches::s_ib_cuboid", "namespacem__ib__patches.html#ab3d2fd322a686f918a4715cbb4430af1", null ],
     [ "m_ib_patches::s_ib_cylinder", "namespacem__ib__patches.html#af27bb89dad26efe5e97177d8f24862fd", null ],
+    [ "m_ib_patches::s_ib_ellipse", "namespacem__ib__patches.html#a7fc375676817f3553e7d6554421bffe4", null ],
     [ "m_ib_patches::s_ib_model", "namespacem__ib__patches.html#ab91168784d19567f4abbf082eef50996", null ],
     [ "m_ib_patches::s_ib_rectangle", "namespacem__ib__patches.html#a2892a8348954f682e7a701cc01b28eb4", null ],
     [ "m_ib_patches::s_ib_sphere", "namespacem__ib__patches.html#ac197860f87d3c1c7efe3c7c0098a5030", null ],
