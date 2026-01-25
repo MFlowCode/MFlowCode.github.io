@@ -61,7 +61,7 @@ var NAVTREEINDEX =
 "namespacem__global__parameters.html#ac6ef72ca6aa7a22e60c864df25559892",
 "namespacem__variables__conversion.html#a55f61a59d5d979886829dab99e00b4e8",
 "structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab",
-"structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a3a3fc494e55a042620cdaca5faba9091"
+"structm__derived__types_1_1mpi__io__airfoil__ib__var.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

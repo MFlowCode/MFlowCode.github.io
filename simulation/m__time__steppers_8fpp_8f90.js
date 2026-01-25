@@ -5,6 +5,7 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::s_compute_dt", "namespacem__time__steppers.html#ac56d2ccae6e6dbce231569d173aae88a", null ],
     [ "m_time_steppers::s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
     [ "m_time_steppers::s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],
+    [ "m_time_steppers::s_propagate_immersed_boundaries", "namespacem__time__steppers.html#a65c2ff1a982205acab4822dc63db14c6", null ],
     [ "m_time_steppers::s_time_step_cycling", "namespacem__time__steppers.html#a575aa7f95bf96994f49d81d71d19c192", null ],
     [ "m_time_steppers::s_tvd_rk", "namespacem__time__steppers.html#ae8912bf24b14160a2d3b6f52595cb868", null ],
     [ "m_time_steppers::bc_type", "namespacem__time__steppers.html#a2977f6fd5a23ed0bef5ddcac03fbf2a9", null ],

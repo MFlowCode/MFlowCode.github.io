@@ -3,6 +3,7 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "angles", "structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42", null ],
     [ "angular_vel", "structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0", null ],
     [ "c", "structm__derived__types_1_1ib__patch__parameters.html#a1fe9f79c816d007e48dc48a323b36416", null ],
+    [ "centroid_offset", "structm__derived__types_1_1ib__patch__parameters.html#ade70c18f3ff53fa66c46f7a225b07577", null ],
     [ "force", "structm__derived__types_1_1ib__patch__parameters.html#a4475a66f80978ea31f7ccb7063b0c655", null ],
     [ "geometry", "structm__derived__types_1_1ib__patch__parameters.html#a1f6b2f17dbe349203141acfd3e71fd4f", null ],
     [ "length_x", "structm__derived__types_1_1ib__patch__parameters.html#a067b8bdf34ad93b27971e36a6c570efb", null ],

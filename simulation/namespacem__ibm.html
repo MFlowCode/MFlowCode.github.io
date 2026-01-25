@@ -173,11 +173,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac62e47c0f28b708ae85d0ab0d3675486" id="r_ac62e47c0f28b708ae85d0ab0d3675486"><td class="memItemLeft" align="right" valign="top">impure subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac62e47c0f28b708ae85d0ab0d3675486">s_update_mib</a> (<a class="el" href="namespacem__global__parameters.html#af65a8b8e1a7209eab79c732e7d8b823f">num_ibs</a>, <a class="el" href="#a774432271f9497f1fed0c26c364fe721">levelset</a>, <a class="el" href="#a98b309499acf40f3734efab61e9a5327">levelset_norm</a>)</td></tr>
 <tr class="memdesc:ac62e47c0f28b708ae85d0ab0d3675486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the current indexes of immersed boundaries and replaces them after updating the position of each moving immersed boundary.  <br /></td></tr>
 <tr class="separator:ac62e47c0f28b708ae85d0ab0d3675486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97ff6e79b4fff54d932d4a082b3ab38b" id="r_a97ff6e79b4fff54d932d4a082b3ab38b"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97ff6e79b4fff54d932d4a082b3ab38b">s_compute_ib_forces</a> (q_prim_vf, dynamic_viscosity)</td></tr>
-<tr class="separator:a97ff6e79b4fff54d932d4a082b3ab38b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a127d40085cc8ab5bdcde0f7cf894e92f" id="r_a127d40085cc8ab5bdcde0f7cf894e92f"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a127d40085cc8ab5bdcde0f7cf894e92f">s_compute_ib_forces</a> (q_prim_vf, <a class="el" href="namespacem__global__parameters.html#a7297abec8863ecabf95e24ebdae46a17">fluid_pp</a>)</td></tr>
+<tr class="separator:a127d40085cc8ab5bdcde0f7cf894e92f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a344f449cb9696fae6e6bc532085913f2" id="r_a344f449cb9696fae6e6bc532085913f2"><td class="memItemLeft" align="right" valign="top">impure subroutine, public&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a344f449cb9696fae6e6bc532085913f2">s_finalize_ibm_module</a> ()</td></tr>
 <tr class="memdesc:a344f449cb9696fae6e6bc532085913f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine to deallocate memory reserved for the IBM module.  <br /></td></tr>
 <tr class="separator:a344f449cb9696fae6e6bc532085913f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95803cab792b57cbc7f1cf8232f1b2fd" id="r_a95803cab792b57cbc7f1cf8232f1b2fd"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95803cab792b57cbc7f1cf8232f1b2fd">s_compute_centroid_offset</a> (ib_marker)</td></tr>
+<tr class="memdesc:a95803cab792b57cbc7f1cf8232f1b2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models.  <br /></td></tr>
+<tr class="separator:a95803cab792b57cbc7f1cf8232f1b2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84e46de67a50e4a2435341ff9c9c5afb" id="r_a84e46de67a50e4a2435341ff9c9c5afb"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84e46de67a50e4a2435341ff9c9c5afb">s_compute_moment_of_inertia</a> (ib_marker, axis)</td></tr>
 <tr class="separator:a84e46de67a50e4a2435341ff9c9c5afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c6587005cc0ff6a5cd4ea18c44eb693" id="r_a8c6587005cc0ff6a5cd4ea18c44eb693"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c6587005cc0ff6a5cd4ea18c44eb693">s_cross_product</a> (a, b, c)</td></tr>
@@ -209,8 +212,32 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This module is used to handle all operations related to immersed boundary methods (IBMs) </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a97ff6e79b4fff54d932d4a082b3ab38b" name="a97ff6e79b4fff54d932d4a082b3ab38b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97ff6e79b4fff54d932d4a082b3ab38b">&#9670;&#160;</a></span>s_compute_ib_forces()</h2>
+<a id="a95803cab792b57cbc7f1cf8232f1b2fd" name="a95803cab792b57cbc7f1cf8232f1b2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95803cab792b57cbc7f1cf8232f1b2fd">&#9670;&#160;</a></span>s_compute_centroid_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_ibm::s_compute_centroid_offset </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marker</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a95803cab792b57cbc7f1cf8232f1b2fd_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a127d40085cc8ab5bdcde0f7cf894e92f" name="a127d40085cc8ab5bdcde0f7cf894e92f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a127d40085cc8ab5bdcde0f7cf894e92f">&#9670;&#160;</a></span>s_compute_ib_forces()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -223,14 +250,14 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dynamic_viscosity</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1physical__parameters.html">physical_parameters</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>fluid_pp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a97ff6e79b4fff54d932d4a082b3ab38b_cgraph.svg" width="403" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a127d40085cc8ab5bdcde0f7cf894e92f_cgraph.svg" width="403" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -532,7 +559,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a14f4b0cb1d4933c3e8e0a30f301da3ad_cgraph.svg" width="452" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__ibm_a14f4b0cb1d4933c3e8e0a30f301da3ad_cgraph.svg" width="452" height="435"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

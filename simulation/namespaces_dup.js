@@ -869,7 +869,8 @@ var namespaces_dup =
       [ "z_centroid", "namespacem__ib__patches.html#aac137ea1fddcfabcc8f4ccc9d395b1cb", null ]
     ] ],
     [ "m_ibm", "namespacem__ibm.html", [
-      [ "s_compute_ib_forces", "namespacem__ibm.html#a97ff6e79b4fff54d932d4a082b3ab38b", null ],
+      [ "s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
+      [ "s_compute_ib_forces", "namespacem__ibm.html#a127d40085cc8ab5bdcde0f7cf894e92f", null ],
       [ "s_compute_image_points", "namespacem__ibm.html#ab7a568a7c20d763f353f319f4fa5beba", null ],
       [ "s_compute_interpolation_coeffs", "namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e", null ],
       [ "s_compute_moment_of_inertia", "namespacem__ibm.html#a84e46de67a50e4a2435341ff9c9c5afb", null ],
@@ -1228,6 +1229,7 @@ var namespaces_dup =
       [ "s_compute_dt", "namespacem__time__steppers.html#ac56d2ccae6e6dbce231569d173aae88a", null ],
       [ "s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
       [ "s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],
+      [ "s_propagate_immersed_boundaries", "namespacem__time__steppers.html#a65c2ff1a982205acab4822dc63db14c6", null ],
       [ "s_time_step_cycling", "namespacem__time__steppers.html#a575aa7f95bf96994f49d81d71d19c192", null ],
       [ "s_tvd_rk", "namespacem__time__steppers.html#ae8912bf24b14160a2d3b6f52595cb868", null ],
       [ "bc_type", "namespacem__time__steppers.html#a2977f6fd5a23ed0bef5ddcac03fbf2a9", null ],
