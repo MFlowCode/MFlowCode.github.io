@@ -22,8 +22,6 @@ var m__igr_8fpp_8f90 =
     [ "m_igr::k", "namespacem__igr.html#a8a815e1e9ac0c5b9e1d7563b828b7113", null ],
     [ "m_igr::l", "namespacem__igr.html#a582d93e02aa8744c9687c2bbb8f95ed6", null ],
     [ "m_igr::nv_uvm_temp_on_gpu", "namespacem__igr.html#ab961c4651a6bc62da45f05346cdbd06c", null ],
-    [ "m_igr::offxl", "namespacem__igr.html#acde2284a535de03867dc5265c9be106c", null ],
-    [ "m_igr::offxr", "namespacem__igr.html#af65eceb47be732eac57787763e08c7a4", null ],
     [ "m_igr::pinned", "namespacem__igr.html#a4750c9d3a081c968d7a6274114dd6f30", null ],
     [ "m_igr::q", "namespacem__igr.html#a1061efc0d42c5c95a61fb98d2a12ab30", null ],
     [ "m_igr::r", "namespacem__igr.html#a87e2302b1066050f93cebe8adb384a68", null ],

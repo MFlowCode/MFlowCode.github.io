@@ -71,6 +71,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::dir_idx_tau", "namespacem__global__parameters.html#a75b70db5c274efb6ca4be60c0a53e01b", null ],
     [ "m_global_parameters::down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
     [ "m_global_parameters::dt", "namespacem__global__parameters.html#ae4835676adb8cf123ad09e238152cefc", null ],
+    [ "m_global_parameters::dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
     [ "m_global_parameters::dx", "namespacem__global__parameters.html#af27a86848f3ca162681e8fae6e104025", null ],
     [ "m_global_parameters::dy", "namespacem__global__parameters.html#ae309d53f918438b582ad9595e1dfeaf0", null ],
     [ "m_global_parameters::dz", "namespacem__global__parameters.html#af1f14ce665066d8a2a370a99a9ed0198", null ],

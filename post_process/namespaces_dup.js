@@ -35,6 +35,7 @@ var namespaces_dup =
       [ "s_check_inputs_output_format", "namespacem__checker.html#aabc567e8c7924a4bfcd77e73eb125c0d", null ]
     ] ],
     [ "m_checker_common", "namespacem__checker__common.html", [
+      [ "s_check_amd", "namespacem__checker__common.html#a96fa54018d14ac0ea114fd0805dedd97", null ],
       [ "s_check_inputs_common", "namespacem__checker__common.html#a37b5025d5e6ffafc4cb5f417387c21b8", null ],
       [ "s_check_total_cells", "namespacem__checker__common.html#abf7ee76feb76e0dfa1301860374be234", null ]
     ] ],
@@ -258,6 +259,7 @@ var namespaces_dup =
       [ "cyl_coord", "namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c", null ],
       [ "damage_idx", "namespacem__global__parameters.html#a9b62d10b1daae13c7f40d7bf39a5c1c3", null ],
       [ "down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
+      [ "dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
       [ "dx", "namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b", null ],
       [ "dy", "namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f", null ],
       [ "dz", "namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd", null ],
@@ -559,8 +561,6 @@ var namespaces_dup =
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_phase_change", "namespacem__phase__change.html", [
-      [ "s_compute_jacobian_matrix", "namespacem__phase__change.html#a9ff16bc40d4128d3e5eef593077b6a71", null ],
-      [ "s_compute_ptg_residue", "namespacem__phase__change.html#a60cd7a77a48d1910bcafb63c0dd87179", null ],
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
       [ "s_infinite_pt_relaxation_k", "namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7", null ],
       [ "s_infinite_ptg_relaxation_k", "namespacem__phase__change.html#ac67afd4c4b80bf734eee0d1da1480e31", null ],

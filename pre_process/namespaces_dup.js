@@ -89,6 +89,7 @@ var namespaces_dup =
       [ "s_check_parallel_io", "namespacem__checker.html#aa0ed4f563534d127e31f38a16ff73821", null ]
     ] ],
     [ "m_checker_common", "namespacem__checker__common.html", [
+      [ "s_check_amd", "namespacem__checker__common.html#a96fa54018d14ac0ea114fd0805dedd97", null ],
       [ "s_check_inputs_common", "namespacem__checker__common.html#a37b5025d5e6ffafc4cb5f417387c21b8", null ],
       [ "s_check_total_cells", "namespacem__checker__common.html#abf7ee76feb76e0dfa1301860374be234", null ]
     ] ],
@@ -260,6 +261,7 @@ var namespaces_dup =
       [ "damage_idx", "namespacem__global__parameters.html#a9b62d10b1daae13c7f40d7bf39a5c1c3", null ],
       [ "dist_type", "namespacem__global__parameters.html#a34297551dccfd5771f543ff8902042bc", null ],
       [ "down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
+      [ "dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
       [ "dx", "namespacem__global__parameters.html#a742174580da5b9b325a2f00c24aca536", null ],
       [ "dy", "namespacem__global__parameters.html#a380743bc7a4af4ab7143cb0c8679d972", null ],
       [ "dz", "namespacem__global__parameters.html#a29818b2dd42d5384d99765393d965049", null ],
@@ -645,8 +647,6 @@ var namespaces_dup =
       [ "q_prim_temp", "namespacem__perturbation.html#a84af4cc4dfb9d79db18734f7dafebfdd", null ]
     ] ],
     [ "m_phase_change", "namespacem__phase__change.html", [
-      [ "s_compute_jacobian_matrix", "namespacem__phase__change.html#a9ff16bc40d4128d3e5eef593077b6a71", null ],
-      [ "s_compute_ptg_residue", "namespacem__phase__change.html#a60cd7a77a48d1910bcafb63c0dd87179", null ],
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
       [ "s_infinite_pt_relaxation_k", "namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7", null ],
       [ "s_infinite_ptg_relaxation_k", "namespacem__phase__change.html#ac67afd4c4b80bf734eee0d1da1480e31", null ],

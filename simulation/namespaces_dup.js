@@ -242,6 +242,7 @@ var namespaces_dup =
       [ "s_check_inputs_weno", "namespacem__checker.html#a8abd19271bbd3a0d8a4b445f1e7dba57", null ]
     ] ],
     [ "m_checker_common", "namespacem__checker__common.html", [
+      [ "s_check_amd", "namespacem__checker__common.html#a96fa54018d14ac0ea114fd0805dedd97", null ],
       [ "s_check_inputs_common", "namespacem__checker__common.html#a37b5025d5e6ffafc4cb5f417387c21b8", null ],
       [ "s_check_total_cells", "namespacem__checker__common.html#abf7ee76feb76e0dfa1301860374be234", null ]
     ] ],
@@ -529,6 +530,7 @@ var namespaces_dup =
       [ "dir_idx_tau", "namespacem__global__parameters.html#a75b70db5c274efb6ca4be60c0a53e01b", null ],
       [ "down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
       [ "dt", "namespacem__global__parameters.html#ae4835676adb8cf123ad09e238152cefc", null ],
+      [ "dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
       [ "dx", "namespacem__global__parameters.html#af27a86848f3ca162681e8fae6e104025", null ],
       [ "dy", "namespacem__global__parameters.html#ae309d53f918438b582ad9595e1dfeaf0", null ],
       [ "dz", "namespacem__global__parameters.html#af1f14ce665066d8a2a370a99a9ed0198", null ],
@@ -917,8 +919,6 @@ var namespaces_dup =
       [ "k", "namespacem__igr.html#a8a815e1e9ac0c5b9e1d7563b828b7113", null ],
       [ "l", "namespacem__igr.html#a582d93e02aa8744c9687c2bbb8f95ed6", null ],
       [ "nv_uvm_temp_on_gpu", "namespacem__igr.html#ab961c4651a6bc62da45f05346cdbd06c", null ],
-      [ "offxl", "namespacem__igr.html#acde2284a535de03867dc5265c9be106c", null ],
-      [ "offxr", "namespacem__igr.html#af65eceb47be732eac57787763e08c7a4", null ],
       [ "pinned", "namespacem__igr.html#a4750c9d3a081c968d7a6274114dd6f30", null ],
       [ "q", "namespacem__igr.html#a1061efc0d42c5c95a61fb98d2a12ab30", null ],
       [ "r", "namespacem__igr.html#a87e2302b1066050f93cebe8adb384a68", null ],
@@ -1024,8 +1024,6 @@ var namespaces_dup =
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
     [ "m_phase_change", "namespacem__phase__change.html", [
-      [ "s_compute_jacobian_matrix", "namespacem__phase__change.html#a9ff16bc40d4128d3e5eef593077b6a71", null ],
-      [ "s_compute_ptg_residue", "namespacem__phase__change.html#a60cd7a77a48d1910bcafb63c0dd87179", null ],
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
       [ "s_infinite_pt_relaxation_k", "namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7", null ],
       [ "s_infinite_ptg_relaxation_k", "namespacem__phase__change.html#ac67afd4c4b80bf734eee0d1da1480e31", null ],

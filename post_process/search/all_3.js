@@ -37,7 +37,8 @@ var searchData=
   ['double_5fprecision_34',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
   ['down_5fsample_35',['down_sample',['../namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0',1,'m_global_parameters']]],
   ['dp_36',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
-  ['dx_37',['dx',['../namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b',1,'m_global_parameters']]],
-  ['dy_38',['dy',['../namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f',1,'m_global_parameters']]],
-  ['dz_39',['dz',['../namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd',1,'m_global_parameters']]]
+  ['dummy_37',['dummy',['../namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163',1,'m_global_parameters']]],
+  ['dx_38',['dx',['../namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b',1,'m_global_parameters']]],
+  ['dy_39',['dy',['../namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f',1,'m_global_parameters']]],
+  ['dz_40',['dz',['../namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd',1,'m_global_parameters']]]
 ];

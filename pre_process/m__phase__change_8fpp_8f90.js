@@ -1,7 +1,5 @@
 var m__phase__change_8fpp_8f90 =
 [
-    [ "m_phase_change::s_compute_jacobian_matrix", "namespacem__phase__change.html#a9ff16bc40d4128d3e5eef593077b6a71", null ],
-    [ "m_phase_change::s_compute_ptg_residue", "namespacem__phase__change.html#a60cd7a77a48d1910bcafb63c0dd87179", null ],
     [ "m_phase_change::s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
     [ "m_phase_change::s_infinite_pt_relaxation_k", "namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7", null ],
     [ "m_phase_change::s_infinite_ptg_relaxation_k", "namespacem__phase__change.html#ac67afd4c4b80bf734eee0d1da1480e31", null ],

@@ -56,6 +56,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::cyl_coord", "namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c", null ],
     [ "m_global_parameters::damage_idx", "namespacem__global__parameters.html#a9b62d10b1daae13c7f40d7bf39a5c1c3", null ],
     [ "m_global_parameters::down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
+    [ "m_global_parameters::dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
     [ "m_global_parameters::dx", "namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b", null ],
     [ "m_global_parameters::dy", "namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f", null ],
     [ "m_global_parameters::dz", "namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd", null ],

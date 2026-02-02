@@ -159,12 +159,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ac67afd4c4b80bf734eee0d1da1480e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">This auxiliary subroutine is created to activate the pTg-equilibrium for N fluids under pT and 2 fluids under pTg-equilibrium. There is a final common p and T during relaxation.  <br /></td></tr>
 <tr class="separator:ac67afd4c4b80bf734eee0d1da1480e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:a9ff16bc40d4128d3e5eef593077b6a71" id="r_a9ff16bc40d4128d3e5eef593077b6a71"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ff16bc40d4128d3e5eef593077b6a71">s_compute_jacobian_matrix</a> (invjac, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, jac, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, mcpd, mcvgp, mcvgp2, ps, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, tjac)</td></tr>
-<tr class="memdesc:a9ff16bc40d4128d3e5eef593077b6a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">This auxiliary subroutine calculates the 2 x 2 Jacobian and, its inverse and transpose to be used in the pTg-equilibirium procedure.  <br /></td></tr>
-<tr class="separator:a9ff16bc40d4128d3e5eef593077b6a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60cd7a77a48d1910bcafb63c0dd87179" id="r_a60cd7a77a48d1910bcafb63c0dd87179"><td class="memItemLeft" align="right" valign="top">subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60cd7a77a48d1910bcafb63c0dd87179">s_compute_ptg_residue</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, mcpd, mcvgp, mqd, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ps, rhoe, r2d)</td></tr>
-<tr class="memdesc:a60cd7a77a48d1910bcafb63c0dd87179"><td class="mdescLeft">&#160;</td><td class="mdescRight">This auxiliary subroutine computes the residue of the pTg-equilibrium procedure.  <br /></td></tr>
-<tr class="separator:a60cd7a77a48d1910bcafb63c0dd87179"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c6df16af0868f7d4004d427cc7cead9" id="r_a1c6df16af0868f7d4004d427cc7cead9"><td class="memItemLeft" align="right" valign="top">elemental subroutine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c6df16af0868f7d4004d427cc7cead9">s_tsat</a> (psat, tsat, tsin)</td></tr>
 <tr class="memdesc:a1c6df16af0868f7d4004d427cc7cead9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This auxiliary subroutine finds the Saturation temperature for a given saturation pressure through a newton solver.  <br /></td></tr>
 <tr class="separator:a1c6df16af0868f7d4004d427cc7cead9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -206,178 +200,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>energies (6-eqn to 4-eqn) equilibrium through an infinitely fast (algebraic) procedure. </p>
 </div><h2 class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a9ff16bc40d4128d3e5eef593077b6a71" name="a9ff16bc40d4128d3e5eef593077b6a71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ff16bc40d4128d3e5eef593077b6a71">&#9670;&#160;</a></span>s_compute_jacobian_matrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_phase_change::s_compute_jacobian_matrix </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2, 2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>invjac</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2, 2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>jac</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mcpd</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mcvgp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mcvgp2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ps</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2, 2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>tjac</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This auxiliary subroutine calculates the 2 x 2 Jacobian and, its inverse and transpose to be used in the pTg-equilibirium procedure. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">InvJac</td><td>Inverse of the Jacobian Matrix </td></tr>
-    <tr><td class="paramname">j</td><td>generic loop iterator for x direction </td></tr>
-    <tr><td class="paramname">Jac</td><td>Jacobian Matrix </td></tr>
-    <tr><td class="paramname">k</td><td>generic loop iterator for y direction </td></tr>
-    <tr><td class="paramname">l</td><td>generic loop iterator for z direction </td></tr>
-    <tr><td class="paramname">mCPD</td><td>sum of the total alpha*rho*cp </td></tr>
-    <tr><td class="paramname">mCVGP</td><td>auxiliary variable for the calculation of the matrices: alpha*rho*cv*(g-1)/press </td></tr>
-    <tr><td class="paramname">mCVGP2</td><td>auxiliary variable for the calculation of the matrices: alpha*rho*cv*(g-1)/press^2 </td></tr>
-    <tr><td class="paramname">pS</td><td>equilibrium pressure at the interface </td></tr>
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-average conservative variables </td></tr>
-    <tr><td class="paramname">TJac</td><td>Transpose of the Jacobian Matrix </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__phase__change_a9ff16bc40d4128d3e5eef593077b6a71_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a60cd7a77a48d1910bcafb63c0dd87179" name="a60cd7a77a48d1910bcafb63c0dd87179"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60cd7a77a48d1910bcafb63c0dd87179">&#9670;&#160;</a></span>s_compute_ptg_residue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_phase_change::s_compute_ptg_residue </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mcpd</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mcvgp</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mqd</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ps</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rhoe</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>r2d</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This auxiliary subroutine computes the residue of the pTg-equilibrium procedure. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">j</td><td>generic loop iterator for x direction </td></tr>
-    <tr><td class="paramname">k</td><td>generic loop iterator for y direction </td></tr>
-    <tr><td class="paramname">l</td><td>generic loop iterator for z direction </td></tr>
-    <tr><td class="paramname">mCPD</td><td>sum of the total alpha*rho*cp </td></tr>
-    <tr><td class="paramname">mCVGP</td><td>auxiliary variable for the calculation of the matrices: alpha*rho*cv*(g-1)/press </td></tr>
-    <tr><td class="paramname">mQD</td><td>sum of the total alpha*rho*qv </td></tr>
-    <tr><td class="paramname">q_cons_vf</td><td>Cell-average conservative variables </td></tr>
-    <tr><td class="paramname">pS</td><td>equilibrium pressure at the interface </td></tr>
-    <tr><td class="paramname">rhoe</td><td>mixture energy </td></tr>
-    <tr><td class="paramname">R2D</td><td>(2D) residue array </td></tr>
-  </table>
-  </dd>
-</dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__phase__change_a60cd7a77a48d1910bcafb63c0dd87179_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="a14dd0bb1de0c3205491af730be9405f9" name="a14dd0bb1de0c3205491af730be9405f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14dd0bb1de0c3205491af730be9405f9">&#9670;&#160;</a></span>s_finalize_relaxation_solver_module()</h2>
 
@@ -433,7 +255,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>p_infpt</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>p_infpt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -506,7 +328,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>p_infpt</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>p_infpt</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -541,11 +363,6 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="namespacem__phase__change_ac67afd4c4b80bf734eee0d1da1480e31_cgraph.svg" width="476" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__phase__change_ac67afd4c4b80bf734eee0d1da1480e31_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
@@ -578,7 +395,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__phase__change_a19a8a866830bfc285d631672287a851f_cgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="namespacem__phase__change_a19a8a866830bfc285d631672287a851f_cgraph.svg" width="100%" height="429"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
