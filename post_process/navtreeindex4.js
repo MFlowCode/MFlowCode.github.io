@@ -1,5 +1,7 @@
 var NAVTREEINDEX4 =
 {
+"structm__derived__types_1_1ghost__point.html#abb6741d6f09ca4fbd71491deff59feca":[1,0,9,8,0],
+"structm__derived__types_1_1ghost__point.html#abb6741d6f09ca4fbd71491deff59feca":[2,0,1,8,0],
 "structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab":[1,0,9,8,6],
 "structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab":[2,0,1,8,6],
 "structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44":[1,0,9,8,5],
@@ -247,7 +249,5 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2":[1,0,9,15,0],
 "structm__derived__types_1_1levelset__field.html#a7a7dff0c3c4420eb912a550c573a2fe2":[2,0,1,15,0],
 "structm__derived__types_1_1levelset__norm__field.html":[1,0,9,16],
-"structm__derived__types_1_1levelset__norm__field.html":[2,0,1,16],
-"structm__derived__types_1_1levelset__norm__field.html#aa3eba036cf0888c5c7d24c5b0d899ad3":[1,0,9,16,0],
-"structm__derived__types_1_1levelset__norm__field.html#aa3eba036cf0888c5c7d24c5b0d899ad3":[2,0,1,16,0]
+"structm__derived__types_1_1levelset__norm__field.html":[2,0,1,16]
 };

@@ -8,6 +8,7 @@ var searchData=
   ['height_5',['height',['../structm__derived__types_1_1acoustic__parameters.html#aa013826904d904e484c24cc2d6178cfa',1,'m_derived_types::acoustic_parameters']]],
   ['hi_5foffset_6',['hi_offset',['../namespacem__data__output.html#a1a779679774e1161511609f18e8d9c27',1,'m_data_output']]],
   ['hp_7',['hp',['../namespacem__precision__select.html#aae1265756d05d3113702b0a0383a50c9',1,'m_precision_select']]],
-  ['hyperelasticity_8',['hyperelasticity',['../namespacem__global__parameters.html#a6fe63b247d95292a893cfc1a49bff915',1,'m_global_parameters']]],
-  ['hypoelasticity_9',['hypoelasticity',['../namespacem__global__parameters.html#a138f81f8ff7d760956ffcf281e928f9b',1,'m_global_parameters']]]
+  ['hyper_5fcleaning_8',['hyper_cleaning',['../namespacem__global__parameters.html#a9d5c347a1035e6cdd5349086076b2360',1,'m_global_parameters']]],
+  ['hyperelasticity_9',['hyperelasticity',['../namespacem__global__parameters.html#a6fe63b247d95292a893cfc1a49bff915',1,'m_global_parameters']]],
+  ['hypoelasticity_10',['hypoelasticity',['../namespacem__global__parameters.html#a138f81f8ff7d760956ffcf281e928f9b',1,'m_global_parameters']]]
 ];

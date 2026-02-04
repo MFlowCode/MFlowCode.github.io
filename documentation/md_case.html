@@ -1118,19 +1118,22 @@ Adaptive Time-Stepping</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><code>relativity</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable relativistic MHD simulation    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>powell</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable Powell's method for solenoidal constraint    </td></tr>
+<td class="markdownTableBodyRight"><code>hyper_cleaning</code>   </td><td class="markdownTableBodyCenter">Logical   </td><td class="markdownTableBodyLeft">Enable hyperbolic (GLM) divergence cleaning for <code>div B</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><code>fd_order</code>   </td><td class="markdownTableBodyCenter">Integer   </td><td class="markdownTableBodyLeft">Finite difference order for Powell's method    </td></tr>
+<td class="markdownTableBodyRight"><code>hyper_cleaning_speed</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Cleaning wave speed <code>c_h</code>    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><code>Bx[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Initial magnetic field in the x[y,z] direction    </td></tr>
+<td class="markdownTableBodyRight"><code>hyper_cleaning_tau</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Cleaning damping timescale <code>tau</code>    </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><code>Bx[y,z]</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Initial magnetic field in the x[y,z] direction    </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><code>Bx0</code>   </td><td class="markdownTableBodyCenter">Real   </td><td class="markdownTableBodyLeft">Constant magnetic field in the x direction (1D only)   </td></tr>
 </table>
 <ul>
 <li><code>mhd</code> is currently only available for single-component flows and 5-equation model. Its compatibility with most other features is work in progress.</li>
 <li><code>relativity</code> only works for <code>mhd</code> enabled and activates relativistic MHD (RMHD) simulation.</li>
-<li><code>powell</code> activates Powell's eight-wave method to impose the solenoidal constraint in the MHD simulation <a class="el" href="md_references.html">Powell (1994)</a>. It should not be used in conjunction with HLLD (<code>riemann_solver = 4</code>).</li>
-<li><code>fd_order</code> specifies the finite difference order for computing the RHS of the Powell's method. <code>fd_order = 1</code>, <code>2</code>, and <code>4</code> are allowed.</li>
+<li><code>hyper_cleaning</code> <a class="el" href="md_references.html">Dedner et al., 2002</a> only works with <code>mhd</code> in 2D/3D and reduces numerical <code>div B</code> errors by propagation and damping. Currently not compatible with HLLD (<code>riemann_solver = 4</code>).</li>
+<li><code>hyper_cleaning_speed</code> sets the propagation speed of divergence-cleaning waves.</li>
+<li><code>hyper_cleaning_tau</code> sets the decay timescale for divergence-cleaning.</li>
 <li><code>Bx0</code> is only used in 1D simulations to specify the constant magnetic field in the x direction. It must be specified in 1D simulations. <code>Bx</code> must not be used in 1D simulations.</li>
 <li><code>Bx</code>, <code>By</code>, and <code>Bz</code> are used to specify the initial magnetic field in the x, y, and z directions, respectively. They must be specified in all 1D/2D/3D MHD simulations, with the exception of <code>Bx</code> in 1D simulations.</li>
 </ul>

@@ -57,14 +57,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__bubbles__el.html#a2c7848b196fd74c2d41369c433f1e179",
-"namespacem__data__output.html#a9d7ad7004726717da55240de52e01eeb",
+"namespacem__bubbles__el.html#a380e92c53e3fc9298b7443a4fe7ac7af",
+"namespacem__data__output.html#a9eea8de093f055adb3b786bff3cab2d8",
 "namespacem__global__parameters.html#a9566fddb0a62503b1edaca5ecedaf629",
-"namespacem__igr.html#a04e31194447224e868bd536647e240bd",
-"namespacem__riemann__solvers.html#a6cea0144511b3c7e347b17078472dd9a",
-"structm__derived__types_1_1acoustic__parameters.html#a1a735a086df941e80f1628ef44236c0c",
-"structm__derived__types_1_1ic__patch__parameters.html#a0735fa7bc973abae47ba8526f8e854ec",
-"structm__derived__types_1_1species__parameters.html#a056f8eb0cfc59c46e1b562c1b5f1482e"
+"namespacem__igr.html",
+"namespacem__riemann__solvers.html#ac95b0275f559f5e0605ecaea5dc5b906",
+"structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48",
+"structm__derived__types_1_1ic__patch__parameters.html#a2de6f3a8120793a3901507dbd3b15588",
+"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a54955c3a053dddde0d7ee978213c9033"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

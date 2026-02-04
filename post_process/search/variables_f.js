@@ -48,6 +48,7 @@ var searchData=
   ['proc_5frank_5fdir_45',['proc_rank_dir',['../namespacem__data__output.html#ac9711cb2f20dace017da2bf94fd68118',1,'m_data_output']]],
   ['ps_46',['ps',['../structm__derived__types_1_1bub__bounds__info.html#a6bed3e7dc94afeeb61216758ecf733dd',1,'m_derived_types::bub_bounds_info']]],
   ['ps_5finf_47',['ps_inf',['../namespacem__variables__conversion.html#a20eddf4f73253831dcf2b48f4997c781',1,'m_variables_conversion']]],
-  ['pulse_48',['pulse',['../structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1',1,'m_derived_types::acoustic_parameters']]],
-  ['pv_49',['pv',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a2f3aa95c76e50131286c04de425ea624',1,'m_derived_types::subgrid_bubble_physical_parameters::pv'],['../namespacem__global__parameters.html#ae3a8a13b274ed1d409f89868ae1c8b7d',1,'m_global_parameters::pv']]]
+  ['psi_5fidx_48',['psi_idx',['../namespacem__global__parameters.html#ae0d82f5269edb0154da89723fd3f7e98',1,'m_global_parameters']]],
+  ['pulse_49',['pulse',['../structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1',1,'m_derived_types::acoustic_parameters']]],
+  ['pv_50',['pv',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a2f3aa95c76e50131286c04de425ea624',1,'m_derived_types::subgrid_bubble_physical_parameters::pv'],['../namespacem__global__parameters.html#ae3a8a13b274ed1d409f89868ae1c8b7d',1,'m_global_parameters::pv']]]
 ];

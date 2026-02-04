@@ -62,7 +62,8 @@ var searchData=
   ['process_59',['MFC Pre-Process',['../md_readme.html',1,'']]],
   ['ps_60',['ps',['../structm__derived__types_1_1bub__bounds__info.html#a6bed3e7dc94afeeb61216758ecf733dd',1,'m_derived_types::bub_bounds_info']]],
   ['ps_5finf_61',['ps_inf',['../namespacem__variables__conversion.html#a20eddf4f73253831dcf2b48f4997c781',1,'m_variables_conversion']]],
-  ['ptgalpha_5feps_62',['ptgalpha_eps',['../namespacem__global__parameters.html#a5a5c43552b812c001e87615f6d380821',1,'m_global_parameters']]],
-  ['pulse_63',['pulse',['../structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1',1,'m_derived_types::acoustic_parameters']]],
-  ['pv_64',['pv',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a2f3aa95c76e50131286c04de425ea624',1,'m_derived_types::subgrid_bubble_physical_parameters::pv'],['../namespacem__global__parameters.html#ae3a8a13b274ed1d409f89868ae1c8b7d',1,'m_global_parameters::pv']]]
+  ['psi_5fidx_62',['psi_idx',['../namespacem__global__parameters.html#ae0d82f5269edb0154da89723fd3f7e98',1,'m_global_parameters']]],
+  ['ptgalpha_5feps_63',['ptgalpha_eps',['../namespacem__global__parameters.html#a5a5c43552b812c001e87615f6d380821',1,'m_global_parameters']]],
+  ['pulse_64',['pulse',['../structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1',1,'m_derived_types::acoustic_parameters']]],
+  ['pv_65',['pv',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a2f3aa95c76e50131286c04de425ea624',1,'m_derived_types::subgrid_bubble_physical_parameters::pv'],['../namespacem__global__parameters.html#ae3a8a13b274ed1d409f89868ae1c8b7d',1,'m_global_parameters::pv']]]
 ];
