@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['started_0',['Getting Started',['../md_getting-started.html',1,'']]]
+  ['9_201_20ensemble_20averaged_20bubble_20model_0',['9.1 Ensemble-Averaged Bubble Model',['../case.html#autotoc_md22',1,'']]],
+  ['9_202_20volume_20averaged_20bubble_20model_1',['9.2 Volume-Averaged Bubble Model',['../case.html#autotoc_md23',1,'']]],
+  ['9_20sub_20grid_20bubble_20models_2',['9. Sub-grid Bubble Models',['../case.html#autotoc_md21',1,'']]]
 ];

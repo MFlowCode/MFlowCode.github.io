@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['gas_20jet_202d_0',['Gas Jet (2D)',['../examples.html#autotoc_md143',1,'']]],
+  ['general_1',['general',['../parameters.html#autotoc_md331',1,'']]],
+  ['general_20options_2',['General Options',['../gpuParallelization.html#autotoc_md238',1,'Cray General Options'],['../gpuParallelization.html#autotoc_md241',1,'NVHPC General Options']]],
+  ['generalized_20characteristic_20boundary_20conditions_3',['Generalized Characteristic Boundary conditions',['../case.html#autotoc_md34',1,'']]],
+  ['generate_4',['generate',['../cli-reference.html#autotoc_md82',1,'']]],
+  ['geometry_5',['Geometry',['../case_constraints.html#autotoc_md49',1,'']]],
+  ['getting_20help_6',['Getting Help',['../troubleshooting.html#autotoc_md418',1,'']]],
+  ['getting_20started_7',['Getting Started',['../getting-started.html',1,'Getting Started'],['../getting-started.html#autotoc_md208',1,'Getting Started'],['../index.html#autotoc_md335',1,'Getting Started']]],
+  ['golden_20files_8',['Regenerating Golden Files',['../troubleshooting.html#autotoc_md397',1,'']]],
+  ['gpu_9',['GPU',['../expectedPerformance.html#autotoc_md200',1,'AMD MI250X GPU'],['../expectedPerformance.html#autotoc_md201',1,'NVIDIA V100 GPU'],['../expectedPerformance.html#autotoc_md204',1,'NVIDIA V100 GPU']]],
+  ['gpu_20detection_10',['Verifying GPU Detection',['../running.html#autotoc_md351',1,'']]],
+  ['gpu_20not_20detected_11',['GPU not detected',['../troubleshooting.html#autotoc_md415',1,'']]],
+  ['gpu_20openacc_20errors_12',['Build fails with GPU/OpenACC errors',['../troubleshooting.html#autotoc_md409',1,'']]],
+  ['gpu_20parallelization_13',['GPU Parallelization',['../gpuParallelization.html',1,'GPU Parallelization'],['../gpuParallelization.html#autotoc_md220',1,'GPU Parallelization']]],
+  ['gpu_20profiling_14',['GPU Profiling',['../troubleshooting.html#autotoc_md402',1,'AMD GPU Profiling'],['../running.html#autotoc_md352',1,'GPU Profiling'],['../troubleshooting.html#autotoc_md401',1,'NVIDIA GPU Profiling']]],
+  ['gpu_20support_15',['Building with GPU Support',['../running.html#autotoc_md347',1,'']]],
+  ['gpus_16',['GPUs',['../running.html#autotoc_md354',1,'AMD GPUs'],['../gpuParallelization.html#autotoc_md234',1,'Debugging Tools and Tips for GPUs'],['../running.html#autotoc_md353',1,'NVIDIA GPUs'],['../running.html#autotoc_md346',1,'Running on GPUs'],['../running.html#autotoc_md348',1,'Running on GPUs']]],
+  ['green_20vortex_203d_17',['Taylor-Green Vortex (3D)',['../examples.html#autotoc_md175',1,'']]],
+  ['grid_20bubble_20models_18',['9. Sub-grid Bubble Models',['../case.html#autotoc_md21',1,'']]],
+  ['grid_20points_19',['Grid Points',['../expectedPerformance.html#autotoc_md205',1,'16M Grid Points'],['../expectedPerformance.html#autotoc_md206',1,'64M Grid Points']]],
+  ['grind_20time_20performance_20',['Figure of merit: Grind time performance',['../expectedPerformance.html#autotoc_md198',1,'']]],
+  ['gui_21',['Docker Desktop GUI',['../docker.html#autotoc_md112',1,'']]],
+  ['guide_22',['Guide',['../case_constraints.html',1,'Case Creator Guide'],['../case_constraints.html#autotoc_md39',1,'Case Creator Guide'],['../troubleshooting.html',1,'Troubleshooting Guide'],['../troubleshooting.html#autotoc_md369',1,'Troubleshooting Guide']]]
+];

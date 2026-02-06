@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['getting_20started_0',['Getting Started',['../md_getting-started.html',1,'']]],
-  ['gpu_20parallelization_1',['GPU Parallelization',['../md_gpuParallelization.html',1,'']]],
-  ['guide_2',['Case Creator Guide',['../md_case__constraints.html',1,'']]]
+  ['6_20simulation_20algorithm_0',['6. Simulation Algorithm',['../case.html#autotoc_md16',1,'']]],
+  ['64m_20grid_20points_1',['64M Grid Points',['../expectedPerformance.html#autotoc_md206',1,'']]]
 ];
