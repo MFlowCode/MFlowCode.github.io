@@ -341,7 +341,7 @@ Analytical Definition of Primitive Variables</h4>
 <div class="line"><span class="keyword">end </span>if</div>
 </div><!-- fragment --><h4 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
 Hard Coded Patches</h4>
-<p>Some patch configurations are not adequately handled with the above analytic variable definitions. In this case, a hard coded patch can be used. Hard coded patches can be added by adding additional hard coded patch identifiers to <span class="tt">src/pre_process/include/1[2,3]dHardcodedIC.fpp</span>. When using a hard coded patch, the <span class="tt">patch_icpp(patch_id)%hcid</span> must be set to the hard-coded patch id. For example, to add a 2D Hardcoded patch with an id of 200, one would add the following to <span class="tt">src/pre_process/include/2dHardcodedIC.fpp</span></p>
+<p>Some patch configurations are not adequately handled with the above analytic variable definitions. In this case, a hard coded patch can be used. Hard coded patches can be added by adding additional hard coded patch identifiers to <span class="tt">src/common/include/1[2,3]dHardcodedIC.fpp</span>. When using a hard coded patch, the <span class="tt">patch_icpp(patch_id)%hcid</span> must be set to the hard-coded patch id. For example, to add a 2D Hardcoded patch with an id of 200, one would add the following to <span class="tt">src/common/include/2dHardcodedIC.fpp</span></p>
 <div class="fragment"><div class="line"><span class="comment">case(200)</span></div>
 <div class="line">    ! primitive variables assignment</div>
 </div><!-- fragment --><p>and use <span class="tt">patch_icpp(i)%hcid = 200</span> in the input file. Additional variables can be declared in <span class="tt">Hardcoded1[2,3]DVariables</span> and used in <span class="tt">hardcoded1[2,3]D</span>. As a convention, any hard coded patches that are part of the MFC master branch should be identified as 1[2,3]xx where the first digit indicates the number of dimensions.</p>
@@ -351,7 +351,7 @@ Hard Coded Patches</h4>
 <li><span class="tt">case(270)</span>: Extrude 1D data to 2D domain</li>
 <li><span class="tt">case(370)</span>: Extrude 2D data to 3D domain</li>
 </ul>
-<p>Setup: Only requires specifying <span class="tt">init_dir</span> and filename pattern via <span class="tt">zeros_default</span>. Grid dimensions are automatically detected from the data files. Implementation: All variables and file handling are managed in <span class="tt">src/pre_process/include/ExtrusionHardcodedIC.fpp</span> with no manual grid configuration needed. Usage: Ideal for initializing simulations from lower-dimensional solutions, enabling users to add perturbations or modifications to the base extruded fields for flow instability studies.</p>
+<p>Setup: Only requires specifying <span class="tt">init_dir</span> and filename pattern via <span class="tt">zeros_default</span>. Grid dimensions are automatically detected from the data files. Implementation: All variables and file handling are managed in <span class="tt">src/common/include/ExtrusionHardcodedIC.fpp</span> with no manual grid configuration needed. Usage: Ideal for initializing simulations from lower-dimensional solutions, enabling users to add perturbations or modifications to the base extruded fields for flow instability studies.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Parameter Descriptions</h4>
 <ul>

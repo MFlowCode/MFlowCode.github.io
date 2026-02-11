@@ -142,356 +142,407 @@ var NAVTREE =
         ] ]
       ] ]
     ] ],
+    [ "Contributing", "contributing.html", [
+      [ "Contributing to MFC", "contributing.html#autotoc_md110", [
+        [ "Getting Set Up", "contributing.html#autotoc_md111", null ],
+        [ "Architecture Overview", "contributing.html#autotoc_md112", [
+          [ "Three-Phase Pipeline", "contributing.html#autotoc_md113", null ],
+          [ "Directory Layout", "contributing.html#autotoc_md114", null ],
+          [ "Simulation Data Flow", "contributing.html#autotoc_md115", null ],
+          [ "Build Toolchain", "contributing.html#autotoc_md116", null ]
+        ] ],
+        [ "Development Workflow", "contributing.html#autotoc_md117", [
+          [ "Commit Messages", "contributing.html#autotoc_md118", null ]
+        ] ],
+        [ "Coding Standards", "contributing.html#autotoc_md119", [
+          [ "Hard Rules", "contributing.html#autotoc_md120", null ],
+          [ "Soft Guidelines", "contributing.html#autotoc_md121", null ]
+        ] ],
+        [ "Common Pitfalls", "contributing.html#autotoc_md122", [
+          [ "Array Bounds and Indexing", "contributing.html#autotoc_md123", null ],
+          [ "Precision and Type Safety", "contributing.html#autotoc_md124", null ],
+          [ "Memory and Allocation", "contributing.html#autotoc_md125", null ],
+          [ "MPI Correctness", "contributing.html#autotoc_md126", null ],
+          [ "Physics and Model Consistency", "contributing.html#autotoc_md127", null ],
+          [ "Python Toolchain", "contributing.html#autotoc_md128", null ],
+          [ "Compiler Portability", "contributing.html#autotoc_md129", null ],
+          [ "Architecture Notes", "contributing.html#autotoc_md130", null ]
+        ] ],
+        [ "Fypp and GPU", "contributing.html#autotoc_md131", null ],
+        [ "How-To Guides", "contributing.html#autotoc_md132", [
+          [ "How to Add a New Simulation Parameter", "contributing.html#autotoc_md133", null ],
+          [ "How to Write a GPU Parallel Loop", "contributing.html#autotoc_md134", null ],
+          [ "How to Allocate and Manage GPU Arrays", "contributing.html#autotoc_md135", null ],
+          [ "How to Add a Test Case", "contributing.html#autotoc_md136", null ],
+          [ "How to Create a New Fortran Module", "contributing.html#autotoc_md137", null ],
+          [ "Working with the Precision System", "contributing.html#autotoc_md138", null ],
+          [ "How to Extend MPI Halo Exchange", "contributing.html#autotoc_md139", null ],
+          [ "How to Add a Post-Processing Output Variable", "contributing.html#autotoc_md140", null ],
+          [ "Modifying <span class=\"tt\">src/common/</span>", "contributing.html#autotoc_md141", null ],
+          [ "Debugging", "contributing.html#autotoc_md142", null ]
+        ] ],
+        [ "Testing", "contributing.html#autotoc_md143", null ],
+        [ "CI Pipeline", "contributing.html#autotoc_md144", [
+          [ "Lint Gate (runs first, blocks all other jobs)", "contributing.html#autotoc_md145", null ],
+          [ "Build and Test Matrix", "contributing.html#autotoc_md146", null ],
+          [ "Common CI Failures", "contributing.html#autotoc_md147", null ]
+        ] ],
+        [ "Documentation", "contributing.html#autotoc_md148", null ],
+        [ "Submitting a Pull Request", "contributing.html#autotoc_md149", null ],
+        [ "Code Review and Merge", "contributing.html#autotoc_md150", null ]
+      ] ]
+    ] ],
     [ "Containers", "docker.html", [
-      [ "Containers", "docker.html#autotoc_md110", [
-        [ "Navigating Docker", "docker.html#autotoc_md111", [
-          [ "Docker Desktop GUI", "docker.html#autotoc_md112", null ],
-          [ "Docker CLI", "docker.html#autotoc_md113", null ]
+      [ "Containers", "docker.html#autotoc_md151", [
+        [ "Navigating Docker", "docker.html#autotoc_md152", [
+          [ "Docker Desktop GUI", "docker.html#autotoc_md153", null ],
+          [ "Docker CLI", "docker.html#autotoc_md154", null ]
         ] ],
-        [ "Details on Running Containers", "docker.html#autotoc_md114", [
-          [ "Portability", "docker.html#autotoc_md115", null ]
+        [ "Details on Running Containers", "docker.html#autotoc_md155", [
+          [ "Portability", "docker.html#autotoc_md156", null ]
         ] ],
-        [ "Using Supercomputers/Clusters via Apptainer/Singularity", "docker.html#autotoc_md116", [
-          [ "Interactive Shell", "docker.html#autotoc_md117", null ],
-          [ "For Portability", "docker.html#autotoc_md118", null ],
-          [ "Slurm Job", "docker.html#autotoc_md119", null ]
+        [ "Using Supercomputers/Clusters via Apptainer/Singularity", "docker.html#autotoc_md157", [
+          [ "Interactive Shell", "docker.html#autotoc_md158", null ],
+          [ "For Portability", "docker.html#autotoc_md159", null ],
+          [ "Slurm Job", "docker.html#autotoc_md160", null ]
         ] ],
-        [ "Tag Details", "docker.html#autotoc_md120", [
-          [ "Base Images", "docker.html#autotoc_md121", null ],
-          [ "Tag Structure", "docker.html#autotoc_md122", null ],
-          [ "Example Tags", "docker.html#autotoc_md123", null ],
-          [ "Architecture Support", "docker.html#autotoc_md124", null ]
+        [ "Tag Details", "docker.html#autotoc_md161", [
+          [ "Base Images", "docker.html#autotoc_md162", null ],
+          [ "Tag Structure", "docker.html#autotoc_md163", null ],
+          [ "Example Tags", "docker.html#autotoc_md164", null ],
+          [ "Architecture Support", "docker.html#autotoc_md165", null ]
         ] ]
       ] ]
     ] ],
     [ "Example Cases", "examples.html", [
-      [ "Example Cases", "examples.html#autotoc_md125", [
-        [ "Lax shock tube problem (1D)", "examples.html#autotoc_md126", [
-          [ "Initial Condition", "examples.html#autotoc_md127", null ],
-          [ "Result", "examples.html#autotoc_md128", null ]
+      [ "Example Cases", "examples.html#autotoc_md166", [
+        [ "Lax shock tube problem (1D)", "examples.html#autotoc_md167", [
+          [ "Initial Condition", "examples.html#autotoc_md168", null ],
+          [ "Result", "examples.html#autotoc_md169", null ]
         ] ],
-        [ "Scaling and Performance test", "examples.html#autotoc_md129", [
-          [ "Weak Scaling", "examples.html#autotoc_md130", null ],
-          [ "Strong Scaling", "examples.html#autotoc_md131", null ],
-          [ "Example", "examples.html#autotoc_md132", null ]
+        [ "Scaling and Performance test", "examples.html#autotoc_md170", [
+          [ "Weak Scaling", "examples.html#autotoc_md171", null ],
+          [ "Strong Scaling", "examples.html#autotoc_md172", null ],
+          [ "Example", "examples.html#autotoc_md173", null ]
         ] ],
-        [ "Rayleigh-Taylor Instability (3D)", "examples.html#autotoc_md133", [
-          [ "Final Condition and Linear Theory", "examples.html#autotoc_md134", null ]
+        [ "Rayleigh-Taylor Instability (3D)", "examples.html#autotoc_md174", [
+          [ "Final Condition and Linear Theory", "examples.html#autotoc_md175", null ]
         ] ],
-        [ "2D IBM CFL dt (2D)", "examples.html#autotoc_md135", [
-          [ "Result", "examples.html#autotoc_md136", null ]
+        [ "2D IBM CFL dt (2D)", "examples.html#autotoc_md176", [
+          [ "Result", "examples.html#autotoc_md177", null ]
         ] ],
-        [ "Shu-Osher problem (1D)", "examples.html#autotoc_md137", [
-          [ "Initial Condition", "examples.html#autotoc_md138", null ],
-          [ "Result", "examples.html#autotoc_md139", null ]
+        [ "Shu-Osher problem (1D)", "examples.html#autotoc_md178", [
+          [ "Initial Condition", "examples.html#autotoc_md179", null ],
+          [ "Result", "examples.html#autotoc_md180", null ]
         ] ],
-        [ "Kelvin-Helmholtz Instability (2D)", "examples.html#autotoc_md140", null ],
-        [ "Gas Jet (2D)", "examples.html#autotoc_md143", [
-          [ "Final Condition", "examples.html#autotoc_md144", null ]
+        [ "Kelvin-Helmholtz Instability (2D)", "examples.html#autotoc_md181", null ],
+        [ "Gas Jet (2D)", "examples.html#autotoc_md184", [
+          [ "Final Condition", "examples.html#autotoc_md185", null ]
         ] ],
-        [ "1D Multi-Component Reactive Shock Tube", "examples.html#autotoc_md145", [
-          [ "Initial Condition", "examples.html#autotoc_md146", null ],
-          [ "Results", "examples.html#autotoc_md147", null ]
+        [ "1D Multi-Component Reactive Shock Tube", "examples.html#autotoc_md186", [
+          [ "Initial Condition", "examples.html#autotoc_md187", null ],
+          [ "Results", "examples.html#autotoc_md188", null ]
         ] ],
-        [ "Forward Facing Step (2D)", "examples.html#autotoc_md148", [
-          [ "Final Condition (Density)", "examples.html#autotoc_md149", null ]
+        [ "Forward Facing Step (2D)", "examples.html#autotoc_md189", [
+          [ "Final Condition (Density)", "examples.html#autotoc_md190", null ]
         ] ],
-        [ "2D Riemann Test (2D)", "examples.html#autotoc_md150", [
-          [ "Density Initial and Final Conditions", "examples.html#autotoc_md151", null ]
+        [ "2D Riemann Test (2D)", "examples.html#autotoc_md191", [
+          [ "Density Initial and Final Conditions", "examples.html#autotoc_md192", null ]
         ] ],
-        [ "Perfectly Stirred Reactor", "examples.html#autotoc_md152", null ],
-        [ "Lid-Driven Cavity Problem (2D)", "examples.html#autotoc_md153", [
-          [ "Final Condition", "examples.html#autotoc_md154", null ],
-          [ "Centerline Velocities", "examples.html#autotoc_md155", null ]
+        [ "Perfectly Stirred Reactor", "examples.html#autotoc_md193", null ],
+        [ "Lid-Driven Cavity Problem (2D)", "examples.html#autotoc_md194", [
+          [ "Final Condition", "examples.html#autotoc_md195", null ],
+          [ "Centerline Velocities", "examples.html#autotoc_md196", null ]
         ] ],
-        [ "Richtmyer-Meshkov Instability (2D)", "examples.html#autotoc_md156", null ],
-        [ "Viscous Shock Tube (2D)", "examples.html#autotoc_md159", null ],
-        [ "Isentropic vortex problem (2D)", "examples.html#autotoc_md162", [
-          [ "Density", "examples.html#autotoc_md163", null ],
-          [ "Density Norms", "examples.html#autotoc_md164", null ]
+        [ "Richtmyer-Meshkov Instability (2D)", "examples.html#autotoc_md197", null ],
+        [ "Viscous Shock Tube (2D)", "examples.html#autotoc_md200", null ],
+        [ "Isentropic vortex problem (2D)", "examples.html#autotoc_md203", [
+          [ "Density", "examples.html#autotoc_md204", null ],
+          [ "Density Norms", "examples.html#autotoc_md205", null ]
         ] ],
-        [ "Titarev-Toro problem (1D)", "examples.html#autotoc_md165", [
-          [ "Initial Condition", "examples.html#autotoc_md166", null ],
-          [ "Result", "examples.html#autotoc_md167", null ]
+        [ "Titarev-Toro problem (1D)", "examples.html#autotoc_md206", [
+          [ "Initial Condition", "examples.html#autotoc_md207", null ],
+          [ "Result", "examples.html#autotoc_md208", null ]
         ] ],
-        [ "2D Hardcodied IC Example", "examples.html#autotoc_md168", [
-          [ "Initial Condition and Result", "examples.html#autotoc_md169", null ]
+        [ "2D Hardcodied IC Example", "examples.html#autotoc_md209", [
+          [ "Initial Condition and Result", "examples.html#autotoc_md210", null ]
         ] ],
-        [ "Backward Facing Step (2D)", "examples.html#autotoc_md170", [
-          [ "Final Condition (Density)", "examples.html#autotoc_md171", null ]
+        [ "Backward Facing Step (2D)", "examples.html#autotoc_md211", [
+          [ "Final Condition (Density)", "examples.html#autotoc_md212", null ]
         ] ],
-        [ "Shock Droplet (2D)", "examples.html#autotoc_md172", [
-          [ "Initial Condition", "examples.html#autotoc_md173", null ],
-          [ "Result", "examples.html#autotoc_md174", null ]
+        [ "Shock Droplet (2D)", "examples.html#autotoc_md213", [
+          [ "Initial Condition", "examples.html#autotoc_md214", null ],
+          [ "Result", "examples.html#autotoc_md215", null ]
         ] ],
-        [ "Taylor-Green Vortex (3D)", "examples.html#autotoc_md175", [
-          [ "Final Condition", "examples.html#autotoc_md176", null ]
+        [ "Taylor-Green Vortex (3D)", "examples.html#autotoc_md216", [
+          [ "Final Condition", "examples.html#autotoc_md217", null ]
         ] ],
-        [ "Rayleigh-Taylor Instability (2D)", "examples.html#autotoc_md177", [
-          [ "Final Condition and Linear Theory", "examples.html#autotoc_md178", null ]
+        [ "Rayleigh-Taylor Instability (2D)", "examples.html#autotoc_md218", [
+          [ "Final Condition and Linear Theory", "examples.html#autotoc_md219", null ]
         ] ],
-        [ "2D Triple Point (2D)", "examples.html#autotoc_md179", [
-          [ "Numerical Schlieren at Final Time", "examples.html#autotoc_md180", null ]
+        [ "2D Triple Point (2D)", "examples.html#autotoc_md220", [
+          [ "Numerical Schlieren at Final Time", "examples.html#autotoc_md221", null ]
         ] ],
-        [ "3D Turbulent Mixing layer (3D)", "examples.html#autotoc_md181", [
-          [ "Liutex visualization at transitional state", "examples.html#autotoc_md182", null ]
+        [ "3D Turbulent Mixing layer (3D)", "examples.html#autotoc_md222", [
+          [ "Liutex visualization at transitional state", "examples.html#autotoc_md223", null ]
         ] ],
-        [ "1D Multi-Component Inert Shock Tube", "examples.html#autotoc_md183", [
-          [ "Initial Condition", "examples.html#autotoc_md184", null ],
-          [ "Results", "examples.html#autotoc_md185", null ]
+        [ "1D Multi-Component Inert Shock Tube", "examples.html#autotoc_md224", [
+          [ "Initial Condition", "examples.html#autotoc_md225", null ],
+          [ "Results", "examples.html#autotoc_md226", null ]
         ] ],
-        [ "IBM Bow Shock (3D)", "examples.html#autotoc_md186", [
-          [ "Final Condition", "examples.html#autotoc_md187", null ]
+        [ "IBM Bow Shock (3D)", "examples.html#autotoc_md227", [
+          [ "Final Condition", "examples.html#autotoc_md228", null ]
         ] ]
       ] ]
     ] ],
     [ "Performance", "expectedPerformance.html", [
-      [ "Performance", "expectedPerformance.html#autotoc_md188", [
-        [ "Achieving Maximum Performance", "expectedPerformance.html#autotoc_md190", [
-          [ "Case Optimization (Recommended)", "expectedPerformance.html#autotoc_md191", [
-            [ "When to use case optimization", "expectedPerformance.html#autotoc_md192", null ]
+      [ "Performance", "expectedPerformance.html#autotoc_md229", [
+        [ "Achieving Maximum Performance", "expectedPerformance.html#autotoc_md231", [
+          [ "Case Optimization (Recommended)", "expectedPerformance.html#autotoc_md232", [
+            [ "When to use case optimization", "expectedPerformance.html#autotoc_md233", null ]
           ] ],
-          [ "Other Optimization Flags", "expectedPerformance.html#autotoc_md193", null ],
-          [ "Profiling for Optimization", "expectedPerformance.html#autotoc_md194", null ],
-          [ "Performance Checklist", "expectedPerformance.html#autotoc_md195", null ]
+          [ "Other Optimization Flags", "expectedPerformance.html#autotoc_md234", null ],
+          [ "Profiling for Optimization", "expectedPerformance.html#autotoc_md235", null ],
+          [ "Performance Checklist", "expectedPerformance.html#autotoc_md236", null ]
         ] ],
-        [ "Benchmark Results", "expectedPerformance.html#autotoc_md197", [
-          [ "Figure of merit: Grind time performance", "expectedPerformance.html#autotoc_md198", null ]
+        [ "Benchmark Results", "expectedPerformance.html#autotoc_md238", [
+          [ "Figure of merit: Grind time performance", "expectedPerformance.html#autotoc_md239", null ]
         ] ],
-        [ "Weak scaling", "expectedPerformance.html#autotoc_md199", [
-          [ "AMD MI250X GPU", "expectedPerformance.html#autotoc_md200", null ],
-          [ "NVIDIA V100 GPU", "expectedPerformance.html#autotoc_md201", null ],
-          [ "IBM Power9 CPU", "expectedPerformance.html#autotoc_md202", null ]
+        [ "Weak scaling", "expectedPerformance.html#autotoc_md240", [
+          [ "AMD MI250X GPU", "expectedPerformance.html#autotoc_md241", null ],
+          [ "NVIDIA V100 GPU", "expectedPerformance.html#autotoc_md242", null ],
+          [ "IBM Power9 CPU", "expectedPerformance.html#autotoc_md243", null ]
         ] ],
-        [ "Strong scaling", "expectedPerformance.html#autotoc_md203", [
-          [ "NVIDIA V100 GPU", "expectedPerformance.html#autotoc_md204", [
-            [ "16M Grid Points", "expectedPerformance.html#autotoc_md205", null ],
-            [ "64M Grid Points", "expectedPerformance.html#autotoc_md206", null ]
+        [ "Strong scaling", "expectedPerformance.html#autotoc_md244", [
+          [ "NVIDIA V100 GPU", "expectedPerformance.html#autotoc_md245", [
+            [ "16M Grid Points", "expectedPerformance.html#autotoc_md246", null ],
+            [ "64M Grid Points", "expectedPerformance.html#autotoc_md247", null ]
           ] ],
-          [ "IBM Power9 CPU", "expectedPerformance.html#autotoc_md207", null ]
+          [ "IBM Power9 CPU", "expectedPerformance.html#autotoc_md248", null ]
         ] ]
       ] ]
     ] ],
     [ "Getting Started", "getting-started.html", [
-      [ "Getting Started", "getting-started.html#autotoc_md208", [
-        [ "Fetching MFC", "getting-started.html#autotoc_md209", null ],
-        [ "Install via Homebrew (macOS)", "getting-started.html#autotoc_md210", null ],
-        [ "Build Environment", "getting-started.html#autotoc_md211", null ],
-        [ "Building MFC", "getting-started.html#autotoc_md212", null ],
-        [ "Using Containers", "getting-started.html#autotoc_md213", null ],
-        [ "Running the Test Suite", "getting-started.html#autotoc_md214", null ],
-        [ "Running an Example Case", "getting-started.html#autotoc_md215", null ],
-        [ "Helpful Tools", "getting-started.html#autotoc_md216", [
-          [ "Parameter Lookup", "getting-started.html#autotoc_md217", null ],
-          [ "Creating a New Case", "getting-started.html#autotoc_md218", null ],
-          [ "Shell Completion", "getting-started.html#autotoc_md219", null ]
+      [ "Getting Started", "getting-started.html#autotoc_md249", [
+        [ "Fetching MFC", "getting-started.html#autotoc_md250", null ],
+        [ "Install via Homebrew (macOS)", "getting-started.html#autotoc_md251", null ],
+        [ "Build Environment", "getting-started.html#autotoc_md252", null ],
+        [ "Building MFC", "getting-started.html#autotoc_md253", null ],
+        [ "Using Containers", "getting-started.html#autotoc_md254", null ],
+        [ "Running the Test Suite", "getting-started.html#autotoc_md255", null ],
+        [ "Running an Example Case", "getting-started.html#autotoc_md256", null ],
+        [ "Helpful Tools", "getting-started.html#autotoc_md257", [
+          [ "Parameter Lookup", "getting-started.html#autotoc_md258", null ],
+          [ "Creating a New Case", "getting-started.html#autotoc_md259", null ],
+          [ "Shell Completion", "getting-started.html#autotoc_md260", null ]
         ] ]
       ] ]
     ] ],
     [ "GPU Parallelization", "gpuParallelization.html", [
-      [ "GPU Parallelization", "gpuParallelization.html#autotoc_md220", [
-        [ "Macro API Documentation", "gpuParallelization.html#autotoc_md222", [
-          [ "Data Type Meanings", "gpuParallelization.html#autotoc_md223", null ],
-          [ "Data Flow", "gpuParallelization.html#autotoc_md224", null ],
-          [ "Computation Macros", "gpuParallelization.html#autotoc_md226", null ],
-          [ "Data Control Macros", "gpuParallelization.html#autotoc_md228", null ],
-          [ "Synchronization Macros", "gpuParallelization.html#autotoc_md230", null ],
-          [ "Miscellaneous Macros", "gpuParallelization.html#autotoc_md232", null ]
+      [ "GPU Parallelization", "gpuParallelization.html#autotoc_md261", [
+        [ "Macro API Documentation", "gpuParallelization.html#autotoc_md263", [
+          [ "Data Type Meanings", "gpuParallelization.html#autotoc_md264", null ],
+          [ "Data Flow", "gpuParallelization.html#autotoc_md265", null ],
+          [ "Computation Macros", "gpuParallelization.html#autotoc_md267", null ],
+          [ "Data Control Macros", "gpuParallelization.html#autotoc_md269", null ],
+          [ "Synchronization Macros", "gpuParallelization.html#autotoc_md271", null ],
+          [ "Miscellaneous Macros", "gpuParallelization.html#autotoc_md273", null ]
         ] ]
       ] ],
-      [ "Debugging Tools and Tips for GPUs", "gpuParallelization.html#autotoc_md234", [
-        [ "Compiler agnostic tools", "gpuParallelization.html#autotoc_md235", null ],
-        [ "OpenMP tools", "gpuParallelization.html#autotoc_md236", null ],
-        [ "Cray Compiler Tools", "gpuParallelization.html#autotoc_md237", [
-          [ "Cray General Options", "gpuParallelization.html#autotoc_md238", null ],
-          [ "Cray OpenACC Options", "gpuParallelization.html#autotoc_md239", null ]
+      [ "Debugging Tools and Tips for GPUs", "gpuParallelization.html#autotoc_md275", [
+        [ "Compiler agnostic tools", "gpuParallelization.html#autotoc_md276", null ],
+        [ "OpenMP tools", "gpuParallelization.html#autotoc_md277", null ],
+        [ "Cray Compiler Tools", "gpuParallelization.html#autotoc_md278", [
+          [ "Cray General Options", "gpuParallelization.html#autotoc_md279", null ],
+          [ "Cray OpenACC Options", "gpuParallelization.html#autotoc_md280", null ]
         ] ],
-        [ "NVHPC Compiler Options", "gpuParallelization.html#autotoc_md240", [
-          [ "NVHPC General Options", "gpuParallelization.html#autotoc_md241", null ],
-          [ "NVHPC OpenACC Options", "gpuParallelization.html#autotoc_md242", null ],
-          [ "NVHPC OpenMP Options", "gpuParallelization.html#autotoc_md243", null ]
+        [ "NVHPC Compiler Options", "gpuParallelization.html#autotoc_md281", [
+          [ "NVHPC General Options", "gpuParallelization.html#autotoc_md282", null ],
+          [ "NVHPC OpenACC Options", "gpuParallelization.html#autotoc_md283", null ],
+          [ "NVHPC OpenMP Options", "gpuParallelization.html#autotoc_md284", null ]
         ] ],
-        [ "Compiler Documentation", "gpuParallelization.html#autotoc_md244", null ]
+        [ "Compiler Documentation", "gpuParallelization.html#autotoc_md285", null ]
       ] ]
     ] ],
     [ "Papers", "papers.html", [
-      [ "Papers", "papers.html#autotoc_md245", null ]
+      [ "Papers", "papers.html#autotoc_md286", null ]
     ] ],
     [ "Case Parameters Reference", "parameters.html", [
-      [ "Case Parameters Reference", "parameters.html#autotoc_md246", [
-        [ "Overview", "parameters.html#autotoc_md247", null ],
-        [ "Parameter Families", "parameters.html#autotoc_md248", null ],
-        [ "patch_icpp", "parameters.html#autotoc_md250", [
-          [ "Patterns", "parameters.html#autotoc_md251", null ]
+      [ "Case Parameters Reference", "parameters.html#autotoc_md287", [
+        [ "Overview", "parameters.html#autotoc_md288", null ],
+        [ "Parameter Families", "parameters.html#autotoc_md289", null ],
+        [ "patch_icpp", "parameters.html#autotoc_md291", [
+          [ "Patterns", "parameters.html#autotoc_md292", null ]
         ] ],
-        [ "patch_ib", "parameters.html#autotoc_md253", [
-          [ "Patterns", "parameters.html#autotoc_md254", null ]
+        [ "patch_ib", "parameters.html#autotoc_md294", [
+          [ "Patterns", "parameters.html#autotoc_md295", null ]
         ] ],
-        [ "fluid_pp", "parameters.html#autotoc_md256", [
-          [ "Patterns", "parameters.html#autotoc_md257", null ]
+        [ "fluid_pp", "parameters.html#autotoc_md297", [
+          [ "Patterns", "parameters.html#autotoc_md298", null ]
         ] ],
-        [ "patch_bc", "parameters.html#autotoc_md259", [
-          [ "Patterns", "parameters.html#autotoc_md260", null ]
+        [ "patch_bc", "parameters.html#autotoc_md300", [
+          [ "Patterns", "parameters.html#autotoc_md301", null ]
         ] ],
-        [ "acoustic", "parameters.html#autotoc_md262", [
-          [ "Patterns", "parameters.html#autotoc_md263", null ]
+        [ "acoustic", "parameters.html#autotoc_md303", [
+          [ "Patterns", "parameters.html#autotoc_md304", null ]
         ] ],
-        [ "simplex_params", "parameters.html#autotoc_md265", [
-          [ "Patterns", "parameters.html#autotoc_md266", null ]
+        [ "chem_wrt_Y", "parameters.html#autotoc_md306", [
+          [ "Patterns", "parameters.html#autotoc_md307", null ]
         ] ],
-        [ "bc_x", "parameters.html#autotoc_md268", [
-          [ "Patterns", "parameters.html#autotoc_md269", null ]
+        [ "simplex_params", "parameters.html#autotoc_md309", [
+          [ "Patterns", "parameters.html#autotoc_md310", null ]
         ] ],
-        [ "bc_y", "parameters.html#autotoc_md271", [
-          [ "Patterns", "parameters.html#autotoc_md272", null ]
+        [ "bc_x", "parameters.html#autotoc_md312", [
+          [ "Patterns", "parameters.html#autotoc_md313", null ]
         ] ],
-        [ "bc_z", "parameters.html#autotoc_md274", [
-          [ "Patterns", "parameters.html#autotoc_md275", null ]
+        [ "bc_y", "parameters.html#autotoc_md315", [
+          [ "Patterns", "parameters.html#autotoc_md316", null ]
         ] ],
-        [ "integral", "parameters.html#autotoc_md277", [
-          [ "Patterns", "parameters.html#autotoc_md278", null ]
+        [ "bc_z", "parameters.html#autotoc_md318", [
+          [ "Patterns", "parameters.html#autotoc_md319", null ]
         ] ],
-        [ "probe", "parameters.html#autotoc_md280", [
-          [ "Patterns", "parameters.html#autotoc_md281", null ]
+        [ "integral", "parameters.html#autotoc_md321", [
+          [ "Patterns", "parameters.html#autotoc_md322", null ]
         ] ],
-        [ "bub_pp", "parameters.html#autotoc_md283", null ],
-        [ "lag_params", "parameters.html#autotoc_md285", null ],
-        [ "alpha_rho_e_wrt", "parameters.html#autotoc_md287", [
-          [ "Patterns", "parameters.html#autotoc_md288", null ]
+        [ "probe", "parameters.html#autotoc_md324", [
+          [ "Patterns", "parameters.html#autotoc_md325", null ]
         ] ],
-        [ "alpha_rho_wrt", "parameters.html#autotoc_md290", [
-          [ "Patterns", "parameters.html#autotoc_md291", null ]
-        ] ],
-        [ "alpha_wrt", "parameters.html#autotoc_md293", [
-          [ "Patterns", "parameters.html#autotoc_md294", null ]
-        ] ],
-        [ "fluid_rho", "parameters.html#autotoc_md296", [
-          [ "Patterns", "parameters.html#autotoc_md297", null ]
-        ] ],
-        [ "kappa_wrt", "parameters.html#autotoc_md299", [
-          [ "Patterns", "parameters.html#autotoc_md300", null ]
-        ] ],
-        [ "schlieren_alpha", "parameters.html#autotoc_md302", [
-          [ "Patterns", "parameters.html#autotoc_md303", null ]
-        ] ],
-        [ "chem_params", "parameters.html#autotoc_md305", null ],
-        [ "flux_wrt", "parameters.html#autotoc_md307", [
-          [ "Patterns", "parameters.html#autotoc_md308", null ]
-        ] ],
-        [ "mom_wrt", "parameters.html#autotoc_md310", [
-          [ "Patterns", "parameters.html#autotoc_md311", null ]
-        ] ],
-        [ "omega_wrt", "parameters.html#autotoc_md313", [
-          [ "Patterns", "parameters.html#autotoc_md314", null ]
-        ] ],
-        [ "vel_wrt", "parameters.html#autotoc_md316", [
-          [ "Patterns", "parameters.html#autotoc_md317", null ]
-        ] ],
-        [ "x_domain", "parameters.html#autotoc_md319", null ],
-        [ "x_output", "parameters.html#autotoc_md321", null ],
-        [ "y_domain", "parameters.html#autotoc_md323", null ],
-        [ "y_output", "parameters.html#autotoc_md325", null ],
-        [ "z_domain", "parameters.html#autotoc_md327", null ],
-        [ "z_output", "parameters.html#autotoc_md329", null ],
-        [ "general", "parameters.html#autotoc_md331", [
+        [ "bub_pp", "parameters.html#autotoc_md327", null ],
+        [ "lag_params", "parameters.html#autotoc_md329", null ],
+        [ "alpha_rho_e_wrt", "parameters.html#autotoc_md331", [
           [ "Patterns", "parameters.html#autotoc_md332", null ]
         ] ],
-        [ "Command Line Reference", "parameters.html#autotoc_md334", null ]
+        [ "alpha_rho_wrt", "parameters.html#autotoc_md334", [
+          [ "Patterns", "parameters.html#autotoc_md335", null ]
+        ] ],
+        [ "alpha_wrt", "parameters.html#autotoc_md337", [
+          [ "Patterns", "parameters.html#autotoc_md338", null ]
+        ] ],
+        [ "fluid_rho", "parameters.html#autotoc_md340", [
+          [ "Patterns", "parameters.html#autotoc_md341", null ]
+        ] ],
+        [ "kappa_wrt", "parameters.html#autotoc_md343", [
+          [ "Patterns", "parameters.html#autotoc_md344", null ]
+        ] ],
+        [ "schlieren_alpha", "parameters.html#autotoc_md346", [
+          [ "Patterns", "parameters.html#autotoc_md347", null ]
+        ] ],
+        [ "chem_params", "parameters.html#autotoc_md349", null ],
+        [ "flux_wrt", "parameters.html#autotoc_md351", [
+          [ "Patterns", "parameters.html#autotoc_md352", null ]
+        ] ],
+        [ "mom_wrt", "parameters.html#autotoc_md354", [
+          [ "Patterns", "parameters.html#autotoc_md355", null ]
+        ] ],
+        [ "omega_wrt", "parameters.html#autotoc_md357", [
+          [ "Patterns", "parameters.html#autotoc_md358", null ]
+        ] ],
+        [ "vel_wrt", "parameters.html#autotoc_md360", [
+          [ "Patterns", "parameters.html#autotoc_md361", null ]
+        ] ],
+        [ "x_domain", "parameters.html#autotoc_md363", null ],
+        [ "x_output", "parameters.html#autotoc_md365", null ],
+        [ "y_domain", "parameters.html#autotoc_md367", null ],
+        [ "y_output", "parameters.html#autotoc_md369", null ],
+        [ "z_domain", "parameters.html#autotoc_md371", null ],
+        [ "z_output", "parameters.html#autotoc_md373", null ],
+        [ "general", "parameters.html#autotoc_md375", null ],
+        [ "Command Line Reference", "parameters.html#autotoc_md377", null ]
       ] ]
     ] ],
     [ "References", "references.html", [
-      [ "References", "references.html#autotoc_md340", null ]
+      [ "References", "references.html#autotoc_md384", null ]
     ] ],
     [ "Running", "running.html", [
-      [ "Running", "running.html#autotoc_md341", [
-        [ "Using the Homebrew package (macOS)", "running.html#autotoc_md342", null ],
-        [ "Interactive Execution", "running.html#autotoc_md344", null ],
-        [ "Running on GPUs", "running.html#autotoc_md346", [
-          [ "Building with GPU Support", "running.html#autotoc_md347", null ],
-          [ "Running on GPUs", "running.html#autotoc_md348", null ],
-          [ "Supported Compilers", "running.html#autotoc_md349", null ],
-          [ "Environment Setup", "running.html#autotoc_md350", null ],
-          [ "Verifying GPU Detection", "running.html#autotoc_md351", null ],
-          [ "GPU Profiling", "running.html#autotoc_md352", [
-            [ "NVIDIA GPUs", "running.html#autotoc_md353", null ],
-            [ "AMD GPUs", "running.html#autotoc_md354", null ]
+      [ "Running", "running.html#autotoc_md385", [
+        [ "Using the Homebrew package (macOS)", "running.html#autotoc_md386", null ],
+        [ "Interactive Execution", "running.html#autotoc_md388", null ],
+        [ "Running on GPUs", "running.html#autotoc_md390", [
+          [ "Building with GPU Support", "running.html#autotoc_md391", null ],
+          [ "Running on GPUs", "running.html#autotoc_md392", null ],
+          [ "Supported Compilers", "running.html#autotoc_md393", null ],
+          [ "Environment Setup", "running.html#autotoc_md394", null ],
+          [ "Verifying GPU Detection", "running.html#autotoc_md395", null ],
+          [ "GPU Profiling", "running.html#autotoc_md396", [
+            [ "NVIDIA GPUs", "running.html#autotoc_md397", null ],
+            [ "AMD GPUs", "running.html#autotoc_md398", null ]
           ] ]
         ] ],
-        [ "Batch Execution", "running.html#autotoc_md356", [
-          [ "Basic Usage", "running.html#autotoc_md357", null ],
-          [ "Batch Options", "running.html#autotoc_md358", null ],
-          [ "Examples", "running.html#autotoc_md359", null ],
-          [ "Computer Templates", "running.html#autotoc_md360", null ],
-          [ "Scheduler Notes", "running.html#autotoc_md361", null ]
+        [ "Batch Execution", "running.html#autotoc_md400", [
+          [ "Basic Usage", "running.html#autotoc_md401", null ],
+          [ "Batch Options", "running.html#autotoc_md402", null ],
+          [ "Examples", "running.html#autotoc_md403", null ],
+          [ "Computer Templates", "running.html#autotoc_md404", null ],
+          [ "Scheduler Notes", "running.html#autotoc_md405", null ]
         ] ],
-        [ "Restarting Cases", "running.html#autotoc_md363", null ],
-        [ "Example Runs", "running.html#autotoc_md365", null ]
+        [ "Restarting Cases", "running.html#autotoc_md407", null ],
+        [ "Example Runs", "running.html#autotoc_md409", null ]
       ] ]
     ] ],
     [ "Testing", "testing.html", null ],
     [ "Troubleshooting Guide", "troubleshooting.html", [
-      [ "Troubleshooting Guide", "troubleshooting.html#autotoc_md369", [
-        [ "Quick Reference", "troubleshooting.html#autotoc_md370", [
-          [ "Debugging Flags", "troubleshooting.html#autotoc_md371", null ],
-          [ "Profiling Flags", "troubleshooting.html#autotoc_md372", null ],
-          [ "Useful Commands", "troubleshooting.html#autotoc_md373", null ]
+      [ "Troubleshooting Guide", "troubleshooting.html#autotoc_md413", [
+        [ "Quick Reference", "troubleshooting.html#autotoc_md414", [
+          [ "Debugging Flags", "troubleshooting.html#autotoc_md415", null ],
+          [ "Profiling Flags", "troubleshooting.html#autotoc_md416", null ],
+          [ "Useful Commands", "troubleshooting.html#autotoc_md417", null ]
         ] ],
-        [ "Debugging Workflow", "troubleshooting.html#autotoc_md375", [
-          [ "Build Fails?", "troubleshooting.html#autotoc_md376", null ],
-          [ "Run Fails?", "troubleshooting.html#autotoc_md377", null ],
-          [ "Test Fails?", "troubleshooting.html#autotoc_md378", null ]
+        [ "Debugging Workflow", "troubleshooting.html#autotoc_md419", [
+          [ "Build Fails?", "troubleshooting.html#autotoc_md420", null ],
+          [ "Run Fails?", "troubleshooting.html#autotoc_md421", null ],
+          [ "Test Fails?", "troubleshooting.html#autotoc_md422", null ]
         ] ],
-        [ "Build Debugging", "troubleshooting.html#autotoc_md380", [
-          [ "Verbosity Levels", "troubleshooting.html#autotoc_md381", null ],
-          [ "Debug Builds", "troubleshooting.html#autotoc_md382", null ],
-          [ "Code Coverage", "troubleshooting.html#autotoc_md383", null ],
-          [ "Isolating Issues", "troubleshooting.html#autotoc_md384", null ],
-          [ "Clean Rebuild", "troubleshooting.html#autotoc_md385", null ]
+        [ "Build Debugging", "troubleshooting.html#autotoc_md424", [
+          [ "Verbosity Levels", "troubleshooting.html#autotoc_md425", null ],
+          [ "Debug Builds", "troubleshooting.html#autotoc_md426", null ],
+          [ "Code Coverage", "troubleshooting.html#autotoc_md427", null ],
+          [ "Isolating Issues", "troubleshooting.html#autotoc_md428", null ],
+          [ "Clean Rebuild", "troubleshooting.html#autotoc_md429", null ]
         ] ],
-        [ "Runtime Debugging", "troubleshooting.html#autotoc_md387", [
-          [ "Case Validation", "troubleshooting.html#autotoc_md388", null ],
-          [ "Verbose Runs", "troubleshooting.html#autotoc_md389", null ],
-          [ "Debug Log", "troubleshooting.html#autotoc_md390", null ],
-          [ "Running with Fewer Ranks", "troubleshooting.html#autotoc_md391", null ]
+        [ "Runtime Debugging", "troubleshooting.html#autotoc_md431", [
+          [ "Case Validation", "troubleshooting.html#autotoc_md432", null ],
+          [ "Verbose Runs", "troubleshooting.html#autotoc_md433", null ],
+          [ "Debug Log", "troubleshooting.html#autotoc_md434", null ],
+          [ "Running with Fewer Ranks", "troubleshooting.html#autotoc_md435", null ]
         ] ],
-        [ "Test Debugging", "troubleshooting.html#autotoc_md393", [
-          [ "Running Specific Tests", "troubleshooting.html#autotoc_md394", null ],
-          [ "Serial Test Execution", "troubleshooting.html#autotoc_md395", null ],
-          [ "Test Output Location", "troubleshooting.html#autotoc_md396", null ],
-          [ "Regenerating Golden Files", "troubleshooting.html#autotoc_md397", null ],
-          [ "Understanding Test Failures", "troubleshooting.html#autotoc_md398", null ]
+        [ "Test Debugging", "troubleshooting.html#autotoc_md437", [
+          [ "Running Specific Tests", "troubleshooting.html#autotoc_md438", null ],
+          [ "Serial Test Execution", "troubleshooting.html#autotoc_md439", null ],
+          [ "Test Output Location", "troubleshooting.html#autotoc_md440", null ],
+          [ "Regenerating Golden Files", "troubleshooting.html#autotoc_md441", null ],
+          [ "Understanding Test Failures", "troubleshooting.html#autotoc_md442", null ]
         ] ],
-        [ "Performance Profiling", "troubleshooting.html#autotoc_md400", [
-          [ "NVIDIA GPU Profiling", "troubleshooting.html#autotoc_md401", null ],
-          [ "AMD GPU Profiling", "troubleshooting.html#autotoc_md402", null ],
-          [ "Performance vs Correctness", "troubleshooting.html#autotoc_md403", null ]
+        [ "Performance Profiling", "troubleshooting.html#autotoc_md444", [
+          [ "NVIDIA GPU Profiling", "troubleshooting.html#autotoc_md445", null ],
+          [ "AMD GPU Profiling", "troubleshooting.html#autotoc_md446", null ],
+          [ "Performance vs Correctness", "troubleshooting.html#autotoc_md447", null ]
         ] ],
-        [ "Common Build Errors", "troubleshooting.html#autotoc_md405", [
-          [ "\"CMake could not find MPI\"", "troubleshooting.html#autotoc_md406", null ],
-          [ "\"CMake could not find a Fortran compiler\"", "troubleshooting.html#autotoc_md407", null ],
-          [ "\"Fypp preprocessing failed\"", "troubleshooting.html#autotoc_md408", null ],
-          [ "Build fails with GPU/OpenACC errors", "troubleshooting.html#autotoc_md409", null ],
-          [ "\"Module not found\" on HPC", "troubleshooting.html#autotoc_md410", null ]
+        [ "Common Build Errors", "troubleshooting.html#autotoc_md449", [
+          [ "\"CMake could not find MPI\"", "troubleshooting.html#autotoc_md450", null ],
+          [ "\"CMake could not find a Fortran compiler\"", "troubleshooting.html#autotoc_md451", null ],
+          [ "\"Fypp preprocessing failed\"", "troubleshooting.html#autotoc_md452", null ],
+          [ "Build fails with GPU/OpenACC errors", "troubleshooting.html#autotoc_md453", null ],
+          [ "\"Module not found\" on HPC", "troubleshooting.html#autotoc_md454", null ]
         ] ],
-        [ "Common Runtime Errors", "troubleshooting.html#autotoc_md412", [
-          [ "\"Case parameter constraint violations\"", "troubleshooting.html#autotoc_md413", null ],
-          [ "\"NaN detected\"", "troubleshooting.html#autotoc_md414", null ],
-          [ "GPU not detected", "troubleshooting.html#autotoc_md415", null ],
-          [ "MPI errors or hangs", "troubleshooting.html#autotoc_md416", null ]
+        [ "Common Runtime Errors", "troubleshooting.html#autotoc_md456", [
+          [ "\"Case parameter constraint violations\"", "troubleshooting.html#autotoc_md457", null ],
+          [ "\"NaN detected\"", "troubleshooting.html#autotoc_md458", null ],
+          [ "GPU not detected", "troubleshooting.html#autotoc_md459", null ],
+          [ "MPI errors or hangs", "troubleshooting.html#autotoc_md460", null ]
         ] ],
-        [ "Getting Help", "troubleshooting.html#autotoc_md418", null ]
+        [ "Getting Help", "troubleshooting.html#autotoc_md462", null ]
       ] ]
     ] ],
     [ "Flow visualization", "visualization.html", [
-      [ "Flow visualization", "visualization.html#autotoc_md419", [
-        [ "Visualizing with VisIt", "visualization.html#autotoc_md422", null ],
-        [ "Serial data output", "visualization.html#autotoc_md423", null ],
-        [ "Remote Visualization on PACE Phoenix", "visualization.html#autotoc_md424", [
-          [ "Visualizing with Paraview", "visualization.html#autotoc_md420", null ],
-          [ "Visualizing data in cylindrical coordinates", "visualization.html#autotoc_md421", null ],
-          [ "Step 1: Setting up your Environment", "visualization.html#autotoc_md425", null ],
-          [ "Step 2: Customizing the script", "visualization.html#autotoc_md426", null ],
-          [ "Step 3: Running pace-paraview-server", "visualization.html#autotoc_md427", null ]
+      [ "Flow visualization", "visualization.html#autotoc_md463", [
+        [ "Visualizing with VisIt", "visualization.html#autotoc_md466", null ],
+        [ "Serial data output", "visualization.html#autotoc_md467", null ],
+        [ "Remote Visualization on PACE Phoenix", "visualization.html#autotoc_md468", [
+          [ "Visualizing with Paraview", "visualization.html#autotoc_md464", null ],
+          [ "Visualizing data in cylindrical coordinates", "visualization.html#autotoc_md465", null ],
+          [ "Step 1: Setting up your Environment", "visualization.html#autotoc_md469", null ],
+          [ "Step 2: Customizing the script", "visualization.html#autotoc_md470", null ],
+          [ "Step 3: Running pace-paraview-server", "visualization.html#autotoc_md471", null ]
         ] ]
       ] ]
     ] ]
@@ -501,7 +552,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "authors.html",
-"parameters.html#autotoc_md281"
+"gpuParallelization.html#autotoc_md273"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
