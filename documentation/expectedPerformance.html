@@ -128,13 +128,13 @@ $(function(){initNavTree('expectedPerformance.html','',''); });
   <div class="headertitle"><div class="title">Performance </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md229"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
 Performance</h1>
 <p>This page covers how to achieve maximum performance with MFC, including optimization techniques and benchmark results across various hardware platforms.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md231"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
 Achieving Maximum Performance</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md232"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
 Case Optimization (Recommended)</h3>
 <p>The single most impactful optimization is <b>case optimization</b>, which can provide <b>up to 10x speedup</b> for both CPU and GPU runs.</p>
 <p>Case optimization works by hard-coding your simulation parameters at compile time, enabling aggressive compiler optimizations (loop unrolling, constant propagation, dead code elimination).</p>
@@ -148,7 +148,7 @@ Case Optimization (Recommended)</h3>
 <p><b>For batch jobs:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py --case-optimization -j 8 -e batch -N 4 -n 8</div>
 </div><!-- fragment --><p><b>Build separately (optional):</b> </p><div class="fragment"><div class="line">./mfc.sh build -i case.py --case-optimization -j 8</div>
 <div class="line">./mfc.sh run case.py</div>
-</div><!-- fragment --><h4 class="doxsection"><a class="anchor" id="autotoc_md233"></a>
+</div><!-- fragment --><h4 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
 When to use case optimization</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -164,7 +164,7 @@ When to use case optimization</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Parameter sweeps  </td><td class="markdownTableBodyNone">No (many different configurations)  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md234"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
 Other Optimization Flags</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -176,7 +176,7 @@ Other Optimization Flags</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--fastmath</span>  </td><td class="markdownTableBodyNone">Faster (less precise) floating-point math  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md235"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
 Profiling for Optimization</h3>
 <p>Use profiling tools to identify bottlenecks:</p>
 <p><b>NVIDIA GPUs:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py --nsys    # Timeline profiling (Nsight Systems)</div>
@@ -184,7 +184,7 @@ Profiling for Optimization</h3>
 </div><!-- fragment --><p><b>AMD GPUs:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py --rsys    # Timeline profiling (rocprof-systems)</div>
 <div class="line">./mfc.sh run case.py --rcu     # Kernel profiling (rocprof-compute)</div>
 </div><!-- fragment --><p>See <a class="el" href="running.html" title="Running">Running</a> for detailed profiling instructions.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md236"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
 Performance Checklist</h3>
 <p>Before running large simulations:</p>
 <ol type="1">
@@ -195,10 +195,10 @@ Performance Checklist</h3>
 <li><b>Profile first:</b> Run a short simulation with profiling to identify issues</li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md238"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
 Benchmark Results</h2>
 <p>MFC has been benchmarked on several CPUs and GPU devices. This section summarizes these results.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md239"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
 Figure of merit: Grind time performance</h3>
 <p>The following table outlines observed performance as nanoseconds per grid point (ns/gp) per equation (eq) per right-hand side (rhs) evaluation (lower is better), also known as the grind time. We solve an example 3D, inviscid, 5-equation model problem with two advected species (8 PDEs) and 8M grid points (158-cubed uniform grid). The numerics are WENO5 finite volume reconstruction and HLLC approximate Riemann solver. This case is located in <span class="tt">examples/3D_performance_test</span>. You can run it via <span class="tt">./mfc.sh run -n &lt;num_processors&gt; -j $(nproc) ./examples/3D_performance_test/case.py -t pre_process simulation --case-optimization</span> for CPU cases right after building MFC, which will build an optimized version of the code for this case then execute it. For benchmarking GPU devices, you will likely want to use <span class="tt">-n &lt;num_gpus&gt;</span> where <span class="tt">&lt;num_gpus&gt;</span> should likely be <span class="tt">1</span>. If the above does not work on your machine, see the rest of this documentation for other ways to use the <span class="tt">./mfc.sh run</span> command.</p>
 <p>Results are for MFC v4.9.3 (July 2024 release), though numbers have not changed meaningfully since then. Similar performance is also seen for other problem configurations, such as the Euler equations (4 PDEs). All results are for the compiler that gave the best performance. Note:</p><ul>
@@ -310,34 +310,34 @@ Figure of merit: Grind time performance</h3>
 <td class="markdownTableBodyRight">Fujitsu A64FX  </td><td class="markdownTableBodyRight">Arm  </td><td class="markdownTableBodyRight">CPU  </td><td class="markdownTableBodyRight">48 cores  </td><td class="markdownTableBodyRight">63  </td><td class="markdownTableBodyLeft">GNU 13.2.0  </td><td class="markdownTableBodyLeft">SBU Ookami  </td></tr>
 </table>
 <p><b>All grind times are in nanoseconds (ns) per grid point (gp) per equation (eq) per right-hand side (rhs) evaluation, so X ns/gp/eq/rhs. Lower is better.</b></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md240"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
 Weak scaling</h2>
 <p>Weak scaling results are obtained by increasing the problem size with the number of processes so that work per process remains constant.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md241"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
 AMD MI250X GPU</h3>
 <p>MFC weask scales to (at least) 65,536 AMD MI250X GPUs on OLCF Frontier with 96% efficiency. This corresponds to 87% of the entire machine.</p>
 <p><img src="../res/weakScaling/frontier.svg" alt="" style="height: 50%; width:50%; border-radius: 10pt pointer-events: none;" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md242"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
 NVIDIA V100 GPU</h3>
 <p>MFC weak scales to (at least) 13,824 V100 NVIDIA V100 GPUs on OLCF Summit with 97% efficiency. This corresponds to 50% of the entire machine.</p>
 <p><img src="../res/weakScaling/summit.svg" alt="" style="height: 50%; width:50%; border-radius: 10pt pointer-events: none;" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md243"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
 IBM Power9 CPU</h3>
 <p>MFC Weak scales to 13,824 Power9 CPU cores on OLCF Summit to within 1% of ideal scaling.</p>
 <p><img src="../res/weakScaling/cpuScaling.svg" alt="" style="height: 50%; width:50%; border-radius: 10pt pointer-events: none;" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md244"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md318"></a>
 Strong scaling</h2>
 <p>Strong scaling results are obtained by keeping the problem size constant and increasing the number of processes so that work per process decreases.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md245"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
 NVIDIA V100 GPU</h3>
 <p>The base case utilizes 8 GPUs with one MPI process per GPU for these tests. The performance is analyzed at two problem sizes: 16M and 64M grid points. The "base case" uses 2M and 8M grid points per process.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md246"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md320"></a>
 16M Grid Points</h4>
 <p><img src="../res/strongScaling/strongScaling16.svg" alt="" style="width: 50%; border-radius: 10pt pointer-events: none;" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md247"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
 64M Grid Points</h4>
 <p><img src="../res/strongScaling/strongScaling64.svg" alt="" style="width: 50%; border-radius: 10pt pointer-events: none;" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md248"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md322"></a>
 IBM Power9 CPU</h3>
 <p>CPU strong scaling tests are done with problem sizes of 16, 32, and 64M grid points, with the base case using 2, 4, and 8M cells per process.</p>
 <p><img src="../res/strongScaling/cpuStrongScaling.svg" alt="" style="width: 50%; border-radius: 10pt pointer-events: none;" class="inline"/> </p>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['examples_2emd_0',['examples.md',['../examples_8md.html',1,'']]],
-  ['expectedperformance_2emd_1',['expectedPerformance.md',['../expectedPerformance_8md.html',1,'']]]
+  ['equations_2emd_0',['equations.md',['../equations_8md.html',1,'']]],
+  ['examples_2emd_1',['examples.md',['../examples_8md.html',1,'']]],
+  ['expectedperformance_2emd_2',['expectedPerformance.md',['../expectedPerformance_8md.html',1,'']]]
 ];
