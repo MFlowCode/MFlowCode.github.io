@@ -15,9 +15,9 @@ var searchData=
   ['debugging_20tools_20and_20tips_20for_20gpus_12',['Debugging Tools and Tips for GPUs',['../gpuParallelization.html#autotoc_md275',1,'']]],
   ['debugging_20workflow_13',['Debugging Workflow',['../troubleshooting.html#autotoc_md419',1,'']]],
   ['definition_20of_20primitive_20variables_14',['Analytical Definition of Primitive Variables',['../case.html#autotoc_md9',1,'']]],
-  ['density_15',['Density',['../examples.html#autotoc_md204',1,'Density'],['../examples.html#autotoc_md190',1,'Final Condition (Density)'],['../examples.html#autotoc_md212',1,'Final Condition (Density)']]],
-  ['density_20initial_20and_20final_20conditions_16',['Density Initial and Final Conditions',['../examples.html#autotoc_md192',1,'']]],
-  ['density_20norms_17',['Density Norms',['../examples.html#autotoc_md205',1,'']]],
+  ['density_15',['Density',['../examples.html#autotoc_md209',1,'Density'],['../examples.html#autotoc_md212',1,'Final Condition (Density)'],['../examples.html#autotoc_md228',1,'Final Condition (Density)']]],
+  ['density_20initial_20and_20final_20conditions_16',['Density Initial and Final Conditions',['../examples.html#autotoc_md188',1,'']]],
+  ['density_20norms_17',['Density Norms',['../examples.html#autotoc_md210',1,'']]],
   ['descriptions_18',['Descriptions',['../case.html#autotoc_md11',1,'Parameter Descriptions'],['../case.html#autotoc_md14',1,'Parameter Descriptions']]],
   ['design_20playbook_19',['🧩 Case Design Playbook',['../case_constraints.html#autotoc_md40',1,'']]],
   ['desktop_20gui_20',['Docker Desktop GUI',['../docker.html#autotoc_md153',1,'']]],
@@ -35,7 +35,7 @@ var searchData=
   ['docker_2emd_32',['docker.md',['../docker_8md.html',1,'']]],
   ['documentation_33',['Documentation',['../gpuParallelization.html#autotoc_md285',1,'Compiler Documentation'],['../contributing.html#autotoc_md148',1,'Documentation'],['../gpuParallelization.html#autotoc_md263',1,'Macro API Documentation'],['../index.html',1,'MFC Documentation']]],
   ['domain_34',['2. Computational Domain',['../case.html#autotoc_md7',1,'']]],
-  ['driven_20cavity_20problem_202d_35',['Lid-Driven Cavity Problem (2D)',['../examples.html#autotoc_md194',1,'']]],
-  ['droplet_202d_36',['Shock Droplet (2D)',['../examples.html#autotoc_md213',1,'']]],
-  ['dt_202d_37',['2D IBM CFL dt (2D)',['../examples.html#autotoc_md176',1,'']]]
+  ['driven_20cavity_20problem_202d_35',['Lid-Driven Cavity Problem (2D)',['../examples.html#autotoc_md222',1,'']]],
+  ['droplet_202d_36',['Shock Droplet (2D)',['../examples.html#autotoc_md179',1,'']]],
+  ['dt_202d_37',['2D IBM CFL dt (2D)',['../examples.html#autotoc_md220',1,'']]]
 ];

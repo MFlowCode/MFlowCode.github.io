@@ -20,7 +20,7 @@ var searchData=
   ['boundary_20patch_20types_17',['Immersed Boundary Patch Types',['../case.html#autotoc_md36',1,'']]],
   ['boundary_20patches_18',['4. Immersed Boundary Patches',['../case.html#autotoc_md13',1,'']]],
   ['bounds_20and_20indexing_19',['Array Bounds and Indexing',['../contributing.html#autotoc_md123',1,'']]],
-  ['bow_20shock_203d_20',['IBM Bow Shock (3D)',['../examples.html#autotoc_md227',1,'']]],
+  ['bow_20shock_203d_20',['IBM Bow Shock (3D)',['../examples.html#autotoc_md203',1,'']]],
   ['bub_5fpp_21',['bub_pp',['../parameters.html#autotoc_md327',1,'']]],
   ['bubble_20model_22',['Bubble Model',['../case.html#autotoc_md22',1,'9.1 Ensemble-Averaged Bubble Model'],['../case.html#autotoc_md23',1,'9.2 Volume-Averaged Bubble Model']]],
   ['bubble_20models_23',['Bubble Models',['../case_constraints.html#autotoc_md52',1,'💧 Bubble Models'],['../case.html#autotoc_md21',1,'9. Sub-grid Bubble Models'],['../case_constraints.html#autotoc_md47',1,'Bubble Models']]],

@@ -19,7 +19,7 @@ var searchData=
   ['options_16',['Options',['../running.html#autotoc_md402',1,'Batch Options'],['../cli-reference.html#autotoc_md105',1,'Common Options'],['../gpuParallelization.html#autotoc_md279',1,'Cray General Options'],['../gpuParallelization.html#autotoc_md280',1,'Cray OpenACC Options'],['../gpuParallelization.html#autotoc_md281',1,'NVHPC Compiler Options'],['../gpuParallelization.html#autotoc_md282',1,'NVHPC General Options'],['../gpuParallelization.html#autotoc_md283',1,'NVHPC OpenACC Options'],['../gpuParallelization.html#autotoc_md284',1,'NVHPC OpenMP Options']]],
   ['or_20hangs_17',['MPI errors or hangs',['../troubleshooting.html#autotoc_md460',1,'']]],
   ['ordering_18',['Ordering',['../case.html#autotoc_md37',1,'Conservative Variables Ordering'],['../case.html#autotoc_md38',1,'Primitive Variables Ordering']]],
-  ['osher_20problem_201d_19',['Shu-Osher problem (1D)',['../examples.html#autotoc_md178',1,'']]],
+  ['osher_20problem_201d_19',['Shu-Osher problem (1D)',['../examples.html#autotoc_md176',1,'']]],
   ['other_20commands_20',['Other Commands',['../cli-reference.html#autotoc_md100',1,'']]],
   ['other_20jobs_21',['Lint Gate (runs first, blocks all other jobs)',['../contributing.html#autotoc_md145',1,'']]],
   ['other_20optimization_20flags_22',['Other Optimization Flags',['../expectedPerformance.html#autotoc_md234',1,'']]],

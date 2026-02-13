@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['weak_20scaling_0',['Weak Scaling',['../examples.html#autotoc_md171',1,'']]],
+  ['weak_20scaling_0',['Weak Scaling',['../examples.html#autotoc_md195',1,'']]],
   ['weak_20scaling_1',['Weak scaling',['../expectedPerformance.html#autotoc_md240',1,'']]],
   ['when_20to_20use_20case_20optimization_2',['When to use case optimization',['../expectedPerformance.html#autotoc_md233',1,'']]],
   ['with_20fewer_20ranks_3',['Running with Fewer Ranks',['../troubleshooting.html#autotoc_md435',1,'']]],
