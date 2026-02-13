@@ -9,18 +9,10 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::s_time_step_cycling", "namespacem__time__steppers.html#a575aa7f95bf96994f49d81d71d19c192", null ],
     [ "m_time_steppers::s_tvd_rk", "namespacem__time__steppers.html#ae8912bf24b14160a2d3b6f52595cb868", null ],
     [ "m_time_steppers::bc_type", "namespacem__time__steppers.html#a2977f6fd5a23ed0bef5ddcac03fbf2a9", null ],
-    [ "m_time_steppers::cptr_device", "namespacem__time__steppers.html#a5fe41d5ea9565d475f4d3889e893ea59", null ],
-    [ "m_time_steppers::cptr_host", "namespacem__time__steppers.html#adc40de6532efcaa5ab7a7d44b401c788", null ],
     [ "m_time_steppers::max_dt", "namespacem__time__steppers.html#a69287ab593b1c75a46956d3adcfc693f", null ],
     [ "m_time_steppers::num_probe_ts", "namespacem__time__steppers.html#a1f2231dbb3d51d3bfba88cb854aa644e", null ],
     [ "m_time_steppers::num_ts", "namespacem__time__steppers.html#af1bbf3b693b9d269249a93dca5069b56", null ],
-    [ "m_time_steppers::pinned", "namespacem__time__steppers.html#a3f00c9036502fd5c0c61939a55e33797", null ],
-    [ "m_time_steppers::pool_dims", "namespacem__time__steppers.html#ad0dd86c1076fffc1f37dbcbdcbaf29a5", null ],
-    [ "m_time_steppers::pool_size", "namespacem__time__steppers.html#a0c6ae7b9d646ee3dfc056ded26ba10e3", null ],
-    [ "m_time_steppers::pool_starts", "namespacem__time__steppers.html#aaa696d9f1bb0f5c57d929c1bc335af14", null ],
     [ "m_time_steppers::q_cons_ts", "namespacem__time__steppers.html#a4bbe3aedc07e11e85679ec0c7a094f37", null ],
-    [ "m_time_steppers::q_cons_ts_pool_device", "namespacem__time__steppers.html#ab03933e3694a25995c3549ce938b4108", null ],
-    [ "m_time_steppers::q_cons_ts_pool_host", "namespacem__time__steppers.html#a4d168983826c52815c304f11a58edaa4", null ],
     [ "m_time_steppers::q_prim_ts1", "namespacem__time__steppers.html#a60788902b510a52b5353d35b96c03884", null ],
     [ "m_time_steppers::q_prim_ts2", "namespacem__time__steppers.html#a54bbce0f63af75d4f6caca272a675a17", null ],
     [ "m_time_steppers::q_prim_vf", "namespacem__time__steppers.html#a72d421d80bf4592428f20416cc2047f5", null ],
@@ -29,6 +21,5 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::rhs_pb", "namespacem__time__steppers.html#a49c29eac0854a7b6b0e302cc72a82898", null ],
     [ "m_time_steppers::rhs_vf", "namespacem__time__steppers.html#a3d0867c3c2572c712d2aed6d677e6fc2", null ],
     [ "m_time_steppers::rk_coef", "namespacem__time__steppers.html#a993d2d21d55d2d2cfe29d434608ef7cc", null ],
-    [ "m_time_steppers::stor", "namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12", null ],
-    [ "m_time_steppers::target", "namespacem__time__steppers.html#a2fadcdcfed15bb62c01df7067810d761", null ]
+    [ "m_time_steppers::stor", "namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12", null ]
 ];

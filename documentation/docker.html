@@ -128,16 +128,16 @@ $(function(){initNavTree('docker.html','',''); });
   <div class="headertitle"><div class="title">Containers </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
 Containers</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md152"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md107"></a>
 Navigating Docker</h2>
 <p>Install Docker on</p><ul>
 <li><a href="https://docs.docker.com/desktop/setup/install/mac-install/">MacOS</a></li>
 <li><a href="https://docs.docker.com/desktop/setup/install/windows-install/">Windows</a></li>
 <li><a href="https://docs.docker.com/desktop/setup/install/linux/">Linux</a></li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
 Docker Desktop GUI</h3>
 <ul>
 <li>Search for the <a href="https://hub.docker.com/r/sbryngelson/mfc">sbryngelson/mfc</a> repository. All the MFC containers are stored here.</li>
@@ -150,13 +150,13 @@ Docker Desktop GUI</h3>
 </ul>
 </li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md109"></a>
 Docker CLI</h3>
 <p>You can navigate Docker entirely from the command line. From a bash-like shell, pull from the <a href="https://hub.docker.com/r/sbryngelson/mfc">sbryngelson/mfc</a> repository and run the latest MFC container: </p><div class="fragment"><div class="line">docker run -it --rm --entrypoint bash sbryngelson/mfc:latest-cpu</div>
 </div><!-- fragment --><p><b>Selecting OS/ARCH:</b> Docker selects the compatible architecture by default when pulling and running a container. You can manually specify your platform if something seems to go wrong, as Docker may suggest doing so. For example, <span class="tt">linux/amd64</span> handles many *nix-based x86 architectures, and <span class="tt">linux/arm64</span> handles Apple Silicon and Arm-based *nix devices. You can specify it like this: </p><div class="fragment"><div class="line">docker run -it --rm --entrypoint bash --platform linux/amd64 sbryngelson/mfc:latest-cpu</div>
 </div><!-- fragment --><p><b>What's Next?</b></p>
 <p>Once a container has started, the primary working directory is <span class="tt">/opt/MFC</span>, and all necessary files are located there. You can check out the usual MFC documentation, such as the <a class="el" href="examples.html" title="Example Cases">Example Cases</a>, to get familiar with running cases. Then, review the <a class="el" href="case.html" title="Case Files">Case Files</a> to write a custom case file.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
 Details on Running Containers</h2>
 <p>Let's take a closer look at running MFC within a container. Kick off a CPU container: </p><div class="fragment"><div class="line">docker run -it --rm --entrypoint bash sbryngelson/mfc:latest-cpu</div>
 </div><!-- fragment --><p> Or, start a GPU container. </p><div class="fragment"><div class="line">docker run -it --rm --gpus all --entrypoint bash sbryngelson/mfc:latest-gpu</div>
@@ -166,25 +166,25 @@ Details on Running Containers</h2>
 </div><!-- fragment --><p><b>Shared Memory</b></p>
 <p>If you run a job with multiple MPI ranks, you could run into <em>MPI memory binding errors</em>. This can manifest as a failed test (launched via <span class="tt">./mfc.sh test</span>) and running cases with <span class="tt">./mfc.sh run -n X &lt;path/to/case.py&gt;</span> where <span class="tt">X &gt; 1</span>. To avoid this issue, you can increase the shared memory size (to keep MPI working): </p><div class="fragment"><div class="line">docker run -it --rm --entrypoint bash --shm-size=&lt;e.g., 4gb&gt; sbryngelson/mfc:latest-cpu</div>
 </div><!-- fragment --><p> or avoid MPI altogether via <span class="tt">./mfc.sh &lt;your commands&gt; --no-mpi</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
 Portability</h3>
 <p>On the source machine, pull and save the image: </p><div class="fragment"><div class="line">docker pull sbryngelson/mfc:latest-cpu</div>
 <div class="line">docker save -o mfc:latest-cpu.tar sbryngelson/mfc:latest-cpu</div>
 </div><!-- fragment --><p> On the target machine, load and run the image: </p><div class="fragment"><div class="line">docker load -i mfc:latest-cpu.tar</div>
 <div class="line">docker run -it --rm mfc:latest-cpu</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
 Using Supercomputers/Clusters via Apptainer/Singularity</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md158"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
 Interactive Shell</h3>
 <div class="fragment"><div class="line">apptainer shell --nv --fakeroot --writable-tmpfs --bind &quot;$PWD&quot;:/mnt  docker://sbryngelson/mfc:latest-gpu</div>
 <div class="line">Apptainer&gt;cd /opt/MFC</div>
 </div><!-- fragment --><p> or </p><div class="fragment"><div class="line">apptainer exec --nv --fakeroot --writable-tmpfs --bind &quot;$PWD&quot;:/mnt  docker://sbryngelson/mfc:latest-gpu bash -c &quot;cd /opt/MFC &amp;&amp; bash&quot;</div>
 </div><!-- fragment --><p> To run MFC on CPUs, omit <span class="tt">--nv</span> and use the <span class="tt">mfc:latest-cpu</span> container image.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
 For Portability</h3>
 <p>On the source machine, pull and translate the image into <span class="tt">.sif</span> format: </p><div class="fragment"><div class="line">apptainer build mfc:latest-gpu.sif docker://sbryngelson/mfc:latest-gpu</div>
 </div><!-- fragment --><p> On the target machine, load and start an interactive shell: </p><div class="fragment"><div class="line">apptainer shell --nv --fakeroot --writable-tmpfs --bind &quot;$PWD&quot;:/mnt mfc:latest-gpu.sif</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md160"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
 Slurm Job</h3>
 <p>Below is an example Slurm batch job script. Refer to your machine's user guide for instructions on properly loading and using Apptainer. </p><div class="fragment"><div class="line">#!/bin/bash</div>
 <div class="line">#SBATCH --job-name=mfc-sim</div>
@@ -213,29 +213,29 @@ Slurm Job</h3>
 </ul>
 </li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 Tag Details</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
 Base Images</h3>
 <ul>
 <li>CPU images (v4.3.0-latest releases) are built on <b>Ubuntu 22.04</b>.</li>
 <li>GPU images (v4.3.0-latest releases) are built on <b>NVHPC SDK 23.11 (CUDA 12.3) &amp; Ubuntu 22.04</b>.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
 Tag Structure</h3>
 <ul>
 <li><b><span class="tt">vx.x.x</span></b> - Official MFC release versions (recommended: use <span class="tt">latest</span> release)</li>
 <li><b><span class="tt">cpu/gpu</span></b> - Build configurations for CPU or GPU acceleration.</li>
 <li><b><span class="tt">ubuntu-xx.xx</span></b> - Base Ubuntu version (standard = <span class="tt">amd64</span>, <span class="tt">-arm</span> = <span class="tt">arm64</span>)</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md164"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
 Example Tags</h3>
 <div class="fragment"><div class="line">mfc:latest-xxx                   # Latest version (amd64 &amp; arm64)</div>
 <div class="line">mfc:vx.x.x-cpu                   # CPU version    (amd64 &amp; arm64)</div>
 <div class="line">mfc:vx.x.x-gpu                   # GPU version    (amd64 &amp; arm64)</div>
 <div class="line">mfc:vx.x.x-xxx-ubuntu-xx.xx      # amd64 natively-supported version</div>
 <div class="line">mfc:vx.x.x-xxx-ubuntu-xx.xx-arm  # arm64 natively-supported version</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md165"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
 Architecture Support</h3>
 <p>You can specify your architecture with <span class="tt">--platform &lt;os&gt;/&lt;arch&gt;</span>, typically either <span class="tt">linux/amd64</span> or <span class="tt">linux/arm64</span>. If you are unsure, Docker automatically selects the compatible image with your system architecture. If native support isn't available, QEMU emulation is enabled for the following architectures, albeit with degraded performance. </p><div class="fragment"><div class="line">linux/amd64</div>
 <div class="line">linux/amd64/v2</div>

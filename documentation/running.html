@@ -128,11 +128,11 @@ $(function(){initNavTree('running.html','',''); });
   <div class="headertitle"><div class="title">Running </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md459"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md381"></a>
 Running</h1>
 <p>MFC can be run using <span class="tt">mfc.sh</span>'s <span class="tt">run</span> command. It supports interactive and batch execution. Batch mode is designed for multi-node distributed systems (supercomputers) equipped with a scheduler such as PBS, SLURM, or LSF. A full (and up-to-date) list of available arguments can be acquired with <span class="tt">./mfc.sh run -h</span>.</p>
 <p>MFC supports running simulations locally (Linux, MacOS, and Windows) as well as several supercomputer clusters, both interactively and through batch submission.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md382"></a>
 Using the Homebrew package (macOS)</h2>
 <p>If you installed MFC via Homebrew, run cases with the <span class="tt">mfc</span> wrapper:</p>
 <div class="fragment"><div class="line">mfc &lt;path/to/case.py&gt; -n 2</div>
@@ -155,7 +155,7 @@ Using the Homebrew package (macOS)</h2>
 </dd></dl>
 <p>Please refer to <span class="tt">./mfc.sh run -h</span> for a complete list of arguments and options, along with their defaults.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md384"></a>
 Interactive Execution</h2>
 <p>To run all stages of MFC, that is <a href="https://github.com/MFlowCode/MFC/tree/master/src/pre_process/">pre_process</a>, <a href="https://github.com/MFlowCode/MFC/tree/master/src/simulation/">simulation</a>, and <a href="https://github.com/MFlowCode/MFC/tree/master/src/post_process/">post_process</a> on the sample case <a href="https://github.com/MFlowCode/MFC/tree/master/examples/2D_shockbubble/">2D_shockbubble</a>,</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py</div>
@@ -170,10 +170,10 @@ Interactive Execution</h2>
 </ul>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_shockbubble/case.py -t simulation post_process -n 4</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md464"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md386"></a>
 Running on GPUs</h2>
 <p>MFC supports GPU acceleration via OpenACC (default) or OpenMP offloading. This section covers how to build and run MFC on GPU systems.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md387"></a>
 Building with GPU Support</h3>
 <p>First, build MFC with GPU support enabled:</p>
 <div class="fragment"><div class="line"># Using OpenACC (default, recommended for NVIDIA)</div>
@@ -187,7 +187,7 @@ Building with GPU Support</h3>
 </div><!-- fragment --><p>On HPC clusters, load the appropriate modules first:</p>
 <div class="fragment"><div class="line">source ./mfc.sh load -c &lt;cluster&gt; -m g   # &#39;g&#39; for GPU mode</div>
 <div class="line">./mfc.sh build --gpu -j $(nproc)</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md388"></a>
 Running on GPUs</h3>
 <p>Run simulations with GPU support:</p>
 <div class="fragment"><div class="line"># Basic GPU run</div>
@@ -198,7 +198,7 @@ Running on GPUs</h3>
 <div class="line"> </div>
 <div class="line"># Run with 4 MPI ranks (typically one per GPU)</div>
 <div class="line">./mfc.sh run case.py -n 4 --gpu</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md467"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md389"></a>
 Supported Compilers</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -210,7 +210,7 @@ Supported Compilers</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">AMD  </td><td class="markdownTableBodyNone">AMD (amdflang)  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">Yes  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md390"></a>
 Environment Setup</h3>
 <p>Most HPC systems require loading GPU-specific modules:</p>
 <p><b>NVIDIA systems:</b> </p><div class="fragment"><div class="line">module load nvhpc cuda</div>
@@ -219,7 +219,7 @@ Environment Setup</h3>
 </div><!-- fragment --><p><b>AMD systems:</b> </p><div class="fragment"><div class="line">module load rocm amdflang</div>
 <div class="line"># Or use MFC&#39;s module loader:</div>
 <div class="line">source ./mfc.sh load -c frontier -m g</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md469"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md391"></a>
 Verifying GPU Detection</h3>
 <p>Check that GPUs are visible before running:</p>
 <div class="fragment"><div class="line"># NVIDIA</div>
@@ -229,10 +229,10 @@ Verifying GPU Detection</h3>
 <div class="line">rocm-smi</div>
 </div><!-- fragment --><p>To force GPU usage (fails fast if no GPU available): </p><div class="fragment"><div class="line">export OMP_TARGET_OFFLOAD=MANDATORY</div>
 <div class="line">./mfc.sh run case.py --gpu</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md392"></a>
 GPU Profiling</h3>
 <p>MFC integrates with vendor profiling tools for performance analysis.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md471"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md393"></a>
 NVIDIA GPUs</h4>
 <p><b>Nsight Systems</b> (timeline/system-level profiling): </p><div class="fragment"><div class="line">./mfc.sh run case.py -t simulation --nsys [nsys flags]</div>
 </div><!-- fragment --><ul>
@@ -247,7 +247,7 @@ NVIDIA GPUs</h4>
 <li>Significantly slower than normal execution</li>
 <li>Use only with few timesteps</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md472"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md394"></a>
 AMD GPUs</h4>
 <p><b>rocprof-systems</b> (timeline profiling): </p><div class="fragment"><div class="line">./mfc.sh run case.py -t simulation --rsys --hip-trace [rocprof flags]</div>
 </div><!-- fragment --><ul>
@@ -261,13 +261,13 @@ AMD GPUs</h4>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>Place profiling arguments at the end of the command so their flags can be appended.</dd></dl>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md474"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md396"></a>
 Batch Execution</h2>
 <p>The MFC detects which scheduler your system is using and handles the creation and execution of batch scripts. Use batch mode for running on HPC clusters with job schedulers (SLURM, PBS, LSF).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md475"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md397"></a>
 Basic Usage</h3>
 <div class="fragment"><div class="line">./mfc.sh run case.py -e batch -N 2 -n 4 -c &lt;computer&gt;</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md476"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md398"></a>
 Batch Options</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -293,27 +293,27 @@ Batch Options</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-c</span>  </td><td class="markdownTableBodyNone"><span class="tt">--computer</span>  </td><td class="markdownTableBodyNone">Submission template to use  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md477"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md399"></a>
 Examples</h3>
 <p><b>Basic 4-node job:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py -e batch -N 4 -n 8 -w 02:00:00</div>
 </div><!-- fragment --><p><b>Job with account and email:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py -e batch -N 2 -a myproject -@ user@example.com</div>
 </div><!-- fragment --><p><b>GPU job on Frontier:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py -e batch -N 4 -n 8 -c frontier --gpu -w 01:00:00</div>
 </div><!-- fragment --><p><b>Dry run (preview script without submitting):</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py -e batch -N 2 --dry-run</div>
 </div><!-- fragment --><p><b>Wait for job completion:</b> </p><div class="fragment"><div class="line">./mfc.sh run case.py -e batch -N 2 --wait</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md478"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md400"></a>
 Computer Templates</h3>
 <p>MFC includes pre-configured templates in <span class="tt">toolchain/templates/</span> for many clusters. Use <span class="tt">-c &lt;name&gt;</span> to select one:</p>
 <div class="fragment"><div class="line">./mfc.sh run case.py -e batch -c phoenix   # Georgia Tech Phoenix</div>
 <div class="line">./mfc.sh run case.py -e batch -c frontier  # OLCF Frontier</div>
 <div class="line">./mfc.sh run case.py -e batch -c delta     # NCSA Delta</div>
 </div><!-- fragment --><p>If no template exists for your cluster, use <span class="tt">-c default</span> and customize as needed, or contribute a new template.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md479"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md401"></a>
 Scheduler Notes</h3>
 <p><b>SLURM systems:</b> Most clusters use SLURM. MFC automatically generates appropriate <span class="tt">sbatch</span> scripts.</p>
 <p><b>LSF systems (e.g., Summit):</b> IBM's JSRUN does not use the traditional node-based approach. MFC constructs equivalent resource sets for task and GPU counts.</p>
 <hr  />
 <p><a class="anchor" id="restarting-cases"></a> </p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md481"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md403"></a>
 Restarting Cases</h2>
 <p>When running a simulation, MFC generates a <span class="tt">./restart_data</span> folder in the case directory that contains <span class="tt">lustre_*.dat</span> files that can be used to restart a simulation from saved timesteps. This allows a user to simulate some timestep $X$, then continue it to run to another timestep $Y$, where $Y &gt; X$. The user can also choose to add new patches at the intermediate timestep.</p>
 <p>If you want to restart a simulation,</p>
@@ -409,7 +409,7 @@ Restarting Cases</h2>
 <div class="line">./mfc.sh run examples/1D_vacuum_restart/case.py -t post_process</div>
 <div class="line">./mfc.sh run examples/1D_vacuum_restart/restart_case.py -t post_process</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md483"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md405"></a>
 Example Runs</h2>
 <ul>
 <li>Oak Ridge National Laboratory's <a href="https://www.olcf.ornl.gov/summit/">Summit</a>:</li>

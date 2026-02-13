@@ -49,6 +49,5 @@ var searchData=
   ['num_5fvels_46',['num_vels',['../namespacem__global__parameters.html#a8ca0573e3f7099650588d06aa62b8b9f',1,'m_global_parameters']]],
   ['nv_5fuvm_5figr_5ftemps_5fon_5fgpu_47',['nv_uvm_igr_temps_on_gpu',['../namespacem__global__parameters.html#ad0ed1de744ec01d042569d8dea2af076',1,'m_global_parameters']]],
   ['nv_5fuvm_5fout_5fof_5fcore_48',['nv_uvm_out_of_core',['../namespacem__global__parameters.html#acab61cfc4a607422b59afc3c54ce9247',1,'m_global_parameters']]],
-  ['nv_5fuvm_5fpref_5fgpu_49',['nv_uvm_pref_gpu',['../namespacem__global__parameters.html#aeeb6bed5537eebb387ca5b19138d76f7',1,'m_global_parameters']]],
-  ['nv_5fuvm_5ftemp_5fon_5fgpu_50',['nv_uvm_temp_on_gpu',['../namespacem__igr.html#ab961c4651a6bc62da45f05346cdbd06c',1,'m_igr']]]
+  ['nv_5fuvm_5fpref_5fgpu_49',['nv_uvm_pref_gpu',['../namespacem__global__parameters.html#aeeb6bed5537eebb387ca5b19138d76f7',1,'m_global_parameters']]]
 ];
