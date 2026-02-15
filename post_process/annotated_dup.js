@@ -27,6 +27,7 @@ var annotated_dup =
       [ "t_ray", "structm__derived__types_1_1t__ray.html", "structm__derived__types_1_1t__ray" ],
       [ "t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],
       [ "t_model", "structm__derived__types_1_1t__model.html", "structm__derived__types_1_1t__model" ],
+      [ "t_model_array", "structm__derived__types_1_1t__model__array.html", "structm__derived__types_1_1t__model__array" ],
       [ "ic_patch_parameters", "structm__derived__types_1_1ic__patch__parameters.html", "structm__derived__types_1_1ic__patch__parameters" ],
       [ "ib_patch_parameters", "structm__derived__types_1_1ib__patch__parameters.html", "structm__derived__types_1_1ib__patch__parameters" ],
       [ "physical_parameters", "structm__derived__types_1_1physical__parameters.html", "structm__derived__types_1_1physical__parameters" ],

@@ -3,7 +3,7 @@ var m__mpi__common_8fpp_8f90 =
     [ "m_mpi_common::mpi_bcast_time_step_values", "namespacem__mpi__common.html#a98b6d5f758850a2ba16fb7553c055827", null ],
     [ "m_mpi_common::s_finalize_mpi_common_module", "namespacem__mpi__common.html#ab9e557649b1fca986ee793073abae4d4", null ],
     [ "m_mpi_common::s_initialize_mpi_common_module", "namespacem__mpi__common.html#a056c92bf55bd24a6cb43936abd313f4e", null ],
-    [ "m_mpi_common::s_initialize_mpi_data", "namespacem__mpi__common.html#a2b579eba6293e56232ba5129614b5a18", null ],
+    [ "m_mpi_common::s_initialize_mpi_data", "namespacem__mpi__common.html#a2e27b3212956af624c8da826f0c2c529", null ],
     [ "m_mpi_common::s_initialize_mpi_data_ds", "namespacem__mpi__common.html#a564644bad898d940dc6caea3297bb424", null ],
     [ "m_mpi_common::s_mpi_abort", "namespacem__mpi__common.html#a04cfc0bdb377a0ce2f9fd478e4bb3807", null ],
     [ "m_mpi_common::s_mpi_allreduce_integer_sum", "namespacem__mpi__common.html#a750c773a9421c7837f197be9bdc4fb73", null ],

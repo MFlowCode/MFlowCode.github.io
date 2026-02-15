@@ -23,6 +23,7 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::t_ray", "structm__derived__types_1_1t__ray.html", "structm__derived__types_1_1t__ray" ],
     [ "m_derived_types::t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],
     [ "m_derived_types::t_model", "structm__derived__types_1_1t__model.html", "structm__derived__types_1_1t__model" ],
+    [ "m_derived_types::t_model_array", "structm__derived__types_1_1t__model__array.html", "structm__derived__types_1_1t__model__array" ],
     [ "m_derived_types::ic_patch_parameters", "structm__derived__types_1_1ic__patch__parameters.html", "structm__derived__types_1_1ic__patch__parameters" ],
     [ "m_derived_types::ib_patch_parameters", "structm__derived__types_1_1ib__patch__parameters.html", "structm__derived__types_1_1ib__patch__parameters" ],
     [ "m_derived_types::physical_parameters", "structm__derived__types_1_1physical__parameters.html", "structm__derived__types_1_1physical__parameters" ],

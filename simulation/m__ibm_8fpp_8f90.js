@@ -2,7 +2,7 @@ var m__ibm_8fpp_8f90 =
 [
     [ "m_ibm::s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
     [ "m_ibm::s_compute_ib_forces", "namespacem__ibm.html#a127d40085cc8ab5bdcde0f7cf894e92f", null ],
-    [ "m_ibm::s_compute_image_points", "namespacem__ibm.html#ab7a568a7c20d763f353f319f4fa5beba", null ],
+    [ "m_ibm::s_compute_image_points", "namespacem__ibm.html#ae9c18401f891392312ed68285d035d9c", null ],
     [ "m_ibm::s_compute_interpolation_coeffs", "namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e", null ],
     [ "m_ibm::s_compute_moment_of_inertia", "namespacem__ibm.html#a84e46de67a50e4a2435341ff9c9c5afb", null ],
     [ "m_ibm::s_cross_product", "namespacem__ibm.html#a8c6587005cc0ff6a5cd4ea18c44eb693", null ],
@@ -14,14 +14,11 @@ var m__ibm_8fpp_8f90 =
     [ "m_ibm::s_initialize_ibm_module", "namespacem__ibm.html#ab7c53e6e972a356b5fb74efaf876f426", null ],
     [ "m_ibm::s_interpolate_image_point", "namespacem__ibm.html#a389d54181e5d734b16be27f045637703", null ],
     [ "m_ibm::s_populate_ib_buffers", "namespacem__ibm.html#a38f37eda1ee706319633cd6aa3b7c613", null ],
-    [ "m_ibm::s_update_mib", "namespacem__ibm.html#ac62e47c0f28b708ae85d0ab0d3675486", null ],
+    [ "m_ibm::s_update_mib", "namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff", null ],
     [ "m_ibm::ghost_points", "namespacem__ibm.html#a3d7e47c58127b8a61046b4251160f535", null ],
     [ "m_ibm::ib_markers", "namespacem__ibm.html#a9cdfa4b47a00b8b5ef00feb84aa97aef", null ],
     [ "m_ibm::inner_points", "namespacem__ibm.html#a434924e0041c70159a709681f995af65", null ],
-    [ "m_ibm::levelset", "namespacem__ibm.html#a774432271f9497f1fed0c26c364fe721", null ],
-    [ "m_ibm::levelset_norm", "namespacem__ibm.html#a98b309499acf40f3734efab61e9a5327", null ],
     [ "m_ibm::moving_immersed_boundary_flag", "namespacem__ibm.html#a5860a1336c8a996ed364b71b3d1c9530", null ],
     [ "m_ibm::num_gps", "namespacem__ibm.html#a400f745947320ac23a80e33e28faff80", null ],
-    [ "m_ibm::num_inner_gps", "namespacem__ibm.html#afff621ef82ca1ec19282836cfabe85c1", null ],
-    [ "m_ibm::patch_id_fp", "namespacem__ibm.html#a0be69859b535a26c3537bb175041dfcd", null ]
+    [ "m_ibm::num_inner_gps", "namespacem__ibm.html#afff621ef82ca1ec19282836cfabe85c1", null ]
 ];

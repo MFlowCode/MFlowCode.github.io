@@ -5,6 +5,8 @@ var structm__derived__types_1_1ghost__point =
     [ "interp_coeffs", "structm__derived__types_1_1ghost__point.html#a8d0cf4ddfd195cf0935b02e5c5267a57", null ],
     [ "ip_grid", "structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646", null ],
     [ "ip_loc", "structm__derived__types_1_1ghost__point.html#a04d76b5bb46de3a1c2432f972893961d", null ],
+    [ "levelset", "structm__derived__types_1_1ghost__point.html#a6d6b9ba23cbd190a4af9385c781ed9c8", null ],
+    [ "levelset_norm", "structm__derived__types_1_1ghost__point.html#af976ab431e8ef9e6b437664327174e3e", null ],
     [ "loc", "structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44", null ],
     [ "slip", "structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab", null ]
 ];

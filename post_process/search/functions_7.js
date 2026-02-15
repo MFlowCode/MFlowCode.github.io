@@ -77,7 +77,7 @@ var searchData=
   ['s_5finitialize_5fglobal_5fparameters_5fmodule_74',['s_initialize_global_parameters_module',['../namespacem__global__parameters.html#a7d78db66d7d2bd3001d7a7ef981b0d87',1,'m_global_parameters']]],
   ['s_5finitialize_5fmodules_75',['s_initialize_modules',['../namespacem__start__up.html#aea20fb8945d467b344a487cfe8213d99',1,'m_start_up']]],
   ['s_5finitialize_5fmpi_5fcommon_5fmodule_76',['s_initialize_mpi_common_module',['../namespacem__mpi__common.html#a056c92bf55bd24a6cb43936abd313f4e',1,'m_mpi_common']]],
-  ['s_5finitialize_5fmpi_5fdata_77',['s_initialize_mpi_data',['../namespacem__mpi__common.html#a2b579eba6293e56232ba5129614b5a18',1,'m_mpi_common']]],
+  ['s_5finitialize_5fmpi_5fdata_77',['s_initialize_mpi_data',['../namespacem__mpi__common.html#a2e27b3212956af624c8da826f0c2c529',1,'m_mpi_common']]],
   ['s_5finitialize_5fmpi_5fdata_5fds_78',['s_initialize_mpi_data_ds',['../namespacem__mpi__common.html#a564644bad898d940dc6caea3297bb424',1,'m_mpi_common']]],
   ['s_5finitialize_5fmpi_5fdomain_79',['s_initialize_mpi_domain',['../namespacem__start__up.html#a43f2e386d1bd2f0f6212f31a97542b96',1,'m_start_up']]],
   ['s_5finitialize_5fmpi_5fproxy_5fmodule_80',['s_initialize_mpi_proxy_module',['../namespacem__mpi__proxy.html#a0f7cd4188db4d19ada06d7cb7334991d',1,'m_mpi_proxy']]],
