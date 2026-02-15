@@ -594,12 +594,12 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = Roe, <span class="tt">2</span> = arithmetic</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>avg_state must be set if riemann_solver != 3,5</li>
 <li>6-equation model (model_eqns = 3) requires avg_state = 2</li>
 <li>Bubble modeling requires arithmetic average (avg_state = 2)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>avg_state must be 1 or 2</li>
 </ul>
 <p></p>
@@ -611,7 +611,7 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">k_x</span>, <span class="tt">w_x</span>, <span class="tt">p_x</span>, <span class="tt">g_x</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>k_x must be specified if bf_x is true</li>
 <li>w_x must be specified if bf_x is true</li>
 <li>p_x must be specified if bf_x is true</li>
@@ -625,7 +625,7 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">k_y</span>, <span class="tt">w_y</span>, <span class="tt">p_y</span>, <span class="tt">g_y</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>k_y must be specified if bf_y is true</li>
 <li>w_y must be specified if bf_y is true</li>
 <li>p_y must be specified if bf_y is true</li>
@@ -639,7 +639,7 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">k_z</span>, <span class="tt">w_z</span>, <span class="tt">p_z</span>, <span class="tt">g_z</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>k_z must be specified if bf_z is true</li>
 <li>w_z must be specified if bf_z is true</li>
 <li>p_z must be specified if bf_z is true</li>
@@ -653,7 +653,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = Gilmore, <span class="tt">2</span> = Keller-Miksis, <span class="tt">3</span> = Rayleigh-Plesset</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>The 5-equation bubbly flow model does not support bubble_model = 1 (Gilmore)</li>
 </ul>
 <p></p>
@@ -666,16 +666,16 @@ Geometry</h3>
 <li>When enabled, requires <span class="tt">model_eqns</span> = <span class="tt">2</span> (5-Equation) or <span class="tt">4</span> (4-Equation), <span class="tt">riemann_solver</span> = <span class="tt">2</span> (HLLC), <span class="tt">avg_state</span> = <span class="tt">2</span> (arithmetic)</li>
 <li>When enabled, recommends: <span class="tt">nb</span>, <span class="tt">polytropic</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>Polydisperse bubble modeling requires the bubbles_euler flag to be set</li>
 <li>QBMM requires the bubbles_euler flag to be set</li>
 <li>adv_n requires bubbles_euler to be enabled</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Activate only one of the bubble subgrid models (bubbles_euler or bubbles_lagrange)</li>
 <li>alt_soundspeed is not compatible with bubbles_euler</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>patch_icpp(istr)r0 must be positive (got r0)</li>
 </ul>
 <p></p>
@@ -687,10 +687,10 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, recommends: <span class="tt">cfl_target</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>dt must be set when using fixed time stepping (t_step_start/t_step_stop)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>t_stop must be positive</li>
 <li>t_save must be positive</li>
 </ul>
@@ -703,10 +703,10 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, recommends: <span class="tt">cfl_target</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>dt must be set when using fixed time stepping (t_step_start/t_step_stop)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>t_stop must be positive</li>
 <li>t_save must be positive</li>
 </ul>
@@ -746,7 +746,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>dt must be positive</li>
 </ul>
 <p></p>
@@ -758,10 +758,10 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = Silo, <span class="tt">2</span> = binary</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>output_partial_domain requires format = 2</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>format must be 1 or 2</li>
 </ul>
 <p></p>
@@ -773,13 +773,13 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">num_ibs</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>Immersed Boundaries do not work in 1D (requires n &gt; 0)</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>output_partial_domain is incompatible with certain output flags</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>num_ibs must be between 1 and num_patches_max (10)</li>
 </ul>
 <p></p>
@@ -791,7 +791,7 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">fd_order</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>fd_order must be specified for integral_wrt</li>
 <li>integral_wrt requires bubbles_euler to be enabled</li>
 </ul>
@@ -804,12 +804,12 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>x_domainbeg must be set when m &gt; 0</li>
 <li>x_domainend must be set when m &gt; 0</li>
 <li>down sample requires m divisible by 3</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>m must be positive</li>
 <li>m must be at least igr_order - 1 (= igr_order - 1)</li>
 </ul>
@@ -828,17 +828,17 @@ Geometry</h3>
 <li>When = 4, requires: <span class="tt">rhoref</span>, <span class="tt">pref</span></li>
 <li>When = 4, requires <span class="tt">num_fluids</span> = <span class="tt">1</span> (1)</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>5-equation model (model_eqns = 2) requires num_fluids to be set</li>
 <li>6-equation model (model_eqns = 3) requires num_fluids to be set</li>
 <li>4-equation model (model_eqns = 4) requires num_fluids to be set</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>num_fluids is not supported for model_eqns = 1</li>
 <li>model_eqns = 1 does not support mpp_lim</li>
 <li>6-equation model (model_eqns = 3) does not support cylindrical coordinates (cyl_coord = T and p != 0)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>model_eqns must be 1, 2, 3, or 4</li>
 </ul>
 <p></p>
@@ -850,7 +850,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = minmod, <span class="tt">2</span> = MC, <span class="tt">3</span> = Van Albada, <span class="tt">4</span> = Van Leer, <span class="tt">5</span> = SUPERBEE</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>muscl_lim must be 1, 2, 3, 4, or 5</li>
 </ul>
 <p></p>
@@ -862,7 +862,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = 1st order, <span class="tt">2</span> = 2nd order</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>muscl_order must be 1 or 2</li>
 <li>m must be at least muscl_order - 1 (= muscl_order - 1)</li>
 </ul>
@@ -875,16 +875,16 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>Immersed Boundaries do not work in 1D (requires n &gt; 0)</li>
 <li>down sample requires n divisible by 3</li>
 <li>stretch_y requires n &gt; 0</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Bx0 must not be set in 2D/3D MHD simulations</li>
 <li>Hyperbolic cleaning is not supported for 1D simulations</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>n must be non-negative</li>
 <li>n must be at least igr_order - 1 (= igr_order - 1)</li>
 </ul>
@@ -897,11 +897,11 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 1</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>The Ensemble-Averaged Bubble Model requires nb &gt;= 1</li>
 <li>Polydisperse bubble dynamics requires nb &gt; 1</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>nb must be odd for polydisperse bubbles</li>
 </ul>
 <p></p>
@@ -914,16 +914,16 @@ Geometry</h3>
 <li>Min: 1</li>
 <li>Max: 10</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>5-equation model (model_eqns = 2) requires num_fluids to be set</li>
 <li>6-equation model (model_eqns = 3) requires num_fluids to be set</li>
 <li>4-equation model (model_eqns = 4) requires num_fluids to be set</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>num_fluids is not supported for model_eqns = 1</li>
 <li>num_fluids = 1 does not support mpp_lim</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>num_fluids must be positive</li>
 <li>perturb_flow_fluid must be between 0 and num_fluids</li>
 </ul>
@@ -937,7 +937,7 @@ Geometry</h3>
 <li>Min: 0</li>
 <li>Max: 10</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>num_ibs must be between 1 and num_patches_max (10)</li>
 </ul>
 <p></p>
@@ -959,7 +959,7 @@ Geometry</h3>
 <li>Min: 0</li>
 <li>Max: 10</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>num_patches must be non-negative</li>
 <li>num_patches must be positive for the non-restart case</li>
 </ul>
@@ -981,10 +981,10 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 1</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>num_source must be specified for acoustic_source</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>num_source must be non-negative</li>
 </ul>
 <p></p>
@@ -996,15 +996,15 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>down sample requires 3D (p &gt; 0)</li>
 <li>down sample requires p divisible by 3</li>
 <li>stretch_z requires p &gt; 0</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>6-equation model (model_eqns = 3) does not support cylindrical coordinates (cyl_coord = T and p != 0)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>p must be non-negative</li>
 <li>p must be odd for cylindrical coordinates</li>
 </ul>
@@ -1017,12 +1017,12 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">nb</span>, <span class="tt">poly_sigma</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>Polydisperse bubble dynamics requires nb &gt; 1</li>
 <li>Polydisperse bubble modeling requires the bubbles_euler flag to be set</li>
 <li>Polydisperse bubble modeling requires poly_sigma to be set</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>nb must be odd for polydisperse bubbles</li>
 <li>poly_sigma must be positive</li>
 </ul>
@@ -1035,10 +1035,10 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = single, <span class="tt">2</span> = double</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>output_partial_domain requires precision = 2</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>precision must be 1 or 2</li>
 </ul>
 <p></p>
@@ -1050,7 +1050,7 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">num_probes</span>, <span class="tt">fd_order</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>fd_order must be specified for probe_wrt</li>
 </ul>
 <p></p>
@@ -1062,11 +1062,11 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, recommends: <span class="tt">bubbles_euler</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>QBMM requires the bubbles_euler flag to be set</li>
 <li>QBMM requires nnode = 4</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>adv_n is not compatible with qbmm</li>
 <li>adap_dt is not compatible with qbmm</li>
 </ul>
@@ -1082,7 +1082,7 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When = 2, recommends: <span class="tt">muscl_order</span>, <span class="tt">muscl_lim</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>int_comp (THINC interface compression) requires recon_type = 2 (MUSCL)</li>
 </ul>
 <p></p>
@@ -1094,10 +1094,10 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">mhd</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>relativity requires mhd to be enabled</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD is not available for RMHD (relativity)</li>
 </ul>
 <p></p>
@@ -1109,16 +1109,16 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = HLL, <span class="tt">2</span> = HLLC, <span class="tt">3</span> = Exact, <span class="tt">4</span> = HLLD, <span class="tt">5</span> = Lax-Friedrichs</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>hypoelasticity requires HLL Riemann solver (riemann_solver = 1)</li>
 <li>6-equation model (model_eqns = 3) requires riemann_solver = 2 (HLLC)</li>
 <li>wave_speeds must be set if riemann_solver != 3,5</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Exact Riemann (riemann_solver = 3) does not support wave_speeds</li>
 <li>HLLD is not available for RMHD (relativity)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>riemann_solver must be 1, 2, 3, 4 or 5</li>
 </ul>
 <p></p>
@@ -1130,11 +1130,11 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">fd_order</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>schlieren_wrt requires n &gt; 0 (at least 2D)</li>
 <li>fd_order must be set for schlieren_wrt</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>output_partial_domain is incompatible with certain output flags</li>
 </ul>
 <p></p>
@@ -1146,10 +1146,10 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>sigma must be set if surface_tension is enabled</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>sigma must be greater than or equal to zero</li>
 </ul>
 <p></p>
@@ -1161,15 +1161,15 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">a_x</span>, <span class="tt">x_a</span>, <span class="tt">x_b</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>a_x must be set with stretch_x enabled</li>
 <li>x_a must be set with stretch_x enabled</li>
 <li>x_b must be set with stretch_x enabled</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>old_grid and stretch_x are incompatible</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>x_a must be less than x_b with stretch_x enabled</li>
 </ul>
 <p></p>
@@ -1181,15 +1181,15 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">a_y</span>, <span class="tt">y_a</span>, <span class="tt">y_b</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>a_y must be set with stretch_y enabled</li>
 <li>y_a must be set with stretch_y enabled</li>
 <li>y_b must be set with stretch_y enabled</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>old_grid and stretch_y are incompatible</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>y_a must be less than y_b with stretch_y enabled</li>
 </ul>
 <p></p>
@@ -1201,16 +1201,16 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">a_z</span>, <span class="tt">z_a</span>, <span class="tt">z_b</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>a_z must be set with stretch_z enabled</li>
 <li>z_a must be set with stretch_z enabled</li>
 <li>z_b must be set with stretch_z enabled</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>old_grid and stretch_z are incompatible</li>
 <li>stretch_z is not compatible with cylindrical coordinates</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>z_a must be less than z_b with stretch_z enabled</li>
 </ul>
 <p></p>
@@ -1222,12 +1222,12 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">sigma</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>sigma must be set if surface_tension is enabled</li>
 <li>The surface tension model requires model_eqns = 2 or model_eqns = 3</li>
 <li>The surface tension model requires num_fluids = 2</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>sigma must be greater than or equal to zero</li>
 </ul>
 <p></p>
@@ -1239,7 +1239,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>t_save must be positive</li>
 <li>t_save must be &lt;= t_stop</li>
 </ul>
@@ -1261,7 +1261,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 1</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>t_step_save must be positive</li>
 <li>t_step_save must be &lt;= (t_step_stop - t_step_start)</li>
 </ul>
@@ -1274,7 +1274,7 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>t_stop must be positive</li>
 <li>t_save must be &lt;= t_stop</li>
 </ul>
@@ -1287,11 +1287,11 @@ Geometry</h3>
 <p><b>Dependencies:</b></p><ul>
 <li>When enabled, requires: <span class="tt">teno_CT</span></li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>teno requires teno_CT to be set. A typical value is 1e-6</li>
 <li>teno requires weno_order = 5 or 7</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>teno_CT must be positive. A typical value is 1e-6</li>
 </ul>
 <p></p>
@@ -1303,10 +1303,10 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = RK1 (Forward Euler), <span class="tt">2</span> = RK2, <span class="tt">3</span> = RK3 (SSP)</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>adap_dt requires Runge-Kutta 3 (time_stepper = 3)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>time_stepper must be 1, 2, or 3</li>
 </ul>
 <p></p>
@@ -1327,14 +1327,14 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = direct, <span class="tt">2</span> = pressure</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>wave_speeds must be set if riemann_solver != 3,5</li>
 <li>6-equation model (model_eqns = 3) requires wave_speeds = 1</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Exact Riemann (riemann_solver = 3) does not support wave_speeds</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>wave_speeds must be 1 or 2</li>
 </ul>
 <p></p>
@@ -1346,10 +1346,10 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Min: 0</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>weno_order != 1 requires weno_eps to be set. A typical value is 1e-6</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>weno_eps must be positive. A typical value is 1e-6</li>
 </ul>
 <p></p>
@@ -1361,22 +1361,35 @@ Geometry</h3>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">0</span> = MUSCL mode, <span class="tt">1</span> = 1st order, <span class="tt">3</span> = WENO3, <span class="tt">5</span> = WENO5, <span class="tt">7</span> = WENO7</li>
 </ul>
-<p><b>Requirements:</b></p><ul>
+<p><b>Requirements</b> (errors):</p><ul>
 <li>weno_order != 1 requires weno_eps to be set. A typical value is 1e-6</li>
 <li>wenoz at 7th order requires wenoz_q to be set (should be 2, 3, or 4)</li>
 <li>teno requires weno_order = 5 or 7</li>
 </ul>
-<p><b>Incompatibilities:</b></p><ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
 <li>mapped_weno is not compatible with weno_order = 1</li>
 <li>wenoz is not compatible with weno_order = 1</li>
 <li>weno_order = 1 without weno_avg does not support fluid_pp(i)Re(j)</li>
 </ul>
-<p><b>Valid values:</b></p><ul>
+<p><b>Valid values</b> (errors):</p><ul>
 <li>weno_order must be 1, 3, 5, or 7</li>
 <li>m must be at least weno_order - 1 (= weno_order - 1)</li>
 </ul>
 <p></p>
 </details>
+<h2 class="doxsection"><a class="anchor" id="physics-warnings"></a>
+⚠️ Physics Warnings</h2>
+<p>These checks are <b>non-fatal</b> — they print a yellow warning but do not abort the run. They catch common mistakes in initial conditions and EOS parameters.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Check  </th><th class="markdownTableHeadNone">Stage  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Alpha-Rho Consistency</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): alpha(j) = 0 but alpha_rho(j) = alpha_rho (density in absent phase); patch_icpp(i): alpha(j) = alpha but alpha_rho(j) = 0 (present phase has zero density)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Volume Fraction Sum</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): volume fractions sum to alpha_sum, expected 1.0  </td></tr>
+</table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic. </p>
 </div></div><!-- contents -->

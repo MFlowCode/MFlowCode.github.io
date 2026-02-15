@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔢_20model_20equations_0',['🔢 Model Equations',['../case_constraints.html#model-equations',1,'']]]
+  ['📖_20quick_20parameter_20reference_0',['📖 Quick Parameter Reference',['../case_constraints.html#quick-parameter-reference',1,'']]]
 ];

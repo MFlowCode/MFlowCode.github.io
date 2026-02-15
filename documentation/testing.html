@@ -128,7 +128,7 @@ $(function(){initNavTree('testing.html','',''); });
   <div class="headertitle"><div class="title">Testing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2 class="doxsection"><a class="anchor" id="autotoc_md406"></a>
+<div class="textblock"><h2 class="doxsection"><a class="anchor" id="autotoc_md456"></a>
 Testing</h2>
 <p>To run MFC's test suite, run </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt;</div>
 </div><!-- fragment --><p>It will generate and run test cases, comparing their output to previous runs from versions of MFC considered accurate. <em>golden files</em>, stored in the <span class="tt">tests/</span> directory contain this data, aggregating <span class="tt">.dat</span> files generated when running MFC. A test is considered passing when our error tolerances are met in order to maintain a high level of stability and accuracy. <span class="tt">./mfc.sh test</span> has the following unique options:</p><ul>
@@ -143,7 +143,7 @@ Testing</h2>
 </ul>
 <p>To specify a computer, pass the <span class="tt">-c</span> flag to <span class="tt">./mfc.sh run</span> like so: </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt; -- -c &lt;computer name&gt;</div>
 </div><!-- fragment --><p> where <span class="tt">&lt;computer name&gt;</span> could be <span class="tt">phoenix</span> or any of the others in the <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/templates">templates</a>). You can create new templates with the appropriate run commands or omit this option. The use of <span class="tt">--</span> in the above command passes options to the <span class="tt">./mfc.sh run</span> command underlying the <span class="tt">./mfc.sh test</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md407"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md457"></a>
 Creating Tests</h3>
 <p>Creating and updating test cases can be done with the following command line arguments:</p><ul>
 <li><span class="tt">--generate</span> to generate golden files for a new test case</li>
@@ -190,7 +190,7 @@ Creating Tests</h3>
 </ul>
 <p>If a trace is empty (that is, the empty string <span class="tt">""</span>), it will not appear in the final trace, but any case parameter variations associated with it will still be applied.</p>
 <p>Finally, the case is appended to the <span class="tt">cases</span> list, which will be returned by the <span class="tt">list_cases</span> function.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md408"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md458"></a>
 Testing Post Process</h3>
 <p>To test the post-processing code, append the <span class="tt">-a</span> or <span class="tt">--test-all</span> option: </p><div class="fragment"><div class="line">./mfc.sh test -a -j 8</div>
 </div><!-- fragment --><p>This argument will re-run the test stack with <span class="tt">parallel_io='T'</span>, which generates silo_hdf5 files. It will also turn most write parameters (<span class="tt">*_wrt</span>) on. Then, it searches through the silo files using <span class="tt">h5dump</span> to ensure that there are no <span class="tt">NaN</span>s or <span class="tt">Infinity</span>s. Although adding this option does not guarantee that accurate <span class="tt">.silo</span> files are generated, it does ensure that the post-process code does not fail or produce malformed data. </p>

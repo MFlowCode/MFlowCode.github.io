@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🚀_20common_20configuration_20patterns_0',['🚀 Common Configuration Patterns',['../case_constraints.html#common-configuration-patterns',1,'']]]
+  ['🔴_20advanced_20examples_0',['🔴 Advanced Examples',['../case_constraints.html#autotoc_md27',1,'']]]
 ];

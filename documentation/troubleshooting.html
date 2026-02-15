@@ -128,12 +128,12 @@ $(function(){initNavTree('troubleshooting.html','',''); });
   <div class="headertitle"><div class="title">Troubleshooting Guide </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md409"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md459"></a>
 Troubleshooting Guide</h1>
 <p>This guide covers debugging tools, common issues, and troubleshooting workflows for MFC.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md410"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
 Quick Reference</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md411"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md461"></a>
 Debugging Flags</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -155,7 +155,7 @@ Debugging Flags</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--no-mpi</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Disable MPI to isolate issues  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md412"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
 Profiling Flags</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -169,7 +169,7 @@ Profiling Flags</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--rsys</span>  </td><td class="markdownTableBodyNone">run  </td><td class="markdownTableBodyNone">AMD rocprof  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md413"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md463"></a>
 Useful Commands</h3>
 <div class="fragment"><div class="line">./mfc.sh validate case.py      # Check case for errors before running</div>
 <div class="line">./mfc.sh build --debug         # Build with debug symbols</div>
@@ -178,9 +178,9 @@ Useful Commands</h3>
 <div class="line">./mfc.sh test --only &lt;UUID&gt;    # Run a specific test</div>
 <div class="line">./mfc.sh clean                 # Clean and start fresh</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md415"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
 Debugging Workflow</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md416"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
 Build Fails?</h3>
 <div class="fragment"><div class="line">1. Run with -vv to see full error output</div>
 <div class="line">   ./mfc.sh build -vv</div>
@@ -194,7 +194,7 @@ Build Fails?</h3>
 <div class="line"> </div>
 <div class="line">4. Clean and rebuild:</div>
 <div class="line">   ./mfc.sh clean &amp;&amp; ./mfc.sh build</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md417"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md467"></a>
 Run Fails?</h3>
 <div class="fragment"><div class="line">1. Validate your case first:</div>
 <div class="line">   ./mfc.sh validate case.py</div>
@@ -210,7 +210,7 @@ Run Fails?</h3>
 <div class="line">5. Build in debug mode for better error messages:</div>
 <div class="line">   ./mfc.sh build --debug</div>
 <div class="line">   ./mfc.sh run case.py</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md418"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
 Test Fails?</h3>
 <div class="fragment"><div class="line">1. Run the specific failing test:</div>
 <div class="line">   ./mfc.sh test --only &lt;UUID&gt;</div>
@@ -224,9 +224,9 @@ Test Fails?</h3>
 <div class="line">4. If changes are intentional, regenerate golden files:</div>
 <div class="line">   ./mfc.sh test --generate --only &lt;UUID&gt;</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md420"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
 Build Debugging</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md421"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md471"></a>
 Verbosity Levels</h3>
 <p>MFC supports three verbosity levels for builds:</p>
 <p><b><span class="tt">-v</span> (Level 1):</b> Shows build progress with file counts </p><div class="fragment"><div class="line">./mfc.sh build -v</div>
@@ -237,7 +237,7 @@ Verbosity Levels</h3>
 </div><!-- fragment --><p><b><span class="tt">-vvv</span> (Level 3):</b> Adds cmake dependency debugging </p><div class="fragment"><div class="line">./mfc.sh build -vvv</div>
 <div class="line"># Shows: cmake --debug-find output</div>
 <div class="line"># Useful for: Finding why cmake can&#39;t locate MPI, HDF5, etc.</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md422"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md472"></a>
 Debug Builds</h3>
 <p>Build with debug symbols for better error messages and debugging:</p>
 <div class="fragment"><div class="line">./mfc.sh build --debug</div>
@@ -247,12 +247,12 @@ Debug Builds</h3>
 <li>Enables runtime checks in some compilers</li>
 <li>Makes stack traces more readable</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md423"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md473"></a>
 Code Coverage</h3>
 <p>Build with code coverage instrumentation:</p>
 <div class="fragment"><div class="line">./mfc.sh build --gcov</div>
 </div><!-- fragment --><p>Useful for identifying which code paths are exercised by tests.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md424"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md474"></a>
 Isolating Issues</h3>
 <p>When builds fail, isolate the problem by disabling features:</p>
 <div class="fragment"><div class="line"># Rule out GPU compiler issues</div>
@@ -264,7 +264,7 @@ Isolating Issues</h3>
 <div class="line"># Rule out precision issues</div>
 <div class="line">./mfc.sh build --single    # Single precision</div>
 <div class="line">./mfc.sh build --mixed     # Mixed precision</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md425"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md475"></a>
 Clean Rebuild</h3>
 <p>Sometimes a clean rebuild fixes issues:</p>
 <div class="fragment"><div class="line">./mfc.sh clean</div>
@@ -272,9 +272,9 @@ Clean Rebuild</h3>
 </div><!-- fragment --><p>Or manually: </p><div class="fragment"><div class="line">rm -rf build/</div>
 <div class="line">./mfc.sh build -j $(nproc)</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md427"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md477"></a>
 Runtime Debugging</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md428"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md478"></a>
 Case Validation</h3>
 <p><b>Always validate your case before running:</b></p>
 <div class="fragment"><div class="line">./mfc.sh validate case.py</div>
@@ -291,7 +291,7 @@ Case Validation</h3>
 <div class="line">Warnings:</div>
 <div class="line">  [yellow] bubbles=True recommends setting: nb, polytropic</div>
 </div><!-- fragment --><p>For more detailed validation output: </p><div class="fragment"><div class="line">./mfc.sh validate case.py -d</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md429"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md479"></a>
 Verbose Runs</h3>
 <p>Add verbosity to see what's happening:</p>
 <div class="fragment"><div class="line"># Show the exact command being run</div>
@@ -299,29 +299,29 @@ Verbose Runs</h3>
 <div class="line"> </div>
 <div class="line"># Show job script details</div>
 <div class="line">./mfc.sh run case.py -vv</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md430"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md480"></a>
 Debug Log</h3>
 <p>Write detailed debug information to a log file:</p>
 <div class="fragment"><div class="line">./mfc.sh run case.py -d</div>
 </div><!-- fragment --><p>This creates a debug log with detailed internal state, useful for reporting issues.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md431"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md481"></a>
 Running with Fewer Ranks</h3>
 <p>To isolate parallel issues, try running with fewer MPI ranks:</p>
 <div class="fragment"><div class="line">./mfc.sh run case.py -n 1    # Single rank</div>
 <div class="line">./mfc.sh run case.py -n 2    # Two ranks</div>
 </div><!-- fragment --><hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md433"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md483"></a>
 Test Debugging</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md434"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md484"></a>
 Running Specific Tests</h3>
 <p>Run only a specific test by UUID:</p>
 <div class="fragment"><div class="line">./mfc.sh test --only 3D_sphbubcollapse</div>
 </div><!-- fragment --><p>Run multiple specific tests: </p><div class="fragment"><div class="line">./mfc.sh test --only 3D_sphbubcollapse 2D_shockbubble</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md435"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md485"></a>
 Serial Test Execution</h3>
 <p>Run tests serially for clearer output:</p>
 <div class="fragment"><div class="line">./mfc.sh test -j 1</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md436"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md486"></a>
 Test Output Location</h3>
 <p>Test outputs are written to: </p><div class="fragment"><div class="line">build/tests/&lt;UUID&gt;/</div>
 </div><!-- fragment --><p>This directory contains:</p><ul>
@@ -329,7 +329,7 @@ Test Output Location</h3>
 <li>Output files from each stage (pre_process, simulation, post_process)</li>
 <li>Any error messages or logs</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md437"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md487"></a>
 Regenerating Golden Files</h3>
 <p>If you intentionally changed physics/numerics, regenerate reference files:</p>
 <div class="fragment"><div class="line"># Regenerate for specific tests</div>
@@ -337,7 +337,7 @@ Regenerating Golden Files</h3>
 <div class="line"> </div>
 <div class="line"># Regenerate for a range of tests</div>
 <div class="line">./mfc.sh test --generate --from &lt;UUID1&gt; --to &lt;UUID2&gt;</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md438"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md488"></a>
 Understanding Test Failures</h3>
 <p><b>"Golden file mismatch"</b> means numerical results differ from reference values.</p>
 <p>Possible causes:</p><ol type="1">
@@ -347,9 +347,9 @@ Understanding Test Failures</h3>
 <li><b>Platform differences:</b> CPU architecture, GPU differences</li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md440"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md490"></a>
 Performance Profiling</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md441"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md491"></a>
 NVIDIA GPU Profiling</h3>
 <p><b>Nsight Compute</b> (kernel-level analysis): </p><div class="fragment"><div class="line">./mfc.sh run case.py --ncu</div>
 <div class="line"># Or with additional ncu flags:</div>
@@ -357,11 +357,11 @@ NVIDIA GPU Profiling</h3>
 </div><!-- fragment --><p><b>Nsight Systems</b> (timeline/system analysis): </p><div class="fragment"><div class="line">./mfc.sh run case.py --nsys</div>
 <div class="line"># Or with additional nsys flags:</div>
 <div class="line">./mfc.sh run case.py --nsys -o profile_output</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md442"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md492"></a>
 AMD GPU Profiling</h3>
 <p><b>rocprof-compute</b> (kernel analysis): </p><div class="fragment"><div class="line">./mfc.sh run case.py --rcu</div>
 </div><!-- fragment --><p><b>rocprof</b> (system profiling): </p><div class="fragment"><div class="line">./mfc.sh run case.py --rsys</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md443"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md493"></a>
 Performance vs Correctness</h3>
 <p>If results seem wrong, first verify correctness:</p><ol type="1">
 <li>Run <span class="tt">./mfc.sh validate case.py</span></li>
@@ -374,9 +374,9 @@ Performance vs Correctness</h3>
 <li>Check GPU utilization with <span class="tt">nvidia-smi</span> or <span class="tt">rocm-smi</span></li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md495"></a>
 Common Build Errors</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md496"></a>
 "CMake could not find MPI"</h3>
 <p><b>Cause:</b> MPI is not installed or not in PATH.</p>
 <p><b>Fix:</b></p><ul>
@@ -385,7 +385,7 @@ Common Build Errors</h2>
 <li><b>HPC systems:</b> <span class="tt">module load openmpi</span> or use <span class="tt">./mfc.sh load</span></li>
 </ul>
 <p>Verify: <span class="tt">mpirun --version</span></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md447"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md497"></a>
 "CMake could not find a Fortran compiler"</h3>
 <p><b>Cause:</b> No Fortran compiler installed or not in PATH.</p>
 <p><b>Fix:</b></p><ul>
@@ -393,7 +393,7 @@ Common Build Errors</h2>
 <li><b>macOS (Homebrew):</b> <span class="tt">brew install gcc</span></li>
 <li><b>HPC systems:</b> <span class="tt">module load gcc</span> or <span class="tt">module load nvhpc</span></li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md448"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md498"></a>
 "Fypp preprocessing failed"</h3>
 <p><b>Cause:</b> Syntax error in <span class="tt">.fpp</span> files or missing Fypp.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -401,7 +401,7 @@ Common Build Errors</h2>
 <li>Check the specific error line in the output</li>
 <li>Run <span class="tt">./mfc.sh format</span> to check for formatting issues</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md449"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md499"></a>
 Build fails with GPU/OpenACC errors</h3>
 <p><b>Cause:</b> GPU compiler not properly configured.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -414,7 +414,7 @@ Build fails with GPU/OpenACC errors</h3>
 <li>Set CUDA compute capability if needed: <span class="tt">export MFC_CUDA_CC=80</span></li>
 <li>Try building without GPU first: <span class="tt">./mfc.sh build --no-gpu</span></li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md450"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md500"></a>
 "Module not found" on HPC</h3>
 <p><b>Cause:</b> Required modules not loaded.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -424,9 +424,9 @@ Build fails with GPU/OpenACC errors</h3>
 </div><!-- fragment --></li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md452"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md502"></a>
 Common Runtime Errors</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md453"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md503"></a>
 "Case parameter constraint violations"</h3>
 <p><b>Cause:</b> Invalid combination of simulation parameters.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -439,7 +439,7 @@ Common Runtime Errors</h2>
 <li><span class="tt">weno_order</span> too high for grid size</li>
 <li>Boundary conditions not matching domain setup</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md454"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md504"></a>
 "NaN detected"</h3>
 <p><b>Cause:</b> Numerical instability.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -449,7 +449,7 @@ Common Runtime Errors</h2>
 <li>Try a more diffusive scheme initially</li>
 <li>Check CFL condition</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md455"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md505"></a>
 GPU not detected</h3>
 <p><b>Cause:</b> GPU drivers or runtime not configured.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -462,7 +462,7 @@ GPU not detected</h3>
 <li>Ensure correct modules are loaded</li>
 <li>Set <span class="tt">OMP_TARGET_OFFLOAD=MANDATORY</span> to force GPU (fails fast if unavailable)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md456"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md506"></a>
 MPI errors or hangs</h3>
 <p><b>Cause:</b> MPI configuration issues or deadlocks.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -472,7 +472,7 @@ MPI errors or hangs</h3>
 <li>On clusters, ensure you're using the correct MPI for the interconnect</li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md458"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md508"></a>
 Getting Help</h2>
 <p>If you can't resolve an issue:</p>
 <ol type="1">

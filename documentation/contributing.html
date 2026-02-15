@@ -188,8 +188,8 @@ Simulation Data Flow</h3>
 <div class="line">    → RHS assembly</div>
 <div class="line">    → Runge-Kutta update → q_cons_vf (next stage/step)</div>
 </div><!-- fragment --><p>Key data structures (defined in <span class="tt">src/common/m_derived_types.fpp</span>):</p><ul>
-<li><span class="tt">scalar_field</span> — wraps a 3D <span class="tt">real(stp)</span> array (<span class="tt">sf(i,j,k)</span>)</li>
-<li><span class="tt">vector_field</span> — array of <span class="tt">scalar_field</span> (<span class="tt">vf(1:sys_size)</span>)</li>
+<li><span class="tt">scalar_field</span> — wraps a 3D <span class="tt">real(stp)</span> array (<span class="tt">%sf(i,j,k)</span>)</li>
+<li><span class="tt">vector_field</span> — array of <span class="tt">scalar_field</span> (<span class="tt">%vf(1:sys_size)</span>)</li>
 <li><span class="tt">q_cons_vf</span> / <span class="tt">q_prim_vf</span> — conservative and primitive state vectors</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md71"></a>
@@ -279,7 +279,7 @@ Common Pitfalls</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md78"></a>
 Array Bounds and Indexing</h3>
 <ul>
-<li>MFC uses <b>non-unity lower bounds</b> (e.g., <span class="tt">idwbuff(1)beg:idwbuff(1)end</span> with negative ghost-cell indices). Always verify loop bounds match array declarations.</li>
+<li>MFC uses <b>non-unity lower bounds</b> (e.g., <span class="tt">idwbuff(1)%beg:idwbuff(1)%end</span> with negative ghost-cell indices). Always verify loop bounds match array declarations.</li>
 <li><b>Riemann solver indexing:</b> Left states at <span class="tt">j</span>, right states at <span class="tt">j+1</span>. Off-by-one here corrupts fluxes.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md79"></a>
@@ -311,7 +311,7 @@ Physics and Model Consistency</h3>
 <li><b>Pressure formula</b> must match <span class="tt">model_eqns</span> value. Model 2/3 (multi-fluid), model 4 (bubbles), MHD, and hypoelastic each use different EOS formulations. Wrong formula = wrong physics.</li>
 <li><b>Conservative-primitive conversion:</b> Density recovery, kinetic energy, and pressure each have model-specific paths. Verify the correct branch is taken.</li>
 <li><b>Volume fractions</b> must sum to 1. <span class="tt">alpha_rho_K</span> must be non-negative. Species mass fractions should be clipped to [0,1].</li>
-<li><b>Boundary conditions:</b> Periodic BCs must match at both ends (<span class="tt">bc_xbeg</span> and <span class="tt">bc_xend</span>). Cylindrical coordinates have special requirements (<span class="tt">bc_ybeg = -14</span> for axis in 3D).</li>
+<li><b>Boundary conditions:</b> Periodic BCs must match at both ends (<span class="tt">bc_x%beg</span> and <span class="tt">bc_x%end</span>). Cylindrical coordinates have special requirements (<span class="tt">bc_y%beg = -14</span> for axis in 3D).</li>
 <li><b>Parameter constraints:</b> New parameters or physics features must be validated in <span class="tt">toolchain/mfc/case_validator.py</span>. New features should add corresponding validation.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md83"></a>
@@ -395,7 +395,8 @@ How to Add a New Simulation Parameter</h3>
 <div class="fragment"><div class="line"><span class="keyword">def </span>check_my_feature(self):</div>
 <div class="line">    <span class="keywordflow">if</span> self.params[<span class="stringliteral">&quot;my_param&quot;</span>] &gt; 0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.params[<span class="stringliteral">&quot;other_param&quot;</span>]:</div>
 <div class="line">        self.errors.append(<span class="stringliteral">&quot;my_param requires other_param to be set&quot;</span>)</div>
-</div><!-- fragment --><p><b>Step 5: Declare in Fortran</b> (<span class="tt">src/&lt;target&gt;/m_global_parameters.fpp</span>)</p>
+</div><!-- fragment --><p>If your check enforces a physics constraint, also add a <span class="tt">PHYSICS_DOCS</span> entry (see <a class="el" href="#how-to-document-physics-constraints" title="How to Document Physics Constraints">How to Document Physics Constraints</a> below).</p>
+<p><b>Step 5: Declare in Fortran</b> (<span class="tt">src/&lt;target&gt;/m_global_parameters.fpp</span>)</p>
 <p>Add the variable declaration in the appropriate target's global parameters module. Choose the target(s) where the parameter is used:</p>
 <ul>
 <li><span class="tt">src/pre_process/m_global_parameters.fpp</span></li>
@@ -672,6 +673,39 @@ Modifying <span class="tt">src/common/</span></h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md97"></a>
 Debugging</h3>
 <p>See <a class="el" href="troubleshooting.html" title="Troubleshooting Guide">Troubleshooting Guide</a> for debugging workflows, profiling tools, GPU diagnostic environment variables, common build/runtime errors, and fixes.</p>
+<h3 class="doxsection"><a class="anchor" id="how-to-document-physics-constraints"></a>
+How to Document Physics Constraints</h3>
+<p>When adding a new <span class="tt">check_</span> method to <span class="tt">case_validator.py</span>, document its physics by adding an entry to the <span class="tt">PHYSICS_DOCS</span> dict at the top of the file:</p>
+<div class="fragment"><div class="line">PHYSICS_DOCS = {</div>
+<div class="line">    ...</div>
+<div class="line">    <span class="stringliteral">&quot;check_my_feature&quot;</span>: {</div>
+<div class="line">        <span class="stringliteral">&quot;title&quot;</span>: <span class="stringliteral">&quot;My Feature Constraint&quot;</span>,          <span class="comment"># Required: human-readable title</span></div>
+<div class="line">        <span class="stringliteral">&quot;category&quot;</span>: <span class="stringliteral">&quot;Thermodynamic Constraints&quot;</span>,    <span class="comment"># Required: groups the constraint in docs</span></div>
+<div class="line">        <span class="stringliteral">&quot;explanation&quot;</span>: <span class="stringliteral">&quot;Why this constraint exists.&quot;</span>, <span class="comment"># Required: plain English</span></div>
+<div class="line">        <span class="stringliteral">&quot;math&quot;</span>: <span class="stringliteral">r&quot;\alpha &gt; 0&quot;</span>,                      <span class="comment"># Optional: LaTeX formula</span></div>
+<div class="line">        <span class="stringliteral">&quot;references&quot;</span>: [<span class="stringliteral">&quot;Wilfong26&quot;</span>],                <span class="comment"># Optional: BibTeX keys from references.bib</span></div>
+<div class="line">        <span class="stringliteral">&quot;exceptions&quot;</span>: [<span class="stringliteral">&quot;IBM cases&quot;</span>],                <span class="comment"># Optional: when constraint doesn&#39;t apply</span></div>
+<div class="line">    },</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>The <a class="el" href="physics_constraints.html" title="Physics Constraints">Physics Constraints</a> page is <b>auto-generated</b> — run <span class="tt">./mfc.sh generate</span> to rebuild it. The generator merges your <span class="tt">PHYSICS_DOCS</span> entry with the AST-extracted <span class="tt">prohibit()</span>/<span class="tt">warn()</span> calls, so stage, severity, and parameter information appear automatically.</p>
+<p><b>Fields:</b></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Field  </th><th class="markdownTableHeadNone">Required  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">title</span>  </td><td class="markdownTableBodyNone">Yes  </td><td class="markdownTableBodyNone">Section heading in generated docs  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">category</span>  </td><td class="markdownTableBodyNone">Yes  </td><td class="markdownTableBodyNone">Grouping category (e.g., "Mixture Constraints")  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">explanation</span>  </td><td class="markdownTableBodyNone">Yes  </td><td class="markdownTableBodyNone">Plain English description of the physics  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">math</span>  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">LaTeX formula (rendered by Doxygen's MathJax)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">references</span>  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">List of BibTeX cite keys from <span class="tt">docs/references.bib</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">exceptions</span>  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">List of cases where the constraint doesn't apply  </td></tr>
+</table>
+<p><b>Categories:</b> Thermodynamic Constraints, Mixture Constraints, Domain and Geometry, Velocity and Dimensional Consistency, Model Equations, Boundary Conditions, Bubble Physics, Feature Compatibility, Numerical Schemes, Acoustic Sources, Post-Processing.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md98"></a>
 Testing</h2>
 <p>MFC has 500+ regression tests. See <a class="el" href="testing.html" title="Testing">Testing</a> for the full guide.</p>

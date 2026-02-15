@@ -167,7 +167,7 @@ Basic Skeleton</h2>
 <p>To run such a case, use the following format:</p>
 <div class="fragment"><div class="line">./mfc.sh run &lt;path/to/case.py&gt; &lt;mfc.sh run arguments&gt; -- &lt;case arguments&gt;</div>
 </div><!-- fragment --><p>For example, to run the <span class="tt">scaling</span> case in "weak-scaling" mode:</p>
-<div class="fragment"><div class="line">./mfc.sh run examples/scaling/case.py -t pre_process -j 8 -- --scaling weak</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/scaling/benchmark.py -t pre_process -j 8 -- --scaling weak</div>
 </div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 Parameters</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
@@ -369,15 +369,15 @@ Parameter Descriptions</h4>
 <li><span class="tt">patch_icpp(2)%alter_patch(1) = 'T'</span></li>
 </ul>
 </li>
-<li><span class="tt">smoothen</span> activates smoothening of the boundary of the patch that alters the existing patch. When smoothening occurs, fluids of the two patches are mixed in the region of the boundary. For instance, in the aforementioned case of the cylindrical patch immersed in the rectangular patch, smoothening occurs when <span class="tt">patch_icpp(2)smoothen = 'T'</span>. <span class="tt">smooth_coeff</span> controls the thickness of the region of smoothening (sharpness of the mixture region). The default value of <span class="tt">smooth_coeff</span> is unity. The region of smoothening is thickened with decreasing the value. Optimal choice of the value of <span class="tt">smooth_coeff</span> is case-dependent and left to the user.</li>
-<li><span class="tt">patch_icpp(j)alpha(i)</span>, <span class="tt">patch_icpp(j)alpha_rho(i)</span>, <span class="tt">patch_icpp(j)pres</span>, and <span class="tt">patch_icpp(j)vel(i)</span> define for $j$-th patch the void fraction of <span class="tt">fluid(i)</span>, partial density of <span class="tt">fluid(i)</span>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection.</li>
+<li><span class="tt">smoothen</span> activates smoothening of the boundary of the patch that alters the existing patch. When smoothening occurs, fluids of the two patches are mixed in the region of the boundary. For instance, in the aforementioned case of the cylindrical patch immersed in the rectangular patch, smoothening occurs when <span class="tt">patch_icpp(2)%smoothen = 'T'</span>. <span class="tt">smooth_coeff</span> controls the thickness of the region of smoothening (sharpness of the mixture region). The default value of <span class="tt">smooth_coeff</span> is unity. The region of smoothening is thickened with decreasing the value. Optimal choice of the value of <span class="tt">smooth_coeff</span> is case-dependent and left to the user.</li>
+<li><span class="tt">patch_icpp(j)%alpha(i)</span>, <span class="tt">patch_icpp(j)%alpha_rho(i)</span>, <span class="tt">patch_icpp(j)%pres</span>, and <span class="tt">patch_icpp(j)%vel(i)</span> define for $j$-th patch the void fraction of <span class="tt">fluid(i)</span>, partial density of <span class="tt">fluid(i)</span>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection.</li>
 <li><span class="tt">model_filepath</span> defines the root directory of the STL or OBJ model file.</li>
 <li><span class="tt">model_scale</span>, <span class="tt">model_rotate</span> and <span class="tt">model_translate</span> define how the model should be transformed to domain-space by first scaling by <span class="tt">model_scale</span>, then rotating about the Z, X, and Y axes (using <span class="tt">model_rotate</span>), and finally translating by <span class="tt">model_translate</span>.</li>
 <li><span class="tt">model_spc</span> and <span class="tt">model_threshold</span> are ray-tracing parameters. <span class="tt">model_spc</span> defines the number of rays per cell to render the model. <span class="tt">model_threshold</span> defines the ray-tracing threshold at which the cell is marked as the model.</li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Elliptic Smoothing</h4>
-<p>Initial conditions in which not all patches support the <span class="tt">patch_icpp(j)smoothen</span> parameter can still be smoothed by applying iterations of the heat equation to the initial condition. This is enabled by adding <span class="tt">'elliptic_smoothing': "T",</span> and <span class="tt">'elliptic_smoothing_iters': N,</span> to the case dictionary, where <span class="tt">N</span> is the number of smoothing iterations to apply.</p>
+<p>Initial conditions in which not all patches support the <span class="tt">patch_icpp(j)%smoothen</span> parameter can still be smoothed by applying iterations of the heat equation to the initial condition. This is enabled by adding <span class="tt">'elliptic_smoothing': "T",</span> and <span class="tt">'elliptic_smoothing_iters': N,</span> to the case dictionary, where <span class="tt">N</span> is the number of smoothing iterations to apply.</p>
 <h3 class="doxsection"><a class="anchor" id="sec-immersed-boundary-patches"></a>
 4. Immersed Boundary Patches</h3>
 <table class="markdownTable">
@@ -598,8 +598,8 @@ Parameter Descriptions</h4>
 <p>The table lists simulation algorithm parameters. The parameters are used to specify options in algorithms that are used to integrate the governing equations of the multi-component flow based on the initial condition. Models and assumptions that are used to formulate and discretize the governing equations are described in Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> and Bryngelson et al. <a class="el" href="citelist.html#CITEREF_bryngelson21">[8]</a>. Details of the simulation algorithms and implementation of the WENO scheme can be found in Coralic <a class="el" href="citelist.html#CITEREF_coralic15">[14]</a>.</p>
 <ul>
 <li><span class="tt">bc_[x,y,z]%[beg,end]</span> specifies the boundary conditions at the beginning and the end of domain boundaries in each coordinate direction by a negative integer from -1 through -16. See table <a class="el" href="#boundary-conditions" title="Boundary conditions">Boundary Conditions</a> for details. Boundary condition patches can be used with non-characteristic boundary conditions. Their use is detailed in <a class="el" href="#boundary-condition-patches" title="Boundary Condition Patches">Boundary Condition Patches</a>.</li>
-<li><span class="tt">bc_[x,y,z]%vb[1,2,3]</span> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <span class="tt">bc_[x,y,z]%beg</span> when using <span class="tt">bc_[x,y,z]%beg = -16</span>. Tangential velocities require viscosity, <span class="tt">weno_avg = T</span>, and <span class="tt">bc_[x,y,z]%beg = -16</span> to work properly. Normal velocities require <span class="tt">bc_[x,y,z]%end = -15</span> or <span class="tt">\bc_[x,y,z]%end = -16</span> to work properly.</li>
-<li><span class="tt">bc_[x,y,z]%ve[1,2,3]</span> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <span class="tt">bc_[x,y,z]%beg</span> when using <span class="tt">bc_[x,y,z]%end = -16</span>. Tangential velocities require viscosity, <span class="tt">weno_avg = T</span>, and <span class="tt">bc_[x,y,z]%end = 16</span> to work properly. Normal velocities require <span class="tt">bc_[x,y,z]%end = -15</span> or <span class="tt">\bc_[x,y,z]%end = -16</span> to work properly.</li>
+<li><span class="tt">bc_[x,y,z]%vb[1,2,3]</span> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <span class="tt">bc_[x,y,z]%beg</span> when using <span class="tt">bc_[x,y,z]%beg = -16</span>. Tangential velocities require viscosity, <span class="tt">weno_avg = T</span>, and <span class="tt">bc_[x,y,z]%beg = -16</span> to work properly. Normal velocities require <span class="tt">bc_[x,y,z]%end = -15</span> or <span class="tt">bc_[x,y,z]%end = -16</span> to work properly.</li>
+<li><span class="tt">bc_[x,y,z]%ve[1,2,3]</span> specifies the velocity in the (x,1), (y,2), (z,3) direction applied to <span class="tt">bc_[x,y,z]%beg</span> when using <span class="tt">bc_[x,y,z]%end = -16</span>. Tangential velocities require viscosity, <span class="tt">weno_avg = T</span>, and <span class="tt">bc_[x,y,z]%end = 16</span> to work properly. Normal velocities require <span class="tt">bc_[x,y,z]%end = -15</span> or <span class="tt">bc_[x,y,z]%end = -16</span> to work properly.</li>
 <li><span class="tt">model_eqns</span> specifies the choice of the multi-component model that is used to formulate the dynamics of the flow using integers from 1 through 3. <span class="tt">model_eqns = 1</span>, <span class="tt">2</span>, and <span class="tt">3</span> correspond to \(\Gamma\)- \(\Pi_\infty\) model (Johnsen <a class="el" href="citelist.html#CITEREF_johnsen08">[23]</a>), 5-equation model (Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>), and 6-equation model (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[41]</a>), respectively. The difference of the two models is assessed by (Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer20">[43]</a>). Note that some code parameters are only compatible with 5-equation model.</li>
 <li><span class="tt">alt_soundspeed</span> activates the source term in the advection equations for the volume fractions, \(K\nabla\cdot \underline{u}\), that regularizes the speed of sound in the mixture region when the 5-equation model is used. The effect and use of the source term are assessed by Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer20">[43]</a>.</li>
 <li><span class="tt">adv_n</span> activates the direct computation of number density by the Riemann solver instead of computing number density from the void fraction in the method of classes.</li>
@@ -625,7 +625,7 @@ Parameter Descriptions</h4>
 <li><span class="tt">wave_speeds</span> specifies the choice of the method to compute the left, right, and middle wave speeds in the Riemann solver by an integer of 1 and 2. <span class="tt">wave_speeds = 1</span> and <span class="tt">2</span> correspond to the direct method (Batten et al. <a class="el" href="citelist.html#CITEREF_batten97">[5]</a>), and indirect method that approximates the pressures and velocity (Toro <a class="el" href="citelist.html#CITEREF_toro09">[51]</a>), respectively.</li>
 <li><span class="tt">weno_Re_flux</span> activates the scalar divergence theorem in computing the velocity gradients using WENO-reconstructed cell boundary values. If this option is false, velocity gradient is computed using finite difference scheme of order 2 which is independent of the WENO order.</li>
 <li><span class="tt">weno_avg</span> it activates the arithmetic average of the left and right, WENO-reconstructed, cell-boundary values. This option requires <span class="tt">weno_Re_flux</span> to be true because cell boundary values are only utilized when employing the scalar divergence method in the computation of velocity gradients.</li>
-<li><span class="tt">surface_tension</span> activates surface tension when set to <span class="tt">'T'</span>. Requires <span class="tt">sigma</span> to be set and <span class="tt">num_fluids</span>. The color function in each patch should be assigned such that <span class="tt">patch_icpp(i)cf_val = 1</span> in patches where <span class="tt">patch_icpp(i)alpha = 1 - eps</span> and <span class="tt">patch_icpp(i)cf_val = 0</span> in patches where <span class="tt">patch_icpp(i)alpha = eps</span>.</li>
+<li><span class="tt">surface_tension</span> activates surface tension when set to <span class="tt">'T'</span>. Requires <span class="tt">sigma</span> to be set and <span class="tt">num_fluids</span>. The color function in each patch should be assigned such that <span class="tt">patch_icpp(i)%cf_val = 1</span> in patches where <span class="tt">patch_icpp(i)%alpha = 1 - eps</span> and <span class="tt">patch_icpp(i)%cf_val = 0</span> in patches where <span class="tt">patch_icpp(i)%alpha = eps</span>.</li>
 <li><span class="tt">viscous</span> activates viscosity when set to <span class="tt">'T'</span>. Requires <span class="tt">Re(1)</span> and <span class="tt">Re(2)</span> to be set.</li>
 <li><span class="tt">hypoelasticity</span> activates elastic stress calculations for fluid-solid interactions. Requires <span class="tt">G</span> to be set in the fluid material's parameters.</li>
 </ul>
@@ -738,9 +738,9 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">output_partial_domain</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Output part of the domain  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">[x,y,z]_outputbeg</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%beg</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">[x,y,z]_outputend</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%end</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_txt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to <span class="tt">.dat</span> files  </td></tr>
 <tr class="markdownTableRowEven">
@@ -789,7 +789,7 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">schlieren_alpha(i)</span> specifies the intensity of the numerical Schlieren of $i$-th component.</li>
 <li><span class="tt">fd_order</span> specifies the order of the finite difference scheme used to compute the vorticity from the velocity field and the numerical schlieren from the density field using an integer of 1, 2, and 4. <span class="tt">fd_order = 1</span>, <span class="tt">2</span>, and <span class="tt">4</span> correspond to the first, second, and fourth-order finite difference schemes.</li>
 <li><span class="tt">probe_wrt</span> activates the output of state variables at coordinates specified by <span class="tt">probe(i)%[x;y,z]</span>.</li>
-<li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_outputbeg</span> and <span class="tt">[x,y,z]_outputend</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
+<li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_output%beg</span> and <span class="tt">[x,y,z]_output%end</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="sec-acoustic-source"></a>
 8. Acoustic Source</h3>
@@ -1168,14 +1168,14 @@ Adaptive Time-Stepping</h5>
 16. Cylindrical Coordinates</h3>
 <p>When <span class="tt">cyl_coord = 'T'</span> is set in 3D the following constraints must be met:</p>
 <ul>
-<li><span class="tt">bc_ybeg = -14</span> enables the axis boundary condition</li>
-<li><span class="tt">bc_zbeg = bc_zend = -1</span> enables periodic boundary conditions in the azimuthal direction</li>
-<li><span class="tt">z_domainbeg = 0</span> sets the azimuthal starting point to 0</li>
-<li><span class="tt">z_domainend = 2*math.pi</span> to set the azimuthal ending point to \(2\pi\) (note, requires <span class="tt">import math</span> in the case file)</li>
+<li><span class="tt">bc_y%beg = -14</span> enables the axis boundary condition</li>
+<li><span class="tt">bc_z%beg = bc_z%end = -1</span> enables periodic boundary conditions in the azimuthal direction</li>
+<li><span class="tt">z_domain%beg = 0</span> sets the azimuthal starting point to 0</li>
+<li><span class="tt">z_domain%end = 2*math.pi</span> to set the azimuthal ending point to \(2\pi\) (note, requires <span class="tt">import math</span> in the case file)</li>
 </ul>
 <p>When <span class="tt">cyl_coord = 'T'</span> is set in 2D the following constraints must be met:</p>
 <ul>
-<li><span class="tt">bc_ybeg = -2</span> to enable reflective boundary conditions</li>
+<li><span class="tt">bc_y%beg = -2</span> to enable reflective boundary conditions</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 17. Chemistry</h3>
@@ -1185,18 +1185,18 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">chemistry</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable chemistry simulation  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">chem_paramsdiffusion</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable multispecies diffusion  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">chem_params%diffusion</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable multispecies diffusion  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">chem_paramsreactions</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable chemical reactions  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">chem_params%reactions</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable chemical reactions  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">chem_paramsgamma_method</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Methodology for calculating the heat capacity ratio  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">chem_params%gamma_method</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Methodology for calculating the heat capacity ratio  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">chem_paramstransport_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Methodology for calculating the diffusion coefficients  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">chem_params%transport_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Methodology for calculating the diffusion coefficients  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">cantera_file</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera-format mechanism file (e.g., .yaml)  </td></tr>
 </table>
 <ul>
-<li><span class="tt">chem_paramstransport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
+<li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
@@ -1245,23 +1245,23 @@ Generalized Characteristic Boundary conditions</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]grcbc_in</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable grcbc for subsonic inflow  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%grcbc_in</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable grcbc for subsonic inflow  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]grcbc_out</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable grcbc for subsonic outflow (pressure)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%grcbc_out</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable grcbc for subsonic outflow (pressure)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]grcbc_vel_out</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable grcbc for subsonic outflow (pressure + normal velocity)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%grcbc_vel_out</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable grcbc for subsonic outflow (pressure + normal velocity)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]vel_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow velocities in x, y and z directions  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow velocities in x, y and z directions  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]vel_out</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Outflow velocities in x, y and z directions  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_out</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Outflow velocities in x, y and z directions  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]pres_in</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Inflow pressure  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%pres_in</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Inflow pressure  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]pres_out</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Outflow pressure  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%pres_out</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Outflow pressure  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]alpha_rho_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow density  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%alpha_rho_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow density  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]alpha_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow void fraction  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%alpha_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow void fraction  </td></tr>
 </table>
 <p>This boundary condition can be used for subsonic inflow (<span class="tt">bc_[x,y,z]%[beg,end]</span> = -7) and subsonic outflow (<span class="tt">bc_[x,y,z]%[beg,end]</span> = -8) characteristic boundary conditions. These are based on Pirozzoli and Colonius <a class="el" href="citelist.html#CITEREF_pirozzoli13">[36]</a>. This enables to provide inflow and outflow conditions outside the computational domain.</p>
 <h3 class="doxsection"><a class="anchor" id="patch-types"></a>

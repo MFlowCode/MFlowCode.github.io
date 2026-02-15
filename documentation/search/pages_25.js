@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📊_20feature_20compatibility_0',['📊 Feature Compatibility',['../case_constraints.html#feature-compatibility',1,'']]]
+  ['💧_20bubble_20models_0',['💧 Bubble Models',['../case_constraints.html#bubble-models',1,'']]]
 ];

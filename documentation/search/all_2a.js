@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🟡_20intermediate_20examples_0',['🟡 Intermediate Examples',['../case_constraints.html#autotoc_md26',1,'']]]
+  ['🚀_20common_20configuration_20patterns_0',['🚀 Common Configuration Patterns',['../case_constraints.html#common-configuration-patterns',1,'']]]
 ];

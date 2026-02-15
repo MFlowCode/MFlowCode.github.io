@@ -56,9 +56,10 @@ var NAVTREEINDEX0 =
 "case_constraints.html#compat-physics-models":[3,0,2,0],
 "case_constraints.html#feature-compatibility":[3,0,2],
 "case_constraints.html#model-equations":[3,0,3],
+"case_constraints.html#physics-warnings":[3,0,7],
 "case_constraints.html#quick-parameter-reference":[3,0,6],
 "case_constraints.html#riemann-solvers":[3,0,4],
-"citelist.html":[18],
+"citelist.html":[19],
 "cli-reference.html":[4],
 "cli-reference.html#autotoc_md29":[4,0],
 "cli-reference.html#autotoc_md30":[4,0,0],
@@ -138,6 +139,7 @@ var NAVTREEINDEX0 =
 "contributing.html#autotoc_md97":[5,0,6,9],
 "contributing.html#autotoc_md98":[5,0,7],
 "contributing.html#autotoc_md99":[5,0,8],
+"contributing.html#how-to-document-physics-constraints":[5,0,6,10],
 "docker.html":[6],
 "docker.html#autotoc_md106":[6,0],
 "docker.html#autotoc_md107":[6,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "examples.html#autotoc_md231":[8,0,13,0],
 "examples.html#autotoc_md232":[8,0,14],
 "examples.html#autotoc_md233":[8,0,14,0],
-"examples.html#autotoc_md234":[8,0,15],
-"examples.html#autotoc_md237":[8,0,16],
-"examples.html#autotoc_md238":[8,0,16,0]
+"examples.html#autotoc_md234":[8,0,15]
 };
