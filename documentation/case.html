@@ -475,6 +475,14 @@ Parameter Descriptions</h4>
 <li><span class="tt">fluid_pp(i)%cv</span>, <span class="tt">fluid_pp(i)%qv</span>, and <span class="tt">fluid_pp(i)%qvp</span> define $c_v$, $q$, and $q'$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
 <li><span class="tt">fluid_pp(i)%G</span> is required for <span class="tt">hypoelasticity</span>.</li>
 </ul>
+<blockquote class="doxtable">
+<p><b>Stored-form parameters:</b> The values <span class="tt">gamma</span>, <span class="tt">pi_inf</span>, and <span class="tt">Re(1)</span>/<span class="tt">Re(2)</span> are <b>not</b> the raw physical quantities. MFC expects transformed stored forms:</p><ul>
+<li><span class="tt">gamma</span> = \(1/(\gamma-1)\), not \(\gamma\) itself</li>
+<li><span class="tt">pi_inf</span> = \(\gamma\,\pi_\infty / (\gamma - 1)\), not \(\pi_\infty\) itself</li>
+<li><span class="tt">Re(1)</span> = \(1/\mu\) (inverse viscosity), not \(\mu\) itself</li>
+</ul>
+<p>Setting <span class="tt">gamma = 1.4</span> for air is a common mistake; the correct value is <span class="tt">1.0 / (1.4 - 1.0) = 2.5</span>. See <a class="el" href="equations.html#sec-stored-forms" title="Stored Parameter Conventions">Stored Parameter Conventions</a> and <a class="el" href="equations.html#sec-material-values" title="Common Material Values">Common Material Values</a> in the Equations reference for the full table. </p>
+</blockquote>
 <h3 class="doxsection"><a class="anchor" id="sec-simulation-algorithm"></a>
 6. Simulation Algorithm</h3>
 <p>See <a class="el" href="equations.html" title="Equations">Equations</a> for the mathematical models these parameters control.</p>

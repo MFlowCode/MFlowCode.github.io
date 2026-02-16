@@ -149,9 +149,235 @@ MFC: Comprehensive Equations Reference</h1>
 <p>The parameter <span class="tt">model_eqns</span> (1, 2, 3, or 4) selects the governing equation set.</p>
 <p><b>Key source files:</b> <span class="tt">src/simulation/m_rhs.fpp</span> (RHS evaluation), <span class="tt">src/common/m_variables_conversion.fpp</span> (EOS and variable conversion).</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
+<h2 class="doxsection"><a class="anchor" id="sec-units-dimensions"></a>
+1b. Units, Dimensions, and Non-Dimensionalization</h2>
+<h3 class="doxsection"><a class="anchor" id="sec-dimensional-handling"></a>
+General Users: Dimensional Handling</h3>
+<h4 class="doxsection"><a class="anchor" id="sec-dimensions-in-out"></a>
+Dimensions In = Dimensions Out</h4>
+<p>The main flow solver (Navier-Stokes equations, Riemann solvers, viscous stress, body forces, surface tension, etc.) is <b>unit-agnostic</b>: whatever units the user provides for the initial and boundary conditions, the solver preserves them throughout the computation. If the user inputs SI units, the outputs are in SI units. If the user inputs CGS, the outputs are in CGS. No internal non-dimensionalization is performed by the flow solver.</p>
+<p>This means that for simulations <b>without</b> sub-grid bubble models, the user can work in any consistent unit system without additional effort.</p>
+<h4 class="doxsection"><a class="anchor" id="sec-stored-forms"></a>
+Stored Parameter Conventions</h4>
+<p>Several EOS and transport parameters use <b>transformed stored forms</b> that differ from the standard physical values. This is the most common source of input errors:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Physical quantity  </th><th class="markdownTableHeadNone">What MFC expects (stored form)  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%gamma</span>  </td><td class="markdownTableBodyNone">Heat capacity ratio \(\gamma\)  </td><td class="markdownTableBodyNone">\(\Gamma = \frac{1}{\gamma - 1}\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%pi_inf</span>  </td><td class="markdownTableBodyNone">Stiffness pressure \(\pi_\infty\) [Pa]  </td><td class="markdownTableBodyNone">\(\Pi_\infty = \frac{\gamma\,\pi_\infty}{\gamma - 1}\) [Pa]  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%Re(1)</span>  </td><td class="markdownTableBodyNone">Dynamic viscosity \(\mu\)  </td><td class="markdownTableBodyNone">\(1/\mu\) (inverse viscosity)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%Re(2)</span>  </td><td class="markdownTableBodyNone">Bulk viscosity \(\mu_b\)  </td><td class="markdownTableBodyNone">\(1/\mu_b\) (inverse bulk viscosity)  </td></tr>
+</table>
+<p>These transformations arise because MFC internally solves the energy equation using the transformed variables \(\Gamma\) and \(\Pi_\infty\) (see Section 3.1), and the viscous stress is computed by dividing by <span class="tt">Re</span> rather than multiplying by \(\mu\).</p>
+<p><b>Common mistake:</b> setting <span class="tt">fluid_pp(1)%gamma = 1.4</span> for air. The correct value is <span class="tt">1.0 / (1.4 - 1.0) = 2.5</span>. Setting <span class="tt">gamma = 1.4</span> corresponds to a physical \(\gamma \approx 1.71\), which is not a standard gas.</p>
+<h4 class="doxsection"><a class="anchor" id="sec-material-values"></a>
+Common Material Values</h4>
+<p>Pre-computed stored-form values for common fluids (SI units):</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Material  </th><th class="markdownTableHeadNone">\(\gamma\)  </th><th class="markdownTableHeadNone">\(\pi_\infty\) [Pa]  </th><th class="markdownTableHeadNone"><span class="tt">gamma</span> (stored)  </th><th class="markdownTableHeadNone"><span class="tt">pi_inf</span> (stored) [Pa]  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Air  </td><td class="markdownTableBodyNone">1.4  </td><td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">2.5  </td><td class="markdownTableBodyNone">0  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Helium  </td><td class="markdownTableBodyNone">5/3  </td><td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">1.5  </td><td class="markdownTableBodyNone">0  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Water (Tait)  </td><td class="markdownTableBodyNone">4.4  </td><td class="markdownTableBodyNone">6.0e8  </td><td class="markdownTableBodyNone">0.2941  </td><td class="markdownTableBodyNone">7.76e8  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Water (Le Metayer et al. <a class="el" href="citelist.html#CITEREF_lemetayer04">[27]</a>)  </td><td class="markdownTableBodyNone">6.12  </td><td class="markdownTableBodyNone">3.43e8  </td><td class="markdownTableBodyNone">0.1953  </td><td class="markdownTableBodyNone">4.10e8  </td></tr>
+</table>
+<p>Example for an air-water simulation:</p>
+<div class="fragment"><div class="line"><span class="comment"># Air (fluid 1)</span></div>
+<div class="line">gam_a  = 1.4</div>
+<div class="line"><span class="stringliteral">&quot;fluid_pp(1)%gamma&quot;</span>:  1.0 / (gam_a - 1.0),   <span class="comment"># = 2.5</span></div>
+<div class="line"><span class="stringliteral">&quot;fluid_pp(1)%pi_inf&quot;</span>: 0.0,</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Water (fluid 2)</span></div>
+<div class="line">gam_w  = 4.4</div>
+<div class="line">pi_w   = 6.0e8  <span class="comment"># Pa</span></div>
+<div class="line"><span class="stringliteral">&quot;fluid_pp(2)%gamma&quot;</span>:  1.0 / (gam_w - 1.0),            <span class="comment"># ≈ 0.294</span></div>
+<div class="line"><span class="stringliteral">&quot;fluid_pp(2)%pi_inf&quot;</span>: gam_w * pi_w / (gam_w - 1.0),   <span class="comment"># ≈ 7.76e8</span></div>
+</div><!-- fragment --><p>For viscous cases, provide the <b>reciprocal</b> of the dynamic viscosity:</p>
+<div class="fragment"><div class="line">mu = 1.002e-3  <span class="comment"># water viscosity [Pa·s]</span></div>
+<div class="line"><span class="stringliteral">&quot;fluid_pp(1)%Re(1)&quot;</span>: 1.0 / mu,  <span class="comment"># ≈ 998</span></div>
+</div><!-- fragment --><h4 class="doxsection"><a class="anchor" id="sec-unit-consistency"></a>
+Unit Consistency</h4>
+<p>The solver does not check or convert units. All inputs must use the <b>same consistent unit system</b> (e.g., all SI or all CGS). Mixing units — for example, pressures in atmospheres with densities in kg/m³ — will produce silently incorrect results.</p>
+<h3 class="doxsection"><a class="anchor" id="sec-bubble-nondim"></a>
+Bubble Users: Non-Dimensional Framework</h3>
+<h4 class="doxsection"><a class="anchor" id="sec-nondim-bubble-dynamics"></a>
+Non-Dimensional Bubble Dynamics</h4>
+<p>The sub-grid bubble models (<span class="tt">bubbles_euler = .true.</span> or <span class="tt">bubbles_lagrange = .true.</span>) solve the bubble wall dynamics in <b>non-dimensional form</b>. The bubble wall pressure equation as implemented is:</p>
+<p class="formulaDsp">
+\[p_{bw} = \left(\text{Ca} + \frac{2}{\text{We}_b\,R_0}\right)\left(\frac{R_0}{R}\right)^{3\gamma} - \text{Ca} - \frac{4\,\text{Re}_{\text{inv}}\,\dot{R}}{R} - \frac{2}{R\,\text{We}_b}\]
+</p>
+<p>Here \(R\) and \(R_0\) are non-dimensional radii (scaled by \(x_0\)), and \(\dot{R}\) is a non-dimensional wall speed (scaled by \(u_0\)); the entire bubble ODE is solved in non-dimensional variables.</p>
+<p>The dimensionless groups are:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Dimensionless group  </th><th class="markdownTableHeadNone">Definition  </th><th class="markdownTableHeadNone">Code variable  </th><th class="markdownTableHeadNone">Computed from  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">\(\text{Ca}\) (Cavitation number)  </td><td class="markdownTableBodyNone">\(p_{0,\text{ref}} - p_v\)  </td><td class="markdownTableBodyNone"><span class="tt">Ca</span>  </td><td class="markdownTableBodyNone"><span class="tt">bub_pp%p0ref - bub_pp%pv</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">\(\text{Eu}\) (Euler number)  </td><td class="markdownTableBodyNone">\(p_{0,\text{ref}}\)  </td><td class="markdownTableBodyNone"><span class="tt">Eu</span>  </td><td class="markdownTableBodyNone"><span class="tt">bub_pp%p0ref</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">\(\text{We}_b\) (bubble Weber number)  </td><td class="markdownTableBodyNone">\(1/\sigma\)  </td><td class="markdownTableBodyNone"><span class="tt">Web</span>  </td><td class="markdownTableBodyNone"><span class="tt">1 / bub_pp%ss</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">\(\text{Re}_{\text{inv}}\) (inverse bubble Reynolds number)  </td><td class="markdownTableBodyNone">\(\mu_l\)  </td><td class="markdownTableBodyNone"><span class="tt">Re_inv</span>  </td><td class="markdownTableBodyNone"><span class="tt">bub_pp%mu_l</span>  </td></tr>
+</table>
+<p>Because the bubble equations use these dimensionless numbers directly, all <span class="tt">bub_pp%%</span> inputs are interpreted by the code as <b>already non-dimensional</b>. The code does <b>not</b> non-dimensionalize bubble quantities internally. Therefore, when bubbles are enabled, the simulation must be run in a <b>fully non-dimensional</b> form: <b>all</b> inputs — flow ICs/BCs, EOS parameters, domain lengths, <span class="tt">dt</span>, and <span class="tt">bub_pp%%</span> values — must be scaled with the same \((x_0, p_0, \rho_0, u_0, t_0, T_0)\) reference quantities, or the coupled solution will be physically incorrect.</p>
+<h4 class="doxsection"><a class="anchor" id="sec-reference-scales"></a>
+Reference Scales</h4>
+<p>When using bubble models, the user must choose reference scales and non-dimensionalize <b>all</b> inputs (flow and bubble) consistently. The standard convention used in the MFC examples is:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Reference quantity  </th><th class="markdownTableHeadNone">Symbol  </th><th class="markdownTableHeadNone">Typical choice  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Length  </td><td class="markdownTableBodyNone">\(x_0\)  </td><td class="markdownTableBodyNone">\(R_{0,\text{ref}}\) (reference bubble radius)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Pressure  </td><td class="markdownTableBodyNone">\(p_0\)  </td><td class="markdownTableBodyNone">\(p_{0,\text{ref}}\) (reference bubble pressure)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Density  </td><td class="markdownTableBodyNone">\(\rho_0\)  </td><td class="markdownTableBodyNone">\(\rho_{0,\text{ref}}\) (reference liquid density)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Velocity  </td><td class="markdownTableBodyNone">\(u_0\)  </td><td class="markdownTableBodyNone">\(\sqrt{p_0 / \rho_0}\) (derived)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Time  </td><td class="markdownTableBodyNone">\(t_0\)  </td><td class="markdownTableBodyNone">\(x_0 / u_0\) (derived)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Temperature  </td><td class="markdownTableBodyNone">\(T_0\)  </td><td class="markdownTableBodyNone">\(T_{0,\text{ref}}\) (reference temperature)  </td></tr>
+</table>
+<h4 class="doxsection"><a class="anchor" id="sec-nondim-inputs"></a>
+Non-Dimensionalization of Input Parameters</h4>
+<p>The following table lists every <span class="tt">bub_pp%%</span> parameter and its required non-dimensionalization:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Physical meaning  </th><th class="markdownTableHeadNone">Non-dimensional form  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%R0ref</span>  </td><td class="markdownTableBodyNone">Reference bubble radius  </td><td class="markdownTableBodyNone">\(R_{0,\text{ref}} / x_0\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%p0ref</span>  </td><td class="markdownTableBodyNone">Reference bubble pressure  </td><td class="markdownTableBodyNone">\(p_{0,\text{ref}} / p_0\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%rho0ref</span>  </td><td class="markdownTableBodyNone">Reference liquid density  </td><td class="markdownTableBodyNone">\(\rho_{0,\text{ref}} / \rho_0\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%T0ref</span>  </td><td class="markdownTableBodyNone">Reference temperature  </td><td class="markdownTableBodyNone">\(T_{0,\text{ref}} / T_0\) (typically 1)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%ss</span>  </td><td class="markdownTableBodyNone">Surface tension \(\sigma\)  </td><td class="markdownTableBodyNone">\(\sigma / (\rho_0\,x_0\,u_0^2)\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%pv</span>  </td><td class="markdownTableBodyNone">Vapor pressure  </td><td class="markdownTableBodyNone">\(p_v / p_0\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%mu_l</span>  </td><td class="markdownTableBodyNone">Liquid dynamic viscosity  </td><td class="markdownTableBodyNone">\(\mu_l / (\rho_0\,x_0\,u_0)\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%mu_v</span>  </td><td class="markdownTableBodyNone">Vapor dynamic viscosity  </td><td class="markdownTableBodyNone">\(\mu_v / (\rho_0\,x_0\,u_0)\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%mu_g</span>  </td><td class="markdownTableBodyNone">Gas dynamic viscosity  </td><td class="markdownTableBodyNone">\(\mu_g / (\rho_0\,x_0\,u_0)\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%vd</span>  </td><td class="markdownTableBodyNone">Vapor diffusivity  </td><td class="markdownTableBodyNone">\(D / (x_0\,u_0)\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%k_v</span>  </td><td class="markdownTableBodyNone">Vapor thermal conductivity  </td><td class="markdownTableBodyNone">\(k_v\,T_0 / (x_0\,\rho_0\,u_0^3)\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%k_g</span>  </td><td class="markdownTableBodyNone">Gas thermal conductivity  </td><td class="markdownTableBodyNone">\(k_g\,T_0 / (x_0\,\rho_0\,u_0^3)\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%cp_v</span>  </td><td class="markdownTableBodyNone">Vapor specific heat  </td><td class="markdownTableBodyNone">\(c_{p,v}\,T_0 / u_0^2\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%cp_g</span>  </td><td class="markdownTableBodyNone">Gas specific heat  </td><td class="markdownTableBodyNone">\(c_{p,g}\,T_0 / u_0^2\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%R_v</span>  </td><td class="markdownTableBodyNone">Vapor gas constant  </td><td class="markdownTableBodyNone">\(R_v\,T_0 / u_0^2\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%R_g</span>  </td><td class="markdownTableBodyNone">Gas gas constant  </td><td class="markdownTableBodyNone">\(R_g\,T_0 / u_0^2\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%gam_v</span>  </td><td class="markdownTableBodyNone">Vapor heat capacity ratio  </td><td class="markdownTableBodyNone">Already dimensionless (no scaling)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%gam_g</span>  </td><td class="markdownTableBodyNone">Gas heat capacity ratio  </td><td class="markdownTableBodyNone">Already dimensionless (no scaling)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%M_v</span>  </td><td class="markdownTableBodyNone">Vapor molar mass  </td><td class="markdownTableBodyNone">Consistent units; only ratios are used (no scaling needed)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">bub_pp%M_g</span>  </td><td class="markdownTableBodyNone">Gas molar mass  </td><td class="markdownTableBodyNone">Consistent units; only ratios are used (no scaling needed)  </td></tr>
+</table>
+<p>When the reference scales match the bubble reference values (e.g., \(x_0 = R_{0,\text{ref}}\), \(p_0 = p_{0,\text{ref}}\), \(\rho_0 = \rho_{0,\text{ref}}\)), the reference parameters simplify to unity: <span class="tt">bub_pp%R0ref = 1</span>, <span class="tt">bub_pp%p0ref = 1</span>, <span class="tt">bub_pp%rho0ref = 1</span>.</p>
+<h4 class="doxsection"><a class="anchor" id="sec-flow-params-bubbles"></a>
+Flow Parameters with Bubbles</h4>
+<p>When bubbles are enabled, the flow-level parameters must also be non-dimensionalized with the same reference scales:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Non-dimensional form  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">x_domain%beg</span>, <span class="tt">x_domain%end</span>  </td><td class="markdownTableBodyNone">Domain bounds divided by \(x_0\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(i)%pres</span>  </td><td class="markdownTableBodyNone">Pressure divided by \(p_0\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(i)%alpha_rho(j)</span>  </td><td class="markdownTableBodyNone">Partial density divided by \(\rho_0\)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(i)%vel(j)</span>  </td><td class="markdownTableBodyNone">Velocity divided by \(u_0\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%gamma</span>  </td><td class="markdownTableBodyNone">\(1/(\gamma_i - 1)\) (dimensionless, same as without bubbles)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%pi_inf</span>  </td><td class="markdownTableBodyNone">\(\gamma_i\,\pi_{\infty,i} / [(\gamma_i - 1)\,p_0]\) (scaled by reference pressure)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(i)%Re(1)</span>  </td><td class="markdownTableBodyNone">\(\rho_0\,x_0\,u_0 / \mu_i\) (Reynolds number, inverse viscosity)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">dt</span>  </td><td class="markdownTableBodyNone">Time step divided by \(t_0\)  </td></tr>
+</table>
+<h4 class="doxsection"><a class="anchor" id="sec-two-viscosities"></a>
+Two Different Viscosity Parameters</h4>
+<p>MFC has two conceptually distinct viscosity-related parameters that serve different physical roles:</p>
+<ol type="1">
+<li><b><span class="tt">fluid_pp(i)%Re(1)</span></b> — Used for the <b>macroscopic flow viscous stress tensor</b> (Navier-Stokes equations). This is \(1/\mu\) in dimensional simulations, or \(\rho_0 x_0 u_0 / \mu\) (a Reynolds number) when non-dimensionalized. It appears as a <b>divisor</b> in the viscous stress computation: <p class="formulaDsp">
+\[\tau_{ij} \propto \frac{\nabla u}{\text{Re}}\]
+</p>
+ Stored in the physical_parameters derived type (<span class="tt">src/common/m_derived_types.fpp</span>).</li>
+<li><b><span class="tt">bub_pp%mu_l</span></b> — Used for <b>microscale bubble wall viscous damping</b> (Rayleigh-Plesset / Keller-Miksis equations). This is the non-dimensional liquid viscosity \(\mu_l / (\rho_0 x_0 u_0)\). It appears as a <b>multiplier</b> in the bubble wall pressure: <p class="formulaDsp">
+\[p_{bw} \ni -\frac{4\,\text{Re}_{\text{inv}}\,\dot{R}}{R}\]
+</p>
+ Stored in the subgrid_bubble_physical_parameters derived type (<span class="tt">src/common/m_derived_types.fpp</span>).</li>
+</ol>
+<p>These two parameters represent viscous effects at fundamentally different scales — bulk flow dissipation vs. single-bubble-wall damping — and are stored in separate derived types with separate code paths. They are <b>not</b> interchangeable: <span class="tt">fluid_pp%Re(1)</span> is an inverse viscosity while <span class="tt">bub_pp%mu_l</span> is a viscosity (non-dimensionalized).</p>
+<h3 class="doxsection"><a class="anchor" id="sec-nondim-example"></a>
+Worked Examples</h3>
+<h4 class="doxsection"><a class="anchor" id="sec-bubble-example"></a>
+Example: Non-Dimensionalizing a Bubble Case</h4>
+<p>A typical bubble case setup in <span class="tt">case.py</span> follows this pattern:</p>
+<div class="fragment"><div class="line"><span class="keyword">import</span> math</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Physical properties (SI units)</span></div>
+<div class="line">rho_l  = 1.0e03     <span class="comment"># liquid density [kg/m³]</span></div>
+<div class="line">mu_l   = 1.002e-03  <span class="comment"># liquid viscosity [kg/(m·s)]</span></div>
+<div class="line">ss     = 0.07275    <span class="comment"># surface tension [kg/s²]</span></div>
+<div class="line">pv     = 2.3388e03  <span class="comment"># vapor pressure [Pa]</span></div>
+<div class="line">gam_l  = 7.15       <span class="comment"># liquid stiffened gas gamma</span></div>
+<div class="line">pi_inf = 306.0e06   <span class="comment"># liquid stiffened gas pi_inf [Pa]</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Bubble reference values (SI)</span></div>
+<div class="line">R0ref   = 10.0e-06  <span class="comment"># reference bubble radius [m]</span></div>
+<div class="line">p0ref   = 112.9e03  <span class="comment"># reference bubble pressure [Pa]</span></div>
+<div class="line">rho0ref = rho_l     <span class="comment"># reference density [kg/m³]</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Derived reference scales</span></div>
+<div class="line">x0   = R0ref</div>
+<div class="line">p0   = p0ref</div>
+<div class="line">rho0 = rho0ref</div>
+<div class="line">u0   = math.sqrt(p0 / rho0)</div>
+<div class="line">t0   = x0 / u0</div>
+<div class="line"> </div>
+<div class="line"><span class="comment"># Non-dimensional inputs</span></div>
+<div class="line">params = {</div>
+<div class="line">    <span class="stringliteral">&quot;bub_pp%R0ref&quot;</span>:   R0ref / x0,                     <span class="comment"># = 1.0</span></div>
+<div class="line">    <span class="stringliteral">&quot;bub_pp%p0ref&quot;</span>:   p0ref / p0,                      <span class="comment"># = 1.0</span></div>
+<div class="line">    <span class="stringliteral">&quot;bub_pp%rho0ref&quot;</span>: rho0ref / rho0,                  <span class="comment"># = 1.0</span></div>
+<div class="line">    <span class="stringliteral">&quot;bub_pp%ss&quot;</span>:      ss / (rho0 * x0 * u0**2),       <span class="comment"># surface tension</span></div>
+<div class="line">    <span class="stringliteral">&quot;bub_pp%pv&quot;</span>:      pv / p0,                         <span class="comment"># vapor pressure</span></div>
+<div class="line">    <span class="stringliteral">&quot;bub_pp%mu_l&quot;</span>:    mu_l / (rho0 * x0 * u0),        <span class="comment"># liquid viscosity</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="stringliteral">&quot;fluid_pp(1)%gamma&quot;</span>:  1.0 / (gam_l - 1.0),</div>
+<div class="line">    <span class="stringliteral">&quot;fluid_pp(1)%pi_inf&quot;</span>: gam_l * (pi_inf / p0) / (gam_l - 1.0),</div>
+<div class="line">    <span class="stringliteral">&quot;fluid_pp(1)%Re(1)&quot;</span>:  rho0 * x0 * u0 / mu_l,     <span class="comment"># flow Re (inverse!)</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Note the inverse relationship: <span class="tt">fluid_pp%Re(1) = 1 / bub_pp%mu_l</span> when both use the same reference scales and the same physical viscosity. This is expected — they encode the same physical viscosity but in reciprocal forms for their respective equations.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md126"></a>
 2. Governing PDEs</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md126"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
 2.1 Five-Equation Model (<span class="tt">model_eqns = 2</span>)</h3>
 <p>The primary workhorse model (Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.1). The state vector is:</p>
 <p class="formulaDsp">
@@ -182,7 +408,7 @@ MFC: Comprehensive Equations Reference</h1>
 <p class="formulaDsp">
 \[1 = \sum_i \alpha_i, \qquad \rho = \sum_i \alpha_i \rho_i, \qquad \rho e = \sum_i \alpha_i \rho_i e_i\]
 </p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md127"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md128"></a>
 2.2 Six-Equation Model (<span class="tt">model_eqns = 3</span>)</h3>
 <p>Allows pressure disequilibrium between phases (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[41]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.1).</p>
 <p><b>Continuity and momentum:</b> Same as the five-equation model.</p>
@@ -209,16 +435,16 @@ MFC: Comprehensive Equations Reference</h1>
 <li><b>Mass transfer:</b> \(\dot{m} = \nu\,(g_2 - g_1)\) (Gibbs free energy difference)</li>
 </ul>
 <p>See Section 8 (Phase Change) below for details.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md128"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md129"></a>
 2.3 Other Model Variants</h3>
 <ul>
 <li><span class="tt">model_eqns = 1</span>: <b>Gamma/pi_inf model</b> — simplified single-fluid formulation using mixture \(\gamma\) and \(\pi_\infty\) directly without tracking individual volume fractions (Johnsen <a class="el" href="citelist.html#CITEREF_johnsen08">[23]</a>).</li>
 <li><span class="tt">model_eqns = 4</span>: <b>Four-equation model</b> — reduced model from the six-equation system after full pressure-temperature equilibrium relaxation (Tait-like compressible liquid).</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md130"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
 3. Equations of State</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md131"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md132"></a>
 3.1 Stiffened Gas EOS (Menikoff and Plohr <a class="el" href="citelist.html#CITEREF_menikoff89">[33]</a>; Le Metayer et al. <a class="el" href="citelist.html#CITEREF_lemetayer04">[27]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.2)</h3>
 <p>The primary closure for each phase:</p>
 <p class="formulaDsp">
@@ -252,8 +478,8 @@ MFC: Comprehensive Equations Reference</h1>
 <p class="formulaDsp">
 \[\frac{1}{\rho\,c^2} = \sum_k \frac{\alpha_k}{\rho_k\,c_k^2}\]
 </p>
-<p>Input parameters per fluid: <span class="tt">gamma</span> ( \(\gamma_k\)), <span class="tt">pi_inf</span> ( \(\pi_{\infty,k}\)), <span class="tt">cv</span> ( \(c_{v,k}\)), <span class="tt">qv</span> ( \(q_{v,k}\)), <span class="tt">qvp</span> ( \(q&#39;_{v,k}\)).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md132"></a>
+<p>Input parameters per fluid: <span class="tt">gamma</span> ( \(\Gamma_k = 1/(\gamma_k - 1)\)), <span class="tt">pi_inf</span> ( \(\Pi_{\infty,k} = \gamma_k\,\pi_{\infty,k}/(\gamma_k - 1)\)), <span class="tt">cv</span> ( \(c_{v,k}\)), <span class="tt">qv</span> ( \(q_{v,k}\)), <span class="tt">qvp</span> ( \(q&#39;_{v,k}\)). Note that <span class="tt">gamma</span> and <span class="tt">pi_inf</span> are stored in transformed form, not as the raw physical values (see Section 1b).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md133"></a>
 3.2 Ideal Gas EOS (Chemistry, <span class="tt">chemistry = .true.</span>)</h3>
 <p>For reacting gas mixtures:</p>
 <p class="formulaDsp">
@@ -272,7 +498,7 @@ MFC: Comprehensive Equations Reference</h1>
 \[\frac{\hat{h}_m}{R_u\,T} = \frac{C_0}{T} + \sum_{r=1}^{5} \frac{C_r\,T^{r-1}}{r}\]
 </p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md134"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md135"></a>
 4. Viscous Stress Tensor (<span class="tt">viscous = .true.</span>)</h2>
 <p><b>Newtonian viscous stress (no bulk viscosity by default):</b></p>
 <p class="formulaDsp">
@@ -297,7 +523,7 @@ MFC: Comprehensive Equations Reference</h1>
 </p>
 <p>Input parameters: <span class="tt">Re_inv</span> (shear and volume Reynolds numbers per fluid).</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md136"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
 5. Cylindrical Coordinates (<span class="tt">cyl_coord = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.3)</h2>
 <p>Additional geometric source terms appear with \(1/r\) factors in the continuity, momentum, and energy equations. Key modifications:</p>
 <ul>
@@ -310,12 +536,12 @@ MFC: Comprehensive Equations Reference</h1>
 <li><b>Axis singularity:</b> axis placed at cell boundary with spectral filtering in the azimuthal direction</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md138"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
 6. Sub-Grid Bubble Dynamics (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md139"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
 6.1 Euler-Euler Bubbles (<span class="tt">bubbles_euler = .true.</span>)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_bubbles_EE.fpp</span>, <span class="tt">src/simulation/m_bubbles.fpp</span></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
 6.1.1 Method of Classes (Commander and Prosperetti <a class="el" href="citelist.html#CITEREF_commander89">[13]</a>; Ando et al. <a class="el" href="citelist.html#CITEREF_ando11">[2]</a>)</h4>
 <p><b>Modified mixture pressure:</b></p>
 <p class="formulaDsp">
@@ -339,17 +565,17 @@ MFC: Comprehensive Equations Reference</h1>
 </p>
 <p>where \(n = \frac{3}{4\pi}\,\frac{\alpha}{\bar{R}^3}\).</p>
 <p><b>Polydispersity</b> (<span class="tt">polydisperse = .true.</span>): Log-normal PDF discretized into \(N_\text{bin}\) equilibrium radii with standard deviation <span class="tt">poly_sigma</span>, integrated via Simpson's rule.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md141"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
 6.1.2 Rayleigh-Plesset (<span class="tt">bubble_model = 3</span>) (Lord Rayleigh <a class="el" href="citelist.html#CITEREF_rayleigh17">[28]</a>; Plesset <a class="el" href="citelist.html#CITEREF_plesset49">[37]</a>)</h4>
 <p class="formulaDsp">
 \[R\,\ddot{R} + \frac{3}{2}\,\dot{R}^2 = \frac{p_{bw} - p_\infty}{\rho_l}\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md142"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md143"></a>
 6.1.3 Keller-Miksis (<span class="tt">bubble_model = 2</span>) (Keller and Miksis <a class="el" href="citelist.html#CITEREF_keller80">[26]</a>)</h4>
 <p class="formulaDsp">
 \[R\,\ddot{R}\left(1 - \frac{\dot{R}}{c}\right) + \frac{3}{2}\,\dot{R}^2\left(1 - \frac{\dot{R}}{3c}\right) = \frac{p_{bw} - p_\infty}{\rho_l}\left(1 + \frac{\dot{R}}{c}\right) + \frac{R\,\dot{p}_{bw}}{\rho_l\,c}\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md143"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
 6.1.4 Gilmore (<span class="tt">bubble_model = 1</span>) (Gilmore <a class="el" href="citelist.html#CITEREF_gilmore52">[17]</a>)</h4>
 <p>Enthalpy-based formulation with compressibility corrections via the Tait EOS:</p>
 <p class="formulaDsp">
@@ -363,7 +589,7 @@ MFC: Comprehensive Equations Reference</h1>
 <p class="formulaDsp">
 \[C = \sqrt{n_\text{tait}(1+B)\left(\frac{p_\infty}{1+B} + 1\right)^{(n_\text{tait}-1)/n_\text{tait}} + (n_\text{tait} - 1)\,H}\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
 6.1.5 Non-Polytropic Thermal Model (<span class="tt">polytropic = .false.</span>) (Preston et al. <a class="el" href="citelist.html#CITEREF_preston07">[38]</a>)</h4>
 <p><b>Internal bubble pressure ODE:</b></p>
 <p class="formulaDsp">
@@ -373,7 +599,7 @@ MFC: Comprehensive Equations Reference</h1>
 <p class="formulaDsp">
 \[\dot{m}_v = \frac{D\,\rho_{bw}}{1 - \chi_{vw}}\left.\frac{\partial \chi_v}{\partial r}\right|_R\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
 6.1.6 QBMM Moment Transport (<span class="tt">qbmm = .true.</span>) (Bryngelson et al. <a class="el" href="citelist.html#CITEREF_bryngelson20">[7]</a>)</h4>
 <p><b>Population balance equation:</b></p>
 <p class="formulaDsp">
@@ -388,7 +614,7 @@ MFC: Comprehensive Equations Reference</h1>
 <p class="formulaDsp">
 \[\bar{u} = \frac{\mu_{10}}{\mu_{00}}, \quad \bar{v} = \frac{\mu_{01}}{\mu_{00}}, \quad c_{20} = \frac{\mu_{20}}{\mu_{00}} - \bar{u}^2, \quad c_{11} = \frac{\mu_{11}}{\mu_{00}} - \bar{u}\bar{v}, \quad c_{02} = \frac{\mu_{02}}{\mu_{00}} - \bar{v}^2\]
 </p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md146"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md147"></a>
 6.2 Euler-Lagrange Bubbles (<span class="tt">bubbles_lagrange = .true.</span>) (Maeda and Colonius <a class="el" href="citelist.html#CITEREF_maeda18">[30]</a>)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_bubbles_EL.fpp</span></p>
 <p>Volume-averaged carrier flow equations with bubble source terms:</p>
@@ -416,9 +642,9 @@ MFC: Comprehensive Equations Reference</h1>
 <p>with \(\sigma = \varepsilon_b \max(\Delta x^{1/3}_\text{cell},\;R_\text{bubble})\).</p>
 <p>Each bubble is tracked individually with Keller-Miksis dynamics and 4th-order adaptive Runge-Kutta time integration.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
 7. Fluid-Structure Interaction</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
 7.1 Hypoelastic Model (<span class="tt">hypoelasticity = .true.</span>) (Rodriguez and Johnsen <a class="el" href="citelist.html#CITEREF_rodriguez19">[39]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.6)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_hypoelastic.fpp</span></p>
 <p><b>Cauchy stress decomposition:</b></p>
@@ -443,7 +669,7 @@ MFC: Comprehensive Equations Reference</h1>
 \[\hat{\boldsymbol{\tau}}^e = \frac{D\boldsymbol{\tau}^e}{Dt} - \mathbf{l} \cdot \boldsymbol{\tau}^e - \boldsymbol{\tau}^e \cdot \mathbf{l}^T + \boldsymbol{\tau}^e\,\text{tr}(\mathbf{D}) = 2G\,\mathbf{D}^d\]
 </p>
 <p>This adds 6 additional transport equations in 3D (symmetric stress tensor: \(\tau_{xx}^e, \tau_{xy}^e, \tau_{yy}^e, \tau_{xz}^e, \tau_{yz}^e, \tau_{zz}^e\)).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md150"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md151"></a>
 7.2 Hyperelastic Model (<span class="tt">hyperelasticity = .true.</span>) (Kamrin et al. <a class="el" href="citelist.html#CITEREF_kamrin12">[24]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.6)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_hyperelastic.fpp</span></p>
 <p><b>Reference map evolution:</b></p>
@@ -468,10 +694,10 @@ MFC: Comprehensive Equations Reference</h1>
 \[e^e = \frac{G}{2}\bigl(I_{\mathbf{b}} - 3\bigr), \qquad I_{\mathbf{b}} = \text{tr}(\mathbf{b})\]
 </p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md152"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
 8. Phase Change (<span class="tt">relax = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.3)</h2>
 <p><b>Source:</b> <span class="tt">src/common/m_phase_change.fpp</span></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md153"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
 8.1 pT-Relaxation (<span class="tt">relax_model = 5</span>) (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel08">[40]</a>)</h3>
 <p>\(N\)-fluid pressure-temperature equilibrium. The equilibrium condition is:</p>
 <p class="formulaDsp">
@@ -486,7 +712,7 @@ MFC: Comprehensive Equations Reference</h1>
 \[g(p) = \sum_i \frac{(\gamma_i - 1)\,(\alpha_i \rho_i)\,c_{v,i}}{(p + \pi_{\infty,i})} \cdot \frac{\rho e + p - \sum_j (\alpha_j \rho_j)\,q_{v,j}}{\sum_j (\alpha_j \rho_j)\,c_{v,j}\,\gamma_j}\]
 </p>
 <p>Solved via Newton's method for the equilibrium pressure.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md155"></a>
 8.2 pTg-Relaxation (<span class="tt">relax_model = 6</span>) (Zein et al. <a class="el" href="citelist.html#CITEREF_zein10">[55]</a>)</h3>
 <p>Two coupled equations for \((\alpha_1 \rho_1,\;p)\):</p>
 <p><b>Gibbs free energy equilibrium (Clausius-Clapeyron):</b></p>
@@ -500,7 +726,7 @@ MFC: Comprehensive Equations Reference</h1>
 <p>where \(m_T\) is the total mass, \(m_l = \alpha_l \rho_l\) is the liquid partial density, and \(m_{qD}\), \(m_{cpD}\), \(m_{cvgp}\) are auxiliary thermodynamic sums over additional fluids (beyond the phase-changing pair).</p>
 <p>Solved via 2D Newton-Raphson.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
 9. Chemistry and Combustion (<span class="tt">chemistry = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.7)</h2>
 <p><b>Source:</b> <span class="tt">src/common/m_chemistry.fpp</span></p>
 <p><b>Species transport:</b></p>
@@ -529,7 +755,7 @@ MFC: Comprehensive Equations Reference</h1>
 </p>
 <p>Reaction mechanisms are code-generated via Pyrometheus (Cisneros-Garibay et al. <a class="el" href="citelist.html#CITEREF_cisneros26">[12]</a>), which provides symbolic abstractions for thermochemistry that enable portable GPU computation and automatic differentiation of chemical source terms.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md158"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
 10. Surface Tension (<span class="tt">surface_tension = .true.</span>) (Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer17">[42]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.8)</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_surface_tension.fpp</span>, <span class="tt">src/simulation/include/inline_capillary.fpp</span></p>
 <p><b>Color function advection:</b></p>
@@ -553,9 +779,9 @@ MFC: Comprehensive Equations Reference</h1>
 \[\varepsilon_0 = \sigma\,\|\nabla c\|\]
 </p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md160"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
 11. Magnetohydrodynamics</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md161"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
 11.1 Ideal MHD (<span class="tt">mhd = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.9)</h3>
 <p><b>Continuity:</b></p>
 <p class="formulaDsp">
@@ -586,7 +812,7 @@ MFC: Comprehensive Equations Reference</h1>
 \[v_A = \sqrt{\frac{|\mathbf{B}|^2}{\rho}}\]
 </p>
 <p>Uses the HLLD Riemann solver (<span class="tt">riemann_solver = 4</span>). Hyperbolic divergence cleaning (<span class="tt">hyper_cleaning = .true.</span>) via the GLM method (Dedner et al. <a class="el" href="citelist.html#CITEREF_dedner02">[15]</a>).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md163"></a>
 11.2 Relativistic MHD (<span class="tt">relativity = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.10)</h3>
 <p><b>Conserved variables:</b></p>
 <p class="formulaDsp">
@@ -601,7 +827,7 @@ MFC: Comprehensive Equations Reference</h1>
 </p>
 <p>Primitive recovery uses Newton-Raphson on the nonlinear conserved-to-primitive relation.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md164"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md165"></a>
 12. Information Geometric Regularization (<span class="tt">igr = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong25a">[53]</a>)</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_igr.fpp</span></p>
 <p><b>Modified momentum with entropic pressure</b> \(\Sigma\)**:**</p>
@@ -623,7 +849,7 @@ MFC: Comprehensive Equations Reference</h1>
 <p><b>Iterative solver:</b> Jacobi (<span class="tt">igr_iter_solver = 1</span>) or Gauss-Seidel (<span class="tt">igr_iter_solver = 2</span>), up to <span class="tt">num_igr_iters</span> iterations (default 5).</p>
 <p>Uses Lax-Friedrichs flux (replaces WENO + Riemann solver).</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
 13. Body Forces (<span class="tt">bf_x</span>, <span class="tt">bf_y</span>, <span class="tt">bf_z</span>)</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_body_forces.fpp</span></p>
 <p><b>Time-dependent acceleration:</b></p>
@@ -639,7 +865,7 @@ MFC: Comprehensive Equations Reference</h1>
 \[\frac{\partial E}{\partial t}\bigg|_\text{bf} = \rho\,\mathbf{u} \cdot \mathbf{a}(t)\]
 </p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md168"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md169"></a>
 14. Acoustic Sources (<span class="tt">acoustic_source = .true.</span>)</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_acoustic_src.fpp</span></p>
 <p>Source terms added to the RHS of the governing equations.</p>
@@ -660,11 +886,11 @@ MFC: Comprehensive Equations Reference</h1>
 </ul>
 <p><b>Spatial supports:</b> planar, spherical transducer, cylindrical transducer, transducer array (arcuate, annular, circular).</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md170"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md171"></a>
 15. Numerical Methods</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md171"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md172"></a>
 15.1 Spatial Reconstruction</h3>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md172"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md173"></a>
 WENO (<span class="tt">weno_order = 3, 5, 7</span>)</h4>
 <p><b>Source:</b> <span class="tt">src/simulation/m_weno.fpp</span></p>
 <p>Weighted sum of candidate polynomials at cell interfaces:</p>
@@ -691,7 +917,7 @@ WENO (<span class="tt">weno_order = 3, 5, 7</span>)</h4>
 </p>
 <p>If \(\xi_r &lt; C_T\), set \(\alpha_r = 0\) (stencil excluded).</p>
 <p>Primitive variable reconstruction is used to avoid spurious oscillations at interfaces.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md173"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md174"></a>
 MUSCL (<span class="tt">muscl_order = 2</span>)</h4>
 <p><b>Source:</b> <span class="tt">src/simulation/m_muscl.fpp</span></p>
 <p class="formulaDsp">
@@ -710,30 +936,30 @@ MUSCL (<span class="tt">muscl_order = 2</span>)</h4>
 \[q_\text{THINC} = q_\min + \frac{q_\max}{2}\left(1 + \text{sign}(s)\,\frac{\tanh(\beta) + A}{1 + A\,\tanh(\beta)}\right)\]
 </p>
 <p>where \(A = \frac{\exp(\text{sign}(s)\,\beta\,(2C - 1))\,/\,\cosh(\beta) - 1}{\tanh(\beta)}\) and \(\beta\) controls compression steepness.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md174"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md175"></a>
 IGR Reconstruction</h4>
 <p>5th-order or 3rd-order polynomial interpolation without WENO nonlinear weights, using Lax-Friedrichs numerical flux. Stencil coefficients:</p>
 <p><b>5th-order:</b> \(\text{coeff}_L = [-3/60,\;27/60,\;47/60,\;-13/60,\;2/60]\)</p>
 <p><b>3rd-order:</b> \(\text{coeff}_L = [2/6,\;5/6,\;-1/6]\)</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md175"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md176"></a>
 15.2 Riemann Solvers</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_riemann_solvers.fpp</span></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md176"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md177"></a>
 HLL (<span class="tt">riemann_solver = 1</span>) (Harten et al. <a class="el" href="citelist.html#CITEREF_harten83">[20]</a>)</h4>
 <p class="formulaDsp">
 \[\mathbf{F}^\text{HLL} = \frac{S_R\,\mathbf{F}_L - S_L\,\mathbf{F}_R + S_L\,S_R\,(\mathbf{q}_R - \mathbf{q}_L)}{S_R - S_L}\]
 </p>
 <p>with wave speed estimates \(S_L = \min(u_L - c_L,\;u_R - c_R)\), \(S_R = \max(u_R + c_R,\;u_L + c_L)\).</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md177"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md178"></a>
 HLLC (<span class="tt">riemann_solver = 2</span>) (Toro et al. <a class="el" href="citelist.html#CITEREF_toro94">[50]</a>)</h4>
 <p>Four-state solver resolving the contact discontinuity. Star-state satisfies:</p>
 <p class="formulaDsp">
 \[p_L^* = p_R^* = p^*, \qquad u_L^* = u_R^* = u^*\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md178"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
 Exact (<span class="tt">riemann_solver = 3</span>)</h4>
 <p>Iterative exact Riemann solver.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md180"></a>
 HLLD (<span class="tt">riemann_solver = 4</span>, MHD only)</h4>
 <p>Seven-state solver for ideal MHD resolving fast magnetosonic, Alfven, and contact waves (Miyoshi and Kusano <a class="el" href="citelist.html#CITEREF_miyoshi05">[35]</a>). The Riemann fan is divided by outer wave speeds \(S_L\), \(S_R\), Alfven speeds \(S_L^*\), \(S_R^*\), and a middle contact \(S_M\):</p>
 <p class="formulaDsp">
@@ -743,10 +969,10 @@ HLLD (<span class="tt">riemann_solver = 4</span>, MHD only)</h4>
 \[S_L^* = S_M - \frac{|B_x|}{\sqrt{\rho_L^*}}, \qquad S_R^* = S_M + \frac{|B_x|}{\sqrt{\rho_R^*}}\]
 </p>
 <p>where \(p_T = p + |\mathbf{B}|^2/2\) is the total (thermal + magnetic) pressure. Continuity of normal velocity and total pressure is enforced across the Riemann fan.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md180"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md181"></a>
 15.3 Time Integration</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_time_steppers.fpp</span></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md181"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md182"></a>
 TVD Runge-Kutta (<span class="tt">time_stepper = 1, 2, 3</span>) (Gottlieb and Shu <a class="el" href="citelist.html#CITEREF_gottlieb98">[18]</a>)</h4>
 <p><b>RK1 (Forward Euler):</b></p>
 <p class="formulaDsp">
@@ -769,10 +995,10 @@ TVD Runge-Kutta (<span class="tt">time_stepper = 1, 2, 3</span>) (Gottlieb and S
 <p class="formulaDsp">
 \[\mathbf{q}^{n+1} = \frac{1}{3}\mathbf{q}^n + \frac{2}{3}\mathbf{q}^{(2)} + \frac{2}{3}\Delta t\,\mathbf{L}(\mathbf{q}^{(2)})\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md182"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md183"></a>
 Adaptive Time Stepping (<span class="tt">adap_dt = .true.</span>)</h4>
 <p>Embedded RK pairs for error estimation with Hairer-Norsett-Wanner algorithm for initial step size.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md183"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md184"></a>
 Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44]</a>) (for stiff bubble dynamics)</h4>
 <p>For equations of the form \(\partial \mathbf{q}/\partial t = -\nabla \cdot \mathbf{F}(\mathbf{q}) + \mathbf{s}(\mathbf{q})\), the Strang splitting scheme integrates three sub-equations per time step:</p>
 <p class="formulaDsp">
@@ -785,7 +1011,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 \[\frac{\partial \mathbf{q}&#39;&#39;&#39;}{\partial t} = \mathbf{s}(\mathbf{q}&#39;&#39;&#39;), \quad t \in [0,\,\Delta t/2], \quad \mathbf{q}^{n+1} = \mathbf{q}&#39;&#39;&#39;(\Delta t/2)\]
 </p>
 <p>The stiff bubble source terms are integrated using an adaptive embedded Runge-Kutta scheme with error control.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md184"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md185"></a>
 15.4 CFL Condition</h3>
 <p><b>Inviscid:</b></p>
 <p class="formulaDsp">
@@ -796,7 +1022,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 \[\Delta t_v = \text{CFL} \cdot \min\left(\frac{\Delta x^2}{\nu}\right)\]
 </p>
 <p>where \(c\) is the mixture sound speed and \(\nu\) is the kinematic viscosity.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md185"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md186"></a>
 15.5 Finite Differences (<span class="tt">fd_order = 1, 2, 4</span>)</h3>
 <p><b>Source:</b> <span class="tt">src/common/m_finite_differences.fpp</span></p>
 <p>Used for viscous fluxes and velocity gradients.</p>
@@ -820,10 +1046,10 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 \[f&#39;_i\big|_\text{right} = \frac{3f_i - 4f_{i-1} + f_{i-2}}{x_i - x_{i-2}}\]
 </p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md187"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md188"></a>
 16. Boundary Conditions</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_cbc.fpp</span>, <span class="tt">src/simulation/m_compute_cbc.fpp</span>, <span class="tt">src/common/m_constants.fpp</span></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md188"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md189"></a>
 16.1 Simple BCs</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -843,7 +1069,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-16</span>  </td><td class="markdownTableBodyNone">No-slip wall  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md189"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md190"></a>
 16.2 Characteristic BCs (Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[47]</a>, Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[48]</a>; <span class="tt">bc_x%beg = -5</span> to <span class="tt">-12</span>)</h3>
 <p><b>Characteristic decomposition:</b></p>
 <p class="formulaDsp">
@@ -862,7 +1088,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 \[\mathcal{L} = -\boldsymbol{\Lambda}^o\,\mathbf{L}_x\,\frac{\partial \mathbf{q}_c}{\partial x} + n_x\,\lambda^i\,\mathbf{L}_x\,\frac{\mathbf{P}\,(\mathbf{q}_p^{(g)} - \mathbf{q}_p)}{\Delta}\]
 </p>
 <p><b>8 types:</b> slip wall (<span class="tt">-5</span>), non-reflecting buffer (<span class="tt">-6</span>), non-reflecting sub. inflow (<span class="tt">-7</span>), non-reflecting sub. outflow (<span class="tt">-8</span>), force-free sub. outflow (<span class="tt">-9</span>), constant-pressure sub. outflow (<span class="tt">-10</span>), supersonic inflow (<span class="tt">-11</span>), supersonic outflow (<span class="tt">-12</span>).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md190"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md191"></a>
 16.3 Immersed Boundary Method (<span class="tt">ib = .true.</span>) (Tseng and Ferziger <a class="el" href="citelist.html#CITEREF_tseng03">[52]</a>; Mittal and Iaccarino <a class="el" href="citelist.html#CITEREF_mittal05">[34]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.1)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_ibm.fpp</span></p>
 <p>Ghost-cell IBM with level set field \(\phi\).</p>
@@ -877,7 +1103,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 <p><b>Neumann BC</b> for pressure, density, and volume fractions.</p>
 <p>Supports STL/OBJ geometry import with ray tracing for inside/outside determination.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md192"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md193"></a>
 17. Low Mach Number Corrections (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.2.4)</h2>
 <p><b>Chen correction</b> (<span class="tt">low_Mach = 1</span>, Chen et al. <a class="el" href="citelist.html#CITEREF_chen22">[11]</a>): anti-dissipation pressure correction (APC) added to the HLLC flux:</p>
 <p class="formulaDsp">
@@ -897,7 +1123,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 <p>This reduces numerical dissipation at low Mach numbers while recovering the standard scheme at high Mach numbers.</p>
 <p>Additionally, the <b>artificial Mach number</b> technique (<span class="tt">pi_fac</span>) modifies \(\pi_\infty\) to artificially increase the local Mach number.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md194"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md195"></a>
 18. Flux Limiting</h2>
 <p><b>Volume fraction limiting:</b> enforces \(0 \le \alpha_k \le 1\) and rescales as:</p>
 <p class="formulaDsp">
