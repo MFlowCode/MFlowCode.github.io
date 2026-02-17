@@ -30,5 +30,6 @@ var searchData=
   ['nvhpc_20openmp_20options_27',['NVHPC OpenMP Options',['../gpuParallelization.html#autotoc_md315',1,'']]],
   ['nvidia_20gpu_20profiling_28',['NVIDIA GPU Profiling',['../troubleshooting.html#autotoc_md493',1,'']]],
   ['nvidia_20gpus_29',['NVIDIA GPUs',['../running.html#autotoc_md445',1,'']]],
-  ['nvidia_20v100_20gpu_30',['NVIDIA V100 GPU',['../expectedPerformance.html#autotoc_md272',1,'NVIDIA V100 GPU'],['../expectedPerformance.html#autotoc_md275',1,'NVIDIA V100 GPU']]]
+  ['nvidia_20v100_20gpu_30',['NVIDIA V100 GPU',['../expectedPerformance.html#autotoc_md275',1,'']]],
+  ['nvidia_20v100_20gpu_20historical_31',['NVIDIA V100 GPU (historical)',['../expectedPerformance.html#autotoc_md272',1,'']]]
 ];

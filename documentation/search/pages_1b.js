@@ -6,7 +6,7 @@ var searchData=
   ['saurel08_3',['8.1 pT-Relaxation (&lt;span class=&quot;tt&quot;&gt;relax_model = 5&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_saurel08&quot;&gt;[40]&lt;/a&gt;)',['../equations.html#autotoc_md154',1,'']]],
   ['scales_4',['Reference Scales',['../equations.html#sec-reference-scales',1,'']]],
   ['scaling_5',['Scaling',['../examples.html#autotoc_md226',1,'Strong Scaling'],['../examples.html#autotoc_md225',1,'Weak Scaling']]],
-  ['scaling_6',['scaling',['../expectedPerformance.html#autotoc_md274',1,'Strong scaling'],['../expectedPerformance.html#autotoc_md270',1,'Weak scaling']]],
+  ['scaling_6',['scaling',['../expectedPerformance.html#autotoc_md271',1,'GPU weak scaling'],['../expectedPerformance.html#autotoc_md274',1,'Strong scaling'],['../expectedPerformance.html#autotoc_md270',1,'Weak scaling']]],
   ['scaling_20and_20performance_20test_7',['Scaling and Performance test',['../examples.html#autotoc_md224',1,'']]],
   ['scheduler_20notes_8',['Scheduler Notes',['../running.html#autotoc_md453',1,'']]],
   ['schemes_9',['Numerical Schemes',['../physics_constraints.html#autotoc_md415',1,'']]],

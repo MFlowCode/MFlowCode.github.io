@@ -401,9 +401,9 @@ var NAVTREE =
           [ "Figure of merit: Grind time performance", "expectedPerformance.html#autotoc_md269", null ]
         ] ],
         [ "Weak scaling", "expectedPerformance.html#autotoc_md270", [
-          [ "AMD MI250X GPU", "expectedPerformance.html#autotoc_md271", null ],
-          [ "NVIDIA V100 GPU", "expectedPerformance.html#autotoc_md272", null ],
-          [ "IBM Power9 CPU", "expectedPerformance.html#autotoc_md273", null ]
+          [ "GPU weak scaling", "expectedPerformance.html#autotoc_md271", null ],
+          [ "NVIDIA V100 GPU (historical)", "expectedPerformance.html#autotoc_md272", null ],
+          [ "IBM Power9 CPU (historical)", "expectedPerformance.html#autotoc_md273", null ]
         ] ],
         [ "Strong scaling", "expectedPerformance.html#autotoc_md274", [
           [ "NVIDIA V100 GPU", "expectedPerformance.html#autotoc_md275", [
