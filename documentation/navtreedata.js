@@ -98,8 +98,8 @@ var NAVTREE =
         [ "⚠️ Physics Warnings", "case_constraints.html#physics-warnings", null ]
       ] ]
     ] ],
-    [ "Command Line Reference", "cli-reference.html", [
-      [ "Command Line Reference", "cli-reference.html#autotoc_md29", [
+    [ "CLI Reference", "cli-reference.html", [
+      [ "CLI Reference", "cli-reference.html#autotoc_md29", [
         [ "Overview", "cli-reference.html#autotoc_md30", null ],
         [ "Quick Reference", "cli-reference.html#autotoc_md31", null ],
         [ "Commands", "cli-reference.html#autotoc_md32", [
@@ -460,8 +460,8 @@ var NAVTREE =
     [ "Papers", "papers.html", [
       [ "Papers", "papers.html#autotoc_md317", null ]
     ] ],
-    [ "Case Parameters Reference", "parameters.html", [
-      [ "Case Parameters Reference", "parameters.html#autotoc_md318", [
+    [ "Case Parameters", "parameters.html", [
+      [ "Case Parameters", "parameters.html#autotoc_md318", [
         [ "Overview", "parameters.html#autotoc_md319", null ],
         [ "Parameter Families", "parameters.html#autotoc_md320", null ],
         [ "patch_icpp", "parameters.html#patch_icpp", [
@@ -540,7 +540,7 @@ var NAVTREE =
         [ "z_domain", "parameters.html#z_domain", null ],
         [ "z_output", "parameters.html#z_output", null ],
         [ "general", "parameters.html#general", null ],
-        [ "Command Line Reference", "parameters.html#autotoc_md376", null ]
+        [ "CLI Reference", "parameters.html#autotoc_md376", null ]
       ] ]
     ] ],
     [ "Physics Constraints", "physics_constraints.html", [
