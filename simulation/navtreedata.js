@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "MFC: Simulation", "index.html", [
-    [ "MFC Simulation", "md_readme.html", null ],
+  [ "MFC", "index.html", [
+    [ "MFC Simulation", "index.html", null ],
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
@@ -57,14 +57,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__bubbles__el.html#a380e92c53e3fc9298b7443a4fe7ac7af",
-"namespacem__data__output.html#a88654d382efaa311752d6d3119f22fa4",
-"namespacem__global__parameters.html#a91304734742c36abcb4dbf0712545344",
-"namespacem__ibm.html#ae2e4e865df2b419bad364c0126009c28",
-"namespacem__riemann__solvers.html#adb2da01d113ee9a470616c67a3a8a5da",
-"structm__derived__types_1_1acoustic__parameters.html#aa4ba699fa87f54cb9ea63cf7a3f5a6c9",
-"structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b",
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a80045fb7cdc7b094356177f879b0510b"
+"namespacem__bubbles.html",
+"namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd",
+"namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92",
+"namespacem__ib__patches.html#a2a48348949335c2d06d969fdeafaa7a2",
+"namespacem__rhs.html#ae34f4a2d7b69b7868f26243defd3849d",
+"namespacemembers_vars_w.html",
+"structm__derived__types_1_1ib__patch__parameters.html#ade70c18f3ff53fa66c46f7a225b07577",
+"structm__derived__types_1_1simplex__noise__params.html#a54d01864b5d82e1e85788cd43e65571b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

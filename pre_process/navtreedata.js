@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "MFC: Pre-Process", "index.html", [
-    [ "MFC Pre-Process", "md_readme.html", null ],
+  [ "MFC", "index.html", [
+    [ "MFC Pre-Process", "index.html", null ],
     [ "Modules", "namespaces.html", [
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
@@ -57,12 +57,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4",
-"namespacem__global__parameters.html#ab9d9613aeb5400984e400113cd6ac11b",
-"namespacem__precision__select.html#a40bfd97e30d4c33e317f21fbfefe8aad",
-"structm__derived__types_1_1cell__num__bounds.html#a06304e36f7e448bec92a0db291e968a7",
-"structm__derived__types_1_1int__bounds__info.html#a6fa4d0ad7fc1d2dead73acf328662cbb",
-"structm__nvtx_1_1nvtxeventattributes.html#a7c3eba9cbe321391a4edbefb4929710a"
+"namespacem__chemistry.html#a1159c680cff8e03bf5c5e1514ad75f92",
+"namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627",
+"namespacem__perturbation.html#a54bbfa24f96c984b26015bddcfb59ee4",
+"structm__derived__types_1_1bub__bounds__info.html#aeea225dca20ef828d3cbb5edd86b533d",
+"structm__derived__types_1_1ic__patch__parameters.html#ad784053e1b7d044c444a388ccbe92321",
+"structm__derived__types_1_1t__ray.html#acccd7f3317e17e0f171b4619b041b560"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
