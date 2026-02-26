@@ -1,7 +1,7 @@
 var searchData=
 [
   ['warnings_0',['⚠️ Physics Warnings',['../case_constraints.html#physics-warnings',1,'']]],
-  ['weak_20scaling_1',['Weak Scaling',['../examples.html#autotoc_md215',1,'']]],
+  ['weak_20scaling_1',['Weak Scaling',['../examples.html#autotoc_md239',1,'']]],
   ['weak_20scaling_2',['Weak scaling',['../expectedPerformance.html#autotoc_md284',1,'']]],
   ['weak_20scaling_3',['GPU weak scaling',['../expectedPerformance.html#autotoc_md285',1,'']]],
   ['weno_20reconstruction_4',['WENO Reconstruction',['../physics_constraints.html#autotoc_md430',1,'']]],
