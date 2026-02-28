@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structm__derived__types_1_1t__ray.html#acccd7f3317e17e0f171b4619b041b560":[2,0,2,20,0],
 "structm__derived__types_1_1t__triangle.html":[1,0,12,19],
 "structm__derived__types_1_1t__triangle.html":[2,0,2,19],
 "structm__derived__types_1_1t__triangle.html#a451b03a8ba6d6096f20b2382f5b4e466":[1,0,12,19,1],

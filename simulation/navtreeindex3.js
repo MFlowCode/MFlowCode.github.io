@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92":[1,0,21,38],
 "namespacem__global__parameters.html#a6ec3255c636f81f84dd7311ed7337fc7":[1,0,21,154],
 "namespacem__global__parameters.html#a6ed5e5561c16f30a4010f6612877029d":[1,0,21,206],
 "namespacem__global__parameters.html#a6fe63b247d95292a893cfc1a49bff915":[1,0,21,99],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "namespacem__ib__patches.html#a1c4d23e8d1d9c17fc349bd6e3bddb617":[1,0,26,24],
 "namespacem__ib__patches.html#a1e45f7dce070a0e9ec2c713e6a9c6fb3":[1,0,26,16],
 "namespacem__ib__patches.html#a235ce59293ab3a2149e5cd277a4d1a6b":[1,0,26,23],
-"namespacem__ib__patches.html#a2892a8348954f682e7a701cc01b28eb4":[1,0,26,12]
+"namespacem__ib__patches.html#a2892a8348954f682e7a701cc01b28eb4":[1,0,26,12],
+"namespacem__ib__patches.html#a2a48348949335c2d06d969fdeafaa7a2":[1,0,26,31]
 };

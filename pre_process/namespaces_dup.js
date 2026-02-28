@@ -85,8 +85,7 @@ var namespaces_dup =
       [ "istr", "namespacem__check__patches.html#a1595128fdb31c7579893e18f2b9b5165", null ]
     ] ],
     [ "m_checker", "namespacem__checker.html", [
-      [ "s_check_inputs", "namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072", null ],
-      [ "s_check_parallel_io", "namespacem__checker.html#aa0ed4f563534d127e31f38a16ff73821", null ]
+      [ "s_check_inputs", "namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072", null ]
     ] ],
     [ "m_checker_common", "namespacem__checker__common.html", [
       [ "s_check_amd", "namespacem__checker__common.html#a96fa54018d14ac0ea114fd0805dedd97", null ],

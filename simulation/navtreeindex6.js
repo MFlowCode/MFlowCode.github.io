@@ -1,6 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespacemembers_vars_w.html":[1,1,2,21],
 "namespacemembers_vars_x.html":[1,1,2,22],
 "namespacemembers_vars_y.html":[1,1,2,23],
 "namespacemembers_vars_z.html":[1,1,2,24],
@@ -249,5 +248,6 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63":[2,0,0,25,28],
 "structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7":[1,0,17,25,8],
 "structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7":[2,0,0,25,8],
-"structm__derived__types_1_1ib__patch__parameters.html#ade70c18f3ff53fa66c46f7a225b07577":[1,0,17,25,3]
+"structm__derived__types_1_1ib__patch__parameters.html#ade70c18f3ff53fa66c46f7a225b07577":[1,0,17,25,3],
+"structm__derived__types_1_1ib__patch__parameters.html#ade70c18f3ff53fa66c46f7a225b07577":[2,0,0,25,3]
 };

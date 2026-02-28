@@ -1159,7 +1159,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">cont_damage_s</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Continuum damage shape parameter  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">cont_damage_s</span> must be specified for <span class="tt">cont_damage</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">cyl_coord</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable cylindrical coordinates (2D: axisymmetric, 3D: cylindrical)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">6-equation model (<span class="tt">model_eqns</span> = 3) does not support cylindrical coordinates (<span class="tt">cyl_coord</span> = T and p != 0); <span class="tt">bc_key</span> must not be -14 (BC_AXIS) for non-cylindrical coordinates; p must be odd for cylindrical coordinates  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">cyl_coord</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable cylindrical coordinates (2D: axisymmetric, 3D: cylindrical)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">6-equation model (<span class="tt">model_eqns</span> = 3) does not support cylindrical coordinates (<span class="tt">cyl_coord</span> = T and p != 0); <span class="tt">bc_key</span> must not be -14 (BC_AXIS) for non-cylindrical coordinates; Fully 3D cylindrical geometry (<span class="tt">cyl_coord</span> = T, p &gt; 0) is not supported in single <span class="tt">precision</span> (&ndash;single)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">dist_type</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Distribution type for polydisperse bubbles  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">dist_type</span> must be set if using QBMM; <span class="tt">rhoRV</span> cannot be used with <span class="tt">dist_type</span> != 1  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1361,7 +1361,7 @@ general</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">palpha_eps</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Volume fraction epsilon for pressure relaxation  </td><td class="markdownTableBodyNone">\(\varepsilon_\alpha\)  </td><td class="markdownTableBodyNone"><span class="tt">palpha_eps</span> must be positive; <span class="tt">palpha_eps</span> must be less than 1  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">parallel_io</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable parallel I/O  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">down sample requires <span class="tt">parallel_io</span> = T  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">parallel_io</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable parallel I/O  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">down sample requires <span class="tt">parallel_io</span> = T; <span class="tt">parallel_io</span> = T requires MFC built with &ndash;mpi  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">perturb_flow</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable flow perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must be set with <span class="tt">perturb_flow</span> = T; <span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must not be set with <span class="tt">perturb_flow</span> = F  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1387,7 +1387,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">pre_stress</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable pre-stress initialization  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">pre_stress</span> requires <span class="tt">hyperelasticity</span> to be enabled  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">precision</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Output precision  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=single, 2=double; <span class="tt">precision</span> must be 1 or 2  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">precision</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Output precision  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=single, 2=double; <span class="tt">precision</span> = 2 (double output) requires MFC built without &ndash;single; <span class="tt">precision</span> must be 1 or 2  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">pref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reference pressure  </td><td class="markdownTableBodyNone">\(p_\text{ref}\)  </td><td class="markdownTableBodyNone"><span class="tt">pref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4; <span class="tt">pref</span> (reference pressure) must be positive  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1524,7 +1524,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-02-27</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-02-28</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

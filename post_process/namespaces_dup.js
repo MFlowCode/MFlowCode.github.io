@@ -31,8 +31,7 @@ var namespaces_dup =
     ] ],
     [ "m_checker", "namespacem__checker.html", [
       [ "s_check_inputs", "namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072", null ],
-      [ "s_check_inputs_fft", "namespacem__checker.html#a584c7102ac72172ee7ed4c46993f7808", null ],
-      [ "s_check_inputs_output_format", "namespacem__checker.html#aabc567e8c7924a4bfcd77e73eb125c0d", null ]
+      [ "s_check_inputs_fft", "namespacem__checker.html#a584c7102ac72172ee7ed4c46993f7808", null ]
     ] ],
     [ "m_checker_common", "namespacem__checker__common.html", [
       [ "s_check_amd", "namespacem__checker__common.html#a96fa54018d14ac0ea114fd0805dedd97", null ],
