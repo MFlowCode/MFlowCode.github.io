@@ -157,15 +157,165 @@ $(function(){initNavTree('visualization.html','',''); });
   <div class="headertitle"><div class="title">Flow visualization </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md525"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md534"></a>
 Flow visualization</h1>
-<p>A post-processed database in Silo-HDF5 format can be visualized and analyzed using Paraview and VisIt. After the post-processing of simulation data (see section <a class="el" href="running.html" title="Running">Running</a>), a directory named <span class="tt">silo_hdf5</span> contains a silo-HDF5 database. Here, <span class="tt">silo_hdf5/</span> includes a directory named <span class="tt">root/</span> that contains index files for flow field data at each saved time step.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md526"></a>
-Visualizing with Paraview</h3>
-<p>Paraview is an open-source interactive parallel visualization and graphical analysis tool for viewing scientific data. Paraview 5.11.0 has been confirmed to work with the MFC databases for some parallel environments. Nevertheless, the installation and configuration of Paraview can be environment-dependent and are left to the user.</p>
+<p>After running <span class="tt">post_process</span> on a simulation (see <a class="el" href="running.html" title="Running">Running</a>), MFC produces output in either Silo-HDF5 format (<span class="tt">format=1</span>) or binary format (<span class="tt">format=2</span>). These can be visualized using MFC's built-in CLI tool or external tools like ParaView and VisIt.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md536"></a>
+Quick visualization with <span class="tt">./mfc.sh viz</span></h2>
+<p>MFC includes a built-in visualization command that renders images and videos directly from post-processed output — no external GUI tools needed.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md537"></a>
+Basic usage</h3>
+<div class="fragment"><div class="line"># Launch the terminal UI (default mode)</div>
+<div class="line">./mfc.sh viz case_dir/</div>
+<div class="line"> </div>
+<div class="line"># Launch with a specific variable pre-selected</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres</div>
+</div><!-- fragment --><p>The command auto-detects the output format (binary or Silo-HDF5) and dimensionality (1D, 2D, or 3D). By default it launches an interactive terminal UI that works over SSH. Use <span class="tt">--interactive</span> for a browser-based UI (supports 3D), <span class="tt">--png</span> to save images, or <span class="tt">--mp4</span> for video.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md538"></a>
+Exploring available data</h3>
+<p>Before plotting, you can inspect what data is available:</p>
+<div class="fragment"><div class="line"># List all available timesteps</div>
+<div class="line">./mfc.sh viz case_dir/ --list-steps</div>
+<div class="line"> </div>
+<div class="line"># List all available variables at a given timestep</div>
+<div class="line">./mfc.sh viz case_dir/ --list-vars --step 0</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md539"></a>
+Timestep selection</h3>
+<p>The <span class="tt">--step</span> argument accepts several formats:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Format  </th><th class="markdownTableHeadNone">Example  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Single  </td><td class="markdownTableBodyNone"><span class="tt">--step 1000</span>  </td><td class="markdownTableBodyNone">One timestep  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Range  </td><td class="markdownTableBodyNone"><span class="tt">--step 0:10000:500</span>  </td><td class="markdownTableBodyNone">Start:end:stride (inclusive)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Last  </td><td class="markdownTableBodyNone"><span class="tt">--step last</span>  </td><td class="markdownTableBodyNone">Most recent available timestep  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">All  </td><td class="markdownTableBodyNone"><span class="tt">--step all</span>  </td><td class="markdownTableBodyNone">Every available timestep  </td></tr>
+</table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md540"></a>
+Rendering options</h3>
+<p>Customize the appearance of plots:</p>
+<div class="fragment"><div class="line"># Custom colormap and color range</div>
+<div class="line">./mfc.sh viz case_dir/ --var rho --step 1000 --png --cmap RdBu --vmin 0.5 --vmax 2.0</div>
+<div class="line"> </div>
+<div class="line"># Higher resolution</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 500 --png --dpi 300</div>
+<div class="line"> </div>
+<div class="line"># Logarithmic color scale</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 1000 --png --log-scale</div>
+</div><!-- fragment --><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Default  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--cmap</span>  </td><td class="markdownTableBodyNone">Matplotlib colormap name  </td><td class="markdownTableBodyNone"><span class="tt">viridis</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--vmin</span>  </td><td class="markdownTableBodyNone">Minimum color scale value  </td><td class="markdownTableBodyNone">auto  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--vmax</span>  </td><td class="markdownTableBodyNone">Maximum color scale value  </td><td class="markdownTableBodyNone">auto  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--dpi</span>  </td><td class="markdownTableBodyNone">Image resolution (dots per inch)  </td><td class="markdownTableBodyNone">150  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--log-scale</span>  </td><td class="markdownTableBodyNone">Use logarithmic color scale  </td><td class="markdownTableBodyNone">off  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--output</span>  </td><td class="markdownTableBodyNone">Output directory for images  </td><td class="markdownTableBodyNone"><span class="tt">case_dir/viz/</span>  </td></tr>
+</table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md541"></a>
+3D slicing</h3>
+<p>For 3D simulations, <span class="tt">viz</span> extracts a 2D slice for plotting. By default, it slices at the midplane along the z-axis.</p>
+<dl class="section note"><dt>Note</dt><dd>To limit memory use, 3D batch rendering is capped at 500 timesteps and <span class="tt">--interactive</span> mode at 50. Use <span class="tt">--step start:end:stride</span> to stay within these limits when processing many steps.</dd></dl>
+<div class="fragment"><div class="line"># Default z-midplane slice</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 500 --png</div>
+<div class="line"> </div>
+<div class="line"># Slice along the x-axis at x=0.25</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 500 --png --slice-axis x --slice-value 0.25</div>
+<div class="line"> </div>
+<div class="line"># Slice by array index</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 500 --png --slice-axis y --slice-index 50</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md542"></a>
+Video generation</h3>
+<p>Generate MP4 videos from a range of timesteps:</p>
+<div class="fragment"><div class="line"># Basic video (10 fps)</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 0:10000:100 --mp4</div>
+<div class="line"> </div>
+<div class="line"># Custom frame rate</div>
+<div class="line">./mfc.sh viz case_dir/ --var rho --step all --mp4 --fps 24</div>
+<div class="line"> </div>
+<div class="line"># Video with fixed color range</div>
+<div class="line">./mfc.sh viz case_dir/ --var rho --step 0:5000:50 --mp4 --vmin 0.1 --vmax 1.0</div>
+</div><!-- fragment --><p>Videos are saved as <span class="tt">case_dir/viz/&lt;varname&gt;.mp4</span>. The color range is automatically computed from the first, middle, and last frames unless <span class="tt">--vmin</span>/<span class="tt">--vmax</span> are specified.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md543"></a>
+Tiled 1D rendering</h3>
+<p>For 1D cases, omitting <span class="tt">--var</span> (or passing <span class="tt">--var all</span>) renders all variables in a single tiled figure:</p>
+<div class="fragment"><div class="line"># Tiled plot of all variables at the last timestep</div>
+<div class="line">./mfc.sh viz case_dir/ --step last --png</div>
+<div class="line"> </div>
+<div class="line"># Equivalent explicit form</div>
+<div class="line">./mfc.sh viz case_dir/ --var all --step last --png</div>
+</div><!-- fragment --><p>Each variable gets its own subplot with automatic LaTeX-style axis labels. Tiled mode is available for 1D and 2D data. For 3D data, omitting <span class="tt">--var</span> auto-selects the first variable.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md544"></a>
+Interactive mode</h3>
+<p>Launch a browser-based interactive viewer with <span class="tt">--interactive</span>:</p>
+<div class="fragment"><div class="line">./mfc.sh viz case_dir/ --interactive</div>
+<div class="line"> </div>
+<div class="line"># Custom port</div>
+<div class="line">./mfc.sh viz case_dir/ --interactive --port 9000</div>
+</div><!-- fragment --><p>The interactive viewer provides a Dash web UI with:</p><ul>
+<li>Variable and timestep selection</li>
+<li>Live plot updates</li>
+<li>Pan, zoom, and hover inspection</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>Interactive mode requires the <span class="tt">dash</span> Python package.</dd></dl>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md545"></a>
+Terminal UI (TUI)</h3>
+<p>The default mode launches a live terminal UI that works over SSH with no browser or port-forwarding needed:</p>
+<div class="fragment"><div class="line">./mfc.sh viz case_dir/</div>
+<div class="line"> </div>
+<div class="line"># Start with a specific variable pre-selected</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres</div>
+</div><!-- fragment --><p>The TUI loads all timesteps and renders plots directly in the terminal using Unicode block characters. It supports 1D and 2D data only (use <span class="tt">--interactive</span> for 3D).</p>
+<p><b>Keyboard shortcuts:</b></p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Key  </th><th class="markdownTableHeadNone">Action  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">.</span> / <span class="tt">→</span>  </td><td class="markdownTableBodyNone">Next timestep  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">,</span> / <span class="tt">←</span>  </td><td class="markdownTableBodyNone">Previous timestep  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Space</span>  </td><td class="markdownTableBodyNone">Toggle autoplay  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">l</span>  </td><td class="markdownTableBodyNone">Toggle logarithmic scale  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">f</span>  </td><td class="markdownTableBodyNone">Freeze / unfreeze color range  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">↑</span> / <span class="tt">↓</span>  </td><td class="markdownTableBodyNone">Select variable (in sidebar)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">c</span>  </td><td class="markdownTableBodyNone">Cycle colormap  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">q</span>  </td><td class="markdownTableBodyNone">Quit  </td></tr>
+</table>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md546"></a>
+Plot styling</h3>
+<p>Axis labels use LaTeX-style math notation — for example, <span class="tt">pres</span> is labeled as \(p\), <span class="tt">vel1</span> as \(u\), and <span class="tt">alpha1</span> as \(\alpha_1\). Plots use serif fonts and the Computer Modern math font for consistency with publication figures.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md547"></a>
+Format selection</h3>
+<p>The output format is auto-detected from the case directory. To override:</p>
+<div class="fragment"><div class="line">./mfc.sh viz case_dir/ --var pres --step 0 --format binary</div>
+<div class="line">./mfc.sh viz case_dir/ --var pres --step 0 --format silo</div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Reading Silo-HDF5 files requires the <span class="tt">h5py</span> Python package. If it is not installed, you will see a clear error message with installation instructions. Alternatively, use <span class="tt">format=2</span> (binary) in your case file to produce binary output, which has no extra dependencies.</dd></dl>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md548"></a>
+Complete option reference</h3>
+<p>Run <span class="tt">./mfc.sh viz -h</span> for a full list of options.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md550"></a>
+Visualizing with ParaView</h2>
+<p>ParaView is an open-source interactive parallel visualization and graphical analysis tool for viewing scientific data. Post-processed data in Silo-HDF5 format (<span class="tt">format=1</span>) can be opened directly in ParaView. Paraview 5.11.0 has been confirmed to work with the MFC databases for some parallel environments. Nevertheless, the installation and configuration of Paraview can be environment-dependent and are left to the user.</p>
 <p>The user can launch Paraview and open the index files under <span class="tt">/silo_hdf5/root</span>. Once the database is loaded, flow field variables contained in the database can be added to the render view. Further information on Paraview can be found in its <a href="https://docs.paraview.org/en/latest/">documentation</a>. The figure below shows the iso-contour of the liquid void fraction (<span class="tt">alpha1</span>) in the database generated by the example case <span class="tt">3D_sphbubcollapse</span>.</p>
 <p><img src="../res/paraview.png" alt="" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md527"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md551"></a>
 Visualizing data in cylindrical coordinates</h3>
 <p>Visualizing data in cylindrical coordinates requires a coordinate transformation of the raw data in the database file. In Paraview, this coordinate transformation can be accomplished with the following steps:</p>
 <ol type="1">
@@ -179,13 +329,13 @@ Visualizing data in cylindrical coordinates</h3>
 </li>
 </ol>
 <p>These steps will transform the raw data into cylindrical coordinates. For many cases, this step will require resizing the render view window.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md528"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md552"></a>
 Visualizing with VisIt</h2>
 <p>VisIt is an alternative open-source interactive parallel visualization and graphical analysis tool for viewing scientific data. Versions of VisIt after 2.6.0 have been confirmed to work with the MFC databases for some parallel environments. Nevertheless, installation and configuration of VisIt can be environment-dependent and are left to the user. Further remarks on parallel flow visualization, analysis, and processing of the MFC database using VisIt can also be found in Coralic <a class="el" href="citelist.html#CITEREF_coralic15">[14]</a> and Meng <a class="el" href="citelist.html#CITEREF_meng16">[32]</a>.</p>
 <p>The user can launch VisIt and open the index files under <span class="tt">/silo_hdf5/root</span>. Once the database is loaded, flow field variables contained in the database can be added to the plot. The figure below shows the iso-contour of the liquid void fraction (<span class="tt">alpha1</span>) in the database generated by the example case <span class="tt">3D_sphbubcollapse</span>. For analysis and processing of the database using VisIt's capability, the user is encouraged to address <a href="https://wci.llnl.gov/simulation/computer-codes/visit/manuals">VisIt user manual</a>.</p>
 <p><img src="../res/visit.png" alt="" class="inline"/></p>
 <p><em>Iso-contour of the liquid void fraction (<span class="tt">alpha1</span>) in the database generated by example case <span class="tt">3D_sphbubcollapse</span></em></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md529"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md553"></a>
 Serial data output</h2>
 <p>If <span class="tt">parallel_io = 'F'</span>, MFC will output the conservative variables to a directory <span class="tt">D/</span>. If multiple cores are used ( \(\mathtt{ppn &gt; 1}\)), then a separate file is created for each core. If only one coordinate dimension (<span class="tt">n = 0</span> and <span class="tt">p = 0</span>) exists, the primitive variables will also be written to <span class="tt">D/</span>. The file names correspond to the variables associated with each equation solved by MFC. They are written at every <span class="tt">t_step_save</span> time step. The conservative variables are</p>
 <p class="formulaDsp">
@@ -203,9 +353,9 @@ Serial data output</h2>
 <p class="formulaDsp">
 \[ R_1, \dot{R}_1, \dots, R_{N_b}, \dot{R}_{N_b} \]
 </p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md530"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md554"></a>
 Remote Visualization on PACE Phoenix</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md531"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md555"></a>
 Step 1: Setting up your Environment</h3>
 <p>Begin by downloading the <span class="tt">.zip</span> file <a href="https://www.dropbox.com/scl/fi/bdk8702oas8zqu0mk24vx/paceParaview.zip?rlkey=bov1s6lra0z7dhhrh6etniucx&amp;st=2m9xvls4&amp;dl=0">here</a>. This file contains two things:</p>
 <ul>
@@ -213,7 +363,7 @@ Step 1: Setting up your Environment</h3>
 <li>A prebuilt Paraview 5.11 binary</li>
 </ul>
 <p>Place the file <span class="tt">paceParview.zip</span> in your scratch direction on Phoenix and unzip it using <span class="tt">unzip paceParaview.zip</span>. Enter the new directory <span class="tt">paceParaview</span> and run <span class="tt">tar -xvf ParaView-5.11.0-egl-MPI-Linux-Python3.9-x86_64.tar.gz</span> to decompress the compiled binary. Now that you have the binary on Phoenix, you must download Paraview 5.11 on your local machine. Paraview binaries can be downloaded <a href="https://www.paraview.org/download/">here</a>. Select <span class="tt">v5.11</span> from the version drop-down bar and install a <span class="tt">5.11.0</span> version of Paraview.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md532"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md556"></a>
 Step 2: Customizing the script</h3>
 <p>While all of the bash script's options could be passed as command-line arguments, hardcoding certain unlikely-to-change options saves time. The following is a list of required and suggested updates to make to <span class="tt">pace-paraview-server</span>.</p>
 <ul>
@@ -222,7 +372,7 @@ Step 2: Customizing the script</h3>
 <li>(Optional) Update line 51 to reflect the default account you'll use to run Paraview jobs</li>
 <li>(Optional) Update line 52 to reflect the default wall time requested for your job</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md533"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md557"></a>
 Step 3: Running pace-paraview-server</h3>
 <p>Before running <span class="tt">pace-paraview-server</span> for the first time, you must update its permissions by running <span class="tt">chmod u+x pace-paraview-server</span> in your command line. Once this has been done, you can run <span class="tt">./pace-paraview-server</span> with the following options:</p>
 <ul>
