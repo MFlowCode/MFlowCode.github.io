@@ -7,13 +7,14 @@ var searchData=
   ['x_5fcentroid_4',['x_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#aef7ef14d93a66bf0e9517bb79a7ebd6f',1,'m_derived_types::ic_patch_parameters::x_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b',1,'m_derived_types::ib_patch_parameters::x_centroid']]],
   ['x_5foutput_5',['x_output',['../namespacem__global__parameters.html#a4b7e3508ffb5fd7d40989289de560a80',1,'m_global_parameters']]],
   ['x_5foutput_5fidx_6',['x_output_idx',['../namespacem__global__parameters.html#a7cece33c4a92790d7e46790883492afb',1,'m_global_parameters']]],
-  ['x_5froot_5fcb_7',['x_root_cb',['../namespacem__global__parameters.html#a5f6e8492eaf45d6a9d1ce8ade1cda4a6',1,'m_global_parameters']]],
-  ['x_5froot_5fcc_8',['x_root_cc',['../namespacem__global__parameters.html#a428ef177339a14bcb933e4c59db0b02a',1,'m_global_parameters']]],
-  ['x_5froot_5fcc_5fs_9',['x_root_cc_s',['../namespacem__global__parameters.html#af0abe82216f3cae1170e7aae4304dae9',1,'m_global_parameters']]],
-  ['xi_5fidx_10',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
-  ['xibeg_11',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
-  ['xiend_12',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
-  ['xmax_13',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
-  ['xmin_14',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_15',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aa0c3c91c4889b19f2f4632f77d2f40c1',1,'m_derived_types::source_spatial_type']]]
+  ['x_5fperiodicity_7',['x_periodicity',['../structm__derived__types_1_1ghost__point.html#a20328680231423e909f012c110cc81aa',1,'m_derived_types::ghost_point']]],
+  ['x_5froot_5fcb_8',['x_root_cb',['../namespacem__global__parameters.html#a5f6e8492eaf45d6a9d1ce8ade1cda4a6',1,'m_global_parameters']]],
+  ['x_5froot_5fcc_9',['x_root_cc',['../namespacem__global__parameters.html#a428ef177339a14bcb933e4c59db0b02a',1,'m_global_parameters']]],
+  ['x_5froot_5fcc_5fs_10',['x_root_cc_s',['../namespacem__global__parameters.html#af0abe82216f3cae1170e7aae4304dae9',1,'m_global_parameters']]],
+  ['xi_5fidx_11',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
+  ['xibeg_12',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
+  ['xiend_13',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
+  ['xmax_14',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
+  ['xmin_15',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
+  ['xyz_5fto_5fr_5fratios_16',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aa0c3c91c4889b19f2f4632f77d2f40c1',1,'m_derived_types::source_spatial_type']]]
 ];

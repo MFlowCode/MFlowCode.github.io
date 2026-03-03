@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md336"></a>
 Overview</h2>
-<p>MFC supports <b>3,403</b> case parameters organized into families.</p>
+<p>MFC supports <b>40,033</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md337"></a>
 Parameter Families</h2>
@@ -173,9 +173,9 @@ Parameter Families</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Family  </th><th class="markdownTableHeadNone">Count  </th><th class="markdownTableHeadNone">Description  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="#patch_icpp" title="patch_icpp">patch_icpp</a>  </td><td class="markdownTableBodyNone">1954  </td><td class="markdownTableBodyNone">Initial condition patch parameters  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#patch_ib" title="patch_ib">patch_ib</a>  </td><td class="markdownTableBodyNone">37000  </td><td class="markdownTableBodyNone">Immersed boundary patch parameters  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#patch_ib" title="patch_ib">patch_ib</a>  </td><td class="markdownTableBodyNone">370  </td><td class="markdownTableBodyNone">Immersed boundary patch parameters  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#patch_icpp" title="patch_icpp">patch_icpp</a>  </td><td class="markdownTableBodyNone">1954  </td><td class="markdownTableBodyNone">Initial condition patch parameters  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#fluid_pp" title="fluid_pp">fluid_pp</a>  </td><td class="markdownTableBodyNone">170  </td><td class="markdownTableBodyNone">Fluid material properties  </td></tr>
 <tr class="markdownTableRowEven">
@@ -238,11 +238,72 @@ Parameter Families</h2>
 <td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">215  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
 </table>
 <hr  />
+<h2 class="doxsection"><a class="anchor" id="patch_ib"></a>
+patch_ib</h2>
+<p><em>Immersed boundary patch parameters</em></p>
+<p><b>37000 parameters</b></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md339"></a>
+Patterns</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pattern  </th><th class="markdownTableHeadNone">Example  </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%angles(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%angles(1)</span>  </td><td class="markdownTableBodyNone">Orientation angle 1 for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%angular_vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%angular_vel(1)</span>  </td><td class="markdownTableBodyNone">Angular velocity component 1 for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%c</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%c</span>  </td><td class="markdownTableBodyNone">Shape parameter c for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%geometry</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%geometry</span>  </td><td class="markdownTableBodyNone">Geometry type for immersed boundary 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_x</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_x</span>  </td><td class="markdownTableBodyNone">X-dimension length for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_y</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_y</span>  </td><td class="markdownTableBodyNone">Y-dimension length for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_z</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_z</span>  </td><td class="markdownTableBodyNone">Z-dimension length for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%m</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%m</span>  </td><td class="markdownTableBodyNone">Shape parameter m for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%mass</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%mass</span>  </td><td class="markdownTableBodyNone">Mass for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_filepath</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_filepath</span>  </td><td class="markdownTableBodyNone">STL model file path for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_rotate(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_rotate(1)</span>  </td><td class="markdownTableBodyNone">Model rotation component 1 for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_scale(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_scale(1)</span>  </td><td class="markdownTableBodyNone">Model scale component 1 for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_spc</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_spc</span>  </td><td class="markdownTableBodyNone">Model spacing for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_threshold</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_threshold</span>  </td><td class="markdownTableBodyNone">Model threshold for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_translate(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_translate(1)</span>  </td><td class="markdownTableBodyNone">Model translation component 1 for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%moving_ibm</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%moving_ibm</span>  </td><td class="markdownTableBodyNone">Enable moving boundary for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%p</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%p</span>  </td><td class="markdownTableBodyNone">Shape parameter p for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%radius</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%radius</span>  </td><td class="markdownTableBodyNone">Radius for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%slip</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%slip</span>  </td><td class="markdownTableBodyNone">Enable slip condition for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%t</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%t</span>  </td><td class="markdownTableBodyNone">Shape parameter t for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%theta</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%theta</span>  </td><td class="markdownTableBodyNone">Theta angle for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%vel(1)</span>  </td><td class="markdownTableBodyNone">Velocity component 1 for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%x_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%x_centroid</span>  </td><td class="markdownTableBodyNone">X-coordinate of centroid for IB patch 1  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%y_centroid</span>  </td><td class="markdownTableBodyNone">Y-coordinate of centroid for IB patch 1  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%z_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%z_centroid</span>  </td><td class="markdownTableBodyNone">Z-coordinate of centroid for IB patch 1  </td></tr>
+</table>
+<hr  />
 <h2 class="doxsection"><a class="anchor" id="patch_icpp"></a>
 patch_icpp</h2>
 <p><em>Initial condition patch parameters</em></p>
 <p><b>1954 parameters</b></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md339"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md341"></a>
 Patterns</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -349,67 +410,6 @@ Patterns</h3>
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%y_centroid</span>  </td><td class="markdownTableBodyNone">Y-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%z_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%z_centroid</span>  </td><td class="markdownTableBodyNone">Z-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-</table>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="patch_ib"></a>
-patch_ib</h2>
-<p><em>Immersed boundary patch parameters</em></p>
-<p><b>370 parameters</b></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md341"></a>
-Patterns</h3>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Pattern  </th><th class="markdownTableHeadNone">Example  </th><th class="markdownTableHeadNone">Description  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%angles(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%angles(1)</span>  </td><td class="markdownTableBodyNone">Orientation angle 1 for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%angular_vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%angular_vel(1)</span>  </td><td class="markdownTableBodyNone">Angular velocity component 1 for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%c</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%c</span>  </td><td class="markdownTableBodyNone">Shape parameter c for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%geometry</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%geometry</span>  </td><td class="markdownTableBodyNone">Geometry type for immersed boundary 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_x</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_x</span>  </td><td class="markdownTableBodyNone">X-dimension length for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_y</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_y</span>  </td><td class="markdownTableBodyNone">Y-dimension length for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_z</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_z</span>  </td><td class="markdownTableBodyNone">Z-dimension length for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%m</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%m</span>  </td><td class="markdownTableBodyNone">Shape parameter m for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%mass</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%mass</span>  </td><td class="markdownTableBodyNone">Mass for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_filepath</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_filepath</span>  </td><td class="markdownTableBodyNone">STL model file path for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_rotate(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_rotate(1)</span>  </td><td class="markdownTableBodyNone">Model rotation component 1 for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_scale(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_scale(1)</span>  </td><td class="markdownTableBodyNone">Model scale component 1 for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_spc</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_spc</span>  </td><td class="markdownTableBodyNone">Model spacing for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_threshold</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_threshold</span>  </td><td class="markdownTableBodyNone">Model threshold for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_translate(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_translate(1)</span>  </td><td class="markdownTableBodyNone">Model translation component 1 for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%moving_ibm</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%moving_ibm</span>  </td><td class="markdownTableBodyNone">Enable moving boundary for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%p</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%p</span>  </td><td class="markdownTableBodyNone">Shape parameter p for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%radius</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%radius</span>  </td><td class="markdownTableBodyNone">Radius for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%slip</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%slip</span>  </td><td class="markdownTableBodyNone">Enable slip condition for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%t</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%t</span>  </td><td class="markdownTableBodyNone">Shape parameter t for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%theta</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%theta</span>  </td><td class="markdownTableBodyNone">Theta angle for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%vel(1)</span>  </td><td class="markdownTableBodyNone">Velocity component 1 for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%x_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%x_centroid</span>  </td><td class="markdownTableBodyNone">X-coordinate of centroid for IB patch 1  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%y_centroid</span>  </td><td class="markdownTableBodyNone">Y-coordinate of centroid for IB patch 1  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%z_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%z_centroid</span>  </td><td class="markdownTableBodyNone">Z-coordinate of centroid for IB patch 1  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="fluid_pp"></a>
@@ -1205,7 +1205,7 @@ general</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">hypoelasticity</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable hypoelastic model  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">hypoelasticity</span> requires <span class="tt">model_eqns</span> = 2; <span class="tt">hypoelasticity</span> requires HLL Riemann solver (<span class="tt">riemann_solver</span> = 1)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">ib</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable immersed boundary method  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Immersed Boundaries do not work in 1D (requires n &gt; 0); <span class="tt">num_ibs</span> must be between 1 and <span class="tt">num_patches_max</span> (10); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">ib</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable immersed boundary method  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Immersed Boundaries do not work in 1D (requires n &gt; 0); <span class="tt">num_ibs</span> must be between 1 and <span class="tt">num_patches_max</span> (1000); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">ic_beta</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Interface compression beta  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Initial condition parameter  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1323,7 +1323,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_fluids</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of fluid components  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1, Max: 10; <span class="tt">num_fluids</span> must be positive  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of immersed boundary patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0, Max: 10; <span class="tt">num_ibs</span> must be between 1 and <span class="tt">num_patches_max</span> (10); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of immersed boundary patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0, Max: 1000; <span class="tt">num_ibs</span> must be between 1 and <span class="tt">num_patches_max</span> (1000); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_igr_iters</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of IGR iterations  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">num_igr_iters</span> must be greater than or equal to 0  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1524,7 +1524,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-02</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-03</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

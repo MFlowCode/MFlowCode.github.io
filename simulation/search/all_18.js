@@ -9,6 +9,7 @@ var searchData=
   ['y_5fcc_6',['y_cc',['../namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b',1,'m_global_parameters']]],
   ['y_5fcentroid_7',['y_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a8441b883b97fbc475ece672cd519fe33',1,'m_derived_types::ic_patch_parameters::y_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a234982179567711b441a5a395448efdc',1,'m_derived_types::ib_patch_parameters::y_centroid'],['../namespacem__ib__patches.html#a91d44fbdf16c8abe808fcd81b24ecd95',1,'m_ib_patches::y_centroid']]],
   ['y_5fdomain_8',['y_domain',['../namespacem__global__parameters.html#a94bfe5cc861c66dadab450d25a6b5817',1,'m_global_parameters']]],
-  ['ymax_9',['ymax',['../structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94',1,'m_derived_types::integral_parameters']]],
-  ['ymin_10',['ymin',['../structm__derived__types_1_1integral__parameters.html#af95a8f5863854c6d6f1f0869aee1a819',1,'m_derived_types::integral_parameters']]]
+  ['y_5fperiodicity_9',['y_periodicity',['../structm__derived__types_1_1ghost__point.html#a9e33937f4756520112c48c3102f35936',1,'m_derived_types::ghost_point']]],
+  ['ymax_10',['ymax',['../structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94',1,'m_derived_types::integral_parameters']]],
+  ['ymin_11',['ymin',['../structm__derived__types_1_1integral__parameters.html#af95a8f5863854c6d6f1f0869aee1a819',1,'m_derived_types::integral_parameters']]]
 ];

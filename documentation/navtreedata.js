@@ -486,10 +486,10 @@ var NAVTREE =
       [ "Case Parameters", "parameters.html#autotoc_md335", [
         [ "Overview", "parameters.html#autotoc_md336", null ],
         [ "Parameter Families", "parameters.html#autotoc_md337", null ],
-        [ "patch_icpp", "parameters.html#patch_icpp", [
+        [ "patch_ib", "parameters.html#patch_ib", [
           [ "Patterns", "parameters.html#autotoc_md339", null ]
         ] ],
-        [ "patch_ib", "parameters.html#patch_ib", [
+        [ "patch_icpp", "parameters.html#patch_icpp", [
           [ "Patterns", "parameters.html#autotoc_md341", null ]
         ] ],
         [ "fluid_pp", "parameters.html#fluid_pp", [

@@ -19,7 +19,7 @@ var searchData=
   ['np_5fmax_16',['np_max',['../structm__derived__types_1_1cell__num__bounds.html#ac886bdc2f7e85c4abc302de569060bc5',1,'m_derived_types::cell_num_bounds']]],
   ['np_5fmin_17',['np_min',['../structm__derived__types_1_1cell__num__bounds.html#a66dd868c82c25e7d9fa9a017850ff5f1',1,'m_derived_types::cell_num_bounds']]],
   ['npulse_18',['npulse',['../structm__derived__types_1_1acoustic__parameters.html#afa62c4c7dee730d6896348a107c02f6f',1,'m_derived_types::acoustic_parameters']]],
-  ['ntrs_19',['ntrs',['../structm__derived__types_1_1t__model.html#aa19055f2207ffc78d8b4a595c6e74281',1,'m_derived_types::t_model']]],
+  ['ntrs_19',['ntrs',['../structm__derived__types_1_1t__model.html#aa19055f2207ffc78d8b4a595c6e74281',1,'m_derived_types::t_model::ntrs'],['../structm__derived__types_1_1t__model__array.html#a6c9b66ce9a39f79c52ab3a45d318451c',1,'m_derived_types::t_model_array::ntrs']]],
   ['num_5fbc_5fpatches_20',['num_bc_patches',['../namespacem__global__parameters.html#a65cc6742c19b776709ec273c57080bc7',1,'m_global_parameters']]],
   ['num_5fbc_5fpatches_5fmax_21',['num_bc_patches_max',['../namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431',1,'m_constants']]],
   ['num_5fdims_22',['num_dims',['../namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b',1,'m_global_parameters']]],
