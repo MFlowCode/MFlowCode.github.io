@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md336"></a>
 Overview</h2>
-<p>MFC supports <b>40,033</b> case parameters organized into families.</p>
+<p>MFC supports <b>40,623</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md337"></a>
 Parameter Families</h2>
@@ -175,7 +175,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#patch_ib" title="patch_ib">patch_ib</a>  </td><td class="markdownTableBodyNone">37000  </td><td class="markdownTableBodyNone">Immersed boundary patch parameters  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#patch_icpp" title="patch_icpp">patch_icpp</a>  </td><td class="markdownTableBodyNone">1954  </td><td class="markdownTableBodyNone">Initial condition patch parameters  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#patch_icpp" title="patch_icpp">patch_icpp</a>  </td><td class="markdownTableBodyNone">2544  </td><td class="markdownTableBodyNone">Initial condition patch parameters  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#fluid_pp" title="fluid_pp">fluid_pp</a>  </td><td class="markdownTableBodyNone">170  </td><td class="markdownTableBodyNone">Fluid material properties  </td></tr>
 <tr class="markdownTableRowEven">
@@ -302,7 +302,7 @@ Patterns</h3>
 <h2 class="doxsection"><a class="anchor" id="patch_icpp"></a>
 patch_icpp</h2>
 <p><em>Initial condition patch parameters</em></p>
-<p><b>1954 parameters</b></p>
+<p><b>2544 parameters</b></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md341"></a>
 Patterns</h3>
 <table class="markdownTable">
@@ -339,6 +339,10 @@ Patterns</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%epsilon</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%epsilon</span>  </td><td class="markdownTableBodyNone">Interface thickness for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%fourier_cos(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%fourier_cos(1)</span>  </td><td class="markdownTableBodyNone">Fourier cos mode 1 for 2D modal patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%fourier_sin(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%fourier_sin(1)</span>  </td><td class="markdownTableBodyNone">Fourier sin mode 1 for 2D modal patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%gamma</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%gamma</span>  </td><td class="markdownTableBodyNone">Specific heat ratio for patch 1  </td><td class="markdownTableBodyNone">\(\gamma\)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%geometry</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%geometry</span>  </td><td class="markdownTableBodyNone">Geometry type for initial condition patch 1  </td><td class="markdownTableBodyNone"></td></tr>
@@ -353,62 +357,100 @@ Patterns</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%m0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%m0</span>  </td><td class="markdownTableBodyNone">Initial bubble mass for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%modal_clip_r_to_min</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%modal_clip_r_to_min</span>  </td><td class="markdownTableBodyNone">Clip boundary radius R(θ) to modal_r_min for 2D modal pat...  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%modal_r_min</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%modal_r_min</span>  </td><td class="markdownTableBodyNone">Min r when clipping for 2D modal patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%modal_use_exp_form</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%modal_use_exp_form</span>  </td><td class="markdownTableBodyNone">Use exp form for 2D modal patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%model_filepath</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%model_filepath</span>  </td><td class="markdownTableBodyNone">STL model file path for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%model_rotate(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%model_rotate(1)</span>  </td><td class="markdownTableBodyNone">Model rotation component 1 for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%model_scale(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%model_scale(1)</span>  </td><td class="markdownTableBodyNone">Model scale component 1 for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%model_spc</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%model_spc</span>  </td><td class="markdownTableBodyNone">Model spacing for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%model_threshold</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%model_threshold</span>  </td><td class="markdownTableBodyNone">Model threshold for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%model_translate(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%model_translate(1)</span>  </td><td class="markdownTableBodyNone">Model translation component 1 for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%non_axis_sym</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%non_axis_sym</span>  </td><td class="markdownTableBodyNone">Non-axisymmetric parameter for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%normal</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%normal</span>  </td><td class="markdownTableBodyNone">Normal direction for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%normal(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%normal(1)</span>  </td><td class="markdownTableBodyNone">Normal component 1 for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%p0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%p0</span>  </td><td class="markdownTableBodyNone">Initial bubble pressure for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%pi_inf</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%pi_inf</span>  </td><td class="markdownTableBodyNone">Stiffness pressure for patch 1  </td><td class="markdownTableBodyNone">\(\pi_\infty\)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%pres</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%pres</span>  </td><td class="markdownTableBodyNone">Pressure for patch 1  </td><td class="markdownTableBodyNone">\(p\)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%qv</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%qv</span>  </td><td class="markdownTableBodyNone">Heat of formation for patch 1  </td><td class="markdownTableBodyNone">\(q_v\)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%qvp</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%qvp</span>  </td><td class="markdownTableBodyNone">Heat of formation prime for patch 1  </td><td class="markdownTableBodyNone">\(q&#39;_v\)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%r0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%r0</span>  </td><td class="markdownTableBodyNone">Initial bubble radius for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%radii</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%radii</span>  </td><td class="markdownTableBodyNone">Radii for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%radii(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%radii(1)</span>  </td><td class="markdownTableBodyNone">Radius component 1 for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%radius</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%radius</span>  </td><td class="markdownTableBodyNone">Radius for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%rho</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%rho</span>  </td><td class="markdownTableBodyNone">Density for patch 1  </td><td class="markdownTableBodyNone">\(\rho\)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%smooth_coeff</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%smooth_coeff</span>  </td><td class="markdownTableBodyNone">Smoothing coefficient for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%smooth_patch_id</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%smooth_patch_id</span>  </td><td class="markdownTableBodyNone">Patch ID to smooth against for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%smoothen</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%smoothen</span>  </td><td class="markdownTableBodyNone">Enable smoothing for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(1,-1)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(1,-1)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=1, m=-1) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(2,-1)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(2,-1)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=2, m=-1) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(2,-2)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(2,-2)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=2, m=-2) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(3,-1)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(3,-1)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=3, m=-1) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(3,-2)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(3,-2)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=3, m=-2) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(3,-3)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(3,-3)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=3, m=-3) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(4,-1)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(4,-1)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=4, m=-1) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(4,-2)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(4,-2)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=4, m=-2) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(4,-3)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(4,-3)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=4, m=-3) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(4,-4)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(4,-4)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=4, m=-4) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(5,-1)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(5,-1)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=5, m=-1) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(5,-2)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(5,-2)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=5, m=-2) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(5,-3)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(5,-3)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=5, m=-3) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(5,-4)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(5,-4)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=5, m=-4) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(5,-5)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(5,-5)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=5, m=-5) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%sph_har_coeff(M, K)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%sph_har_coeff(0,0)</span>  </td><td class="markdownTableBodyNone">Spherical harmonic coeff (l=0, m=0) for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%tau_e(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%tau_e(1)</span>  </td><td class="markdownTableBodyNone">Elastic stress component 1 for patch 1  </td><td class="markdownTableBodyNone">\(\tau_e\)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%v0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%v0</span>  </td><td class="markdownTableBodyNone">Initial bubble velocity for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%vel</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%vel</span>  </td><td class="markdownTableBodyNone">Velocity magnitude for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%vel(1)</span>  </td><td class="markdownTableBodyNone">Velocity component 1 for patch 1  </td><td class="markdownTableBodyNone">\(u_1\)  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%x_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%x_centroid</span>  </td><td class="markdownTableBodyNone">X-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%y_centroid</span>  </td><td class="markdownTableBodyNone">Y-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%x_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%x_centroid</span>  </td><td class="markdownTableBodyNone">X-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%y_centroid</span>  </td><td class="markdownTableBodyNone">Y-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_icpp(N)%z_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_icpp(1)%z_centroid</span>  </td><td class="markdownTableBodyNone">Z-coordinate of centroid for patch 1  </td><td class="markdownTableBodyNone"></td></tr>
 </table>
 <hr  />
@@ -1524,7 +1566,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-12</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-13</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

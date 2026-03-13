@@ -1,6 +1,8 @@
 var m__check__patches_8fpp_8f90 =
 [
+    [ "m_check_patches::s_check_2d_modal_patch_geometry", "namespacem__check__patches.html#a2c92c4275d2d28345e4cd8185717796a", null ],
     [ "m_check_patches::s_check_2d_taylorgreen_vortex_patch_geometry", "namespacem__check__patches.html#a76a3840c18a9465a2e8a5dd3f5690c77", null ],
+    [ "m_check_patches::s_check_3d_spherical_harmonic_patch_geometry", "namespacem__check__patches.html#a170e50fc2270ce41ab0d207fa219c196", null ],
     [ "m_check_patches::s_check_active_patch_alteration_rights", "namespacem__check__patches.html#a85726210700570c3c7cf87e00959088b", null ],
     [ "m_check_patches::s_check_active_patch_primitive_variables", "namespacem__check__patches.html#abcc37fb6bf5cba50d9df215c7425ce22", null ],
     [ "m_check_patches::s_check_circle_patch_geometry", "namespacem__check__patches.html#a2152c985b5ddb60fc3c9c9fffb7737b1", null ],
@@ -18,7 +20,6 @@ var m__check__patches_8fpp_8f90 =
     [ "m_check_patches::s_check_plane_sweep_patch_geometry", "namespacem__check__patches.html#ae4967f50e5a02f57ab778658c180e1e8", null ],
     [ "m_check_patches::s_check_rectangle_patch_geometry", "namespacem__check__patches.html#a0aa37004f2424cfd8bebdfb3ebca0b48", null ],
     [ "m_check_patches::s_check_sphere_patch_geometry", "namespacem__check__patches.html#a90f2db067eacd85c606624d89d96bf5f", null ],
-    [ "m_check_patches::s_check_spherical_harmonic_patch_geometry", "namespacem__check__patches.html#af06107882eccefe9696d6a9bf467e380", null ],
     [ "m_check_patches::s_check_supported_patch_smoothing", "namespacem__check__patches.html#a5b9a3ea8a4513ce22dabe4f381a9c0e9", null ],
     [ "m_check_patches::s_check_unsupported_patch_smoothing", "namespacem__check__patches.html#af456e3d3ecc5160bd2393513a33c69f6", null ],
     [ "m_check_patches::istr", "namespacem__check__patches.html#a1595128fdb31c7579893e18f2b9b5165", null ]

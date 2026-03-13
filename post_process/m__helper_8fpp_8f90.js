@@ -11,6 +11,7 @@ var m__helper_8fpp_8f90 =
     [ "m_helper::f_logical_to_int", "namespacem__helper.html#af7ebba2c1388bcbe54e7b330c4dfc611", null ],
     [ "m_helper::f_xor", "namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c", null ],
     [ "m_helper::factorial", "namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9", null ],
+    [ "m_helper::real_ylm", "namespacem__helper.html#aefc6e387638ded938f886f931436a7bf", null ],
     [ "m_helper::s_comp_n_from_cons", "namespacem__helper.html#aed8be5c8be0cadf256dece6f0912e475", null ],
     [ "m_helper::s_comp_n_from_prim", "namespacem__helper.html#a08118839702b15012f3801529dc38429", null ],
     [ "m_helper::s_downsample_data", "namespacem__helper.html#adf827c606652ea511bd0befcc9164c03", null ],
@@ -25,7 +26,5 @@ var m__helper_8fpp_8f90 =
     [ "m_helper::s_transform_model", "namespacem__helper.html#a4bc5e685baea10c9a06b2c4d750842e5", null ],
     [ "m_helper::s_transform_triangle", "namespacem__helper.html#a317af8bbc62f56bc24ae3941ff125fc6", null ],
     [ "m_helper::s_transform_vec", "namespacem__helper.html#aaf3625a84b565de240a92e1fd8659701", null ],
-    [ "m_helper::s_upsample_data", "namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629", null ],
-    [ "m_helper::spherical_harmonic_func", "namespacem__helper.html#a27ca2e36a0c9aaf4c0a3ddbc2c8ec01c", null ],
-    [ "m_helper::unassociated_legendre", "namespacem__helper.html#a9a2cf2850fdf579a577898cb64f4f4d1", null ]
+    [ "m_helper::s_upsample_data", "namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629", null ]
 ];

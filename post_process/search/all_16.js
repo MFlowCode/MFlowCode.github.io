@@ -1,13 +1,20 @@
 var searchData=
 [
-  ['wall_5ftime_0',['wall_time',['../namespacem__global__parameters.html#aa943df001457f88e0a755622b08cf9f5',1,'m_global_parameters']]],
-  ['wall_5ftime_5favg_1',['wall_time_avg',['../namespacem__global__parameters.html#ad263edf3b1c7617112e716c12e2980f8',1,'m_global_parameters']]],
-  ['wavelength_2',['wavelength',['../structm__derived__types_1_1acoustic__parameters.html#abbd722a2dc80054a7785b77a9b97d56c',1,'m_derived_types::acoustic_parameters']]],
-  ['web_3',['web',['../namespacem__global__parameters.html#a043c4e3aa57a04b9c305d1412936a4fa',1,'m_global_parameters']]],
-  ['weight_4',['weight',['../namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef',1,'m_global_parameters']]],
-  ['weno_5forder_5',['weno_order',['../namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa',1,'m_global_parameters']]],
-  ['weno_5ftype_6',['weno_type',['../namespacem__constants.html#a79603a708c77a92718374da11a4dc299',1,'m_constants']]],
-  ['wp_7',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
-  ['write_5fbubbles_8',['write_bubbles',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['write_5fbubbles_5fstats_9',['write_bubbles_stats',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7',1,'m_derived_types::bubbles_lagrange_parameters']]]
+  ['x_0',['x',['../structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3',1,'m_derived_types::vec3_dt']]],
+  ['x_5fcb_1',['x_cb',['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters']]],
+  ['x_5fcc_2',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
+  ['x_5fcc_5fs_3',['x_cc_s',['../namespacem__global__parameters.html#a0393dae47b831cd3b98063a33d258829',1,'m_global_parameters']]],
+  ['x_5fcentroid_4',['x_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#aef7ef14d93a66bf0e9517bb79a7ebd6f',1,'m_derived_types::ic_patch_parameters::x_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b',1,'m_derived_types::ib_patch_parameters::x_centroid']]],
+  ['x_5foutput_5',['x_output',['../namespacem__global__parameters.html#a4b7e3508ffb5fd7d40989289de560a80',1,'m_global_parameters']]],
+  ['x_5foutput_5fidx_6',['x_output_idx',['../namespacem__global__parameters.html#a7cece33c4a92790d7e46790883492afb',1,'m_global_parameters']]],
+  ['x_5fperiodicity_7',['x_periodicity',['../structm__derived__types_1_1ghost__point.html#a20328680231423e909f012c110cc81aa',1,'m_derived_types::ghost_point']]],
+  ['x_5froot_5fcb_8',['x_root_cb',['../namespacem__global__parameters.html#a5f6e8492eaf45d6a9d1ce8ade1cda4a6',1,'m_global_parameters']]],
+  ['x_5froot_5fcc_9',['x_root_cc',['../namespacem__global__parameters.html#a428ef177339a14bcb933e4c59db0b02a',1,'m_global_parameters']]],
+  ['x_5froot_5fcc_5fs_10',['x_root_cc_s',['../namespacem__global__parameters.html#af0abe82216f3cae1170e7aae4304dae9',1,'m_global_parameters']]],
+  ['xi_5fidx_11',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
+  ['xibeg_12',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
+  ['xiend_13',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
+  ['xmax_14',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
+  ['xmin_15',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
+  ['xyz_5fto_5fr_5fratios_16',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aa0c3c91c4889b19f2f4632f77d2f40c1',1,'m_derived_types::source_spatial_type']]]
 ];

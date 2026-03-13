@@ -101,8 +101,10 @@ var namespaces_dup =
       [ "initial_distance_buffer", "namespacem__constants.html#a68b996f09be6b7277b80efd676f8daec", null ],
       [ "lag_io_vars", "namespacem__constants.html#a0499081f62c30c5f4ef40b9564c9d73f", null ],
       [ "mapcells", "namespacem__constants.html#ae89d49daff5ba33ed4286d11e767cea5", null ],
+      [ "max_2d_fourier_modes", "namespacem__constants.html#a6715cc08b5626e7c08272b42e93c3c12", null ],
+      [ "max_sph_harm_degree", "namespacem__constants.html#a9442a10b8a7bc475c5119dc2d89e54ec", null ],
       [ "modulus", "namespacem__constants.html#ab6a85a618a05e2cd09a2ad06b27d7d45", null ],
-      [ "moncon_cutoff", "namespacem__constants.html#ad59d636dd0c6c3876b6aa5fd7a23e9fe", null ],
+      [ "moncon_cutoff", "namespacem__constants.html#af6c1fa45f9a4f3ae67edcd5e62e81c93", null ],
       [ "multiplier", "namespacem__constants.html#ab669e1862f7d937318cd697cd2a68a04", null ],
       [ "muscl_type", "namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614", null ],
       [ "name_len", "namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757", null ],
@@ -124,6 +126,7 @@ var namespaces_dup =
       [ "sgm_eps", "namespacem__constants.html#a519657d0f4b6e1301eedfbd71926c5cc", null ],
       [ "small_alf", "namespacem__constants.html#ad9e8b92a99c0cefe3ac9fd476d9ff413", null ],
       [ "small_guess", "namespacem__constants.html#ac9fe125128bab253ec102f300888b06c", null ],
+      [ "small_radius", "namespacem__constants.html#a0ee4961588488ac8a1caae857059ca4f", null ],
       [ "threshold_edge_zero", "namespacem__constants.html#a914f27dc4d08c231280a1cf0b66e0dad", null ],
       [ "threshold_first_guess", "namespacem__constants.html#ad6a16fddedb72d1e8a561901042ccd4a", null ],
       [ "threshold_second_guess", "namespacem__constants.html#aa03b80d8ec31c8a1edf63511b1948ec7", null ],
@@ -464,6 +467,7 @@ var namespaces_dup =
       [ "f_logical_to_int", "namespacem__helper.html#af7ebba2c1388bcbe54e7b330c4dfc611", null ],
       [ "f_xor", "namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c", null ],
       [ "factorial", "namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9", null ],
+      [ "real_ylm", "namespacem__helper.html#aefc6e387638ded938f886f931436a7bf", null ],
       [ "s_comp_n_from_cons", "namespacem__helper.html#aed8be5c8be0cadf256dece6f0912e475", null ],
       [ "s_comp_n_from_prim", "namespacem__helper.html#a08118839702b15012f3801529dc38429", null ],
       [ "s_downsample_data", "namespacem__helper.html#adf827c606652ea511bd0befcc9164c03", null ],
@@ -478,9 +482,7 @@ var namespaces_dup =
       [ "s_transform_model", "namespacem__helper.html#a4bc5e685baea10c9a06b2c4d750842e5", null ],
       [ "s_transform_triangle", "namespacem__helper.html#a317af8bbc62f56bc24ae3941ff125fc6", null ],
       [ "s_transform_vec", "namespacem__helper.html#aaf3625a84b565de240a92e1fd8659701", null ],
-      [ "s_upsample_data", "namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629", null ],
-      [ "spherical_harmonic_func", "namespacem__helper.html#a27ca2e36a0c9aaf4c0a3ddbc2c8ec01c", null ],
-      [ "unassociated_legendre", "namespacem__helper.html#a9a2cf2850fdf579a577898cb64f4f4d1", null ]
+      [ "s_upsample_data", "namespacem__helper.html#a7cb6e8c8a1dc14bebdd06bd120d9f629", null ]
     ] ],
     [ "m_helper_basic", "namespacem__helper__basic.html", [
       [ "f_all_default", "namespacem__helper__basic.html#a2a51671bfbfddf6ecabbc9593be49e1d", null ],

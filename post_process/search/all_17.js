@@ -1,20 +1,12 @@
 var searchData=
 [
-  ['x_0',['x',['../structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3',1,'m_derived_types::vec3_dt']]],
-  ['x_5fcb_1',['x_cb',['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters']]],
-  ['x_5fcc_2',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
-  ['x_5fcc_5fs_3',['x_cc_s',['../namespacem__global__parameters.html#a0393dae47b831cd3b98063a33d258829',1,'m_global_parameters']]],
-  ['x_5fcentroid_4',['x_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#aef7ef14d93a66bf0e9517bb79a7ebd6f',1,'m_derived_types::ic_patch_parameters::x_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b',1,'m_derived_types::ib_patch_parameters::x_centroid']]],
-  ['x_5foutput_5',['x_output',['../namespacem__global__parameters.html#a4b7e3508ffb5fd7d40989289de560a80',1,'m_global_parameters']]],
-  ['x_5foutput_5fidx_6',['x_output_idx',['../namespacem__global__parameters.html#a7cece33c4a92790d7e46790883492afb',1,'m_global_parameters']]],
-  ['x_5fperiodicity_7',['x_periodicity',['../structm__derived__types_1_1ghost__point.html#a20328680231423e909f012c110cc81aa',1,'m_derived_types::ghost_point']]],
-  ['x_5froot_5fcb_8',['x_root_cb',['../namespacem__global__parameters.html#a5f6e8492eaf45d6a9d1ce8ade1cda4a6',1,'m_global_parameters']]],
-  ['x_5froot_5fcc_9',['x_root_cc',['../namespacem__global__parameters.html#a428ef177339a14bcb933e4c59db0b02a',1,'m_global_parameters']]],
-  ['x_5froot_5fcc_5fs_10',['x_root_cc_s',['../namespacem__global__parameters.html#af0abe82216f3cae1170e7aae4304dae9',1,'m_global_parameters']]],
-  ['xi_5fidx_11',['xi_idx',['../namespacem__global__parameters.html#a0f620015daa08c4080097a54057b3026',1,'m_global_parameters']]],
-  ['xibeg_12',['xibeg',['../namespacem__global__parameters.html#a2c93b3544bdcb2983315fbc8a5e86668',1,'m_global_parameters']]],
-  ['xiend_13',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
-  ['xmax_14',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
-  ['xmin_15',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_16',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aa0c3c91c4889b19f2f4632f77d2f40c1',1,'m_derived_types::source_spatial_type']]]
+  ['y_0',['y',['../structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e',1,'m_derived_types::vec3_dt::y'],['../structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee',1,'m_derived_types::ic_patch_parameters::y']]],
+  ['y_5fcb_1',['y_cb',['../namespacem__global__parameters.html#a49b2b37d6e18e34be6bd6bf5aa3ed476',1,'m_global_parameters']]],
+  ['y_5fcc_2',['y_cc',['../namespacem__global__parameters.html#a353ab56efc0b78fea27c11158c2cf536',1,'m_global_parameters']]],
+  ['y_5fcentroid_3',['y_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a8441b883b97fbc475ece672cd519fe33',1,'m_derived_types::ic_patch_parameters::y_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a234982179567711b441a5a395448efdc',1,'m_derived_types::ib_patch_parameters::y_centroid']]],
+  ['y_5foutput_4',['y_output',['../namespacem__global__parameters.html#aff552ba64f3c2b0c2b291c53ab3f0a5c',1,'m_global_parameters']]],
+  ['y_5foutput_5fidx_5',['y_output_idx',['../namespacem__global__parameters.html#ab5aba5a65e3e646de07025297bcb137b',1,'m_global_parameters']]],
+  ['y_5fperiodicity_6',['y_periodicity',['../structm__derived__types_1_1ghost__point.html#a9e33937f4756520112c48c3102f35936',1,'m_derived_types::ghost_point']]],
+  ['ymax_7',['ymax',['../structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94',1,'m_derived_types::integral_parameters']]],
+  ['ymin_8',['ymin',['../structm__derived__types_1_1integral__parameters.html#af95a8f5863854c6d6f1f0869aee1a819',1,'m_derived_types::integral_parameters']]]
 ];

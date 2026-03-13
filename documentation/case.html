@@ -390,8 +390,8 @@ Parameter Descriptions</h4>
 <ul>
 <li><span class="tt">num_patches</span> defines the total number of patches defined in the domain. The number has to be a positive integer.</li>
 <li><span class="tt">num_fluids</span> defines the total number of fluids defined in each of the patches. The number has to be a positive integer.</li>
-<li><span class="tt">patch_icpp(j)%geometry</span> defines the type of geometry of $j$-th patch by using an integer from 1 to 13. Definition of the patch type for each integer is listed in table <a class="el" href="#patch-types" title="Patch types">Patch Types</a>.</li>
-<li><span class="tt">[x,y,z]_centroid</span>, <span class="tt">length_[x,y,z]</span>, and/or <span class="tt">radius</span> are used to uniquely define the geometry of the patch with given type. Requisite combinations of the parameters for each type can be found in is listed in table <a class="el" href="#patch-types" title="Patch types">Patch types</a>.</li>
+<li><span class="tt">patch_icpp(j)%geometry</span> defines the type of geometry of $j$-th patch by using an integer from 1 to 21. Definition of the patch type for each integer is listed in table <a class="el" href="#patch-types" title="Patch types">Patch Types</a>.</li>
+<li><span class="tt">[x,y,z]_centroid</span>, <span class="tt">length_[x,y,z]</span>, and/or <span class="tt">radius</span> are used to uniquely define the geometry of the patch with given type. Requisite combinations of the parameters for each type are listed in table <a class="el" href="#patch-types" title="Patch types">Patch types</a>.</li>
 <li><span class="tt">patch_icpp(j)%alter_patch(i)</span> activates alternation of <span class="tt">patch(i)</span> with <span class="tt">patch(j)</span>. For instance, in a 2D simulation, when a cylindrical <span class="tt">patch(2)</span> is immersed in a rectangular <span class="tt">patch(1)</span>:<ul>
 <li><span class="tt">patch_icpp(1)%geometry = 3</span></li>
 <li><span class="tt">patch_icpp(2)%geometry = 2</span></li>
@@ -1331,9 +1331,9 @@ Patch types</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">12  </td><td class="markdownTableBodyCenter">Ellipsoid  </td><td class="markdownTableBodyCenter">3  </td><td class="markdownTableBodyCenter">Y  </td><td class="markdownTableBodyLeft">Requires <span class="tt">[x,y,z]_centroid</span> and <span class="tt">radii(i)</span>.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">13  </td><td class="markdownTableBodyCenter">N/A  </td><td class="markdownTableBodyCenter">N/A  </td><td class="markdownTableBodyCenter">N/A  </td><td class="markdownTableBodyLeft">No longer exists. Empty.  </td></tr>
+<td class="markdownTableBodyRight">13  </td><td class="markdownTableBodyCenter">2D modal (Fourier)  </td><td class="markdownTableBodyCenter">2  </td><td class="markdownTableBodyCenter">Y  </td><td class="markdownTableBodyLeft">Requires <span class="tt">x_centroid</span>, <span class="tt">y_centroid</span>, <span class="tt">radius</span>. Optional: <span class="tt">fourier_cos(n)</span>, <span class="tt">fourier_sin(n)</span> (n=1..10), <span class="tt">modal_clip_r_to_min</span>, <span class="tt">modal_r_min</span>, <span class="tt">modal_use_exp_form</span>.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">14  </td><td class="markdownTableBodyCenter">Spherical Harmonic  </td><td class="markdownTableBodyCenter">3  </td><td class="markdownTableBodyCenter">N  </td><td class="markdownTableBodyLeft">Requires <span class="tt">[x,y,z]_centroid</span>, <span class="tt">radius</span>, <span class="tt">epsilon</span>, <span class="tt">beta</span>  </td></tr>
+<td class="markdownTableBodyRight">14  </td><td class="markdownTableBodyCenter">3D spherical harmonic  </td><td class="markdownTableBodyCenter">3  </td><td class="markdownTableBodyCenter">Y  </td><td class="markdownTableBodyLeft">Requires <span class="tt">x_centroid</span>, <span class="tt">y_centroid</span>, <span class="tt">z_centroid</span>, <span class="tt">radius</span>. Optional: <span class="tt">sph_har_coeff(l,m)</span> (l=0..5, m=-l..l).  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">15  </td><td class="markdownTableBodyCenter">N/A  </td><td class="markdownTableBodyCenter">N/A  </td><td class="markdownTableBodyCenter">N/A  </td><td class="markdownTableBodyLeft">No longer exists. Empty.  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1350,6 +1350,19 @@ Patch types</h3>
 <td class="markdownTableBodyRight">21  </td><td class="markdownTableBodyCenter">Model  </td><td class="markdownTableBodyCenter">2 &amp; 3  </td><td class="markdownTableBodyCenter">Y  </td><td class="markdownTableBodyLeft">Imports a Model (STL/OBJ). Requires <span class="tt">model_filepath</span>.  </td></tr>
 </table>
 <p>The patch types supported by the MFC are listed in table <a class="el" href="#patch-types" title="Patch types">Patch Types</a>. This includes types exclusive to one-, two-, and three-dimensional problems. The patch type number (<span class="tt">#</span>) corresponds to the input value in <span class="tt">input.py</span> labeled <span class="tt">patch_icpp(j)%geometry</span> where $j$ is the patch index. Each patch requires a different set of parameters, which are also listed in this table.</p>
+<p><b>Geometry 13: 2D modal (Fourier):</b> <br  />
+ Boundary is at polar angle \(\theta = \mathrm{atan2}(y - y_{\mathrm{centroid}}, x - x_{\mathrm{centroid}})\).</p>
+<ul>
+<li><b>Additive form</b> (default, <span class="tt">modal_use_exp_form</span> false): <br  />
+ \(R_{\mathrm{boundary}} = \mathrm{radius} + \sum_n \bigl[ \mathtt{fourier\_cos}(n)\cos(n\theta) + \mathtt{fourier\_sin}(n)\sin(n\theta) \bigr]\). <br  />
+ Coefficients are absolute: same units as <span class="tt">radius</span> (length). <br  />
+ If this formula gives \(R_{\mathrm{boundary}} &lt; 0\) at some \(\theta\), it is clipped to zero. <br  />
+ With <span class="tt">modal_clip_r_to_min</span> true, if \(R_{\mathrm{boundary}} &lt;\) <span class="tt">modal_r_min</span> at some \(\theta\), it is clipped to <span class="tt">modal_r_min</span>. <br  />
+</li>
+<li><b>Exponential form</b> (<span class="tt">modal_use_exp_form</span> true): <br  />
+ \(R_{\mathrm{boundary}} = \mathrm{radius} \times \exp\bigl( \sum_n [\ldots] \bigr)\). <br  />
+ Coefficients are relative (dimensionless); the sum scales the radius.</li>
+</ul>
 <h3 class="doxsection"><a class="anchor" id="immersed-boundary-patch-types"></a>
 Immersed Boundary Patch Types</h3>
 <table class="markdownTable">

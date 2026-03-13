@@ -91,10 +91,12 @@ var searchData=
   ['flux_5fsrc_5frsz_5fvf_5fl_88',['flux_src_rsz_vf_l',['../namespacem__cbc.html#a10c694a99b36b1a9e761bfcc8eddbdf4',1,'m_cbc']]],
   ['foc_5flength_89',['foc_length',['../structm__derived__types_1_1acoustic__parameters.html#a1f852b9eb3ce3824bf5a6ffab7d53763',1,'m_derived_types::acoustic_parameters::foc_length'],['../namespacem__acoustic__src.html#a7baa621323551ca5c47125d35e32df11',1,'m_acoustic_src::foc_length']]],
   ['force_90',['force',['../structm__derived__types_1_1ib__patch__parameters.html#a4475a66f80978ea31f7ccb7063b0c655',1,'m_derived_types::ib_patch_parameters']]],
-  ['fourier_5frings_91',['fourier_rings',['../namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183',1,'m_constants']]],
-  ['fp_92',['fp',['../structm__derived__types_1_1field__position.html#a31d3a45f43336d8b5b7982feeef6080c',1,'m_derived_types::field_position']]],
-  ['frequency_93',['frequency',['../structm__derived__types_1_1acoustic__parameters.html#a2e07a70596715caaa5d4eca019cc7aec',1,'m_derived_types::acoustic_parameters::frequency'],['../namespacem__acoustic__src.html#ae58e593fe352876d15a8514a284f9355',1,'m_acoustic_src::frequency']]],
-  ['fullmom_94',['fullmom',['../structm__derived__types_1_1bub__bounds__info.html#aeea225dca20ef828d3cbb5edd86b533d',1,'m_derived_types::bub_bounds_info']]],
-  ['fwd_5fplan_95',['fwd_plan',['../namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a',1,'m_fftw']]],
-  ['fwd_5fplan_5fgpu_96',['fwd_plan_gpu',['../namespacem__fftw.html#ae218a57224a455f5d06b3804cff5bb08',1,'m_fftw']]]
+  ['fourier_5fcos_91',['fourier_cos',['../structm__derived__types_1_1ic__patch__parameters.html#a3ead4ba2c78269dba198020b1e8f3e8c',1,'m_derived_types::ic_patch_parameters']]],
+  ['fourier_5frings_92',['fourier_rings',['../namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183',1,'m_constants']]],
+  ['fourier_5fsin_93',['fourier_sin',['../structm__derived__types_1_1ic__patch__parameters.html#ac9ef6fb398e78d6e9a578126e3650473',1,'m_derived_types::ic_patch_parameters']]],
+  ['fp_94',['fp',['../structm__derived__types_1_1field__position.html#a31d3a45f43336d8b5b7982feeef6080c',1,'m_derived_types::field_position']]],
+  ['frequency_95',['frequency',['../structm__derived__types_1_1acoustic__parameters.html#a2e07a70596715caaa5d4eca019cc7aec',1,'m_derived_types::acoustic_parameters::frequency'],['../namespacem__acoustic__src.html#ae58e593fe352876d15a8514a284f9355',1,'m_acoustic_src::frequency']]],
+  ['fullmom_96',['fullmom',['../structm__derived__types_1_1bub__bounds__info.html#aeea225dca20ef828d3cbb5edd86b533d',1,'m_derived_types::bub_bounds_info']]],
+  ['fwd_5fplan_97',['fwd_plan',['../namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a',1,'m_fftw']]],
+  ['fwd_5fplan_5fgpu_98',['fwd_plan_gpu',['../namespacem__fftw.html#ae218a57224a455f5d06b3804cff5bb08',1,'m_fftw']]]
 ];
