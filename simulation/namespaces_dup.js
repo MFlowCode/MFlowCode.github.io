@@ -3,7 +3,7 @@ var namespaces_dup =
     [ "m_acoustic_src", "namespacem__acoustic__src.html", [
       [ "f_frequency_local", "namespacem__acoustic__src.html#a0efe1888a9e12bca68f04f5f1b92f76e", null ],
       [ "f_gauss_sigma_time_local", "namespacem__acoustic__src.html#ae8269daac06b5490e1b307b8d910d7fe", null ],
-      [ "s_acoustic_src_calculations", "namespacem__acoustic__src.html#ac1c00c5b11d80e493e5e4289b5b11096", null ],
+      [ "s_acoustic_src_calculations", "namespacem__acoustic__src.html#a5f6ea4eae76dc25419f2b7e2758051fe", null ],
       [ "s_initialize_acoustic_src", "namespacem__acoustic__src.html#ab35bc877e24a62748ab7df0548ebd08d", null ],
       [ "s_precalculate_acoustic_spatial_sources", "namespacem__acoustic__src.html#a40f6c71199c072410336b34829823c6f", null ],
       [ "s_source_spatial", "namespacem__acoustic__src.html#ae8d761a5ac6caa80c09bfe578e82f10a", null ],

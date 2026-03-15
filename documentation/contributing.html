@@ -751,16 +751,17 @@ CI Pipeline</h2>
 <p>Every push to a PR triggers CI. Understanding the pipeline helps you fix failures quickly.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
 Lint Gate (runs first, blocks all other jobs)</h3>
-<p>All four checks must pass before any builds start:</p>
+<p>All five checks must pass before any builds start:</p>
 <ol type="1">
 <li><b>Formatting</b> — <span class="tt">./mfc.sh format</span> (auto-handled by pre-commit hook)</li>
 <li><b>Spelling</b> — <span class="tt">./mfc.sh spelling</span></li>
-<li><b>Toolchain lint</b> — <span class="tt">./mfc.sh lint</span> (Python code quality)</li>
+<li><b>Toolchain lint</b> — <span class="tt">./mfc.sh lint</span> (ruff + Python unit tests)</li>
 <li><b>Source lint</b> — checks for:<ul>
 <li>Raw <span class="tt">!$acc</span> or <span class="tt">!$omp</span> directives (must use Fypp GPU macros)</li>
 <li>Double-precision intrinsics (<span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dble</span>, etc.)</li>
 </ul>
 </li>
+<li><b>Doc references</b> — validates documentation cross-references</li>
 </ol>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 Build and Test Matrix</h3>
