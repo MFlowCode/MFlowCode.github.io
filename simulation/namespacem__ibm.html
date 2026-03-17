@@ -171,10 +171,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:adaced843ac419db411b064ccf39b6104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine that updates the conservative variables at the ghost points.  <br /></td></tr>
 <tr class="memitem:ae9c18401f891392312ed68285d035d9c" id="r_ae9c18401f891392312ed68285d035d9c"><td class="memItemLeft">impure subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#ae9c18401f891392312ed68285d035d9c">s_compute_image_points</a> (ghost_points_in)</td></tr>
 <tr class="memdesc:ae9c18401f891392312ed68285d035d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that computes the image points for each ghost point.  <br /></td></tr>
-<tr class="memitem:ae2e4e865df2b419bad364c0126009c28" id="r_ae2e4e865df2b419bad364c0126009c28"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#ae2e4e865df2b419bad364c0126009c28">s_find_num_ghost_points</a> (num_gps_out, num_inner_gps_out)</td></tr>
-<tr class="memdesc:ae2e4e865df2b419bad364c0126009c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine that finds the number of ghost points, used for allocating memory.  <br /></td></tr>
-<tr class="memitem:a07a2684834c77cdbad742523f3e9595e" id="r_a07a2684834c77cdbad742523f3e9595e"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#a07a2684834c77cdbad742523f3e9595e">s_find_ghost_points</a> (ghost_points_in, inner_points_in)</td></tr>
-<tr class="memdesc:a07a2684834c77cdbad742523f3e9595e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the ghost points.  <br /></td></tr>
+<tr class="memitem:aeb26be92f351079390f574fa020a6140" id="r_aeb26be92f351079390f574fa020a6140"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#aeb26be92f351079390f574fa020a6140">s_find_num_ghost_points</a> (num_gps_out)</td></tr>
+<tr class="memdesc:aeb26be92f351079390f574fa020a6140"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine that finds the number of ghost points, used for allocating memory.  <br /></td></tr>
+<tr class="memitem:a6dcae8cfb6770ce400259f332d744db9" id="r_a6dcae8cfb6770ce400259f332d744db9"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#a6dcae8cfb6770ce400259f332d744db9">s_find_ghost_points</a> (ghost_points_in)</td></tr>
+<tr class="memdesc:a6dcae8cfb6770ce400259f332d744db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that finds the ghost points.  <br /></td></tr>
 <tr class="memitem:a2f678e57ffbd9f2e83e9d6eeb0be871e" id="r_a2f678e57ffbd9f2e83e9d6eeb0be871e"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#a2f678e57ffbd9f2e83e9d6eeb0be871e">s_compute_interpolation_coeffs</a> (ghost_points_in)</td></tr>
 <tr class="memdesc:a2f678e57ffbd9f2e83e9d6eeb0be871e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that computes the interpolation coefficients of image points.  <br /></td></tr>
 <tr class="memitem:a389d54181e5d734b16be27f045637703" id="r_a389d54181e5d734b16be27f045637703"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#a389d54181e5d734b16be27f045637703">s_interpolate_image_point</a> (q_prim_vf, gp, alpha_rho_ip, alpha_ip, pres_ip, vel_ip, c_ip, r_ip, v_ip, pb_ip, mv_ip, nmom_ip, pb_in, mv_in, presb_ip, massv_ip)</td></tr>
@@ -198,11 +198,8 @@ Functions/Subroutines</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a9cdfa4b47a00b8b5ef00feb84aa97aef" id="r_a9cdfa4b47a00b8b5ef00feb84aa97aef"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), public&#160;</td><td class="memItemRight"><a class="el" href="#a9cdfa4b47a00b8b5ef00feb84aa97aef">ib_markers</a></td></tr>
 <tr class="memitem:a3d7e47c58127b8a61046b4251160f535" id="r_a3d7e47c58127b8a61046b4251160f535"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a3d7e47c58127b8a61046b4251160f535">ghost_points</a></td></tr>
-<tr class="memitem:a434924e0041c70159a709681f995af65" id="r_a434924e0041c70159a709681f995af65"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a434924e0041c70159a709681f995af65">inner_points</a></td></tr>
 <tr class="memitem:a400f745947320ac23a80e33e28faff80" id="r_a400f745947320ac23a80e33e28faff80"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a400f745947320ac23a80e33e28faff80">num_gps</a></td></tr>
 <tr class="memdesc:a400f745947320ac23a80e33e28faff80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ghost points.  <br /></td></tr>
-<tr class="memitem:afff621ef82ca1ec19282836cfabe85c1" id="r_afff621ef82ca1ec19282836cfabe85c1"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#afff621ef82ca1ec19282836cfabe85c1">num_inner_gps</a></td></tr>
-<tr class="memdesc:afff621ef82ca1ec19282836cfabe85c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ghost points.  <br /></td></tr>
 <tr class="memitem:a5860a1336c8a996ed364b71b3d1c9530" id="r_a5860a1336c8a996ed364b71b3d1c9530"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a5860a1336c8a996ed364b71b3d1c9530">moving_immersed_boundary_flag</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -225,7 +222,7 @@ Variables</h2></td></tr>
 
 <p>Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02461">2461</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02311">2311</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -255,7 +252,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes pressure and viscous forces and torques on immersed bodies via a volume integration method. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02168">2168</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02018">2018</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -295,7 +292,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01276">1276</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01175">1175</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -329,7 +326,7 @@ Here is the caller graph for this function:</div>
 
 <p>Function that computes the interpolation coefficients of image points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01705">1705</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01555">1555</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -366,7 +363,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02519">2519</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02369">2369</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -401,7 +398,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the cross product c = a x b of two 3D vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02711">2711</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02561">2561</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -424,12 +421,12 @@ Here is the caller graph for this function:</div>
 
 <p>Subroutine to deallocate memory reserved for the IBM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02359">2359</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02209">2209</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a07a2684834c77cdbad742523f3e9595e" name="a07a2684834c77cdbad742523f3e9595e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07a2684834c77cdbad742523f3e9595e">&#9670;&#160;</a></span>s_find_ghost_points()</h2>
+<a id="a6dcae8cfb6770ce400259f332d744db9" name="a6dcae8cfb6770ce400259f332d744db9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcae8cfb6770ce400259f332d744db9">&#9670;&#160;</a></span>s_find_ghost_points()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,12 +437,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, private m_ibm::s_find_ghost_points </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(<a class="el" href="#a400f745947320ac23a80e33e28faff80">num_gps</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ghost_points_in</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(<a class="el" href="#a400f745947320ac23a80e33e28faff80">num_gps</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ghost_points_in</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(<a class="el" href="#afff621ef82ca1ec19282836cfabe85c1">num_inner_gps</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>inner_points_in</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -457,17 +450,17 @@ Here is the caller graph for this function:</div>
 
 <p>Function that finds the ghost points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01533">1533</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01416">1416</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a07a2684834c77cdbad742523f3e9595e_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a6dcae8cfb6770ce400259f332d744db9_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ae2e4e865df2b419bad364c0126009c28" name="ae2e4e865df2b419bad364c0126009c28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2e4e865df2b419bad364c0126009c28">&#9670;&#160;</a></span>s_find_num_ghost_points()</h2>
+<a id="aeb26be92f351079390f574fa020a6140" name="aeb26be92f351079390f574fa020a6140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb26be92f351079390f574fa020a6140">&#9670;&#160;</a></span>s_find_num_ghost_points()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,12 +471,8 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, private m_ibm::s_find_num_ghost_points </td>
           <td>(</td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_gps_out</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_gps_out</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_inner_gps_out</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -495,11 +484,11 @@ Here is the caller graph for this function:</div>
 
 <p>Subroutine that finds the number of ghost points, used for allocating memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01424">1424</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01323">1323</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_ae2e4e865df2b419bad364c0126009c28_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_aeb26be92f351079390f574fa020a6140_icgraph.svg" width="100%" height="370"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -544,7 +533,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00778">778</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00745">745</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -567,7 +556,7 @@ Here is the call graph for this function:</div>
 
 <p>Initializes the values of various IBM variables, such as ghost points and image points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00571">571</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00569">569</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -595,7 +584,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocates memory for the variables in the IBM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -729,7 +718,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01871">1871</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01721">1721</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -755,7 +744,7 @@ Here is the caller graph for this function:</div>
 
 <p>Resets the current indexes of immersed boundaries and replaces them after updating the position of each moving immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02073">2073</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01923">1923</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -778,7 +767,7 @@ Here is the call graph for this function:</div>
 
 <p>Checks for periodic boundary conditions in all directions, and if so, moves patch location if it left the domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02661">2661</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02511">2511</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -815,22 +804,6 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a434924e0041c70159a709681f995af65" name="a434924e0041c70159a709681f995af65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a434924e0041c70159a709681f995af65">&#9670;&#160;</a></span>inner_points</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:), allocatable m_ibm::inner_points</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00344">344</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
-
-</div>
-</div>
 <a id="a5860a1336c8a996ed364b71b3d1c9530" name="a5860a1336c8a996ed364b71b3d1c9530"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5860a1336c8a996ed364b71b3d1c9530">&#9670;&#160;</a></span>moving_immersed_boundary_flag</h2>
 
@@ -843,7 +816,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -861,25 +834,7 @@ Here is the call graph for this function:</div>
 
 <p>Number of ghost points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00357">357</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="afff621ef82ca1ec19282836cfabe85c1" name="afff621ef82ca1ec19282836cfabe85c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afff621ef82ca1ec19282836cfabe85c1">&#9670;&#160;</a></span>num_inner_gps</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_ibm::num_inner_gps</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of ghost points. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00358">358</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00356">356</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>

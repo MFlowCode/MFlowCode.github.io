@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md336"></a>
 Overview</h2>
-<p>MFC supports <b>40,623</b> case parameters organized into families.</p>
+<p>MFC supports <b>40,624</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md337"></a>
 Parameter Families</h2>
@@ -235,7 +235,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#z_output" title="z_output">z_output</a>  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">Z-direction output region  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">215  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">216  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="patch_ib"></a>
@@ -1116,7 +1116,7 @@ z_output</h2>
 <h2 class="doxsection"><a class="anchor" id="general"></a>
 general</h2>
 <p><em>Core simulation parameters (grid, time, model, etc.)</em></p>
-<p><b>215 parameters</b></p>
+<p><b>216 parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Symbol  </th><th class="markdownTableHeadNone">Constraints  </th></tr>
@@ -1249,306 +1249,308 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ib</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable immersed boundary method  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Immersed Boundaries do not work in 1D (requires n &gt; 0); <span class="tt">num_ibs</span> must be between 1 and <span class="tt">num_patches_max</span> (1000); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write IB state and load data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">ib_state_wrt</span> requires <span class="tt">ib</span> to be enabled  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ic_beta</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Interface compression beta  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Initial condition parameter  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">ic_eps</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Interface compression epsilon  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Initial condition parameter  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">igr</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable implicit gradient reconstruction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">igr_pres_lim</span> requires <span class="tt">igr</span> to be enabled; down sample requires <span class="tt">igr</span> = T; Characteristic boundary condition <span class="tt">bc_xbeg</span> is not compatible with IGR  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">igr_iter_solver</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">IGR iterative solver type  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">igr_iter_solver</span> must be 1 or 2  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">igr_order</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Implicit gradient reconstruction order  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">m must be at least <span class="tt">igr_order</span> - 1 (= <span class="tt">igr_order</span> - 1); n must be at least <span class="tt">igr_order</span> - 1 (= <span class="tt">igr_order</span> - 1); p must be at least <span class="tt">igr_order</span> - 1 (= <span class="tt">igr_order</span> - 1)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">igr_pres_lim</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable IGR pressure limiting  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">igr_pres_lim</span> requires <span class="tt">igr</span> to be enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">int_comp</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable interface compression  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">int_comp</span> (THINC interface compression) requires <span class="tt">recon_type</span> = 2 (MUSCL)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">integral_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write integral data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">fd_order</span> must be specified for <span class="tt">integral_wrt</span>; <span class="tt">integral_wrt</span> requires <span class="tt">bubbles_euler</span> to be enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">k_x</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter k in x-direction  </td><td class="markdownTableBodyNone">\(k_x\)  </td><td class="markdownTableBodyNone"><span class="tt">k_x</span> must be specified if <span class="tt">bf_x</span> is true  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">k_y</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter k in y-direction  </td><td class="markdownTableBodyNone">\(k_y\)  </td><td class="markdownTableBodyNone"><span class="tt">k_y</span> must be specified if <span class="tt">bf_y</span> is true  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">k_z</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter k in z-direction  </td><td class="markdownTableBodyNone">\(k_z\)  </td><td class="markdownTableBodyNone"><span class="tt">k_z</span> must be specified if <span class="tt">bf_z</span> is true  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">kappa_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write curvature field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian concentration beta coefficient  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian thermal beta coefficient  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_db_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble diameter  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_dphidt_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian void fraction time derivative  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_header</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable Lagrangian output header  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_id_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble ID  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_mg_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian gas mass  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_mv_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian vapor mass  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_pos_prev_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble previous position  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_pos_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble position  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_pres_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble pressure  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_r0_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian initial bubble radius  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_rad_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble radius  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_rmax_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian max bubble radius  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_rmin_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian min bubble radius  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_rvel_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble radial velocity  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">lag_txt_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian data to text files  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">lag_vel_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Lagrangian bubble velocity  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Lagrangian output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">liutex_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Liutex vortex field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">liutex_wrt</span> requires n &gt; 0 (at least 2D)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">loops_x</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of times to apply grid stretching in x  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">loops_x</span> must be at least 1  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">loops_y</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of times to apply grid stretching in y  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">loops_y</span> must be at least 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">loops_z</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of times to apply grid stretching in z  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Grid parameter  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">low_Mach</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Low Mach number correction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">low_Mach</span> = 1 or 2 requires <span class="tt">model_eqns</span> = 2 or 3; <span class="tt">low_Mach</span> must be 0, 1, or 2  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of grid cells in the x-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0; down sample requires m divisible by 3; m must be positive; m must be set  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mapped_weno</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable mapped WENO scheme  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">mapped_weno</span> is not compatible with <span class="tt">weno_order</span> = 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">mhd</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable magnetohydrodynamics  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">MHD requires <span class="tt">wave_speeds</span> = 1; <span class="tt">Bx0</span> must not be set in 2D/3D MHD simulations; MHD is only available for single-component flows (<span class="tt">num_fluids</span> = 1)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mixlayer_domain</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Mixing layer domain size  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Mixing layer parameter  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">mixlayer_perturb</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable mixing layer perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">mixlayer_perturb</span> requires p &gt; 0  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mixlayer_perturb_k0</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Base wavenumber for mixing layer perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Mixing layer parameter  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">mixlayer_perturb_nk</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of perturbation modes for mixing layer  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Mixing layer parameter  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mixlayer_vel_coef</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Velocity coefficient for mixing layer  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Mixing layer parameter  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">mixlayer_vel_profile</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable mixing layer velocity profile  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">mixlayer_vel_profile</span> requires n &gt; 0  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mixture_err</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable mixture error checking  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">model_eqns</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Model equations  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=Gamma-law, 2=5-Equation, 3=6-Equation, 4=4-Equation; 5-equation model (<span class="tt">model_eqns</span> = 2) requires <span class="tt">num_fluids</span> to be set; 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">num_fluids</span> to be set; 4-equation model (<span class="tt">model_eqns</span> = 4) requires <span class="tt">num_fluids</span> to be set  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mom_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write mom  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">mp_weno</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable monotonicity-preserving WENO  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">mp_weno</span> requires <span class="tt">weno_order</span> = 5  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mpp_lim</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable mixture pressure positivity limiter  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">model_eqns</span> = 1 does not support <span class="tt">mpp_lim</span>; <span class="tt">num_fluids</span> = 1 does not support <span class="tt">mpp_lim</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">muscl_lim</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">MUSCL limiter type  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=minmod, 2=MC, 3=Van Albada, 4=Van Leer, 5=SUPERBEE; <span class="tt">muscl_lim</span> must be 1, 2, 3, 4, or 5  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">muscl_order</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Order of MUSCL reconstruction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=1st order, 2=2nd order; <span class="tt">muscl_lim</span> must be defined if using <span class="tt">muscl_order</span> = 2  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">n</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of grid cells in the y-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0; down sample requires n divisible by 3; <span class="tt">omega_wrt</span> requires n &gt; 0 (at least 2D); <span class="tt">mom_wrt</span>(2) requires n &gt; 0  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">n_start</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Starting time step index  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">n_start</span> must be non-negative  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">n_start_old</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Starting index from previous simulation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">nb</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Number of bubble bins for polydisperse model  </td><td class="markdownTableBodyNone">\(N_b\)  </td><td class="markdownTableBodyNone">Min: 1; The Ensemble-Averaged Bubble Model requires <span class="tt">nb</span> &gt;= 1; Polydisperse bubble dynamics requires <span class="tt">nb</span> &gt; 1; <span class="tt">nb</span> must be odd for <span class="tt">polydisperse</span> bubbles  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">null_weights</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Allow null WENO weights  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">WENO parameter  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_bc_patches</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of boundary condition patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">num_bc_patches</span> must be &lt;= <span class="tt">num_bc_patches_max</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">num_fluids</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of fluid components  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1, Max: 10; <span class="tt">num_fluids</span> must be positive  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of immersed boundary patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0, Max: 1000; <span class="tt">num_ibs</span> must be between 1 and <span class="tt">num_patches_max</span> (1000); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">num_igr_iters</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of IGR iterations  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">num_igr_iters</span> must be greater than or equal to 0  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_igr_warm_start_iters</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of IGR warm-start iterations  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">num_igr_warm_start_iters</span> must be greater than or equal to 0  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">num_integrals</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of integral regions  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_patches</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of initial condition patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0, Max: 10; <span class="tt">num_patches</span> must be non-negative; <span class="tt">num_patches</span> must be positive for the non-restart case  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">num_probes</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of probe points  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_source</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of acoustic sources  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1; <span class="tt">num_source</span> must be specified for <span class="tt">acoustic_source</span>; <span class="tt">num_source</span> must be non-negative  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">nv_uvm_igr_temps_on_gpu</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Store IGR temporaries on GPU  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">GPU memory management  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">nv_uvm_out_of_core</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable NVIDIA UVM out-of-core  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">GPU memory management  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">nv_uvm_pref_gpu</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Prefer GPU for NVIDIA UVM  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">GPU memory management  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">old_grid</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Use grid from previous simulation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">old_grid</span> requires <span class="tt">t_step_old</span> to be set  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">old_ic</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Use initial conditions from previous simulation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">old_ic</span> can only be enabled with <span class="tt">old_grid</span> enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">omega_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write vorticity field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">output_partial_domain</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable partial domain output  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">output_partial_domain</span> requires <span class="tt">format</span> = 2; <span class="tt">output_partial_domain</span> requires <span class="tt">precision</span> = 2; <span class="tt">x_outputbeg</span> and <span class="tt">x_outputend</span> must be set for <span class="tt">output_partial_domain</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">p</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of grid cells in the z-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0; down sample requires 3D (p &gt; 0); down sample requires p divisible by 3; <span class="tt">mom_wrt</span>(3) requires p &gt; 0  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">p_x</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter p in x-direction  </td><td class="markdownTableBodyNone">\(\phi_x\)  </td><td class="markdownTableBodyNone"><span class="tt">p_x</span> must be specified if <span class="tt">bf_x</span> is true  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">p_y</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter p in y-direction  </td><td class="markdownTableBodyNone">\(\phi_y\)  </td><td class="markdownTableBodyNone"><span class="tt">p_y</span> must be specified if <span class="tt">bf_y</span> is true  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">p_z</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter p in z-direction  </td><td class="markdownTableBodyNone">\(\phi_z\)  </td><td class="markdownTableBodyNone"><span class="tt">p_z</span> must be specified if <span class="tt">bf_z</span> is true  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">palpha_eps</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Volume fraction epsilon for pressure relaxation  </td><td class="markdownTableBodyNone">\(\varepsilon_\alpha\)  </td><td class="markdownTableBodyNone"><span class="tt">palpha_eps</span> must be positive; <span class="tt">palpha_eps</span> must be less than 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">parallel_io</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable parallel I/O  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">down sample requires <span class="tt">parallel_io</span> = T; <span class="tt">parallel_io</span> = T requires MFC built with &ndash;mpi  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">perturb_flow</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable flow perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must be set with <span class="tt">perturb_flow</span> = T; <span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must not be set with <span class="tt">perturb_flow</span> = F  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">perturb_flow_fluid</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Fluid index for flow perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must be set with <span class="tt">perturb_flow</span> = T; <span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must not be set with <span class="tt">perturb_flow</span> = F; <span class="tt">perturb_flow_fluid</span> must be between 0 and <span class="tt">num_fluids</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">perturb_flow_mag</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Magnitude of flow perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must be set with <span class="tt">perturb_flow</span> = T; <span class="tt">perturb_flow_fluid</span> and <span class="tt">perturb_flow_mag</span> must not be set with <span class="tt">perturb_flow</span> = F  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">perturb_sph</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable spherical perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">perturb_sph_fluid</span> must be set with <span class="tt">perturb_sph</span> = T; <span class="tt">perturb_sph_fluid</span> must not be set with <span class="tt">perturb_sph</span> = F  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">perturb_sph_fluid</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Fluid index for spherical perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">perturb_sph_fluid</span> must be set with <span class="tt">perturb_sph</span> = T; <span class="tt">perturb_sph_fluid</span> must not be set with <span class="tt">perturb_sph</span> = F; <span class="tt">perturb_sph_fluid</span> must be between 0 and <span class="tt">num_fluids</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">pi_fac</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Pi infinity factor  </td><td class="markdownTableBodyNone">\(\pi\text{-factor}\)  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">pi_inf_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write pi_inf field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">poly_sigma</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Polydisperse distribution standard deviation  </td><td class="markdownTableBodyNone">\(\sigma_\text{poly}\)  </td><td class="markdownTableBodyNone">Polydisperse bubble modeling requires <span class="tt">poly_sigma</span> to be set; <span class="tt">poly_sigma</span> must be positive  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">polydisperse</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable polydisperse bubble distribution  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Polydisperse bubble modeling requires the <span class="tt">bubbles_euler</span> flag to be set; Polydisperse bubble modeling requires <span class="tt">poly_sigma</span> to be set; <span class="tt">poly_sigma</span> must be positive  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">polytropic</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable polytropic gas behavior for bubbles  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">adap_dt</span> requires <span class="tt">polytropic</span> = T or <span class="tt">bubbles_lagrange</span> = T; <span class="tt">bubbles_lagrange</span> requires <span class="tt">polytropic</span> = F  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">powell</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable Powell source terms for MHD  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">MHD parameter  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">pre_stress</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable pre-stress initialization  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">pre_stress</span> requires <span class="tt">hyperelasticity</span> to be enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">precision</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Output precision  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=single, 2=double; <span class="tt">precision</span> = 2 (double output) requires MFC built without &ndash;single; <span class="tt">precision</span> must be 1 or 2  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">pref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reference pressure  </td><td class="markdownTableBodyNone">\(p_\text{ref}\)  </td><td class="markdownTableBodyNone"><span class="tt">pref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4; <span class="tt">pref</span> (reference pressure) must be positive  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">pres_inf_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write reference pressure field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">output_partial_domain</span> is incompatible with certain output flags; None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">pres_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write pressure field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">prim_vars_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write primitive variables  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">probe_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write probe data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">fd_order</span> must be specified for <span class="tt">probe_wrt</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ptgalpha_eps</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Volume fraction epsilon for PTG relaxation  </td><td class="markdownTableBodyNone">\(\varepsilon_\alpha\)  </td><td class="markdownTableBodyNone"><span class="tt">ptgalpha_eps</span> must be positive; <span class="tt">ptgalpha_eps</span> must be less than 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">qbmm</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable quadrature-based moment method  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">QBMM requires the <span class="tt">bubbles_euler</span> flag to be set; QBMM requires nnode = 4; <span class="tt">dist_type</span> must be set if using QBMM  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">qm_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Q-criterion field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">qm_wrt</span> requires n &gt; 0 (at least 2D)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">rdma_mpi</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable RDMA for MPI communication (GPUs)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">recon_type</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Reconstruction type  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=WENO, 2=MUSCL; <span class="tt">int_comp</span> (THINC interface compression) requires <span class="tt">recon_type</span> = 2 (MUSCL); <span class="tt">weno_order</span> must be 1, 3, 5, or 7; m must be at least <span class="tt">weno_order</span> - 1 (= <span class="tt">weno_order</span> - 1)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">relativity</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable special relativity  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">relativity</span> requires <span class="tt">mhd</span> to be enabled; HLLD is not available for RMHD (<span class="tt">relativity</span>)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">relax</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable relaxation terms  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">phase change requires <span class="tt">model_eqns</span>==2 with <span class="tt">relax_model</span> in [5,6] or <span class="tt">model_eqns</span>==3 with <span class="tt">relax_model</span> in [1,4,5,6]; <span class="tt">palpha_eps</span> must be positive; <span class="tt">palpha_eps</span> must be less than 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">relax_model</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Relaxation model type  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">phase change requires <span class="tt">model_eqns</span>==2 with <span class="tt">relax_model</span> in [5,6] or <span class="tt">model_eqns</span>==3 with <span class="tt">relax_model</span> in [1,4,5,6]  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">rhoRV</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Bubble radius-velocity correlation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">rhoRV</span> cannot be used with <span class="tt">dist_type</span> != 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">rho_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write density field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">rhoref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reference density  </td><td class="markdownTableBodyNone">\(\rho_\text{ref}\)  </td><td class="markdownTableBodyNone"><span class="tt">rhoref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4; <span class="tt">rhoref</span> (reference density) must be positive  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">riemann_solver</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Riemann solver  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=HLL, 2=HLLC, 3=Exact, 4=HLLD, 5=Lax-Friedrichs; 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">riemann_solver</span> = 2 (HLLC); <span class="tt">wave_speeds</span> must be set if <span class="tt">riemann_solver</span> != 3,5; <span class="tt">avg_state</span> must be set if <span class="tt">riemann_solver</span> != 3,5  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">run_time_info</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Output run-time information  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">schlieren_alpha</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Schlieren alpha coefficient  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Output parameter  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">schlieren_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write schlieren images  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">schlieren_wrt</span> requires n &gt; 0 (at least 2D); <span class="tt">fd_order</span> must be set for <span class="tt">schlieren_wrt</span>; <span class="tt">schlieren_alpha</span>(i) should be set only with <span class="tt">schlieren_wrt</span> enabled  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">sigR</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Bubble radius standard deviation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">sigV</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Bubble velocity standard deviation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">sigma</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Surface tension coefficient  </td><td class="markdownTableBodyNone">\(\sigma\)  </td><td class="markdownTableBodyNone">Min: 0; <span class="tt">sigma</span> is set but <span class="tt">surface_tension</span> is not enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">sim_data</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable simulation data output  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">simplex_perturb</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable simplex noise perturbation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">stretch_x</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable grid stretching in the x-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">a_x</span> must be set with <span class="tt">stretch_x</span> enabled; <span class="tt">x_a</span> must be set with <span class="tt">stretch_x</span> enabled; <span class="tt">x_b</span> must be set with <span class="tt">stretch_x</span> enabled  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">stretch_y</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable grid stretching in the y-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">a_y</span> must be set with <span class="tt">stretch_y</span> enabled; <span class="tt">y_a</span> must be set with <span class="tt">stretch_y</span> enabled; <span class="tt">y_b</span> must be set with <span class="tt">stretch_y</span> enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">stretch_z</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable grid stretching in the z-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">a_z</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_a</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_b</span> must be set with <span class="tt">stretch_z</span> enabled  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">surface_tension</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable surface tension effects  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">sigma</span> must be set if <span class="tt">surface_tension</span> is enabled; The surface tension model requires <span class="tt">model_eqns</span> = 2 or <span class="tt">model_eqns</span> = 3; The surface tension model requires <span class="tt">num_fluids</span> = 2  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">t_save</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Time interval for saving data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0; <span class="tt">t_save</span> must be positive; <span class="tt">t_save</span> must be &lt;= <span class="tt">t_stop</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">t_step_old</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Time step to restart from  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">old_grid</span> requires <span class="tt">t_step_old</span> to be set; <span class="tt">num_patches</span> must be positive for the non-restart case  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">t_step_print</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Time step interval for printing info  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">t_step_save</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Time step interval for saving data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1; <span class="tt">t_step_save</span> must be positive; <span class="tt">t_step_save</span> must be &lt;= (<span class="tt">t_step_stop</span> - <span class="tt">t_step_start</span>)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">t_step_start</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Starting time step index  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">t_step_start</span> must be non-negative  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">t_step_stop</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Ending time step index  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">t_step_stop</span> must be non-negative; <span class="tt">t_step_stop</span> must be &gt; <span class="tt">t_step_start</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">t_stop</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Simulation stop time  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0; <span class="tt">t_stop</span> must be positive  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">t_tol</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Time tolerance  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Time-stepping parameter  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">tau_star</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Non-dimensional relaxation time  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">tau_star</span> must be specified for <span class="tt">cont_damage</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">teno</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable TENO scheme  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">teno</span> requires <span class="tt">teno_CT</span> to be set. A typical value is 1e-6; <span class="tt">teno</span> requires <span class="tt">weno_order</span> = 5 or 7; <span class="tt">teno_CT</span> must be positive. A typical value is 1e-6  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">teno_CT</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">TENO cutoff parameter  </td><td class="markdownTableBodyNone">\(C_T\)  </td><td class="markdownTableBodyNone"><span class="tt">teno</span> requires <span class="tt">teno_CT</span> to be set. A typical value is 1e-6; <span class="tt">teno_CT</span> must be positive. A typical value is 1e-6  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">thermal</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Thermal model selection  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">bubbles_lagrange</span> requires <span class="tt">thermal</span> = 3; <span class="tt">thermal</span> must be &lt;= 3  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">time_stepper</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Time integration scheme  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=RK1 (Forward Euler), 2=RK2, 3=RK3 (SSP); <span class="tt">time_stepper</span> must be 1, 2, or 3  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">vel_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write velocity field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">viscous</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable viscous effects  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Re(j) is specified, but <span class="tt">viscous</span> is not set to true; <span class="tt">viscous</span> is set to true, but <span class="tt">fluid_pp(i)Re(1)</span> is not specified  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">w_x</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter w in x-direction  </td><td class="markdownTableBodyNone">\(\omega_x\)  </td><td class="markdownTableBodyNone"><span class="tt">w_x</span> must be specified if <span class="tt">bf_x</span> is true  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">w_y</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter w in y-direction  </td><td class="markdownTableBodyNone">\(\omega_y\)  </td><td class="markdownTableBodyNone"><span class="tt">w_y</span> must be specified if <span class="tt">bf_y</span> is true  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">w_z</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Body force parameter w in z-direction  </td><td class="markdownTableBodyNone">\(\omega_z\)  </td><td class="markdownTableBodyNone"><span class="tt">w_z</span> must be specified if <span class="tt">bf_z</span> is true  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">wave_speeds</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Wave speed estimates  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=direct, 2=pressure; <span class="tt">wave_speeds</span> must be 1 or 2  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">weno_Re_flux</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable WENO for viscous fluxes  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">weno_Re_flux</span> requires <span class="tt">viscous</span> to be enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">weno_avg</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable WENO averaging  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">weno_avg</span> is not compatible with <span class="tt">model_eqns</span> = 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">weno_eps</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">WENO epsilon parameter for smoothness  </td><td class="markdownTableBodyNone">\(\varepsilon\)  </td><td class="markdownTableBodyNone">Min: 0; <span class="tt">weno_eps</span> must be positive. A typical value is 1e-6  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">weno_order</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Order of WENO reconstruction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">0=MUSCL mode, 1=1st order, 3=WENO3, 5=WENO5, 7=WENO7; <span class="tt">weno_order</span> != 1 requires <span class="tt">weno_eps</span> to be set. A typical value is 1e-6; <span class="tt">weno_order</span> = 1 without <span class="tt">weno_avg</span> does not support <span class="tt">fluid_pp(i)Re(j)</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">wenoz</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable WENO-Z scheme  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">wenoz</span> at 7th order requires <span class="tt">wenoz_q</span> to be set (should be 2, 3, or 4); <span class="tt">wenoz</span> is not compatible with <span class="tt">weno_order</span> = 1; <span class="tt">wenoz_q</span> must be either 2, 3, or 4)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">wenoz_q</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">WENO-Z power parameter  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">wenoz</span> at 7th order requires <span class="tt">wenoz_q</span> to be set (should be 2, 3, or 4); <span class="tt">wenoz_q</span> must be either 2, 3, or 4)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">x_a</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in negative x-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">x_a</span> must be set with <span class="tt">stretch_x</span> enabled; <span class="tt">x_a</span> must be less than <span class="tt">x_b</span> with <span class="tt">stretch_x</span> enabled  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">x_b</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in positive x-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">x_b</span> must be set with <span class="tt">stretch_x</span> enabled; <span class="tt">x_a</span> must be less than <span class="tt">x_b</span> with <span class="tt">stretch_x</span> enabled  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">y_a</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in negative y-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">y_a</span> must be set with <span class="tt">stretch_y</span> enabled; <span class="tt">y_a</span> must be less than <span class="tt">y_b</span> with <span class="tt">stretch_y</span> enabled  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">y_b</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in positive y-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">y_b</span> must be set with <span class="tt">stretch_y</span> enabled; <span class="tt">y_a</span> must be less than <span class="tt">y_b</span> with <span class="tt">stretch_y</span> enabled  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">z_a</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in negative z-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">z_a</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_a</span> must be less than <span class="tt">z_b</span> with <span class="tt">stretch_z</span> enabled  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">y_b</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in positive y-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">y_b</span> must be set with <span class="tt">stretch_y</span> enabled; <span class="tt">y_a</span> must be less than <span class="tt">y_b</span> with <span class="tt">stretch_y</span> enabled  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">z_a</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in negative z-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">z_a</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_a</span> must be less than <span class="tt">z_b</span> with <span class="tt">stretch_z</span> enabled  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">z_b</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Start of stretching in positive z-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">z_b</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_a</span> must be less than <span class="tt">z_b</span> with <span class="tt">stretch_z</span> enabled  </td></tr>
 </table>
 <hr  />
@@ -1566,7 +1568,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-16</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-17</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -189,9 +189,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a40b54b3f9a65775ea1062c541dea09e3" id="r_a40b54b3f9a65775ea1062c541dea09e3"><td class="memItemLeft">impure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a40b54b3f9a65775ea1062c541dea09e3">f_model_is_inside</a> (model, point, spacing, spc)</td></tr>
 <tr class="memdesc:a40b54b3f9a65775ea1062c541dea09e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure, recursively, finds whether a point is inside an octree.  <br /></td></tr>
 <tr class="memitem:a4b4ef652ae183b59c1008880e061cc62" id="r_a4b4ef652ae183b59c1008880e061cc62"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a4b4ef652ae183b59c1008880e061cc62">f_model_is_inside_flat</a> (ntrs, pid, point)</td></tr>
-<tr class="memdesc:a4b4ef652ae183b59c1008880e061cc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure, given a cell center will determine if a point exists instide a surface.  <br /></td></tr>
+<tr class="memdesc:a4b4ef652ae183b59c1008880e061cc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure determines if a point is inside a surface using the generalized winding number (Jacobson et al., SIGGRAPH 2013). In 3D, sums the solid angle subtended by each triangle (Van Oosterom-Strackee formula). In 2D (p==0), sums the signed angle subtended by each boundary edge. Returns ~1.0 inside, ~0.0 outside. Unlike ray casting, this is robust to small triangles/edges and vertex winding order.  <br /></td></tr>
 <tr class="memitem:a1155703fe0a9ae5f75c153eb6b5b7072" id="r_a1155703fe0a9ae5f75c153eb6b5b7072"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#a1155703fe0a9ae5f75c153eb6b5b7072">f_intersects_triangle</a> (ray, triangle)</td></tr>
-<tr class="memdesc:a1155703fe0a9ae5f75c153eb6b5b7072"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure checks if a ray intersects a triangle.  <br /></td></tr>
+<tr class="memdesc:a1155703fe0a9ae5f75c153eb6b5b7072"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure checks if a ray intersects a triangle using the Moller-Trumbore algorithm (barycentric coordinates). Unlike the previous cross-product sign test, this is vertex winding-order independent.  <br /></td></tr>
 <tr class="memitem:a99bc48b7dc635603f113a22a2fbae8ff" id="r_a99bc48b7dc635603f113a22a2fbae8ff"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a99bc48b7dc635603f113a22a2fbae8ff">s_check_boundary</a> (model, boundary_v, boundary_vertex_count, boundary_edge_count)</td></tr>
 <tr class="memdesc:a99bc48b7dc635603f113a22a2fbae8ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure checks and labels edges shared by two or more triangles facets of the 2D STL model.  <br /></td></tr>
 <tr class="memitem:a6d8bb3637862799d333742f8535707e5" id="r_a6d8bb3637862799d333742f8535707e5"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6d8bb3637862799d333742f8535707e5">s_register_edge</a> (temp_boundary_v, edge, edge_index, edge_count)</td></tr>
@@ -244,7 +244,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>This procedure checks if a ray intersects a triangle. </p>
+<p>This procedure checks if a ray intersects a triangle using the Moller-Trumbore algorithm (barycentric coordinates). Unlike the previous cross-product sign test, this is vertex winding-order independent. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ray</td><td>Ray. </td></tr>
@@ -252,9 +252,9 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the ray intersects the triangle, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if the ray intersects the triangle, 0 otherwise. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00956">956</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00986">986</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -263,7 +263,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a1155703fe0a9ae5f75c153eb6b5b7072_icgraph.svg" width="388" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a1155703fe0a9ae5f75c153eb6b5b7072_icgraph.svg" width="388" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -342,23 +342,18 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This procedure, given a cell center will determine if a point exists instide a surface. </p>
+<p>This procedure determines if a point is inside a surface using the generalized winding number (Jacobson et al., SIGGRAPH 2013). In 3D, sums the solid angle subtended by each triangle (Van Oosterom-Strackee formula). In 2D (p==0), sums the signed angle subtended by each boundary edge. Returns ~1.0 inside, ~0.0 outside. Unlike ray casting, this is robust to small triangles/edges and vertex winding order. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ntrs</td><td>Number of triangles in the model </td></tr>
-    <tr><td class="paramname">pid</td><td>Patch ID od this model </td></tr>
+    <tr><td class="paramname">ntrs</td><td>Number of triangles in the model. </td></tr>
+    <tr><td class="paramname">pid</td><td>Patch ID of this model. </td></tr>
     <tr><td class="paramname">point</td><td>Point to test. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>fraction The perfentage of candidate rays cast indicate that we are inside the model </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>fraction Winding number (~1.0 inside, ~0.0 outside). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00887">887</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a4b4ef652ae183b59c1008880e061cc62_cgraph.svg" width="574" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00893">893</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -510,7 +505,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01025">1025</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01043">1043</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -571,7 +566,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01366">1366</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01384">1384</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -623,7 +618,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01209">1209</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01227">1227</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -639,7 +634,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01449">1449</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01467">1467</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -721,7 +716,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01829">1829</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01847">1847</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -965,7 +960,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01186">1186</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01204">1204</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
