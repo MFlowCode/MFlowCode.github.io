@@ -234,6 +234,16 @@ Feature Compatibility</h2>
 <td class="markdownTableBodyRight"><span class="tt">run_time_info</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Output run-time information  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">rdma_mpi</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">(GPUs) Enable RDMA for MPI communication.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">case_dir</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Case directory path  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">old_grid</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Use grid from previous simulation  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">old_ic</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Use initial conditions from previous simulation  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">t_step_old</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Time step to restart from  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">n_start_old</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Starting index from previous simulation  </td></tr>
 </table>
 <ul>
 <li><span class="tt">run_time_info</span> generates a text file that includes run-time information including the CFL number(s) at each time-step.</li>
@@ -264,6 +274,10 @@ Feature Compatibility</h2>
 <td class="markdownTableBodyRight"><span class="tt">n</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of grid cells in the $y$-coordinate direction  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">p</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of grid cells in the $z$-coordinate direction  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">pref</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reference pressure  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">rhoref</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reference density  </td></tr>
 </table>
 <p>The parameters define the boundaries of the spatial and temporal domains, and their discretization that are used in simulation.</p>
 <ul>
@@ -413,42 +427,44 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of immersed boundary patches  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Length, if applicable, in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius, if applicable, of the applied geometry.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">theta</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Angle of attach applied to airfoil IB patches  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">c</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">t</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">m</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">p</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">slip</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Apply a slip boundary  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">model_filepath</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">model_scale(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">model_rotate(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">model_translate(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">model_spc</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">model_threshold</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sets the method used for IB movement.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial velocity of the moving IB in the i-th direction.  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sets the method used for IB movement.  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial velocity of the moving IB in the i-th direction.  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">angular_vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial angular velocity of the moving IB in the i-th direction.  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">patch_ib(j)%</span> where $j$ is the patch index.</p>
@@ -567,37 +583,41 @@ Parameter Descriptions</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">muscl_lim</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">MUSCL Slope Limiter: [1] minmod; [2] monotonized central; [3] Van Albada; [4] Van Leer; [5] SUPERBEE  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">flux_lim</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Flux limiter for post-process: [1] minmod; [2] MUSCL; [3] OSPRE; [4] SUPERBEE  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">int_comp</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">THINC Interface Compression  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ic_eps</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Interface compression threshold (default: 1e-4)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ic_beta</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Interface compression sharpness parameter (default: 1.6)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">riemann_solver</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Riemann solver algorithm: [1] HLL*; [2] HLLC; [3] Exact*; [4] HLLD (only for MHD)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">low_Mach</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Low Mach number correction for HLLC Riemann solver: [0] None; [1] Pressure (Chen et al. <a class="el" href="citelist.html#CITEREF_chen22">[11]</a>); [2] Velocity (Thornber et al. <a class="el" href="citelist.html#CITEREF_thornber08">[49]</a>)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">avg_state</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Averaged state evaluation method: [1] Roe average*; [2] Arithmetic mean  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">wave_speeds</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Wave-speed estimation: [1] Direct (Batten et al. <a class="el" href="citelist.html#CITEREF_batten97">[5]</a>); [2] Pressure-velocity* (Toro <a class="el" href="citelist.html#CITEREF_toro09">[51]</a>)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">weno_Re_flux</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Compute velocity gradient using scalar divergence theorem  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">weno_avg</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Arithmetic mean of left and right, WENO-reconstructed, cell-boundary values  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">dt</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Time step size  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">t_step_start</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Simulation starting time step  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">t_step_stop</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Simulation stopping time step  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">t_step_save</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Frequency to output data  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">t_step_print</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Frequency to print the current step number to standard output (default 1)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">cfl_adap_dt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">CFL based adaptive time-stepping  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">t_step_print</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Frequency to print the current step number to standard output (default 1)  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">cfl_adap_dt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">CFL based adaptive time-stepping  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">cfl_const_dt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">CFL based non-adaptive time-stepping  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">cfl_dt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable CFL-based time stepping  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">cfl_target</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Specified CFL value  </td></tr>
 <tr class="markdownTableRowEven">
@@ -613,18 +633,20 @@ Parameter Descriptions</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">hypoelasticity</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Activate hypoelasticity*  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">pre_stress</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable pre-stress initialization for hypoelasticity  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">igr</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable solution via information geometric regularization (IGR) Cao and Schafer <a class="el" href="citelist.html#CITEREF_cao24">[9]</a>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">igr_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Order of reconstruction for IGR [3,5]  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">alf_factor</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Alpha factor for IGR entropic pressure (default 10)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">igr_pres_lim</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Limit IGR pressure to avoid negative values (default F)  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">igr_iter_solver</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Solution method for IGR elliptic solve [1] Jacobi [2] Gauss-Seidel  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">num_igr_iters</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of iterations for for the IGR elliptic solve (default 2)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">igr_iter_solver</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Solution method for IGR elliptic solve [1] Jacobi [2] Gauss-Seidel  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">num_igr_iters</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of iterations for for the IGR elliptic solve (default 2)  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">num_igr_warm_start_iters</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of iterations for the IGR elliptic solve at the first time step (default 50)  </td></tr>
 </table>
 <ul>
@@ -765,56 +787,70 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">liutex_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Liutex to the database  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">cf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write color function field  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">chem_wrt_T</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write temperature field for chemistry output  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">fft_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable FFT output  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">sim_data</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write interface and energy data files (post_process)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">integral_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write integral data  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">num_integrals</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of integral regions  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">down_sample</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable output downsampling  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">fd_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_alpha(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <span class="tt">alpha(i)</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">probe_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">num_probes</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of probes  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">probe(i)%[x,y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coordinates of probe $i$  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">output_partial_domain</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Output part of the domain  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%beg</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%end</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_txt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_header</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write header to Lagrangian bubble <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_db_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to silo/hdf5 database files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_id_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the global bubble idea to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble position to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_prev_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the previous bubble position to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_vel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble translational velocity to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rad_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rvel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radial velocity to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_r0_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble initial radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmax_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble maximum radius to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmin_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble minimum radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_dphidt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble subgrid velocity potential to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pres_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble pressure to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_mv_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble vapor mass to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">lag_mg_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble gas mass to the database file  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">lag_mg_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble gas mass to the database file  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
@@ -927,6 +963,18 @@ Adaptive Time-Stepping</h5>
 <td class="markdownTableBodyRight"><span class="tt">bubbles_lagrange</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Volume-averaged bubble modeling  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">bubble_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">[1] Gilmore; [2] Keller&ndash;Miksis; [3] Rayleigh-Plesset  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">Ca</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Cavitation number  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">Web</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Weber number  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">Re_inv</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Inverse Reynolds number  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">pref</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reference pressure for bubble models  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">rhoref</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reference density for bubble models  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">fluid_rho</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reference fluid density  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">bub_pp%R0ref</span>*†‡  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reference bubble radius  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1084,6 +1132,12 @@ Adaptive Time-Stepping</h5>
 <td class="markdownTableBodyRight"><span class="tt">mixlayer_vel_coef</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coefficient for the hyperbolic tangent profile of a mixing layer  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">mixlayer_perturb</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Perturb the initial velocity field using a spectrum-based synthetic turbulence generation method  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">mixlayer_perturb_k0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Base wavenumber for mixing layer perturbation  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">mixlayer_perturb_nk</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of perturbation modes for mixing layer  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">simplex_perturb</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable simplex noise perturbation of initial conditions  </td></tr>
 </table>
 <p>The table lists velocity field parameters. The parameters are optionally used to define initial velocity profiles and perturbations.</p>
 <ul>
@@ -1239,7 +1293,22 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+18. GPU Performance (NVIDIA UVM)</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">nv_uvm_out_of_core</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable NVIDIA Unified Virtual Memory out-of-core execution  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">nv_uvm_pref_gpu</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Prefer GPU placement for NVIDIA UVM allocations  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">nv_uvm_igr_temps_on_gpu</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Store IGR temporaries on GPU with UVM  </td></tr>
+</table>
+<ul>
+<li>These parameters are for NVIDIA Grace-Hopper and similar architectures with hardware-managed unified memory. They allow MFC to run problems larger than GPU memory by paging data between host and device.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 Enumerations</h2>
 <h3 class="doxsection"><a class="anchor" id="boundary-conditions"></a>
 Boundary conditions</h3>
@@ -1279,7 +1348,7 @@ Boundary conditions</h3>
 </table>
 <p>*: This boundary condition is only used for <span class="tt">bc_y%beg</span> when using cylindrical coordinates (<span class="tt">cyl_coord = 'T'</span> and 3D). For axisymmetric problems, use <span class="tt">bc_y%beg = -2</span> with <span class="tt">cyl_coord = 'T'</span> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table <a class="el" href="#boundary-conditions" title="Boundary conditions">Boundary Conditions</a>. Their number (<span class="tt">#</span>) corresponds to the input value in <span class="tt">input.py</span> labeled <span class="tt">bc_[x,y,z]%[beg,end]</span> (see table <a class="el" href="#sec-simulation-algorithm" title="6. Simulation Algorithm">Simulation Algorithm Parameters</a>). The entries labeled "Characteristic." are characteristic boundary conditions based on Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[47]</a> and Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[48]</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
 Generalized Characteristic Boundary conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1428,7 +1497,7 @@ Acoustic Supports</h3>
 <li><span class="tt">%support = 10</span> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <span class="tt">%support = 9</span> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <span class="tt">%support = 9</span> around the x-axis.</li>
 <li><span class="tt">%support = 11</span> specifies a circular transducer array in 3D simulation. The total aperture of the array is <span class="tt">%aperture</span>, which is similar to <span class="tt">%support = 7</span>. The parameters <span class="tt">%num_elements</span>, <span class="tt">%element_polygon_ratio</span>, and <span class="tt">%rotate_angle</span> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <span class="tt">%num_elements</span>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Conservative Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1454,7 +1523,7 @@ Conservative Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
 Primitive Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
