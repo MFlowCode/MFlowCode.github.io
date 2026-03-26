@@ -164,58 +164,60 @@ $(function(){initNavTree('namespacem__rhs.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac1a58ddfd0761eea057f097f428a36ba" id="r_ac1a58ddfd0761eea057f097f428a36ba"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac1a58ddfd0761eea057f097f428a36ba">s_initialize_rhs_module</a></td></tr>
-<tr class="memdesc:ac1a58ddfd0761eea057f097f428a36ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module.  <br /></td></tr>
+<tr class="memdesc:ac1a58ddfd0761eea057f097f428a36ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the RHS module.  <br /></td></tr>
 <tr class="memitem:a2ae49f9ae363fe7f37509d8526ac7f03" id="r_a2ae49f9ae363fe7f37509d8526ac7f03"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2ae49f9ae363fe7f37509d8526ac7f03">s_compute_rhs</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, q_prim_vf, bc_type, rhs_vf, pb_in, rhs_pb, mv_in, rhs_mv, t_step, time_avg, stage)</td></tr>
-<tr class="memdesc:a2ae49f9ae363fe7f37509d8526ac7f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the right-hand side of the semi-discrete governing equations for a single time stage.  <br /></td></tr>
+<tr class="memdesc:a2ae49f9ae363fe7f37509d8526ac7f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the right-hand side of the semi-discrete governing equations for a single time stage.  <br /></td></tr>
 <tr class="memitem:a5809a021c8e55e523aa8bfabb41a3e1e" id="r_a5809a021c8e55e523aa8bfabb41a3e1e"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5809a021c8e55e523aa8bfabb41a3e1e">s_compute_advection_source_term</a> (idir, rhs_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, flux_src_n_vf)</td></tr>
-<tr class="memdesc:a5809a021c8e55e523aa8bfabb41a3e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulates advection source contributions from a given coordinate direction into the RHS.  <br /></td></tr>
+<tr class="memdesc:a5809a021c8e55e523aa8bfabb41a3e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate advection source contributions from a given coordinate direction into the RHS.  <br /></td></tr>
 <tr class="memitem:a2df6b2a1323afaca022b5ef77dd4c0e0" id="r_a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2df6b2a1323afaca022b5ef77dd4c0e0">s_compute_additional_physics_rhs</a> (idir, q_prim_vf, rhs_vf, flux_src_n_in, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf)</td></tr>
-<tr class="memdesc:a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds viscous, surface-tension, and species-diffusion source flux contributions to the RHS for a given direction.  <br /></td></tr>
+<tr class="memdesc:a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add viscous, surface-tension, and species-diffusion source flux contributions to the RHS for a given direction.  <br /></td></tr>
 <tr class="memitem:a48c0b3313ccec916c5cb2652f8cad5b0" id="r_a48c0b3313ccec916c5cb2652f8cad5b0"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a48c0b3313ccec916c5cb2652f8cad5b0">s_reconstruct_cell_boundary_values</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
-<tr class="memdesc:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables.  <br /></td></tr>
+<tr class="memdesc:a48c0b3313ccec916c5cb2652f8cad5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct left and right cell-boundary values from cell-averaged variables.  <br /></td></tr>
 <tr class="memitem:a28b3de48d795ac9f0ec2d0c83ef50ef5" id="r_a28b3de48d795ac9f0ec2d0c83ef50ef5"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a28b3de48d795ac9f0ec2d0c83ef50ef5">s_reconstruct_cell_boundary_values_first_order</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
-<tr class="memdesc:a28b3de48d795ac9f0ec2d0c83ef50ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs first-order (piecewise constant) reconstruction of left and right cell-boundary values.  <br /></td></tr>
+<tr class="memdesc:a28b3de48d795ac9f0ec2d0c83ef50ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform first-order (piecewise constant) reconstruction of left and right cell-boundary values.  <br /></td></tr>
 <tr class="memitem:aeefd0e45989eb229ad465d3f56cda6f9" id="r_aeefd0e45989eb229ad465d3f56cda6f9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aeefd0e45989eb229ad465d3f56cda6f9">s_finalize_rhs_module</a></td></tr>
 <tr class="memdesc:aeefd0e45989eb229ad465d3f56cda6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a64dfdcee067d1cd3769468314ff1dfb4" id="r_a64dfdcee067d1cd3769468314ff1dfb4"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a64dfdcee067d1cd3769468314ff1dfb4">q_cons_qp</a></td></tr>
+<tr class="memdesc:a64dfdcee067d1cd3769468314ff1dfb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">WENO-reconstructed cell-average conservative variables at quadrature points.  <br /></td></tr>
 <tr class="memitem:ae34f4a2d7b69b7868f26243defd3849d" id="r_ae34f4a2d7b69b7868f26243defd3849d"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ae34f4a2d7b69b7868f26243defd3849d">q_prim_qp</a></td></tr>
+<tr class="memdesc:ae34f4a2d7b69b7868f26243defd3849d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Primitive variables at cell-interior quadrature points.  <br /></td></tr>
 <tr class="memitem:a7e3b4d8f32649ff607c52440009f903f" id="r_a7e3b4d8f32649ff607c52440009f903f"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a7e3b4d8f32649ff607c52440009f903f">tau_re_vf</a></td></tr>
 <tr class="memitem:a30cdd58b3ecd244f33894975f161f756" id="r_a30cdd58b3ecd244f33894975f161f756"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a30cdd58b3ecd244f33894975f161f756">gm_alpha_qp</a></td></tr>
-<tr class="memdesc:a30cdd58b3ecd244f33894975f161f756"><td class="mdescLeft">&#160;</td><td class="mdescRight">The gradient magnitude of the volume fractions at cell-interior Gaussian quadrature points. gm_alpha_qp is calculated from individual first-order spatial derivatives located in dq_prim_ds_qp.  <br /></td></tr>
+<tr class="memdesc:a30cdd58b3ecd244f33894975f161f756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Volume fraction gradient magnitudes at cell-interior quadrature points.  <br /></td></tr>
 <tr class="memitem:ac20ddcb23484665560b9916ddd7ff2c8" id="r_ac20ddcb23484665560b9916ddd7ff2c8"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac20ddcb23484665560b9916ddd7ff2c8">ql_prim</a></td></tr>
 <tr class="memitem:a554e70ae8c4fa1b4991e50c2db802a4e" id="r_a554e70ae8c4fa1b4991e50c2db802a4e"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a554e70ae8c4fa1b4991e50c2db802a4e">qr_prim</a></td></tr>
 <tr class="memitem:a8c6d36b43361c5e4ec8a61a7cc8333b4" id="r_a8c6d36b43361c5e4ec8a61a7cc8333b4"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a8c6d36b43361c5e4ec8a61a7cc8333b4">iv</a></td></tr>
 <tr class="memdesc:a8c6d36b43361c5e4ec8a61a7cc8333b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector field indical bounds.  <br /></td></tr>
-<tr class="memitem:a3d28d2337e2561e38a09a53bd4eebfdf" id="r_a3d28d2337e2561e38a09a53bd4eebfdf"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a3d28d2337e2561e38a09a53bd4eebfdf">blkmod1</a></td></tr>
-<tr class="memitem:aefd817fabfd1e9fb528547d7ed6f7ab0" id="r_aefd817fabfd1e9fb528547d7ed6f7ab0"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aefd817fabfd1e9fb528547d7ed6f7ab0">blkmod2</a></td></tr>
-<tr class="memitem:af8877adde949c76a9d77fdba44fd349c" id="r_af8877adde949c76a9d77fdba44fd349c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af8877adde949c76a9d77fdba44fd349c">alpha1</a></td></tr>
-<tr class="memitem:a8cea437176ac9df4616559845621b8ad" id="r_a8cea437176ac9df4616559845621b8ad"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8cea437176ac9df4616559845621b8ad">alpha2</a></td></tr>
-<tr class="memitem:a91c7f4b5aeac04322b399eeb531f0cad" id="r_a91c7f4b5aeac04322b399eeb531f0cad"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a91c7f4b5aeac04322b399eeb531f0cad">kterm</a></td></tr>
-<tr class="memitem:aa5437775de7d3b73248cff89e9327ab3" id="r_aa5437775de7d3b73248cff89e9327ab3"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa5437775de7d3b73248cff89e9327ab3">ql_rsx_vf</a></td></tr>
-<tr class="memitem:a8a0a6373adf62170ed85967e76bd0b0d" id="r_a8a0a6373adf62170ed85967e76bd0b0d"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8a0a6373adf62170ed85967e76bd0b0d">ql_rsy_vf</a></td></tr>
-<tr class="memitem:a1d6fab80bb6e5d8acc2c841b2f3a8fc8" id="r_a1d6fab80bb6e5d8acc2c841b2f3a8fc8"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a1d6fab80bb6e5d8acc2c841b2f3a8fc8">ql_rsz_vf</a></td></tr>
-<tr class="memitem:a6d4096e51771b3fae28e915055cd46f3" id="r_a6d4096e51771b3fae28e915055cd46f3"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a6d4096e51771b3fae28e915055cd46f3">qr_rsx_vf</a></td></tr>
-<tr class="memitem:a0ad2c51bc390bdb0f855932d452b8998" id="r_a0ad2c51bc390bdb0f855932d452b8998"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0ad2c51bc390bdb0f855932d452b8998">qr_rsy_vf</a></td></tr>
-<tr class="memitem:a7bd83e2d2d68ac9ba9dedf3f5cde5bf7" id="r_a7bd83e2d2d68ac9ba9dedf3f5cde5bf7"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a7bd83e2d2d68ac9ba9dedf3f5cde5bf7">qr_rsz_vf</a></td></tr>
-<tr class="memitem:af789e009f0e66d46acdc3e62edd10f66" id="r_af789e009f0e66d46acdc3e62edd10f66"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af789e009f0e66d46acdc3e62edd10f66">dql_rsx_vf</a></td></tr>
-<tr class="memitem:aee2a92357b55e803eff3118a4fce580e" id="r_aee2a92357b55e803eff3118a4fce580e"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aee2a92357b55e803eff3118a4fce580e">dql_rsy_vf</a></td></tr>
-<tr class="memitem:aff186feb455523d0f171c71706632311" id="r_aff186feb455523d0f171c71706632311"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aff186feb455523d0f171c71706632311">dql_rsz_vf</a></td></tr>
-<tr class="memitem:ae9ecaf19369b3157fcd9fc2b6121c62f" id="r_ae9ecaf19369b3157fcd9fc2b6121c62f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ae9ecaf19369b3157fcd9fc2b6121c62f">dqr_rsx_vf</a></td></tr>
-<tr class="memitem:a692f02bac3d6d87f9c49a6d7965384dd" id="r_a692f02bac3d6d87f9c49a6d7965384dd"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a692f02bac3d6d87f9c49a6d7965384dd">dqr_rsy_vf</a></td></tr>
-<tr class="memitem:a09101e9fa4bf3c6aa8740bc35c981c8b" id="r_a09101e9fa4bf3c6aa8740bc35c981c8b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a09101e9fa4bf3c6aa8740bc35c981c8b">dqr_rsz_vf</a></td></tr>
-<tr class="memitem:ac1db2483f2f89d6f58df6b14d8b34afe" id="r_ac1db2483f2f89d6f58df6b14d8b34afe"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac1db2483f2f89d6f58df6b14d8b34afe">nbub</a></td></tr>
-<tr class="memdesc:ac1db2483f2f89d6f58df6b14d8b34afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble number density.  <br /></td></tr>
-<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">The first-order spatial derivatives of the primitive variables at cell-</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>interior Gaussian quadrature points. These are WENO-reconstructed from their respective cell-average values, obtained through the application of the divergence theorem on the integral-average cell-boundary values of the primitive variables, located in qK_prim_n, where K = L or R. </p>
+<tr class="memitem:ac17c6292fc3c68b56deef7971b85a4ba" id="r_ac17c6292fc3c68b56deef7971b85a4ba"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac17c6292fc3c68b56deef7971b85a4ba">blkmod1</a></td></tr>
+<tr class="memitem:aedc9df48410ab5a2845efadffac739fb" id="r_aedc9df48410ab5a2845efadffac739fb"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aedc9df48410ab5a2845efadffac739fb">blkmod2</a></td></tr>
+<tr class="memitem:a8f1caa2cbf100cb4541639ddbb223e93" id="r_a8f1caa2cbf100cb4541639ddbb223e93"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8f1caa2cbf100cb4541639ddbb223e93">alpha1</a></td></tr>
+<tr class="memitem:a8277987df2db50d930d8fed30aa3021f" id="r_a8277987df2db50d930d8fed30aa3021f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8277987df2db50d930d8fed30aa3021f">alpha2</a></td></tr>
+<tr class="memitem:a0757066fe9419ea7b18009aa553918b4" id="r_a0757066fe9419ea7b18009aa553918b4"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0757066fe9419ea7b18009aa553918b4">kterm</a></td></tr>
+<tr class="memitem:a6e6ccec0231b7468c6044fcc59f40f65" id="r_a6e6ccec0231b7468c6044fcc59f40f65"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a6e6ccec0231b7468c6044fcc59f40f65">ql_rsx_vf</a></td></tr>
+<tr class="memitem:ae00dd066fff26e7f9601b46bb6aa184e" id="r_ae00dd066fff26e7f9601b46bb6aa184e"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ae00dd066fff26e7f9601b46bb6aa184e">ql_rsy_vf</a></td></tr>
+<tr class="memitem:a143c19a7564a77fc9922758846950588" id="r_a143c19a7564a77fc9922758846950588"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a143c19a7564a77fc9922758846950588">ql_rsz_vf</a></td></tr>
+<tr class="memitem:a8768b31da6b12b35edd440fffaea9c20" id="r_a8768b31da6b12b35edd440fffaea9c20"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8768b31da6b12b35edd440fffaea9c20">qr_rsx_vf</a></td></tr>
+<tr class="memitem:ac8dc8c8cd3b6002fbcd4e4ce3c6b60e6" id="r_ac8dc8c8cd3b6002fbcd4e4ce3c6b60e6"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac8dc8c8cd3b6002fbcd4e4ce3c6b60e6">qr_rsy_vf</a></td></tr>
+<tr class="memitem:a2e0ec99fad7285dc1329a08f01ab9012" id="r_a2e0ec99fad7285dc1329a08f01ab9012"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2e0ec99fad7285dc1329a08f01ab9012">qr_rsz_vf</a></td></tr>
+<tr class="memitem:a52f7527179cef035dc3463f6403e98c6" id="r_a52f7527179cef035dc3463f6403e98c6"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a52f7527179cef035dc3463f6403e98c6">dql_rsx_vf</a></td></tr>
+<tr class="memitem:a92c6d072e4e5567747e8e6a80a1f69f7" id="r_a92c6d072e4e5567747e8e6a80a1f69f7"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a92c6d072e4e5567747e8e6a80a1f69f7">dql_rsy_vf</a></td></tr>
+<tr class="memitem:a8d55e383dc3404025299a3040b8de80f" id="r_a8d55e383dc3404025299a3040b8de80f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8d55e383dc3404025299a3040b8de80f">dql_rsz_vf</a></td></tr>
+<tr class="memitem:a45ef8d8e864ad6929520214146fd9ce7" id="r_a45ef8d8e864ad6929520214146fd9ce7"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a45ef8d8e864ad6929520214146fd9ce7">dqr_rsx_vf</a></td></tr>
+<tr class="memitem:a8a248f0f63ef97995c9d3915c1f059cc" id="r_a8a248f0f63ef97995c9d3915c1f059cc"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8a248f0f63ef97995c9d3915c1f059cc">dqr_rsy_vf</a></td></tr>
+<tr class="memitem:a264b49eafe9787464b7f0e7fcc3bacdc" id="r_a264b49eafe9787464b7f0e7fcc3bacdc"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a264b49eafe9787464b7f0e7fcc3bacdc">dqr_rsz_vf</a></td></tr>
+<tr class="memitem:a1cbb8eabc6a0a2279cd99bb07a27e55e" id="r_a1cbb8eabc6a0a2279cd99bb07a27e55e"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a1cbb8eabc6a0a2279cd99bb07a27e55e">nbub</a></td></tr>
+<tr class="memdesc:a1cbb8eabc6a0a2279cd99bb07a27e55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble number density.  <br /></td></tr>
+<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">The first-order spatial derivatives of the primitive variables at cell- interior Gaussian quadrature points. These are</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>WENO-reconstructed from their respective cell-average values, obtained through the application of the divergence theorem on the integral-average cell-boundary values of the primitive variables, located in qK_prim_n, where K = L or R. </p>
 </div></td></tr>
 <tr class="memitem:a1d31d5989b4c5f27c6703d8033a9b131" id="r_a1d31d5989b4c5f27c6703d8033a9b131"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a1d31d5989b4c5f27c6703d8033a9b131">dq_prim_dx_qp</a></td></tr>
 <tr class="memitem:a6670549a1319ff2cebbb3b920ba36916" id="r_a6670549a1319ff2cebbb3b920ba36916"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a6670549a1319ff2cebbb3b920ba36916">dq_prim_dy_qp</a></td></tr>
 <tr class="memitem:aeceeefb09e21ccf88d9c942b59285031" id="r_aeceeefb09e21ccf88d9c942b59285031"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aeceeefb09e21ccf88d9c942b59285031">dq_prim_dz_qp</a></td></tr>
-<tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader">The left and right WENO-reconstructed cell-boundary values of the cell-</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>average gradient magnitude of volume fractions, located in gm_alpha_qp. </p>
+<tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader">The left and right WENO-reconstructed cell-boundary values of the cell- average first-order spatial derivatives of the</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>primitive variables. The cell-average of the first-order spatial derivatives may be found in the variables dq_prim_ds_qp, where s = x, y or z. </p>
 </div></td></tr>
 <tr class="memitem:ac21ba3a7f36ec7cc587b23a2f01e4522" id="r_ac21ba3a7f36ec7cc587b23a2f01e4522"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac21ba3a7f36ec7cc587b23a2f01e4522">dql_prim_dx_n</a></td></tr>
 <tr class="memitem:a509bae5da9c60fe2e9aabb3c05add64b" id="r_a509bae5da9c60fe2e9aabb3c05add64b"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a509bae5da9c60fe2e9aabb3c05add64b">dql_prim_dy_n</a></td></tr>
@@ -223,22 +225,25 @@ Variables</h2></td></tr>
 <tr class="memitem:aeffdc862cefe26e59e374eda1abf5e97" id="r_aeffdc862cefe26e59e374eda1abf5e97"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aeffdc862cefe26e59e374eda1abf5e97">dqr_prim_dx_n</a></td></tr>
 <tr class="memitem:ab6aa085a7b397c20f7a3b0692f76906d" id="r_ab6aa085a7b397c20f7a3b0692f76906d"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ab6aa085a7b397c20f7a3b0692f76906d">dqr_prim_dy_n</a></td></tr>
 <tr class="memitem:a06d951ada34ffd709203a701678437ef" id="r_a06d951ada34ffd709203a701678437ef"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a06d951ada34ffd709203a701678437ef">dqr_prim_dz_n</a></td></tr>
+<tr id="var-members-2" class="groupHeader"><td colspan="2"><div class="groupHeader">The left and right WENO-reconstructed cell-boundary values of the cell- average gradient magnitude of volume fractions,</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>located in gm_alpha_qp. </p>
+</div></td></tr>
 <tr class="memitem:a9cc8013f02f7d8ec52cdcaed4b1ea463" id="r_a9cc8013f02f7d8ec52cdcaed4b1ea463"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a9cc8013f02f7d8ec52cdcaed4b1ea463">gm_alphal_n</a></td></tr>
 <tr class="memitem:a8bf36ad3264e93579aa229376590cc28" id="r_a8bf36ad3264e93579aa229376590cc28"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a8bf36ad3264e93579aa229376590cc28">gm_alphar_n</a></td></tr>
-<tr id="var-members-2" class="groupHeader"><td colspan="2"><div class="groupHeader">The cell-boundary values of the fluxes (src - source, gsrc - geometrical</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>source). These are computed by applying the chosen Riemann problem solver .on the left and right cell-boundary values of the primitive variables </p>
+<tr id="var-members-3" class="groupHeader"><td colspan="2"><div class="groupHeader">The cell-boundary values of the fluxes (src - source, gsrc - geometrical source). These are computed by applying the</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>chosen Riemann problem solver .on the left and right cell-boundary values of the primitive variables </p>
 </div></td></tr>
 <tr class="memitem:ae4c236ac5b4df2d001cc9fa9dc1d032c" id="r_ae4c236ac5b4df2d001cc9fa9dc1d032c"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ae4c236ac5b4df2d001cc9fa9dc1d032c">flux_n</a></td></tr>
 <tr class="memitem:a0aa069fc97fb4ae2119fb36ef03e587e" id="r_a0aa069fc97fb4ae2119fb36ef03e587e"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0aa069fc97fb4ae2119fb36ef03e587e">flux_src_n</a></td></tr>
 <tr class="memitem:a1e06afd1d3190259a5341029c21842e9" id="r_a1e06afd1d3190259a5341029c21842e9"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a1e06afd1d3190259a5341029c21842e9">flux_gsrc_n</a></td></tr>
-<tr id="var-members-3" class="groupHeader"><td colspan="2"><div class="groupHeader">Indical bounds in the x-, y- and z-directions</div></td></tr>
+<tr id="var-members-4" class="groupHeader"><td colspan="2"><div class="groupHeader">Indical bounds in the x-, y- and z-directions</div></td></tr>
 <tr class="memitem:a899e02339e7e4799ff447754ddb70989" id="r_a899e02339e7e4799ff447754ddb70989"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a899e02339e7e4799ff447754ddb70989">irx</a></td></tr>
 <tr class="memitem:abc16af24d3e007ab97144452b8b5e8c1" id="r_abc16af24d3e007ab97144452b8b5e8c1"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#abc16af24d3e007ab97144452b8b5e8c1">iry</a></td></tr>
 <tr class="memitem:a73400b1bbf303424c94153dce84147c7" id="r_a73400b1bbf303424c94153dce84147c7"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a73400b1bbf303424c94153dce84147c7">irz</a></td></tr>
 <tr class="memitem:a5a57e7ffc6e4f2552a4d672de16bc5ad" id="r_a5a57e7ffc6e4f2552a4d672de16bc5ad"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a5a57e7ffc6e4f2552a4d672de16bc5ad">is1</a></td></tr>
 <tr class="memitem:a7aedb3f27c7049af9c52f5d3003cf103" id="r_a7aedb3f27c7049af9c52f5d3003cf103"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a7aedb3f27c7049af9c52f5d3003cf103">is2</a></td></tr>
 <tr class="memitem:a733fc02b7dd6d2292a63e6b1c07c7309" id="r_a733fc02b7dd6d2292a63e6b1c07c7309"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a733fc02b7dd6d2292a63e6b1c07c7309">is3</a></td></tr>
-<tr id="var-members-4" class="groupHeader"><td colspan="2"><div class="groupHeader">Saved fluxes for testing</div></td></tr>
+<tr id="var-members-5" class="groupHeader"><td colspan="2"><div class="groupHeader">Saved fluxes for testing</div></td></tr>
 <tr class="memitem:aaaecb99341e4534ec839e9356bf90536" id="r_aaaecb99341e4534ec839e9356bf90536"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>)&#160;</td><td class="memItemRight"><a class="el" href="#aaaecb99341e4534ec839e9356bf90536">alf_sum</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -288,9 +293,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Adds viscous, surface-tension, and species-diffusion source flux contributions to the RHS for a given direction. </p>
+<p>Add viscous, surface-tension, and species-diffusion source flux contributions to the RHS for a given direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08696">8696</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08335">8335</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -333,9 +338,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Accumulates advection source contributions from a given coordinate direction into the RHS. </p>
+<p>Accumulate advection source contributions from a given coordinate direction into the RHS. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l07393">7393</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l07203">7203</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -373,7 +378,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -383,22 +388,22 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23">stp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pb_in</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23">stp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pb_in</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_pb</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_pb</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23">stp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>mv_in</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23">stp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>mv_in</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_mv</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_mv</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -418,9 +423,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the right-hand side of the semi-discrete governing equations for a single time stage. </p>
+<p>Compute the right-hand side of the semi-discrete governing equations for a single time stage. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l06689">6689</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l06636">6636</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -443,7 +448,7 @@ Here is the call graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09908">9908</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09335">9335</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -464,9 +469,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The computation of parameters, the allocation of memory, the association of pointers and/or the execution of any other procedures that are necessary to setup the module. </p>
+<p>Initialize the RHS module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00650">650</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -489,32 +494,32 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -524,22 +529,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this subroutine is to WENO-reconstruct the left and the right cell-boundary values, including values at the Gaussian quadrature points, from the cell-averaged variables. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">v_vf</td><td>Cell-average variables </td></tr>
-    <tr><td class="paramname">vL_x</td><td>Left reconstructed cell-boundary values in x </td></tr>
-    <tr><td class="paramname">vL_y</td><td>Left reconstructed cell-boundary values in y </td></tr>
-    <tr><td class="paramname">vL_z</td><td>Left reconstructed cell-boundary values in z </td></tr>
-    <tr><td class="paramname">vR_x</td><td>Right reconstructed cell-boundary values in x </td></tr>
-    <tr><td class="paramname">vR_y</td><td>Right reconstructed cell-boundary values in y </td></tr>
-    <tr><td class="paramname">vR_z</td><td>Right reconstructed cell-boundary values in z </td></tr>
-    <tr><td class="paramname">norm_dir</td><td>Splitting coordinate direction </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Reconstruct left and right cell-boundary values from cell-averaged variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09579">9579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09055">9055</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -562,32 +554,32 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, 1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -597,9 +589,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Performs first-order (piecewise constant) reconstruction of left and right cell-boundary values. </p>
+<p>Perform first-order (piecewise constant) reconstruction of left and right cell-boundary values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09673">9673</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09133">9133</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -621,71 +613,71 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00581">581</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00563">563</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="af8877adde949c76a9d77fdba44fd349c" name="af8877adde949c76a9d77fdba44fd349c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8877adde949c76a9d77fdba44fd349c">&#9670;&#160;</a></span>alpha1</h2>
+<a id="a8f1caa2cbf100cb4541639ddbb223e93" name="a8f1caa2cbf100cb4541639ddbb223e93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f1caa2cbf100cb4541639ddbb223e93">&#9670;&#160;</a></span>alpha1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_rhs::alpha1</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_rhs::alpha1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a8cea437176ac9df4616559845621b8ad" name="a8cea437176ac9df4616559845621b8ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cea437176ac9df4616559845621b8ad">&#9670;&#160;</a></span>alpha2</h2>
+<a id="a8277987df2db50d930d8fed30aa3021f" name="a8277987df2db50d930d8fed30aa3021f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8277987df2db50d930d8fed30aa3021f">&#9670;&#160;</a></span>alpha2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_rhs::alpha2</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_rhs::alpha2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a3d28d2337e2561e38a09a53bd4eebfdf" name="a3d28d2337e2561e38a09a53bd4eebfdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d28d2337e2561e38a09a53bd4eebfdf">&#9670;&#160;</a></span>blkmod1</h2>
+<a id="ac17c6292fc3c68b56deef7971b85a4ba" name="ac17c6292fc3c68b56deef7971b85a4ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac17c6292fc3c68b56deef7971b85a4ba">&#9670;&#160;</a></span>blkmod1</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_rhs::blkmod1</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_rhs::blkmod1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aefd817fabfd1e9fb528547d7ed6f7ab0" name="aefd817fabfd1e9fb528547d7ed6f7ab0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefd817fabfd1e9fb528547d7ed6f7ab0">&#9670;&#160;</a></span>blkmod2</h2>
+<a id="aedc9df48410ab5a2845efadffac739fb" name="aedc9df48410ab5a2845efadffac739fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedc9df48410ab5a2845efadffac739fb">&#9670;&#160;</a></span>blkmod2</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_rhs::blkmod2</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_rhs::blkmod2</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -701,7 +693,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -717,7 +709,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -733,7 +725,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -749,7 +741,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -765,7 +757,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -781,55 +773,55 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="af789e009f0e66d46acdc3e62edd10f66" name="af789e009f0e66d46acdc3e62edd10f66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af789e009f0e66d46acdc3e62edd10f66">&#9670;&#160;</a></span>dql_rsx_vf</h2>
+<a id="a52f7527179cef035dc3463f6403e98c6" name="a52f7527179cef035dc3463f6403e98c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52f7527179cef035dc3463f6403e98c6">&#9670;&#160;</a></span>dql_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::dql_rsx_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::dql_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aee2a92357b55e803eff3118a4fce580e" name="aee2a92357b55e803eff3118a4fce580e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee2a92357b55e803eff3118a4fce580e">&#9670;&#160;</a></span>dql_rsy_vf</h2>
+<a id="a92c6d072e4e5567747e8e6a80a1f69f7" name="a92c6d072e4e5567747e8e6a80a1f69f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c6d072e4e5567747e8e6a80a1f69f7">&#9670;&#160;</a></span>dql_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::dql_rsy_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::dql_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aff186feb455523d0f171c71706632311" name="aff186feb455523d0f171c71706632311"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff186feb455523d0f171c71706632311">&#9670;&#160;</a></span>dql_rsz_vf</h2>
+<a id="a8d55e383dc3404025299a3040b8de80f" name="a8d55e383dc3404025299a3040b8de80f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d55e383dc3404025299a3040b8de80f">&#9670;&#160;</a></span>dql_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::dql_rsz_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::dql_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -845,7 +837,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -861,7 +853,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -877,55 +869,55 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ae9ecaf19369b3157fcd9fc2b6121c62f" name="ae9ecaf19369b3157fcd9fc2b6121c62f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9ecaf19369b3157fcd9fc2b6121c62f">&#9670;&#160;</a></span>dqr_rsx_vf</h2>
+<a id="a45ef8d8e864ad6929520214146fd9ce7" name="a45ef8d8e864ad6929520214146fd9ce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45ef8d8e864ad6929520214146fd9ce7">&#9670;&#160;</a></span>dqr_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::dqr_rsx_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::dqr_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a692f02bac3d6d87f9c49a6d7965384dd" name="a692f02bac3d6d87f9c49a6d7965384dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a692f02bac3d6d87f9c49a6d7965384dd">&#9670;&#160;</a></span>dqr_rsy_vf</h2>
+<a id="a8a248f0f63ef97995c9d3915c1f059cc" name="a8a248f0f63ef97995c9d3915c1f059cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a248f0f63ef97995c9d3915c1f059cc">&#9670;&#160;</a></span>dqr_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::dqr_rsy_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::dqr_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a09101e9fa4bf3c6aa8740bc35c981c8b" name="a09101e9fa4bf3c6aa8740bc35c981c8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09101e9fa4bf3c6aa8740bc35c981c8b">&#9670;&#160;</a></span>dqr_rsz_vf</h2>
+<a id="a264b49eafe9787464b7f0e7fcc3bacdc" name="a264b49eafe9787464b7f0e7fcc3bacdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a264b49eafe9787464b7f0e7fcc3bacdc">&#9670;&#160;</a></span>dqr_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::dqr_rsz_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::dqr_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -941,7 +933,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00504">504</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00487">487</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -957,7 +949,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00502">502</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00485">485</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -973,7 +965,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00503">503</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00486">486</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -989,9 +981,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The gradient magnitude of the volume fractions at cell-interior Gaussian quadrature points. gm_alpha_qp is calculated from individual first-order spatial derivatives located in dq_prim_ds_qp. </p>
+<p>Volume fraction gradient magnitudes at cell-interior quadrature points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00461">461</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00449">449</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +999,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00481">481</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00465">465</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1023,7 +1015,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00482">482</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1039,7 +1031,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00552">552</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1055,7 +1047,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00552">552</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1071,7 +1063,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00552">552</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1079,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1103,7 +1095,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1119,7 +1111,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1137,41 +1129,41 @@ Here is the caller graph for this function:</div>
 
 <p>Vector field indical bounds. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a91c7f4b5aeac04322b399eeb531f0cad" name="a91c7f4b5aeac04322b399eeb531f0cad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91c7f4b5aeac04322b399eeb531f0cad">&#9670;&#160;</a></span>kterm</h2>
+<a id="a0757066fe9419ea7b18009aa553918b4" name="a0757066fe9419ea7b18009aa553918b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0757066fe9419ea7b18009aa553918b4">&#9670;&#160;</a></span>kterm</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_rhs::kterm</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_rhs::kterm</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ac1db2483f2f89d6f58df6b14d8b34afe" name="ac1db2483f2f89d6f58df6b14d8b34afe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1db2483f2f89d6f58df6b14d8b34afe">&#9670;&#160;</a></span>nbub</h2>
+<a id="a1cbb8eabc6a0a2279cd99bb07a27e55e" name="a1cbb8eabc6a0a2279cd99bb07a27e55e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cbb8eabc6a0a2279cd99bb07a27e55e">&#9670;&#160;</a></span>nbub</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_rhs::nbub</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_rhs::nbub</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Bubble number density. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00632">632</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00614">614</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1187,7 +1179,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p>WENO-reconstructed cell-average conservative variables at quadrature points. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00360">360</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1203,7 +1197,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p>Primitive variables at cell-interior quadrature points. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1219,55 +1215,55 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00504">504</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aa5437775de7d3b73248cff89e9327ab3" name="aa5437775de7d3b73248cff89e9327ab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5437775de7d3b73248cff89e9327ab3">&#9670;&#160;</a></span>ql_rsx_vf</h2>
+<a id="a6e6ccec0231b7468c6044fcc59f40f65" name="a6e6ccec0231b7468c6044fcc59f40f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6ccec0231b7468c6044fcc59f40f65">&#9670;&#160;</a></span>ql_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::ql_rsx_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::ql_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a8a0a6373adf62170ed85967e76bd0b0d" name="a8a0a6373adf62170ed85967e76bd0b0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a0a6373adf62170ed85967e76bd0b0d">&#9670;&#160;</a></span>ql_rsy_vf</h2>
+<a id="ae00dd066fff26e7f9601b46bb6aa184e" name="ae00dd066fff26e7f9601b46bb6aa184e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae00dd066fff26e7f9601b46bb6aa184e">&#9670;&#160;</a></span>ql_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::ql_rsy_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::ql_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a1d6fab80bb6e5d8acc2c841b2f3a8fc8" name="a1d6fab80bb6e5d8acc2c841b2f3a8fc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d6fab80bb6e5d8acc2c841b2f3a8fc8">&#9670;&#160;</a></span>ql_rsz_vf</h2>
+<a id="a143c19a7564a77fc9922758846950588" name="a143c19a7564a77fc9922758846950588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a143c19a7564a77fc9922758846950588">&#9670;&#160;</a></span>ql_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::ql_rsz_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::ql_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1283,55 +1279,55 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00504">504</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a6d4096e51771b3fae28e915055cd46f3" name="a6d4096e51771b3fae28e915055cd46f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d4096e51771b3fae28e915055cd46f3">&#9670;&#160;</a></span>qr_rsx_vf</h2>
+<a id="a8768b31da6b12b35edd440fffaea9c20" name="a8768b31da6b12b35edd440fffaea9c20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8768b31da6b12b35edd440fffaea9c20">&#9670;&#160;</a></span>qr_rsx_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::qr_rsx_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::qr_rsx_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a0ad2c51bc390bdb0f855932d452b8998" name="a0ad2c51bc390bdb0f855932d452b8998"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ad2c51bc390bdb0f855932d452b8998">&#9670;&#160;</a></span>qr_rsy_vf</h2>
+<a id="ac8dc8c8cd3b6002fbcd4e4ce3c6b60e6" name="ac8dc8c8cd3b6002fbcd4e4ce3c6b60e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8dc8c8cd3b6002fbcd4e4ce3c6b60e6">&#9670;&#160;</a></span>qr_rsy_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::qr_rsy_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::qr_rsy_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a7bd83e2d2d68ac9ba9dedf3f5cde5bf7" name="a7bd83e2d2d68ac9ba9dedf3f5cde5bf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bd83e2d2d68ac9ba9dedf3f5cde5bf7">&#9670;&#160;</a></span>qr_rsz_vf</h2>
+<a id="a2e0ec99fad7285dc1329a08f01ab9012" name="a2e0ec99fad7285dc1329a08f01ab9012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0ec99fad7285dc1329a08f01ab9012">&#9670;&#160;</a></span>qr_rsz_vf</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_rhs::qr_rsz_vf</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_rhs::qr_rsz_vf</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1347,7 +1343,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00448">448</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>

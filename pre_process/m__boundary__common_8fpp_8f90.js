@@ -24,7 +24,7 @@ var m__boundary__common_8fpp_8f90 =
     [ "m_boundary_common::s_symmetry", "namespacem__boundary__common.html#a117fa18d768baf2b0edd4e8887a923d5", null ],
     [ "m_boundary_common::s_write_parallel_boundary_condition_files", "namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f", null ],
     [ "m_boundary_common::s_write_serial_boundary_condition_files", "namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b", null ],
-    [ "m_boundary_common::bc_buffers", "namespacem__boundary__common.html#a8f6afe5fcc6a630fcb2156a910bfb5b2", null ],
-    [ "m_boundary_common::mpi_bc_buffer_type", "namespacem__boundary__common.html#ac250a7ab543fe3fe81a5269ecf355abe", null ],
-    [ "m_boundary_common::mpi_bc_type_type", "namespacem__boundary__common.html#a1f82285994f166b9903d05d1046358dc", null ]
+    [ "m_boundary_common::bc_buffers", "namespacem__boundary__common.html#a1850511523f95f4f76c9f7b0198f089c", null ],
+    [ "m_boundary_common::mpi_bc_buffer_type", "namespacem__boundary__common.html#aef10931a41245ef363814eb200ad35af", null ],
+    [ "m_boundary_common::mpi_bc_type_type", "namespacem__boundary__common.html#a3eb1b5d4a0e3c643444e011fc16c08a2", null ]
 ];

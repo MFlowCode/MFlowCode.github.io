@@ -2,7 +2,7 @@ var searchData=
 [
   ['x_0',['x',['../structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3',1,'m_derived_types::vec3_dt']]],
   ['x_5fa_1',['x_a',['../namespacem__global__parameters.html#adafd6b7b88ddfc13989fa13edc01ba30',1,'m_global_parameters']]],
-  ['x_5faccel_2',['x_accel',['../namespacem__derived__variables.html#af97fa6cff54325e7fa1454c412cca24c',1,'m_derived_variables']]],
+  ['x_5faccel_2',['x_accel',['../namespacem__derived__variables.html#ade7f2b3caf70e9839dbcd5937a6fc982',1,'m_derived_variables']]],
   ['x_5fb_3',['x_b',['../namespacem__global__parameters.html#a4f877f8a7deb109454bb9eb1236946b3',1,'m_global_parameters']]],
   ['x_5fboundary_4',['x_boundary',['../namespacem__ib__patches.html#aac4eb3883dd97c043d2824f0c66a2c16',1,'m_ib_patches']]],
   ['x_5fcb_5',['x_cb',['../namespacem__global__parameters.html#afb3e7bebce44e29008791168d897d229',1,'m_global_parameters']]],
@@ -16,5 +16,5 @@ var searchData=
   ['xiend_13',['xiend',['../namespacem__global__parameters.html#a4b4ceb2b9fa0d597d2e5cc0670061543',1,'m_global_parameters']]],
   ['xmax_14',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
   ['xmin_15',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_16',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aa0c3c91c4889b19f2f4632f77d2f40c1',1,'m_derived_types::source_spatial_type']]]
+  ['xyz_5fto_5fr_5fratios_16',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aeb4fc8950a2b24d41d2195346d175f59',1,'m_derived_types::source_spatial_type']]]
 ];

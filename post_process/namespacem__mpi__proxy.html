@@ -168,20 +168,20 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a43a3477cf47a222d9c74e4371b51c919" id="r_a43a3477cf47a222d9c74e4371b51c919"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a43a3477cf47a222d9c74e4371b51c919">s_mpi_bcast_user_inputs</a></td></tr>
 <tr class="memdesc:a43a3477cf47a222d9c74e4371b51c919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Since only processor with rank 0 is in charge of reading and checking the consistency of the user provided inputs, these are not available to the remaining processors. This subroutine is then in charge of broadcasting the required information.  <br /></td></tr>
 <tr class="memitem:a2c7826d6e0b57eda2cb47f817bddc243" id="r_a2c7826d6e0b57eda2cb47f817bddc243"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2c7826d6e0b57eda2cb47f817bddc243">s_mpi_gather_spatial_extents</a> (spatial_extents)</td></tr>
-<tr class="memdesc:a2c7826d6e0b57eda2cb47f817bddc243"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gathers the Silo database metadata for the spatial extents in order to boost the performance of the multidimensional visualization.  <br /></td></tr>
+<tr class="memdesc:a2c7826d6e0b57eda2cb47f817bddc243"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather spatial extents from all ranks for Silo database metadata.  <br /></td></tr>
 <tr class="memitem:a299d031910ff031e09a70e325fc69813" id="r_a299d031910ff031e09a70e325fc69813"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a299d031910ff031e09a70e325fc69813">s_mpi_defragment_1d_grid_variable</a></td></tr>
-<tr class="memdesc:a299d031910ff031e09a70e325fc69813"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine collects the sub-domain cell-boundary or cell-center locations data from all of the processors and puts back together the grid of the entire computational domain on the rank 0 processor. This is only done for 1D simulations.  <br /></td></tr>
+<tr class="memdesc:a299d031910ff031e09a70e325fc69813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collect the sub-domain cell-boundary or cell-center location data from all processors and put back together the grid of the entire computational domain on the rank 0 processor. This is only done for 1D simulations.  <br /></td></tr>
 <tr class="memitem:aa8376d4fe1d9829af56e78cecfb50d13" id="r_aa8376d4fe1d9829af56e78cecfb50d13"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa8376d4fe1d9829af56e78cecfb50d13">s_mpi_gather_data_extents</a> (q_sf, data_extents)</td></tr>
-<tr class="memdesc:aa8376d4fe1d9829af56e78cecfb50d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gathers the Silo database metadata for the flow variable's extents as to boost performance of the multidimensional visualization.  <br /></td></tr>
+<tr class="memdesc:aa8376d4fe1d9829af56e78cecfb50d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather the Silo database metadata for the flow variable's extents to boost performance of the multidimensional visualization.  <br /></td></tr>
 <tr class="memitem:a2a79b3fb576611da5ac91eb46e50b9c8" id="r_a2a79b3fb576611da5ac91eb46e50b9c8"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2a79b3fb576611da5ac91eb46e50b9c8">s_mpi_defragment_1d_flow_variable</a> (q_sf, q_root_sf)</td></tr>
-<tr class="memdesc:a2a79b3fb576611da5ac91eb46e50b9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine gathers the sub-domain flow variable data from all of the processors and puts it back together for the entire computational domain on the rank 0 processor. This is only done for 1D simulations.  <br /></td></tr>
+<tr class="memdesc:a2a79b3fb576611da5ac91eb46e50b9c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather the sub-domain flow variable data from all processors and reassemble it for the entire computational domain on the rank 0 processor. This is only done for 1D simulations.  <br /></td></tr>
 <tr class="memitem:acfc82a2a7cff0d6ee80d3b2677acea02" id="r_acfc82a2a7cff0d6ee80d3b2677acea02"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acfc82a2a7cff0d6ee80d3b2677acea02">s_finalize_mpi_proxy_module</a></td></tr>
 <tr class="memdesc:acfc82a2a7cff0d6ee80d3b2677acea02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Receive counts and displacement vector variables, respectively, used in</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>enabling MPI to gather varying amounts of data from all processes to the root process </p>
+<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Receive counts and displacement vector variables, respectively, used in enabling MPI to gather varying amounts of data</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>from all processes to the root process </p>
 </div></td></tr>
 <tr class="memitem:a2198e825f0884d4ee9e96b6efdb69cee" id="r_a2198e825f0884d4ee9e96b6efdb69cee"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2198e825f0884d4ee9e96b6efdb69cee">recvcounts</a></td></tr>
 <tr class="memitem:aebaa6e3cc66d2431c5fb49896d40d7e6" id="r_aebaa6e3cc66d2431c5fb49896d40d7e6"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aebaa6e3cc66d2431c5fb49896d40d7e6">displs</a></td></tr>
@@ -203,7 +203,7 @@ Variables</h2></td></tr>
 
 <p>Deallocation procedures for the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00631">631</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -221,7 +221,7 @@ Variables</h2></td></tr>
 
 <p>Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00035">35</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00030">30</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -244,7 +244,7 @@ Here is the caller graph for this function:</div>
 
 <p>Since only processor with rank 0 is in charge of reading and checking the consistency of the user provided inputs, these are not available to the remaining processors. This subroutine is then in charge of broadcasting the required information. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00077">77</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00063">63</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -267,16 +267,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine gathers the sub-domain flow variable data from all of the processors and puts it back together for the entire computational domain on the rank 0 processor. This is only done for 1D simulations. </p>
+<p>Gather the sub-domain flow variable data from all processors and reassemble it for the entire computational domain on the rank 0 processor. This is only done for 1D simulations. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q_sf</td><td>Flow variable defined on a single computational sub-domain </td></tr>
-    <tr><td class="paramname">q_root_sf</td><td>Flow variable defined on the entire computational domain </td></tr>
+    <tr><td class="paramname">q_sf</td><td>Flow variable on a single computational sub-domain </td></tr>
+    <tr><td class="paramname">q_root_sf</td><td>Flow variable on the entire computational domain </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00611">611</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -297,9 +297,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine collects the sub-domain cell-boundary or cell-center locations data from all of the processors and puts back together the grid of the entire computational domain on the rank 0 processor. This is only done for 1D simulations. </p>
+<p>Collect the sub-domain cell-boundary or cell-center location data from all processors and put back together the grid of the entire computational domain on the rank 0 processor. This is only done for 1D simulations. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00463">463</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,26 +317,25 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine m_mpi_proxy::s_mpi_gather_data_extents </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:2, 0:<a class="el" href="namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea">num_procs</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>data_extents</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:2,0:<a class="el" href="namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea">num_procs</a> - 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>data_extents</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine gathers the Silo database metadata for the flow variable's extents as to boost performance of the multidimensional visualization. </p>
+<p>Gather the Silo database metadata for the flow variable's extents to boost performance of the multidimensional visualization. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q_sf</td><td>Flow variable defined on a single computational sub-domain </td></tr>
-    <tr><td class="paramname">data_extents</td><td>The flow variable extents on each of the processor's sub-domain. First dimension of array corresponds to the former's minimum and maximum values, respectively, while second dimension corresponds to each processor's rank. </td></tr>
+    <tr><td class="paramname">q_sf</td><td>Flow variable on a single computational sub-domain </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00564">564</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00484">484</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -354,21 +353,15 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine m_mpi_proxy::s_mpi_gather_spatial_extents </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:, 0:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>spatial_extents</em></span></td><td>)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:,0:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>spatial_extents</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine gathers the Silo database metadata for the spatial extents in order to boost the performance of the multidimensional visualization. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spatial_extents</td><td>Spatial extents for each processor's sub-domain. First dimension corresponds to the minimum and maximum values, respectively, while the second dimension corresponds to the processor rank. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Gather spatial extents from all ranks for Silo database metadata. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -390,7 +383,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00028">28</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00024">24</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -406,7 +399,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00027">27</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00023">23</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>

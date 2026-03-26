@@ -170,25 +170,25 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2ad32df44939f53838dc6fe272c28ccb" id="r_a2ad32df44939f53838dc6fe272c28ccb"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2ad32df44939f53838dc6fe272c28ccb">s_compute_derived_variables</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_ts1, q_prim_ts2)</td></tr>
 <tr class="memdesc:a2ad32df44939f53838dc6fe272c28ccb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes coherent body information, communication files, and probes.  <br /></td></tr>
 <tr class="memitem:aeafec81c1b2cb37f1cea824b9fff4d9b" id="r_aeafec81c1b2cb37f1cea824b9fff4d9b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aeafec81c1b2cb37f1cea824b9fff4d9b">s_derive_acceleration_component</a> (i, q_prim_vf0, q_prim_vf1, q_prim_vf2, q_prim_vf3, q_sf)</td></tr>
-<tr class="memdesc:aeafec81c1b2cb37f1cea824b9fff4d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine receives as inputs the indicator of the component of the acceleration that should be outputted and the primitive variables. From those inputs, it proceeds to calculate values of the desired acceleration component, which are subsequently stored in derived flow quantity storage variable, q_sf.  <br /></td></tr>
+<tr class="memdesc:aeafec81c1b2cb37f1cea824b9fff4d9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a component of the acceleration field from the primitive variables.  <br /></td></tr>
 <tr class="memitem:a3eb66e46af47e787f79a01e2236779b0" id="r_a3eb66e46af47e787f79a01e2236779b0"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3eb66e46af47e787f79a01e2236779b0">s_derive_center_of_mass</a> (q_vf, c_m)</td></tr>
-<tr class="memdesc:a3eb66e46af47e787f79a01e2236779b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine is used together with the volume fraction model and when called upon, it computes the location of of the center of mass for each fluid from the inputted primitive variables, q_prim_vf. The computed location is then written to a formatted data file by the root process.  <br /></td></tr>
+<tr class="memdesc:a3eb66e46af47e787f79a01e2236779b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the center of mass for each fluid from the primitive variables.  <br /></td></tr>
 <tr class="memitem:ad5dfada9c933c6a4d3f9b41a8b7a98f9" id="r_ad5dfada9c933c6a4d3f9b41a8b7a98f9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad5dfada9c933c6a4d3f9b41a8b7a98f9">s_finalize_derived_variables_module</a></td></tr>
 <tr class="memdesc:ad5dfada9c933c6a4d3f9b41a8b7a98f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Finite-difference coefficients</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>Finite-difference (fd) coefficients in x-, y- and z-coordinate directions. Note that because sufficient boundary information is available for all the active coordinate directions, the centered family of the finite-difference schemes is used. </p>
+<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Finite-difference coefficients Finite-difference (fd) coefficients in x-, y- and z-coordinate directions. Note that</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>because sufficient boundary information is available for all the active coordinate directions, the centered family of the finite-difference schemes is used. </p>
 </div></td></tr>
-<tr class="memitem:a7de66037d4a2a2f399c88c87507778d4" id="r_a7de66037d4a2a2f399c88c87507778d4"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a7de66037d4a2a2f399c88c87507778d4">fd_coeff_x</a></td></tr>
-<tr class="memitem:a33359529e69da3b8c0d3b43f219534e9" id="r_a33359529e69da3b8c0d3b43f219534e9"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a33359529e69da3b8c0d3b43f219534e9">fd_coeff_y</a></td></tr>
-<tr class="memitem:a078d13d51855e1d66c10314fae856714" id="r_a078d13d51855e1d66c10314fae856714"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a078d13d51855e1d66c10314fae856714">fd_coeff_z</a></td></tr>
+<tr class="memitem:a7124df0982c30315cf6638596693f7ce" id="r_a7124df0982c30315cf6638596693f7ce"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a7124df0982c30315cf6638596693f7ce">fd_coeff_x</a></td></tr>
+<tr class="memitem:a7bf1c5799ea6a39a4be055ecd66b6b8b" id="r_a7bf1c5799ea6a39a4be055ecd66b6b8b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a7bf1c5799ea6a39a4be055ecd66b6b8b">fd_coeff_y</a></td></tr>
+<tr class="memitem:a4db3866184ab1811002aec3e6e22c40a" id="r_a4db3866184ab1811002aec3e6e22c40a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a4db3866184ab1811002aec3e6e22c40a">fd_coeff_z</a></td></tr>
 <tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader"></div></td></tr>
-<tr class="memitem:ac7c099651b1d00401355f738fdea1b5f" id="r_ac7c099651b1d00401355f738fdea1b5f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ac7c099651b1d00401355f738fdea1b5f">accel_mag</a></td></tr>
-<tr class="memitem:af97fa6cff54325e7fa1454c412cca24c" id="r_af97fa6cff54325e7fa1454c412cca24c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#af97fa6cff54325e7fa1454c412cca24c">x_accel</a></td></tr>
-<tr class="memitem:acebd6d60b26f56f9fb5ec801decc9dad" id="r_acebd6d60b26f56f9fb5ec801decc9dad"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#acebd6d60b26f56f9fb5ec801decc9dad">y_accel</a></td></tr>
-<tr class="memitem:ad6ca466f23d6828af52f82b010b18bc7" id="r_ad6ca466f23d6828af52f82b010b18bc7"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ad6ca466f23d6828af52f82b010b18bc7">z_accel</a></td></tr>
+<tr class="memitem:a2ab3ca4fa9e4d44a3343ceaecdf71afd" id="r_a2ab3ca4fa9e4d44a3343ceaecdf71afd"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a2ab3ca4fa9e4d44a3343ceaecdf71afd">accel_mag</a></td></tr>
+<tr class="memitem:ade7f2b3caf70e9839dbcd5937a6fc982" id="r_ade7f2b3caf70e9839dbcd5937a6fc982"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ade7f2b3caf70e9839dbcd5937a6fc982">x_accel</a></td></tr>
+<tr class="memitem:ae5f6b78c6e67bce7d4f9c6814b8fbd2b" id="r_ae5f6b78c6e67bce7d4f9c6814b8fbd2b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ae5f6b78c6e67bce7d4f9c6814b8fbd2b">y_accel</a></td></tr>
+<tr class="memitem:a4a361321ed7068d74220d79b0a14e6c4" id="r_a4a361321ed7068d74220d79b0a14e6c4"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a4a361321ed7068d74220d79b0a14e6c4">z_accel</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Derives diagnostic flow quantities (vorticity, speed of sound, numerical Schlieren, etc.) from conservative and primitive variables. </p>
@@ -223,17 +223,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Writes coherent body information, communication files, and probes. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t_step</td><td>Current time-step </td></tr>
-    <tr><td class="paramname"><a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a></td><td>Conservative variables </td></tr>
-    <tr><td class="paramname">q_prim_ts1</td><td>Primitive variables at time-stage 1 </td></tr>
-    <tr><td class="paramname">q_prim_ts2</td><td>Primitive variables at time-stage 2 </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00680">680</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00683">683</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -276,25 +267,14 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>, 0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(0:<a class="el" href="namespacem__global__parameters.html#aee38c9d03e9195858a93ec611b605f33">m</a>,0:<a class="el" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a>,0:<a class="el" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>q_sf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine receives as inputs the indicator of the component of the acceleration that should be outputted and the primitive variables. From those inputs, it proceeds to calculate values of the desired acceleration component, which are subsequently stored in derived flow quantity storage variable, q_sf. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>Acceleration component indicator </td></tr>
-    <tr><td class="paramname">q_prim_vf0</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">q_prim_vf1</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">q_prim_vf2</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">q_prim_vf3</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">q_sf</td><td>Acceleration component </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute a component of the acceleration field from the primitive variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00798">798</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00769">769</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,21 +297,14 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>, 1:5), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c_m</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e">num_fluids</a>,1:5), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c_m</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine is used together with the volume fraction model and when called upon, it computes the location of of the center of mass for each fluid from the inputted primitive variables, q_prim_vf. The computed location is then written to a formatted data file by the root process. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q_vf</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">c_m</td><td>Mass,x-location,y-location,z-location </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute the center of mass for each fluid from the primitive variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l01488">1488</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l01323">1323</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -354,7 +327,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocation procedures for the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l01931">1931</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l01742">1742</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -377,7 +350,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate and open derived variables. Computing FD coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00618">618</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00628">628</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -400,7 +373,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00361">361</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00374">374</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -410,115 +383,115 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="ac7c099651b1d00401355f738fdea1b5f" name="ac7c099651b1d00401355f738fdea1b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7c099651b1d00401355f738fdea1b5f">&#9670;&#160;</a></span>accel_mag</h2>
+<a id="a2ab3ca4fa9e4d44a3343ceaecdf71afd" name="a2ab3ca4fa9e4d44a3343ceaecdf71afd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab3ca4fa9e4d44a3343ceaecdf71afd">&#9670;&#160;</a></span>accel_mag</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public m_derived_variables::accel_mag</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public m_derived_variables::accel_mag</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00342">342</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00356">356</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a7de66037d4a2a2f399c88c87507778d4" name="a7de66037d4a2a2f399c88c87507778d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7de66037d4a2a2f399c88c87507778d4">&#9670;&#160;</a></span>fd_coeff_x</h2>
+<a id="a7124df0982c30315cf6638596693f7ce" name="a7124df0982c30315cf6638596693f7ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7124df0982c30315cf6638596693f7ce">&#9670;&#160;</a></span>fd_coeff_x</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public m_derived_variables::fd_coeff_x</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public m_derived_variables::fd_coeff_x</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00323">323</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00337">337</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a33359529e69da3b8c0d3b43f219534e9" name="a33359529e69da3b8c0d3b43f219534e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33359529e69da3b8c0d3b43f219534e9">&#9670;&#160;</a></span>fd_coeff_y</h2>
+<a id="a7bf1c5799ea6a39a4be055ecd66b6b8b" name="a7bf1c5799ea6a39a4be055ecd66b6b8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf1c5799ea6a39a4be055ecd66b6b8b">&#9670;&#160;</a></span>fd_coeff_y</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public m_derived_variables::fd_coeff_y</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public m_derived_variables::fd_coeff_y</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00324">324</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00338">338</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a078d13d51855e1d66c10314fae856714" name="a078d13d51855e1d66c10314fae856714"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a078d13d51855e1d66c10314fae856714">&#9670;&#160;</a></span>fd_coeff_z</h2>
+<a id="a4db3866184ab1811002aec3e6e22c40a" name="a4db3866184ab1811002aec3e6e22c40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4db3866184ab1811002aec3e6e22c40a">&#9670;&#160;</a></span>fd_coeff_z</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), allocatable, public m_derived_variables::fd_coeff_z</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public m_derived_variables::fd_coeff_z</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00325">325</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00339">339</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="af97fa6cff54325e7fa1454c412cca24c" name="af97fa6cff54325e7fa1454c412cca24c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af97fa6cff54325e7fa1454c412cca24c">&#9670;&#160;</a></span>x_accel</h2>
+<a id="ade7f2b3caf70e9839dbcd5937a6fc982" name="ade7f2b3caf70e9839dbcd5937a6fc982"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade7f2b3caf70e9839dbcd5937a6fc982">&#9670;&#160;</a></span>x_accel</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public m_derived_variables::x_accel</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public m_derived_variables::x_accel</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00343">343</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00357">357</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="acebd6d60b26f56f9fb5ec801decc9dad" name="acebd6d60b26f56f9fb5ec801decc9dad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acebd6d60b26f56f9fb5ec801decc9dad">&#9670;&#160;</a></span>y_accel</h2>
+<a id="ae5f6b78c6e67bce7d4f9c6814b8fbd2b" name="ae5f6b78c6e67bce7d4f9c6814b8fbd2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5f6b78c6e67bce7d4f9c6814b8fbd2b">&#9670;&#160;</a></span>y_accel</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public m_derived_variables::y_accel</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public m_derived_variables::y_accel</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00343">343</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00357">357</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ad6ca466f23d6828af52f82b010b18bc7" name="ad6ca466f23d6828af52f82b010b18bc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6ca466f23d6828af52f82b010b18bc7">&#9670;&#160;</a></span>z_accel</h2>
+<a id="a4a361321ed7068d74220d79b0a14e6c4" name="a4a361321ed7068d74220d79b0a14e6c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a361321ed7068d74220d79b0a14e6c4">&#9670;&#160;</a></span>z_accel</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable, public m_derived_variables::z_accel</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public m_derived_variables::z_accel</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00343">343</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00357">357</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>

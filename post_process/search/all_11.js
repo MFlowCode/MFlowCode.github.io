@@ -22,11 +22,11 @@ var searchData=
   ['relativity_5fcons_5fto_5fprim_5fmax_5fiter_19',['relativity_cons_to_prim_max_iter',['../namespacem__constants.html#a40dd8e42f1d768ce7c112ea571ba9a7d',1,'m_constants']]],
   ['relax_20',['relax',['../namespacem__global__parameters.html#a9566fddb0a62503b1edaca5ecedaf629',1,'m_global_parameters']]],
   ['relax_5fmodel_21',['relax_model',['../namespacem__global__parameters.html#a5cedf3ff171416c31d59851103792c58',1,'m_global_parameters']]],
-  ['res_5fvc_22',['res_vc',['../namespacem__variables__conversion.html#a520825be2d0912c143e21d694f7776b9',1,'m_variables_conversion']]],
+  ['res_5fvc_22',['res_vc',['../namespacem__variables__conversion.html#a44c0bad49c8b6544e912d698d2e04af5',1,'m_variables_conversion']]],
   ['reserved0_23',['reserved0',['../structm__nvtx_1_1nvtxeventattributes.html#a6c0adfd6fef5a8a05ec816b92fe759a6',1,'m_nvtx::nvtxeventattributes']]],
   ['rho_24',['rho',['../structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98',1,'m_derived_types::ic_patch_parameters']]],
   ['rho0ref_25',['rho0ref',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a0a0f144effc838e4e800d7dfb7904472',1,'m_derived_types::subgrid_bubble_physical_parameters::rho0ref'],['../namespacem__global__parameters.html#aaa2e4cb122f5199ed349265c96bfd7f8',1,'m_global_parameters::rho0ref']]],
-  ['rho_5fsf_26',['rho_sf',['../namespacem__variables__conversion.html#a57b0049119eb3c64dbe70a053168c72f',1,'m_variables_conversion']]],
+  ['rho_5fsf_26',['rho_sf',['../namespacem__variables__conversion.html#aadb7f5bb0ac300d191b82f5ce60b21af',1,'m_variables_conversion']]],
   ['rho_5fwrt_27',['rho_wrt',['../namespacem__global__parameters.html#aabc3362b8f53b08f4f113e699d449754',1,'m_global_parameters']]],
   ['rhoref_28',['rhoref',['../namespacem__global__parameters.html#a2c96ac4d6bd49d9758366b63f3181169',1,'m_global_parameters']]],
   ['riemann_5fstates_29',['riemann_states',['../structm__derived__types_1_1riemann__states.html',1,'m_derived_types']]],
@@ -35,7 +35,7 @@ var searchData=
   ['rootdir_32',['rootdir',['../namespacem__data__output.html#afe3f36ee866946447f08d94c4bdaa6de',1,'m_data_output']]],
   ['rotate_33',['rotate',['../structm__derived__types_1_1ic__model__parameters.html#aa6b7366353d9604339918a8dba679fb0',1,'m_derived_types::ic_model_parameters']]],
   ['rotate_5fangle_34',['rotate_angle',['../structm__derived__types_1_1acoustic__parameters.html#a2a5926c776adbec01398ff354324b836',1,'m_derived_types::acoustic_parameters']]],
-  ['rotation_5fmatrix_35',['rotation_matrix',['../structm__derived__types_1_1ib__patch__parameters.html#a4e906f43df37e150c16204d2538f4417',1,'m_derived_types::ib_patch_parameters']]],
-  ['rotation_5fmatrix_5finverse_36',['rotation_matrix_inverse',['../structm__derived__types_1_1ib__patch__parameters.html#a5e6e76f7952329af085fd8281344e89d',1,'m_derived_types::ib_patch_parameters']]],
+  ['rotation_5fmatrix_35',['rotation_matrix',['../structm__derived__types_1_1ib__patch__parameters.html#a9daf3cca6082c6e343c4621e96718419',1,'m_derived_types::ib_patch_parameters']]],
+  ['rotation_5fmatrix_5finverse_36',['rotation_matrix_inverse',['../structm__derived__types_1_1ib__patch__parameters.html#aa69e095e0d26d0ff22f62356312347fd',1,'m_derived_types::ib_patch_parameters']]],
   ['rs_37',['rs',['../structm__derived__types_1_1bub__bounds__info.html#aa3a7d88d4bc7e857c54d3e7b09784f85',1,'m_derived_types::bub_bounds_info']]]
 ];

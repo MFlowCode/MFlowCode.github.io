@@ -166,7 +166,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a753b5ee72ef0bb90facec6efbbaf23fa" id="r_a753b5ee72ef0bb90facec6efbbaf23fa"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a753b5ee72ef0bb90facec6efbbaf23fa">s_initialize_initial_condition_module</a></td></tr>
 <tr class="memdesc:a753b5ee72ef0bb90facec6efbbaf23fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module.  <br /></td></tr>
 <tr class="memitem:ae5ca036f43a2eebe1e2cc84fc9c61d28" id="r_ae5ca036f43a2eebe1e2cc84fc9c61d28"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae5ca036f43a2eebe1e2cc84fc9c61d28">s_generate_initial_condition</a></td></tr>
-<tr class="memdesc:ae5ca036f43a2eebe1e2cc84fc9c61d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine peruses the patches and depending on the type of geometry associated with a particular patch, it calls the related subroutine to setup the said geometry on the grid using the primitive variables included with the patch parameters. The subroutine is complete once the primitive variables are converted to conservative ones.  <br /></td></tr>
+<tr class="memdesc:ae5ca036f43a2eebe1e2cc84fc9c61d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterate over patches and, depending on the geometry type, call the related subroutine to setup the said geometry on the grid using the primitive variables included with the patch parameters. The subroutine is complete once the primitive variables are converted to conservative ones.  <br /></td></tr>
 <tr class="memitem:a88ee83e53b4663f4597318f7ee336587" id="r_a88ee83e53b4663f4597318f7ee336587"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a88ee83e53b4663f4597318f7ee336587">s_finalize_initial_condition_module</a></td></tr>
 <tr class="memdesc:a88ee83e53b4663f4597318f7ee336587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -178,9 +178,9 @@ Variables</h2></td></tr>
 <tr class="memdesc:a1f42c68f3b3d167616d52b7cf7a7d56a"><td class="mdescLeft">&#160;</td><td class="mdescRight">conservative variables  <br /></td></tr>
 <tr class="memitem:aa602f2787f8bf850b2abff07b2ff2dd2" id="r_aa602f2787f8bf850b2abff07b2ff2dd2"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>)&#160;</td><td class="memItemRight"><a class="el" href="#aa602f2787f8bf850b2abff07b2ff2dd2">q_t_sf</a></td></tr>
 <tr class="memdesc:aa602f2787f8bf850b2abff07b2ff2dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature field.  <br /></td></tr>
-<tr class="memitem:a421fbb4b059ce4969f18bbd57d4c5dc4" id="r_a421fbb4b059ce4969f18bbd57d4c5dc4"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(:, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a421fbb4b059ce4969f18bbd57d4c5dc4">bc_type</a></td></tr>
-<tr class="memdesc:a421fbb4b059ce4969f18bbd57d4c5dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">bc_type fields  <br /></td></tr>
-<tr class="memitem:a5d331c773a88029795462ae22c20d6c8" id="r_a5d331c773a88029795462ae22c20d6c8"><td class="memItemLeft">integer, dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a5d331c773a88029795462ae22c20d6c8">patch_id_fp</a></td></tr>
+<tr class="memitem:a9161508ec8c4d08a5e0523a758e43a97" id="r_a9161508ec8c4d08a5e0523a758e43a97"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a9161508ec8c4d08a5e0523a758e43a97">bc_type</a></td></tr>
+<tr class="memdesc:a9161508ec8c4d08a5e0523a758e43a97"><td class="mdescLeft">&#160;</td><td class="mdescRight">bc_type fields  <br /></td></tr>
+<tr class="memitem:a0014f6589f0b33ea2372c1d4b7f0c824" id="r_a0014f6589f0b33ea2372c1d4b7f0c824"><td class="memItemLeft">integer, dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0014f6589f0b33ea2372c1d4b7f0c824">patch_id_fp</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Assembles initial conditions by layering prioritized patches via constructive solid geometry. </p>
@@ -199,7 +199,7 @@ Variables</h2></td></tr>
 
 <p>Deallocation procedures for the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00203">203</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00156">156</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -220,9 +220,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine peruses the patches and depending on the type of geometry associated with a particular patch, it calls the related subroutine to setup the said geometry on the grid using the primitive variables included with the patch parameters. The subroutine is complete once the primitive variables are converted to conservative ones. </p>
+<p>Iterate over patches and, depending on the geometry type, call the related subroutine to setup the said geometry on the grid using the primitive variables included with the patch parameters. The subroutine is complete once the primitive variables are converted to conservative ones. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00166">166</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00126">126</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -250,7 +250,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00058">58</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00040">40</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -260,37 +260,37 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a421fbb4b059ce4969f18bbd57d4c5dc4" name="a421fbb4b059ce4969f18bbd57d4c5dc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a421fbb4b059ce4969f18bbd57d4c5dc4">&#9670;&#160;</a></span>bc_type</h2>
+<a id="a9161508ec8c4d08a5e0523a758e43a97" name="a9161508ec8c4d08a5e0523a758e43a97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9161508ec8c4d08a5e0523a758e43a97">&#9670;&#160;</a></span>bc_type</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(:, :), allocatable m_initial_condition::bc_type</td>
+          <td class="memname">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(:,:), allocatable m_initial_condition::bc_type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>bc_type fields </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00042">42</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00026">26</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a5d331c773a88029795462ae22c20d6c8" name="a5d331c773a88029795462ae22c20d6c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d331c773a88029795462ae22c20d6c8">&#9670;&#160;</a></span>patch_id_fp</h2>
+<a id="a0014f6589f0b33ea2372c1d4b7f0c824" name="a0014f6589f0b33ea2372c1d4b7f0c824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0014f6589f0b33ea2372c1d4b7f0c824">&#9670;&#160;</a></span>patch_id_fp</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer, dimension(:, :, :), allocatable m_initial_condition::patch_id_fp</td>
+          <td class="memname">integer, dimension(:,:,:), allocatable m_initial_condition::patch_id_fp</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00049">49</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00032">32</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -308,7 +308,7 @@ Here is the caller graph for this function:</div>
 
 <p>conservative variables </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00038">38</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00024">24</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -326,7 +326,7 @@ Here is the caller graph for this function:</div>
 
 <p>primitive variables </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00036">36</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00023">23</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Here is the caller graph for this function:</div>
 
 <p>Temperature field. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00040">40</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__initial__condition_8fpp_8f90_source.html#l00025">25</a> of file <a class="el" href="m__initial__condition_8fpp_8f90_source.html">m_initial_condition.fpp.f90</a>.</p>
 
 </div>
 </div>

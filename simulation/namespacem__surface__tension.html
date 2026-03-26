@@ -164,14 +164,15 @@ $(function(){initNavTree('namespacem__surface__tension.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa4565334b85e2519cf6dfda4ab6c2091" id="r_aa4565334b85e2519cf6dfda4ab6c2091"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa4565334b85e2519cf6dfda4ab6c2091">s_initialize_surface_tension_module</a></td></tr>
+<tr class="memdesc:aa4565334b85e2519cf6dfda4ab6c2091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate and initialize surface tension module arrays.  <br /></td></tr>
 <tr class="memitem:a7d0c790d49e89be490b945f6a344fa8c" id="r_a7d0c790d49e89be490b945f6a344fa8c"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7d0c790d49e89be490b945f6a344fa8c">s_compute_capillary_source_flux</a> (vsrc_rsx_vf, vsrc_rsy_vf, vsrc_rsz_vf, flux_src_vf, id, isx, isy, isz)</td></tr>
-<tr class="memdesc:a7d0c790d49e89be490b945f6a344fa8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the capillary (surface-tension) source flux from reconstructed color-gradient fields.  <br /></td></tr>
+<tr class="memdesc:a7d0c790d49e89be490b945f6a344fa8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the capillary source flux from reconstructed color-gradient fields.  <br /></td></tr>
 <tr class="memitem:a57a8d87ff4910eadaabd1b65ced7d8d7" id="r_a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a57a8d87ff4910eadaabd1b65ced7d8d7">s_get_capillary</a> (q_prim_vf, bc_type)</td></tr>
-<tr class="memdesc:a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes color-function gradients and their norms, then reconstructs them at cell boundaries.  <br /></td></tr>
+<tr class="memdesc:a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute color-function gradients and reconstruct them at cell boundaries.  <br /></td></tr>
 <tr class="memitem:a23518c58e3b14316763dde1e68e6a08b" id="r_a23518c58e3b14316763dde1e68e6a08b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a23518c58e3b14316763dde1e68e6a08b">s_reconstruct_cell_boundary_values_capillary</a> (v_vf, vl_x, vl_y, vl_z, vr_x, vr_y, vr_z, norm_dir)</td></tr>
-<tr class="memdesc:a23518c58e3b14316763dde1e68e6a08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstructs left and right cell-boundary values of capillary (color-gradient) variables using WENO or MUSCL.  <br /></td></tr>
+<tr class="memdesc:a23518c58e3b14316763dde1e68e6a08b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct left and right cell-boundary values of capillary variables.  <br /></td></tr>
 <tr class="memitem:acfee64be67c2ca10b9e1ed0e759ed517" id="r_acfee64be67c2ca10b9e1ed0e759ed517"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#acfee64be67c2ca10b9e1ed0e759ed517">s_finalize_surface_tension_module</a></td></tr>
-<tr class="memdesc:acfee64be67c2ca10b9e1ed0e759ed517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates the color-gradient divergence and reconstructed boundary arrays for surface tension.  <br /></td></tr>
+<tr class="memdesc:acfee64be67c2ca10b9e1ed0e759ed517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the surface tension module.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -182,12 +183,12 @@ Variables</h2></td></tr>
 <tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">color function gradient components and magnitude</div></td></tr>
 <tr class="memitem:a3968d7b7224aa8ea0040a5061df390d9" id="r_a3968d7b7224aa8ea0040a5061df390d9"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a3968d7b7224aa8ea0040a5061df390d9">c_divs</a></td></tr>
 <tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader">cell boundary reconstructed gradient components and magnitude</div></td></tr>
-<tr class="memitem:aa56ba2b27af25425940b5173a1c4682b" id="r_aa56ba2b27af25425940b5173a1c4682b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa56ba2b27af25425940b5173a1c4682b">gl_x</a></td></tr>
-<tr class="memitem:ac51faabce0f8d553f450667ef89851b6" id="r_ac51faabce0f8d553f450667ef89851b6"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac51faabce0f8d553f450667ef89851b6">gr_x</a></td></tr>
-<tr class="memitem:ad765b909c65837bf56036fccf33639bc" id="r_ad765b909c65837bf56036fccf33639bc"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ad765b909c65837bf56036fccf33639bc">gl_y</a></td></tr>
-<tr class="memitem:a15dfef72d05d8b2ffc18865d7b0cc2de" id="r_a15dfef72d05d8b2ffc18865d7b0cc2de"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a15dfef72d05d8b2ffc18865d7b0cc2de">gr_y</a></td></tr>
-<tr class="memitem:a43a3f20604e1770aad3549e58725f69b" id="r_a43a3f20604e1770aad3549e58725f69b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a43a3f20604e1770aad3549e58725f69b">gl_z</a></td></tr>
-<tr class="memitem:a602267edd5fe5b1cd8219807a0ac02c5" id="r_a602267edd5fe5b1cd8219807a0ac02c5"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a602267edd5fe5b1cd8219807a0ac02c5">gr_z</a></td></tr>
+<tr class="memitem:a0687d1838bf8ca2e03b5c411e0a6b4ef" id="r_a0687d1838bf8ca2e03b5c411e0a6b4ef"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0687d1838bf8ca2e03b5c411e0a6b4ef">gl_x</a></td></tr>
+<tr class="memitem:af77aa9dd016f131ebf379f81a97aa3c4" id="r_af77aa9dd016f131ebf379f81a97aa3c4"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af77aa9dd016f131ebf379f81a97aa3c4">gr_x</a></td></tr>
+<tr class="memitem:ac5d3ab9427ca669161d433ca63f6c86c" id="r_ac5d3ab9427ca669161d433ca63f6c86c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac5d3ab9427ca669161d433ca63f6c86c">gl_y</a></td></tr>
+<tr class="memitem:ad5ad0a6c55a97844d5ee3ed38545b3ca" id="r_ad5ad0a6c55a97844d5ee3ed38545b3ca"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ad5ad0a6c55a97844d5ee3ed38545b3ca">gr_y</a></td></tr>
+<tr class="memitem:aa7d072efcef5b4474f49b21effabcecf" id="r_aa7d072efcef5b4474f49b21effabcecf"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa7d072efcef5b4474f49b21effabcecf">gl_z</a></td></tr>
+<tr class="memitem:ac4d36d9cc004e47a312115e80f8a6c06" id="r_ac4d36d9cc004e47a312115e80f8a6c06"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac4d36d9cc004e47a312115e80f8a6c06">gr_z</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computes capillary source fluxes and color-function gradients for the diffuse-interface surface tension model. </p>
@@ -201,17 +202,17 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">subroutine, public m_surface_tension::s_compute_capillary_source_flux </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-1:, 0:, 0:, 1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vsrc_rsx_vf</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-1:,0:,0:,1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vsrc_rsx_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-1:, 0:, 0:, 1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vsrc_rsy_vf</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-1:,0:,0:,1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vsrc_rsy_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-1:, 0:, 0:, 1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vsrc_rsz_vf</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(-1:,0:,0:,1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vsrc_rsz_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -241,9 +242,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the capillary (surface-tension) source flux from reconstructed color-gradient fields. </p>
+<p>Compute the capillary source flux from reconstructed color-gradient fields. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00717">717</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00732">732</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -264,9 +265,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Deallocates the color-gradient divergence and reconstructed boundary arrays for surface tension. </p>
+<p>Finalize the surface tension module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01579">1579</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01464">1464</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -289,14 +290,14 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes color-function gradients and their norms, then reconstructs them at cell boundaries. </p>
+<p>Compute color-function gradients and reconstruct them at cell boundaries. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01097">1097</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01052">1052</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -317,7 +318,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p>Allocate and initialize surface tension module arrays. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -340,32 +343,32 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, <a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vl_x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, <a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vl_y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, <a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vl_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, <a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, <a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_y</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:, <a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:, <a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -375,9 +378,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Reconstructs left and right cell-boundary values of capillary (color-gradient) variables using WENO or MUSCL. </p>
+<p>Reconstruct left and right cell-boundary values of capillary variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01341">1341</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01259">1259</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -399,103 +402,103 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00336">336</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aa56ba2b27af25425940b5173a1c4682b" name="aa56ba2b27af25425940b5173a1c4682b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa56ba2b27af25425940b5173a1c4682b">&#9670;&#160;</a></span>gl_x</h2>
+<a id="a0687d1838bf8ca2e03b5c411e0a6b4ef" name="a0687d1838bf8ca2e03b5c411e0a6b4ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0687d1838bf8ca2e03b5c411e0a6b4ef">&#9670;&#160;</a></span>gl_x</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_surface_tension::gl_x</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_surface_tension::gl_x</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ad765b909c65837bf56036fccf33639bc" name="ad765b909c65837bf56036fccf33639bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad765b909c65837bf56036fccf33639bc">&#9670;&#160;</a></span>gl_y</h2>
+<a id="ac5d3ab9427ca669161d433ca63f6c86c" name="ac5d3ab9427ca669161d433ca63f6c86c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d3ab9427ca669161d433ca63f6c86c">&#9670;&#160;</a></span>gl_y</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_surface_tension::gl_y</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_surface_tension::gl_y</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a43a3f20604e1770aad3549e58725f69b" name="a43a3f20604e1770aad3549e58725f69b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43a3f20604e1770aad3549e58725f69b">&#9670;&#160;</a></span>gl_z</h2>
+<a id="aa7d072efcef5b4474f49b21effabcecf" name="aa7d072efcef5b4474f49b21effabcecf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d072efcef5b4474f49b21effabcecf">&#9670;&#160;</a></span>gl_z</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_surface_tension::gl_z</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_surface_tension::gl_z</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ac51faabce0f8d553f450667ef89851b6" name="ac51faabce0f8d553f450667ef89851b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac51faabce0f8d553f450667ef89851b6">&#9670;&#160;</a></span>gr_x</h2>
+<a id="af77aa9dd016f131ebf379f81a97aa3c4" name="af77aa9dd016f131ebf379f81a97aa3c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77aa9dd016f131ebf379f81a97aa3c4">&#9670;&#160;</a></span>gr_x</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_surface_tension::gr_x</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_surface_tension::gr_x</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a15dfef72d05d8b2ffc18865d7b0cc2de" name="a15dfef72d05d8b2ffc18865d7b0cc2de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15dfef72d05d8b2ffc18865d7b0cc2de">&#9670;&#160;</a></span>gr_y</h2>
+<a id="ad5ad0a6c55a97844d5ee3ed38545b3ca" name="ad5ad0a6c55a97844d5ee3ed38545b3ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5ad0a6c55a97844d5ee3ed38545b3ca">&#9670;&#160;</a></span>gr_y</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_surface_tension::gr_y</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_surface_tension::gr_y</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a602267edd5fe5b1cd8219807a0ac02c5" name="a602267edd5fe5b1cd8219807a0ac02c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a602267edd5fe5b1cd8219807a0ac02c5">&#9670;&#160;</a></span>gr_z</h2>
+<a id="ac4d36d9cc004e47a312115e80f8a6c06" name="ac4d36d9cc004e47a312115e80f8a6c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d36d9cc004e47a312115e80f8a6c06">&#9670;&#160;</a></span>gr_z</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :, :), allocatable m_surface_tension::gr_z</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_surface_tension::gr_z</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -511,7 +514,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -527,7 +530,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -543,7 +546,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -559,7 +562,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>

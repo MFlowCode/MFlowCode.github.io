@@ -164,20 +164,20 @@ $(function(){initNavTree('namespacem__mpi__proxy.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a015ee2c0892e9cfcb858da8f27b646d5" id="r_a015ee2c0892e9cfcb858da8f27b646d5"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a015ee2c0892e9cfcb858da8f27b646d5">s_initialize_mpi_proxy_module</a> ()</td></tr>
-<tr class="memdesc:a015ee2c0892e9cfcb858da8f27b646d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates immersed boundary communication buffers for MPI halo exchanges.  <br /></td></tr>
+<tr class="memdesc:a015ee2c0892e9cfcb858da8f27b646d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the MPI proxy module.  <br /></td></tr>
 <tr class="memitem:af90ff0c1a1201411176602946199f96c" id="r_af90ff0c1a1201411176602946199f96c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af90ff0c1a1201411176602946199f96c">s_mpi_bcast_user_inputs</a> ()</td></tr>
 <tr class="memdesc:af90ff0c1a1201411176602946199f96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Since only the processor with rank 0 reads and verifies the consistency of user inputs, these are initially not available to the other processors. Then, the purpose of this subroutine is to distribute the user inputs to the remaining processors in the communicator.  <br /></td></tr>
 <tr class="memitem:a7fd7006df83da0fe282503cd5f126870" id="r_a7fd7006df83da0fe282503cd5f126870"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a7fd7006df83da0fe282503cd5f126870">s_mpi_send_random_number</a> (phi_rn, num_freq)</td></tr>
-<tr class="memdesc:a7fd7006df83da0fe282503cd5f126870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcasts random phase numbers from rank 0 to all MPI processes.  <br /></td></tr>
+<tr class="memdesc:a7fd7006df83da0fe282503cd5f126870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast random phase numbers from rank 0 to all MPI processes.  <br /></td></tr>
 <tr class="memitem:ac984c84fe4140876d6600250af9807da" id="r_ac984c84fe4140876d6600250af9807da"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac984c84fe4140876d6600250af9807da">s_finalize_mpi_proxy_module</a> ()</td></tr>
-<tr class="memdesc:ac984c84fe4140876d6600250af9807da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates immersed boundary MPI communication buffers.  <br /></td></tr>
+<tr class="memdesc:ac984c84fe4140876d6600250af9807da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the MPI proxy module.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a205043d174d9113dce8def64c9282261" id="r_a205043d174d9113dce8def64c9282261"><td class="memItemLeft">integer, dimension(:), allocatable, private&#160;</td><td class="memItemRight"><a class="el" href="#a205043d174d9113dce8def64c9282261">ib_buff_send</a></td></tr>
-<tr class="memdesc:a205043d174d9113dce8def64c9282261"><td class="mdescLeft">&#160;</td><td class="mdescRight">This variable is utilized to pack and send the buffer of the immersed boundary markers, for a single computational domain boundary at the time, to the relevant neighboring processor.  <br /></td></tr>
+<tr class="memdesc:a205043d174d9113dce8def64c9282261"><td class="mdescLeft">&#160;</td><td class="mdescRight">IB marker send buffer for halo exchange.  <br /></td></tr>
 <tr class="memitem:a54e5acdc9f00af88eb577debcb5e354b" id="r_a54e5acdc9f00af88eb577debcb5e354b"><td class="memItemLeft">integer, dimension(:), allocatable, private&#160;</td><td class="memItemRight"><a class="el" href="#a54e5acdc9f00af88eb577debcb5e354b">ib_buff_recv</a></td></tr>
-<tr class="memdesc:a54e5acdc9f00af88eb577debcb5e354b"><td class="mdescLeft">&#160;</td><td class="mdescRight">q_cons_buff_recv is utilized to receive and unpack the buffer of the immersed boundary markers, for a single computational domain boundary at the time, from the relevant neighboring processor.  <br /></td></tr>
+<tr class="memdesc:a54e5acdc9f00af88eb577debcb5e354b"><td class="mdescLeft">&#160;</td><td class="mdescRight">IB marker receive buffer for halo exchange.  <br /></td></tr>
 <tr class="memitem:a27c37570263b75dbeada1687d5990d08" id="r_a27c37570263b75dbeada1687d5990d08"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a27c37570263b75dbeada1687d5990d08">i_halo_size</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -195,9 +195,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Deallocates immersed boundary MPI communication buffers. </p>
+<p>Finalize the MPI proxy module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01083">1083</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01086">1086</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -218,9 +218,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Allocates immersed boundary communication buffers for MPI halo exchanges. </p>
+<p>Initialize the MPI proxy module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00362">362</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -243,7 +243,7 @@ Here is the caller graph for this function:</div>
 
 <p>Since only the processor with rank 0 reads and verifies the consistency of user inputs, these are initially not available to the other processors. Then, the purpose of this subroutine is to distribute the user inputs to the remaining processors in the communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00428">428</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -271,9 +271,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Broadcasts random phase numbers from rank 0 to all MPI processes. </p>
+<p>Broadcast random phase numbers from rank 0 to all MPI processes. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01071">1071</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01072">1072</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -290,7 +290,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00337">337</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -314,9 +314,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>q_cons_buff_recv is utilized to receive and unpack the buffer of the immersed boundary markers, for a single computational domain boundary at the time, from the relevant neighboring processor. </p>
+<p>IB marker receive buffer for halo exchange. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00332">332</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00345">345</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -340,9 +340,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>This variable is utilized to pack and send the buffer of the immersed boundary markers, for a single computational domain boundary at the time, to the relevant neighboring processor. </p>
+<p>IB marker send buffer for halo exchange. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00327">327</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00344">344</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>

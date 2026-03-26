@@ -164,23 +164,23 @@ $(function(){initNavTree('namespacem__bubbles__el__kernels.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a0ff2f2eff59c7b976dd1019ae64c0483" id="r_a0ff2f2eff59c7b976dd1019ae64c0483"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0ff2f2eff59c7b976dd1019ae64c0483">s_smoothfunction</a> (nbubs, lbk_rad, lbk_vel, lbk_s, lbk_pos, updatedvar)</td></tr>
-<tr class="memdesc:a0ff2f2eff59c7b976dd1019ae64c0483"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to smear the strength of the lagrangian bubbles into the Eulerian framework using different approaches.  <br /></td></tr>
+<tr class="memdesc:a0ff2f2eff59c7b976dd1019ae64c0483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smear the Lagrangian bubble effects onto the Eulerian grid using the selected kernel.  <br /></td></tr>
 <tr class="memitem:af113cc86b3a1871d381e246c36d96762" id="r_af113cc86b3a1871d381e246c36d96762"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af113cc86b3a1871d381e246c36d96762">s_deltafunc</a> (nbubs, lbk_rad, lbk_vel, lbk_s, updatedvar)</td></tr>
-<tr class="memdesc:af113cc86b3a1871d381e246c36d96762"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure contains the algorithm to use the delta kernel function to map the effect of the bubbles. The effect of the bubbles only affects the cell where the bubble is located.  <br /></td></tr>
+<tr class="memdesc:af113cc86b3a1871d381e246c36d96762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the delta kernel function to map bubble effects onto the containing cell.  <br /></td></tr>
 <tr class="memitem:a4236a62c45846f9546a10a88a19e4eff" id="r_a4236a62c45846f9546a10a88a19e4eff"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4236a62c45846f9546a10a88a19e4eff">s_gaussian</a> (nbubs, lbk_rad, lbk_vel, lbk_s, lbk_pos, updatedvar)</td></tr>
-<tr class="memdesc:a4236a62c45846f9546a10a88a19e4eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure contains the algorithm to use the gaussian kernel function to map the effect of the bubbles. The effect of the bubbles affects the 3X3x3 cells that surround the bubble.  <br /></td></tr>
+<tr class="memdesc:a4236a62c45846f9546a10a88a19e4eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the Gaussian kernel function to smear bubble effects onto surrounding cells.  <br /></td></tr>
 <tr class="memitem:a3a80d447e147039f919771f64753c7c6" id="r_a3a80d447e147039f919771f64753c7c6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3a80d447e147039f919771f64753c7c6">s_applygaussian</a> (center, cellaux, nodecoord, stddsv, strength_idx, func)</td></tr>
-<tr class="memdesc:a3a80d447e147039f919771f64753c7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to apply the gaussian kernel function for each bubble (Maeda and Colonius, 2018)).  <br /></td></tr>
+<tr class="memdesc:a3a80d447e147039f919771f64753c7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the Gaussian kernel at a grid node for a given bubble center.  <br /></td></tr>
 <tr class="memitem:a3cab763fb4ff9f86bd275df5b08973ee" id="r_a3cab763fb4ff9f86bd275df5b08973ee"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3cab763fb4ff9f86bd275df5b08973ee">s_check_celloutside</a> (cellaux, celloutside)</td></tr>
-<tr class="memdesc:a3cab763fb4ff9f86bd275df5b08973ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to check if the current cell is outside the computational domain or not (including ghost cells).  <br /></td></tr>
+<tr class="memdesc:a3cab763fb4ff9f86bd275df5b08973ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the current cell is outside the computational domain including ghost cells.  <br /></td></tr>
 <tr class="memitem:aa3d9eceb02c1dcaf6b264ff716944828" id="r_aa3d9eceb02c1dcaf6b264ff716944828"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa3d9eceb02c1dcaf6b264ff716944828">s_shift_cell_symmetric_bc</a> (cellaux, cell)</td></tr>
-<tr class="memdesc:aa3d9eceb02c1dcaf6b264ff716944828"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine relocates the current cell, if it intersects a symmetric boundary.  <br /></td></tr>
+<tr class="memdesc:aa3d9eceb02c1dcaf6b264ff716944828"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relocate cells that intersect a symmetric boundary.  <br /></td></tr>
 <tr class="memitem:ab520e33e8f83634d629331a30fe04ddf" id="r_ab520e33e8f83634d629331a30fe04ddf"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab520e33e8f83634d629331a30fe04ddf">s_compute_stddsv</a> (cell, volpart, stddsv)</td></tr>
 <tr class="memdesc:ab520e33e8f83634d629331a30fe04ddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the standard deviation of the bubble being smeared in the Eulerian framework.  <br /></td></tr>
 <tr class="memitem:acddf1e9af84379465a92629167e64a17" id="r_acddf1e9af84379465a92629167e64a17"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acddf1e9af84379465a92629167e64a17">s_get_char_vol</a> (cellx, celly, cellz, charvol)</td></tr>
-<tr class="memdesc:acddf1e9af84379465a92629167e64a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this procedure is to calculate the characteristic cell volume.  <br /></td></tr>
+<tr class="memdesc:acddf1e9af84379465a92629167e64a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the characteristic cell volume.  <br /></td></tr>
 <tr class="memitem:ae949e3cc1b67de45cd774a28d8d98b19" id="r_ae949e3cc1b67de45cd774a28d8d98b19"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae949e3cc1b67de45cd774a28d8d98b19">s_get_cell</a> (s_cell, get_cell)</td></tr>
-<tr class="memdesc:ae949e3cc1b67de45cd774a28d8d98b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine transforms the computational coordinates of the bubble from real type into integer.  <br /></td></tr>
+<tr class="memdesc:ae949e3cc1b67de45cd774a28d8d98b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert bubble computational coordinates from real to integer cell indices.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Kernel functions (Gaussian, delta) that smear Lagrangian bubble effects onto the Eulerian grid. </p>
@@ -224,9 +224,12 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this subroutine is to apply the gaussian kernel function for each bubble (Maeda and Colonius, 2018)). </p>
+<p>Evaluate the Gaussian kernel at a grid node for a given bubble center. </p>
+<p>3D gaussian function</p>
+<p>2D cylindrical function:</p>
+<p>2D cartesian function:</p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00635">635</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00622">622</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -254,16 +257,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this subroutine is to check if the current cell is outside the computational domain or not (including ghost cells). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cellaux</td><td>Tested cell to smear the bubble effect in. </td></tr>
-    <tr><td class="paramname">celloutside</td><td>If true, then cellaux is outside the computational domain. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Check if the current cell is outside the computational domain including ghost cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00737">737</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00720">720</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -297,16 +293,11 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Calculates the standard deviation of the bubble being smeared in the Eulerian framework. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cell</td><td>Cell where the bubble is located </td></tr>
-    <tr><td class="paramname">volpart</td><td>Volume of the bubble </td></tr>
-    <tr><td class="paramname">stddsv</td><td>Standard deviaton </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute characteristic distance</p>
+<p>Compute characteristic volume</p>
+<p>Compute Standard deviaton</p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00878">878</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00856">856</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -329,17 +320,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_rad</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_rad</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_vel</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_vel</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:3, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:3,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -349,9 +340,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this procedure contains the algorithm to use the delta kernel function to map the effect of the bubbles. The effect of the bubbles only affects the cell where the bubble is located. </p>
+<p>Apply the delta kernel function to map bubble effects onto the containing cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00328">328</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00343">343</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -379,22 +370,22 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_rad</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_rad</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_vel</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_vel</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:3, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:3,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:3, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_pos</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:3,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_pos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -404,9 +395,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this procedure contains the algorithm to use the gaussian kernel function to map the effect of the bubbles. The effect of the bubbles affects the 3X3x3 cells that surround the bubble. </p>
+<p>Apply the Gaussian kernel function to smear bubble effects onto surrounding cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -439,16 +430,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine transforms the computational coordinates of the bubble from real type into integer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s_cell</td><td>Computational coordinates of the bubble, real type </td></tr>
-    <tr><td class="paramname">get_cell</td><td>Computational coordinates of the bubble, integer type </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Convert bubble computational coordinates from real to integer cell indices. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01010">1010</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00980">980</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -486,18 +470,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this procedure is to calculate the characteristic cell volume. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cellx</td><td>x-direction cell index </td></tr>
-    <tr><td class="paramname">celly</td><td>y-direction cell index </td></tr>
-    <tr><td class="paramname">cellz</td><td>z-direction cell index </td></tr>
-    <tr><td class="paramname">Charvol</td><td>Characteristic volume </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute the characteristic cell volume. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00953">953</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00926">926</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -520,16 +495,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine relocates the current cell, if it intersects a symmetric boundary. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cell</td><td>Cell of the current bubble </td></tr>
-    <tr><td class="paramname">cellaux</td><td>Cell to map the bubble effect in. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Relocate cells that intersect a symmetric boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00805">805</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00786">786</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -552,22 +520,22 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_rad</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_rad</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_vel</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_vel</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:3, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:3,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb, 1:3, 1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_pos</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a346d6fa5596c5ab9652af2cec9b4df48">lag_params</a>%nbubs_glb,1:3,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_pos</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -577,20 +545,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this subroutine is to smear the strength of the lagrangian bubbles into the Eulerian framework using different approaches. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">nBubs</td><td>Number of lagrangian bubbles in the current domain </td></tr>
-    <tr><td class="paramname">lbk_rad</td><td>Radius of the bubbles </td></tr>
-    <tr><td class="paramname">lbk_vel</td><td>Interface velocity of the bubbles </td></tr>
-    <tr><td class="paramname">lbk_s</td><td>Computational coordinates of the bubbles </td></tr>
-    <tr><td class="paramname">lbk_pos</td><td>Spatial coordinates of the bubbles </td></tr>
-    <tr><td class="paramname">updatedvar</td><td>Eulerian variable to be updated </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Smear the Lagrangian bubble effects onto the Eulerian grid using the selected kernel. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00310">310</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00326">326</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

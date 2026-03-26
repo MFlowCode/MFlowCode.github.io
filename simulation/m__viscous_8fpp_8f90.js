@@ -13,5 +13,5 @@ var m__viscous_8fpp_8f90 =
     [ "m_viscous::is2_viscous", "namespacem__viscous.html#a1d7799194eb302ce89e2c33b8f715c95", null ],
     [ "m_viscous::is3_viscous", "namespacem__viscous.html#aace22bdf7b484cdde326717f36b093c9", null ],
     [ "m_viscous::iv", "namespacem__viscous.html#a77381e5e4b644064f69d9b306edc6913", null ],
-    [ "m_viscous::res_viscous", "namespacem__viscous.html#af8681cf33b4ce358d78286af336357d1", null ]
+    [ "m_viscous::res_viscous", "namespacem__viscous.html#a9e3f63b94160e0038b446b0a1baa1a86", null ]
 ];

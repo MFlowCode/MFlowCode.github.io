@@ -26,9 +26,9 @@ var namespaces_dup =
       [ "s_symmetry", "namespacem__boundary__common.html#a117fa18d768baf2b0edd4e8887a923d5", null ],
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__common.html#a2aefea0840d9c981126f0fa7f5087d8f", null ],
       [ "s_write_serial_boundary_condition_files", "namespacem__boundary__common.html#a04bb55ffb9504d0ae722e1152874288b", null ],
-      [ "bc_buffers", "namespacem__boundary__common.html#a8f6afe5fcc6a630fcb2156a910bfb5b2", null ],
-      [ "mpi_bc_buffer_type", "namespacem__boundary__common.html#ac250a7ab543fe3fe81a5269ecf355abe", null ],
-      [ "mpi_bc_type_type", "namespacem__boundary__common.html#a1f82285994f166b9903d05d1046358dc", null ]
+      [ "bc_buffers", "namespacem__boundary__common.html#a1850511523f95f4f76c9f7b0198f089c", null ],
+      [ "mpi_bc_buffer_type", "namespacem__boundary__common.html#aef10931a41245ef363814eb200ad35af", null ],
+      [ "mpi_bc_type_type", "namespacem__boundary__common.html#a3eb1b5d4a0e3c643444e011fc16c08a2", null ]
     ] ],
     [ "m_boundary_conditions", "namespacem__boundary__conditions.html", [
       [ "s_apply_boundary_patches", "namespacem__boundary__conditions.html#a500a9226a3b30cc8592a91d541745b99", null ],
@@ -285,7 +285,7 @@ var namespaces_dup =
       [ "k_gl", "namespacem__global__parameters.html#a5bb1184ff2f5339eb426051184818fe6", null ],
       [ "k_v", "namespacem__global__parameters.html#a5113de77eca1f975b20056db60853757", null ],
       [ "k_vl", "namespacem__global__parameters.html#a9fcbb358a7122d321eb26e015377ff6f", null ],
-      [ "logic_grid", "namespacem__global__parameters.html#a5b6232ffcb06cb4763438c9c5b545b5f", null ],
+      [ "logic_grid", "namespacem__global__parameters.html#adfaf902b37292b91750274e26989e8e6", null ],
       [ "loops_x", "namespacem__global__parameters.html#a35f17d72a6c9e18aae51a5131d2c9303", null ],
       [ "loops_y", "namespacem__global__parameters.html#af8c939272b6741337359fd99e419fba1", null ],
       [ "loops_z", "namespacem__global__parameters.html#a5cfb837ca862adc01d2ba0dce83fbd17", null ],
@@ -438,7 +438,7 @@ var namespaces_dup =
       [ "associated_legendre", "namespacem__helper.html#a23f996aa705b54698b032bf924a1e854", null ],
       [ "double_factorial", "namespacem__helper.html#a6ca53d0a74e18a215cddb79c83a1a6b7", null ],
       [ "f_create_bbox", "namespacem__helper.html#a54481f6e1c845b675c7002cef64a2b04", null ],
-      [ "f_create_transform_matrix", "namespacem__helper.html#af1d3cab195769dadd26c70e1756759d3", null ],
+      [ "f_create_transform_matrix", "namespacem__helper.html#a81620d5e377b056008af12214023ac9b", null ],
       [ "f_cross", "namespacem__helper.html#aded4fe6025b2194ba0b5cc5a264af9ec", null ],
       [ "f_cut_off", "namespacem__helper.html#aa9ba2d3fb1ef5e4a67288444a2d371c5", null ],
       [ "f_cut_on", "namespacem__helper.html#a413a13fad04174ecec58d6f51395d44c", null ],
@@ -518,8 +518,8 @@ var namespaces_dup =
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#a88ee83e53b4663f4597318f7ee336587", null ],
       [ "s_generate_initial_condition", "namespacem__initial__condition.html#ae5ca036f43a2eebe1e2cc84fc9c61d28", null ],
       [ "s_initialize_initial_condition_module", "namespacem__initial__condition.html#a753b5ee72ef0bb90facec6efbbaf23fa", null ],
-      [ "bc_type", "namespacem__initial__condition.html#a421fbb4b059ce4969f18bbd57d4c5dc4", null ],
-      [ "patch_id_fp", "namespacem__initial__condition.html#a5d331c773a88029795462ae22c20d6c8", null ],
+      [ "bc_type", "namespacem__initial__condition.html#a9161508ec8c4d08a5e0523a758e43a97", null ],
+      [ "patch_id_fp", "namespacem__initial__condition.html#a0014f6589f0b33ea2372c1d4b7f0c824", null ],
       [ "q_cons_vf", "namespacem__initial__condition.html#a1f42c68f3b3d167616d52b7cf7a7d56a", null ],
       [ "q_prim_vf", "namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a", null ],
       [ "q_t_sf", "namespacem__initial__condition.html#aa602f2787f8bf850b2abff07b2ff2dd2", null ]
@@ -547,13 +547,13 @@ var namespaces_dup =
       [ "s_write_obj", "namespacem__model.html#aa597a4a14472f275cf65844c532fa5bb", null ],
       [ "s_write_stl", "namespacem__model.html#a10a8828badc74b34ff6d30655c22d383", null ],
       [ "gpu_boundary_edge_count", "namespacem__model.html#ae38299ed48869dca758aa3b1dd46177c", null ],
-      [ "gpu_boundary_v", "namespacem__model.html#a926e2a2877a3828bf610c15da4263734", null ],
+      [ "gpu_boundary_v", "namespacem__model.html#a6cc95c530c0e622698e1b854d4deee55", null ],
       [ "gpu_ntrs", "namespacem__model.html#a67f88868e4694fecf2151ffd5df4fc75", null ],
       [ "gpu_total_vertices", "namespacem__model.html#a2b83c18852f711f172973d3185c8634c", null ],
-      [ "gpu_trs_n", "namespacem__model.html#ab00accb889214fe6e201be8efca9f663", null ],
-      [ "gpu_trs_v", "namespacem__model.html#a4153d41d6f7df06796092b59a5421f4c", null ],
+      [ "gpu_trs_n", "namespacem__model.html#a8e769d956dec735968efb60ddad65732", null ],
+      [ "gpu_trs_v", "namespacem__model.html#a5e2fb8ad9e2851353959396474a42945", null ],
       [ "models", "namespacem__model.html#aa1fc17b48fc76b50bff7a8dd24a49d8f", null ],
-      [ "stl_bounding_boxes", "namespacem__model.html#ab1b24504fff2271499ef88e90410fe09", null ]
+      [ "stl_bounding_boxes", "namespacem__model.html#aade7401ea1ee10374b17168b0842d998", null ]
     ] ],
     [ "m_mpi_common", "namespacem__mpi__common.html", [
       [ "mpi_bcast_time_step_values", "namespacem__mpi__common.html#a98b6d5f758850a2ba16fb7553c055827", null ],
@@ -599,7 +599,7 @@ var namespaces_dup =
       [ "s_perturb_sphere", "namespacem__perturbation.html#a2a73896e9dae92c7a3d973e069eef753", null ],
       [ "s_perturb_surrounding_flow", "namespacem__perturbation.html#a2f301707648fd0f0f5c215c439cdc171", null ],
       [ "s_prng", "namespacem__perturbation.html#a54bbfa24f96c984b26015bddcfb59ee4", null ],
-      [ "q_prim_temp", "namespacem__perturbation.html#a84af4cc4dfb9d79db18734f7dafebfdd", null ]
+      [ "q_prim_temp", "namespacem__perturbation.html#a8ea2b657d5bc08fa83312d40be9c9914", null ]
     ] ],
     [ "m_phase_change", "namespacem__phase__change.html", [
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
@@ -661,7 +661,7 @@ var namespaces_dup =
       [ "s_initialize_variables_conversion_module", "namespacem__variables__conversion.html#a7ebd3fab94230d88d603e76ac5435e05", null ],
       [ "bubrs_vc", "namespacem__variables__conversion.html#abc019c747ff4300fd22628fdcf259575", null ],
       [ "cvs", "namespacem__variables__conversion.html#a5834620bed23766a40b8cb049170cba1", null ],
-      [ "gamma_sf", "namespacem__variables__conversion.html#ab3beeafbdd51bcc99841207a4a5e8b1c", null ],
+      [ "gamma_sf", "namespacem__variables__conversion.html#aa4e71dc86386a0e652bcdaf71014cb1d", null ],
       [ "gammas", "namespacem__variables__conversion.html#a1d9e637b2271cb6db05f932942fd3ffb", null ],
       [ "gs_min", "namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908", null ],
       [ "gs_vc", "namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49", null ],
@@ -671,13 +671,13 @@ var namespaces_dup =
       [ "is2e", "namespacem__variables__conversion.html#aad965403f327ed31ada1f384b3853891", null ],
       [ "is3b", "namespacem__variables__conversion.html#a695c81a3b5c8cb2c4fac65a4cd236901", null ],
       [ "is3e", "namespacem__variables__conversion.html#a494b160cf0c59565ee6f2585841f66de", null ],
-      [ "pi_inf_sf", "namespacem__variables__conversion.html#a1e7161647ea509ddad635906f5ff3478", null ],
+      [ "pi_inf_sf", "namespacem__variables__conversion.html#a8f75a3f6d4d2f0bf57f0ad2da4ecba17", null ],
       [ "pi_infs", "namespacem__variables__conversion.html#ab6b053315b36074bfef4aec10b3cb38a", null ],
       [ "ps_inf", "namespacem__variables__conversion.html#a20eddf4f73253831dcf2b48f4997c781", null ],
-      [ "qv_sf", "namespacem__variables__conversion.html#a633a8951f63388cc4f340bdb69704541", null ],
+      [ "qv_sf", "namespacem__variables__conversion.html#a7f98b7096dbb8325dcc2065027b1b15b", null ],
       [ "qvps", "namespacem__variables__conversion.html#a7a4b3841aa7a29fee4382d9de70df0cb", null ],
       [ "qvs", "namespacem__variables__conversion.html#a3115694a0163ff2d8ff01532ecbe6952", null ],
-      [ "res_vc", "namespacem__variables__conversion.html#a520825be2d0912c143e21d694f7776b9", null ],
-      [ "rho_sf", "namespacem__variables__conversion.html#a57b0049119eb3c64dbe70a053168c72f", null ]
+      [ "res_vc", "namespacem__variables__conversion.html#a44c0bad49c8b6544e912d698d2e04af5", null ],
+      [ "rho_sf", "namespacem__variables__conversion.html#aadb7f5bb0ac300d191b82f5ce60b21af", null ]
     ] ]
 ];

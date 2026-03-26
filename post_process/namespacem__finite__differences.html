@@ -164,8 +164,9 @@ $(function(){initNavTree('namespacem__finite__differences.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a55314088f8f4b73cebed4e7701686d6d" id="r_a55314088f8f4b73cebed4e7701686d6d"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a55314088f8f4b73cebed4e7701686d6d">s_compute_fd_divergence</a> (div, fields, ix_s, iy_s, iz_s)</td></tr>
+<tr class="memdesc:a55314088f8f4b73cebed4e7701686d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the finite-difference divergence of a vector field onto a scalar field.  <br /></td></tr>
 <tr class="memitem:a830833416c226c73bf244dae71884211" id="r_a830833416c226c73bf244dae71884211"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a> (q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</td></tr>
-<tr class="memdesc:a830833416c226c73bf244dae71884211"><td class="mdescLeft">&#160;</td><td class="mdescRight">The purpose of this subroutine is to compute the finite- difference coefficients for the centered schemes utilized in computations of first order spatial derivatives in the s-coordinate direction. The s-coordinate direction refers to the x-, y- or z-coordinate direction, depending on the subroutine's inputs. Note that coefficients of up to 4th order accuracy are available.  <br /></td></tr>
+<tr class="memdesc:a830833416c226c73bf244dae71884211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coordinate direction (x, y, or z). Supports up to 4th order accuracy.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Finite difference operators for computing divergence of velocity fields. </p>
@@ -204,7 +205,9 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__finite__differences_8fpp_8f90_source.html#l00302">302</a> of file <a class="el" href="m__finite__differences_8fpp_8f90_source.html">m_finite_differences.fpp.f90</a>.</p>
+<p>Accumulate the finite-difference divergence of a vector field onto a scalar field. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__finite__differences_8fpp_8f90_source.html#l00326">326</a> of file <a class="el" href="m__finite__differences_8fpp_8f90_source.html">m_finite_differences.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -227,7 +230,7 @@ Functions/Subroutines</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :), intent(inout), allocatable</td>          <td class="paramname"><span class="paramname"><em>fd_coeff_s</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(inout), allocatable</td>          <td class="paramname"><span class="paramname"><em>fd_coeff_s</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -252,13 +255,10 @@ Functions/Subroutines</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>The purpose of this subroutine is to compute the finite- difference coefficients for the centered schemes utilized in computations of first order spatial derivatives in the s-coordinate direction. The s-coordinate direction refers to the x-, y- or z-coordinate direction, depending on the subroutine's inputs. Note that coefficients of up to 4th order accuracy are available. </p>
+<p>Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coordinate direction (x, y, or z). Supports up to 4th order accuracy. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">q</td><td>Number of cells in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">s_cc</td><td>Locations of the cell-centers in the s-coordinate direction </td></tr>
     <tr><td class="paramname">fd_coeff_s</td><td>Finite-diff. coefficients in the s-coordinate direction </td></tr>
-    <tr><td class="paramname">local_buff_size</td><td>Size of the local buffer </td></tr>
     <tr><td class="paramname">fd_number_in</td><td>Finite-difference number </td></tr>
     <tr><td class="paramname">fd_order_in</td><td>Finite-difference order of accuracy </td></tr>
     <tr><td class="paramname">offset_s</td><td>Optional offset bounds in the s-coordinate direction </td></tr>
@@ -266,7 +266,7 @@ Functions/Subroutines</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__finite__differences_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__finite__differences_8fpp_8f90_source.html">m_finite_differences.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__finite__differences_8fpp_8f90_source.html#l00418">418</a> of file <a class="el" href="m__finite__differences_8fpp_8f90_source.html">m_finite_differences.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

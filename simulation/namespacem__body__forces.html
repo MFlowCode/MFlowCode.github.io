@@ -164,19 +164,19 @@ $(function(){initNavTree('namespacem__body__forces.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a7db192e742e55158a9a8ad8018f98897" id="r_a7db192e742e55158a9a8ad8018f98897"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7db192e742e55158a9a8ad8018f98897">s_initialize_body_forces_module</a></td></tr>
-<tr class="memdesc:a7db192e742e55158a9a8ad8018f98897"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine initializes the module global array of mixture densities in each grid cell.  <br /></td></tr>
+<tr class="memdesc:a7db192e742e55158a9a8ad8018f98897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the body forces module.  <br /></td></tr>
 <tr class="memitem:ab227c5ae90649946f0090c234e5d0163" id="r_ab227c5ae90649946f0090c234e5d0163"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab227c5ae90649946f0090c234e5d0163">s_compute_acceleration</a> (t)</td></tr>
-<tr class="memdesc:ab227c5ae90649946f0090c234e5d0163"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine computes the acceleration at time t.  <br /></td></tr>
+<tr class="memdesc:ab227c5ae90649946f0090c234e5d0163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the acceleration at time t.  <br /></td></tr>
 <tr class="memitem:a8d20d22747d67b572df90aa7e6446afd" id="r_a8d20d22747d67b572df90aa7e6446afd"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8d20d22747d67b572df90aa7e6446afd">s_compute_mixture_density</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
-<tr class="memdesc:a8d20d22747d67b572df90aa7e6446afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the mixture density at each cell center.  <br /></td></tr>
+<tr class="memdesc:a8d20d22747d67b572df90aa7e6446afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mixture density at each cell center.  <br /></td></tr>
 <tr class="memitem:a08cd17a95f78e75d8e95c31d30e5188f" id="r_a08cd17a95f78e75d8e95c31d30e5188f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a08cd17a95f78e75d8e95c31d30e5188f">s_compute_body_forces_rhs</a> (q_prim_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhs_vf)</td></tr>
-<tr class="memdesc:a08cd17a95f78e75d8e95c31d30e5188f"><td class="mdescLeft">&#160;</td><td class="mdescRight">This subroutine calculates the source term due to body forces so the system can be advanced in time.  <br /></td></tr>
+<tr class="memdesc:a08cd17a95f78e75d8e95c31d30e5188f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the body force source terms for momentum and energy equations.  <br /></td></tr>
 <tr class="memitem:adf9ca798003a8cc4fb2c278fd9756ce0" id="r_adf9ca798003a8cc4fb2c278fd9756ce0"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adf9ca798003a8cc4fb2c278fd9756ce0">s_finalize_body_forces_module</a></td></tr>
-<tr class="memdesc:adf9ca798003a8cc4fb2c278fd9756ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates module variables used for body force computations.  <br /></td></tr>
+<tr class="memdesc:adf9ca798003a8cc4fb2c278fd9756ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the body forces module.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:adc868e612f876e57fe6a6ceafd49bbec" id="r_adc868e612f876e57fe6a6ceafd49bbec"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#adc868e612f876e57fe6a6ceafd49bbec">rhom</a></td></tr>
+<tr class="memitem:accd825ba224c4748c924853d2aab331f" id="r_accd825ba224c4748c924853d2aab331f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#accd825ba224c4748c924853d2aab331f">rhom</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computes gravitational and user-defined body force source terms for the momentum equations. </p>
@@ -186,6 +186,9 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine m_body_forces::s_compute_acceleration </td>
@@ -194,11 +197,16 @@ Variables</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>This subroutine computes the acceleration at time t. </p>
+<p>Compute the acceleration at time t. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00448">448</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -231,17 +239,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine calculates the source term due to body forces so the system can be advanced in time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a></td><td>Conservative variables </td></tr>
-    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
-    <tr><td class="paramname">rhs_vf</td><td>Right-hand side accumulator </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute the body force source terms for momentum and energy equations. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00542">542</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -255,6 +255,9 @@ Here is the call graph for this function:</div>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">subroutine m_body_forces::s_compute_mixture_density </td>
@@ -263,17 +266,16 @@ Here is the call graph for this function:</div>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>This subroutine calculates the mixture density at each cell center. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"><a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a></td><td>Conservative variables </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Compute the mixture density at each cell center. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00483">483</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00491">491</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -294,9 +296,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Deallocates module variables used for body force computations. </p>
+<p>Finalize the body forces module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00774">774</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00729">729</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,9 +319,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This subroutine initializes the module global array of mixture densities in each grid cell. </p>
+<p>Initialize the body forces module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00330">330</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00347">347</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -329,19 +331,27 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="adc868e612f876e57fe6a6ceafd49bbec" name="adc868e612f876e57fe6a6ceafd49bbec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc868e612f876e57fe6a6ceafd49bbec">&#9670;&#160;</a></span>rhom</h2>
+<a id="accd825ba224c4748c924853d2aab331f" name="accd825ba224c4748c924853d2aab331f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accd825ba224c4748c924853d2aab331f">&#9670;&#160;</a></span>rhom</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:, :, :), allocatable m_body_forces::rhom</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_body_forces::rhom</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00313">313</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00331">331</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>

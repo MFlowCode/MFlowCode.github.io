@@ -9,7 +9,7 @@ var searchData=
   ['levelset_6',['levelset',['../structm__derived__types_1_1ghost__point.html#a6d6b9ba23cbd190a4af9385c781ed9c8',1,'m_derived_types::ghost_point']]],
   ['levelset_5fnorm_7',['levelset_norm',['../structm__derived__types_1_1ghost__point.html#af976ab431e8ef9e6b437664327174e3e',1,'m_derived_types::ghost_point']]],
   ['loc_8',['loc',['../structm__derived__types_1_1bc__patch__parameters.html#a0bf999214be9cc921612ca7c0fa4e1a8',1,'m_derived_types::bc_patch_parameters::loc'],['../structm__derived__types_1_1acoustic__parameters.html#ac85b2712678cace28a685de797b4655a',1,'m_derived_types::acoustic_parameters::loc'],['../structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44',1,'m_derived_types::ghost_point::loc']]],
-  ['logic_5fgrid_9',['logic_grid',['../namespacem__global__parameters.html#a5b6232ffcb06cb4763438c9c5b545b5f',1,'m_global_parameters']]],
+  ['logic_5fgrid_9',['logic_grid',['../namespacem__global__parameters.html#adfaf902b37292b91750274e26989e8e6',1,'m_global_parameters']]],
   ['loops_5fx_10',['loops_x',['../namespacem__global__parameters.html#a35f17d72a6c9e18aae51a5131d2c9303',1,'m_global_parameters']]],
   ['loops_5fy_11',['loops_y',['../namespacem__global__parameters.html#af8c939272b6741337359fd99e419fba1',1,'m_global_parameters']]],
   ['loops_5fz_12',['loops_z',['../namespacem__global__parameters.html#a5cfb837ca862adc01d2ba0dce83fbd17',1,'m_global_parameters']]],

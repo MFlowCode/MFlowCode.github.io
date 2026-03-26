@@ -43,7 +43,7 @@ var structm__derived__types_1_1ic__patch__parameters =
     [ "smooth_coeff", "structm__derived__types_1_1ic__patch__parameters.html#a69d584101fc5a04544085c8174e33ae0", null ],
     [ "smooth_patch_id", "structm__derived__types_1_1ic__patch__parameters.html#a1e1bb0d754aa7f3eaf43204794f18e05", null ],
     [ "smoothen", "structm__derived__types_1_1ic__patch__parameters.html#a14ab0ad536844406d181e43519aa3ec0", null ],
-    [ "sph_har_coeff", "structm__derived__types_1_1ic__patch__parameters.html#a39996b2221c2936f94c0aa55ad795883", null ],
+    [ "sph_har_coeff", "structm__derived__types_1_1ic__patch__parameters.html#a2e39f7fca292234de2b5215bcef2b8ca", null ],
     [ "tau_e", "structm__derived__types_1_1ic__patch__parameters.html#ac7dd180a79d14067de1cd3930779339d", null ],
     [ "v0", "structm__derived__types_1_1ic__patch__parameters.html#a65ef1568a2e85603c4c6566831714b74", null ],
     [ "vel", "structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139", null ],

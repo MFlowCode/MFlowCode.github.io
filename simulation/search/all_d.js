@@ -8,7 +8,7 @@ var searchData=
   ['name_5',['name',['../structm__derived__types_1_1species__parameters.html#a056f8eb0cfc59c46e1b562c1b5f1482e',1,'m_derived_types::species_parameters']]],
   ['name_5flen_6',['name_len',['../namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757',1,'m_constants']]],
   ['nb_7',['nb',['../namespacem__global__parameters.html#ad76c4758994b52559f478d251dc0cba5',1,'m_global_parameters']]],
-  ['nbub_8',['nbub',['../namespacem__rhs.html#ac1db2483f2f89d6f58df6b14d8b34afe',1,'m_rhs']]],
+  ['nbub_8',['nbub',['../namespacem__rhs.html#a1cbb8eabc6a0a2279cd99bb07a27e55e',1,'m_rhs']]],
   ['nbubs_9',['nbubs',['../namespacem__bubbles__el.html#a41aeee87ab43fb6c2e77b300b3f93eac',1,'m_bubbles_el']]],
   ['nbubs_5fglb_10',['nbubs_glb',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a661aecd7b1fff55ec587900cc15c9f3e',1,'m_derived_types::bubbles_lagrange_parameters']]],
   ['nfq_11',['nfq',['../namespacem__fftw.html#adeadeb1390115870e33a00c9b1d8f8fc',1,'m_fftw']]],

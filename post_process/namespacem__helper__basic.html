@@ -164,9 +164,9 @@ $(function(){initNavTree('namespacem__helper__basic.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a3f0eae73a833f30924d4b2665a13a429" id="r_a3f0eae73a833f30924d4b2665a13a429"><td class="memItemLeft">logical elemental function, public&#160;</td><td class="memItemRight"><a class="el" href="#a3f0eae73a833f30924d4b2665a13a429">f_approx_equal</a> (a, b, tol_input)</td></tr>
-<tr class="memdesc:a3f0eae73a833f30924d4b2665a13a429"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure checks if two floating point numbers of wp are within tolerance.  <br /></td></tr>
+<tr class="memdesc:a3f0eae73a833f30924d4b2665a13a429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if two floating point numbers of wp are within tolerance.  <br /></td></tr>
 <tr class="memitem:a388ce5b49cbc696a303c4b90bc391dce" id="r_a388ce5b49cbc696a303c4b90bc391dce"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a388ce5b49cbc696a303c4b90bc391dce">f_approx_in_array</a> (a, b, tol_input)</td></tr>
-<tr class="memdesc:a388ce5b49cbc696a303c4b90bc391dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">This procedure checks if the point numbers of wp belongs to another array are within tolerance.  <br /></td></tr>
+<tr class="memdesc:a388ce5b49cbc696a303c4b90bc391dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a wp value approximately matches any element of an array within tolerance.  <br /></td></tr>
 <tr class="memitem:af1b06a05daa43f724ac3b0ff2f97db14" id="r_af1b06a05daa43f724ac3b0ff2f97db14"><td class="memItemLeft">logical elemental function, public&#160;</td><td class="memItemRight"><a class="el" href="#af1b06a05daa43f724ac3b0ff2f97db14">f_is_default</a> (var)</td></tr>
 <tr class="memdesc:af1b06a05daa43f724ac3b0ff2f97db14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a real(wp) variable is of default value.  <br /></td></tr>
 <tr class="memitem:a2a51671bfbfddf6ecabbc9593be49e1d" id="r_a2a51671bfbfddf6ecabbc9593be49e1d"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a2a51671bfbfddf6ecabbc9593be49e1d">f_all_default</a> (var_array)</td></tr>
@@ -174,6 +174,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2c677da1905f9b1c52e69ae431bfb70d" id="r_a2c677da1905f9b1c52e69ae431bfb70d"><td class="memItemLeft">logical elemental function, public&#160;</td><td class="memItemRight"><a class="el" href="#a2c677da1905f9b1c52e69ae431bfb70d">f_is_integer</a> (var)</td></tr>
 <tr class="memdesc:a2c677da1905f9b1c52e69ae431bfb70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a real(wp) variable is an integer.  <br /></td></tr>
 <tr class="memitem:a61ea0da229b8e0cf8105fdaa1128fa6c" id="r_a61ea0da229b8e0cf8105fdaa1128fa6c"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a61ea0da229b8e0cf8105fdaa1128fa6c">s_configure_coordinate_bounds</a> (recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, bubbles_lagrange, m, n, p, num_dims, igr, ib)</td></tr>
+<tr class="memdesc:a61ea0da229b8e0cf8105fdaa1128fa6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.  <br /></td></tr>
 <tr class="memitem:a44b315932234aba936169db4c58e6ce6" id="r_a44b315932234aba936169db4c58e6ce6"><td class="memItemLeft">elemental subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a> (bounds, m, n, p)</td></tr>
 <tr class="memdesc:a44b315932234aba936169db4c58e6ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the min and max number of cells in each set of axes.  <br /></td></tr>
 </table>
@@ -196,14 +197,8 @@ Functions/Subroutines</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if ALL elements of a real(wp) array are of default value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">var_array</td><td>Array to check. </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00419">419</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00435">435</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -236,18 +231,15 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This procedure checks if two floating point numbers of wp are within tolerance. </p>
+<p>Check if two floating point numbers of wp are within tolerance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>First number. </td></tr>
-    <tr><td class="paramname">b</td><td>Second number. </td></tr>
     <tr><td class="paramname">tol_input</td><td>Relative error (default = 1.e-10_wp). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Result of the comparison. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00316">316</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00331">331</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -280,18 +272,15 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>This procedure checks if the point numbers of wp belongs to another array are within tolerance. </p>
+<p>Check if a wp value approximately matches any element of an array within tolerance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>First number. </td></tr>
-    <tr><td class="paramname">b</td><td>Array that contains several point numbers. </td></tr>
     <tr><td class="paramname">tol_input</td><td>Relative error (default = 1e-10_wp). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Result of the comparison. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00356">356</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00370">370</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -316,14 +305,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Checks if a real(wp) variable is of default value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">var</td><td>Variable to check. </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -353,14 +336,8 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Checks if a real(wp) variable is an integer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">var</td><td>Variable to check. </td></tr>
-  </table>
-  </dd>
-</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00444">444</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -453,7 +430,9 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p>Compute ghost-cell buffer size and set interior/buffered coordinate index bounds. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00468">468</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -489,15 +468,12 @@ Here is the call graph for this function:</div>
 <p>Updates the min and max number of cells in each set of axes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bounds</td><td>Min ans max values to update </td></tr>
-    <tr><td class="paramname">m</td><td>Number of cells in x-axis </td></tr>
-    <tr><td class="paramname">n</td><td>Number of cells in y-axis </td></tr>
-    <tr><td class="paramname">p</td><td>Number of cells in z-axis </td></tr>
+    <tr><td class="paramname">bounds</td><td>Min and max values to update </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00513">513</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

@@ -84,7 +84,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::k_gl", "namespacem__global__parameters.html#a5bb1184ff2f5339eb426051184818fe6", null ],
     [ "m_global_parameters::k_v", "namespacem__global__parameters.html#a5113de77eca1f975b20056db60853757", null ],
     [ "m_global_parameters::k_vl", "namespacem__global__parameters.html#a9fcbb358a7122d321eb26e015377ff6f", null ],
-    [ "m_global_parameters::logic_grid", "namespacem__global__parameters.html#a5b6232ffcb06cb4763438c9c5b545b5f", null ],
+    [ "m_global_parameters::logic_grid", "namespacem__global__parameters.html#adfaf902b37292b91750274e26989e8e6", null ],
     [ "m_global_parameters::loops_x", "namespacem__global__parameters.html#a35f17d72a6c9e18aae51a5131d2c9303", null ],
     [ "m_global_parameters::loops_y", "namespacem__global__parameters.html#af8c939272b6741337359fd99e419fba1", null ],
     [ "m_global_parameters::loops_z", "namespacem__global__parameters.html#a5cfb837ca862adc01d2ba0dce83fbd17", null ],
