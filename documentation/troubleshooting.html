@@ -176,12 +176,14 @@ Debugging Flags</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-d</span>  </td><td class="markdownTableBodyNone">all  </td><td class="markdownTableBodyNone">Write debug log to file  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Build with debug symbols  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Full debug: all runtime checks, minimal optimization  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--gcov</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Build with code coverage  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Lightweight debug: key runtime checks, <span class="tt">-Og</span>/<span class="tt">-O1</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Disable GPU to isolate issues  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--gcov</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Build with code coverage  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Disable GPU to isolate issues  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--no-mpi</span>  </td><td class="markdownTableBodyNone">build  </td><td class="markdownTableBodyNone">Disable MPI to isolate issues  </td></tr>
 </table>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md480"></a>
@@ -269,14 +271,26 @@ Verbosity Levels</h3>
 <div class="line"># Useful for: Finding why cmake can&#39;t locate MPI, HDF5, etc.</div>
 </div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md490"></a>
 Debug Builds</h3>
-<p>Build with debug symbols for better error messages and debugging:</p>
+<p>MFC has two debug build modes:</p>
+<p><b>Full Debug</b> (<span class="tt">--debug</span>) — for local development and deep investigation:</p>
 <div class="fragment"><div class="line">./mfc.sh build --debug</div>
-</div><!-- fragment --><p>This sets <span class="tt">CMAKE_BUILD_TYPE=Debug</span>, which:</p><ul>
-<li>Adds <span class="tt">-g</span> debug symbols</li>
-<li>Reduces optimization (<span class="tt">-O0</span> or <span class="tt">-O1</span>)</li>
-<li>Enables runtime checks in some compilers</li>
-<li>Makes stack traces more readable</li>
-</ul>
+</div><!-- fragment --><p>Sets <span class="tt">CMAKE_BUILD_TYPE=Debug</span>. Enables all runtime checks (<span class="tt">-fcheck=all</span> on gfortran, <span class="tt">-C</span> on NVHPC, <span class="tt">-K trap=fp</span> on Cray, <span class="tt">-check all</span> on Intel), minimizes optimization (<span class="tt">-O0</span> or <span class="tt">-Og</span>), and adds debug symbols. Catches the widest range of bugs but runs ~5x slower than Release.</p>
+<p><b>RelDebug</b> (<span class="tt">--reldebug</span>) — lightweight debug used by CI:</p>
+<div class="fragment"><div class="line">./mfc.sh build --reldebug</div>
+</div><!-- fragment --><p>Sets <span class="tt">CMAKE_BUILD_TYPE=RelDebug</span>. Keeps key runtime checks (compiler-dependent: bounds and/or pointer checking, FP traps) and compile-time warnings, but uses <span class="tt">-Og</span>/<span class="tt">-O1</span> and drops expensive checks like <span class="tt">do</span>, <span class="tt">mem</span>, and <span class="tt">recursion</span>. Runs ~2x faster than full Debug while catching most real bugs. See the table below for exact flags per compiler.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Compiler  </th><th class="markdownTableHeadNone">Full Debug (<span class="tt">--debug</span>)  </th><th class="markdownTableHeadNone">RelDebug (<span class="tt">--reldebug</span>)  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">gfortran  </td><td class="markdownTableBodyNone"><span class="tt">-O0 -fcheck=all,no-array-temps</span>  </td><td class="markdownTableBodyNone"><span class="tt">-Og -fcheck=bounds,pointer</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Intel ifx  </td><td class="markdownTableBodyNone"><span class="tt">-Og -check all</span>  </td><td class="markdownTableBodyNone"><span class="tt">-Og -check bounds</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">NVHPC  </td><td class="markdownTableBodyNone"><span class="tt">-O0 -C -Mbounds</span>  </td><td class="markdownTableBodyNone"><span class="tt">-O1 -Mbounds</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Cray ftn  </td><td class="markdownTableBodyNone"><span class="tt">-O0 -K trap=fp</span>  </td><td class="markdownTableBodyNone"><span class="tt">-O1 -K trap=fp</span>  </td></tr>
+</table>
+<p>Both modes define <span class="tt">MFC_DEBUG</span> and enable debug logging via <span class="tt">@:LOG()</span>.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md491"></a>
 Code Coverage</h3>
 <p>Build with code coverage instrumentation:</p>

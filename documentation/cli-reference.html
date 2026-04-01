@@ -240,11 +240,15 @@ build</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--case-optimization</span>  </td><td class="markdownTableBodyNone">(GPU Optimization) Compile MFC targets with some case parameters hard-coded (requires &ndash;input).  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--mpi</span>, <span class="tt">--no-mpi</span>  </td><td class="markdownTableBodyNone">Enable/disable MPI  </td><td class="markdownTableBodyNone"><span class="tt">true</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--deps-only</span>  </td><td class="markdownTableBodyNone">Only fetch and build dependencies, do not build MFC targets.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--mpi</span>, <span class="tt">--no-mpi</span>  </td><td class="markdownTableBodyNone">Enable/disable MPI  </td><td class="markdownTableBodyNone"><span class="tt">true</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
 <div class="fragment"><div class="line"># Build all default targets (CPU)</div>
@@ -331,7 +335,9 @@ run</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
 <div class="fragment"><div class="line"># Run interactively with 1 rank</div>
@@ -406,7 +412,9 @@ test</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
 <div class="fragment"><div class="line"># Run all tests</div>
@@ -449,7 +457,9 @@ clean</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
 <div class="fragment"><div class="line"># Clean all build files</div>
@@ -813,7 +823,9 @@ count</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
 <div class="fragment"><div class="line"># Show LOC statistics</div>
@@ -840,7 +852,9 @@ count_diff</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md70"></a>
@@ -872,7 +886,9 @@ bench</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
 <div class="fragment"><div class="line"># Run benchmarks and save results</div>
@@ -902,7 +918,9 @@ bench_diff</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md73"></a>
@@ -945,12 +963,14 @@ Build Configuration Flags</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span> / <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU with OpenACC or OpenMP  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span> / <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with debug compiler flags  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--debug</span> / <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--gcov</span> / <span class="tt">--no-gcov</span>  </td><td class="markdownTableBodyNone">Enable code coverage  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--reldebug</span> / <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--single</span> / <span class="tt">--no-single</span>  </td><td class="markdownTableBodyNone">Single precision  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--gcov</span> / <span class="tt">--no-gcov</span>  </td><td class="markdownTableBodyNone">Enable code coverage  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--single</span> / <span class="tt">--no-single</span>  </td><td class="markdownTableBodyNone">Single precision  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--mixed</span> / <span class="tt">--no-mixed</span>  </td><td class="markdownTableBodyNone">Mixed precision  </td></tr>
 </table>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md79"></a>
@@ -964,7 +984,7 @@ Verbosity (<span class="tt">-v, --verbose</span>)</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md80"></a>
 Debug Logging (<span class="tt">-d, --debug-log</span>)</h3>
 <p>Enables debug logging for the Python toolchain (mfc.sh internals). This is for troubleshooting the build system, not the MFC simulation code.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-03-31</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-04-01</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
