@@ -459,165 +459,70 @@ $(function(){initNavTree('m__finite__differences_8fpp_8f90_source.html','',''); 
 <div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
 <div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="keyword">contains</span></div>
 <div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span><span class="comment"></span> </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="comment">    !&gt; Accumulate the finite-difference divergence of a vector field onto a scalar field.</span></div>
-<div class="foldopen" id="foldopen00326" data-start="" data-end="">
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d">  326</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d">s_compute_fd_divergence</a>(div, fields, ix_s, iy_s, iz_s)</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="keywordtype">type</span>(scalar_field), <span class="keywordtype">intent(inout)</span> :: div</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        <span class="keywordtype">type</span>(scalar_field), <span class="keywordtype">intent(in)</span>    :: fields(1:3)</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">intent(in)</span> :: ix_s, iy_s, iz_s</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <span class="keywordtype">integer</span>                           :: x, y, z<span class="comment">  !&lt; Generic loop iterators</span></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="keywordtype">        real</span>(wp)                          :: divergence</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span><span class="preprocessor"></span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span><span class="preprocessor"></span><span class="comment">!$acc parallel loop collapse(3) gang vector default(present) private(x, y, z, divergence) </span></div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span><span class="preprocessor"></span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="preprocessor"></span><span class="comment">!$omp target teams loop defaultmap(firstprivate:scalar) bind(teams,parallel) collapse(3) defaultmap(tofrom:aggregate) defaultmap(tofrom:allocatable) defaultmap(tofrom:pointer) private(x, y, z, divergence) </span></div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="preprocessor"># 25 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="preprocessor"></span>        <span class="keywordflow">do</span> x = ix_s%beg, ix_s%end</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            <span class="keywordflow">do</span> y = iy_s%beg, iy_s%end</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>                <span class="keywordflow">do</span> z = iz_s%beg, iz_s%end</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>                    <span class="keywordflow">if</span> (x == ix_s%beg) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>                        divergence = (-3._wp*fields(1)%sf(x, y, z) + 4._wp*fields(1)%sf(x + 1, y, z) - fields(1)%sf(x + 2, y, &amp;</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>                                      &amp; z))/(<a class="code hl_variable" href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">x_cc</a>(x + 2) - <a class="code hl_variable" href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">x_cc</a>(x))</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == ix_s%end) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>                        divergence = (+3._wp*fields(1)%sf(x, y, z) - 4._wp*fields(1)%sf(x - 1, y, z) + fields(1)%sf(x - 2, y, &amp;</div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>                                      &amp; z))/(<a class="code hl_variable" href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">x_cc</a>(x) - <a class="code hl_variable" href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">x_cc</a>(x - 2))</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>                    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>                        divergence = (fields(1)%sf(x + 1, y, z) - fields(1)%sf(x - 1, y, z))/(<a class="code hl_variable" href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">x_cc</a>(x + 1) - <a class="code hl_variable" href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">x_cc</a>(x - 1))</div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span> </div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">n</a> &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>                        <span class="keywordflow">if</span> (y == iy_s%beg) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>                            divergence = divergence + (-3._wp*fields(2)%sf(x, y, z) + 4._wp*fields(2)%sf(x, y + 1, &amp;</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>                                                       &amp; z) - fields(2)%sf(x, y + 2, z))/(<a class="code hl_variable" href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">y_cc</a>(y + 2) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">y_cc</a>(y))</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (y == iy_s%end) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>                            divergence = divergence + (+3._wp*fields(2)%sf(x, y, z) - 4._wp*fields(2)%sf(x, y - 1, &amp;</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                                                       &amp; z) + fields(2)%sf(x, y - 2, z))/(<a class="code hl_variable" href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">y_cc</a>(y) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">y_cc</a>(y - 2))</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>                            divergence = divergence + (fields(2)%sf(x, y + 1, z) - fields(2)%sf(x, y - 1, &amp;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>                                                       &amp; z))/(<a class="code hl_variable" href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">y_cc</a>(y + 1) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">y_cc</a>(y - 1))</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="keywordflow">                        end if</span></div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>                    <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">p</a> &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>                        <span class="keywordflow">if</span> (z == iz_s%beg) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                            divergence = divergence + (-3._wp*fields(3)%sf(x, y, z) + 4._wp*fields(3)%sf(x, y, &amp;</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>                                                       &amp; z + 1) - fields(3)%sf(x, y, z + 2))/(<a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(z + 2) - <a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(z))</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (z == iz_s%end) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>                            divergence = divergence + (+3._wp*fields(3)%sf(x, y, z) - 4._wp*fields(3)%sf(x, y, &amp;</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>                                                       &amp; z - 1) + fields(3)%sf(x, y, z - 2))/(<a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(z) - <a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(z - 2))</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>                        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>                            divergence = divergence + (fields(3)%sf(x, y, z + 1) - fields(3)%sf(x, y, &amp;</div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>                                                       &amp; z - 1))/(<a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(z + 1) - <a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(z - 1))</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span><span class="keywordflow">                        end if</span></div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>                    div%sf(x, y, z) = div%sf(x, y, z) + divergence</div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span><span class="keywordflow">        end do</span></div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span><span class="preprocessor"># 69 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="preprocessor"></span><span class="preprocessor"># 69 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span><span class="preprocessor"></span><span class="comment">!$acc end parallel loop</span></div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span><span class="preprocessor"># 69 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span><span class="preprocessor"></span><span class="preprocessor"># 69 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="preprocessor"># 69 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="preprocessor"></span><span class="comment">!$omp end target teams loop</span></div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span><span class="preprocessor"># 69 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot;</span></div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span><span class="comment">    !&gt; Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coordinate direction (x, y,</span></div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="comment">    !! or z). Supports up to 4th order accuracy.</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="comment">    !! @param fd_coeff_s Finite-diff. coefficients in the s-coordinate direction</span></div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span><span class="comment">    !! @param fd_number_in Finite-difference number</span></div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="comment">    !! @param fd_order_in Finite-difference order of accuracy</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="comment">    !! @param offset_s Optional offset bounds in the s-coordinate direction</span></div>
+<div class="foldopen" id="foldopen00331" data-start="" data-end="">
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">  331</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a>(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        <span class="keywordtype">integer</span>                                                               :: lB, lE<span class="comment">  !&lt; loop bounds</span></div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: q</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: local_buff_size, fd_number_in, fd_order_in</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span>                           :: offset_s</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">intent(inout)</span>                  :: fd_coeff_s</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(-local_buff_size:q + local_buff_size)</span>, <span class="keywordtype">intent(in)</span> :: s_cc</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keywordtype">integer</span>                                                               :: i<span class="comment">       !&lt; Generic loop iterator</span></div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(offset_s)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            lb = -offset_s%beg</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            le = q + offset_s%end</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>            lb = 0</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>            le = q</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="preprocessor">#ifdef MFC_POST_PROCESS</span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="preprocessor"></span>        <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(fd_coeff_s)) <span class="keyword">deallocate</span> (fd_coeff_s)</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>        <span class="keyword">allocate</span> (fd_coeff_s(-fd_number_in:fd_number_in,lb:le))</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        <span class="comment">! Computing the 1st order finite-difference coefficients</span></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        <span class="keywordflow">if</span> (fd_order_in == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>            <span class="keywordflow">do</span> i = lb, le</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>                fd_coeff_s(-1, i) = 0._wp</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>                fd_coeff_s(0, i) = -1._wp/(s_cc(i + 1) - s_cc(i))</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>                fd_coeff_s(1, i) = -fd_coeff_s(0, i)</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>            <span class="comment">! Computing the 2nd order finite-difference coefficients</span></div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fd_order_in == 2) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>            <span class="keywordflow">do</span> i = lb, le</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>                fd_coeff_s(-1, i) = -1._wp/(s_cc(i + 1) - s_cc(i - 1))</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                fd_coeff_s(0, i) = 0._wp</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            <span class="comment">! Computing the 4th order finite-difference coefficients</span></div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>            <span class="keywordflow">do</span> i = lb, le</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                fd_coeff_s(-2, i) = 1._wp/(s_cc(i - 2) - 8._wp*s_cc(i - 1) - s_cc(i + 2) + 8._wp*s_cc(i + 1))</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>                fd_coeff_s(-1, i) = -8._wp*fd_coeff_s(-2, i)</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>                fd_coeff_s(0, i) = 0._wp</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>                fd_coeff_s(2, i) = -fd_coeff_s(-2, i)</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
 </div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d">s_compute_fd_divergence</a></div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span><span class="comment"></span> </div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="comment">    !&gt; Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coordinate direction (x, y,</span></div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="comment">    !! or z). Supports up to 4th order accuracy.</span></div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span><span class="comment">    !! @param fd_coeff_s Finite-diff. coefficients in the s-coordinate direction</span></div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="comment">    !! @param fd_number_in Finite-difference number</span></div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span><span class="comment">    !! @param fd_order_in Finite-difference order of accuracy</span></div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="comment">    !! @param offset_s Optional offset bounds in the s-coordinate direction</span></div>
-<div class="foldopen" id="foldopen00418" data-start="" data-end="">
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">  418</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a>(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordtype">integer</span>                                                               :: lB, lE<span class="comment">  !&lt; loop bounds</span></div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: q</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: local_buff_size, fd_number_in, fd_order_in</div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span>                           :: offset_s</div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">intent(inout)</span>                  :: fd_coeff_s</div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(-local_buff_size:q + local_buff_size)</span>, <span class="keywordtype">intent(in)</span> :: s_cc</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>        <span class="keywordtype">integer</span>                                                               :: i<span class="comment">       !&lt; Generic loop iterator</span></div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span> </div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(offset_s)) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>            lb = -offset_s%beg</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>            le = q + offset_s%end</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>            lb = 0</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>            le = q</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="preprocessor">#ifdef MFC_POST_PROCESS</span></div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="preprocessor"></span>        <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(fd_coeff_s)) <span class="keyword">deallocate</span> (fd_coeff_s)</div>
-<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>        <span class="keyword">allocate</span> (fd_coeff_s(-fd_number_in:fd_number_in,lb:le))</div>
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>        <span class="comment">! Computing the 1st order finite-difference coefficients</span></div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>        <span class="keywordflow">if</span> (fd_order_in == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>            <span class="keywordflow">do</span> i = lb, le</div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>                fd_coeff_s(-1, i) = 0._wp</div>
-<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>                fd_coeff_s(0, i) = -1._wp/(s_cc(i + 1) - s_cc(i))</div>
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>                fd_coeff_s(1, i) = -fd_coeff_s(0, i)</div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span> </div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>            <span class="comment">! Computing the 2nd order finite-difference coefficients</span></div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fd_order_in == 2) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>            <span class="keywordflow">do</span> i = lb, le</div>
-<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>                fd_coeff_s(-1, i) = -1._wp/(s_cc(i + 1) - s_cc(i - 1))</div>
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>                fd_coeff_s(0, i) = 0._wp</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>            <span class="comment">! Computing the 4th order finite-difference coefficients</span></div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>            <span class="keywordflow">do</span> i = lb, le</div>
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>                fd_coeff_s(-2, i) = 1._wp/(s_cc(i - 2) - 8._wp*s_cc(i - 1) - s_cc(i + 2) + 8._wp*s_cc(i + 1))</div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>                fd_coeff_s(-1, i) = -8._wp*fd_coeff_s(-2, i)</div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>                fd_coeff_s(0, i) = 0._wp</div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>                fd_coeff_s(2, i) = -fd_coeff_s(-2, i)</div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span> </div>
-</div>
-<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a></div>
-<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span> </div>
-<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__finite__differences.html">m_finite_differences</a></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a></div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__finite__differences.html">m_finite_differences</a></div>
 <div class="ttc" id="anamespacem__finite__differences_html"><div class="ttname"><a href="namespacem__finite__differences.html">m_finite_differences</a></div><div class="ttdoc">Finite difference operators for computing divergence of velocity fields.</div><div class="ttdef"><b>Definition</b> <a href="#l00317">m_finite_differences.fpp.f90:317</a></div></div>
-<div class="ttc" id="anamespacem__finite__differences_html_a55314088f8f4b73cebed4e7701686d6d"><div class="ttname"><a href="namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d">m_finite_differences::s_compute_fd_divergence</a></div><div class="ttdeci">subroutine s_compute_fd_divergence(div, fields, ix_s, iy_s, iz_s)</div><div class="ttdoc">Accumulate the finite-difference divergence of a vector field onto a scalar field.</div><div class="ttdef"><b>Definition</b> <a href="#l00326">m_finite_differences.fpp.f90:327</a></div></div>
-<div class="ttc" id="anamespacem__finite__differences_html_a830833416c226c73bf244dae71884211"><div class="ttname"><a href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">m_finite_differences::s_compute_finite_difference_coefficients</a></div><div class="ttdeci">subroutine s_compute_finite_difference_coefficients(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div><div class="ttdoc">Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coor...</div><div class="ttdef"><b>Definition</b> <a href="#l00418">m_finite_differences.fpp.f90:419</a></div></div>
+<div class="ttc" id="anamespacem__finite__differences_html_a830833416c226c73bf244dae71884211"><div class="ttname"><a href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">m_finite_differences::s_compute_finite_difference_coefficients</a></div><div class="ttdeci">subroutine s_compute_finite_difference_coefficients(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div><div class="ttdoc">Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coor...</div><div class="ttdef"><b>Definition</b> <a href="#l00331">m_finite_differences.fpp.f90:332</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html"><div class="ttname"><a href="namespacem__global__parameters.html">m_global_parameters</a></div><div class="ttdoc">Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00328">m_global_parameters.fpp.f90:328</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html_a7db7cbac68843362ac9b31227d8ec17b"><div class="ttname"><a href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">m_global_parameters::y_cc</a></div><div class="ttdeci">real(wp), dimension(:), allocatable, target y_cc</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00387">m_global_parameters.fpp.f90:387</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html_a9544f569916da49084e78b52371ad9e6"><div class="ttname"><a href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">m_global_parameters::z_cc</a></div><div class="ttdeci">real(wp), dimension(:), allocatable, target z_cc</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00387">m_global_parameters.fpp.f90:387</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html_abca2c778437769ed833e7eafc775cc14"><div class="ttname"><a href="namespacem__global__parameters.html#abca2c778437769ed833e7eafc775cc14">m_global_parameters::x_cc</a></div><div class="ttdeci">real(wp), dimension(:), allocatable, target x_cc</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00387">m_global_parameters.fpp.f90:387</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html_ac040dbf547e6d5de8df08e864d8131e7"><div class="ttname"><a href="namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7">m_global_parameters::p</a></div><div class="ttdeci">integer p</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00352">m_global_parameters.fpp.f90:352</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html_ac72422e5f77149bd32cf0cfd01a36544"><div class="ttname"><a href="namespacem__global__parameters.html#ac72422e5f77149bd32cf0cfd01a36544">m_global_parameters::n</a></div><div class="ttdeci">integer n</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00352">m_global_parameters.fpp.f90:352</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

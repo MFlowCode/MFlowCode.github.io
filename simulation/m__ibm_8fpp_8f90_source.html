@@ -1984,7 +1984,7 @@ $(function(){initNavTree('m__ibm_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l01830" name="l01830"></a><span class="lineno"><a class="line" href="namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff"> 1830</a></span>    <span class="keywordtype">impure</span> <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff">s_update_mib</a>(num_ibs)</div>
 <div class="line"><a id="l01831" name="l01831"></a><span class="lineno"> 1831</span> </div>
 <div class="line"><a id="l01832" name="l01832"></a><span class="lineno"> 1832</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: num_ibs</div>
-<div class="line"><a id="l01833" name="l01833"></a><span class="lineno"> 1833</span>        <span class="keywordtype">integer</span>             :: i, <a class="code hl_variable" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="code hl_variable" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, ierr, z_gp_layers</div>
+<div class="line"><a id="l01833" name="l01833"></a><span class="lineno"> 1833</span>        <span class="keywordtype">integer</span>             :: i, <a class="code hl_variable" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="code hl_variable" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, z_gp_layers</div>
 <div class="line"><a id="l01834" name="l01834"></a><span class="lineno"> 1834</span> </div>
 <div class="line"><a id="l01835" name="l01835"></a><span class="lineno"> 1835</span>        <span class="keyword">call </span>nvtxstartrange(<span class="stringliteral">&quot;UPDATE-MIBM&quot;</span>)</div>
 <div class="line"><a id="l01836" name="l01836"></a><span class="lineno"> 1836</span> </div>
@@ -2073,11 +2073,11 @@ $(function(){initNavTree('m__ibm_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l01917" name="l01917"></a><span class="lineno"> 1917</span> </div>
 <div class="line"><a id="l01918" name="l01918"></a><span class="lineno"> 1918</span>        <span class="keywordtype">type</span>(scalar_field), <span class="keywordtype">dimension(1:sys_size)</span>, <span class="keywordtype">intent(in)</span>          :: q_prim_vf</div>
 <div class="line"><a id="l01919" name="l01919"></a><span class="lineno"> 1919</span>        <span class="keywordtype">type</span>(physical_parameters), <span class="keywordtype">dimension(1:num_fluids)</span>, <span class="keywordtype">intent(in)</span> :: fluid_pp</div>
-<div class="line"><a id="l01920" name="l01920"></a><span class="lineno"> 1920</span>        <span class="keywordtype">integer</span>                                                        :: gp_id, i, j, k, l, q, ib_idx, fluid_idx</div>
+<div class="line"><a id="l01920" name="l01920"></a><span class="lineno"> 1920</span>        <span class="keywordtype">integer</span>                                                        :: i, j, k, l, ib_idx, fluid_idx</div>
 <div class="line"><a id="l01921" name="l01921"></a><span class="lineno"> 1921</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(num_ibs, 3)</span>                                :: forces, torques</div>
 <div class="line"><a id="l01922" name="l01922"></a><span class="lineno"> 1922</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(1:3,1:3)</span>                                   :: viscous_stress_div, viscous_stress_div_1, &amp;</div>
 <div class="line"><a id="l01923" name="l01923"></a><span class="lineno"> 1923</span>             &amp; viscous_stress_div_2  <span class="comment">! viscous stress tensor with temp vectors to hold divergence calculations</span></div>
-<div class="line"><a id="l01924" name="l01924"></a><span class="lineno"> 1924</span>        <span class="keywordtype">real(wp)</span>, <span class="keywordtype">dimension(1:3)</span> :: local_force_contribution, radial_vector, local_torque_contribution, vel</div>
+<div class="line"><a id="l01924" name="l01924"></a><span class="lineno"> 1924</span>        <span class="keywordtype">real(wp)</span>, <span class="keywordtype">dimension(1:3)</span> :: local_force_contribution, radial_vector, local_torque_contribution</div>
 <div class="line"><a id="l01925" name="l01925"></a><span class="lineno"> 1925</span><span class="keywordtype">        real</span>(wp)                 :: cell_volume, dx, dy, dz, dynamic_viscosity</div>
 <div class="line"><a id="l01926" name="l01926"></a><span class="lineno"> 1926</span> </div>
 <div class="line"><a id="l01927" name="l01927"></a><span class="lineno"> 1927</span><span class="preprocessor"># 897 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
@@ -2091,7 +2091,7 @@ $(function(){initNavTree('m__ibm_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l01935" name="l01935"></a><span class="lineno"> 1935</span> </div>
 <div class="line"><a id="l01936" name="l01936"></a><span class="lineno"> 1936</span>        <span class="keywordflow">if</span> (viscous) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l01937" name="l01937"></a><span class="lineno"> 1937</span>            <span class="keywordflow">do</span> fluid_idx = 1, num_fluids</div>
-<div class="line"><a id="l01938" name="l01938"></a><span class="lineno"> 1938</span>                <span class="keywordflow">if</span> (fluid_pp(fluid_idx)%Re(1) /= 0._wp) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01938" name="l01938"></a><span class="lineno"> 1938</span>                <span class="keywordflow">if</span> (fluid_pp(fluid_idx)%Re(1) &gt; 0._wp) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l01939" name="l01939"></a><span class="lineno"> 1939</span>                    dynamic_viscosities(fluid_idx) = 1._wp/fluid_pp(fluid_idx)%Re(1)</div>
 <div class="line"><a id="l01940" name="l01940"></a><span class="lineno"> 1940</span>                <span class="keywordflow">else</span></div>
 <div class="line"><a id="l01941" name="l01941"></a><span class="lineno"> 1941</span>                    dynamic_viscosities(fluid_idx) = 0._wp</div>
@@ -2441,7 +2441,7 @@ $(function(){initNavTree('m__ibm_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l02279" name="l02279"></a><span class="lineno"> 2279</span> </div>
 <div class="line"><a id="l02280" name="l02280"></a><span class="lineno"> 2280</span>        <span class="keywordflow">if</span> (p == 0) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l02281" name="l02281"></a><span class="lineno"> 2281</span>            normal_axis = [0, 0, 1]</div>
-<div class="line"><a id="l02282" name="l02282"></a><span class="lineno"> 2282</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sqrt(sum(axis**2)) == 0) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02282" name="l02282"></a><span class="lineno"> 2282</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sqrt(sum(axis**2)) &lt; sgm_eps) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l02283" name="l02283"></a><span class="lineno"> 2283</span>            <span class="comment">! if the object is not actually rotating at this time, return a dummy value and exit</span></div>
 <div class="line"><a id="l02284" name="l02284"></a><span class="lineno"> 2284</span>            patch_ib(ib_marker)%moment = 1._wp</div>
 <div class="line"><a id="l02285" name="l02285"></a><span class="lineno"> 2285</span>            <span class="keywordflow">return</span></div>

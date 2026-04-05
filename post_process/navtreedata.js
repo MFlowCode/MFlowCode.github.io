@@ -30,7 +30,7 @@ var NAVTREE =
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
-        [ "Functions/Subroutines", "namespacemembers_func.html", "namespacemembers_func" ],
+        [ "Functions/Subroutines", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", "namespacemembers_vars" ]
       ] ]
     ] ],
@@ -58,11 +58,11 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "namespacem__constants.html#aecd8876023a55cf9b664ac31cad4b6fa",
-"namespacem__global__parameters.html#aa79c42cfd9c0ed5231a33babec2aba26",
-"namespacem__start__up.html#a9fe3c406193d18040691eabaa952d139",
-"structm__derived__types_1_1cell__num__bounds.html#ae5a15b1a7284a8c7c9584e632fe38c5d",
-"structm__derived__types_1_1int__bounds__info.html#a626d2ef8bcc5fc9c7033cdc21060378c",
-"structm__nvtx_1_1nvtxeventattributes.html#a28114f0de57d3cd7d1dd54b7a9a6cb99"
+"namespacem__global__parameters.html#aa943df001457f88e0a755622b08cf9f5",
+"namespacem__start__up.html#abd393f15313d45fcada828eab6fbe405",
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a",
+"structm__derived__types_1_1int__bounds__info.html#ab32c1485da19a0d178e942b73cd58551",
+"structm__nvtx_1_1nvtxeventattributes.html#ab6e0c2774b92a4d2f715087211317f17"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

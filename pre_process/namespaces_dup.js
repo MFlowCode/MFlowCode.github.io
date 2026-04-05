@@ -197,7 +197,6 @@ var namespaces_dup =
     ] ],
     [ "m_derived_types", "namespacem__derived__types.html", "namespacem__derived__types" ],
     [ "m_finite_differences", "namespacem__finite__differences.html", [
-      [ "s_compute_fd_divergence", "namespacem__finite__differences.html#a55314088f8f4b73cebed4e7701686d6d", null ],
       [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a830833416c226c73bf244dae71884211", null ]
     ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
@@ -477,7 +476,6 @@ var namespaces_dup =
       [ "f_r", "namespacem__icpp__patches.html#acc0affb72127287df0765f4c4535fc77", null ],
       [ "s_apply_icpp_patches", "namespacem__icpp__patches.html#a82d33950641130d1348d1d3a2eb72c3f", null ],
       [ "s_convert_cylindrical_to_cartesian_coord", "namespacem__icpp__patches.html#acbe8a03d5a5b6d11880bb904f91e9e0b", null ],
-      [ "s_convert_cylindrical_to_spherical_coord", "namespacem__icpp__patches.html#a38536fdbafa3aab3d0d374af6bc372f9", null ],
       [ "s_icpp_1d_bubble_pulse", "namespacem__icpp__patches.html#aaa7ffb3b7e118f6c3fbb38bfd6b14296", null ],
       [ "s_icpp_2d_modal", "namespacem__icpp__patches.html#a34b8b26aeb865f2d9ebb548cecff5084", null ],
       [ "s_icpp_2d_taylorgreen_vortex", "namespacem__icpp__patches.html#a1a97d6ab755b0e7491fa635da8b493d6", null ],
@@ -496,7 +494,6 @@ var namespaces_dup =
       [ "s_icpp_sweep_line", "namespacem__icpp__patches.html#ae751aaef358b3ef180f8e582fc3a87a0", null ],
       [ "s_icpp_sweep_plane", "namespacem__icpp__patches.html#a498a6ea03b8e45c0ae423471a3eecd93", null ],
       [ "s_icpp_varcircle", "namespacem__icpp__patches.html#a2867d59aa26df1bc028d4fd19843e46f", null ],
-      [ "cart_x", "namespacem__icpp__patches.html#a9e500ca630f56c41d8a2565729c77983", null ],
       [ "cart_y", "namespacem__icpp__patches.html#a02af0560a13866518b1d5389a6cc106f", null ],
       [ "cart_z", "namespacem__icpp__patches.html#a355dca3813273b7ee09399061ad340e0", null ],
       [ "eta", "namespacem__icpp__patches.html#a9912585d5233ceb0bd47a02a255a30a1", null ],
@@ -506,7 +503,6 @@ var namespaces_dup =
       [ "length_z", "namespacem__icpp__patches.html#a4456287345c7226beb1f7a44e749f948", null ],
       [ "smooth_coeff", "namespacem__icpp__patches.html#a835e4414da7d62ba6a701e3cfe955032", null ],
       [ "smooth_patch_id", "namespacem__icpp__patches.html#ad871cdbd8745010cb8cb46f13addb1ae", null ],
-      [ "sph_phi", "namespacem__icpp__patches.html#a7de60a5b4f0214e11ab9e8e6aaa75ba9", null ],
       [ "x_boundary", "namespacem__icpp__patches.html#ad6dfc7826591d093ce5bfdb96be4efc6", null ],
       [ "x_centroid", "namespacem__icpp__patches.html#a0be8a64c9ae619e0ab1b94852ae13014", null ],
       [ "y_boundary", "namespacem__icpp__patches.html#a900feb707a29b127d23e1d74f18b2d91", null ],

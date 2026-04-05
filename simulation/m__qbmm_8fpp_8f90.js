@@ -11,7 +11,6 @@ var m__qbmm_8fpp_8f90 =
     [ "m_qbmm::s_initialize_qbmm_module", "namespacem__qbmm.html#aeefcb72401bfdb35dcdd81104e647a15", null ],
     [ "m_qbmm::s_mom_inv", "namespacem__qbmm.html#a8e82c3d0882275ddb17f8a2558c43637", null ],
     [ "m_qbmm::bubmoms", "namespacem__qbmm.html#a0b413d0d2053bc94c563553833f1b6ca", null ],
-    [ "m_qbmm::bubrs_qbmm", "namespacem__qbmm.html#a2035d743654ac97858b4b46a3873dfae", null ],
     [ "m_qbmm::is1_qbmm", "namespacem__qbmm.html#a28ad6c7caed7dc3c5ac872b8baf68470", null ],
     [ "m_qbmm::is2_qbmm", "namespacem__qbmm.html#acdd3c592550b203ed4de5334bf201bea", null ],
     [ "m_qbmm::is3_qbmm", "namespacem__qbmm.html#a9ea88105fd3d2f68bd33c77ff58277f9", null ],
