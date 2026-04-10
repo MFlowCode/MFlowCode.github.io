@@ -63,8 +63,8 @@ var searchData=
   ['18_20gpu_20performance_20nvidia_20uvm_60',['18. GPU Performance (NVIDIA UVM)',['../case.html#autotoc_md34',1,'']]],
   ['1_3a_20setting_20up_20your_20environment_61',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md554',1,'']]],
   ['1b_20units_20dimensions_20and_20non_20dimensionalization_62',['1b. Units, Dimensions, and Non-Dimensionalization',['../equations.html#sec-units-dimensions',1,'']]],
-  ['1d_63',['1D',['../examples.html#autotoc_md234',1,'Lax shock tube problem (1D)'],['../examples.html#autotoc_md237',1,'Shu-Osher problem (1D)'],['../examples.html#autotoc_md252',1,'Titarev-Toro problem (1D)']]],
-  ['1d_20multi_20component_20inert_20shock_20tube_64',['1D Multi-Component Inert Shock Tube',['../examples.html#autotoc_md271',1,'']]],
-  ['1d_20multi_20component_20reactive_20shock_20tube_65',['1D Multi-Component Reactive Shock Tube',['../examples.html#autotoc_md247',1,'']]],
+  ['1d_63',['1D',['../examples.html#autotoc_md244',1,'Lax shock tube problem (1D)'],['../examples.html#autotoc_md267',1,'Shu-Osher problem (1D)'],['../examples.html#autotoc_md213',1,'Titarev-Toro problem (1D)']]],
+  ['1d_20multi_20component_20inert_20shock_20tube_64',['1D Multi-Component Inert Shock Tube',['../examples.html#autotoc_md224',1,'']]],
+  ['1d_20multi_20component_20reactive_20shock_20tube_65',['1D Multi-Component Reactive Shock Tube',['../examples.html#autotoc_md264',1,'']]],
   ['1d_20rendering_66',['Tiled 1D rendering',['../visualization.html#autotoc_md542',1,'']]]
 ];
