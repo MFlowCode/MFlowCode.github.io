@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['y_0',['y',['../structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e',1,'m_derived_types::vec3_dt::y'],['../structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee',1,'m_derived_types::ic_patch_parameters::y']]],
+  ['y_0',['y',['../structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e',1,'m_derived_types::vec3_dt::y'],['../structm__derived__types_1_1bc__xyz__info.html#a5c0634496cc8406b0e4bc5f51205135d',1,'m_derived_types::bc_xyz_info::y'],['../structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee',1,'m_derived_types::ic_patch_parameters::y']]],
   ['y_5fa_1',['y_a',['../namespacem__global__parameters.html#afa80adc7c3fadfb5d51279e1a3c33e94',1,'m_global_parameters']]],
   ['y_5fb_2',['y_b',['../namespacem__global__parameters.html#ab9d9613aeb5400984e400113cd6ac11b',1,'m_global_parameters']]],
   ['y_5fboundary_3',['y_boundary',['../namespacem__boundary__conditions.html#a778035021282c248390ff14d6c28a171',1,'m_boundary_conditions::y_boundary'],['../namespacem__icpp__patches.html#a900feb707a29b127d23e1d74f18b2d91',1,'m_icpp_patches::y_boundary']]],

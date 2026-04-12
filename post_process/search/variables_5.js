@@ -20,7 +20,7 @@ var searchData=
   ['fourier_5fsin_17',['fourier_sin',['../structm__derived__types_1_1ic__patch__parameters.html#ac9ef6fb398e78d6e9a578126e3650473',1,'m_derived_types::ic_patch_parameters']]],
   ['fp_18',['fp',['../structm__derived__types_1_1field__position.html#ab3739d21e99742473b7fdfb99b9d9dbe',1,'m_derived_types::field_position']]],
   ['frequency_19',['frequency',['../structm__derived__types_1_1acoustic__parameters.html#a2e07a70596715caaa5d4eca019cc7aec',1,'m_derived_types::acoustic_parameters']]],
-  ['fullmom_20',['fullmom',['../structm__derived__types_1_1bub__bounds__info.html#a91592e6f3a821f4da3c81d8bbca74a6e',1,'m_derived_types::bub_bounds_info']]],
+  ['fullmom_20',['fullmom',['../structm__derived__types_1_1qbmm__idx__info.html#a49559aa1540ceb867c9f9792625606c4',1,'m_derived_types::qbmm_idx_info']]],
   ['fwd_5fplan_5fx_21',['fwd_plan_x',['../namespacem__start__up.html#aef264a30d283e1c0b184c1a646745d54',1,'m_start_up']]],
   ['fwd_5fplan_5fy_22',['fwd_plan_y',['../namespacem__start__up.html#a251f7304110b9e8a313fe4bb657291ce',1,'m_start_up']]],
   ['fwd_5fplan_5fz_23',['fwd_plan_z',['../namespacem__start__up.html#a70391523479940ba122a6dbec54a893a',1,'m_start_up']]]

@@ -200,8 +200,8 @@ Key Data Structures</h1>
 <p>The index layout within <span class="tt">q_cons_vf</span> depends on the flow model:</p>
 <div class="fragment"><div class="line">For model_eqns == 2 (5-equation, multi-fluid):</div>
 <div class="line"> </div>
-<div class="line">  Index:    1 .. num_fluids | num_fluids+1 .. +num_vels | E_idx | adv_idx</div>
-<div class="line">  Meaning:  alpha*rho_k     | momentum components       | energy | volume fractions</div>
+<div class="line">  Index:    1 .. num_fluids | num_fluids+1 .. +num_vels | eqn_idx%E | eqn_idx%adv</div>
+<div class="line">  Meaning:  alpha*rho_k     | momentum components       | energy    | volume fractions</div>
 </div><!-- fragment --><p>Additional variables are appended for bubbles, elastic stress, magnetic fields, or chemistry species when those models are enabled. The total count is <span class="tt">sys_size</span>.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 The Simulation Loop</h1>
@@ -401,7 +401,7 @@ Adding New Physics</h1>
 <li><b>Add the module to <span class="tt">docs/module_categories.json</span></b> so it appears in this page</li>
 </ol>
 <p>Follow the pattern of existing modules like <span class="tt">m_body_forces</span> (simple) or <span class="tt">m_viscous</span> (more involved) as a template.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-04-11</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-04-12</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -460,7 +460,7 @@ How to Write a GPU Parallel Loop</h3>
 <div class="line">    <span class="keywordflow">do</span> k = 0, n</div>
 <div class="line">        <span class="keywordflow">do</span> j = 0, m</div>
 <div class="line">            rho = q_prim_vf(1)%sf(j, k, l)</div>
-<div class="line">            pres = q_prim_vf(e_idx)%sf(j, k, l)</div>
+<div class="line">            pres = q_prim_vf(eqn_idx%E)%sf(j, k, l)</div>
 <div class="line">            <span class="comment">! ... use rho, pres as thread-local ...</span></div>
 <div class="line"><span class="keywordflow">        end do</span></div>
 <div class="line"><span class="keywordflow">    end do</span></div>
@@ -487,7 +487,7 @@ How to Write a GPU Parallel Loop</h3>
 <div class="line">        <span class="keywordflow">do</span> j = 0, m</div>
 <div class="line">            $:gpu_loop(parallelism=<span class="stringliteral">&#39;[seq]&#39;</span>)</div>
 <div class="line">            <span class="keywordflow">do</span> i = 1, num_fluids</div>
-<div class="line">                alpha(i) = q_prim_vf(advxb + i - 1)%sf(j, k, l)</div>
+<div class="line">                alpha(i) = q_prim_vf(eqn_idx%adv%beg + i - 1)%sf(j, k, l)</div>
 <div class="line"><span class="keywordflow">            end do</span></div>
 <div class="line"><span class="keywordflow">        end do</span></div>
 <div class="line"><span class="keywordflow">    end do</span></div>

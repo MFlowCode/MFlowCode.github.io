@@ -22,5 +22,5 @@ var searchData=
   ['vf_19',['vf',['../structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141',1,'m_derived_types::vector_field']]],
   ['view_20',['view',['../structm__derived__types_1_1mpi__io__var.html#a19194d57a71bab3f81f1bb6c05743fed',1,'m_derived_types::mpi_io_var::view'],['../structm__derived__types_1_1mpi__io__ib__var.html#a658eb06300820497067e2e738dd9378d',1,'m_derived_types::mpi_io_ib_var::view'],['../structm__derived__types_1_1mpi__io__levelset__var.html#ad8e22b1e6278191978539b433f1896bb',1,'m_derived_types::mpi_io_levelset_var::view'],['../structm__derived__types_1_1mpi__io__levelset__norm__var.html#a241d46b5c25ecb008d41fceb8dd73ac4',1,'m_derived_types::mpi_io_levelset_norm_var::view'],['../structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a6b0981a060c97ca959c8d44e018e65d0',1,'m_derived_types::mpi_io_airfoil_ib_var::view']]],
   ['vp_21',['vp',['../namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837',1,'m_phase_change']]],
-  ['vs_22',['vs',['../structm__derived__types_1_1bub__bounds__info.html#aafe6965d5ebb0a946bda443cfdd6b840',1,'m_derived_types::bub_bounds_info']]]
+  ['vs_22',['vs',['../structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72',1,'m_derived_types::qbmm_idx_info']]]
 ];

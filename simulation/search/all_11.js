@@ -63,6 +63,6 @@ var searchData=
   ['rotate_5fangle_60',['rotate_angle',['../structm__derived__types_1_1acoustic__parameters.html#a2a5926c776adbec01398ff354324b836',1,'m_derived_types::acoustic_parameters::rotate_angle'],['../namespacem__acoustic__src.html#a578cbd0beda40c1253e10866cbc4429c',1,'m_acoustic_src::rotate_angle']]],
   ['rotation_5fmatrix_61',['rotation_matrix',['../structm__derived__types_1_1ib__patch__parameters.html#a9daf3cca6082c6e343c4621e96718419',1,'m_derived_types::ib_patch_parameters']]],
   ['rotation_5fmatrix_5finverse_62',['rotation_matrix_inverse',['../structm__derived__types_1_1ib__patch__parameters.html#aa69e095e0d26d0ff22f62356312347fd',1,'m_derived_types::ib_patch_parameters']]],
-  ['rs_63',['rs',['../structm__derived__types_1_1bub__bounds__info.html#aa3a7d88d4bc7e857c54d3e7b09784f85',1,'m_derived_types::bub_bounds_info::rs'],['../namespacem__bubbles__ee.html#aec9c22c594554738d79b443bc395c987',1,'m_bubbles_ee::rs']]],
+  ['rs_63',['rs',['../structm__derived__types_1_1qbmm__idx__info.html#a00c888e4b3ede7518e4c328519dafed7',1,'m_derived_types::qbmm_idx_info::rs'],['../namespacem__bubbles__ee.html#aec9c22c594554738d79b443bc395c987',1,'m_bubbles_ee::rs']]],
   ['run_5ftime_5finfo_64',['run_time_info',['../namespacem__global__parameters.html#a63e30bca2565699c008b6b0442ef5494',1,'m_global_parameters']]]
 ];

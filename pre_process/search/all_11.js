@@ -36,5 +36,5 @@ var searchData=
   ['rotate_5fangle_33',['rotate_angle',['../structm__derived__types_1_1acoustic__parameters.html#a2a5926c776adbec01398ff354324b836',1,'m_derived_types::acoustic_parameters']]],
   ['rotation_5fmatrix_34',['rotation_matrix',['../structm__derived__types_1_1ib__patch__parameters.html#a9daf3cca6082c6e343c4621e96718419',1,'m_derived_types::ib_patch_parameters']]],
   ['rotation_5fmatrix_5finverse_35',['rotation_matrix_inverse',['../structm__derived__types_1_1ib__patch__parameters.html#aa69e095e0d26d0ff22f62356312347fd',1,'m_derived_types::ib_patch_parameters']]],
-  ['rs_36',['rs',['../structm__derived__types_1_1bub__bounds__info.html#aa3a7d88d4bc7e857c54d3e7b09784f85',1,'m_derived_types::bub_bounds_info']]]
+  ['rs_36',['rs',['../structm__derived__types_1_1qbmm__idx__info.html#a00c888e4b3ede7518e4c328519dafed7',1,'m_derived_types::qbmm_idx_info']]]
 ];

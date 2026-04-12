@@ -1,7 +1,7 @@
 var searchData=
 [
   ['d_0',['d',['../structm__derived__types_1_1t__ray.html#acccd7f3317e17e0f171b4619b041b560',1,'m_derived_types::t_ray::d'],['../namespacem__phase__change.html#a629649c7f4e2205105e9202451d48f3f',1,'m_phase_change::d']]],
-  ['damage_5fidx_1',['damage_idx',['../namespacem__global__parameters.html#a9b62d10b1daae13c7f40d7bf39a5c1c3',1,'m_global_parameters']]],
+  ['damage_1',['damage',['../structm__derived__types_1_1eqn__idx__info.html#a1f267aa5aa772e48c5f65c995954bb4d',1,'m_derived_types::eqn_idx_info']]],
   ['data_5fcmplx_2',['data_cmplx',['../namespacem__start__up.html#ac6a2372d0f25af9415ee48643897525e',1,'m_start_up']]],
   ['data_5fcmplx_5fy_3',['data_cmplx_y',['../namespacem__start__up.html#a14d17ff5eaaf8c946f74636670615338',1,'m_start_up']]],
   ['data_5fcmplx_5fz_4',['data_cmplx_z',['../namespacem__start__up.html#a51f9e02d46fa7ce7ab5adf1ea02f5481',1,'m_start_up']]],

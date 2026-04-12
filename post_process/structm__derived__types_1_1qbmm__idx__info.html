@@ -14,8 +14,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MFC: m_derived_types::bub_bounds_info Type Reference</title>
-<meta name="description" content="m_derived_types::bub_bounds_info Type Reference — MFC documentation. Open-source exascale multiphase flow solver." />
+<title>MFC: m_derived_types::qbmm_idx_info Type Reference</title>
+<meta name="description" content="m_derived_types::qbmm_idx_info Type Reference — MFC documentation. Open-source exascale multiphase flow solver." />
 <meta name="keywords" content="exascale, fluid dynamics, cfd, computational fluid dynamics, compressible, hpc, bryngelson, colonius, subgrid, multiphase, frontier, summit, el capitan, aurora, amd gpu, gpu, nvidia"/>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -128,7 +128,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('structm__derived__types_1_1bub__bounds__info.html','','structm__derived__types_1_1bub__bounds__info-members'); });
+$(function(){initNavTree('structm__derived__types_1_1qbmm__idx__info.html','','structm__derived__types_1_1qbmm__idx__info-members'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -154,160 +154,138 @@ $(function(){initNavTree('structm__derived__types_1_1bub__bounds__info.html','',
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">m_derived_types::bub_bounds_info Type Reference</div></div>
+  <div class="headertitle"><div class="title">m_derived_types::qbmm_idx_info Type Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>bounds for the bubble dynamic variables  
+<p>QBMM moment index mappings - separate from bub beg/end so eqn_idx contains no allocatables.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:af1cd7c7f30de05a0f9ee49f5d23ef354" id="r_af1cd7c7f30de05a0f9ee49f5d23ef354"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#af1cd7c7f30de05a0f9ee49f5d23ef354">beg</a></td></tr>
-<tr class="memitem:a01730fa85d33e3174561ad5182d2e052" id="r_a01730fa85d33e3174561ad5182d2e052"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a01730fa85d33e3174561ad5182d2e052">end</a></td></tr>
-<tr class="memitem:aa3a7d88d4bc7e857c54d3e7b09784f85" id="r_aa3a7d88d4bc7e857c54d3e7b09784f85"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa3a7d88d4bc7e857c54d3e7b09784f85">rs</a></td></tr>
-<tr class="memitem:aafe6965d5ebb0a946bda443cfdd6b840" id="r_aafe6965d5ebb0a946bda443cfdd6b840"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aafe6965d5ebb0a946bda443cfdd6b840">vs</a></td></tr>
-<tr class="memitem:a6bed3e7dc94afeeb61216758ecf733dd" id="r_a6bed3e7dc94afeeb61216758ecf733dd"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a6bed3e7dc94afeeb61216758ecf733dd">ps</a></td></tr>
-<tr class="memitem:a0aeed04f8b8072c124ed2cec4e23e78c" id="r_a0aeed04f8b8072c124ed2cec4e23e78c"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0aeed04f8b8072c124ed2cec4e23e78c">ms</a></td></tr>
-<tr class="memitem:a3d9efc3c33b48d5f3f83034e7b96e43c" id="r_a3d9efc3c33b48d5f3f83034e7b96e43c"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a3d9efc3c33b48d5f3f83034e7b96e43c">moms</a></td></tr>
-<tr class="memdesc:a3d9efc3c33b48d5f3f83034e7b96e43c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moment indices for qbmm.  <br /></td></tr>
-<tr class="memitem:a91592e6f3a821f4da3c81d8bbca74a6e" id="r_a91592e6f3a821f4da3c81d8bbca74a6e"><td class="memItemLeft">integer, dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a91592e6f3a821f4da3c81d8bbca74a6e">fullmom</a></td></tr>
-<tr class="memdesc:a91592e6f3a821f4da3c81d8bbca74a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moment indices for qbmm.  <br /></td></tr>
+<tr class="memitem:a00c888e4b3ede7518e4c328519dafed7" id="r_a00c888e4b3ede7518e4c328519dafed7"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a00c888e4b3ede7518e4c328519dafed7">rs</a></td></tr>
+<tr class="memdesc:a00c888e4b3ede7518e4c328519dafed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">R moment indices per bubble bin.  <br /></td></tr>
+<tr class="memitem:adb586eaad9d9498bbe43d0f091f7ce72" id="r_adb586eaad9d9498bbe43d0f091f7ce72"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#adb586eaad9d9498bbe43d0f091f7ce72">vs</a></td></tr>
+<tr class="memdesc:adb586eaad9d9498bbe43d0f091f7ce72"><td class="mdescLeft">&#160;</td><td class="mdescRight">V moment indices per bubble bin.  <br /></td></tr>
+<tr class="memitem:a929f371a5331d8dd08b86d3652d6f5fa" id="r_a929f371a5331d8dd08b86d3652d6f5fa"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a929f371a5331d8dd08b86d3652d6f5fa">ps</a></td></tr>
+<tr class="memdesc:a929f371a5331d8dd08b86d3652d6f5fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure moment indices per bubble bin.  <br /></td></tr>
+<tr class="memitem:a9f126ab17fed4922e9ba845feee2cff6" id="r_a9f126ab17fed4922e9ba845feee2cff6"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a9f126ab17fed4922e9ba845feee2cff6">ms</a></td></tr>
+<tr class="memdesc:a9f126ab17fed4922e9ba845feee2cff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mass moment indices per bubble bin.  <br /></td></tr>
+<tr class="memitem:adfb80a4f4432062391bd9caea975c0ef" id="r_adfb80a4f4432062391bd9caea975c0ef"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#adfb80a4f4432062391bd9caea975c0ef">moms</a></td></tr>
+<tr class="memdesc:adfb80a4f4432062391bd9caea975c0ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moment indices for qbmm.  <br /></td></tr>
+<tr class="memitem:a49559aa1540ceb867c9f9792625606c4" id="r_a49559aa1540ceb867c9f9792625606c4"><td class="memItemLeft">integer, dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a49559aa1540ceb867c9f9792625606c4">fullmom</a></td></tr>
+<tr class="memdesc:a49559aa1540ceb867c9f9792625606c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Full moment indices for qbmm.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>bounds for the bubble dynamic variables </p>
+<div class="textblock"><p>QBMM moment index mappings - separate from bub beg/end so eqn_idx contains no allocatables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00432">432</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="af1cd7c7f30de05a0f9ee49f5d23ef354" name="af1cd7c7f30de05a0f9ee49f5d23ef354"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1cd7c7f30de05a0f9ee49f5d23ef354">&#9670;&#160;</a></span>beg</h2>
+<a id="a49559aa1540ceb867c9f9792625606c4" name="a49559aa1540ceb867c9f9792625606c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49559aa1540ceb867c9f9792625606c4">&#9670;&#160;</a></span>fullmom</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer m_derived_types::bub_bounds_info::beg</td>
+          <td class="memname">integer, dimension(:,:,:), allocatable m_derived_types::qbmm_idx_info::fullmom</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Full moment indices for qbmm. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a01730fa85d33e3174561ad5182d2e052" name="a01730fa85d33e3174561ad5182d2e052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01730fa85d33e3174561ad5182d2e052">&#9670;&#160;</a></span>end</h2>
+<a id="adfb80a4f4432062391bd9caea975c0ef" name="adfb80a4f4432062391bd9caea975c0ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfb80a4f4432062391bd9caea975c0ef">&#9670;&#160;</a></span>moms</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer m_derived_types::bub_bounds_info::end</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00439">439</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a91592e6f3a821f4da3c81d8bbca74a6e" name="a91592e6f3a821f4da3c81d8bbca74a6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91592e6f3a821f4da3c81d8bbca74a6e">&#9670;&#160;</a></span>fullmom</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:,:,:), allocatable m_derived_types::bub_bounds_info::fullmom</td>
+          <td class="memname">integer, dimension(:,:), allocatable m_derived_types::qbmm_idx_info::moms</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Moment indices for qbmm. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00445">445</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a3d9efc3c33b48d5f3f83034e7b96e43c" name="a3d9efc3c33b48d5f3f83034e7b96e43c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d9efc3c33b48d5f3f83034e7b96e43c">&#9670;&#160;</a></span>moms</h2>
+<a id="a9f126ab17fed4922e9ba845feee2cff6" name="a9f126ab17fed4922e9ba845feee2cff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f126ab17fed4922e9ba845feee2cff6">&#9670;&#160;</a></span>ms</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer, dimension(:,:), allocatable m_derived_types::bub_bounds_info::moms</td>
+          <td class="memname">integer, dimension(:), allocatable m_derived_types::qbmm_idx_info::ms</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Moment indices for qbmm. </p>
+<p>Mass moment indices per bubble bin. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00444">444</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a0aeed04f8b8072c124ed2cec4e23e78c" name="a0aeed04f8b8072c124ed2cec4e23e78c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aeed04f8b8072c124ed2cec4e23e78c">&#9670;&#160;</a></span>ms</h2>
+<a id="a929f371a5331d8dd08b86d3652d6f5fa" name="a929f371a5331d8dd08b86d3652d6f5fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a929f371a5331d8dd08b86d3652d6f5fa">&#9670;&#160;</a></span>ps</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer, dimension(:), allocatable m_derived_types::bub_bounds_info::ms</td>
+          <td class="memname">integer, dimension(:), allocatable m_derived_types::qbmm_idx_info::ps</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00443">443</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p>Pressure moment indices per bubble bin. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00435">435</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a6bed3e7dc94afeeb61216758ecf733dd" name="a6bed3e7dc94afeeb61216758ecf733dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bed3e7dc94afeeb61216758ecf733dd">&#9670;&#160;</a></span>ps</h2>
+<a id="a00c888e4b3ede7518e4c328519dafed7" name="a00c888e4b3ede7518e4c328519dafed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c888e4b3ede7518e4c328519dafed7">&#9670;&#160;</a></span>rs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer, dimension(:), allocatable m_derived_types::bub_bounds_info::ps</td>
+          <td class="memname">integer, dimension(:), allocatable m_derived_types::qbmm_idx_info::rs</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00442">442</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p>R moment indices per bubble bin. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00433">433</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aa3a7d88d4bc7e857c54d3e7b09784f85" name="aa3a7d88d4bc7e857c54d3e7b09784f85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3a7d88d4bc7e857c54d3e7b09784f85">&#9670;&#160;</a></span>rs</h2>
+<a id="adb586eaad9d9498bbe43d0f091f7ce72" name="adb586eaad9d9498bbe43d0f091f7ce72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb586eaad9d9498bbe43d0f091f7ce72">&#9670;&#160;</a></span>vs</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer, dimension(:), allocatable m_derived_types::bub_bounds_info::rs</td>
+          <td class="memname">integer, dimension(:), allocatable m_derived_types::qbmm_idx_info::vs</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00440">440</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p>V moment indices per bubble bin. </p>
 
-</div>
-</div>
-<a id="aafe6965d5ebb0a946bda443cfdd6b840" name="aafe6965d5ebb0a946bda443cfdd6b840"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafe6965d5ebb0a946bda443cfdd6b840">&#9670;&#160;</a></span>vs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable m_derived_types::bub_bounds_info::vs</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00441">441</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00434">434</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>

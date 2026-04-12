@@ -96,7 +96,7 @@ var searchData=
   ['fourier_5fsin_93',['fourier_sin',['../structm__derived__types_1_1ic__patch__parameters.html#ac9ef6fb398e78d6e9a578126e3650473',1,'m_derived_types::ic_patch_parameters']]],
   ['fp_94',['fp',['../structm__derived__types_1_1field__position.html#ab3739d21e99742473b7fdfb99b9d9dbe',1,'m_derived_types::field_position']]],
   ['frequency_95',['frequency',['../structm__derived__types_1_1acoustic__parameters.html#a2e07a70596715caaa5d4eca019cc7aec',1,'m_derived_types::acoustic_parameters::frequency'],['../namespacem__acoustic__src.html#ae58e593fe352876d15a8514a284f9355',1,'m_acoustic_src::frequency']]],
-  ['fullmom_96',['fullmom',['../structm__derived__types_1_1bub__bounds__info.html#a91592e6f3a821f4da3c81d8bbca74a6e',1,'m_derived_types::bub_bounds_info']]],
+  ['fullmom_96',['fullmom',['../structm__derived__types_1_1qbmm__idx__info.html#a49559aa1540ceb867c9f9792625606c4',1,'m_derived_types::qbmm_idx_info']]],
   ['fwd_5fplan_97',['fwd_plan',['../namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a',1,'m_fftw']]],
   ['fwd_5fplan_5fgpu_98',['fwd_plan_gpu',['../namespacem__fftw.html#ae218a57224a455f5d06b3804cff5bb08',1,'m_fftw']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['z_0',['z',['../structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4',1,'m_derived_types::vec3_dt']]],
+  ['z_0',['z',['../structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4',1,'m_derived_types::vec3_dt::z'],['../structm__derived__types_1_1bc__xyz__info.html#a5bb84a6338429074a84039185cef18b3',1,'m_derived_types::bc_xyz_info::z']]],
   ['z_5fa_1',['z_a',['../namespacem__global__parameters.html#ac9e26ad42e83104a1146a26c7ab7ba73',1,'m_global_parameters']]],
   ['z_5faccel_2',['z_accel',['../namespacem__derived__variables.html#a4a361321ed7068d74220d79b0a14e6c4',1,'m_derived_variables']]],
   ['z_5fb_3',['z_b',['../namespacem__global__parameters.html#a584f2ec6f19a23f55c31206c2ed8588f',1,'m_global_parameters']]],
