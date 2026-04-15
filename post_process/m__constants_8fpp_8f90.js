@@ -53,6 +53,7 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::nnode", "namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd", null ],
     [ "m_constants::num_bc_patches_max", "namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431", null ],
     [ "m_constants::num_fluids_max", "namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1", null ],
+    [ "m_constants::num_ib_patches_max", "namespacem__constants.html#a79dab2f2e7dd62e15f74542ae56a4b69", null ],
     [ "m_constants::num_patches_max", "namespacem__constants.html#a2678965621459e6045edb254772ffdb5", null ],
     [ "m_constants::num_probes_max", "namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1", null ],
     [ "m_constants::num_ray", "namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c", null ],

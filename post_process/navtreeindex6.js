@@ -1,5 +1,15 @@
 var NAVTREEINDEX6 =
 {
+"structm__derived__types_1_1vec3__dt.html":[2,0,1,11],
+"structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3":[1,0,9,11,0],
+"structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3":[2,0,1,11,0],
+"structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e":[1,0,9,11,1],
+"structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e":[2,0,1,11,1],
+"structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4":[1,0,9,11,2],
+"structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4":[2,0,1,11,2],
+"structm__derived__types_1_1vector__field.html":[1,0,9,10],
+"structm__derived__types_1_1vector__field.html":[2,0,1,10],
+"structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141":[1,0,9,10,0],
 "structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141":[2,0,1,10,0],
 "structm__nvtx_1_1nvtxeventattributes.html":[1,0,18,0],
 "structm__nvtx_1_1nvtxeventattributes.html":[2,0,2,0],

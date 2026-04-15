@@ -9,7 +9,7 @@ var searchData=
   ['p_5fz_6',['p_z',['../namespacem__global__parameters.html#a1f924d5ee4e2910cffe8e756a0c8657b',1,'m_global_parameters']]],
   ['palpha_5feps_7',['palpha_eps',['../namespacem__global__parameters.html#accff2b404b195640f75ff3feb91be626',1,'m_global_parameters']]],
   ['parallel_5fio_8',['parallel_io',['../namespacem__global__parameters.html#ac127ac2a9036e1cdb7e6c41159cacdfb',1,'m_global_parameters']]],
-  ['patch_5fib_9',['patch_ib',['../namespacem__global__parameters.html#a286c35fde024e91705d930b659a80247',1,'m_global_parameters']]],
+  ['patch_5fib_9',['patch_ib',['../namespacem__global__parameters.html#af8a08f8344b53f90176fcbb6a824fd1f',1,'m_global_parameters']]],
   ['path_5flen_10',['path_len',['../namespacem__constants.html#a7307e61136aff6d037cfe3fb99eefd14',1,'m_constants']]],
   ['pathlen_5fmax_11',['pathlen_max',['../namespacem__constants.html#a78c3f6cc5d1faa23da2ff4283e31fe4a',1,'m_constants']]],
   ['payload_12',['payload',['../structm__nvtx_1_1nvtxeventattributes.html#ab6e0c2774b92a4d2f715087211317f17',1,'m_nvtx::nvtxeventattributes']]],

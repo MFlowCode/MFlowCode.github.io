@@ -25,12 +25,13 @@ var searchData=
   ['num_5felements_22',['num_elements',['../structm__derived__types_1_1acoustic__parameters.html#a239997f41790fc0342874da21dcd0cd3',1,'m_derived_types::acoustic_parameters']]],
   ['num_5ffluids_23',['num_fluids',['../namespacem__global__parameters.html#a2f0b96a5aef3925aa7e3cc816754e17e',1,'m_global_parameters']]],
   ['num_5ffluids_5fmax_24',['num_fluids_max',['../namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1',1,'m_constants']]],
-  ['num_5fibs_25',['num_ibs',['../namespacem__global__parameters.html#af65a8b8e1a7209eab79c732e7d8b823f',1,'m_global_parameters']]],
-  ['num_5fpatches_26',['num_patches',['../namespacem__global__parameters.html#a5e346daa48cf24534ceca2f656a57255',1,'m_global_parameters']]],
-  ['num_5fpatches_5fmax_27',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
-  ['num_5fprobes_5fmax_28',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
-  ['num_5fprocs_29',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
-  ['num_5fray_30',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
-  ['num_5fstcls_5fmin_31',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
-  ['num_5fvels_32',['num_vels',['../namespacem__global__parameters.html#a8ca0573e3f7099650588d06aa62b8b9f',1,'m_global_parameters']]]
+  ['num_5fib_5fpatches_5fmax_25',['num_ib_patches_max',['../namespacem__constants.html#a79dab2f2e7dd62e15f74542ae56a4b69',1,'m_constants']]],
+  ['num_5fibs_26',['num_ibs',['../namespacem__global__parameters.html#af65a8b8e1a7209eab79c732e7d8b823f',1,'m_global_parameters']]],
+  ['num_5fpatches_27',['num_patches',['../namespacem__global__parameters.html#a5e346daa48cf24534ceca2f656a57255',1,'m_global_parameters']]],
+  ['num_5fpatches_5fmax_28',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
+  ['num_5fprobes_5fmax_29',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
+  ['num_5fprocs_30',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
+  ['num_5fray_31',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
+  ['num_5fstcls_5fmin_32',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
+  ['num_5fvels_33',['num_vels',['../namespacem__global__parameters.html#a8ca0573e3f7099650588d06aa62b8b9f',1,'m_global_parameters']]]
 ];

@@ -14,6 +14,7 @@ var m__helper_8fpp_8f90 =
     [ "m_helper::real_ylm", "namespacem__helper.html#aefc6e387638ded938f886f931436a7bf", null ],
     [ "m_helper::s_comp_n_from_cons", "namespacem__helper.html#aed8be5c8be0cadf256dece6f0912e475", null ],
     [ "m_helper::s_comp_n_from_prim", "namespacem__helper.html#a08118839702b15012f3801529dc38429", null ],
+    [ "m_helper::s_cross_product", "namespacem__helper.html#a1385ba5172103dd55e2b129e0ef58a65", null ],
     [ "m_helper::s_downsample_data", "namespacem__helper.html#adf827c606652ea511bd0befcc9164c03", null ],
     [ "m_helper::s_initialize_bubble_vars", "namespacem__helper.html#a6ff0892396e5406dc3b8015a64231a0f", null ],
     [ "m_helper::s_initialize_bubbles_model", "namespacem__helper.html#aafee3a041d8a8605e3aa18c585dd8106", null ],

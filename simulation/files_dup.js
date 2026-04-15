@@ -11,6 +11,7 @@ var files_dup =
     [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
     [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
     [ "m_chemistry.fpp.f90", "m__chemistry_8fpp_8f90.html", "m__chemistry_8fpp_8f90" ],
+    [ "m_collisions.fpp.f90", "m__collisions_8fpp_8f90.html", "m__collisions_8fpp_8f90" ],
     [ "m_compute_cbc.fpp.f90", "m__compute__cbc_8fpp_8f90.html", "m__compute__cbc_8fpp_8f90" ],
     [ "m_compute_levelset.fpp.f90", "m__compute__levelset_8fpp_8f90.html", "m__compute__levelset_8fpp_8f90" ],
     [ "m_constants.fpp.f90", "m__constants_8fpp_8f90.html", "m__constants_8fpp_8f90" ],

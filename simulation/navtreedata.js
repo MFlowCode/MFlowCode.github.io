@@ -57,14 +57,14 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__bubbles.html",
-"namespacem__constants.html#ab7da26d9dc45c51080b93fcfa82696cb",
-"namespacem__global__parameters.html#a8295138842cfff132727bf7f3c7418d6",
-"namespacem__igr.html#a29f4b6b582d6a8c49c491b8afa9d8d70",
-"namespacem__sim__helpers.html#a3c26ca717ef0246e7e32d91b00d6f0da",
-"structm__derived__types_1_1acoustic__parameters.html#ac85b2712678cace28a685de797b4655a",
-"structm__derived__types_1_1ic__model__parameters.html#af1e8c1987454e6d51d3a81e531b631f4",
-"structm__derived__types_1_1riemann__states__vec3.html#ab36ff8fd69ae4e57df3d956f3755100c"
+"namespacem__boundary__common.html#aef10931a41245ef363814eb200ad35af",
+"namespacem__constants.html#a80147c26022bec4383d74045e804ac0b",
+"namespacem__global__parameters.html#a6ec3255c636f81f84dd7311ed7337fc7",
+"namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff",
+"namespacem__riemann__solvers.html#a6c9d70572e9b98586bab20b028557a5a",
+"structm__derived__types_1_1acoustic__parameters.html#a2a5926c776adbec01398ff354324b836",
+"structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7",
+"structm__derived__types_1_1qbmm__idx__info.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

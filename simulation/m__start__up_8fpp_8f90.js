@@ -8,6 +8,7 @@ var m__start__up_8fpp_8f90 =
     [ "m_start_up::s_initialize_mpi_domain", "namespacem__start__up.html#ab64542f13c680e17ce8879c77c65c0e0", null ],
     [ "m_start_up::s_perform_time_step", "namespacem__start__up.html#ae28835629de9baa7fd546672a0add0e5", null ],
     [ "m_start_up::s_read_data_files", "namespacem__start__up.html#a25f79bc2aae3d0302d4a97247d84f92a", null ],
+    [ "m_start_up::s_read_ib_restart_data", "namespacem__start__up.html#a7ed6b81661e36c8643a181c3ebc36d13", null ],
     [ "m_start_up::s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
     [ "m_start_up::s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
     [ "m_start_up::s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],

@@ -466,6 +466,14 @@ Elliptic Smoothing</h4>
 <td class="markdownTableBodyRight"><span class="tt">vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial velocity of the moving IB in the i-th direction.  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">angular_vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial angular velocity of the moving IB in the i-th direction.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">coefficient_of_restitution</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">A number 0 to 1 describing how elastic IB collisions are  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">collision_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Integer to select the collision model being used for IB collisions.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">ib_coefficient_of_friction</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coefficient of friction used in IB collisions  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">patch_ib(j)%</span> where $j$ is the patch index.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
@@ -482,6 +490,10 @@ Parameter Descriptions</h4>
 <li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon it's own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces.</li>
 <li><span class="tt">vel(i)</span> is the initial linear velocity of the IB in the x, y, z direction for i=1, 2, 3. When <span class="tt">moving_ibm</span> equals 2, this velocity is just the starting speed of the object, which will then accelerate due to external forces. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>
 <li><span class="tt">angular_vel(i)</span> is the initial angular velocity of the IB about the x, y, z axes for i=1, 2, 3 in radians per second. When <span class="tt">moving_ibm</span> equals 2, this rotation rate is just the starting rate of the object, which will then change due to external torques. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>
+<li><span class="tt">coefficient_of_restitution</span> is a number from 0 (exclusive) to 1 (inclusive) describing how elastic IB collisions are. 0 is for perfectly inellastic collisions while 1 is for perfectly ellastic collisions.</li>
+<li><span class="tt">collision_model</span> is an integer to select the collision model being used for IB collisions. Using 0 disables collisions and collisiono checking. 1 enables the soft-sphere collision model, where all IBs must be circles or sphere and those IBs can collide with each other as well as walls.</li>
+<li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring gonstant used to apply collision forces.</li>
+<li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="sec-fluid-materials"></a>
 5. Fluid Material's</h3>
