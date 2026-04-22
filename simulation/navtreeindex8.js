@@ -1,6 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"structm__derived__types_1_1qbmm__idx__info.html":[1,0,18,17],
 "structm__derived__types_1_1qbmm__idx__info.html":[2,0,0,17],
 "structm__derived__types_1_1qbmm__idx__info.html#a00c888e4b3ede7518e4c328519dafed7":[1,0,18,17,4],
 "structm__derived__types_1_1qbmm__idx__info.html#a00c888e4b3ede7518e4c328519dafed7":[2,0,0,17,4],

@@ -171,8 +171,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:af540d4f9ab19dc261e7342dd75564f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open center-of-mass data files for writing.  <br /></td></tr>
 <tr class="memitem:a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31" id="r_a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31">s_open_probe_files</a></td></tr>
 <tr class="memdesc:a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open flow probe data files for writing.  <br /></td></tr>
-<tr class="memitem:ab745312ff9097b608d363333271a1df5" id="r_ab745312ff9097b608d363333271a1df5"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ab745312ff9097b608d363333271a1df5">s_open_ib_state_file</a></td></tr>
-<tr class="memdesc:ab745312ff9097b608d363333271a1df5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the immersed boundary state file for binary output.  <br /></td></tr>
 <tr class="memitem:ac4254f90208d2808b6b214e857e79d9a" id="r_ac4254f90208d2808b6b214e857e79d9a"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac4254f90208d2808b6b214e857e79d9a">s_write_run_time_information</a> (q_prim_vf, t_step)</td></tr>
 <tr class="memdesc:ac4254f90208d2808b6b214e857e79d9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write stability criteria extrema to the run-time information file at the given time step.  <br /></td></tr>
 <tr class="memitem:aa24a29afef33c331f912d6d57dbbc5fd" id="r_aa24a29afef33c331f912d6d57dbbc5fd"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa24a29afef33c331f912d6d57dbbc5fd">s_write_serial_data_files</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, q_prim_vf, t_step, bc_type, beta)</td></tr>
@@ -185,8 +183,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aedabc28a11a6ded24cf19cc5d46692a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write immersed boundary marker data in parallel using MPI I/O.  <br /></td></tr>
 <tr class="memitem:afea5c151b85111d7df711e1ccb50813f" id="r_afea5c151b85111d7df711e1ccb50813f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afea5c151b85111d7df711e1ccb50813f">s_write_ib_data_file</a> (time_step)</td></tr>
 <tr class="memdesc:afea5c151b85111d7df711e1ccb50813f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatch immersed boundary data output to the serial or parallel writer.  <br /></td></tr>
-<tr class="memitem:a418880f397845f02cf78a1df64b6c563" id="r_a418880f397845f02cf78a1df64b6c563"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a418880f397845f02cf78a1df64b6c563">s_write_ib_state_file</a> ()</td></tr>
-<tr class="memdesc:a418880f397845f02cf78a1df64b6c563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0.  <br /></td></tr>
+<tr class="memitem:a53a556dc3fa26f1f97eb2044e8391997" id="r_a53a556dc3fa26f1f97eb2044e8391997"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a53a556dc3fa26f1f97eb2044e8391997">s_write_parallel_ib_state</a> (t_step)</td></tr>
+<tr class="memdesc:a53a556dc3fa26f1f97eb2044e8391997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the IB state information out to file.  <br /></td></tr>
+<tr class="memitem:a865687c6a3188efbd71b29b439302ec1" id="r_a865687c6a3188efbd71b29b439302ec1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a865687c6a3188efbd71b29b439302ec1">s_write_serial_ib_state</a> (t_step)</td></tr>
+<tr class="memdesc:a865687c6a3188efbd71b29b439302ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write IB state data to a per-timestep serial (unformatted) file.  <br /></td></tr>
+<tr class="memitem:ad7b2f63ea430ad1518152658c5488dcf" id="r_ad7b2f63ea430ad1518152658c5488dcf"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad7b2f63ea430ad1518152658c5488dcf">s_write_ib_state_file</a> (time_step)</td></tr>
+<tr class="memdesc:ad7b2f63ea430ad1518152658c5488dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0.  <br /></td></tr>
 <tr class="memitem:a70e92efb50b956fd5ceeedfccac1faeb" id="r_a70e92efb50b956fd5ceeedfccac1faeb"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a70e92efb50b956fd5ceeedfccac1faeb">s_write_com_files</a> (t_step, c_mass_in)</td></tr>
 <tr class="memdesc:a70e92efb50b956fd5ceeedfccac1faeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write center-of-mass data at the current time step.  <br /></td></tr>
 <tr class="memitem:a52814dea8c93b2edeaab7f76eb9a89e5" id="r_a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a52814dea8c93b2edeaab7f76eb9a89e5">s_write_probe_files</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, accel_mag)</td></tr>
@@ -197,8 +199,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ac19d0dbc33765e1f78a4e1e2e943c780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes communication files.  <br /></td></tr>
 <tr class="memitem:abeb42ab4ffa4110da8e14af7ee30cc87" id="r_abeb42ab4ffa4110da8e14af7ee30cc87"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#abeb42ab4ffa4110da8e14af7ee30cc87">s_close_probe_files</a></td></tr>
 <tr class="memdesc:abeb42ab4ffa4110da8e14af7ee30cc87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes probe files.  <br /></td></tr>
-<tr class="memitem:aee78910179c1598df1a9b54b9e5cd1b4" id="r_aee78910179c1598df1a9b54b9e5cd1b4"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aee78910179c1598df1a9b54b9e5cd1b4">s_close_ib_state_file</a></td></tr>
-<tr class="memdesc:aee78910179c1598df1a9b54b9e5cd1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the immersed boundary state file.  <br /></td></tr>
 <tr class="memitem:a795efa6dc563a04a903c13a960089a58" id="r_a795efa6dc563a04a903c13a960089a58"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a795efa6dc563a04a903c13a960089a58">s_initialize_data_output_module</a></td></tr>
 <tr class="memdesc:a795efa6dc563a04a903c13a960089a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the data output module.  <br /></td></tr>
 <tr class="memitem:a81d3138233e0f1a797c930dbf9543d71" id="r_a81d3138233e0f1a797c930dbf9543d71"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a81d3138233e0f1a797c930dbf9543d71">s_finalize_data_output_module</a></td></tr>
@@ -206,8 +206,6 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a9dec45ea1457583c89b7abeda19896a4" id="r_a9dec45ea1457583c89b7abeda19896a4"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a9dec45ea1457583c89b7abeda19896a4">ib_state_unit</a> = -1</td></tr>
-<tr class="memdesc:a9dec45ea1457583c89b7abeda19896a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">I/O unit for IB state binary file.  <br /></td></tr>
 <tr class="memitem:af3a2e325999343dd3c641a11e8e23153" id="r_af3a2e325999343dd3c641a11e8e23153"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af3a2e325999343dd3c641a11e8e23153">icfl_sf</a></td></tr>
 <tr class="memdesc:af3a2e325999343dd3c641a11e8e23153"><td class="mdescLeft">&#160;</td><td class="mdescRight">ICFL stability criterion.  <br /></td></tr>
 <tr class="memitem:a4a5689f2582a5354e5f4889c39d90d93" id="r_a4a5689f2582a5354e5f4889c39d90d93"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a4a5689f2582a5354e5f4889c39d90d93">vcfl_sf</a></td></tr>
@@ -250,25 +248,7 @@ Variables</h2></td></tr>
 
 <p>Closes communication files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02070">2070</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="aee78910179c1598df1a9b54b9e5cd1b4" name="aee78910179c1598df1a9b54b9e5cd1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee78910179c1598df1a9b54b9e5cd1b4">&#9670;&#160;</a></span>s_close_ib_state_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine, public m_data_output::s_close_ib_state_file</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Close the immersed boundary state file. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02092">2092</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02157">2157</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -286,7 +266,7 @@ Variables</h2></td></tr>
 
 <p>Closes probe files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02081">2081</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02168">2168</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -304,7 +284,7 @@ Variables</h2></td></tr>
 
 <p>Write footer with stability criteria extrema and run-time to the information file, then close it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02049">2049</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02136">2136</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -322,7 +302,7 @@ Variables</h2></td></tr>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02262">2262</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02342">2342</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -345,7 +325,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the data output module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02099">2099</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02179">2179</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -368,30 +348,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open center-of-mass data files for writing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="ab745312ff9097b608d363333271a1df5" name="ab745312ff9097b608d363333271a1df5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab745312ff9097b608d363333271a1df5">&#9670;&#160;</a></span>s_open_ib_state_file()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure subroutine, public m_data_output::s_open_ib_state_file</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Open the immersed boundary state file for binary output. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00514">514</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_ab745312ff9097b608d363333271a1df5_cgraph.svg" width="384" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -409,7 +366,7 @@ Here is the call graph for this function:</div>
 
 <p>Open flow probe data files for writing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00483">483</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00481">481</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -427,7 +384,7 @@ Here is the call graph for this function:</div>
 
 <p>Open the run-time information file and write the stability criteria table header. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00424">424</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -452,7 +409,7 @@ Here is the call graph for this function:</div>
 
 <p>Write center-of-mass data at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01420">1420</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01507">1507</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -497,7 +454,7 @@ Here is the call graph for this function:</div>
 
 <p>Write data files. Dispatch subroutine that replaces procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -528,7 +485,7 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch immersed boundary data output to the serial or parallel writer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01394">1394</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01372">1372</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -542,25 +499,33 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a418880f397845f02cf78a1df64b6c563" name="a418880f397845f02cf78a1df64b6c563"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a418880f397845f02cf78a1df64b6c563">&#9670;&#160;</a></span>s_write_ib_state_file()</h2>
+<a id="ad7b2f63ea430ad1518152658c5488dcf" name="ad7b2f63ea430ad1518152658c5488dcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b2f63ea430ad1518152658c5488dcf">&#9670;&#160;</a></span>s_write_ib_state_file()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine, public m_data_output::s_write_ib_state_file</td>
+          <td class="memname">impure subroutine, public m_data_output::s_write_ib_state_file </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>time_step</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01407">1407</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01494">1494</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_ad7b2f63ea430ad1518152658c5488dcf_cgraph.svg" width="607" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a418880f397845f02cf78a1df64b6c563_icgraph.svg" width="536" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_ad7b2f63ea430ad1518152658c5488dcf_icgraph.svg" width="536" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -596,7 +561,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write grid and conservative variable data files in parallel via MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01123">1123</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01101">1101</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -635,11 +600,50 @@ Here is the caller graph for this function:</div>
 
 <p>Write immersed boundary marker data in parallel using MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01347">1347</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01325">1325</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_aedabc28a11a6ded24cf19cc5d46692a5_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a53a556dc3fa26f1f97eb2044e8391997" name="a53a556dc3fa26f1f97eb2044e8391997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a556dc3fa26f1f97eb2044e8391997">&#9670;&#160;</a></span>s_write_parallel_ib_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_data_output::s_write_parallel_ib_state </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes the IB state information out to file. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01385">1385</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a53a556dc3fa26f1f97eb2044e8391997_cgraph.svg" width="384" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a53a556dc3fa26f1f97eb2044e8391997_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -670,7 +674,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write flow probe data at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01453">1453</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01540">1540</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -700,7 +704,7 @@ Here is the call graph for this function:</div>
 
 <p>Write stability criteria extrema to the run-time information file at the given time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00512">512</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -750,7 +754,7 @@ Here is the call graph for this function:</div>
 
 <p>Write grid and conservative variable data files in serial format. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00755">755</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00733">733</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -789,11 +793,50 @@ Here is the caller graph for this function:</div>
 
 <p>Write immersed boundary marker data to a serial (per-processor) unformatted file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01319">1319</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01297">1297</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a88654d382efaa311752d6d3119f22fa4_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a865687c6a3188efbd71b29b439302ec1" name="a865687c6a3188efbd71b29b439302ec1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a865687c6a3188efbd71b29b439302ec1">&#9670;&#160;</a></span>s_write_serial_ib_state()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_data_output::s_write_serial_ib_state </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write IB state data to a per-timestep serial (unformatted) file. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01458">1458</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a865687c6a3188efbd71b29b439302ec1_cgraph.svg" width="384" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a865687c6a3188efbd71b29b439302ec1_icgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -811,33 +854,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00355">355</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a9dec45ea1457583c89b7abeda19896a4" name="a9dec45ea1457583c89b7abeda19896a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9dec45ea1457583c89b7abeda19896a4">&#9670;&#160;</a></span>ib_state_unit</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_data_output::ib_state_unit = -1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>I/O unit for IB state binary file. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -863,7 +880,7 @@ Here is the caller graph for this function:</div>
 
 <p>ICFL criterion maximum. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -889,7 +906,7 @@ Here is the caller graph for this function:</div>
 
 <p>ICFL stability extrema on local and global grids. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -913,7 +930,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -939,7 +956,7 @@ Here is the caller graph for this function:</div>
 
 <p>ICFL stability criterion. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -963,7 +980,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -989,7 +1006,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rc criterion maximum. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1015,7 +1032,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rc stability extrema on local and global grids. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00370">370</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1039,7 +1056,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00370">370</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1065,7 +1082,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rc stability criterion. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00354">354</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1091,7 +1108,7 @@ Here is the caller graph for this function:</div>
 
 <p>VCFL criterion maximum. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1117,7 +1134,7 @@ Here is the caller graph for this function:</div>
 
 <p>VCFL stability extrema on local and global grids. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1141,7 +1158,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1167,7 +1184,7 @@ Here is the caller graph for this function:</div>
 
 <p>VCFL stability criterion. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
