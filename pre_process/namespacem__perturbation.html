@@ -169,8 +169,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a2a73896e9dae92c7a3d973e069eef753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly perturb partial density fields at the interface of a spherical volume fraction region.  <br /></td></tr>
 <tr class="memitem:a2f301707648fd0f0f5c215c439cdc171" id="r_a2f301707648fd0f0f5c215c439cdc171"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2f301707648fd0f0f5c215c439cdc171">s_perturb_surrounding_flow</a> (q_prim_vf)</td></tr>
 <tr class="memdesc:a2f301707648fd0f0f5c215c439cdc171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add random noise to the velocity and void fraction of the surrounding flow field.  <br /></td></tr>
-<tr class="memitem:a035378d69a4ac383a84227d47b13cb0b" id="r_a035378d69a4ac383a84227d47b13cb0b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a035378d69a4ac383a84227d47b13cb0b">s_elliptic_smoothing</a> (q_prim_vf, bc_type)</td></tr>
-<tr class="memdesc:a035378d69a4ac383a84227d47b13cb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iteratively smooth all primitive variable fields using a discrete elliptic (Laplacian) filter.  <br /></td></tr>
+<tr class="memitem:a9a4020ba748540965324f6c18ae71e7b" id="r_a9a4020ba748540965324f6c18ae71e7b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9a4020ba748540965324f6c18ae71e7b">s_elliptic_smoothing</a> (q_prim_vf, bc_type, q_t_sf)</td></tr>
+<tr class="memdesc:a9a4020ba748540965324f6c18ae71e7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iteratively smooth all primitive variable fields using a discrete elliptic (Laplacian) filter.  <br /></td></tr>
 <tr class="memitem:ab924ad132a3b19adeaa3494830f63937" id="r_ab924ad132a3b19adeaa3494830f63937"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab924ad132a3b19adeaa3494830f63937">s_perturb_simplex</a> (q_prim_vf)</td></tr>
 <tr class="memdesc:ab924ad132a3b19adeaa3494830f63937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perturb velocity and volume fraction fields using multi-octave simplex noise.  <br /></td></tr>
 <tr class="memitem:afa02cfb00a8406637b02037a5d8a05ae" id="r_afa02cfb00a8406637b02037a5d8a05ae"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#afa02cfb00a8406637b02037a5d8a05ae">s_perturb_mixlayer</a> (q_prim_vf)</td></tr>
@@ -214,7 +214,7 @@ Variables</h2></td></tr>
 
 <p>Generate a unit vector uniformly distributed on the sphere from two random parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00337">337</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00338">338</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -240,7 +240,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute a modular multiplication step for the linear congruential pseudo-random number generator. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00363">363</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00364">364</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -249,8 +249,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a035378d69a4ac383a84227d47b13cb0b" name="a035378d69a4ac383a84227d47b13cb0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a035378d69a4ac383a84227d47b13cb0b">&#9670;&#160;</a></span>s_elliptic_smoothing()</h2>
+<a id="a9a4020ba748540965324f6c18ae71e7b" name="a9a4020ba748540965324f6c18ae71e7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a4020ba748540965324f6c18ae71e7b">&#9670;&#160;</a></span>s_elliptic_smoothing()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +263,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters.html#a76e251296a28212df87bf9f653ff9a3b">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout), optional</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -274,12 +279,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a035378d69a4ac383a84227d47b13cb0b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a9a4020ba748540965324f6c18ae71e7b_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a035378d69a4ac383a84227d47b13cb0b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a9a4020ba748540965324f6c18ae71e7b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -298,7 +303,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate the temporary primitive variable array used by elliptic smoothing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00376">376</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00377">377</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -338,7 +343,7 @@ Here is the caller graph for this function:</div>
 
 <p>Generate deterministic pseudo-random wave vector, polarization, and phase for a perturbation mode. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00311">311</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00312">312</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -387,7 +392,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute velocity perturbations for a temporal mixing layer with a hyperbolic tangent mean streamwise velocity profile, using an inverted version of the spectrum-based synthetic turbulence generation method proposed by Guo et al. (2023, JFM). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00234">234</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00235">235</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -418,7 +423,7 @@ Here is the caller graph for this function:</div>
 
 <p>Perturb velocity and volume fraction fields using multi-octave simplex noise. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00146">146</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00147">147</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -505,7 +510,7 @@ Here is the caller graph for this function:</div>
 
 <p>Generate a pseudo-random number between 0 and 1 using a linear congruential generator. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

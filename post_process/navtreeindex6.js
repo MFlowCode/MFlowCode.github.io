@@ -1,5 +1,13 @@
 var NAVTREEINDEX6 =
 {
+"structm__derived__types_1_1t__ray.html#a681d849fe089b0f1dc840be1a7684998":[2,0,1,23,1],
+"structm__derived__types_1_1t__ray.html#acccd7f3317e17e0f171b4619b041b560":[1,0,9,23,0],
+"structm__derived__types_1_1t__ray.html#acccd7f3317e17e0f171b4619b041b560":[2,0,1,23,0],
+"structm__derived__types_1_1t__triangle.html":[1,0,9,22],
+"structm__derived__types_1_1t__triangle.html":[2,0,1,22],
+"structm__derived__types_1_1t__triangle.html#ac16f232389b96d3c939e78cddb1634f6":[1,0,9,22,1],
+"structm__derived__types_1_1t__triangle.html#ac16f232389b96d3c939e78cddb1634f6":[2,0,1,22,1],
+"structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85":[1,0,9,22,0],
 "structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85":[2,0,1,22,0],
 "structm__derived__types_1_1vec3__dt.html":[1,0,9,11],
 "structm__derived__types_1_1vec3__dt.html":[2,0,1,11],

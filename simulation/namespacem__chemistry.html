@@ -171,8 +171,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ae589845a052b6989808e9d9a098c3c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the temperature field from primitive variables using the ideal gas law and mixture molecular weight.  <br /></td></tr>
 <tr class="memitem:a953d58cda7b882aa82ecf5f646bba0f6" id="r_a953d58cda7b882aa82ecf5f646bba0f6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a953d58cda7b882aa82ecf5f646bba0f6">s_compute_chemistry_reaction_flux</a> (rhs_vf, q_cons_qp, q_t_sf, q_prim_qp, bounds)</td></tr>
 <tr class="memdesc:a953d58cda7b882aa82ecf5f646bba0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add chemical reaction source terms to the species transport RHS using net production rates.  <br /></td></tr>
-<tr class="memitem:a1159c680cff8e03bf5c5e1514ad75f92" id="r_a1159c680cff8e03bf5c5e1514ad75f92"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1159c680cff8e03bf5c5e1514ad75f92">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_vf, irx, iry, irz)</td></tr>
-<tr class="memdesc:a1159c680cff8e03bf5c5e1514ad75f92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
+<tr class="memitem:a55a54a1b3fd9a34cc80b7a38c747dbfb" id="r_a55a54a1b3fd9a34cc80b7a38c747dbfb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a55a54a1b3fd9a34cc80b7a38c747dbfb">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_vf, irx, iry, irz, q_t_sf)</td></tr>
+<tr class="memdesc:a55a54a1b3fd9a34cc80b7a38c747dbfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -234,8 +234,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a1159c680cff8e03bf5c5e1514ad75f92" name="a1159c680cff8e03bf5c5e1514ad75f92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1159c680cff8e03bf5c5e1514ad75f92">&#9670;&#160;</a></span>s_compute_chemistry_diffusion_flux()</h2>
+<a id="a55a54a1b3fd9a34cc80b7a38c747dbfb" name="a55a54a1b3fd9a34cc80b7a38c747dbfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55a54a1b3fd9a34cc80b7a38c747dbfb">&#9670;&#160;</a></span>s_compute_chemistry_diffusion_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,7 +268,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>irz</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>irz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

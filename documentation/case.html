@@ -1306,7 +1306,22 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
-18. GPU Performance (NVIDIA UVM)</h3>
+18. Chemistry-Specific Boundary Conditions</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%isothermal_in</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable isothermal wall at the domain entrance (minimum coordinate).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%isothermal_out</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable isothermal wall at the domain exit (maximum coordinate).  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%Twall_in</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Temperature [K] of the entrance isothermal wall.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%Twall_out</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Temperature [K] of the exit isothermal wall.  </td></tr>
+</table>
+<p>This boundary condition can be used for fixed-temperature (isothermal) walls at the domain extremities. It is exclusively available for reacting flows and requires chemistry to be enabled. It properly evaluates heat and species fluxes at the interface when <span class="tt">chemistry = 'T'</span>, <span class="tt">chem_params%diffusion = 'T'</span>, and the corresponding domain boundary is set to a slip wall (<span class="tt">bc_[x,y,z]%%[beg,end]</span> = -15) or a no-slip wall (<span class="tt">bc_[x,y,z]%%[beg,end]</span> = -16).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+19. GPU Performance (NVIDIA UVM)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
@@ -1320,7 +1335,7 @@ Adaptive Time-Stepping</h5>
 <ul>
 <li>These parameters are for NVIDIA Grace-Hopper and similar architectures with hardware-managed unified memory. They allow MFC to run problems larger than GPU memory by paging data between host and device.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
 Enumerations</h2>
 <h3 class="doxsection"><a class="anchor" id="boundary-conditions"></a>
 Boundary conditions</h3>
@@ -1360,7 +1375,7 @@ Boundary conditions</h3>
 </table>
 <p>*: This boundary condition is only used for <span class="tt">bc_y%beg</span> when using cylindrical coordinates (<span class="tt">cyl_coord = 'T'</span> and 3D). For axisymmetric problems, use <span class="tt">bc_y%beg = -2</span> with <span class="tt">cyl_coord = 'T'</span> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table <a class="el" href="#boundary-conditions" title="Boundary conditions">Boundary Conditions</a>. Their number (<span class="tt">#</span>) corresponds to the input value in <span class="tt">input.py</span> labeled <span class="tt">bc_[x,y,z]%[beg,end]</span> (see table <a class="el" href="#sec-simulation-algorithm" title="6. Simulation Algorithm">Simulation Algorithm Parameters</a>). The entries labeled "Characteristic." are characteristic boundary conditions based on Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[47]</a> and Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[48]</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Generalized Characteristic Boundary conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1509,7 +1524,7 @@ Acoustic Supports</h3>
 <li><span class="tt">%support = 10</span> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <span class="tt">%support = 9</span> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <span class="tt">%support = 9</span> around the x-axis.</li>
 <li><span class="tt">%support = 11</span> specifies a circular transducer array in 3D simulation. The total aperture of the array is <span class="tt">%aperture</span>, which is similar to <span class="tt">%support = 7</span>. The parameters <span class="tt">%num_elements</span>, <span class="tt">%element_polygon_ratio</span>, and <span class="tt">%rotate_angle</span> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <span class="tt">%num_elements</span>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
 Conservative Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1535,7 +1550,7 @@ Conservative Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 Primitive Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">

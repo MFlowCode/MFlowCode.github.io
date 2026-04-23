@@ -31,5 +31,7 @@ var searchData=
   ['trs_5fn_28',['trs_n',['../structm__derived__types_1_1t__model__array.html#aa61f8b7ddd680265f5fa6f429ba1e33c',1,'m_derived_types::t_model_array']]],
   ['trs_5fv_29',['trs_v',['../structm__derived__types_1_1t__model__array.html#a16cbb2e22098ab20965581d7f974bb7f',1,'m_derived_types::t_model_array']]],
   ['tw_30',['tw',['../namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef',1,'m_global_parameters']]],
-  ['type_31',['type',['../structm__derived__types_1_1bc__patch__parameters.html#a55ea2d5cce3624c5da2d61dc5f33142b',1,'m_derived_types::bc_patch_parameters']]]
+  ['twall_5fin_31',['twall_in',['../structm__derived__types_1_1int__bounds__info.html#a21dea59671b40cd15b1c03e268251d2e',1,'m_derived_types::int_bounds_info']]],
+  ['twall_5fout_32',['twall_out',['../structm__derived__types_1_1int__bounds__info.html#a08e5d4d4eeb3c912fc0319ca14157735',1,'m_derived_types::int_bounds_info']]],
+  ['type_33',['type',['../structm__derived__types_1_1bc__patch__parameters.html#a55ea2d5cce3624c5da2d61dc5f33142b',1,'m_derived_types::bc_patch_parameters']]]
 ];
