@@ -323,6 +323,10 @@ run</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--clean</span>  </td><td class="markdownTableBodyNone">Clean the case before running.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--archive</span>  </td><td class="markdownTableBodyNone">(Interactive) Archive case inputs and outputs to PATH after the run completes.  </td><td class="markdownTableBodyNone">-  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--archive-format</span>  </td><td class="markdownTableBodyNone">(Interactive) Archive container format: dir (default), tar, or tar.zst.  </td><td class="markdownTableBodyNone"><span class="tt">dir</span>  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--ncu</span>  </td><td class="markdownTableBodyNone">Profile with NVIDIA Nsight Compute.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--nsys</span>  </td><td class="markdownTableBodyNone">Profile with NVIDIA Nsight Systems.  </td><td class="markdownTableBodyNone">-  </td></tr>
@@ -351,6 +355,12 @@ run</h3>
 <div class="line"> </div>
 <div class="line"># Submit batch job: 2 nodes, 4 ranks/node</div>
 <div class="line">./mfc.sh run case.py -e batch -N 2 -n 4</div>
+<div class="line"> </div>
+<div class="line"># Archive run into /mnt/nas/mfc-runs/&lt;name&gt;-&lt;timestamp&gt;/</div>
+<div class="line">./mfc.sh run case.py --archive /mnt/nas/mfc-runs</div>
+<div class="line"> </div>
+<div class="line"># Archive as a compressed tarball</div>
+<div class="line">./mfc.sh run case.py --archive /mnt/nas/mfc-runs --archive-format tar.zst</div>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="test"></a>
 test</h3>
@@ -984,7 +994,7 @@ Verbosity (<span class="tt">-v, --verbose</span>)</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md81"></a>
 Debug Logging (<span class="tt">-d, --debug-log</span>)</h3>
 <p>Enables debug logging for the Python toolchain (mfc.sh internals). This is for troubleshooting the build system, not the MFC simulation code.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-04-24</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-04-25</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
