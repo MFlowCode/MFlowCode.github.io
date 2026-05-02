@@ -84,10 +84,11 @@ var searchData=
   ['mu_5fl_81',['mu_l',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#ae3f8193c791a859fb891777567d35c71',1,'m_derived_types::subgrid_bubble_physical_parameters::mu_l'],['../namespacem__global__parameters.html#a52a7d514023449c6d73abfd4a6f68fe6',1,'m_global_parameters::mu_l']]],
   ['mu_5fv_82',['mu_v',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a80045fb7cdc7b094356177f879b0510b',1,'m_derived_types::subgrid_bubble_physical_parameters::mu_v'],['../namespacem__global__parameters.html#a6ec3255c636f81f84dd7311ed7337fc7',1,'m_global_parameters::mu_v']]],
   ['multiplier_83',['multiplier',['../namespacem__constants.html#ab669e1862f7d937318cd697cd2a68a04',1,'m_constants']]],
-  ['muscl_5flim_84',['muscl_lim',['../namespacem__global__parameters.html#af78df6e050c9e5ad5834f66df429f704',1,'m_global_parameters']]],
-  ['muscl_5forder_85',['muscl_order',['../namespacem__global__parameters.html#a553f3c94d53e408a78574b5340ecf4a3',1,'m_global_parameters']]],
-  ['muscl_5fpolyn_86',['muscl_polyn',['../namespacem__global__parameters.html#ae12e77da80bcbc3ed509650ef107d7a7',1,'m_global_parameters']]],
-  ['muscl_5ftype_87',['muscl_type',['../namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614',1,'m_constants']]],
-  ['mv_5fts_88',['mv_ts',['../namespacem__global__parameters.html#a849db5b91ee7fdb34c885364ddacaafa',1,'m_global_parameters']]],
-  ['mytime_89',['mytime',['../namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c',1,'m_global_parameters']]]
+  ['muscl_5feps_84',['muscl_eps',['../namespacem__global__parameters.html#ad8295e5bbae90c7140835e757047b9eb',1,'m_global_parameters']]],
+  ['muscl_5flim_85',['muscl_lim',['../namespacem__global__parameters.html#af78df6e050c9e5ad5834f66df429f704',1,'m_global_parameters']]],
+  ['muscl_5forder_86',['muscl_order',['../namespacem__global__parameters.html#a553f3c94d53e408a78574b5340ecf4a3',1,'m_global_parameters']]],
+  ['muscl_5fpolyn_87',['muscl_polyn',['../namespacem__global__parameters.html#ae12e77da80bcbc3ed509650ef107d7a7',1,'m_global_parameters']]],
+  ['muscl_5ftype_88',['muscl_type',['../namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614',1,'m_constants']]],
+  ['mv_5fts_89',['mv_ts',['../namespacem__global__parameters.html#a849db5b91ee7fdb34c885364ddacaafa',1,'m_global_parameters']]],
+  ['mytime_90',['mytime',['../namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c',1,'m_global_parameters']]]
 ];

@@ -609,6 +609,7 @@ var namespaces_dup =
       [ "mu_g", "namespacem__global__parameters.html#a770909fa2c18653adbd78795d9ea44db", null ],
       [ "mu_l", "namespacem__global__parameters.html#a52a7d514023449c6d73abfd4a6f68fe6", null ],
       [ "mu_v", "namespacem__global__parameters.html#a6ec3255c636f81f84dd7311ed7337fc7", null ],
+      [ "muscl_eps", "namespacem__global__parameters.html#ad8295e5bbae90c7140835e757047b9eb", null ],
       [ "muscl_lim", "namespacem__global__parameters.html#af78df6e050c9e5ad5834f66df429f704", null ],
       [ "muscl_order", "namespacem__global__parameters.html#a553f3c94d53e408a78574b5340ecf4a3", null ],
       [ "muscl_polyn", "namespacem__global__parameters.html#ae12e77da80bcbc3ed509650ef107d7a7", null ],

@@ -60,8 +60,8 @@ var NAVTREEINDEX =
 "namespacem__boundary__common.html#afb277dc5e7d82c3cc41035bcb9c60dac",
 "namespacem__constants.html#a80147c26022bec4383d74045e804ac0b",
 "namespacem__global__parameters.html#a6ed5e5561c16f30a4010f6612877029d",
-"namespacem__ibm.html#a127d40085cc8ab5bdcde0f7cf894e92f",
-"namespacem__riemann__solvers.html#a6cea0144511b3c7e347b17078472dd9a",
+"namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff",
+"namespacem__riemann__solvers.html#a6c9d70572e9b98586bab20b028557a5a",
 "structm__derived__types_1_1acoustic__parameters.html#a2a5926c776adbec01398ff354324b836",
 "structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7",
 "structm__derived__types_1_1physical__parameters.html#ad777ad2c8b76b8d502d43056720ef4b4"
