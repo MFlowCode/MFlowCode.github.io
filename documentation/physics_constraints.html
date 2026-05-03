@@ -490,6 +490,9 @@ WENO Reconstruction</h3>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
+<li><span class="tt">recon_type</span> = 1 (WENO) is not compatible with <span class="tt">muscl_order</span></li>
+<li><span class="tt">recon_type</span> = 1 (WENO) is not compatible with <span class="tt">muscl_lim</span></li>
+<li><span class="tt">recon_type</span> must be 1 (WENO) or 2 (MUSCL)</li>
 <li><span class="tt">weno_order</span> must be 1, 3, 5, or 7</li>
 <li><span class="tt">m</span> must be at least <span class="tt">weno_order</span> - 1 (= <span class="tt">weno_order</span> - 1)</li>
 <li>For 2D simulation, <span class="tt">n</span> must be at least <span class="tt">weno_order</span> - 1 (= <span class="tt">weno_order</span> - 1)</li>
@@ -501,7 +504,11 @@ MUSCL Reconstruction</h3>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
+<li><span class="tt">recon_type</span> must be 1 (WENO) or 2 (MUSCL)</li>
 <li><span class="tt">int_comp</span> (THINC interface compression) requires <span class="tt">recon_type</span> = 2 (MUSCL)</li>
+<li><span class="tt">recon_type</span> = 2 (MUSCL) is not compatible with param = T</li>
+<li><span class="tt">recon_type</span> = 2 (MUSCL) is not compatible with param</li>
+<li><span class="tt">recon_type</span> = 2 (MUSCL) requires <span class="tt">weno_order</span> unset or 0, but got <span class="tt">weno_order</span></li>
 <li><span class="tt">muscl_order</span> must be 1 or 2</li>
 <li><span class="tt">m</span> must be at least <span class="tt">muscl_order</span> - 1 (= <span class="tt">muscl_order</span> - 1)</li>
 <li>For 2D simulation, <span class="tt">n</span> must be at least <span class="tt">muscl_order</span> - 1 (= <span class="tt">muscl_order</span> - 1)</li>
@@ -624,7 +631,7 @@ FFT Output</h3>
 <li>FFT WRT incompatible with cylindrical coordinates</li>
 <li>FFT WRT requires global dimensions divisible by 2</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-02</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-03</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

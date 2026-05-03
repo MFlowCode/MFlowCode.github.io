@@ -1135,6 +1135,10 @@ Geometry</h3>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>int_comp (THINC interface compression) requires recon_type = 2 (MUSCL)</li>
 </ul>
+<p><b>Valid values</b> (errors):</p><ul>
+<li>recon_type must be 1 (WENO) or 2 (MUSCL)</li>
+<li>recon_type must be 1 (WENO) or 2 (MUSCL)</li>
+</ul>
 <p></p>
 </details>
 <details >
@@ -1416,9 +1420,9 @@ Geometry</h3>
 <li>Choices: <span class="tt">0</span> = MUSCL mode, <span class="tt">1</span> = 1st order, <span class="tt">3</span> = WENO3, <span class="tt">5</span> = WENO5, <span class="tt">7</span> = WENO7</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>recon_type = 2 (MUSCL) requires weno_order unset or 0, but got weno_order</li>
 <li>weno_order != 1 requires weno_eps to be set. A typical value is 1e-6</li>
 <li>wenoz at 7th order requires wenoz_q to be set (should be 2, 3, or 4)</li>
-<li>teno requires weno_order = 5 or 7</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>mapped_weno is not compatible with weno_order = 1</li>
@@ -1446,7 +1450,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-02</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-03</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
