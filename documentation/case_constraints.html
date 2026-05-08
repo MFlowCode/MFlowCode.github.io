@@ -822,6 +822,19 @@ Geometry</h3>
 </details>
 <details >
 <summary >
+<b>int_comp</b> (<span class="tt">int_comp</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">0</span> = off, <span class="tt">1</span> = THINC, <span class="tt">2</span> = MTHINC</li>
+</ul>
+<p><b>Requirements</b> (errors):</p><ul>
+<li>int_comp = 2 (MTHINC) requires at least 2D (n &gt; 0)</li>
+<li>int_comp &gt; 0 requires num_fluids = 2</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
 <b>integral_wrt</b> (<span class="tt">integral_wrt</span>)</summary>
 <p></p>
 <p><b>Dependencies:</b></p><ul>
@@ -924,9 +937,9 @@ Geometry</h3>
 <li>Min: 0</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>int_comp = 2 (MTHINC) requires at least 2D (n &gt; 0)</li>
 <li>Immersed Boundaries do not work in 1D (requires n &gt; 0)</li>
 <li>down sample requires n divisible by 3</li>
-<li>stretch_y requires n &gt; 0</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Bx0 must not be set in 2D/3D MHD simulations</li>
@@ -1131,9 +1144,6 @@ Geometry</h3>
 </ul>
 <p><b>Dependencies:</b></p><ul>
 <li>When = 2, recommends: <span class="tt">muscl_order</span>, <span class="tt">muscl_lim</span></li>
-</ul>
-<p><b>Requirements</b> (errors):</p><ul>
-<li>int_comp (THINC interface compression) requires recon_type = 2 (MUSCL)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>recon_type must be 1 (WENO) or 2 (MUSCL)</li>
@@ -1450,7 +1460,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-07</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-08</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

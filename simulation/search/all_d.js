@@ -15,7 +15,7 @@ var searchData=
   ['nmomtot_12',['nmomtot',['../namespacem__global__parameters.html#a5830be31eeea7772648f76792d3c7376',1,'m_global_parameters']]],
   ['nnode_13',['nnode',['../namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd',1,'m_constants']]],
   ['non_5faxis_5fsym_14',['non_axis_sym',['../structm__derived__types_1_1ic__patch__parameters.html#a49998b4b26dbc45fc65b4b66b1c8336c',1,'m_derived_types::ic_patch_parameters']]],
-  ['normal_15',['normal',['../structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b',1,'m_derived_types::ic_patch_parameters']]],
+  ['normal_15',['normal',['../structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b',1,'m_derived_types::ic_patch_parameters::normal'],['../namespacem__thinc.html#aebacadf51fb8ff8be5eb9acbc1d084a6',1,'m_thinc::normal']]],
   ['np_16',['np',['../namespacem__global__parameters.html#ad50d987f0c26b5e1af27a3d883db988b',1,'m_global_parameters']]],
   ['np_5fmax_17',['np_max',['../structm__derived__types_1_1cell__num__bounds.html#ac886bdc2f7e85c4abc302de569060bc5',1,'m_derived_types::cell_num_bounds']]],
   ['np_5fmin_18',['np_min',['../structm__derived__types_1_1cell__num__bounds.html#a66dd868c82c25e7d9fa9a017850ff5f1',1,'m_derived_types::cell_num_bounds']]],

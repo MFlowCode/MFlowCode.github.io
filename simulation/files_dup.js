@@ -40,6 +40,7 @@ var files_dup =
     [ "m_sim_helpers.fpp.f90", "m__sim__helpers_8fpp_8f90.html", "m__sim__helpers_8fpp_8f90" ],
     [ "m_start_up.fpp.f90", "m__start__up_8fpp_8f90.html", "m__start__up_8fpp_8f90" ],
     [ "m_surface_tension.fpp.f90", "m__surface__tension_8fpp_8f90.html", "m__surface__tension_8fpp_8f90" ],
+    [ "m_thinc.fpp.f90", "m__thinc_8fpp_8f90.html", "m__thinc_8fpp_8f90" ],
     [ "m_time_steppers.fpp.f90", "m__time__steppers_8fpp_8f90.html", "m__time__steppers_8fpp_8f90" ],
     [ "m_variables_conversion.fpp.f90", "m__variables__conversion_8fpp_8f90.html", "m__variables__conversion_8fpp_8f90" ],
     [ "m_viscous.fpp.f90", "m__viscous_8fpp_8f90.html", "m__viscous_8fpp_8f90" ],

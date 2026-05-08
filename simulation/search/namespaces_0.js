@@ -44,8 +44,9 @@ var searchData=
   ['m_5fsim_5fhelpers_41',['m_sim_helpers',['../namespacem__sim__helpers.html',1,'']]],
   ['m_5fstart_5fup_42',['m_start_up',['../namespacem__start__up.html',1,'']]],
   ['m_5fsurface_5ftension_43',['m_surface_tension',['../namespacem__surface__tension.html',1,'']]],
-  ['m_5ftime_5fsteppers_44',['m_time_steppers',['../namespacem__time__steppers.html',1,'']]],
-  ['m_5fvariables_5fconversion_45',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]],
-  ['m_5fviscous_46',['m_viscous',['../namespacem__viscous.html',1,'']]],
-  ['m_5fweno_47',['m_weno',['../namespacem__weno.html',1,'']]]
+  ['m_5fthinc_44',['m_thinc',['../namespacem__thinc.html',1,'']]],
+  ['m_5ftime_5fsteppers_45',['m_time_steppers',['../namespacem__time__steppers.html',1,'']]],
+  ['m_5fvariables_5fconversion_46',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]],
+  ['m_5fviscous_47',['m_viscous',['../namespacem__viscous.html',1,'']]],
+  ['m_5fweno_48',['m_weno',['../namespacem__weno.html',1,'']]]
 ];

@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['z_0',['z',['../structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4',1,'m_derived_types::vec3_dt::z'],['../structm__derived__types_1_1bc__xyz__info.html#a5bb84a6338429074a84039185cef18b3',1,'m_derived_types::bc_xyz_info::z']]],
-  ['z_5fa_1',['z_a',['../namespacem__global__parameters.html#ac9e26ad42e83104a1146a26c7ab7ba73',1,'m_global_parameters']]],
-  ['z_5faccel_2',['z_accel',['../namespacem__derived__variables.html#a4a361321ed7068d74220d79b0a14e6c4',1,'m_derived_variables']]],
-  ['z_5fb_3',['z_b',['../namespacem__global__parameters.html#a584f2ec6f19a23f55c31206c2ed8588f',1,'m_global_parameters']]],
-  ['z_5fcb_4',['z_cb',['../namespacem__global__parameters.html#a1cfe668d84e8e6994b1145ddfaf24491',1,'m_global_parameters']]],
-  ['z_5fcc_5',['z_cc',['../namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6',1,'m_global_parameters']]],
-  ['z_5fcentroid_6',['z_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a2c713897a2aaaa72122138366f5142be',1,'m_derived_types::ic_patch_parameters::z_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a0326a19a0aa2eed8c6f22efc656b5169',1,'m_derived_types::ib_patch_parameters::z_centroid']]],
-  ['z_5fdomain_7',['z_domain',['../namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc',1,'m_global_parameters']]],
-  ['z_5fperiodicity_8',['z_periodicity',['../structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095',1,'m_derived_types::ghost_point']]],
-  ['zmax_9',['zmax',['../structm__derived__types_1_1integral__parameters.html#a9a02b02409a262539735d487ca5bd5c3',1,'m_derived_types::integral_parameters']]],
-  ['zmin_10',['zmin',['../structm__derived__types_1_1integral__parameters.html#a17fcd1d8bb9c9fbe92f1b0c4bb1af1d2',1,'m_derived_types::integral_parameters']]]
+  ['y_0',['y',['../structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e',1,'m_derived_types::vec3_dt::y'],['../structm__derived__types_1_1bc__xyz__info.html#a5c0634496cc8406b0e4bc5f51205135d',1,'m_derived_types::bc_xyz_info::y'],['../structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee',1,'m_derived_types::ic_patch_parameters::y']]],
+  ['y_5fa_1',['y_a',['../namespacem__global__parameters.html#afa80adc7c3fadfb5d51279e1a3c33e94',1,'m_global_parameters']]],
+  ['y_5faccel_2',['y_accel',['../namespacem__derived__variables.html#ae5f6b78c6e67bce7d4f9c6814b8fbd2b',1,'m_derived_variables']]],
+  ['y_5fb_3',['y_b',['../namespacem__global__parameters.html#ab9d9613aeb5400984e400113cd6ac11b',1,'m_global_parameters']]],
+  ['y_5fcb_4',['y_cb',['../namespacem__global__parameters.html#ac3a77b6897634540385e561d3d53e053',1,'m_global_parameters']]],
+  ['y_5fcc_5',['y_cc',['../namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b',1,'m_global_parameters']]],
+  ['y_5fcentroid_6',['y_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a8441b883b97fbc475ece672cd519fe33',1,'m_derived_types::ic_patch_parameters::y_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a234982179567711b441a5a395448efdc',1,'m_derived_types::ib_patch_parameters::y_centroid']]],
+  ['y_5fdomain_7',['y_domain',['../namespacem__global__parameters.html#a94bfe5cc861c66dadab450d25a6b5817',1,'m_global_parameters']]],
+  ['y_5fperiodicity_8',['y_periodicity',['../structm__derived__types_1_1ghost__point.html#a9e33937f4756520112c48c3102f35936',1,'m_derived_types::ghost_point']]],
+  ['ymax_9',['ymax',['../structm__derived__types_1_1integral__parameters.html#a9317eaf39972917675d8a8dbb28c2b94',1,'m_derived_types::integral_parameters']]],
+  ['ymin_10',['ymin',['../structm__derived__types_1_1integral__parameters.html#af95a8f5863854c6d6f1f0869aee1a819',1,'m_derived_types::integral_parameters']]]
 ];
