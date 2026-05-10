@@ -1,6 +1,5 @@
 var m__thinc_8fpp_8f90 =
 [
-    [ "m_thinc::f_log_cosh", "namespacem__thinc.html#a606800c19d3cded4bad0c0f2669024e4", null ],
     [ "m_thinc::f_log_cosh_diff", "namespacem__thinc.html#ace23dcde0699a34e5533602db5fa04d0", null ],
     [ "m_thinc::f_mthinc_face_average", "namespacem__thinc.html#ad2a425539120d7c8113523c1b01035d2", null ],
     [ "m_thinc::f_mthinc_solve_d", "namespacem__thinc.html#a76d1d150ee7a9b5b7b6e38f11ba79512", null ],
@@ -14,7 +13,6 @@ var m__thinc_8fpp_8f90 =
     [ "m_thinc::gq3_pts", "namespacem__thinc.html#a0d3546434784fee1f9551f338a8491ca", null ],
     [ "m_thinc::gq3_wts", "namespacem__thinc.html#abf659bdf7de464991ec3662b5e383f71", null ],
     [ "m_thinc::interface", "namespacem__thinc.html#ae6a21d2d5473b321b0b081c3e3bffebb", null ],
-    [ "m_thinc::ln2", "namespacem__thinc.html#a1c7706eb84f94c428750f040c6198dea", null ],
     [ "m_thinc::mthinc_d", "namespacem__thinc.html#a389fff1f7cacdb34311ea830b6615b99", null ],
     [ "m_thinc::mthinc_nhat", "namespacem__thinc.html#a9027d5429251e5b3e7254d6256ae4b7b", null ],
     [ "m_thinc::normal", "namespacem__thinc.html#aebacadf51fb8ff8be5eb9acbc1d084a6", null ],

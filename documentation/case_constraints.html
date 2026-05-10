@@ -398,10 +398,12 @@ Case Creator Guide</h1>
 </ul>
 <p><b>Numerical Methods:</b></p>
 <ul>
+<li><b>Riemann solver:</b> Lax-Friedrichs (<span class="tt">riemann_solver = 5</span>)</li>
 <li><b>Time stepping:</b> RK3 (SSP)</li>
 </ul>
 <p><b>Related Documentation:</b></p><ul>
 <li><a class="el" href="#model-equations" title="🔢 Model Equations">Model Equations (model_eqns = 2)</a></li>
+<li><a class="el" href="#riemann-solvers" title="⚙️ Riemann Solvers">Riemann Solvers</a></li>
 </ul>
 <p></p>
 </details>
@@ -560,10 +562,8 @@ Geometry</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>HLLC</b>  </td><td class="markdownTableBodyNone"><span class="tt">2</span>  </td><td class="markdownTableBodyNone">Bubbles, phase change, multiphase  </td><td class="markdownTableBodyNone"><span class="tt">avg_state=2</span> for bubbles  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>Exact</b>  </td><td class="markdownTableBodyNone"><span class="tt">3</span>  </td><td class="markdownTableBodyNone">High accuracy (expensive)  </td><td class="markdownTableBodyNone">—  </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>HLLD</b>  </td><td class="markdownTableBodyNone"><span class="tt">4</span>  </td><td class="markdownTableBodyNone">MHD (advanced)  </td><td class="markdownTableBodyNone">MHD only, no relativity  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>Lax-Friedrichs</b>  </td><td class="markdownTableBodyNone"><span class="tt">5</span>  </td><td class="markdownTableBodyNone">Robust fallback  </td><td class="markdownTableBodyNone">Not with cylindrical+viscous  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="bubble-models"></a>
@@ -624,7 +624,7 @@ Geometry</h3>
 <li>Choices: <span class="tt">1</span> = Roe, <span class="tt">2</span> = arithmetic</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
-<li>avg_state must be set if riemann_solver != 3,5</li>
+<li>avg_state must be set for riemann_solver 1, 2, or 4</li>
 <li>6-equation model (model_eqns = 3) requires avg_state = 2</li>
 <li>Bubble modeling requires arithmetic average (avg_state = 2)</li>
 </ul>
@@ -830,6 +830,9 @@ Geometry</h3>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>int_comp = 2 (MTHINC) requires at least 2D (n &gt; 0)</li>
 <li>int_comp &gt; 0 requires num_fluids = 2</li>
+</ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>int_comp &gt; 0 is not supported with model_eqns = 3: THINC does not update per-fluid internal energies, leaving thermodynamically inconsistent face states</li>
 </ul>
 <p></p>
 </details>
@@ -1171,19 +1174,18 @@ Geometry</h3>
 <b>Riemann Solver</b> (<span class="tt">riemann_solver</span>)</summary>
 <p></p>
 <p><b>Schema constraints:</b></p><ul>
-<li>Choices: <span class="tt">1</span> = HLL, <span class="tt">2</span> = HLLC, <span class="tt">3</span> = Exact, <span class="tt">4</span> = HLLD, <span class="tt">5</span> = Lax-Friedrichs</li>
+<li>Choices: <span class="tt">1</span> = HLL, <span class="tt">2</span> = HLLC, <span class="tt">4</span> = HLLD, <span class="tt">5</span> = Lax-Friedrichs</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>hypoelasticity requires HLL Riemann solver (riemann_solver = 1)</li>
+<li>riemann_solver must be specified (1=HLL, 2=HLLC, 4=HLLD, 5=Lax-Friedrichs)</li>
 <li>6-equation model (model_eqns = 3) requires riemann_solver = 2 (HLLC)</li>
-<li>wave_speeds must be set if riemann_solver != 3,5</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
-<li>Exact Riemann (riemann_solver = 3) does not support wave_speeds</li>
 <li>HLLD is not available for RMHD (relativity)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
-<li>riemann_solver must be 1, 2, 3, 4 or 5</li>
+<li>riemann_solver must be 1 (HLL), 2 (HLLC), 4 (HLLD), or 5 (Lax-Friedrichs)</li>
 </ul>
 <p></p>
 </details>
@@ -1395,12 +1397,9 @@ Geometry</h3>
 <li>Choices: <span class="tt">1</span> = direct, <span class="tt">2</span> = pressure</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
-<li>wave_speeds must be set if riemann_solver != 3,5</li>
+<li>wave_speeds must be set for riemann_solver 1, 2, or 4</li>
 <li>6-equation model (model_eqns = 3) requires wave_speeds = 1</li>
 <li>MHD requires wave_speeds = 1</li>
-</ul>
-<p><b>Incompatibilities</b> (errors):</p><ul>
-<li>Exact Riemann (riemann_solver = 3) does not support wave_speeds</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>wave_speeds must be 1 or 2</li>
@@ -1460,7 +1459,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-09</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

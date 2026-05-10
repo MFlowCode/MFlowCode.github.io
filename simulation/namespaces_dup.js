@@ -828,11 +828,9 @@ var namespaces_dup =
       [ "rho_k_field", "namespacem__hypoelastic.html#afe9683427014c670048603ea240ef77f", null ]
     ] ],
     [ "m_ib_patches", "namespacem__ib__patches.html", [
-      [ "f_convert_cyl_to_cart", "namespacem__ib__patches.html#ad54c82fdc48ffedb23d4615166220e45", null ],
       [ "f_r", "namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564", null ],
       [ "get_bounding_indices", "namespacem__ib__patches.html#a5b49a56add219c880c8ba5c758cf8977", null ],
       [ "s_apply_ib_patches", "namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a", null ],
-      [ "s_convert_cylindrical_to_cartesian_coord", "namespacem__ib__patches.html#a6ca8587aa8d8a3a25ba76458486fb067", null ],
       [ "s_decode_patch_periodicity", "namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2", null ],
       [ "s_encode_patch_periodicity", "namespacem__ib__patches.html#aa30942f91c6604edab651d4d3ec2abaf", null ],
       [ "s_get_periodicities", "namespacem__ib__patches.html#a37849410326edb12eb6f5b5a16970462", null ],
@@ -846,9 +844,7 @@ var namespaces_dup =
       [ "s_ib_model", "namespacem__ib__patches.html#a999aa5317d8df2fadd131c7e76be9b42", null ],
       [ "s_ib_rectangle", "namespacem__ib__patches.html#ab410479cd61998d6d483a758447b87d8", null ],
       [ "s_ib_sphere", "namespacem__ib__patches.html#aed5b4d04c19b0a08e3b4aea398b49a52", null ],
-      [ "s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ],
-      [ "cart_y", "namespacem__ib__patches.html#aef359c949bd0c9602c43887a6a8367fa", null ],
-      [ "cart_z", "namespacem__ib__patches.html#a641055256357558666e5a98d42906153", null ]
+      [ "s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ]
     ] ],
     [ "m_ibm", "namespacem__ibm.html", [
       [ "s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
@@ -1175,7 +1171,6 @@ var namespaces_dup =
       [ "iv", "namespacem__surface__tension.html#aed209dbc658354dfee2539024db688fb", null ]
     ] ],
     [ "m_thinc", "namespacem__thinc.html", [
-      [ "f_log_cosh", "namespacem__thinc.html#a606800c19d3cded4bad0c0f2669024e4", null ],
       [ "f_log_cosh_diff", "namespacem__thinc.html#ace23dcde0699a34e5533602db5fa04d0", null ],
       [ "f_mthinc_face_average", "namespacem__thinc.html#ad2a425539120d7c8113523c1b01035d2", null ],
       [ "f_mthinc_solve_d", "namespacem__thinc.html#a76d1d150ee7a9b5b7b6e38f11ba79512", null ],
@@ -1189,7 +1184,6 @@ var namespaces_dup =
       [ "gq3_pts", "namespacem__thinc.html#a0d3546434784fee1f9551f338a8491ca", null ],
       [ "gq3_wts", "namespacem__thinc.html#abf659bdf7de464991ec3662b5e383f71", null ],
       [ "interface", "namespacem__thinc.html#ae6a21d2d5473b321b0b081c3e3bffebb", null ],
-      [ "ln2", "namespacem__thinc.html#a1c7706eb84f94c428750f040c6198dea", null ],
       [ "mthinc_d", "namespacem__thinc.html#a389fff1f7cacdb34311ea830b6615b99", null ],
       [ "mthinc_nhat", "namespacem__thinc.html#a9027d5429251e5b3e7254d6256ae4b7b", null ],
       [ "normal", "namespacem__thinc.html#aebacadf51fb8ff8be5eb9acbc1d084a6", null ],

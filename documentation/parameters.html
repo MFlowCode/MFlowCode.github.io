@@ -1278,7 +1278,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">igr_pres_lim</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable IGR pressure limiting  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">igr_pres_lim</span> requires <span class="tt">igr</span> to be enabled  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">int_comp</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Interface compression: 0=off, 1=THINC, 2=MTHINC  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">0=off, 1=THINC, 2=MTHINC; <span class="tt">int_comp</span> = 2 (MTHINC) requires at least 2D (n &gt; 0); <span class="tt">int_comp</span> &gt; 0 requires <span class="tt">num_fluids</span> = 2; <span class="tt">int_comp</span> must be 0 (off), 1 (THINC), or 2 (MTHINC)  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">int_comp</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Interface compression: 0=off, 1=THINC, 2=MTHINC  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">0=off, 1=THINC, 2=MTHINC; <span class="tt">int_comp</span> = 2 (MTHINC) requires at least 2D (n &gt; 0); <span class="tt">int_comp</span> &gt; 0 requires <span class="tt">num_fluids</span> = 2; <span class="tt">int_comp</span> &gt; 0 is not supported with <span class="tt">model_eqns</span> = 3: THINC does not update per-fluid internal energies, leaving thermodynamically inconsistent face states  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">integral_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write integral data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">fd_order</span> must be specified for <span class="tt">integral_wrt</span>; <span class="tt">integral_wrt</span> requires <span class="tt">bubbles_euler</span> to be enabled  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1476,7 +1476,7 @@ general</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">rhoref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reference density  </td><td class="markdownTableBodyNone">\(\rho_\text{ref}\)  </td><td class="markdownTableBodyNone"><span class="tt">rhoref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4; <span class="tt">rhoref</span> (reference density) must be positive  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">riemann_solver</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Riemann solver  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=HLL, 2=HLLC, 3=Exact, 4=HLLD, 5=Lax-Friedrichs; 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">riemann_solver</span> = 2 (HLLC); <span class="tt">wave_speeds</span> must be set if <span class="tt">riemann_solver</span> != 3,5; <span class="tt">avg_state</span> must be set if <span class="tt">riemann_solver</span> != 3,5  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">riemann_solver</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Riemann solver  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1=HLL, 2=HLLC, 4=HLLD, 5=Lax-Friedrichs; <span class="tt">riemann_solver</span> must be specified (1=HLL, 2=HLLC, 4=HLLD, 5=Lax-Friedrichs); 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">riemann_solver</span> = 2 (HLLC); <span class="tt">wave_speeds</span> must be set for <span class="tt">riemann_solver</span> 1, 2, or 4  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">run_time_info</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Output run-time information  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Post-processing output flag  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1577,7 +1577,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-09</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

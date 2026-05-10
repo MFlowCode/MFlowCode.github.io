@@ -1,11 +1,5 @@
 var NAVTREEINDEX8 =
 {
-"structm__derived__types_1_1mpi__io__levelset__norm__var.html#a241d46b5c25ecb008d41fceb8dd73ac4":[2,0,0,9,1],
-"structm__derived__types_1_1mpi__io__levelset__norm__var.html#ac3b3d281b82d091f39f7d0b7ed4e9ced":[1,0,18,9,0],
-"structm__derived__types_1_1mpi__io__levelset__norm__var.html#ac3b3d281b82d091f39f7d0b7ed4e9ced":[2,0,0,9,0],
-"structm__derived__types_1_1mpi__io__levelset__var.html":[1,0,18,8],
-"structm__derived__types_1_1mpi__io__levelset__var.html":[2,0,0,8],
-"structm__derived__types_1_1mpi__io__levelset__var.html#ab978b1dd1620d659fd48f1bd80a4bdf9":[1,0,18,8,0],
 "structm__derived__types_1_1mpi__io__levelset__var.html#ab978b1dd1620d659fd48f1bd80a4bdf9":[2,0,0,8,0],
 "structm__derived__types_1_1mpi__io__levelset__var.html#ad8e22b1e6278191978539b433f1896bb":[1,0,18,8,1],
 "structm__derived__types_1_1mpi__io__levelset__var.html#ad8e22b1e6278191978539b433f1896bb":[2,0,0,8,1],
