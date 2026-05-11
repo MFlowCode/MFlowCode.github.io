@@ -1294,6 +1294,7 @@ var namespaces_dup =
       [ "poly_coef_cbr_x", "namespacem__weno.html#a915f660f426a0b45bb677cb5bb2d0ae4", null ],
       [ "poly_coef_cbr_y", "namespacem__weno.html#ab36f3d8c0145d41934a477d861c74867", null ],
       [ "poly_coef_cbr_z", "namespacem__weno.html#aceeb48eaba3491a6522872776927ed38", null ],
+      [ "uniform_grid", "namespacem__weno.html#a71d6d25931725ad5c6b67f4c690881a2", null ],
       [ "v_rs_ws_x", "namespacem__weno.html#aa599f581d9df186981e24e9b56d804f1", null ],
       [ "v_rs_ws_y", "namespacem__weno.html#aab94267a524452b0048806def9a9358a", null ],
       [ "v_rs_ws_z", "namespacem__weno.html#a57c24d8fa3cfdafd01486dd4cefdc5d1", null ],

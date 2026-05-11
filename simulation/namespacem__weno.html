@@ -180,6 +180,8 @@ Functions/Subroutines</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a91b7a29671368f77d62ab0d3fd9ecff0" id="r_a91b7a29671368f77d62ab0d3fd9ecff0"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a91b7a29671368f77d62ab0d3fd9ecff0">v_size</a></td></tr>
 <tr class="memdesc:a91b7a29671368f77d62ab0d3fd9ecff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of WENO-reconstructed cell-average variables.  <br /></td></tr>
+<tr class="memitem:a71d6d25931725ad5c6b67f4c690881a2" id="r_a71d6d25931725ad5c6b67f4c690881a2"><td class="memItemLeft">logical, dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#a71d6d25931725ad5c6b67f4c690881a2">uniform_grid</a></td></tr>
+<tr class="memdesc:a71d6d25931725ad5c6b67f4c690881a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if grid spacing is uniform in each direction.  <br /></td></tr>
 <tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">The cell-average variables that will be WENO-reconstructed. Formerly, they are stored in v_vf. However, they are</div></td></tr>
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>transferred to v_rs_wsL and v_rs_wsR as to be reshaped (RS) and/or characteristically decomposed. The reshaping allows the WENO procedure to be independent of the coordinate direction of the reconstruction. Lastly, notice that the left (L) and right (R) results of the characteristic decomposition are stored in custom-constructed WENO- stencils (WS) that are annexed to each position of a given scalar field. </p>
 </div></td></tr>
@@ -239,7 +241,7 @@ Variables</h2></td></tr>
 
 <p>Compute WENO polynomial coefficients, ideal weights, and smoothness indicators for a given direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l01140">1140</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l01153">1153</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -262,7 +264,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05540">5540</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05596">5596</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -292,7 +294,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up the WENO reconstruction for a given direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05255">5255</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05311">5311</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -315,7 +317,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the WENO module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00490">490</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -355,7 +357,7 @@ Here is the caller graph for this function:</div>
 
 <p>Enforce monotonicity-preserving bounds on the WENO reconstruction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05417">5417</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05473">5473</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -430,7 +432,7 @@ Here is the caller graph for this function:</div>
 
 <p>Perform WENO reconstruction of left and right cell-boundary values from cell-averaged variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l03150">3150</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l03176">3176</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -596,7 +598,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -612,7 +614,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -628,7 +630,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -725,6 +727,24 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a71d6d25931725ad5c6b67f4c690881a2" name="a71d6d25931725ad5c6b67f4c690881a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71d6d25931725ad5c6b67f4c690881a2">&#9670;&#160;</a></span>uniform_grid</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical, dimension(3) m_weno::uniform_grid</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True if grid spacing is uniform in each direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00455">455</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
