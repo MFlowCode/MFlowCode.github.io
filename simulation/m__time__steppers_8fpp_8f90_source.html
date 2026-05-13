@@ -1087,8 +1087,8 @@ $(function(){initNavTree('m__time__steppers_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00949" name="l00949"></a><span class="lineno">  949</span>        pool_dims(4) = sys_size</div>
 <div class="line"><a id="l00950" name="l00950"></a><span class="lineno">  950</span>        pool_starts(4) = 1</div>
 <div class="line"><a id="l00951" name="l00951"></a><span class="lineno">  951</span><span class="preprocessor">#ifdef MFC_MIXED_PRECISION</span></div>
-<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span><span class="preprocessor"></span>        pool_size = 1_8*(idwbuff(1)%end - idwbuff(1)%beg + 1)*(idwbuff(2)%end - idwbuff(2)%beg + 1)*(idwbuff(3)%end - idwbuff(3) &amp;</div>
-<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>                         &amp; %beg + 1)*sys_size</div>
+<div class="line"><a id="l00952" name="l00952"></a><span class="lineno">  952</span><span class="preprocessor"></span>        pool_size = 1_8*(idwbuff(1)%end - idwbuff(1)%beg + 1)*(idwbuff(2)%end - idwbuff(2)%beg + 1)*(idwbuff(3)%end &amp;</div>
+<div class="line"><a id="l00953" name="l00953"></a><span class="lineno">  953</span>                         &amp; - idwbuff(3)%beg + 1)*sys_size</div>
 <div class="line"><a id="l00954" name="l00954"></a><span class="lineno">  954</span>        <span class="keyword">call </span>hipcheck(hipmalloc_(cptr_device, pool_size*2_8))</div>
 <div class="line"><a id="l00955" name="l00955"></a><span class="lineno">  955</span>        <span class="keyword">call </span>c_f_pointer(cptr_device, q_cons_ts_pool_device, shape=pool_dims)</div>
 <div class="line"><a id="l00956" name="l00956"></a><span class="lineno">  956</span>        q_cons_ts_pool_device(idwbuff(1)%beg:,idwbuff(2)%beg:,idwbuff(3)%beg:,1:) =&gt; q_cons_ts_pool_device</div>
@@ -5517,8 +5517,8 @@ $(function(){initNavTree('m__time__steppers_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l05369" name="l05369"></a><span class="lineno"> 5369</span>                             &amp; 3)*dt*patch_ib(i)%torque/<a class="code hl_variable" href="namespacem__time__steppers.html#af8510128ce61b7a356e523c9795201a8">rk_coef</a>(s, 4))  <span class="comment">! add the torque to the angular momentum</span></div>
 <div class="line"><a id="l05370" name="l05370"></a><span class="lineno"> 5370</span>                    <span class="keyword">call </span>s_compute_moment_of_inertia(i, patch_ib(i)%angular_vel)</div>
 <div class="line"><a id="l05371" name="l05371"></a><span class="lineno"> 5371</span>                    <span class="comment">! update the moment of inertia to be based on the direction of the angular momentum</span></div>
-<div class="line"><a id="l05372" name="l05372"></a><span class="lineno"> 5372</span>                    patch_ib(i)%angular_vel = patch_ib(i)%angular_vel/patch_ib(i) &amp;</div>
-<div class="line"><a id="l05373" name="l05373"></a><span class="lineno"> 5373</span>                             &amp; %moment  <span class="comment">! convert back to angular velocity with the new moment of inertia</span></div>
+<div class="line"><a id="l05372" name="l05372"></a><span class="lineno"> 5372</span>                    <span class="comment">! convert back to angular velocity with the new moment of inertia</span></div>
+<div class="line"><a id="l05373" name="l05373"></a><span class="lineno"> 5373</span>                    patch_ib(i)%angular_vel = patch_ib(i)%angular_vel/patch_ib(i)%moment</div>
 <div class="line"><a id="l05374" name="l05374"></a><span class="lineno"> 5374</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l05375" name="l05375"></a><span class="lineno"> 5375</span> </div>
 <div class="line"><a id="l05376" name="l05376"></a><span class="lineno"> 5376</span>                <span class="comment">! Update the angle of the IB</span></div>

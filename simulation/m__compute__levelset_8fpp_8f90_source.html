@@ -965,8 +965,8 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>        xy_local = matmul(inverse_rotation, xy_local)</div>
 <div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span> </div>
 <div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>        normal_vector = xy_local</div>
-<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>        normal_vector(2) = normal_vector(2)*(ellipse_coeffs(1)/ellipse_coeffs(2)) &amp;</div>
-<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>                      &amp; **2._wp  <span class="comment">! get the normal direction via the coordinate transformation method</span></div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>        <span class="comment">! get the normal direction via the coordinate transformation method</span></div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>        normal_vector(2) = normal_vector(2)*(ellipse_coeffs(1)/ellipse_coeffs(2))**2._wp</div>
 <div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>        normal_vector = normal_vector/sqrt(dot_product(normal_vector, normal_vector))  <span class="comment">! normalize the vector</span></div>
 <div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>        gp%levelset_norm = matmul(rotation, normal_vector)  <span class="comment">! save after rotating the vector to the global frame</span></div>
 <div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span> </div>
