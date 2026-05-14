@@ -9,7 +9,7 @@ var m__thinc_8fpp_8f90 =
     [ "m_thinc::s_compute_mthinc_normals", "namespacem__thinc.html#aa7e8ddaf46b51ed2ecc55f7f30ce4764", null ],
     [ "m_thinc::s_finalize_thinc_module", "namespacem__thinc.html#a28afabf878ba9a4ba12148c004fa407a", null ],
     [ "m_thinc::s_initialize_thinc_module", "namespacem__thinc.html#a452aa37dce078afa9ca37a573761c9c0", null ],
-    [ "m_thinc::s_thinc_compression", "namespacem__thinc.html#a4e1a1c86b136ac0212666d41a0780f39", null ],
+    [ "m_thinc::s_thinc_compression", "namespacem__thinc.html#aaf7b788ed701752fdcb247a2e8cf30bd", null ],
     [ "m_thinc::gq3_pts", "namespacem__thinc.html#a0d3546434784fee1f9551f338a8491ca", null ],
     [ "m_thinc::gq3_wts", "namespacem__thinc.html#abf659bdf7de464991ec3662b5e383f71", null ],
     [ "m_thinc::interface", "namespacem__thinc.html#ae6a21d2d5473b321b0b081c3e3bffebb", null ],

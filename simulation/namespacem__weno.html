@@ -167,12 +167,11 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a2f1175686e7f94102ca32c92e653fa23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the WENO module.  <br /></td></tr>
 <tr class="memitem:acd4f52b755635cf7b0e75d1352b27b1d" id="r_acd4f52b755635cf7b0e75d1352b27b1d"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acd4f52b755635cf7b0e75d1352b27b1d">s_compute_weno_coefficients</a> (weno_dir, is)</td></tr>
 <tr class="memdesc:acd4f52b755635cf7b0e75d1352b27b1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute WENO polynomial coefficients, ideal weights, and smoothness indicators for a given direction.  <br /></td></tr>
-<tr class="memitem:a4ff96667dbb560feae10015badb5a168" id="r_a4ff96667dbb560feae10015badb5a168"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4ff96667dbb560feae10015badb5a168">s_weno</a> (v_vf, vl_rs_vf_x, vl_rs_vf_y, vl_rs_vf_z, vr_rs_vf_x, vr_rs_vf_y, vr_rs_vf_z, weno_dir, is1_weno_d, is2_weno_d, is3_weno_d)</td></tr>
-<tr class="memdesc:a4ff96667dbb560feae10015badb5a168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform WENO reconstruction of left and right cell-boundary values from cell-averaged variables.  <br /></td></tr>
-<tr class="memitem:abfda0cbb1abbc46a10f662f098a7d84a" id="r_abfda0cbb1abbc46a10f662f098a7d84a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#abfda0cbb1abbc46a10f662f098a7d84a">s_initialize_weno</a> (v_vf, weno_dir)</td></tr>
-<tr class="memdesc:abfda0cbb1abbc46a10f662f098a7d84a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the WENO reconstruction for a given direction.  <br /></td></tr>
-<tr class="memitem:a8c518e5d3cd83824f2d4c8cb76528555" id="r_a8c518e5d3cd83824f2d4c8cb76528555"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8c518e5d3cd83824f2d4c8cb76528555">s_preserve_monotonicity</a> (v_rs_ws, vl_rs_vf, vr_rs_vf)</td></tr>
-<tr class="memdesc:a8c518e5d3cd83824f2d4c8cb76528555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enforce monotonicity-preserving bounds on the WENO reconstruction.  <br /></td></tr>
+<tr class="memitem:a460ab8e85252045e6f4d66797e1fa18f" id="r_a460ab8e85252045e6f4d66797e1fa18f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a460ab8e85252045e6f4d66797e1fa18f">s_pack_weno_input_arr</a> (v_vf)</td></tr>
+<tr class="memitem:ac2a1cfe35eae738663c833a9fc2f3f70" id="r_ac2a1cfe35eae738663c833a9fc2f3f70"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac2a1cfe35eae738663c833a9fc2f3f70">s_weno</a> (v_vf, vl_rs_vf_x, vr_rs_vf_x, weno_dir, is1_weno_d, is2_weno_d, is3_weno_d)</td></tr>
+<tr class="memdesc:ac2a1cfe35eae738663c833a9fc2f3f70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform WENO reconstruction of left and right cell-boundary values from cell-averaged variables.  <br /></td></tr>
+<tr class="memitem:a0c2bd1d07653ab8baf9f296dacee49df" id="r_a0c2bd1d07653ab8baf9f296dacee49df"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0c2bd1d07653ab8baf9f296dacee49df">s_preserve_monotonicity</a> (v_rs_ws, vl_rs_vf, vr_rs_vf, weno_dir)</td></tr>
+<tr class="memdesc:a0c2bd1d07653ab8baf9f296dacee49df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enforce monotonicity-preserving bounds on the WENO reconstruction.  <br /></td></tr>
 <tr class="memitem:afc23d265ba703e5a92adb409b67c22b3" id="r_afc23d265ba703e5a92adb409b67c22b3"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afc23d265ba703e5a92adb409b67c22b3">s_finalize_weno_module</a> ()</td></tr>
 <tr class="memdesc:afc23d265ba703e5a92adb409b67c22b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -182,12 +181,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:a91b7a29671368f77d62ab0d3fd9ecff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of WENO-reconstructed cell-average variables.  <br /></td></tr>
 <tr class="memitem:a71d6d25931725ad5c6b67f4c690881a2" id="r_a71d6d25931725ad5c6b67f4c690881a2"><td class="memItemLeft">logical, dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#a71d6d25931725ad5c6b67f4c690881a2">uniform_grid</a></td></tr>
 <tr class="memdesc:a71d6d25931725ad5c6b67f4c690881a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if grid spacing is uniform in each direction.  <br /></td></tr>
-<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">The cell-average variables that will be WENO-reconstructed. Formerly, they are stored in v_vf. However, they are</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>transferred to v_rs_wsL and v_rs_wsR as to be reshaped (RS) and/or characteristically decomposed. The reshaping allows the WENO procedure to be independent of the coordinate direction of the reconstruction. Lastly, notice that the left (L) and right (R) results of the characteristic decomposition are stored in custom-constructed WENO- stencils (WS) that are annexed to each position of a given scalar field. </p>
-</div></td></tr>
-<tr class="memitem:aa599f581d9df186981e24e9b56d804f1" id="r_aa599f581d9df186981e24e9b56d804f1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa599f581d9df186981e24e9b56d804f1">v_rs_ws_x</a></td></tr>
-<tr class="memitem:aab94267a524452b0048806def9a9358a" id="r_aab94267a524452b0048806def9a9358a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aab94267a524452b0048806def9a9358a">v_rs_ws_y</a></td></tr>
-<tr class="memitem:a57c24d8fa3cfdafd01486dd4cefdc5d1" id="r_a57c24d8fa3cfdafd01486dd4cefdc5d1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a57c24d8fa3cfdafd01486dd4cefdc5d1">v_rs_ws_z</a></td></tr>
+<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">The cell-average variables that will be WENO-reconstructed unpacked into an array for performance</div></td></tr>
+<tr class="memitem:ab4416ae21f4df526cfe40cb30b528e88" id="r_ab4416ae21f4df526cfe40cb30b528e88"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ab4416ae21f4df526cfe40cb30b528e88">v_rs_weno</a></td></tr>
 <tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader">Polynomial coefficients at the left and right cell-boundaries (CB) and at the left and right quadrature points (QP), in</div></td></tr>
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>the x-, y- and z-directions. Note that the first dimension of the array identifies the polynomial, the second dimension identifies the position of its coefficients and the last dimension denotes the cell-location in the relevant coordinate direction. </p>
 </div></td></tr>
@@ -241,7 +236,7 @@ Variables</h2></td></tr>
 
 <p>Compute WENO polynomial coefficients, ideal weights, and smoothness indicators for a given direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l01153">1153</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l01081">1081</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -264,41 +259,11 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05596">5596</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05713">5713</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_afc23d265ba703e5a92adb409b67c22b3_icgraph.svg" width="488" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abfda0cbb1abbc46a10f662f098a7d84a" name="abfda0cbb1abbc46a10f662f098a7d84a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfda0cbb1abbc46a10f662f098a7d84a">&#9670;&#160;</a></span>s_initialize_weno()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_weno::s_initialize_weno </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>weno_dir</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set up the WENO reconstruction for a given direction. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05311">5311</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_abfda0cbb1abbc46a10f662f098a7d84a_icgraph.svg" width="391" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -317,7 +282,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the WENO module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00490">490</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00486">486</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -331,8 +296,32 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a8c518e5d3cd83824f2d4c8cb76528555" name="a8c518e5d3cd83824f2d4c8cb76528555"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c518e5d3cd83824f2d4c8cb76528555">&#9670;&#160;</a></span>s_preserve_monotonicity()</h2>
+<a id="a460ab8e85252045e6f4d66797e1fa18f" name="a460ab8e85252045e6f4d66797e1fa18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a460ab8e85252045e6f4d66797e1fa18f">&#9670;&#160;</a></span>s_pack_weno_input_arr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_weno::s_pack_weno_input_arr </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v_vf</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l03103">3103</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_a460ab8e85252045e6f4d66797e1fa18f_icgraph.svg" width="366" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0c2bd1d07653ab8baf9f296dacee49df" name="a0c2bd1d07653ab8baf9f296dacee49df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c2bd1d07653ab8baf9f296dacee49df">&#9670;&#160;</a></span>s_preserve_monotonicity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,24 +339,29 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>weno_dir</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Enforce monotonicity-preserving bounds on the WENO reconstruction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05473">5473</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l05357">5357</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_a8c518e5d3cd83824f2d4c8cb76528555_icgraph.svg" width="350" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_a0c2bd1d07653ab8baf9f296dacee49df_icgraph.svg" width="350" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a4ff96667dbb560feae10015badb5a168" name="a4ff96667dbb560feae10015badb5a168"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ff96667dbb560feae10015badb5a168">&#9670;&#160;</a></span>s_weno()</h2>
+<a id="ac2a1cfe35eae738663c833a9fc2f3f70" name="ac2a1cfe35eae738663c833a9fc2f3f70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a1cfe35eae738663c833a9fc2f3f70">&#9670;&#160;</a></span>s_weno()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -385,27 +379,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_rs_vf_y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_rs_vf_z</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf_x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf_y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -432,11 +406,11 @@ Here is the caller graph for this function:</div>
 
 <p>Perform WENO reconstruction of left and right cell-boundary values from cell-averaged variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l03176">3176</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l03153">3153</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_a4ff96667dbb560feae10015badb5a168_cgraph.svg" width="391" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__weno_ac2a1cfe35eae738663c833a9fc2f3f70_cgraph.svg" width="366" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -454,7 +428,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00424">424</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -470,7 +444,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00425">425</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -486,7 +460,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00426">426</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -502,7 +476,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -518,7 +492,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -534,7 +508,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -550,7 +524,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -566,7 +540,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -582,7 +556,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -598,7 +572,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -614,7 +588,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -630,7 +604,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -646,7 +620,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00363">363</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -662,7 +636,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00364">364</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -678,7 +652,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -694,7 +668,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00370">370</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -710,7 +684,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -726,7 +700,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -744,55 +718,23 @@ Here is the call graph for this function:</div>
 
 <p>True if grid spacing is uniform in each direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00455">455</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aa599f581d9df186981e24e9b56d804f1" name="aa599f581d9df186981e24e9b56d804f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa599f581d9df186981e24e9b56d804f1">&#9670;&#160;</a></span>v_rs_ws_x</h2>
+<a id="ab4416ae21f4df526cfe40cb30b528e88" name="ab4416ae21f4df526cfe40cb30b528e88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4416ae21f4df526cfe40cb30b528e88">&#9670;&#160;</a></span>v_rs_weno</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_weno::v_rs_ws_x</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_weno::v_rs_weno</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="aab94267a524452b0048806def9a9358a" name="aab94267a524452b0048806def9a9358a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab94267a524452b0048806def9a9358a">&#9670;&#160;</a></span>v_rs_ws_y</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_weno::v_rs_ws_y</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a57c24d8fa3cfdafd01486dd4cefdc5d1" name="a57c24d8fa3cfdafd01486dd4cefdc5d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57c24d8fa3cfdafd01486dd4cefdc5d1">&#9670;&#160;</a></span>v_rs_ws_z</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_weno::v_rs_ws_z</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00342">342</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -810,7 +752,7 @@ Here is the call graph for this function:</div>
 
 <p>Number of WENO-reconstructed cell-average variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00442">442</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__weno_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__weno_8fpp_8f90_source.html">m_weno.fpp.f90</a>.</p>
 
 </div>
 </div>

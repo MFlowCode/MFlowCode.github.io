@@ -2,10 +2,10 @@ var m__weno_8fpp_8f90 =
 [
     [ "m_weno::s_compute_weno_coefficients", "namespacem__weno.html#acd4f52b755635cf7b0e75d1352b27b1d", null ],
     [ "m_weno::s_finalize_weno_module", "namespacem__weno.html#afc23d265ba703e5a92adb409b67c22b3", null ],
-    [ "m_weno::s_initialize_weno", "namespacem__weno.html#abfda0cbb1abbc46a10f662f098a7d84a", null ],
     [ "m_weno::s_initialize_weno_module", "namespacem__weno.html#a2f1175686e7f94102ca32c92e653fa23", null ],
-    [ "m_weno::s_preserve_monotonicity", "namespacem__weno.html#a8c518e5d3cd83824f2d4c8cb76528555", null ],
-    [ "m_weno::s_weno", "namespacem__weno.html#a4ff96667dbb560feae10015badb5a168", null ],
+    [ "m_weno::s_pack_weno_input_arr", "namespacem__weno.html#a460ab8e85252045e6f4d66797e1fa18f", null ],
+    [ "m_weno::s_preserve_monotonicity", "namespacem__weno.html#a0c2bd1d07653ab8baf9f296dacee49df", null ],
+    [ "m_weno::s_weno", "namespacem__weno.html#ac2a1cfe35eae738663c833a9fc2f3f70", null ],
     [ "m_weno::beta_coef_x", "namespacem__weno.html#a5219ec6e7fbad624d3a7e5d045950bc9", null ],
     [ "m_weno::beta_coef_y", "namespacem__weno.html#a44bdae63f975e9a8dacbb00a88dcd7ae", null ],
     [ "m_weno::beta_coef_z", "namespacem__weno.html#a574560689ff772b81f24bea116fc3a04", null ],
@@ -25,8 +25,6 @@ var m__weno_8fpp_8f90 =
     [ "m_weno::poly_coef_cbr_y", "namespacem__weno.html#ab36f3d8c0145d41934a477d861c74867", null ],
     [ "m_weno::poly_coef_cbr_z", "namespacem__weno.html#aceeb48eaba3491a6522872776927ed38", null ],
     [ "m_weno::uniform_grid", "namespacem__weno.html#a71d6d25931725ad5c6b67f4c690881a2", null ],
-    [ "m_weno::v_rs_ws_x", "namespacem__weno.html#aa599f581d9df186981e24e9b56d804f1", null ],
-    [ "m_weno::v_rs_ws_y", "namespacem__weno.html#aab94267a524452b0048806def9a9358a", null ],
-    [ "m_weno::v_rs_ws_z", "namespacem__weno.html#a57c24d8fa3cfdafd01486dd4cefdc5d1", null ],
+    [ "m_weno::v_rs_weno", "namespacem__weno.html#ab4416ae21f4df526cfe40cb30b528e88", null ],
     [ "m_weno::v_size", "namespacem__weno.html#a91b7a29671368f77d62ab0d3fd9ecff0", null ]
 ];

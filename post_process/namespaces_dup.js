@@ -244,7 +244,6 @@ var namespaces_dup =
       [ "cp_v", "namespacem__global__parameters.html#ac61c3f39815c1f2ae9fafda99202044a", null ],
       [ "cyl_coord", "namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c", null ],
       [ "down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
-      [ "dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
       [ "dx", "namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b", null ],
       [ "dy", "namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f", null ],
       [ "dz", "namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd", null ],

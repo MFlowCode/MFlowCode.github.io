@@ -179,8 +179,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a452aa37dce078afa9ca37a573761c9c0" id="r_a452aa37dce078afa9ca37a573761c9c0"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a452aa37dce078afa9ca37a573761c9c0">s_initialize_thinc_module</a> ()</td></tr>
 <tr class="memitem:aa7e8ddaf46b51ed2ecc55f7f30ce4764" id="r_aa7e8ddaf46b51ed2ecc55f7f30ce4764"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa7e8ddaf46b51ed2ecc55f7f30ce4764">s_compute_mthinc_normals</a> (v_vf)</td></tr>
 <tr class="memdesc:aa7e8ddaf46b51ed2ecc55f7f30ce4764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the unit normal and interface-position parameter d at each interface cell.  <br /></td></tr>
-<tr class="memitem:a4e1a1c86b136ac0212666d41a0780f39" id="r_a4e1a1c86b136ac0212666d41a0780f39"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4e1a1c86b136ac0212666d41a0780f39">s_thinc_compression</a> (v_rs_ws, vl_rs_vf_x, vl_rs_vf_y, vl_rs_vf_z, vr_rs_vf_x, vr_rs_vf_y, vr_rs_vf_z, recon_dir, is1_d, is2_d, is3_d)</td></tr>
-<tr class="memdesc:a4e1a1c86b136ac0212666d41a0780f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies THINC (int_comp=1) or MTHINC (int_comp=2) interface compression to sharpen volume-fraction and density reconstructions at material interfaces. Called after WENO/MUSCL reconstruction per direction.  <br /></td></tr>
+<tr class="memitem:aaf7b788ed701752fdcb247a2e8cf30bd" id="r_aaf7b788ed701752fdcb247a2e8cf30bd"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aaf7b788ed701752fdcb247a2e8cf30bd">s_thinc_compression</a> (v_rs_ws, vl_rs_vf_x, vr_rs_vf_x, recon_dir, is1_d, is2_d, is3_d)</td></tr>
+<tr class="memdesc:aaf7b788ed701752fdcb247a2e8cf30bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies THINC (int_comp=1) or MTHINC (int_comp=2) interface compression to sharpen volume-fraction and density reconstructions at material interfaces. Called after WENO/MUSCL reconstruction per direction.  <br /></td></tr>
 <tr class="memitem:a28afabf878ba9a4ba12148c004fa407a" id="r_a28afabf878ba9a4ba12148c004fa407a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a28afabf878ba9a4ba12148c004fa407a">s_finalize_thinc_module</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
@@ -530,7 +530,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__thinc_8fpp_8f90_source.html#l01224">1224</a> of file <a class="el" href="m__thinc_8fpp_8f90_source.html">m_thinc.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__thinc_8fpp_8f90_source.html#l01219">1219</a> of file <a class="el" href="m__thinc_8fpp_8f90_source.html">m_thinc.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -560,8 +560,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4e1a1c86b136ac0212666d41a0780f39" name="a4e1a1c86b136ac0212666d41a0780f39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e1a1c86b136ac0212666d41a0780f39">&#9670;&#160;</a></span>s_thinc_compression()</h2>
+<a id="aaf7b788ed701752fdcb247a2e8cf30bd" name="aaf7b788ed701752fdcb247a2e8cf30bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7b788ed701752fdcb247a2e8cf30bd">&#9670;&#160;</a></span>s_thinc_compression()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -579,27 +579,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_rs_vf_y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl_rs_vf_z</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf_x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf_y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr_rs_vf_z</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -630,7 +610,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__thinc_a4e1a1c86b136ac0212666d41a0780f39_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__thinc_aaf7b788ed701752fdcb247a2e8cf30bd_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

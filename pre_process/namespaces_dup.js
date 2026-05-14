@@ -236,7 +236,6 @@ var namespaces_dup =
       [ "cyl_coord", "namespacem__global__parameters.html#a53f0d5eed7783c9760aaeeaa0abbd58c", null ],
       [ "dist_type", "namespacem__global__parameters.html#a34297551dccfd5771f543ff8902042bc", null ],
       [ "down_sample", "namespacem__global__parameters.html#ac8e03b6b62ec77f50c1e264d20e937f0", null ],
-      [ "dummy", "namespacem__global__parameters.html#a473ba9ea57f14c04235537f2c6652163", null ],
       [ "dx", "namespacem__global__parameters.html#a742174580da5b9b325a2f00c24aca536", null ],
       [ "dy", "namespacem__global__parameters.html#a380743bc7a4af4ab7143cb0c8679d972", null ],
       [ "dz", "namespacem__global__parameters.html#a29818b2dd42d5384d99765393d965049", null ],
