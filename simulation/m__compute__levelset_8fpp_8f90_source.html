@@ -671,8 +671,8 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>        <span class="keywordflow">if</span> (xy_local(2) &gt;= 0._wp) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>            <span class="comment">! finds the location on the airfoil grid with the minimum distance (closest)</span></div>
 <div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>            <span class="keywordflow">do</span> k = 1, <a class="code hl_variable" href="namespacem__global__parameters.html#ad50d987f0c26b5e1af27a3d883db988b">np</a></div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>                dist_vec(1) = xy_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(k)%x</div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>                dist_vec(2) = xy_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(k)%y</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>                dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(k)%x - xy_local(1)</div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>                dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(k)%y - xy_local(2)</div>
 <div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span>                dist_vec(3) = 0._wp</div>
 <div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span>                dist = sqrt(sum(dist_vec**2))</div>
 <div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>                <span class="keywordflow">if</span> (k == 1) <span class="keywordflow">then</span></div>
@@ -685,14 +685,14 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span><span class="keywordflow">                    end if</span></div>
 <div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>            dist_vec(1) = xy_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%x</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>            dist_vec(2) = xy_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%y</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>            dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%x - xy_local(1)</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>            dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%y - xy_local(2)</div>
 <div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>            dist_vec(3) = 0</div>
 <div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>            dist = global_dist</div>
 <div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span>            <span class="keywordflow">do</span> k = 1, <a class="code hl_variable" href="namespacem__global__parameters.html#ad50d987f0c26b5e1af27a3d883db988b">np</a></div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>                dist_vec(1) = xy_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%x</div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>                dist_vec(2) = xy_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%y</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>                dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%x - xy_local(1)</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>                dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%y - xy_local(2)</div>
 <div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>                dist_vec(3) = 0</div>
 <div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span>                dist = sqrt(sum(dist_vec**2))</div>
 <div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>                <span class="keywordflow">if</span> (k == 1) <span class="keywordflow">then</span></div>
@@ -705,9 +705,9 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span><span class="keywordflow">                    end if</span></div>
 <div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>            dist_vec(1) = xy_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%x</div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>            dist_vec(2) = xy_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%y</div>
-<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>            dist_vec(3) = 0</div>
+<div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>            dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%x - xy_local(1)</div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>            dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%y - xy_local(2)</div>
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>            dist_vec(3) = 0._wp</div>
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>            dist = global_dist</div>
 <div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span><span class="keywordflow">        end if</span></div>
 <div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span> </div>
@@ -785,14 +785,14 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span><span class="keywordflow">                    end if</span></div>
 <div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>            dist_vec(1) = xyz_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%x</div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            dist_vec(2) = xyz_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%y</div>
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>            dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%x - xyz_local(1)</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#a7601e6f85de367b3bab5d2aecd99bfb5">airfoil_grid_u</a>(global_id)%y - xyz_local(2)</div>
 <div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            dist_vec(3) = 0._wp</div>
 <div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>            dist_surf = global_dist</div>
 <div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span>        <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>            <span class="keywordflow">do</span> k = 1, <a class="code hl_variable" href="namespacem__global__parameters.html#ad50d987f0c26b5e1af27a3d883db988b">np</a></div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>                dist_vec(1) = xyz_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%x</div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>                dist_vec(2) = xyz_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%y</div>
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span>                dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%x - xyz_local(1)</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>                dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(k)%y - xyz_local(2)</div>
 <div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>                dist_vec(3) = 0</div>
 <div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>                dist_surf = sqrt(sum(dist_vec**2))</div>
 <div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>                <span class="keywordflow">if</span> (k == 1) <span class="keywordflow">then</span></div>
@@ -805,8 +805,8 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span><span class="keywordflow">                    end if</span></div>
 <div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00663" name="l00663"></a><span class="lineno">  663</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>            dist_vec(1) = xyz_local(1) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%x</div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>            dist_vec(2) = xyz_local(2) - <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%y</div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>            dist_vec(1) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%x - xyz_local(1)</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>            dist_vec(2) = <a class="code hl_variable" href="namespacem__global__parameters.html#ab4475896cefe44fa8e67725db1a3b7f0">airfoil_grid_l</a>(global_id)%y - xyz_local(2)</div>
 <div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>            dist_vec(3) = 0._wp</div>
 <div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>            dist_surf = global_dist</div>
 <div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span><span class="keywordflow">        end if</span></div>
