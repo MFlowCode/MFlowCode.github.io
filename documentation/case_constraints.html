@@ -862,8 +862,8 @@ Geometry</h3>
 <li>down sample requires m divisible by 3</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
+<li>m must be at least param_name - 1 (= order - 1)</li>
 <li>m must be positive</li>
-<li>m must be at least igr_order - 1 (= igr_order - 1)</li>
 </ul>
 <p></p>
 </details>
@@ -925,7 +925,6 @@ Geometry</h3>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>muscl_order must be 1 or 2</li>
-<li>m must be at least muscl_order - 1 (= muscl_order - 1)</li>
 </ul>
 <p></p>
 </details>
@@ -947,7 +946,7 @@ Geometry</h3>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>n must be non-negative</li>
-<li>n must be at least igr_order - 1 (= igr_order - 1)</li>
+<li>n must be positive (2D or 3D) for cylindrical coordinates</li>
 </ul>
 <p></p>
 </details>
@@ -1146,7 +1145,6 @@ Geometry</h3>
 <li>When = 2, recommends: <span class="tt">muscl_order</span>, <span class="tt">muscl_lim</span></li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
-<li>recon_type must be 1 (WENO) or 2 (MUSCL)</li>
 <li>recon_type must be 1 (WENO) or 2 (MUSCL)</li>
 </ul>
 <p></p>
@@ -1437,7 +1435,6 @@ Geometry</h3>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>weno_order must be 1, 3, 5, or 7</li>
-<li>m must be at least weno_order - 1 (= weno_order - 1)</li>
 </ul>
 <p></p>
 </details>
@@ -1456,7 +1453,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-29</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-30</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
