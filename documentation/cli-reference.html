@@ -408,11 +408,15 @@ test</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--shard</span>  </td><td class="markdownTableBodyNone">Run only a subset of tests (e.g., '1/2' for first half, '2/2' for second half).  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--build-coverage-cache</span>  </td><td class="markdownTableBodyNone">Run all tests with gcov instrumentation to build the file-level coverage cache. Pass &ndash;gcov to enable coverage instrumentation in the internal build step.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--build-coverage-map</span>  </td><td class="markdownTableBodyNone">Build the gcov coverage map (requires a prior &ndash;gcov build). Master-side only.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--only-changes</span>  </td><td class="markdownTableBodyNone">Only run tests whose covered files overlap with files changed since branching from master (uses file-level gcov coverage cache).  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--only-changes</span>  </td><td class="markdownTableBodyNone">Select only tests whose covered files overlap changed files (shadow mode unless &ndash;select-enforce).  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--changes-branch</span>  </td><td class="markdownTableBodyNone">Branch to compare against for &ndash;only-changes (default: master).  </td><td class="markdownTableBodyNone"><span class="tt">master</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--select-enforce</span>  </td><td class="markdownTableBodyNone">With &ndash;only-changes, actually skip unselected tests (otherwise shadow: print selection, run all).  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--changed-files</span>  </td><td class="markdownTableBodyNone">Changed-file list (newline-, space-, or comma-separated; from CI paths-filter). Overrides git detection.  </td><td class="markdownTableBodyNone">-  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--changes-branch</span>  </td><td class="markdownTableBodyNone">Branch to diff against for &ndash;only-changes.  </td><td class="markdownTableBodyNone"><span class="tt">master</span>  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--generate</span>  </td><td class="markdownTableBodyNone">(Test Generation) Generate golden files.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -440,12 +444,6 @@ test</h3>
 <div class="line"> </div>
 <div class="line"># Regenerate golden files</div>
 <div class="line">./mfc.sh test --generate</div>
-<div class="line"> </div>
-<div class="line"># Run tests affected by changed files</div>
-<div class="line">./mfc.sh test --only-changes -j 4</div>
-<div class="line"> </div>
-<div class="line"># One-time: build file-coverage cache</div>
-<div class="line">./mfc.sh build --gcov -j 8 &amp;&amp; ./mfc.sh test --build-coverage-cache</div>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="clean"></a>
 clean</h3>
@@ -996,7 +994,7 @@ Verbosity (<span class="tt">-v, --verbose</span>)</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md81"></a>
 Debug Logging (<span class="tt">-d, --debug-log</span>)</h3>
 <p>Enables debug logging for the Python toolchain (mfc.sh internals). This is for troubleshooting the build system, not the MFC simulation code.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-30</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-05-31</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
