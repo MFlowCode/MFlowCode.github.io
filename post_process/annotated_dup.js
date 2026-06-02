@@ -33,6 +33,7 @@ var annotated_dup =
       [ "t_model_array", "structm__derived__types_1_1t__model__array.html", "structm__derived__types_1_1t__model__array" ],
       [ "ic_patch_parameters", "structm__derived__types_1_1ic__patch__parameters.html", "structm__derived__types_1_1ic__patch__parameters" ],
       [ "ib_patch_parameters", "structm__derived__types_1_1ib__patch__parameters.html", "structm__derived__types_1_1ib__patch__parameters" ],
+      [ "particle_bed_parameters", "structm__derived__types_1_1particle__bed__parameters.html", "structm__derived__types_1_1particle__bed__parameters" ],
       [ "physical_parameters", "structm__derived__types_1_1physical__parameters.html", "structm__derived__types_1_1physical__parameters" ],
       [ "subgrid_bubble_physical_parameters", "structm__derived__types_1_1subgrid__bubble__physical__parameters.html", "structm__derived__types_1_1subgrid__bubble__physical__parameters" ],
       [ "mpi_io_airfoil_ib_var", "structm__derived__types_1_1mpi__io__airfoil__ib__var.html", "structm__derived__types_1_1mpi__io__airfoil__ib__var" ],

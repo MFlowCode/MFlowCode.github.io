@@ -191,6 +191,11 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aca13f477717fbe9c77304a91bc9d8cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize and deallocate all simulation sub-modules in reverse initialization order.  <br /></td></tr>
 <tr class="memitem:a191081d40ca4d71652c77df4c3bad640" id="r_a191081d40ca4d71652c77df4c3bad640"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a191081d40ca4d71652c77df4c3bad640">s_read_ib_restart_data</a> (t_step)</td></tr>
 <tr class="memdesc:a191081d40ca4d71652c77df4c3bad640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads IB kinematic state from restart_data/ib_state.dat on restart. Rank 0 reads the last num_ibs records and broadcasts to all ranks. Overwrites patch_ib vel, angular_vel, angles, and centroid.  <br /></td></tr>
+<tr class="memitem:a581ab47872722ec5ad5482dde58ac3fd" id="r_a581ab47872722ec5ad5482dde58ac3fd"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a581ab47872722ec5ad5482dde58ac3fd">s_reduce_ib_patch_array</a> (particle_bed_ibs)</td></tr>
+<tr class="memdesc:a581ab47872722ec5ad5482dde58ac3fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_bed_ibs (CPU-only, exact size) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_bed_ibs is owned by the caller and freed there after this returns.  <br /></td></tr>
+<tr class="memitem:a3d543d2498cb1126d6e674c66a3c694a" id="r_a3d543d2498cb1126d6e674c66a3c694a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3d543d2498cb1126d6e674c66a3c694a">s_compute_ib_neighbor_ranks</a> ()</td></tr>
+<tr class="memdesc:a3d543d2498cb1126d6e674c66a3c694a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SENDRECV cascades - face neighbors are known from bc_*, edge neighbors are obtained in round 1, and (3D) corner neighbors in round 2.  <br /></td></tr>
+<tr class="memitem:a3adcb37778a49b76d2a4914f172228dc" id="r_a3adcb37778a49b76d2a4914f172228dc"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3adcb37778a49b76d2a4914f172228dc">get_neighbor_bounds</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -200,6 +205,27 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Reads input files, loads initial conditions and grid data, and orchestrates solver initialization and finalization. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a3adcb37778a49b76d2a4914f172228dc" name="a3adcb37778a49b76d2a4914f172228dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3adcb37778a49b76d2a4914f172228dc">&#9670;&#160;</a></span>get_neighbor_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_start_up::get_neighbor_bounds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02250">2250</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a3adcb37778a49b76d2a4914f172228dc_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="ad26e747c87bb6bcf4c9d6baa21d044c1" name="ad26e747c87bb6bcf4c9d6baa21d044c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad26e747c87bb6bcf4c9d6baa21d044c1">&#9670;&#160;</a></span>s_check_input_file()</h2>
 
@@ -214,7 +240,7 @@ Variables</h2></td></tr>
 
 <p>Validate that all user-provided inputs form a consistent simulation configuration. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00471">471</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -224,6 +250,29 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_ad26e747c87bb6bcf4c9d6baa21d044c1_icgraph.svg" width="506" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3d543d2498cb1126d6e674c66a3c694a" name="a3d543d2498cb1126d6e674c66a3c694a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d543d2498cb1126d6e674c66a3c694a">&#9670;&#160;</a></span>s_compute_ib_neighbor_ranks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_start_up::s_compute_ib_neighbor_ranks</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SENDRECV cascades - face neighbors are known from bc_*, edge neighbors are obtained in round 1, and (3D) corner neighbors in round 2. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02067">2067</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a3d543d2498cb1126d6e674c66a3c694a_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -242,12 +291,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize and deallocate all simulation sub-modules in reverse initialization order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01805">1805</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_aca13f477717fbe9c77304a91bc9d8cc9_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01820">1820</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -270,7 +314,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transfer initial conservative variable and model parameter data to the GPU device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01469">1469</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01484">1484</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -296,7 +340,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize internal-energy equations from phase mass, mixture momentum, and total energy. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00867">867</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00871">871</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -324,7 +368,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize all simulation sub-modules in the required dependency order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01277">1277</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01281">1281</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -352,7 +396,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up the MPI execution environment, bind GPUs, and decompose the computational domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01396">1396</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01411">1411</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -387,7 +431,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance the simulation by one time step, handling CFL-based dt and time-stepper dispatch. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00924">924</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00928">928</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -418,7 +462,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read data files. Dispatch subroutine that replaces procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -449,12 +493,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reads IB kinematic state from restart_data/ib_state.dat on restart. Rank 0 reads the last num_ibs records and broadcasts to all ranks. Overwrites patch_ib vel, angular_vel, angles, and centroid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01847">1847</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a191081d40ca4d71652c77df4c3bad640_cgraph.svg" width="384" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01862">1862</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -477,7 +516,7 @@ Here is the caller graph for this function:</div>
 
 <p>Verify the input file exists and read it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -508,7 +547,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read parallel initial condition and grid data files via MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00616">616</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00620">620</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -539,7 +578,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read serial initial condition and grid data files and compute cell-width distributions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00490">490</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00494">494</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -549,6 +588,37 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a1bf604b2afd7b81737153114d92e7c80_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a581ab47872722ec5ad5482dde58ac3fd" name="a581ab47872722ec5ad5482dde58ac3fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a581ab47872722ec5ad5482dde58ac3fd">&#9670;&#160;</a></span>s_reduce_ib_patch_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_start_up::s_reduce_ib_patch_array </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>particle_bed_ibs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_bed_ibs (CPU-only, exact size) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_bed_ibs is owned by the caller and freed there after this returns. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01914">1914</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a581ab47872722ec5ad5482dde58ac3fd_cgraph.svg" width="408" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a581ab47872722ec5ad5482dde58ac3fd_icgraph.svg" width="512" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -589,7 +659,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save conservative variable data to disk at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01090">1090</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01094">1094</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -649,7 +719,7 @@ Here is the caller graph for this function:</div>
 
 <p>Collect per-process wall-clock times and write aggregate performance metrics to file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01030">1030</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01034">1034</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -676,7 +746,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -692,7 +762,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>

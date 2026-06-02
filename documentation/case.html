@@ -429,6 +429,10 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of immersed boundary patches  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">num_particle_beds</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of particle bed specifications to generate immersed boundary patches from  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">ib_neighborhood_radius</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Parameter that controls the neighborhood size for IB detection.  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
@@ -494,6 +498,7 @@ Parameter Descriptions</h4>
 <li><span class="tt">collision_model</span> is an integer to select the collision model being used for IB collisions. Using 0 disables collisions and collisiono checking. 1 enables the soft-sphere collision model, where all IBs must be circles or sphere and those IBs can collide with each other as well as walls.</li>
 <li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring gonstant used to apply collision forces.</li>
 <li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
+<li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. This value defaults to 1, which indicates that any given rank is aware of IB's up to 1 ranks away. This parameter is required to strong-scale a case when IB's eventually grow to be larger than one full processor domain wide.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="sec-fluid-materials"></a>
 5. Fluid Material's</h3>
@@ -786,7 +791,7 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">heat_ratio_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the specific heat ratio to the database  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write IB state and loads to a datafile at each time step  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parameter to handle writing IB state on saves and outputting the state as a point mesh to SILO files.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">pi_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database  </td></tr>
 <tr class="markdownTableRowEven">
@@ -879,7 +884,7 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">schlieren_alpha(i)</span> specifies the intensity of the numerical Schlieren of $i$-th component.</li>
 <li><span class="tt">fd_order</span> specifies the order of the finite difference scheme used to compute the vorticity from the velocity field and the numerical schlieren from the density field using an integer of 1, 2, and 4. <span class="tt">fd_order = 1</span>, <span class="tt">2</span>, and <span class="tt">4</span> correspond to the first, second, and fourth-order finite difference schemes.</li>
 <li><span class="tt">probe_wrt</span> activates the output of state variables at coordinates specified by <span class="tt">probe(i)%[x;y,z]</span>.</li>
-<li><span class="tt">ib_state_wrt</span> activates the output of data specified by patch_ib(i)force(:) (and torque, vel, angular_vel, angles, [x,y,z]_centroid) into a single binary datafile for all IBs at all timesteps. During post_processing, this file is converted into separate time histories for each IB.</li>
+<li><span class="tt">ib_state_wrt</span> is used to trigger post-processing of the IB state to be written out as a point mesh in the SILO files. When no IBs are moving, it also triggers force and torque calculation so that those values may be written to the output state files.</li>
 <li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_output%beg</span> and <span class="tt">[x,y,z]_output%end</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="sec-acoustic-source"></a>

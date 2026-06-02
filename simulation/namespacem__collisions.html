@@ -174,8 +174,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:afc91e801df54bde06f8db286aecae19b" id="r_afc91e801df54bde06f8db286aecae19b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#afc91e801df54bde06f8db286aecae19b">s_detect_ib_collisions_n2</a> (num_considered_collisions)</td></tr>
 <tr class="memitem:a582bc12bbbdb4389578c76e37255a201" id="r_a582bc12bbbdb4389578c76e37255a201"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a582bc12bbbdb4389578c76e37255a201">s_detect_wall_collisions</a> ()</td></tr>
 <tr class="memdesc:a582bc12bbbdb4389578c76e37255a201"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses boundary conditions and particle locations to check for wall conditions  <br /></td></tr>
-<tr class="memitem:a1e32450de52ff46c84d5fe66bed6fb9e" id="r_a1e32450de52ff46c84d5fe66bed6fb9e"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a1e32450de52ff46c84d5fe66bed6fb9e">f_local_rank_owns_collision</a> (collision_location)</td></tr>
-<tr class="memdesc:a1e32450de52ff46c84d5fe66bed6fb9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">function checks if this local MPI processor owns this specific collision  <br /></td></tr>
+<tr class="memitem:aa76f43bb77653a6b6e06a03c20b3ef08" id="r_aa76f43bb77653a6b6e06a03c20b3ef08"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#aa76f43bb77653a6b6e06a03c20b3ef08">f_local_rank_owns_location</a> (location)</td></tr>
+<tr class="memdesc:aa76f43bb77653a6b6e06a03c20b3ef08"><td class="mdescLeft">&#160;</td><td class="mdescRight">function checks if this local MPI processor owns this specific collision  <br /></td></tr>
+<tr class="memitem:a6f78efa6a42123b9b5122de43e21733a" id="r_a6f78efa6a42123b9b5122de43e21733a"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a6f78efa6a42123b9b5122de43e21733a">f_neighborhood_ranks_own_location</a> (location)</td></tr>
+<tr class="memdesc:a6f78efa6a42123b9b5122de43e21733a"><td class="mdescLeft">&#160;</td><td class="mdescRight">function checks if this local MPI processor owns this specific collision  <br /></td></tr>
 <tr class="memitem:a6da9569c8e2a07f8609c8a706bbf1849" id="r_a6da9569c8e2a07f8609c8a706bbf1849"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6da9569c8e2a07f8609c8a706bbf1849">s_finalize_collisions_module</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
@@ -188,16 +190,16 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients, and corrects the flow state. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a1e32450de52ff46c84d5fe66bed6fb9e" name="a1e32450de52ff46c84d5fe66bed6fb9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e32450de52ff46c84d5fe66bed6fb9e">&#9670;&#160;</a></span>f_local_rank_owns_collision()</h2>
+<a id="aa76f43bb77653a6b6e06a03c20b3ef08" name="aa76f43bb77653a6b6e06a03c20b3ef08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa76f43bb77653a6b6e06a03c20b3ef08">&#9670;&#160;</a></span>f_local_rank_owns_location()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">logical function m_collisions::f_local_rank_owns_collision </td>
+          <td class="memname">logical function, public m_collisions::f_local_rank_owns_location </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>collision_location</em></span></td><td>)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>location</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -205,12 +207,33 @@ Variables</h2></td></tr>
 
 <p>function checks if this local MPI processor owns this specific collision </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01122">1122</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01128">1128</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a1e32450de52ff46c84d5fe66bed6fb9e_icgraph.svg" width="592" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_aa76f43bb77653a6b6e06a03c20b3ef08_icgraph.svg" width="591" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a6f78efa6a42123b9b5122de43e21733a" name="a6f78efa6a42123b9b5122de43e21733a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f78efa6a42123b9b5122de43e21733a">&#9670;&#160;</a></span>f_neighborhood_ranks_own_location()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function, public m_collisions::f_neighborhood_ranks_own_location </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>location</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>function checks if this local MPI processor owns this specific collision </p>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01203">1203</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -248,11 +271,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00473">473</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ae2dd53a11be648ef6360131ed58b37f7_cgraph.svg" width="595" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ae2dd53a11be648ef6360131ed58b37f7_cgraph.svg" width="594" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -283,11 +306,11 @@ Here is the call graph for this function:</div>
 
 <p>applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00498">498</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00500">500</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab9608ec22b9d2f89741faa0a9582dc7a_cgraph.svg" width="380" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab9608ec22b9d2f89741faa0a9582dc7a_cgraph.svg" width="379" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -318,11 +341,11 @@ Here is the caller graph for this function:</div>
 
 <p>applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00652">652</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00656">656</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_af40a32d6d0e4db1d0dd7030d2639a915_cgraph.svg" width="383" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_af40a32d6d0e4db1d0dd7030d2639a915_cgraph.svg" width="382" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -363,12 +386,7 @@ Here is the caller graph for this function:</div>
 
 <p>uses ghost-point/image-point information to determine if it is possible if two IBs are colliding, effectively an optimized nearest neighbor search </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00769">769</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a8dac6fb2b3da2ea0e6d3df93df7c9e94_icgraph.svg" width="387" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00773">773</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -387,7 +405,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00923">923</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00927">927</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_afc91e801df54bde06f8db286aecae19b_icgraph.svg" width="387" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -405,7 +428,7 @@ Here is the caller graph for this function:</div>
 
 <p>uses boundary conditions and particle locations to check for wall conditions </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01007">1007</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01013">1013</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -426,7 +449,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01150">1150</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01273">1273</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -442,7 +465,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00361">361</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00362">362</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -459,7 +482,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00333">333</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00334">334</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -475,7 +498,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00335">335</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00336">336</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -491,7 +514,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00335">335</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00336">336</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -507,7 +530,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00334">334</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00335">335</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
