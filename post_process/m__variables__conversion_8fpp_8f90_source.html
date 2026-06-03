@@ -2860,16 +2860,20 @@ $(function(){initNavTree('m__variables__conversion_8fpp_8f90_source.html','','')
 <div class="line"><a id="l02694" name="l02694"></a><span class="lineno"> 2694</span><span class="preprocessor">#ifdef MFC_DEBUG</span></div>
 <div class="line"><a id="l02695" name="l02695"></a><span class="lineno"> 2695</span><span class="preprocessor"></span>        <span class="keywordflow">if</span> (disc &lt; 0._wp) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l02696" name="l02696"></a><span class="lineno"> 2696</span>            print *, <span class="stringliteral">&#39;rho, c, Bx, By, Bz, h, term, disc:&#39;</span>, rho, c, b(1), b(2), b(3), h, term, disc</div>
-<div class="line"><a id="l02697" name="l02697"></a><span class="lineno"> 2697</span>            <span class="keyword">call </span>s_mpi_abort(<span class="stringliteral">&#39;Error: negative discriminant in s_compute_fast_magnetosonic_speed&#39;</span>)</div>
-<div class="line"><a id="l02698" name="l02698"></a><span class="lineno"> 2698</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l02699" name="l02699"></a><span class="lineno"> 2699</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l02700" name="l02700"></a><span class="lineno"> 2700</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l02701" name="l02701"></a><span class="lineno"> 2701</span>        c_fast = sqrt(0.5_wp*(term + sqrt(disc)))</div>
-<div class="line"><a id="l02702" name="l02702"></a><span class="lineno"> 2702</span> </div>
+<div class="line"><a id="l02697" name="l02697"></a><span class="lineno"> 2697</span>            <span class="comment">! s_mpi_abort is a host routine and cannot be called from device code</span></div>
+<div class="line"><a id="l02698" name="l02698"></a><span class="lineno"> 2698</span>            <span class="comment">! (this is a GPU routine); on GPU builds, emit the diagnostic print only.</span></div>
+<div class="line"><a id="l02699" name="l02699"></a><span class="lineno"> 2699</span><span class="preprocessor">#ifndef MFC_GPU</span></div>
+<div class="line"><a id="l02700" name="l02700"></a><span class="lineno"> 2700</span><span class="preprocessor"></span>            <span class="keyword">call </span>s_mpi_abort(<span class="stringliteral">&#39;Error: negative discriminant in s_compute_fast_magnetosonic_speed&#39;</span>)</div>
+<div class="line"><a id="l02701" name="l02701"></a><span class="lineno"> 2701</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l02702" name="l02702"></a><span class="lineno"> 2702</span><span class="preprocessor"></span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l02703" name="l02703"></a><span class="lineno"> 2703</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l02704" name="l02704"></a><span class="lineno"> 2704</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l02705" name="l02705"></a><span class="lineno"> 2705</span>        c_fast = sqrt(0.5_wp*(term + sqrt(disc)))</div>
+<div class="line"><a id="l02706" name="l02706"></a><span class="lineno"> 2706</span> </div>
 </div>
-<div class="line"><a id="l02703" name="l02703"></a><span class="lineno"> 2703</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__variables__conversion.html#a03d13e39beb1daa9f6a59a469b10ebb5">s_compute_fast_magnetosonic_speed</a></div>
-<div class="line"><a id="l02704" name="l02704"></a><span class="lineno"> 2704</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l02705" name="l02705"></a><span class="lineno"> 2705</span><span class="preprocessor"></span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__variables__conversion.html">m_variables_conversion</a></div>
+<div class="line"><a id="l02707" name="l02707"></a><span class="lineno"> 2707</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__variables__conversion.html#a03d13e39beb1daa9f6a59a469b10ebb5">s_compute_fast_magnetosonic_speed</a></div>
+<div class="line"><a id="l02708" name="l02708"></a><span class="lineno"> 2708</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l02709" name="l02709"></a><span class="lineno"> 2709</span><span class="preprocessor"></span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__variables__conversion.html">m_variables_conversion</a></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_a6d2af1366163bbea81771912d405abfa"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a></div><div class="ttdeci">type(scalar_field), dimension(sys_size), intent(inout) q_cons_vf</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l01065">m_phase_change.fpp.f90:1065</a></div></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_ab59687ec5969af6d5b7b9ba5cf2835aa"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a></div><div class="ttdeci">integer, intent(in) k</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l01067">m_phase_change.fpp.f90:1067</a></div></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_ace2eaec12668a4d4eedb46c8c99c94f2"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a></div><div class="ttdeci">integer, intent(in) j</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l01067">m_phase_change.fpp.f90:1067</a></div></div>
