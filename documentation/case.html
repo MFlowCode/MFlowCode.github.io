@@ -429,41 +429,25 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of immersed boundary patches  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">num_stl_models</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of STL/OBJ model entries in the <span class="tt">stl_models</span> array  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">num_particle_beds</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of particle bed specifications to generate immersed boundary patches from  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_neighborhood_radius</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Parameter that controls the neighborhood size for IB detection.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Length, if applicable, in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius, if applicable, of the applied geometry.  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">theta</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Angle of attach applied to airfoil IB patches  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">c</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">airfoil_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">ib_airfoil</span> array for NACA airfoil geometry patches.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">t</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">m</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">p</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">NACA airfoil parameters (see below)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">model_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">stl_models</span> array for STL/OBJ geometry patches.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">slip</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Apply a slip boundary  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">model_filepath</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">model_scale(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Model's (applied) scaling factor for component $i$.  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">model_rotate(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Model's (applied) angle of rotation about axis $i$.  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">model_translate(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Model's $i$-th component of (applied) translation.  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">model_spc</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of samples per cell when discretizing the model into the grid.  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">model_threshold</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Ray fraction inside the model patch above which the fraction is set to one.  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sets the method used for IB movement.  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -480,6 +464,20 @@ Elliptic Smoothing</h4>
 <td class="markdownTableBodyRight"><span class="tt">ib_coefficient_of_friction</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coefficient of friction used in IB collisions  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">patch_ib(j)%</span> where $j$ is the patch index.</p>
+<p>STL/OBJ model geometry parameters are set on the <span class="tt">stl_models</span> array (indexed by <span class="tt">model_id</span>):</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Parameter  </th><th class="markdownTableHeadLeft">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><span class="tt">model_filepath</span>  </td><td class="markdownTableBodyLeft">String  </td><td class="markdownTableBodyLeft">Path to an STL or OBJ file (not all OBJs are supported).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><span class="tt">model_scale(i)</span>  </td><td class="markdownTableBodyLeft">Real  </td><td class="markdownTableBodyLeft">Model's scaling factor for component $i$.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><span class="tt">model_translate(i)</span>  </td><td class="markdownTableBodyLeft">Real  </td><td class="markdownTableBodyLeft">Model's $i$-th component of translation.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><span class="tt">model_threshold</span>  </td><td class="markdownTableBodyLeft">Real  </td><td class="markdownTableBodyLeft">Winding number threshold above which a cell is marked as inside the model.  </td></tr>
+</table>
+<p>These parameters should be prepended with <span class="tt">stl_models(k)%</span> where $k$ is the model index.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 Parameter Descriptions</h4>
 <ul>
@@ -487,10 +485,9 @@ Parameter Descriptions</h4>
 <li><span class="tt">x[y,z]_centroid</span> is the centroid location of the patch in the x[y,z]-direction</li>
 <li><span class="tt">length_x[y,z]</span> is the length of the patch in the x[y,z]-direction.</li>
 <li><span class="tt">radius</span> is the radius to be used for circular patches.</li>
-<li><span class="tt">theta</span> allows for the angle of attach of airfoil patches to be changed.</li>
-<li><span class="tt">c</span>, <span class="tt">t</span>, <span class="tt">p</span>, and <span class="tt">m</span> specify the parameters for a NACA airfoil. <span class="tt">m</span> is the maximum camber, <span class="tt">p</span> is the location of maximum camber, <span class="tt">c</span> is the coord length, and <span class="tt">t</span> is the thickness. Additional details on this specification can be found in <a href="https://en.wikipedia.org/wiki/NACA_airfoil">NACA airfoil</a>.</li>
+<li><span class="tt">c</span>, <span class="tt">t</span>, <span class="tt">p</span>, and <span class="tt">m</span> specify the parameters for a NACA airfoil (set on the referenced <span class="tt">ib_airfoil</span> entry). <span class="tt">m</span> is the maximum camber, <span class="tt">p</span> is the location of maximum camber, <span class="tt">c</span> is the chord length, and <span class="tt">t</span> is the thickness. Additional details on this specification can be found in <a href="https://en.wikipedia.org/wiki/NACA_airfoil">NACA airfoil</a>.</li>
 <li><span class="tt">slip</span> applies a slip boundary to the surface of the patch if true and a no-slip boundary condition to the surface if false.</li>
-<li>Please see <a class="el" href="#sec-patches" title="3. Patches">Patch Parameters</a> for the descriptions of <span class="tt">model_filepath</span>, <span class="tt">model_scale</span>, <span class="tt">model_rotate</span>, <span class="tt">model_translate</span>, <span class="tt">model_spc</span>, and <span class="tt">model_threshold</span>.</li>
+<li>For STL/OBJ geometry (geometry 5 or 12), set <span class="tt">model_id</span> to index into the <span class="tt">stl_models</span> array and specify <span class="tt">model_filepath</span>, <span class="tt">model_scale</span>, <span class="tt">model_translate</span>, and <span class="tt">model_threshold</span> on that entry.</li>
 <li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon it's own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces.</li>
 <li><span class="tt">vel(i)</span> is the initial linear velocity of the IB in the x, y, z direction for i=1, 2, 3. When <span class="tt">moving_ibm</span> equals 2, this velocity is just the starting speed of the object, which will then accelerate due to external forces. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>
 <li><span class="tt">angular_vel(i)</span> is the initial angular velocity of the IB about the x, y, z axes for i=1, 2, 3 in radians per second. When <span class="tt">moving_ibm</span> equals 2, this rotation rate is just the starting rate of the object, which will then change due to external torques. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>

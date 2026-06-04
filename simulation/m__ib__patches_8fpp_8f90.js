@@ -16,5 +16,6 @@ var m__ib__patches_8fpp_8f90 =
     [ "m_ib_patches::s_ib_model", "namespacem__ib__patches.html#a999aa5317d8df2fadd131c7e76be9b42", null ],
     [ "m_ib_patches::s_ib_rectangle", "namespacem__ib__patches.html#ab410479cd61998d6d483a758447b87d8", null ],
     [ "m_ib_patches::s_ib_sphere", "namespacem__ib__patches.html#aed5b4d04c19b0a08e3b4aea398b49a52", null ],
+    [ "m_ib_patches::s_initialize_ib_airfoils", "namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6", null ],
     [ "m_ib_patches::s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ]
 ];

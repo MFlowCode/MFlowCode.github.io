@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['p_0',['p',['../structm__derived__types_1_1ib__patch__parameters.html#acb62f0032783e1d58b8850c7bd9fac6a',1,'m_derived_types::ib_patch_parameters::p'],['../namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7',1,'m_global_parameters::p']]],
+  ['p_0',['p',['../structm__derived__types_1_1ib__airfoil__parameters.html#a6cd1dd2020ead945a30e7f273162892d',1,'m_derived_types::ib_airfoil_parameters::p'],['../namespacem__global__parameters.html#ac040dbf547e6d5de8df08e864d8131e7',1,'m_global_parameters::p']]],
   ['p0_1',['p0',['../structm__derived__types_1_1ic__patch__parameters.html#a35eda7f382308b26591bacfd040e9409',1,'m_derived_types::ic_patch_parameters']]],
   ['p0ref_2',['p0ref',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#ad30ad6beff48efea63927143db73941c',1,'m_derived_types::subgrid_bubble_physical_parameters::p0ref'],['../namespacem__global__parameters.html#a09c7e736980589a2a963352638771622',1,'m_global_parameters::p0ref']]],
   ['p_5fglb_3',['p_glb',['../namespacem__global__parameters.html#a1072f221ca8e41b0ea3240b33374cc1e',1,'m_global_parameters']]],
