@@ -35,7 +35,7 @@ var searchData=
   ['m_5fmpi_5fproxy_32',['m_mpi_proxy',['../namespacem__mpi__proxy.html',1,'']]],
   ['m_5fmuscl_33',['m_muscl',['../namespacem__muscl.html',1,'']]],
   ['m_5fnvtx_34',['m_nvtx',['../namespacem__nvtx.html',1,'']]],
-  ['m_5fparticle_5fbed_35',['m_particle_bed',['../namespacem__particle__bed.html',1,'']]],
+  ['m_5fparticle_5fcloud_35',['m_particle_cloud',['../namespacem__particle__cloud.html',1,'']]],
   ['m_5fphase_5fchange_36',['m_phase_change',['../namespacem__phase__change.html',1,'']]],
   ['m_5fprecision_5fselect_37',['m_precision_select',['../namespacem__precision__select.html',1,'']]],
   ['m_5fpressure_5frelaxation_38',['m_pressure_relaxation',['../namespacem__pressure__relaxation.html',1,'']]],

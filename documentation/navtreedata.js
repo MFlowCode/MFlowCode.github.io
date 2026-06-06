@@ -526,7 +526,7 @@ var NAVTREE =
         ] ],
         [ "bub_pp", "parameters.html#bub_pp", null ],
         [ "lag_params", "parameters.html#lag_params", null ],
-        [ "particle_bed", "parameters.html#particle_bed", null ],
+        [ "particle_cloud", "parameters.html#particle_cloud", null ],
         [ "alpha_rho_e_wrt", "parameters.html#alpha_rho_e_wrt", [
           [ "Patterns", "parameters.html#autotoc_md368", null ]
         ] ],

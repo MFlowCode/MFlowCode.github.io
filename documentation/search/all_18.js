@@ -25,7 +25,7 @@ var searchData=
   ['params_22',['params',['../cli-reference.html#params',1,'']]],
   ['paraview_23',['Visualizing with ParaView',['../visualization.html#autotoc_md554',1,'']]],
   ['paraview_20server_24',['Step 3: Running pace-paraview-server',['../visualization.html#autotoc_md561',1,'']]],
-  ['particle_5fbed_25',['particle_bed',['../parameters.html#particle_bed',1,'']]],
+  ['particle_5fcloud_25',['particle_cloud',['../parameters.html#particle_cloud',1,'']]],
   ['patch_20initial_20condition_20constraints_26',['Patch Initial Condition Constraints',['../physics_constraints.html#autotoc_md403',1,'']]],
   ['patch_20types_27',['Immersed Boundary Patch Types',['../case.html#immersed-boundary-patch-types',1,'']]],
   ['patch_20types_28',['Patch types',['../case.html#patch-types',1,'']]],

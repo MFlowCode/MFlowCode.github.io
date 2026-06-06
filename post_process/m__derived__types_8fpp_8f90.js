@@ -32,7 +32,7 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::ib_airfoil_grid", "structm__derived__types_1_1ib__airfoil__grid.html", "structm__derived__types_1_1ib__airfoil__grid" ],
     [ "m_derived_types::ib_stl_parameters", "structm__derived__types_1_1ib__stl__parameters.html", "structm__derived__types_1_1ib__stl__parameters" ],
     [ "m_derived_types::ib_patch_parameters", "structm__derived__types_1_1ib__patch__parameters.html", "structm__derived__types_1_1ib__patch__parameters" ],
-    [ "m_derived_types::particle_bed_parameters", "structm__derived__types_1_1particle__bed__parameters.html", "structm__derived__types_1_1particle__bed__parameters" ],
+    [ "m_derived_types::particle_cloud_parameters", "structm__derived__types_1_1particle__cloud__parameters.html", "structm__derived__types_1_1particle__cloud__parameters" ],
     [ "m_derived_types::physical_parameters", "structm__derived__types_1_1physical__parameters.html", "structm__derived__types_1_1physical__parameters" ],
     [ "m_derived_types::subgrid_bubble_physical_parameters", "structm__derived__types_1_1subgrid__bubble__physical__parameters.html", "structm__derived__types_1_1subgrid__bubble__physical__parameters" ],
     [ "m_derived_types::mpi_io_airfoil_ib_var", "structm__derived__types_1_1mpi__io__airfoil__ib__var.html", "structm__derived__types_1_1mpi__io__airfoil__ib__var" ],

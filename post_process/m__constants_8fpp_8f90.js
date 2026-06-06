@@ -58,7 +58,7 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::num_ib_patches_max", "namespacem__constants.html#a79dab2f2e7dd62e15f74542ae56a4b69", null ],
     [ "m_constants::num_ib_patches_max_namelist", "namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b", null ],
     [ "m_constants::num_local_ibs_max", "namespacem__constants.html#a0ef5dbdaf637c46bc04b4abd1cb1233d", null ],
-    [ "m_constants::num_particle_beds_max", "namespacem__constants.html#a99cd348d83c61c5569936bb48cc885bb", null ],
+    [ "m_constants::num_particle_clouds_max", "namespacem__constants.html#a3d55a69cf4cc9d7d00e179db3be28e6a", null ],
     [ "m_constants::num_patches_max", "namespacem__constants.html#a2678965621459e6045edb254772ffdb5", null ],
     [ "m_constants::num_probes_max", "namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1", null ],
     [ "m_constants::num_ray", "namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c", null ],

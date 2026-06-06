@@ -231,6 +231,7 @@ var namespaces_dup =
       [ "s_check_inputs_compilers", "namespacem__checker.html#aae9a516509d46e5ac36d150bb75254f2", null ],
       [ "s_check_inputs_muscl", "namespacem__checker.html#a96654b50668ae39c0b9eca1426a3fe56", null ],
       [ "s_check_inputs_nvidia_uvm", "namespacem__checker.html#aceda94ae9a006496d062f1e764db5b67", null ],
+      [ "s_check_inputs_particle_clouds", "namespacem__checker.html#a395a1d302f6ed4d70d79e6c04648be8a", null ],
       [ "s_check_inputs_time_stepping", "namespacem__checker.html#a2bee59c2049ad8165e2788175b6cd030", null ],
       [ "s_check_inputs_weno", "namespacem__checker.html#a8abd19271bbd3a0d8a4b445f1e7dba57", null ]
     ] ],
@@ -360,7 +361,7 @@ var namespaces_dup =
       [ "num_ib_patches_max", "namespacem__constants.html#a79dab2f2e7dd62e15f74542ae56a4b69", null ],
       [ "num_ib_patches_max_namelist", "namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b", null ],
       [ "num_local_ibs_max", "namespacem__constants.html#a0ef5dbdaf637c46bc04b4abd1cb1233d", null ],
-      [ "num_particle_beds_max", "namespacem__constants.html#a99cd348d83c61c5569936bb48cc885bb", null ],
+      [ "num_particle_clouds_max", "namespacem__constants.html#a3d55a69cf4cc9d7d00e179db3be28e6a", null ],
       [ "num_patches_max", "namespacem__constants.html#a2678965621459e6045edb254772ffdb5", null ],
       [ "num_probes_max", "namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1", null ],
       [ "num_ray", "namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c", null ],
@@ -645,7 +646,7 @@ var namespaces_dup =
       [ "num_igr_warm_start_iters", "namespacem__global__parameters.html#ace88d55ef9d07351778470da4cd5c841", null ],
       [ "num_integrals", "namespacem__global__parameters.html#a7a86e6e9d4c8b59d28b7404d836fdee8", null ],
       [ "num_local_ibs", "namespacem__global__parameters.html#a7619ac383aef2e99a4cc968a26c88fe5", null ],
-      [ "num_particle_beds", "namespacem__global__parameters.html#a6f101bca9705726fd09a752c8b34991d", null ],
+      [ "num_particle_clouds", "namespacem__global__parameters.html#a1368f0f119a77221e0ae0210a9343b6e", null ],
       [ "num_probes", "namespacem__global__parameters.html#aa4e0d015d4064b37e132c5088089394d", null ],
       [ "num_procs", "namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea", null ],
       [ "num_source", "namespacem__global__parameters.html#aa9f6f3f60cf781f3dfc707330655fcc1", null ],
@@ -663,7 +664,7 @@ var namespaces_dup =
       [ "p_z", "namespacem__global__parameters.html#a1f924d5ee4e2910cffe8e756a0c8657b", null ],
       [ "palpha_eps", "namespacem__global__parameters.html#accff2b404b195640f75ff3feb91be626", null ],
       [ "parallel_io", "namespacem__global__parameters.html#ac127ac2a9036e1cdb7e6c41159cacdfb", null ],
-      [ "particle_bed", "namespacem__global__parameters.html#abc8813b9d6825ccb6342cf7b79bd8383", null ],
+      [ "particle_cloud", "namespacem__global__parameters.html#a6f05007c5da7b7f9b060ee9cfc5088e7", null ],
       [ "patch_ib", "namespacem__global__parameters.html#a95375ab02fb6d4cb02c6e93ed6fe9b68", null ],
       [ "pb0", "namespacem__global__parameters.html#a2ecfbf52a2e6ff070bbe7a121bb37ada", null ],
       [ "pb_ts", "namespacem__global__parameters.html#a829d601cfc997840116b884698329161", null ],
@@ -1002,10 +1003,11 @@ var namespaces_dup =
       [ "v_size", "namespacem__muscl.html#acd707c4794936367f42d86af56de7d7a", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
-    [ "m_particle_bed", "namespacem__particle__bed.html", [
-      [ "f_bin_hash", "namespacem__particle__bed.html#a6acb8fc279b859856bdcb5c18f526402", null ],
-      [ "f_xorshift", "namespacem__particle__bed.html#afd18a0c49687996ac0e4782caac35821", null ],
-      [ "s_generate_particle_beds", "namespacem__particle__bed.html#abf8cc422bcc55341ece9b6aefa82b362", null ]
+    [ "m_particle_cloud", "namespacem__particle__cloud.html", [
+      [ "f_bin_hash", "namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be", null ],
+      [ "f_xorshift", "namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc", null ],
+      [ "s_generate_particle_clouds", "namespacem__particle__cloud.html#a2feae0e06656f459f3d1a43d00b3102d", null ],
+      [ "s_particle_cloud_random_box", "namespacem__particle__cloud.html#aea3cd46bacb79079dcadca54a42b5150", null ]
     ] ],
     [ "m_phase_change", "namespacem__phase__change.html", [
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
@@ -1161,7 +1163,7 @@ var namespaces_dup =
       [ "s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
       [ "s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
       [ "s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
-      [ "s_reduce_ib_patch_array", "namespacem__start__up.html#a581ab47872722ec5ad5482dde58ac3fd", null ],
+      [ "s_reduce_ib_patch_array", "namespacem__start__up.html#a3d9a79bf656d698f1f1e9d1fb6cb82f7", null ],
       [ "s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
       [ "s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
       [ "dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],

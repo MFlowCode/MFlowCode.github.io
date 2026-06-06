@@ -191,8 +191,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aca13f477717fbe9c77304a91bc9d8cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize and deallocate all simulation sub-modules in reverse initialization order.  <br /></td></tr>
 <tr class="memitem:a191081d40ca4d71652c77df4c3bad640" id="r_a191081d40ca4d71652c77df4c3bad640"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a191081d40ca4d71652c77df4c3bad640">s_read_ib_restart_data</a> (t_step)</td></tr>
 <tr class="memdesc:a191081d40ca4d71652c77df4c3bad640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads IB kinematic state from restart_data/ib_state.dat on restart. Rank 0 reads the last num_ibs records and broadcasts to all ranks. Overwrites patch_ib vel, angular_vel, angles, and centroid.  <br /></td></tr>
-<tr class="memitem:a581ab47872722ec5ad5482dde58ac3fd" id="r_a581ab47872722ec5ad5482dde58ac3fd"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a581ab47872722ec5ad5482dde58ac3fd">s_reduce_ib_patch_array</a> (particle_bed_ibs)</td></tr>
-<tr class="memdesc:a581ab47872722ec5ad5482dde58ac3fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_bed_ibs (CPU-only, exact size) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_bed_ibs is owned by the caller and freed there after this returns.  <br /></td></tr>
+<tr class="memitem:a3d9a79bf656d698f1f1e9d1fb6cb82f7" id="r_a3d9a79bf656d698f1f1e9d1fb6cb82f7"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3d9a79bf656d698f1f1e9d1fb6cb82f7">s_reduce_ib_patch_array</a> (particle_cloud_ibs)</td></tr>
+<tr class="memdesc:a3d9a79bf656d698f1f1e9d1fb6cb82f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_cloud_ibs (CPU-only, exact size) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_cloud_ibs is owned by the caller and freed there after this returns.  <br /></td></tr>
 <tr class="memitem:a3d543d2498cb1126d6e674c66a3c694a" id="r_a3d543d2498cb1126d6e674c66a3c694a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3d543d2498cb1126d6e674c66a3c694a">s_compute_ib_neighbor_ranks</a> ()</td></tr>
 <tr class="memdesc:a3d543d2498cb1126d6e674c66a3c694a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SENDRECV cascades - face neighbors are known from bc_*, edge neighbors are obtained in round 1, and (3D) corner neighbors in round 2.  <br /></td></tr>
 <tr class="memitem:a3adcb37778a49b76d2a4914f172228dc" id="r_a3adcb37778a49b76d2a4914f172228dc"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3adcb37778a49b76d2a4914f172228dc">get_neighbor_bounds</a> ()</td></tr>
@@ -217,7 +217,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02235">2235</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02271">2271</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -244,7 +244,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_ad26e747c87bb6bcf4c9d6baa21d044c1_cgraph.svg" width="100%" height="578"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_ad26e747c87bb6bcf4c9d6baa21d044c1_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -268,7 +268,7 @@ Here is the caller graph for this function:</div>
 
 <p>Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SENDRECV cascades - face neighbors are known from bc_*, edge neighbors are obtained in round 1, and (3D) corner neighbors in round 2. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02052">2052</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02088">2088</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -592,8 +592,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a581ab47872722ec5ad5482dde58ac3fd" name="a581ab47872722ec5ad5482dde58ac3fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a581ab47872722ec5ad5482dde58ac3fd">&#9670;&#160;</a></span>s_reduce_ib_patch_array()</h2>
+<a id="a3d9a79bf656d698f1f1e9d1fb6cb82f7" name="a3d9a79bf656d698f1f1e9d1fb6cb82f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9a79bf656d698f1f1e9d1fb6cb82f7">&#9670;&#160;</a></span>s_reduce_ib_patch_array()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -601,24 +601,24 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_start_up::s_reduce_ib_patch_array </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>particle_bed_ibs</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_bed_ibs (CPU-only, exact size) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_bed_ibs is owned by the caller and freed there after this returns. </p>
+<p>Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_cloud_ibs (CPU-only, exact size) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_cloud_ibs is owned by the caller and freed there after this returns. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01899">1899</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01935">1935</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a581ab47872722ec5ad5482dde58ac3fd_cgraph.svg" width="408" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a3d9a79bf656d698f1f1e9d1fb6cb82f7_cgraph.svg" width="408" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a581ab47872722ec5ad5482dde58ac3fd_icgraph.svg" width="512" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a3d9a79bf656d698f1f1e9d1fb6cb82f7_icgraph.svg" width="512" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
