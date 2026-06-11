@@ -160,7 +160,7 @@ $(function(){initNavTree('equations.html','',''); });
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md138"></a>
 MFC: Comprehensive Equations Reference</h1>
 <p>This document catalogs every equation solved by MFC, organized by physical model. Each section notes the input parameter(s) that activate the corresponding physics module and cross-references the relevant source files.</p>
-<p>The models and algorithms described here are detailed in Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> (MFC 5.0) and Bryngelson et al. <a class="el" href="citelist.html#CITEREF_bryngelson21">[8]</a>. Foundational references for each model are cited inline; see the <a class="el" href="citelist.html" title="Bibliography">Bibliography</a> for full details.</p>
+<p>The models and algorithms described here are detailed in Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> (MFC 5.0) and Bryngelson et al. <a class="el" href="citelist.html#CITEREF_bryngelson21">[8]</a>. Foundational references for each model are cited inline; see the <a class="el" href="citelist.html" title="Bibliography">Bibliography</a> for full details.</p>
 <p>For parameter details and allowed values, see <a class="el" href="case.html" title="Case Files">Case Files</a> and the <a class="el" href="parameters.html" title="Case Parameters">Case Parameters</a> reference.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md140"></a>
@@ -408,7 +408,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 2. Governing PDEs</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md144"></a>
 2.1 Five-Equation Model (<span class="tt">model_eqns = 2</span>)</h3>
-<p>The primary workhorse model (Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.1). The state vector is:</p>
+<p>The primary workhorse model (Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 2.1). The state vector is:</p>
 <p class="formulaDsp">
 \[\mathbf{q} = \bigl(\alpha_1 \rho_1,\;\alpha_2 \rho_2,\;\ldots,\;\rho u_1,\;\rho u_2,\;\rho u_3,\;\rho E,\;\alpha_1,\;\alpha_2,\;\ldots\bigr)^T\]
 </p>
@@ -439,7 +439,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 </p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md145"></a>
 2.2 Six-Equation Model (<span class="tt">model_eqns = 3</span>)</h3>
-<p>Allows pressure disequilibrium between phases (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[41]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.1).</p>
+<p>Allows pressure disequilibrium between phases (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[42]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 2.1).</p>
 <p><b>Continuity and momentum:</b> Same as the five-equation model.</p>
 <p><b>Separate phasic internal energy:</b></p>
 <p class="formulaDsp">
@@ -474,7 +474,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md148"></a>
 3. Equations of State</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md149"></a>
-3.1 Stiffened Gas EOS (Menikoff and Plohr <a class="el" href="citelist.html#CITEREF_menikoff89">[33]</a>; Le Metayer et al. <a class="el" href="citelist.html#CITEREF_lemetayer04">[27]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.2)</h3>
+3.1 Stiffened Gas EOS (Menikoff and Plohr <a class="el" href="citelist.html#CITEREF_menikoff89">[33]</a>; Le Metayer et al. <a class="el" href="citelist.html#CITEREF_lemetayer04">[27]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 2.2)</h3>
 <p>The primary closure for each phase:</p>
 <p class="formulaDsp">
 \[p_k = (\gamma_k - 1)\,\rho_k\,e_k - \gamma_k\,\pi_{\infty,k}\]
@@ -551,9 +551,15 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 \[\frac{1}{\text{Re}_\text{mix}} = \sum_j \frac{\alpha_j}{\text{Re}_j}\]
 </p>
 <p>Input parameters: <span class="tt">Re_inv</span> (shear and volume Reynolds numbers per fluid).</p>
+<p><b>Non-Newtonian viscosity (<span class="tt">fluid_pp(i)%non_newtonian = .true.</span>):</b></p>
+<p>Per-fluid Herschel-Bulkley rheology with Papanastasiou regularization (C. <a class="el" href="citelist.html#CITEREF_papanastasiou87">[36]</a>) replaces the constant viscosity with a shear-rate-dependent effective viscosity, recomputed from the local strain-rate tensor at every time step:</p>
+<p class="formulaDsp">
+\[\mu_{\rm eff}(\dot\gamma) = \frac{\tau_0}{\dot\gamma}\left(1 - e^{-m\,\dot\gamma}\right) + K\,\dot\gamma^{\,n-1}, \qquad \dot\gamma = \sqrt{2\,\mathbf{D}:\mathbf{D}}\]
+</p>
+<p>This covers power-law shear-thinning/thickening ( \(\tau_0 = 0\)), Bingham plastic ( \(n = 1,\ \tau_0 &gt; 0\)), and general Herschel-Bulkley yield-stress fluids. The mixture rule above applies with \(1/\text{Re}_j = \mu_{{\rm eff},j}\) evaluated at the local shear rate; Newtonian and non-Newtonian fluids can be mixed. Supported with the HLL and HLLC Riemann solvers, including immersed boundaries. See <a class="el" href="case.html#sec-non-newtonian" title="19. Non-Newtonian (Herschel-Bulkley) Viscosity">the case documentation</a> for parameters, constraints, and validated example cases.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md154"></a>
-5. Cylindrical Coordinates (<span class="tt">cyl_coord = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 2.3)</h2>
+5. Cylindrical Coordinates (<span class="tt">cyl_coord = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 2.3)</h2>
 <p>Additional geometric source terms appear with \(1/r\) factors in the continuity, momentum, and energy equations. Key modifications:</p>
 <ul>
 <li><b>Radial momentum:</b> extra \(p/r\) and \(\tau_{\theta\theta}/r\) terms</li>
@@ -566,7 +572,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 </ul>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md156"></a>
-6. Sub-Grid Bubble Dynamics (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1)</h2>
+6. Sub-Grid Bubble Dynamics (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1)</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md157"></a>
 6.1 Euler-Euler Bubbles (<span class="tt">bubbles_euler = .true.</span>)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_bubbles_EE.fpp</span>, <span class="tt">src/simulation/m_bubbles.fpp</span></p>
@@ -595,7 +601,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <p>where \(n = \frac{3}{4\pi}\,\frac{\alpha}{\bar{R}^3}\).</p>
 <p><b>Polydispersity</b> (<span class="tt">polydisperse = .true.</span>): Log-normal PDF discretized into \(N_\text{bin}\) equilibrium radii with standard deviation <span class="tt">poly_sigma</span>, integrated via Simpson's rule.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md159"></a>
-6.1.2 Rayleigh-Plesset (<span class="tt">bubble_model = 3</span>) (Lord Rayleigh <a class="el" href="citelist.html#CITEREF_rayleigh17">[28]</a>; Plesset <a class="el" href="citelist.html#CITEREF_plesset49">[37]</a>)</h4>
+6.1.2 Rayleigh-Plesset (<span class="tt">bubble_model = 3</span>) (Lord Rayleigh <a class="el" href="citelist.html#CITEREF_rayleigh17">[28]</a>; Plesset <a class="el" href="citelist.html#CITEREF_plesset49">[38]</a>)</h4>
 <p class="formulaDsp">
 \[R\,\ddot{R} + \frac{3}{2}\,\dot{R}^2 = \frac{p_{bw} - p_\infty}{\rho_l}\]
 </p>
@@ -619,7 +625,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 \[C = \sqrt{n_\text{tait}(1+B)\left(\frac{p_\infty}{1+B} + 1\right)^{(n_\text{tait}-1)/n_\text{tait}} + (n_\text{tait} - 1)\,H}\]
 </p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md162"></a>
-6.1.5 Non-Polytropic Thermal Model (<span class="tt">polytropic = .false.</span>) (Preston et al. <a class="el" href="citelist.html#CITEREF_preston07">[38]</a>)</h4>
+6.1.5 Non-Polytropic Thermal Model (<span class="tt">polytropic = .false.</span>) (Preston et al. <a class="el" href="citelist.html#CITEREF_preston07">[39]</a>)</h4>
 <p><b>Internal bubble pressure ODE:</b></p>
 <p class="formulaDsp">
 \[\dot{p}_b = \frac{3\gamma_b}{R}\left(-\dot{R}\,p_b + R_v\,T_{bw}\,\dot{m}_v + \frac{\gamma_b - 1}{\gamma_b}\,k_{bw}\left.\frac{\partial T}{\partial r}\right|_R\right)\]
@@ -674,7 +680,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md166"></a>
 7. Fluid-Structure Interaction</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md167"></a>
-7.1 Hypoelastic Model (<span class="tt">hypoelasticity = .true.</span>) (Rodriguez and Johnsen <a class="el" href="citelist.html#CITEREF_rodriguez19">[39]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.6)</h3>
+7.1 Hypoelastic Model (<span class="tt">hypoelasticity = .true.</span>) (Rodriguez and Johnsen <a class="el" href="citelist.html#CITEREF_rodriguez19">[40]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.6)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_hypoelastic.fpp</span></p>
 <p><b>Cauchy stress decomposition:</b></p>
 <p class="formulaDsp">
@@ -699,7 +705,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 </p>
 <p>This adds 6 additional transport equations in 3D (symmetric stress tensor: \(\tau_{xx}^e, \tau_{xy}^e, \tau_{yy}^e, \tau_{xz}^e, \tau_{yz}^e, \tau_{zz}^e\)).</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md168"></a>
-7.2 Hyperelastic Model (<span class="tt">hyperelasticity = .true.</span>) (Kamrin et al. <a class="el" href="citelist.html#CITEREF_kamrin12">[24]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.6)</h3>
+7.2 Hyperelastic Model (<span class="tt">hyperelasticity = .true.</span>) (Kamrin et al. <a class="el" href="citelist.html#CITEREF_kamrin12">[24]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.6)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_hyperelastic.fpp</span></p>
 <p><b>Reference map evolution:</b></p>
 <p class="formulaDsp">
@@ -724,10 +730,10 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 </p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md170"></a>
-8. Phase Change (<span class="tt">relax = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.3)</h2>
+8. Phase Change (<span class="tt">relax = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.3)</h2>
 <p><b>Source:</b> <span class="tt">src/common/m_phase_change.fpp</span></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md171"></a>
-8.1 pT-Relaxation (<span class="tt">relax_model = 5</span>) (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel08">[40]</a>)</h3>
+8.1 pT-Relaxation (<span class="tt">relax_model = 5</span>) (Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel08">[41]</a>)</h3>
 <p>\(N\)-fluid pressure-temperature equilibrium. The equilibrium condition is:</p>
 <p class="formulaDsp">
 \[f(p) = \sum_i \alpha_i - 1 = 0\]
@@ -742,7 +748,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 </p>
 <p>Solved via Newton's method for the equilibrium pressure.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md172"></a>
-8.2 pTg-Relaxation (<span class="tt">relax_model = 6</span>) (Zein et al. <a class="el" href="citelist.html#CITEREF_zein10">[55]</a>)</h3>
+8.2 pTg-Relaxation (<span class="tt">relax_model = 6</span>) (Zein et al. <a class="el" href="citelist.html#CITEREF_zein10">[56]</a>)</h3>
 <p>Two coupled equations for \((\alpha_1 \rho_1,\;p)\):</p>
 <p><b>Gibbs free energy equilibrium (Clausius-Clapeyron):</b></p>
 <p class="formulaDsp">
@@ -756,7 +762,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <p>Solved via 2D Newton-Raphson.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md174"></a>
-9. Chemistry and Combustion (<span class="tt">chemistry = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.7)</h2>
+9. Chemistry and Combustion (<span class="tt">chemistry = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.7)</h2>
 <p><b>Source:</b> <span class="tt">src/common/m_chemistry.fpp</span></p>
 <p><b>Species transport:</b></p>
 <p class="formulaDsp">
@@ -785,7 +791,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <p>Reaction mechanisms are code-generated via Pyrometheus (Cisneros-Garibay et al. <a class="el" href="citelist.html#CITEREF_cisneros26">[12]</a>), which provides symbolic abstractions for thermochemistry that enable portable GPU computation and automatic differentiation of chemical source terms.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md176"></a>
-10. Surface Tension (<span class="tt">surface_tension = .true.</span>) (Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer17">[42]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.8)</h2>
+10. Surface Tension (<span class="tt">surface_tension = .true.</span>) (Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer17">[43]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.8)</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_surface_tension.fpp</span>, <span class="tt">src/simulation/include/inline_capillary.fpp</span></p>
 <p><b>Color function advection:</b></p>
 <p class="formulaDsp">
@@ -811,7 +817,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md178"></a>
 11. Magnetohydrodynamics</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md179"></a>
-11.1 Ideal MHD (<span class="tt">mhd = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.9)</h3>
+11.1 Ideal MHD (<span class="tt">mhd = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.9)</h3>
 <p><b>Continuity:</b></p>
 <p class="formulaDsp">
 \[\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho\,\mathbf{u}) = 0\]
@@ -842,7 +848,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 </p>
 <p>Uses the HLLD Riemann solver (<span class="tt">riemann_solver = 4</span>). Hyperbolic divergence cleaning (<span class="tt">hyper_cleaning = .true.</span>) via the GLM method (Dedner et al. <a class="el" href="citelist.html#CITEREF_dedner02">[15]</a>).</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md180"></a>
-11.2 Relativistic MHD (<span class="tt">relativity = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.10)</h3>
+11.2 Relativistic MHD (<span class="tt">relativity = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.10)</h3>
 <p><b>Conserved variables:</b></p>
 <p class="formulaDsp">
 \[\mathbf{U} = (D,\;\mathbf{m},\;\tau,\;\mathbf{B})^T\]
@@ -857,7 +863,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <p>Primitive recovery uses Newton-Raphson on the nonlinear conserved-to-primitive relation.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md182"></a>
-12. Information Geometric Regularization (<span class="tt">igr = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong25a">[53]</a>)</h2>
+12. Information Geometric Regularization (<span class="tt">igr = .true.</span>) (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong25a">[54]</a>)</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_igr.fpp</span></p>
 <p><b>Modified momentum with entropic pressure</b> \(\Sigma\)**:**</p>
 <p class="formulaDsp">
@@ -980,7 +986,7 @@ HLL (<span class="tt">riemann_solver = 1</span>) (Harten et al. <a class="el" hr
 </p>
 <p>with wave speed estimates \(S_L = \min(u_L - c_L,\;u_R - c_R)\), \(S_R = \max(u_R + c_R,\;u_L + c_L)\).</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md195"></a>
-HLLC (<span class="tt">riemann_solver = 2</span>) (Toro et al. <a class="el" href="citelist.html#CITEREF_toro94">[50]</a>)</h4>
+HLLC (<span class="tt">riemann_solver = 2</span>) (Toro et al. <a class="el" href="citelist.html#CITEREF_toro94">[51]</a>)</h4>
 <p>Four-state solver resolving the contact discontinuity. Star-state satisfies:</p>
 <p class="formulaDsp">
 \[p_L^* = p_R^* = p^*, \qquad u_L^* = u_R^* = u^*\]
@@ -1028,7 +1034,7 @@ TVD Runge-Kutta (<span class="tt">time_stepper = 1, 2, 3</span>) (Gottlieb and S
 Adaptive Time Stepping (<span class="tt">adap_dt = .true.</span>)</h4>
 <p>Embedded RK pairs for error estimation with Hairer-Norsett-Wanner algorithm for initial step size.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md201"></a>
-Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44]</a>) (for stiff bubble dynamics)</h4>
+Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[45]</a>) (for stiff bubble dynamics)</h4>
 <p>For equations of the form \(\partial \mathbf{q}/\partial t = -\nabla \cdot \mathbf{F}(\mathbf{q}) + \mathbf{s}(\mathbf{q})\), the Strang splitting scheme integrates three sub-equations per time step:</p>
 <p class="formulaDsp">
 \[\frac{\partial \mathbf{q}&#39;}{\partial t} = \mathbf{s}(\mathbf{q}&#39;), \quad t \in [0,\,\Delta t/2], \quad \mathbf{q}&#39;(0) = \mathbf{q}^n\]
@@ -1099,7 +1105,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 <td class="markdownTableBodyNone"><span class="tt">-16</span>  </td><td class="markdownTableBodyNone">No-slip wall  </td></tr>
 </table>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md207"></a>
-16.2 Characteristic BCs (Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[47]</a>, Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[48]</a>; <span class="tt">bc_x%beg = -5</span> to <span class="tt">-12</span>)</h3>
+16.2 Characteristic BCs (Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[48]</a>, Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[49]</a>; <span class="tt">bc_x%beg = -5</span> to <span class="tt">-12</span>)</h3>
 <p><b>Characteristic decomposition:</b></p>
 <p class="formulaDsp">
 \[\frac{\partial \mathbf{q}_c}{\partial t} + \mathbf{R}_x\,\boldsymbol{\Lambda}_x\,\mathbf{L}_x\,\frac{\partial \mathbf{q}_c}{\partial x} = 0\]
@@ -1118,7 +1124,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 </p>
 <p><b>8 types:</b> slip wall (<span class="tt">-5</span>), non-reflecting buffer (<span class="tt">-6</span>), non-reflecting sub. inflow (<span class="tt">-7</span>), non-reflecting sub. outflow (<span class="tt">-8</span>), force-free sub. outflow (<span class="tt">-9</span>), constant-pressure sub. outflow (<span class="tt">-10</span>), supersonic inflow (<span class="tt">-11</span>), supersonic outflow (<span class="tt">-12</span>).</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md208"></a>
-16.3 Immersed Boundary Method (<span class="tt">ib = .true.</span>) (Tseng and Ferziger <a class="el" href="citelist.html#CITEREF_tseng03">[52]</a>; Mittal and Iaccarino <a class="el" href="citelist.html#CITEREF_mittal05">[34]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.1.1)</h3>
+16.3 Immersed Boundary Method (<span class="tt">ib = .true.</span>) (Tseng and Ferziger <a class="el" href="citelist.html#CITEREF_tseng03">[53]</a>; Mittal and Iaccarino <a class="el" href="citelist.html#CITEREF_mittal05">[34]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.1.1)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_ibm.fpp</span></p>
 <p>Ghost-cell IBM with level set field \(\phi\).</p>
 <p><b>Image point:</b></p>
@@ -1133,7 +1139,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 <p>Supports STL/OBJ geometry import with ray tracing for inside/outside determination.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md210"></a>
-17. Low Mach Number Corrections (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[54]</a> Sec. 4.2.4)</h2>
+17. Low Mach Number Corrections (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a> Sec. 4.2.4)</h2>
 <p><b>Chen correction</b> (<span class="tt">low_Mach = 1</span>, Chen et al. <a class="el" href="citelist.html#CITEREF_chen22">[11]</a>): anti-dissipation pressure correction (APC) added to the HLLC flux:</p>
 <p class="formulaDsp">
 \[p_d = \frac{\rho_L\,\rho_R\,(S_R - u_R)(S_L - u_L)}{\rho_R(S_R - u_R) - \rho_L(S_L - u_L)}\]
@@ -1142,7 +1148,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[44
 \[\text{APC}_{p\mathbf{u}} = (z - 1)\,p_d\,\hat{\mathbf{n}}, \qquad \text{APC}_{pE} = (z - 1)\,p_d\,S_*\]
 </p>
 <p>The corrected HLLC flux in the star region becomes \(\mathbf{F}^{*} + \text{APC}\).</p>
-<p><b>Thornber correction</b> (<span class="tt">low_Mach = 2</span>, Thornber et al. <a class="el" href="citelist.html#CITEREF_thornber08">[49]</a>): modifies the reconstructed velocities at cell interfaces:</p>
+<p><b>Thornber correction</b> (<span class="tt">low_Mach = 2</span>, Thornber et al. <a class="el" href="citelist.html#CITEREF_thornber08">[50]</a>): modifies the reconstructed velocities at cell interfaces:</p>
 <p class="formulaDsp">
 \[u&#39;_L = \frac{u_L + u_R}{2} + z\,\frac{u_L - u_R}{2}, \qquad u&#39;_R = \frac{u_L + u_R}{2} - z\,\frac{u_L - u_R}{2}\]
 </p>

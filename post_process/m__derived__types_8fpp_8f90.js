@@ -23,7 +23,6 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::bounds_info", "structm__derived__types_1_1bounds__info.html", "structm__derived__types_1_1bounds__info" ],
     [ "m_derived_types::ic_model_parameters", "structm__derived__types_1_1ic__model__parameters.html", "structm__derived__types_1_1ic__model__parameters" ],
     [ "m_derived_types::t_triangle", "structm__derived__types_1_1t__triangle.html", "structm__derived__types_1_1t__triangle" ],
-    [ "m_derived_types::t_ray", "structm__derived__types_1_1t__ray.html", "structm__derived__types_1_1t__ray" ],
     [ "m_derived_types::t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],
     [ "m_derived_types::t_model", "structm__derived__types_1_1t__model.html", "structm__derived__types_1_1t__model" ],
     [ "m_derived_types::t_model_array", "structm__derived__types_1_1t__model__array.html", "structm__derived__types_1_1t__model__array" ],

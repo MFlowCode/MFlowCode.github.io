@@ -31,7 +31,10 @@ var searchData=
   ['angle_28',['angle',['../structm__derived__types_1_1source__spatial__type.html#a39fd51f9d8b268bbbb1e202e482841d2',1,'m_derived_types::source_spatial_type']]],
   ['angles_29',['angles',['../structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42',1,'m_derived_types::ib_patch_parameters']]],
   ['angular_5fvel_30',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
-  ['aperture_31',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters::aperture'],['../namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc',1,'m_acoustic_src::aperture']]],
-  ['associated_5flegendre_32',['associated_legendre',['../namespacem__helper.html#a23f996aa705b54698b032bf924a1e854',1,'m_helper']]],
-  ['avg_5fstate_33',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
+  ['any_5fnon_5fnewtonian_31',['any_non_newtonian',['../namespacem__global__parameters.html#a1fee640ebf29003637c05968e47e8bcf',1,'m_global_parameters']]],
+  ['aperture_32',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters::aperture'],['../namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc',1,'m_acoustic_src::aperture']]],
+  ['associated_5flegendre_33',['associated_legendre',['../namespacem__helper.html#a23f996aa705b54698b032bf924a1e854',1,'m_helper']]],
+  ['avg_5fstate_34',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]],
+  ['avg_5fstate_5farithmetic_35',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
+  ['avg_5fstate_5froe_36',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
 ];

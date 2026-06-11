@@ -24,7 +24,6 @@ var annotated_dup =
       [ "bounds_info", "structm__derived__types_1_1bounds__info.html", "structm__derived__types_1_1bounds__info" ],
       [ "ic_model_parameters", "structm__derived__types_1_1ic__model__parameters.html", "structm__derived__types_1_1ic__model__parameters" ],
       [ "t_triangle", "structm__derived__types_1_1t__triangle.html", "structm__derived__types_1_1t__triangle" ],
-      [ "t_ray", "structm__derived__types_1_1t__ray.html", "structm__derived__types_1_1t__ray" ],
       [ "t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],
       [ "t_model", "structm__derived__types_1_1t__model.html", "structm__derived__types_1_1t__model" ],
       [ "t_model_array", "structm__derived__types_1_1t__model__array.html", "structm__derived__types_1_1t__model__array" ],

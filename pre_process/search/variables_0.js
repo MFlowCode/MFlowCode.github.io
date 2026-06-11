@@ -19,5 +19,7 @@ var searchData=
   ['angle_16',['angle',['../structm__derived__types_1_1source__spatial__type.html#a39fd51f9d8b268bbbb1e202e482841d2',1,'m_derived_types::source_spatial_type']]],
   ['angles_17',['angles',['../structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42',1,'m_derived_types::ib_patch_parameters']]],
   ['angular_5fvel_18',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
-  ['aperture_19',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]]
+  ['aperture_19',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]],
+  ['avg_5fstate_5farithmetic_20',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
+  ['avg_5fstate_5froe_21',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
 ];

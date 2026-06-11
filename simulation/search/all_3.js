@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['d_0',['d',['../structm__derived__types_1_1t__ray.html#acccd7f3317e17e0f171b4619b041b560',1,'m_derived_types::t_ray::d'],['../namespacem__phase__change.html#a629649c7f4e2205105e9202451d48f3f',1,'m_phase_change::d']]],
+  ['d_0',['d',['../namespacem__phase__change.html#a629649c7f4e2205105e9202451d48f3f',1,'m_phase_change']]],
   ['d_5fcbl_5fx_1',['d_cbl_x',['../namespacem__weno.html#aa84f50dd6d7385a52340b3652aad2631',1,'m_weno']]],
   ['d_5fcbl_5fy_2',['d_cbl_y',['../namespacem__weno.html#a4261ed794afb067b2e0e1226af20512d',1,'m_weno']]],
   ['d_5fcbl_5fz_3',['d_cbl_z',['../namespacem__weno.html#a196ba40cc4cc72d5f40f6ba8ffc43d8c',1,'m_weno']]],

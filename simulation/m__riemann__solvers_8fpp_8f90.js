@@ -2,9 +2,9 @@ var m__riemann__solvers_8fpp_8f90 =
 [
     [ "m_riemann_solvers::s_calculate_bulk_stress_tensor", "namespacem__riemann__solvers.html#a35f34b24d646ebbcf5e3ff58fade51f9", null ],
     [ "m_riemann_solvers::s_calculate_shear_stress_tensor", "namespacem__riemann__solvers.html#a6cea0144511b3c7e347b17078472dd9a", null ],
-    [ "m_riemann_solvers::s_compute_cartesian_viscous_source_flux", "namespacem__riemann__solvers.html#a319fe3e845f0472eedfbe838ac7c35f4", null ],
-    [ "m_riemann_solvers::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__solvers.html#a225f72f7e466dad77766ea2fe27a7a05", null ],
-    [ "m_riemann_solvers::s_compute_viscous_source_flux", "namespacem__riemann__solvers.html#af56b6cbad11d518778bed2a1139b32a1", null ],
+    [ "m_riemann_solvers::s_compute_cartesian_viscous_source_flux", "namespacem__riemann__solvers.html#acd1e96bf2beb1737af473b4887e2a6c8", null ],
+    [ "m_riemann_solvers::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__solvers.html#a445ed9638cf16f66acbd1d321d13077c", null ],
+    [ "m_riemann_solvers::s_compute_viscous_source_flux", "namespacem__riemann__solvers.html#a50306a2a2114ac25989b1d4005ff8553", null ],
     [ "m_riemann_solvers::s_finalize_riemann_solver", "namespacem__riemann__solvers.html#a51d42487a854ac450d85324c77d51bdf", null ],
     [ "m_riemann_solvers::s_finalize_riemann_solvers_module", "namespacem__riemann__solvers.html#a6649906000f121d43833493a8536987a", null ],
     [ "m_riemann_solvers::s_hll_riemann_solver", "namespacem__riemann__solvers.html#ad9f9471904cc09bb1991d74f42119168", null ],

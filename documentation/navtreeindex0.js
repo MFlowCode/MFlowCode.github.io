@@ -38,7 +38,7 @@ var NAVTREEINDEX0 =
 "case.html#autotoc_md32":[3,0,3,15],
 "case.html#autotoc_md33":[3,0,3,16],
 "case.html#autotoc_md34":[3,0,3,17],
-"case.html#autotoc_md35":[3,0,3,18],
+"case.html#autotoc_md35":[3,0,3,19],
 "case.html#autotoc_md36":[3,0,4],
 "case.html#autotoc_md37":[3,0,4,1],
 "case.html#autotoc_md38":[3,0,4,5],
@@ -54,6 +54,7 @@ var NAVTREEINDEX0 =
 "case.html#sec-fluid-materials":[3,0,3,4],
 "case.html#sec-formatted-output":[3,0,3,6],
 "case.html#sec-immersed-boundary-patches":[3,0,3,3],
+"case.html#sec-non-newtonian":[3,0,3,18],
 "case.html#sec-patches":[3,0,3,2],
 "case.html#sec-phase-change":[3,0,3,10],
 "case.html#sec-runtime":[3,0,3,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "examples.html":[9],
 "examples.html#autotoc_md213":[9,0],
 "examples.html#autotoc_md214":[9,0,0],
-"examples.html#autotoc_md215":[9,0,0,0],
-"examples.html#autotoc_md216":[9,0,0,1]
+"examples.html#autotoc_md215":[9,0,0,0]
 };

@@ -185,14 +185,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a263c93e249409db2235bbc8e0458e4dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next non-blank, non-comment line from an STL or OBJ model file.  <br /></td></tr>
 <tr class="memitem:a532686157e0170dfff866cafe2162e9b" id="r_a532686157e0170dfff866cafe2162e9b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a532686157e0170dfff866cafe2162e9b">s_skip_ignored_lines</a> (iunit, buffered_line, is_buffered)</td></tr>
 <tr class="memdesc:a532686157e0170dfff866cafe2162e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the next non-comment line from a model file, using a buffered look-ahead mechanism.  <br /></td></tr>
-<tr class="memitem:af427323915a51af9ba9e2f7f116969c5" id="r_af427323915a51af9ba9e2f7f116969c5"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#af427323915a51af9ba9e2f7f116969c5">f_model_random_number</a> (seed)</td></tr>
-<tr class="memdesc:af427323915a51af9ba9e2f7f116969c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudo-random number using a seed-based xorshift, replacing the Fortran intrinsic which is incompatible with GPU routines.  <br /></td></tr>
-<tr class="memitem:a40b54b3f9a65775ea1062c541dea09e3" id="r_a40b54b3f9a65775ea1062c541dea09e3"><td class="memItemLeft">impure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a40b54b3f9a65775ea1062c541dea09e3">f_model_is_inside</a> (model, point, spacing, spc)</td></tr>
-<tr class="memdesc:a40b54b3f9a65775ea1062c541dea09e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine whether a point is inside a model using stochastic ray casting.  <br /></td></tr>
-<tr class="memitem:a4b4ef652ae183b59c1008880e061cc62" id="r_a4b4ef652ae183b59c1008880e061cc62"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a4b4ef652ae183b59c1008880e061cc62">f_model_is_inside_flat</a> (ntrs, pid, point)</td></tr>
-<tr class="memdesc:a4b4ef652ae183b59c1008880e061cc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if a point is inside a surface using the generalized winding number (Jacobson et al., SIGGRAPH 2013). In 3D, sums the solid angle subtended by each triangle (Van Oosterom-Strackee formula). In 2D (p==0), sums the signed angle subtended by each boundary edge. Returns ~1.0 inside, ~0.0 outside. Unlike ray casting, this is robust to small triangles/edges and vertex winding order.  <br /></td></tr>
-<tr class="memitem:a1155703fe0a9ae5f75c153eb6b5b7072" id="r_a1155703fe0a9ae5f75c153eb6b5b7072"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#a1155703fe0a9ae5f75c153eb6b5b7072">f_intersects_triangle</a> (ray, triangle)</td></tr>
-<tr class="memdesc:a1155703fe0a9ae5f75c153eb6b5b7072"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a ray intersects a triangle using the Moller-Trumbore algorithm (barycentric coordinates). Unlike the previous cross-product sign test, this is vertex winding-order independent.  <br /></td></tr>
+<tr class="memitem:aa90c25197d99b77858e50c3f284dd6c9" id="r_aa90c25197d99b77858e50c3f284dd6c9"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#aa90c25197d99b77858e50c3f284dd6c9">f_model_is_inside</a> (ntrs, pid, point)</td></tr>
+<tr class="memdesc:aa90c25197d99b77858e50c3f284dd6c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if a point is inside a surface using the generalized winding number (Jacobson et al., SIGGRAPH 2013). In 3D, sums the solid angle subtended by each triangle (Van Oosterom-Strackee formula). In 2D (p==0), sums the signed angle subtended by each boundary edge. Returns ~1.0 inside, ~0.0 outside. Unlike ray casting, this is robust to small triangles/edges and vertex winding order.  <br /></td></tr>
 <tr class="memitem:a99bc48b7dc635603f113a22a2fbae8ff" id="r_a99bc48b7dc635603f113a22a2fbae8ff"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a99bc48b7dc635603f113a22a2fbae8ff">s_check_boundary</a> (model, boundary_v, boundary_vertex_count, boundary_edge_count)</td></tr>
 <tr class="memdesc:a99bc48b7dc635603f113a22a2fbae8ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check and label edges shared by two or more triangle facets of the 2D STL model.  <br /></td></tr>
 <tr class="memitem:a6d8bb3637862799d333742f8535707e5" id="r_a6d8bb3637862799d333742f8535707e5"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6d8bb3637862799d333742f8535707e5">s_register_edge</a> (temp_boundary_v, edge, edge_index, edge_count)</td></tr>
@@ -216,110 +210,19 @@ Variables</h2></td></tr>
 <tr class="memitem:a8e769d956dec735968efb60ddad65732" id="r_a8e769d956dec735968efb60ddad65732"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a8e769d956dec735968efb60ddad65732">gpu_trs_n</a></td></tr>
 <tr class="memitem:a6cc95c530c0e622698e1b854d4deee55" id="r_a6cc95c530c0e622698e1b854d4deee55"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a6cc95c530c0e622698e1b854d4deee55">gpu_boundary_v</a></td></tr>
 <tr class="memitem:ae38299ed48869dca758aa3b1dd46177c" id="r_ae38299ed48869dca758aa3b1dd46177c"><td class="memItemLeft">integer, dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ae38299ed48869dca758aa3b1dd46177c">gpu_boundary_edge_count</a></td></tr>
-<tr class="memitem:a2b83c18852f711f172973d3185c8634c" id="r_a2b83c18852f711f172973d3185c8634c"><td class="memItemLeft">integer, dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a2b83c18852f711f172973d3185c8634c">gpu_total_vertices</a></td></tr>
 <tr class="memitem:aade7401ea1ee10374b17168b0842d998" id="r_aade7401ea1ee10374b17168b0842d998"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#aade7401ea1ee10374b17168b0842d998">stl_bounding_boxes</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Binary STL file reader and processor for immersed boundary geometry. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a1155703fe0a9ae5f75c153eb6b5b7072" name="a1155703fe0a9ae5f75c153eb6b5b7072"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1155703fe0a9ae5f75c153eb6b5b7072">&#9670;&#160;</a></span>f_intersects_triangle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function m_model::f_intersects_triangle </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__ray.html">t_ray</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ray</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__triangle.html">t_triangle</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>triangle</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check if a ray intersects a triangle using the Moller-Trumbore algorithm (barycentric coordinates). Unlike the previous cross-product sign test, this is vertex winding-order independent. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if the ray intersects the triangle, 0 otherwise. </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00935">935</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a1155703fe0a9ae5f75c153eb6b5b7072_cgraph.svg" width="363" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a1155703fe0a9ae5f75c153eb6b5b7072_icgraph.svg" width="388" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a40b54b3f9a65775ea1062c541dea09e3" name="a40b54b3f9a65775ea1062c541dea09e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40b54b3f9a65775ea1062c541dea09e3">&#9670;&#160;</a></span>f_model_is_inside()</h2>
+<a id="aa90c25197d99b77858e50c3f284dd6c9" name="aa90c25197d99b77858e50c3f284dd6c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa90c25197d99b77858e50c3f284dd6c9">&#9670;&#160;</a></span>f_model_is_inside()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">impure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_model::f_model_is_inside </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__model.html">t_model</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>model</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>spacing</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>spc</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Determine whether a point is inside a model using stochastic ray casting. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">spc</td><td>Number of samples per cell. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00802">802</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a40b54b3f9a65775ea1062c541dea09e3_cgraph.svg" width="608" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4b4ef652ae183b59c1008880e061cc62" name="a4b4ef652ae183b59c1008880e061cc62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b4ef652ae183b59c1008880e061cc62">&#9670;&#160;</a></span>f_model_is_inside_flat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_model::f_model_is_inside_flat </td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_model::f_model_is_inside </td>
           <td>(</td>
           <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ntrs</em></span>, </td>
         </tr>
@@ -339,41 +242,7 @@ Here is the call graph for this function:</div>
 <p>Determine if a point is inside a surface using the generalized winding number (Jacobson et al., SIGGRAPH 2013). In 3D, sums the solid angle subtended by each triangle (Van Oosterom-Strackee formula). In 2D (p==0), sums the signed angle subtended by each boundary edge. Returns ~1.0 inside, ~0.0 outside. Unlike ray casting, this is robust to small triangles/edges and vertex winding order. </p>
 <dl class="section return"><dt>Returns</dt><dd>fraction Winding number (~1.0 inside, ~0.0 outside). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00858">858</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="af427323915a51af9ba9e2f7f116969c5" name="af427323915a51af9ba9e2f7f116969c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af427323915a51af9ba9e2f7f116969c5">&#9670;&#160;</a></span>f_model_random_number()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_model::f_model_random_number </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>seed</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generate a pseudo-random number using a seed-based xorshift, replacing the Fortran intrinsic which is incompatible with GPU routines. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00785">785</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_af427323915a51af9ba9e2f7f116969c5_icgraph.svg" width="423" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00787">787</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -394,7 +263,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read a mesh from a file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00612">612</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00611">611</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -403,7 +272,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a8df07f3e9d228d00fef27cae7484d81e_icgraph.svg" width="414" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a8df07f3e9d228d00fef27cae7484d81e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -437,7 +306,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read the next non-blank, non-comment line from an STL or OBJ model file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00735">735</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00734">734</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -484,7 +353,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00987">987</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00862">862</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -493,7 +362,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a99bc48b7dc635603f113a22a2fbae8ff_icgraph.svg" width="444" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a99bc48b7dc635603f113a22a2fbae8ff_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -534,7 +403,7 @@ Here is the caller graph for this function:</div>
 
 <p>Determine the levelset distance and normals of 2D models by computing the exact closest point via projection onto boundary edges. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01299">1299</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01174">1174</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -574,7 +443,7 @@ Here is the caller graph for this function:</div>
 
 <p>Determine the levelset distance and normals of 3D models by computing the exact closest point via projection onto triangle surfaces. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01155">1155</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01030">1030</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -592,11 +461,16 @@ Here is the caller graph for this function:</div>
 
 <p>Load, transform, and register STL/OBJ immersed-boundary models onto the simulation grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01382">1382</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01257">1257</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_ad9f8c664e4672afe1a2ea1d0f92accd9_cgraph.svg" width="100%" height="547"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_ad9f8c664e4672afe1a2ea1d0f92accd9_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -618,7 +492,7 @@ Here is the call graph for this function:</div>
 
 <p>Free the memory allocated for an STL mesh. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00726">726</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00725">725</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -643,7 +517,7 @@ Here is the call graph for this function:</div>
 
 <p>Write a mesh to a file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00707">707</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00706">706</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -669,11 +543,11 @@ Here is the call graph for this function:</div>
 
 <p>Pack triangle vertices and normals from a model into flat arrays for GPU transfer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01782">1782</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01626">1626</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_addf2ca5db66e75946ec19b8460303a4c_icgraph.svg" width="418" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_addf2ca5db66e75946ec19b8460303a4c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -707,7 +581,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read an OBJ file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00543">543</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00542">542</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -716,7 +590,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a33ad862ed39fa4f0a0364389cf9a0821_icgraph.svg" width="623" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a33ad862ed39fa4f0a0364389cf9a0821_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -750,7 +624,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read an STL file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00515">515</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00514">514</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -759,7 +633,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a6f7ded1a2960fcf521c5892b8b1b850b_icgraph.svg" width="619" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__model_a6f7ded1a2960fcf521c5892b8b1b850b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -793,7 +667,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read an ASCII STL file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -836,7 +710,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read a binary STL file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00363">363</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00362">362</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -885,7 +759,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01139">1139</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01014">1014</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -928,7 +802,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read the next non-comment line from a model file, using a buffered look-ahead mechanism. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00764">764</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00763">763</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -971,7 +845,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write an OBJ file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00676">676</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1009,7 +883,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write a binary STL file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00631">631</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1066,22 +940,6 @@ Here is the caller graph for this function:</div>
 <p>GPU-friendly flat arrays for STL model data. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00341">341</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a2b83c18852f711f172973d3185c8634c" name="a2b83c18852f711f172973d3185c8634c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b83c18852f711f172973d3185c8634c">&#9670;&#160;</a></span>gpu_total_vertices</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer, dimension(:), allocatable, public m_model::gpu_total_vertices</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1147,7 +1005,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00347">347</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 
 </div>
 </div>

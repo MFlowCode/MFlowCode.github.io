@@ -30,7 +30,7 @@ var NAVTREE =
       [ "Modules List", "namespaces.html", "namespaces_dup" ],
       [ "Module Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
-        [ "Functions/Subroutines", "namespacemembers_func.html", "namespacemembers_func" ],
+        [ "Functions/Subroutines", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", "namespacemembers_vars" ]
       ] ]
     ] ],
@@ -57,12 +57,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"namespacem__constants.html#adfcbcad525ad9cfea6edf0d68eea3517",
-"namespacem__global__parameters.html#ab5aba5a65e3e646de07025297bcb137b",
-"namespacem__variables__conversion.html#a2592c29f5aae1605bdcf12dcf6315748",
-"structm__derived__types_1_1eqn__idx__info.html#a9ae0e1721afe6ba65dd5f7e4d155b209",
-"structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee",
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#aafd3294bd9cd7f4b5b8b1d3aadac5913"
+"namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1",
+"namespacem__global__parameters.html#a89fde47fbf14a9c93f6033542fe123db",
+"namespacem__start__up.html#a70391523479940ba122a6dbec54a893a",
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a",
+"structm__derived__types_1_1ic__patch__parameters.html#aceceff8e2b0f952eff39f5be4dce0886",
+"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a0a0f144effc838e4e800d7dfb7904472"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

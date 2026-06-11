@@ -23,5 +23,7 @@ var searchData=
   ['angular_5fvel_20',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
   ['aperture_21',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]],
   ['associated_5flegendre_22',['associated_legendre',['../namespacem__helper.html#a23f996aa705b54698b032bf924a1e854',1,'m_helper']]],
-  ['avg_5fstate_23',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]]
+  ['avg_5fstate_23',['avg_state',['../namespacem__global__parameters.html#a1a3314b39e21e17d7e72a9837db2ab42',1,'m_global_parameters']]],
+  ['avg_5fstate_5farithmetic_24',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
+  ['avg_5fstate_5froe_25',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
 ];

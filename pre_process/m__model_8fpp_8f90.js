@@ -1,9 +1,6 @@
 var m__model_8fpp_8f90 =
 [
-    [ "m_model::f_intersects_triangle", "namespacem__model.html#a1155703fe0a9ae5f75c153eb6b5b7072", null ],
-    [ "m_model::f_model_is_inside", "namespacem__model.html#a40b54b3f9a65775ea1062c541dea09e3", null ],
-    [ "m_model::f_model_is_inside_flat", "namespacem__model.html#a4b4ef652ae183b59c1008880e061cc62", null ],
-    [ "m_model::f_model_random_number", "namespacem__model.html#af427323915a51af9ba9e2f7f116969c5", null ],
+    [ "m_model::f_model_is_inside", "namespacem__model.html#aa90c25197d99b77858e50c3f284dd6c9", null ],
     [ "m_model::f_model_read", "namespacem__model.html#a8df07f3e9d228d00fef27cae7484d81e", null ],
     [ "m_model::f_read_line", "namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc", null ],
     [ "m_model::s_check_boundary", "namespacem__model.html#a99bc48b7dc635603f113a22a2fbae8ff", null ],
@@ -24,7 +21,6 @@ var m__model_8fpp_8f90 =
     [ "m_model::gpu_boundary_edge_count", "namespacem__model.html#ae38299ed48869dca758aa3b1dd46177c", null ],
     [ "m_model::gpu_boundary_v", "namespacem__model.html#a6cc95c530c0e622698e1b854d4deee55", null ],
     [ "m_model::gpu_ntrs", "namespacem__model.html#a67f88868e4694fecf2151ffd5df4fc75", null ],
-    [ "m_model::gpu_total_vertices", "namespacem__model.html#a2b83c18852f711f172973d3185c8634c", null ],
     [ "m_model::gpu_trs_n", "namespacem__model.html#a8e769d956dec735968efb60ddad65732", null ],
     [ "m_model::gpu_trs_v", "namespacem__model.html#a5e2fb8ad9e2851353959396474a42945", null ],
     [ "m_model::models", "namespacem__model.html#aa1fc17b48fc76b50bff7a8dd24a49d8f", null ],
