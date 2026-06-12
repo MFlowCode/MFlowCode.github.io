@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72":[1,0,12,17,5],
-"structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72":[2,0,2,17,5],
 "structm__derived__types_1_1qbmm__idx__info.html#adfb80a4f4432062391bd9caea975c0ef":[1,0,12,17,1],
 "structm__derived__types_1_1qbmm__idx__info.html#adfb80a4f4432062391bd9caea975c0ef":[2,0,2,17,1],
 "structm__derived__types_1_1riemann__states.html":[1,0,12,12],

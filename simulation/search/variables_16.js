@@ -19,11 +19,10 @@ var searchData=
   ['weno_5forder_16',['weno_order',['../namespacem__global__parameters.html#ab8488205257dab4e94258eee55d0d1aa',1,'m_global_parameters']]],
   ['weno_5fpolyn_17',['weno_polyn',['../namespacem__global__parameters.html#a351be005cfac23e82310e91393f5d535',1,'m_global_parameters']]],
   ['weno_5fre_5fflux_18',['weno_re_flux',['../namespacem__global__parameters.html#a3c3cd38abc3ece085bab77788afece73',1,'m_global_parameters']]],
-  ['weno_5ftype_19',['weno_type',['../namespacem__constants.html#a79603a708c77a92718374da11a4dc299',1,'m_constants']]],
-  ['wenojs_20',['wenojs',['../namespacem__global__parameters.html#adbbe92a657488b25ad55590edae52ec1',1,'m_global_parameters']]],
-  ['wenoz_21',['wenoz',['../namespacem__global__parameters.html#a21623c842ce2c8be565b19c3341a3f72',1,'m_global_parameters']]],
-  ['wenoz_5fq_22',['wenoz_q',['../namespacem__global__parameters.html#a6b1a28726f52e0aabac490f24fae0980',1,'m_global_parameters']]],
-  ['wp_23',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
-  ['write_5fbubbles_24',['write_bubbles',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['write_5fbubbles_5fstats_25',['write_bubbles_stats',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7',1,'m_derived_types::bubbles_lagrange_parameters']]]
+  ['wenojs_19',['wenojs',['../namespacem__global__parameters.html#adbbe92a657488b25ad55590edae52ec1',1,'m_global_parameters']]],
+  ['wenoz_20',['wenoz',['../namespacem__global__parameters.html#a21623c842ce2c8be565b19c3341a3f72',1,'m_global_parameters']]],
+  ['wenoz_5fq_21',['wenoz_q',['../namespacem__global__parameters.html#a6b1a28726f52e0aabac490f24fae0980',1,'m_global_parameters']]],
+  ['wp_22',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
+  ['write_5fbubbles_23',['write_bubbles',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['write_5fbubbles_5fstats_24',['write_bubbles_stats',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7',1,'m_derived_types::bubbles_lagrange_parameters']]]
 ];

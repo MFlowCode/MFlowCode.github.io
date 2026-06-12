@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"namespacemembers_f.html":[1,1,0,5],
-"namespacemembers_func.html":[1,1,1],
 "namespacemembers_func.html":[1,1,1,0],
 "namespacemembers_func_c.html":[1,1,1,1],
 "namespacemembers_func_d.html":[1,1,1,2],
@@ -249,5 +247,7 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646":[1,0,18,38,3],
 "structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646":[2,0,0,38,3],
 "structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095":[1,0,18,38,11],
-"structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095":[2,0,0,38,11]
+"structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095":[2,0,0,38,11],
+"structm__derived__types_1_1ghost__point.html#a6d6b9ba23cbd190a4af9385c781ed9c8":[1,0,18,38,5],
+"structm__derived__types_1_1ghost__point.html#a6d6b9ba23cbd190a4af9385c781ed9c8":[2,0,0,38,5]
 };

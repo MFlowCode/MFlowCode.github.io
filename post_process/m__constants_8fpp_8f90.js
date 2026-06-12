@@ -71,7 +71,6 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::muscl_lim_van_leer", "namespacem__constants.html#a2d1a661b176880b30bbd030495a3306f", null ],
     [ "m_constants::muscl_order_first_order", "namespacem__constants.html#a80a9068721f642bb0f5e944a7ef620dd", null ],
     [ "m_constants::muscl_order_second_order", "namespacem__constants.html#a597087e79428fce5213b69cef3744219", null ],
-    [ "m_constants::muscl_type", "namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614", null ],
     [ "m_constants::name_len", "namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757", null ],
     [ "m_constants::nnode", "namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd", null ],
     [ "m_constants::num_bc_patches_max", "namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431", null ],
@@ -115,6 +114,5 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::time_stepper_rk3", "namespacem__constants.html#a7b2ce6f17af2af2e7e73d10c58f2b0e5", null ],
     [ "m_constants::verysmall", "namespacem__constants.html#ae5ca79b5bbc3e0f374743575b3b27459", null ],
     [ "m_constants::wave_speeds_direct", "namespacem__constants.html#a278b6b9f4afed8bc2a9b4b6a35e7d6c0", null ],
-    [ "m_constants::wave_speeds_pressure", "namespacem__constants.html#a8518304b1cb4d5bfa3f768e063f63bdd", null ],
-    [ "m_constants::weno_type", "namespacem__constants.html#a79603a708c77a92718374da11a4dc299", null ]
+    [ "m_constants::wave_speeds_pressure", "namespacem__constants.html#a8518304b1cb4d5bfa3f768e063f63bdd", null ]
 ];

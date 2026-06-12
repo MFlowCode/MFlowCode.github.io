@@ -141,6 +141,5 @@ var searchData=
   ['muscl_5forder_138',['muscl_order',['../namespacem__global__parameters.html#a553f3c94d53e408a78574b5340ecf4a3',1,'m_global_parameters']]],
   ['muscl_5forder_5ffirst_5forder_139',['muscl_order_first_order',['../namespacem__constants.html#a80a9068721f642bb0f5e944a7ef620dd',1,'m_constants']]],
   ['muscl_5forder_5fsecond_5forder_140',['muscl_order_second_order',['../namespacem__constants.html#a597087e79428fce5213b69cef3744219',1,'m_constants']]],
-  ['muscl_5ftype_141',['muscl_type',['../namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614',1,'m_constants']]],
-  ['my_5finquire_142',['my_inquire',['../namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d',1,'m_compile_specific']]]
+  ['my_5finquire_141',['my_inquire',['../namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d',1,'m_compile_specific']]]
 ];

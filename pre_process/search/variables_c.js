@@ -83,6 +83,5 @@ var searchData=
   ['muscl_5forder_5ffirst_5forder_80',['muscl_order_first_order',['../namespacem__constants.html#a80a9068721f642bb0f5e944a7ef620dd',1,'m_constants']]],
   ['muscl_5forder_5fsecond_5forder_81',['muscl_order_second_order',['../namespacem__constants.html#a597087e79428fce5213b69cef3744219',1,'m_constants']]],
   ['muscl_5fpolyn_82',['muscl_polyn',['../namespacem__global__parameters.html#ae12e77da80bcbc3ed509650ef107d7a7',1,'m_global_parameters']]],
-  ['muscl_5ftype_83',['muscl_type',['../namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614',1,'m_constants']]],
-  ['mv_84',['mv',['../namespacem__global__parameters.html#ac0f2b9f46268623e7b3f82f0b222588f',1,'m_global_parameters']]]
+  ['mv_83',['mv',['../namespacem__global__parameters.html#ac0f2b9f46268623e7b3f82f0b222588f',1,'m_global_parameters']]]
 ];

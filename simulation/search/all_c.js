@@ -214,8 +214,7 @@ var searchData=
   ['muscl_5forder_5ffirst_5forder_211',['muscl_order_first_order',['../namespacem__constants.html#a80a9068721f642bb0f5e944a7ef620dd',1,'m_constants']]],
   ['muscl_5forder_5fsecond_5forder_212',['muscl_order_second_order',['../namespacem__constants.html#a597087e79428fce5213b69cef3744219',1,'m_constants']]],
   ['muscl_5fpolyn_213',['muscl_polyn',['../namespacem__global__parameters.html#ae12e77da80bcbc3ed509650ef107d7a7',1,'m_global_parameters']]],
-  ['muscl_5ftype_214',['muscl_type',['../namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614',1,'m_constants']]],
-  ['mv_5fts_215',['mv_ts',['../namespacem__global__parameters.html#a849db5b91ee7fdb34c885364ddacaafa',1,'m_global_parameters']]],
-  ['my_5finquire_216',['my_inquire',['../namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d',1,'m_compile_specific']]],
-  ['mytime_217',['mytime',['../namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c',1,'m_global_parameters']]]
+  ['mv_5fts_214',['mv_ts',['../namespacem__global__parameters.html#a849db5b91ee7fdb34c885364ddacaafa',1,'m_global_parameters']]],
+  ['my_5finquire_215',['my_inquire',['../namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d',1,'m_compile_specific']]],
+  ['mytime_216',['mytime',['../namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c',1,'m_global_parameters']]]
 ];

@@ -425,21 +425,18 @@ How to Add a New Simulation Parameter</h3>
 <div class="line">    <span class="keywordflow">if</span> self.params[<span class="stringliteral">&quot;my_param&quot;</span>] &gt; 0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.params[<span class="stringliteral">&quot;other_param&quot;</span>]:</div>
 <div class="line">        self.errors.append(<span class="stringliteral">&quot;my_param requires other_param to be set&quot;</span>)</div>
 </div><!-- fragment --><p>If your check enforces a physics constraint, also add a <span class="tt">PHYSICS_DOCS</span> entry (see <a class="el" href="#how-to-document-physics-constraints" title="How to Document Physics Constraints">How to Document Physics Constraints</a> below).</p>
-<p><b>Step 5: Declare in Fortran</b> (<span class="tt">src/&lt;target&gt;/m_global_parameters.fpp</span>)</p>
-<p>Add the variable declaration in the appropriate target's global parameters module. Choose the target(s) where the parameter is used:</p>
+<p><b>Step 5: Fortran declaration and namelist binding (auto-generated)</b></p>
+<p>Scalar declarations, GPU declare lines, Doxygen descriptions, and namelist bindings are auto-generated at CMake configure time from the <span class="tt">TYPED_DECLS</span> and <span class="tt">FORTRAN_ARRAY_DIMS</span> tables in <span class="tt">toolchain/mfc/params/definitions.py</span>. For a plain scalar registered with <span class="tt">_r()</span> / <span class="tt">_nv()</span> above, no manual Fortran edit is needed — reconfigure (<span class="tt">./mfc.sh build</span>) and the generated include in each target's <span class="tt">m_global_parameters.fpp</span> is updated automatically.</p>
+<p>Still manual (not auto-generated):</p>
 <ul>
-<li><span class="tt">src/pre_process/m_global_parameters.fpp</span></li>
-<li><span class="tt">src/simulation/m_global_parameters.fpp</span></li>
-<li><span class="tt">src/post_process/m_global_parameters.fpp</span></li>
+<li><span class="tt">TYPE</span> member definitions inside derived types in <span class="tt">src/common/m_derived_types.fpp</span></li>
+<li>Default-value assignments in <span class="tt">s_assign_default_values_to_user_inputs</span></li>
+<li>Multi-variable declaration lines (<span class="tt">bc_x/y/z</span>, <span class="tt">x/y/z_domain</span>, <span class="tt">x/y/z_output</span>)</li>
+<li>MPI broadcast lists in <span class="tt">src/*/m_mpi_proxy.fpp</span></li>
+<li><span class="tt">CASE_OPT_EXTRA_LINES</span> in <span class="tt">toolchain/mfc/params/generators/fortran_gen.py</span> for case-optimization constants</li>
 </ul>
-<div class="fragment"><div class="line"><span class="keywordtype">real</span>(wp) :: my_param<span class="comment">    !&lt; Description of the parameter</span></div>
-</div><!-- fragment --><p>If the parameter is used in GPU kernels, add a GPU declaration:</p>
-<div class="fragment"><div class="line">$:gpu_declare(create=<span class="stringliteral">&#39;[my_param]&#39;</span>)</div>
-</div><!-- fragment --><p><b>Step 6: Add to Fortran namelist</b> (<span class="tt">src/&lt;target&gt;/m_start_up.fpp</span>)</p>
-<p>Add the parameter name to the <span class="tt">namelist /user_inputs/</span> declaration:</p>
-<div class="fragment"><div class="line">namelist /user_inputs/ ... , my_param, ...</div>
-</div><!-- fragment --><p>The toolchain writes the parameter to the input file and Fortran reads it via this namelist. No other I/O code is needed.</p>
-<p><b>Step 7: Use in Fortran code</b></p>
+<p>After editing any generator or table, force regen by reconfiguring (<span class="tt">./mfc.sh build</span>) — cached builds compile stale includes.</p>
+<p><b>Step 6: Use in Fortran code</b></p>
 <p>Reference <span class="tt">my_param</span> anywhere in the target's modules. It is available as a global after the namelist is read at startup.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
 How to Write a GPU Parallel Loop</h3>

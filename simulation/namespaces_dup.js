@@ -374,7 +374,6 @@ var namespaces_dup =
       [ "muscl_lim_van_leer", "namespacem__constants.html#a2d1a661b176880b30bbd030495a3306f", null ],
       [ "muscl_order_first_order", "namespacem__constants.html#a80a9068721f642bb0f5e944a7ef620dd", null ],
       [ "muscl_order_second_order", "namespacem__constants.html#a597087e79428fce5213b69cef3744219", null ],
-      [ "muscl_type", "namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614", null ],
       [ "name_len", "namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757", null ],
       [ "nnode", "namespacem__constants.html#aa66c5f6942d6776bdc0152bbb26177fd", null ],
       [ "num_bc_patches_max", "namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431", null ],
@@ -418,8 +417,7 @@ var namespaces_dup =
       [ "time_stepper_rk3", "namespacem__constants.html#a7b2ce6f17af2af2e7e73d10c58f2b0e5", null ],
       [ "verysmall", "namespacem__constants.html#ae5ca79b5bbc3e0f374743575b3b27459", null ],
       [ "wave_speeds_direct", "namespacem__constants.html#a278b6b9f4afed8bc2a9b4b6a35e7d6c0", null ],
-      [ "wave_speeds_pressure", "namespacem__constants.html#a8518304b1cb4d5bfa3f768e063f63bdd", null ],
-      [ "weno_type", "namespacem__constants.html#a79603a708c77a92718374da11a4dc299", null ]
+      [ "wave_speeds_pressure", "namespacem__constants.html#a8518304b1cb4d5bfa3f768e063f63bdd", null ]
     ] ],
     [ "m_data_output", "namespacem__data__output.html", [
       [ "s_close_com_files", "namespacem__data__output.html#ac19d0dbc33765e1f78a4e1e2e943c780", null ],

@@ -86,6 +86,5 @@ var searchData=
   ['muscl_5flim_5fvan_5fleer_83',['muscl_lim_van_leer',['../namespacem__constants.html#a2d1a661b176880b30bbd030495a3306f',1,'m_constants']]],
   ['muscl_5forder_84',['muscl_order',['../namespacem__global__parameters.html#a553f3c94d53e408a78574b5340ecf4a3',1,'m_global_parameters']]],
   ['muscl_5forder_5ffirst_5forder_85',['muscl_order_first_order',['../namespacem__constants.html#a80a9068721f642bb0f5e944a7ef620dd',1,'m_constants']]],
-  ['muscl_5forder_5fsecond_5forder_86',['muscl_order_second_order',['../namespacem__constants.html#a597087e79428fce5213b69cef3744219',1,'m_constants']]],
-  ['muscl_5ftype_87',['muscl_type',['../namespacem__constants.html#a4719593ac4c8aa6382476232d2b20614',1,'m_constants']]]
+  ['muscl_5forder_5fsecond_5forder_86',['muscl_order_second_order',['../namespacem__constants.html#a597087e79428fce5213b69cef3744219',1,'m_constants']]]
 ];

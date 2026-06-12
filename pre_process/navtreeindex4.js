@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"structm__derived__types_1_1bubbles__lagrange__parameters.html":[1,0,12,41],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html":[2,0,2,41],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#a190a966122b0c36cfc4fb973609fb869":[1,0,12,41,7],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#a190a966122b0c36cfc4fb973609fb869":[2,0,2,41,7],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7":[1,0,12,41,11],
@@ -249,5 +247,7 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1ic__patch__parameters.html#a3ead4ba2c78269dba198020b1e8f3e8c":[1,0,12,26,11],
 "structm__derived__types_1_1ic__patch__parameters.html#a3ead4ba2c78269dba198020b1e8f3e8c":[2,0,2,26,11],
 "structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b":[1,0,12,26,25],
-"structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b":[2,0,2,26,25]
+"structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b":[2,0,2,26,25],
+"structm__derived__types_1_1ic__patch__parameters.html#a4069bfb6be1aba121be3fcffb2d660f0":[1,0,12,26,3],
+"structm__derived__types_1_1ic__patch__parameters.html#a4069bfb6be1aba121be3fcffb2d660f0":[2,0,2,26,3]
 };
