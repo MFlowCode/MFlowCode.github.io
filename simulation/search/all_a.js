@@ -6,8 +6,8 @@ var searchData=
   ['k_5fmw_3',['k_mw',['../namespacem__bubbles.html#a5553a622f61df640bb073c9bd8cc5562',1,'m_bubbles']]],
   ['k_5fv_4',['k_v',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a9c7ea142d6247b63b09e420c71b46004',1,'m_derived_types::subgrid_bubble_physical_parameters::k_v'],['../namespacem__global__parameters.html#a5113de77eca1f975b20056db60853757',1,'m_global_parameters::k_v']]],
   ['k_5fvl_5',['k_vl',['../namespacem__global__parameters.html#a9fcbb358a7122d321eb26e015377ff6f',1,'m_global_parameters']]],
-  ['k_5fx_6',['k_x',['../namespacem__global__parameters.html#a1671373492ac31693c8698500f095ff4',1,'m_global_parameters']]],
-  ['k_5fy_7',['k_y',['../namespacem__global__parameters.html#a72371679cecccecfbc2b291dcd726228',1,'m_global_parameters']]],
-  ['k_5fz_8',['k_z',['../namespacem__global__parameters.html#a2b4bee61739d582d3f9d9538c6100c02',1,'m_global_parameters']]],
+  ['k_5fx_6',['k_x',['../namespacem__global__parameters__common.html#a6d83b1dcb0fbe49b718edae9e2c05187',1,'m_global_parameters_common']]],
+  ['k_5fy_7',['k_y',['../namespacem__global__parameters__common.html#a6f01530f5fe92a8d72b324f03083d3c3',1,'m_global_parameters_common']]],
+  ['k_5fz_8',['k_z',['../namespacem__global__parameters__common.html#afd0a6f5b1a0a345052a31501937244e2',1,'m_global_parameters_common']]],
   ['kterm_9',['kterm',['../namespacem__rhs.html#a0757066fe9419ea7b18009aa553918b4',1,'m_rhs']]]
 ];

@@ -186,14 +186,8 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a09e97bad212437fa514861db142743b2" id="r_a09e97bad212437fa514861db142743b2"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a09e97bad212437fa514861db142743b2">gm_rho_sf</a></td></tr>
-<tr class="memdesc:a09e97bad212437fa514861db142743b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density gradient magnitude for numerical Schlieren.  <br /></td></tr>
-<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Finite-difference (fd) coefficients in x-, y- and z-coordinate directions. Note that because sufficient boundary</div></td></tr>
-<tr><td colspan="2" class="ititle"><div class="groupText"><p>information is available for all the active coordinate directions, the centered family of the finite-difference schemes is used. </p>
-</div></td></tr>
-<tr class="memitem:a7124df0982c30315cf6638596693f7ce" id="r_a7124df0982c30315cf6638596693f7ce"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a7124df0982c30315cf6638596693f7ce">fd_coeff_x</a></td></tr>
-<tr class="memitem:a7bf1c5799ea6a39a4be055ecd66b6b8b" id="r_a7bf1c5799ea6a39a4be055ecd66b6b8b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a7bf1c5799ea6a39a4be055ecd66b6b8b">fd_coeff_y</a></td></tr>
-<tr class="memitem:a4db3866184ab1811002aec3e6e22c40a" id="r_a4db3866184ab1811002aec3e6e22c40a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a4db3866184ab1811002aec3e6e22c40a">fd_coeff_z</a></td></tr>
+<tr class="memitem:a092fcc21f1d522ad2860e1a8e41b5683" id="r_a092fcc21f1d522ad2860e1a8e41b5683"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1fd__context.html">fd_context</a>), public&#160;</td><td class="memItemRight"><a class="el" href="#a092fcc21f1d522ad2860e1a8e41b5683">fd</a></td></tr>
+<tr class="memdesc:a092fcc21f1d522ad2860e1a8e41b5683"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finite-difference state: density gradient magnitude and centered FD coefficients in x-, y-, and z-directions.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computes derived flow quantities (sound speed, vorticity, Schlieren, etc.) from conservative and primitive variables. </p>
@@ -212,7 +206,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -224,7 +218,7 @@ Variables</h2></td></tr>
 
 <p>Derive the flux limiter at cell boundary i+1/2. This is an approximation because the velocity used to determine the upwind direction is the velocity at the cell center i instead of the contact velocity at the cell boundary from the Riemann solver. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00135">135</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00128">128</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -255,7 +249,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the liquid stiffness from the specific heat ratio function gamma_sf and the liquid stiffness function pi_inf_sf, respectively. These are used to calculate the values of the liquid stiffness, which are stored in the derived flow quantity storage variable, q_sf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00080">80</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00073">73</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -273,7 +267,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine, public m_derived_variables::s_derive_liutex </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -297,7 +291,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00329">329</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00322">322</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -315,7 +309,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine, public m_derived_variables::s_derive_numerical_schlieren_function </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -327,7 +321,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the values of the numerical Schlieren function, which are subsequently stored in the derived flow quantity storage variable, q_sf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00434">434</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00427">427</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -345,7 +339,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public m_derived_variables::s_derive_qm </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -357,7 +351,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the Q_M criterion from the primitive variables. The Q_M function, which are subsequently stored in the derived flow quantity storage variable, q_sf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00271">271</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00264">264</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -375,7 +369,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public m_derived_variables::s_derive_sound_speed </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -387,7 +381,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the speed of sound from the primitive variables, density, specific heat ratio function, and liquid stiffness function. It then computes from those variables the values of the speed of sound, which are stored in the derived flow quantity storage variable, q_sf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00099">99</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00092">92</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -408,7 +402,7 @@ Here is the caller graph for this function:</div>
 
 <p>Derive the specific heat ratio from the specific heat ratio function gamma_sf. The latter is stored in the derived flow quantity storage variable, q_sf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00061">61</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00054">54</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -431,7 +425,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a4dac2e4ead915635e0c6c33af87be01b">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -443,7 +437,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the specified component of the vorticity from the primitive variables. From those inputs, it proceeds to calculate values of the desired vorticity component, which are subsequently stored in derived flow quantity storage variable, q_sf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00206">206</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00199">199</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -466,7 +460,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocation procedures for the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00531">531</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -484,7 +478,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00036">36</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00029">29</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -494,69 +488,21 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a7124df0982c30315cf6638596693f7ce" name="a7124df0982c30315cf6638596693f7ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7124df0982c30315cf6638596693f7ce">&#9670;&#160;</a></span>fd_coeff_x</h2>
+<a id="a092fcc21f1d522ad2860e1a8e41b5683" name="a092fcc21f1d522ad2860e1a8e41b5683"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a092fcc21f1d522ad2860e1a8e41b5683">&#9670;&#160;</a></span>fd</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public m_derived_variables::fd_coeff_x</td>
+          <td class="memname">type(<a class="el" href="structm__derived__types_1_1fd__context.html">fd_context</a>), public m_derived_variables::fd</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00028">28</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p>Finite-difference state: density gradient magnitude and centered FD coefficients in x-, y-, and z-directions. </p>
 
-</div>
-</div>
-<a id="a7bf1c5799ea6a39a4be055ecd66b6b8b" name="a7bf1c5799ea6a39a4be055ecd66b6b8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bf1c5799ea6a39a4be055ecd66b6b8b">&#9670;&#160;</a></span>fd_coeff_y</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public m_derived_variables::fd_coeff_y</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00029">29</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a4db3866184ab1811002aec3e6e22c40a" name="a4db3866184ab1811002aec3e6e22c40a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4db3866184ab1811002aec3e6e22c40a">&#9670;&#160;</a></span>fd_coeff_z</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public m_derived_variables::fd_coeff_z</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00030">30</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a09e97bad212437fa514861db142743b2" name="a09e97bad212437fa514861db142743b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09e97bad212437fa514861db142743b2">&#9670;&#160;</a></span>gm_rho_sf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_derived_variables::gm_rho_sf</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Density gradient magnitude for numerical Schlieren. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00023">23</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__variables_8fpp_8f90_source.html#l00024">24</a> of file <a class="el" href="m__derived__variables_8fpp_8f90_source.html">m_derived_variables.fpp.f90</a>.</p>
 
 </div>
 </div>

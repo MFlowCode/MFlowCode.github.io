@@ -249,10 +249,20 @@ Solver Core</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solvers</span>  </td><td class="markdownTableBodyNone">Approximate and exact Riemann solvers (HLL, HLLC, HLLD, exact) for the multicomponent Navier&ndash;Stokes equations  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">m_muscl</span>  </td><td class="markdownTableBodyNone">MUSCL reconstruction with interface sharpening for contact-preserving advection  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">m_riemann_state</span>  </td><td class="markdownTableBodyNone">Shared Riemann-solver module state and the per-sweep setup, state-buffer population, viscous source flux, and finalization helpers  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">m_variables_conversion</span>  </td><td class="markdownTableBodyNone">Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hlld</span>  </td><td class="markdownTableBodyNone">HLLD approximate Riemann solver for MHD, Miyoshi &amp; Kusano JCP (2005)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hll</span>  </td><td class="markdownTableBodyNone">HLL approximate Riemann solver, Harten et al  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_lf</span>  </td><td class="markdownTableBodyNone">Lax-Friedrichs (Rusanov) approximate Riemann solver  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hllc</span>  </td><td class="markdownTableBodyNone">HLLC Riemann solver with contact restoration, Toro et al  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_muscl</span>  </td><td class="markdownTableBodyNone">MUSCL reconstruction with interface sharpening for contact-preserving advection  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_variables_conversion</span>  </td><td class="markdownTableBodyNone">Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_thinc</span>  </td><td class="markdownTableBodyNone">THINC and MTHINC interface compression for volume fraction sharpening  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
@@ -305,6 +315,10 @@ Boundary Conditions</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_boundary_common</span>  </td><td class="markdownTableBodyNone">Noncharacteristic and processor boundary condition application for ghost cells and buffer regions  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_boundary_primitives</span>  </td><td class="markdownTableBodyNone">Per-cell noncharacteristic boundary condition primitives applied in the ghost cells  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_boundary_io</span>  </td><td class="markdownTableBodyNone">Boundary condition restart I/O, capillary/IGR buffer population, and grid-variable buffers  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_ibm</span>  </td><td class="markdownTableBodyNone">Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients, and corrects the flow state  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_particle_cloud</span>  </td><td class="markdownTableBodyNone">Generates particle beds by converting particle_cloud patch specifications into individual immersed boundary patches before domain reduction  </td></tr>
@@ -339,34 +353,36 @@ Infrastructure</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_global_parameters</span>  </td><td class="markdownTableBodyNone">Defines global parameters for the computational domain, simulation algorithm, and initial conditions  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_global_parameters_common</span>  </td><td class="markdownTableBodyNone">Shared global parameters and equation-index setup for all three executables  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_mpi_common</span>  </td><td class="markdownTableBodyNone">MPI communication layer: domain decomposition, halo exchange, reductions, and parallel I/O setup  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_mpi_proxy</span>  </td><td class="markdownTableBodyNone">Broadcasts user inputs and decomposes the domain across MPI ranks for pre-processing  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_constants</span>  </td><td class="markdownTableBodyNone">Compile-time constant parameters: default values, tolerances, and physical constants  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_precision_select</span>  </td><td class="markdownTableBodyNone">Working-precision kind selection (half/single/double) and corresponding MPI datatype parameters  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_helper</span>  </td><td class="markdownTableBodyNone">Utility routines for bubble model setup, coordinate transforms, array sampling, and special functions  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_helper_basic</span>  </td><td class="markdownTableBodyNone">Basic floating-point utilities: approximate equality, default detection, and coordinate bounds  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_compile_specific</span>  </td><td class="markdownTableBodyNone">Platform-specific file and directory operations: create, delete, inquire, getcwd, and basename  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_fftw</span>  </td><td class="markdownTableBodyNone">Forward and inverse FFT wrappers (FFTW/cuFFT/hipFFT) for azimuthal Fourier filtering in cylindrical geometries  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_nvtx</span>  </td><td class="markdownTableBodyNone">NVIDIA NVTX profiling API bindings for GPU performance instrumentation  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_model</span>  </td><td class="markdownTableBodyNone">Binary STL file reader and processor for immersed boundary geometry  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_finite_differences</span>  </td><td class="markdownTableBodyNone">Finite difference operators for computing divergence of velocity fields  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_checker</span>  </td><td class="markdownTableBodyNone">Checks pre-process input file parameters for compatibility and correctness  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">m_checker_common</span>  </td><td class="markdownTableBodyNone">Shared input validation checks for grid dimensions and AMD GPU compiler limits  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">m_sim_helpers</span>  </td><td class="markdownTableBodyNone">Simulation helper routines for enthalpy computation, CFL calculation, and stability checks  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">m_checker_common</span>  </td><td class="markdownTableBodyNone">Shared input validation checks for grid dimensions and AMD GPU compiler limits  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_sim_helpers</span>  </td><td class="markdownTableBodyNone">Simulation helper routines for enthalpy computation, CFL calculation, and stability checks  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_derived_variables</span>  </td><td class="markdownTableBodyNone">Derives diagnostic flow quantities (vorticity, speed of sound, numerical Schlieren, etc.) from conservative and primitive variables  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
@@ -409,7 +425,7 @@ Adding New Physics</h1>
 <li><b>Add the module to <span class="tt">docs/module_categories.json</span></b> so it appears in this page</li>
 </ol>
 <p>Follow the pattern of existing modules like <span class="tt">m_body_forces</span> (simple) or <span class="tt">m_viscous</span> (more involved) as a template.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-06-12</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-06-13</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

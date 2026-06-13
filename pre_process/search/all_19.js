@@ -1,8 +1,8 @@
 var searchData=
 [
   ['z_0',['z',['../structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4',1,'m_derived_types::vec3_dt::z'],['../structm__derived__types_1_1bc__xyz__info.html#a5bb84a6338429074a84039185cef18b3',1,'m_derived_types::bc_xyz_info::z']]],
-  ['z_5fa_1',['z_a',['../namespacem__global__parameters.html#ac9e26ad42e83104a1146a26c7ab7ba73',1,'m_global_parameters']]],
-  ['z_5fb_2',['z_b',['../namespacem__global__parameters.html#a584f2ec6f19a23f55c31206c2ed8588f',1,'m_global_parameters']]],
+  ['z_5fa_1',['z_a',['../namespacem__global__parameters__common.html#a4e86266d1253161e04bcd2ef2917eb44',1,'m_global_parameters_common']]],
+  ['z_5fb_2',['z_b',['../namespacem__global__parameters__common.html#a5421ac05f3038d582ce492a54f507d10',1,'m_global_parameters_common']]],
   ['z_5fboundary_3',['z_boundary',['../namespacem__boundary__conditions.html#a36aeda9a80d56cda6d5c9f1eaaa0a888',1,'m_boundary_conditions::z_boundary'],['../namespacem__icpp__patches.html#ad909bf199ecd995b464bc9676f93e345',1,'m_icpp_patches::z_boundary']]],
   ['z_5fcb_4',['z_cb',['../namespacem__global__parameters.html#a70be15795fc52175ecd412d80576f0aa',1,'m_global_parameters']]],
   ['z_5fcc_5',['z_cc',['../namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e',1,'m_global_parameters']]],

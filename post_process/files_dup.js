@@ -1,6 +1,8 @@
 var files_dup =
 [
     [ "m_boundary_common.fpp.f90", "m__boundary__common_8fpp_8f90.html", "m__boundary__common_8fpp_8f90" ],
+    [ "m_boundary_io.fpp.f90", "m__boundary__io_8fpp_8f90.html", "m__boundary__io_8fpp_8f90" ],
+    [ "m_boundary_primitives.fpp.f90", "m__boundary__primitives_8fpp_8f90.html", "m__boundary__primitives_8fpp_8f90" ],
     [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
     [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
     [ "m_chemistry.fpp.f90", "m__chemistry_8fpp_8f90.html", "m__chemistry_8fpp_8f90" ],
@@ -10,6 +12,7 @@ var files_dup =
     [ "m_derived_variables.fpp.f90", "m__derived__variables_8fpp_8f90.html", "m__derived__variables_8fpp_8f90" ],
     [ "m_finite_differences.fpp.f90", "m__finite__differences_8fpp_8f90.html", "m__finite__differences_8fpp_8f90" ],
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
+    [ "m_global_parameters_common.fpp.f90", "m__global__parameters__common_8fpp_8f90.html", "m__global__parameters__common_8fpp_8f90" ],
     [ "m_helper.fpp.f90", "m__helper_8fpp_8f90.html", "m__helper_8fpp_8f90" ],
     [ "m_helper_basic.fpp.f90", "m__helper__basic_8fpp_8f90.html", "m__helper__basic_8fpp_8f90" ],
     [ "m_model.fpp.f90", "m__model_8fpp_8f90.html", "m__model_8fpp_8f90" ],

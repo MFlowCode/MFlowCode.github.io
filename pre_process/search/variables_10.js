@@ -1,15 +1,19 @@
 var searchData=
 [
   ['q_5fcons_5ftemp_0',['q_cons_temp',['../namespacem__data__output.html#a026c8308a5f15c063d11e2429b3e4d88',1,'m_data_output']]],
-  ['q_5fcons_5fvf_1',['q_cons_vf',['../namespacem__initial__condition.html#a1f42c68f3b3d167616d52b7cf7a7d56a',1,'m_initial_condition::q_cons_vf'],['../m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa',1,'q_cons_vf:&#160;m_phase_change.fpp.f90']]],
+  ['q_5fcons_5fvf_1',['q_cons_vf',['../structm__derived__types_1_1ic__context.html#a173150e4cf88cf0f4995ed4d0996ac85',1,'m_derived_types::ic_context::q_cons_vf'],['../m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa',1,'q_cons_vf:&#160;m_phase_change.fpp.f90']]],
   ['q_5fprim_5ftemp_2',['q_prim_temp',['../namespacem__perturbation.html#a8ea2b657d5bc08fa83312d40be9c9914',1,'m_perturbation']]],
-  ['q_5fprim_5fvf_3',['q_prim_vf',['../namespacem__initial__condition.html#ad9935d4b9c2f6a7af08f3630681d0c1a',1,'m_initial_condition']]],
-  ['q_5ft_5fsf_4',['q_t_sf',['../namespacem__initial__condition.html#aa602f2787f8bf850b2abff07b2ff2dd2',1,'m_initial_condition']]],
-  ['qbmm_5',['qbmm',['../namespacem__global__parameters.html#a9648048cbecc834252ec7e0c259b1111',1,'m_global_parameters']]],
-  ['qbmm_5fidx_6',['qbmm_idx',['../namespacem__global__parameters.html#a32abf25abe0194ee18b40123f06cbab0',1,'m_global_parameters']]],
-  ['qv_7',['qv',['../structm__derived__types_1_1ic__patch__parameters.html#a38f421671dcc42916a0752d4f2a7288f',1,'m_derived_types::ic_patch_parameters::qv'],['../structm__derived__types_1_1physical__parameters.html#a76b5cb2203aa641482afb2f3aa74f9f1',1,'m_derived_types::physical_parameters::qv']]],
-  ['qv_5fsf_8',['qv_sf',['../namespacem__variables__conversion.html#a7f98b7096dbb8325dcc2065027b1b15b',1,'m_variables_conversion']]],
-  ['qvp_9',['qvp',['../structm__derived__types_1_1ic__patch__parameters.html#a639f4cb99b4c009f33ca9287eb30454c',1,'m_derived_types::ic_patch_parameters::qvp'],['../structm__derived__types_1_1physical__parameters.html#a0a0f768ffe9bf687034ae75163a36b7e',1,'m_derived_types::physical_parameters::qvp']]],
-  ['qvps_10',['qvps',['../namespacem__variables__conversion.html#a7a4b3841aa7a29fee4382d9de70df0cb',1,'m_variables_conversion']]],
-  ['qvs_11',['qvs',['../namespacem__variables__conversion.html#a3115694a0163ff2d8ff01532ecbe6952',1,'m_variables_conversion']]]
+  ['q_5fprim_5fvf_3',['q_prim_vf',['../structm__derived__types_1_1ic__context.html#a4f2c23b21ec9882bac43a879678e128a',1,'m_derived_types::ic_context']]],
+  ['q_5froot_5fsf_4',['q_root_sf',['../structm__derived__types_1_1output__context.html#ac6a3813847b35c4c97ba94028ffb4be2',1,'m_derived_types::output_context']]],
+  ['q_5froot_5fsf_5fs_5',['q_root_sf_s',['../structm__derived__types_1_1output__context.html#a722868471752d2ea72ed4c4c10f64020',1,'m_derived_types::output_context']]],
+  ['q_5fsf_6',['q_sf',['../structm__derived__types_1_1output__context.html#a92bc7c62ac0fe735dd913e89c8de3300',1,'m_derived_types::output_context']]],
+  ['q_5fsf_5fs_7',['q_sf_s',['../structm__derived__types_1_1output__context.html#a3f3bc19a4b44bd90dc4d199398232ff0',1,'m_derived_types::output_context']]],
+  ['q_5ft_5fsf_8',['q_t_sf',['../structm__derived__types_1_1ic__context.html#ad85f88a3ec662cb513ceb78d6d3c735d',1,'m_derived_types::ic_context']]],
+  ['qbmm_9',['qbmm',['../namespacem__global__parameters__common.html#a1d75c2964eb0a5b6577a7ffdfd3dc51b',1,'m_global_parameters_common']]],
+  ['qbmm_5fidx_10',['qbmm_idx',['../namespacem__global__parameters.html#a32abf25abe0194ee18b40123f06cbab0',1,'m_global_parameters']]],
+  ['qv_11',['qv',['../structm__derived__types_1_1ic__patch__parameters.html#a38f421671dcc42916a0752d4f2a7288f',1,'m_derived_types::ic_patch_parameters::qv'],['../structm__derived__types_1_1physical__parameters.html#a76b5cb2203aa641482afb2f3aa74f9f1',1,'m_derived_types::physical_parameters::qv']]],
+  ['qv_5fsf_12',['qv_sf',['../namespacem__variables__conversion.html#a7f98b7096dbb8325dcc2065027b1b15b',1,'m_variables_conversion']]],
+  ['qvp_13',['qvp',['../structm__derived__types_1_1ic__patch__parameters.html#a639f4cb99b4c009f33ca9287eb30454c',1,'m_derived_types::ic_patch_parameters::qvp'],['../structm__derived__types_1_1physical__parameters.html#a0a0f768ffe9bf687034ae75163a36b7e',1,'m_derived_types::physical_parameters::qvp']]],
+  ['qvps_14',['qvps',['../namespacem__variables__conversion.html#a7a4b3841aa7a29fee4382d9de70df0cb',1,'m_variables_conversion']]],
+  ['qvs_15',['qvs',['../namespacem__variables__conversion.html#a3115694a0163ff2d8ff01532ecbe6952',1,'m_variables_conversion']]]
 ];

@@ -1,32 +1,6 @@
 var m__riemann__solvers_8fpp_8f90 =
 [
-    [ "m_riemann_solvers::s_calculate_bulk_stress_tensor", "namespacem__riemann__solvers.html#a35f34b24d646ebbcf5e3ff58fade51f9", null ],
-    [ "m_riemann_solvers::s_calculate_shear_stress_tensor", "namespacem__riemann__solvers.html#a6cea0144511b3c7e347b17078472dd9a", null ],
-    [ "m_riemann_solvers::s_compute_cartesian_viscous_source_flux", "namespacem__riemann__solvers.html#acd1e96bf2beb1737af473b4887e2a6c8", null ],
-    [ "m_riemann_solvers::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__solvers.html#a445ed9638cf16f66acbd1d321d13077c", null ],
-    [ "m_riemann_solvers::s_compute_viscous_source_flux", "namespacem__riemann__solvers.html#a50306a2a2114ac25989b1d4005ff8553", null ],
-    [ "m_riemann_solvers::s_finalize_riemann_solver", "namespacem__riemann__solvers.html#a51d42487a854ac450d85324c77d51bdf", null ],
     [ "m_riemann_solvers::s_finalize_riemann_solvers_module", "namespacem__riemann__solvers.html#a6649906000f121d43833493a8536987a", null ],
-    [ "m_riemann_solvers::s_hll_riemann_solver", "namespacem__riemann__solvers.html#ad9f9471904cc09bb1991d74f42119168", null ],
-    [ "m_riemann_solvers::s_hllc_riemann_solver", "namespacem__riemann__solvers.html#ab74aea942ab06c255132534ee011bc85", null ],
-    [ "m_riemann_solvers::s_hlld_riemann_solver", "namespacem__riemann__solvers.html#ae88e95a5252cab52b2a93f7992486f1d", null ],
-    [ "m_riemann_solvers::s_initialize_riemann_solver", "namespacem__riemann__solvers.html#a99ceccfbf2d02b81c21cddbe156af054", null ],
     [ "m_riemann_solvers::s_initialize_riemann_solvers_module", "namespacem__riemann__solvers.html#adb2da01d113ee9a470616c67a3a8a5da", null ],
-    [ "m_riemann_solvers::s_lf_riemann_solver", "namespacem__riemann__solvers.html#a23ef63ded904310963bffb1e0057fa66", null ],
-    [ "m_riemann_solvers::s_populate_riemann_states_variables_buffers", "namespacem__riemann__solvers.html#a380c867f0749c106778fab831a399623", null ],
-    [ "m_riemann_solvers::s_riemann_solver", "namespacem__riemann__solvers.html#a8d00c5352ee6b6f1628cde6d34ad5e08", null ],
-    [ "m_riemann_solvers::flux_gsrc_rsx_vf", "namespacem__riemann__solvers.html#ac5d5ab9ed97d3080fdfe18a8f7c8f7dd", null ],
-    [ "m_riemann_solvers::flux_rsx_vf", "namespacem__riemann__solvers.html#ad11416c48cd15606056a81fe9c1083c4", null ],
-    [ "m_riemann_solvers::flux_src_rsx_vf", "namespacem__riemann__solvers.html#a8437dbcf9c6e8e08a0471d74b9c6a666", null ],
-    [ "m_riemann_solvers::gs_rs", "namespacem__riemann__solvers.html#aec207280763d90d7236d693b51a5889f", null ],
-    [ "m_riemann_solvers::is1", "namespacem__riemann__solvers.html#a3fadc0dd15e2c152570e6467d2318e7e", null ],
-    [ "m_riemann_solvers::is2", "namespacem__riemann__solvers.html#a00d1f9ddce268407200d21ff409474d7", null ],
-    [ "m_riemann_solvers::is3", "namespacem__riemann__solvers.html#a81c141f1c61ba1e4e8d55f8a4ecd8f67", null ],
-    [ "m_riemann_solvers::isx", "namespacem__riemann__solvers.html#a5e3bcf740bc77db45d356bda00cfbb39", null ],
-    [ "m_riemann_solvers::isy", "namespacem__riemann__solvers.html#ad95d93ae3d68d0828e6c9b4a6bcbec57", null ],
-    [ "m_riemann_solvers::isz", "namespacem__riemann__solvers.html#ae85c99b569bfee75f494018d24285249", null ],
-    [ "m_riemann_solvers::mom_sp_rsx_vf", "namespacem__riemann__solvers.html#ab879ffe0ec1d491202d3d2b62b5b18e0", null ],
-    [ "m_riemann_solvers::re_avg_rsx_vf", "namespacem__riemann__solvers.html#a05342774a8fec037c9f9db7cc4b1914e", null ],
-    [ "m_riemann_solvers::res_gs", "namespacem__riemann__solvers.html#a38f4ad2601b10eb6d089849f1868693c", null ],
-    [ "m_riemann_solvers::vel_src_rsx_vf", "namespacem__riemann__solvers.html#a3ebb299de012f87c53ba4ec9b9c8ef4f", null ]
+    [ "m_riemann_solvers::s_riemann_solver", "namespacem__riemann__solvers.html#a8d00c5352ee6b6f1628cde6d34ad5e08", null ]
 ];

@@ -1,12 +1,12 @@
 var searchData=
 [
   ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters::a'],['../namespacem__phase__change.html#a344f6041e2adbadbffa3381620d8f2a8',1,'m_phase_change::a']]],
-  ['a_5fx_1',['a_x',['../namespacem__global__parameters.html#a740c59c1cb32fb4643e66cfdae2b77a2',1,'m_global_parameters']]],
-  ['a_5fy_2',['a_y',['../namespacem__global__parameters.html#a65dadfec6139b1da5a5bfb1a41bd50c0',1,'m_global_parameters']]],
-  ['a_5fz_3',['a_z',['../namespacem__global__parameters.html#a7067c0aad029a6a7ed4c2a308e56f408',1,'m_global_parameters']]],
+  ['a_5fx_1',['a_x',['../namespacem__global__parameters__common.html#a31015da2e02b66a2f85d058a3f6e2107',1,'m_global_parameters_common']]],
+  ['a_5fy_2',['a_y',['../namespacem__global__parameters__common.html#a2809bd226dca0d0870b5ea3eaf198c6b',1,'m_global_parameters_common']]],
+  ['a_5fz_3',['a_z',['../namespacem__global__parameters__common.html#a08ebb9d211c4ced4e7195f89e74f5997',1,'m_global_parameters_common']]],
   ['acoustic_5fspatial_5fsupport_5fwidth_4',['acoustic_spatial_support_width',['../namespacem__constants.html#a92bc4d3446d8473183e165116932778f',1,'m_constants']]],
   ['adv_5',['adv',['../structm__derived__types_1_1eqn__idx__info.html#a9c8048f8cbd185a632861ad52a55ff52',1,'m_derived_types::eqn_idx_info']]],
-  ['adv_5fn_6',['adv_n',['../namespacem__global__parameters.html#aaf85bdfa4c053e4366099e4f4520fb71',1,'m_global_parameters']]],
+  ['adv_5fn_6',['adv_n',['../namespacem__global__parameters__common.html#abd8385fa406337311dd37ea801da3321',1,'m_global_parameters_common']]],
   ['airfoil_5fid_7',['airfoil_id',['../structm__derived__types_1_1ib__patch__parameters.html#a5161bd8f7561e29cfb7369d85ba3c3f8',1,'m_derived_types::ib_patch_parameters']]],
   ['alf_8',['alf',['../structm__derived__types_1_1eqn__idx__info.html#a9e6d97eade4e864784a160c8b0184e8b',1,'m_derived_types::eqn_idx_info']]],
   ['alf_5fsum_9',['alf_sum',['../namespacem__assign__variables.html#aefb6bed3e785cd14cbf7d632880839a9',1,'m_assign_variables']]],

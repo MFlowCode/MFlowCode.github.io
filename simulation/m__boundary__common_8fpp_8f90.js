@@ -1,30 +1,7 @@
 var m__boundary__common_8fpp_8f90 =
 [
-    [ "m_boundary_common::s_assign_default_bc_type", "namespacem__boundary__common.html#af8621fd7814593e9a18ba4d1461723d0", null ],
-    [ "m_boundary_common::s_axis", "namespacem__boundary__common.html#a2fe3d0adef0faf65f6410f293d32bb42", null ],
-    [ "m_boundary_common::s_color_function_ghost_cell_extrapolation", "namespacem__boundary__common.html#a8fab55d4905c05c77dc69a433f04bab0", null ],
-    [ "m_boundary_common::s_color_function_periodic", "namespacem__boundary__common.html#a48336ac804d5e498085f79f80774a4d8", null ],
-    [ "m_boundary_common::s_color_function_reflective", "namespacem__boundary__common.html#a38b36b69c6a3e13b377238e543da0525", null ],
-    [ "m_boundary_common::s_create_mpi_types", "namespacem__boundary__common.html#ab5d422a797dcdf7a95587c937dbdf74c", null ],
-    [ "m_boundary_common::s_dirichlet", "namespacem__boundary__common.html#a0f707ef5d7a24863ea61448dc7bca67a", null ],
     [ "m_boundary_common::s_finalize_boundary_common_module", "namespacem__boundary__common.html#a69dbc2d02c7be259c30ea62e603f9f4b", null ],
-    [ "m_boundary_common::s_ghost_cell_extrapolation", "namespacem__boundary__common.html#a193e01c2964bcb2c3714e042e96dcdba", null ],
     [ "m_boundary_common::s_initialize_boundary_common_module", "namespacem__boundary__common.html#a564aec3ec22d27138a881ca6bf54d94d", null ],
-    [ "m_boundary_common::s_no_slip_wall", "namespacem__boundary__common.html#a793d89496b857a9e441a9e36e203b647", null ],
-    [ "m_boundary_common::s_pack_boundary_condition_buffers", "namespacem__boundary__common.html#afb277dc5e7d82c3cc41035bcb9c60dac", null ],
-    [ "m_boundary_common::s_periodic", "namespacem__boundary__common.html#aea74274bc4bbf7ea50eb966be201196b", null ],
-    [ "m_boundary_common::s_populate_capillary_buffers", "namespacem__boundary__common.html#adc1afccea975d65f8825dd140280ade7", null ],
-    [ "m_boundary_common::s_populate_f_igr_buffers", "namespacem__boundary__common.html#a62b22c0dcabb74e7ff70f8c53a0127a7", null ],
-    [ "m_boundary_common::s_populate_grid_variables_buffers", "namespacem__boundary__common.html#aaa280302ca5033a37f9e83f72a7bbd62", null ],
-    [ "m_boundary_common::s_populate_variables_buffers", "namespacem__boundary__common.html#abfbb20311259fa39676228027f156929", null ],
-    [ "m_boundary_common::s_qbmm_extrapolation", "namespacem__boundary__common.html#ac55853dffb7e074e8f645ff0a63e7e38", null ],
-    [ "m_boundary_common::s_read_parallel_boundary_condition_files", "namespacem__boundary__common.html#a81909d1af9c5476df6c091b1e714ca99", null ],
-    [ "m_boundary_common::s_read_serial_boundary_condition_files", "namespacem__boundary__common.html#adfa0ae0acfddcffc6762f126d83ae3d0", null ],
-    [ "m_boundary_common::s_slip_wall", "namespacem__boundary__common.html#a44f0f9287bc72732131f43499ebd38df", null ],
-    [ "m_boundary_common::s_symmetry", "namespacem__boundary__common.html#aff4977078a8a5f9d419e080952a65890", null ],
-    [ "m_boundary_common::s_write_parallel_boundary_condition_files", "namespacem__boundary__common.html#a4e77bf3a00f69bf8ae19080f8f8c9403", null ],
-    [ "m_boundary_common::s_write_serial_boundary_condition_files", "namespacem__boundary__common.html#a7fd3c08b3b169fe894ee3401447859e0", null ],
-    [ "m_boundary_common::bc_buffers", "namespacem__boundary__common.html#a1850511523f95f4f76c9f7b0198f089c", null ],
-    [ "m_boundary_common::mpi_bc_buffer_type", "namespacem__boundary__common.html#aef10931a41245ef363814eb200ad35af", null ],
-    [ "m_boundary_common::mpi_bc_type_type", "namespacem__boundary__common.html#a3eb1b5d4a0e3c643444e011fc16c08a2", null ]
+    [ "m_boundary_common::s_populate_bc_direction", "namespacem__boundary__common.html#a352fa827d9dbbfb0be060dedcce86792", null ],
+    [ "m_boundary_common::s_populate_variables_buffers", "namespacem__boundary__common.html#abfbb20311259fa39676228027f156929", null ]
 ];

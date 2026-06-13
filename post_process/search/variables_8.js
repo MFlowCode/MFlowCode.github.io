@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['ib_0',['ib',['../namespacem__global__parameters.html#a633a3701bad8d6798d03dfd1a083fac5',1,'m_global_parameters']]],
+  ['ib_0',['ib',['../namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1',1,'m_global_parameters_common']]],
   ['ib_5fmarkers_1',['ib_markers',['../namespacem__data__input.html#ae7e5a46044d44b5523ea49707c34b366',1,'m_data_input']]],
   ['ib_5fpatch_5fid_2',['ib_patch_id',['../structm__derived__types_1_1ghost__point.html#a9d3df6e996facf4a53a91130027a3579',1,'m_derived_types::ghost_point']]],
-  ['ib_5fstate_5fwrt_3',['ib_state_wrt',['../namespacem__global__parameters.html#a6f8626eb3a889b47da44e1d5a903fb0e',1,'m_global_parameters']]],
+  ['ib_5fstate_5fwrt_3',['ib_state_wrt',['../namespacem__global__parameters__common.html#a12c9eea2b592ab77bf8763b43814a78a',1,'m_global_parameters_common']]],
   ['idwbuff_4',['idwbuff',['../namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab',1,'m_global_parameters']]],
   ['idwint_5',['idwint',['../namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8',1,'m_global_parameters']]],
   ['ierr_6',['ierr',['../namespacem__start__up.html#acda4d76c2087afda004f45e13def40c4',1,'m_start_up']]],
-  ['igr_7',['igr',['../namespacem__global__parameters.html#a1106201db32843ef3bcd5e170d3de86a',1,'m_global_parameters']]],
-  ['igr_5forder_8',['igr_order',['../namespacem__global__parameters.html#ae007ab80021e18ba6db79f9261322293',1,'m_global_parameters']]],
+  ['igr_7',['igr',['../namespacem__global__parameters__common.html#a2059a73bab13312fccb9c299e2ed2eed',1,'m_global_parameters_common']]],
+  ['igr_5forder_8',['igr_order',['../namespacem__global__parameters__common.html#a8698448318affdac440a7eb61a65d60f',1,'m_global_parameters_common']]],
   ['im_5ftrans_5fc_9',['im_trans_c',['../namespacem__global__parameters.html#a1acf0ecc974673284ad75ebe30751453',1,'m_global_parameters']]],
   ['im_5ftrans_5ft_10',['im_trans_t',['../namespacem__global__parameters.html#a329bdc21184f2d058145d236c3c1b699',1,'m_global_parameters']]],
   ['increment_11',['increment',['../namespacem__constants.html#ab66dfe89cea87b9c55fbfb4f6783c5d3',1,'m_constants']]],
