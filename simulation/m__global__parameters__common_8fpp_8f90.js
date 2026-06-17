@@ -72,6 +72,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::lag_params", "namespacem__global__parameters__common.html#ad6632ddc3028c591d11a97a7e48998f5", null ],
     [ "m_global_parameters_common::low_mach", "namespacem__global__parameters__common.html#a5dcc4721bbaf912ce41188b98f741b63", null ],
     [ "m_global_parameters_common::m", "namespacem__global__parameters__common.html#a2fd7db9b3028508bb79f3e305c50ac14", null ],
+    [ "m_global_parameters_common::many_ib_patch_parallelism", "namespacem__global__parameters__common.html#a833bb296ddd1bcee8e7358cd7f575e47", null ],
     [ "m_global_parameters_common::mapped_weno", "namespacem__global__parameters__common.html#a19167b22e777dd4acdb506451293cb09", null ],
     [ "m_global_parameters_common::mhd", "namespacem__global__parameters__common.html#ac4f2e2a660507c0fdc78bc57857aae53", null ],
     [ "m_global_parameters_common::mixture_err", "namespacem__global__parameters__common.html#ab4b80eb8c5b58cff95b9cdf0eef67d2b", null ],

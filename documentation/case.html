@@ -427,32 +427,34 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_neighborhood_radius</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Parameter that controls the neighborhood size for IB detection.  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">many_ib_patch_parallelism</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parallelize over IB patches instead of grid cells (better for many small patches).  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Length, if applicable, in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius, if applicable, of the applied geometry.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">airfoil_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">ib_airfoil</span> array for NACA airfoil geometry patches.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">model_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">stl_models</span> array for STL/OBJ geometry patches.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">slip</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Apply a slip boundary  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sets the method used for IB movement.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial velocity of the moving IB in the i-th direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">angular_vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial angular velocity of the moving IB in the i-th direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">coefficient_of_restitution</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">A number 0 to 1 describing how elastic IB collisions are  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">collision_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Integer to select the collision model being used for IB collisions.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">collision_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Integer to select the collision model being used for IB collisions.  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_coefficient_of_friction</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coefficient of friction used in IB collisions  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">patch_ib(j)%</span> where $j$ is the patch index.</p>
@@ -480,16 +482,48 @@ Parameter Descriptions</h4>
 <li><span class="tt">c</span>, <span class="tt">t</span>, <span class="tt">p</span>, and <span class="tt">m</span> specify the parameters for a NACA airfoil (set on the referenced <span class="tt">ib_airfoil</span> entry). <span class="tt">m</span> is the maximum camber, <span class="tt">p</span> is the location of maximum camber, <span class="tt">c</span> is the chord length, and <span class="tt">t</span> is the thickness. Additional details on this specification can be found in <a href="https://en.wikipedia.org/wiki/NACA_airfoil">NACA airfoil</a>.</li>
 <li><span class="tt">slip</span> applies a slip boundary to the surface of the patch if true and a no-slip boundary condition to the surface if false.</li>
 <li>For STL/OBJ geometry (geometry 5 or 12), set <span class="tt">model_id</span> to index into the <span class="tt">stl_models</span> array and specify <span class="tt">model_filepath</span>, <span class="tt">model_scale</span>, <span class="tt">model_translate</span>, and <span class="tt">model_threshold</span> on that entry.</li>
-<li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon it's own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces.</li>
+<li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon its own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces.</li>
 <li><span class="tt">vel(i)</span> is the initial linear velocity of the IB in the x, y, z direction for i=1, 2, 3. When <span class="tt">moving_ibm</span> equals 2, this velocity is just the starting speed of the object, which will then accelerate due to external forces. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>
 <li><p class="startli"><span class="tt">angular_vel(i)</span> is the initial angular velocity of the IB about the x, y, z axes for i=1, 2, 3 in radians per second. When <span class="tt">moving_ibm</span> equals 2, this rotation rate is just the starting rate of the object, which will then change due to external torques. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</p>
 <p class="startli">Moving-IB analytic expressions use the same Python syntax and error-reporting as IC patch expressions (see the "Analytical Definition of Primitive Variables" section above). Available variables: <span class="tt">x</span> (<span class="tt">x_cc(i)</span>), <span class="tt">y</span> (<span class="tt">y_cc(j)</span>), <span class="tt">z</span> (<span class="tt">z_cc(k)</span>), <span class="tt">t</span> (current simulation time), and <span class="tt">r</span> (the IB patch radius). The same intrinsic functions and <span class="tt">pi</span> constant apply; bare <span class="tt">e</span> is not available.</p>
 </li>
-<li><span class="tt">coefficient_of_restitution</span> is a number from 0 (exclusive) to 1 (inclusive) describing how elastic IB collisions are. 0 is for perfectly inellastic collisions while 1 is for perfectly ellastic collisions.</li>
-<li><span class="tt">collision_model</span> is an integer to select the collision model being used for IB collisions. Using 0 disables collisions and collisiono checking. 1 enables the soft-sphere collision model, where all IBs must be circles or sphere and those IBs can collide with each other as well as walls.</li>
-<li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring gonstant used to apply collision forces.</li>
+<li><span class="tt">coefficient_of_restitution</span> is a number from 0 (exclusive) to 1 (inclusive) describing how elastic IB collisions are. 0 is for perfectly inelastic collisions while 1 is for perfectly elastic collisions.</li>
+<li><span class="tt">collision_model</span> is an integer to select the collision model being used for IB collisions. Using 0 disables collisions and collision checking. 1 enables the soft-sphere collision model, where all IBs must be circles or sphere and those IBs can collide with each other as well as walls.</li>
+<li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring constant used to apply collision forces.</li>
 <li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
-<li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. This value defaults to 1, which indicates that any given rank is aware of IB's up to 1 ranks away. This parameter is required to strong-scale a case when IB's eventually grow to be larger than one full processor domain wide.</li>
+<li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. This value defaults to 1, which indicates that any given rank is aware of IBs up to 1 ranks away. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
+</ul>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+Particle Clouds</h4>
+<p>A particle cloud is a compact specification of a bed of identical circular (2D) or spherical (3D) immersed boundaries; each cloud is expanded into individual <span class="tt">patch_ib</span> particles at startup. Set <span class="tt">num_particle_clouds</span> to the number of beds and prepend the parameters below with <span class="tt">particle_cloud(j)%</span> where $j$ is the cloud index.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centre of the cloud region in the [x,y,z]-direction.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Extent of the cloud region in the [x,y,z]-direction.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">num_particles</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of particles to place in the region.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius of every particle in the cloud.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">mass</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Mass of every particle in the cloud.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">min_spacing</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Minimum surface-to-surface gap between particles (centres are <span class="tt">2*radius + min_spacing</span> apart).  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Motion flag applied to every particle (see <span class="tt">patch_ib(j)%moving_ibm</span>).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">seed</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Random seed for reproducible placement (used by <span class="tt">packing_method = 1</span>).  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">packing_method</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Algorithm used to place the particles.  </td></tr>
+</table>
+<ul>
+<li><span class="tt">packing_method</span> selects how the <span class="tt">num_particles</span> are positioned within the cloud region:<ul>
+<li><span class="tt">1</span> (rejection sampling) draws random positions and rejects any that violate <span class="tt">min_spacing</span>, producing a disordered bed. <span class="tt">seed</span> makes the placement reproducible.</li>
+<li><span class="tt">2</span> (lattice) places the particles on the optimally dense lattice for the geometry — a triangular lattice in 2D and a face-centered cubic lattice in 3D. The lattice spacing is derived from the particle density (<span class="tt">num_particles</span> over the region area/volume); if that spacing is below the required <span class="tt">2*radius + min_spacing</span>, the region is too dense and the run aborts.</li>
+</ul>
+</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="sec-fluid-materials"></a>
 5. Fluid Material's</h3>
@@ -728,14 +762,14 @@ Boundary Condition Patches</h4>
 <li><span class="tt">-17</span> Dirichlet</li>
 </ul>
 <p>Line segments along each domain edge are supported for 2D simulations. Squares and circles on each face are supported for 3D simulations.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
 Constant Time-Stepping</h4>
 <ul>
 <li><span class="tt">dt</span> specifies the constant time step size used in the simulation. The value of <span class="tt">dt</span> needs to be sufficiently small to satisfy the Courant-Friedrichs-Lewy (CFL) condition.</li>
 <li><span class="tt">t_step_start</span> and <span class="tt">t_step_stop</span> define the time steps at which the simulation starts and ends.</li>
 </ul>
 <p><span class="tt">t_step_save</span> is the time step interval for data output during simulation. To newly start the simulation, set <span class="tt">t_step_start = 0</span>. To restart the simulation from $k$-th time step, set <span class="tt">t_step_start = k</span>; see <a class="el" href="running.html" title="Running">Restarting Cases</a>.</p>
-<h5 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+<h5 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
 Adaptive Time-Stepping</h5>
 <ul>
 <li><span class="tt">cfl_adap_dt</span> enables adaptive time stepping with a constant CFL when true</li>
@@ -1041,7 +1075,7 @@ Adaptive Time-Stepping</h5>
 </ul>
 <p>Implementation of the parameters into the model follows Ando <a class="el" href="citelist.html#CITEREF_ando10">[3]</a>.</p>
 <p>See <a class="el" href="equations.html" title="Equations">Equations</a> Section 9 for the bubble dynamics equations.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
 9.1 Ensemble-Averaged Bubble Model</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1082,7 +1116,7 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">sigV</span> specifies the standard deviation of the PDF of bubble velocity required in the QBMM feature.</li>
 <li><span class="tt">rhoRV</span> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in the QBMM feature.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
 9.2 Volume-Averaged Bubble Model</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1196,7 +1230,7 @@ Adaptive Time-Stepping</h5>
 <ul>
 <li><span class="tt">pi_fac</span> specifies the ratio of artificial and true <span class="tt">pi_\infty</span> values (<span class="tt">=</span> artificial <span class="tt">pi_\infty</span> / true <span class="tt">pi_\infty</span>). This parameter enables the use of true <span class="tt">pi_\infty</span> in bubble dynamics models when the <span class="tt">pi_\infty</span> given in the <span class="tt">case.py</span> file is an artificial value.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
 13. Body Forces</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1217,7 +1251,7 @@ Adaptive Time-Stepping</h5>
 \[ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). \]
 </p>
 <p>By convention, positive accelerations in the <span class="tt">x[y,z]</span> direction are in the positive <span class="tt">x[y,z]</span> direction.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
 14. Magnetohydrodynamics (MHD)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1248,7 +1282,7 @@ Adaptive Time-Stepping</h5>
 </ul>
 <p>Note: In 1D/2D/3D simulations, all three velocity components are treated as state variables and must be specified in the case file.</p>
 <p>Note: For relativistic flow, the conservative and primitive densities are different. <span class="tt">rho_wrt</span> outputs the primitive (rest mass) density.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
 15. Elasticity</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1269,7 +1303,7 @@ Adaptive Time-Stepping</h5>
 <ul>
 <li><span class="tt">cont_damage</span> activates continuum damage model for solid materials. Requires <span class="tt">tau_star</span>, <span class="tt">cont_damage_s</span>, and <span class="tt">alpha_bar</span> to be set (empirically determined) (Cao et al. <a class="el" href="citelist.html#CITEREF_cao19">[10]</a>).</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
 16. Cylindrical Coordinates</h3>
 <p>When <span class="tt">cyl_coord = 'T'</span> is set in 3D the following constraints must be met:</p>
 <ul>
@@ -1282,7 +1316,7 @@ Adaptive Time-Stepping</h5>
 <ul>
 <li><span class="tt">bc_y%beg = -2</span> to enable reflective boundary conditions</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
 17. Chemistry</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1304,7 +1338,7 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 18. Chemistry-Specific Boundary Conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1366,7 +1400,7 @@ Adaptive Time-Stepping</h5>
 <li>All HB parameters are non-dimensional (scaled by \(\rho_{\rm ref} U_{\rm ref} L_{\rm ref}\)), so \(1/\mu_{\rm eff}\) equals the local effective Reynolds number.</li>
 <li>For cylindrical geometry (<span class="tt">cyl_coord = T</span>) the shear rate uses the grid-direction strain components; curvature corrections to \(\dot\gamma\) are not yet included.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
 20. GPU Performance (NVIDIA UVM)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1381,7 +1415,7 @@ Adaptive Time-Stepping</h5>
 <ul>
 <li>These parameters are for NVIDIA Grace-Hopper and similar architectures with hardware-managed unified memory. They allow MFC to run problems larger than GPU memory by paging data between host and device.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Enumerations</h2>
 <h3 class="doxsection"><a class="anchor" id="boundary-conditions"></a>
 Boundary conditions</h3>
@@ -1421,7 +1455,7 @@ Boundary conditions</h3>
 </table>
 <p>*: This boundary condition is only used for <span class="tt">bc_y%beg</span> when using cylindrical coordinates (<span class="tt">cyl_coord = 'T'</span> and 3D). For axisymmetric problems, use <span class="tt">bc_y%beg = -2</span> with <span class="tt">cyl_coord = 'T'</span> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table <a class="el" href="#boundary-conditions" title="Boundary conditions">Boundary Conditions</a>. Their number (<span class="tt">#</span>) corresponds to the input value in <span class="tt">input.py</span> labeled <span class="tt">bc_[x,y,z]%[beg,end]</span> (see table <a class="el" href="#sec-simulation-algorithm" title="6. Simulation Algorithm">Simulation Algorithm Parameters</a>). The entries labeled "Characteristic." are characteristic boundary conditions based on Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[48]</a> and Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[49]</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
 Generalized Characteristic Boundary conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1521,11 +1555,8 @@ Immersed Boundary Patch Types</h3>
 <td class="markdownTableBodyRight">4  </td><td class="markdownTableBodyCenter">2D Airfoil  </td><td class="markdownTableBodyLeft">2  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">8  </td><td class="markdownTableBodyCenter">3D Sphere  </td><td class="markdownTableBodyLeft">3  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyCenter">3D Cylinder  </td><td class="markdownTableBodyLeft">3  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">11  </td><td class="markdownTableBodyCenter">3D Airfoil  </td><td class="markdownTableBodyLeft">3  </td></tr>
 </table>
+<p>| 10 | 3D Cylinder | 3 | <span class="tt">length_x</span> sets the axial length of the cylinder. | | 11 | 3D Airfoil | 3 |</p>
 <h3 class="doxsection"><a class="anchor" id="acoustic-supports"></a>
 Acoustic Supports</h3>
 <table class="markdownTable">
@@ -1570,7 +1601,7 @@ Acoustic Supports</h3>
 <li><span class="tt">%support = 10</span> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <span class="tt">%support = 9</span> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <span class="tt">%support = 9</span> around the x-axis.</li>
 <li><span class="tt">%support = 11</span> specifies a circular transducer array in 3D simulation. The total aperture of the array is <span class="tt">%aperture</span>, which is similar to <span class="tt">%support = 7</span>. The parameters <span class="tt">%num_elements</span>, <span class="tt">%element_polygon_ratio</span>, and <span class="tt">%rotate_angle</span> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <span class="tt">%num_elements</span>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 Conservative Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1596,7 +1627,7 @@ Conservative Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
 Primitive Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">

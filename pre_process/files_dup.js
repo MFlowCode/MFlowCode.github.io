@@ -23,6 +23,7 @@ var files_dup =
     [ "m_model.fpp.f90", "m__model_8fpp_8f90.html", "m__model_8fpp_8f90" ],
     [ "m_mpi_common.fpp.f90", "m__mpi__common_8fpp_8f90.html", "m__mpi__common_8fpp_8f90" ],
     [ "m_mpi_proxy.fpp.f90", "m__mpi__proxy_8fpp_8f90.html", "m__mpi__proxy_8fpp_8f90" ],
+    [ "m_patch_geometries.fpp.f90", "m__patch__geometries_8fpp_8f90.html", "m__patch__geometries_8fpp_8f90" ],
     [ "m_perturbation.fpp.f90", "m__perturbation_8fpp_8f90.html", "m__perturbation_8fpp_8f90" ],
     [ "m_phase_change.fpp.f90", "m__phase__change_8fpp_8f90.html", "m__phase__change_8fpp_8f90" ],
     [ "m_simplex_noise.fpp.f90", "m__simplex__noise_8fpp_8f90.html", "m__simplex__noise_8fpp_8f90" ],

@@ -722,6 +722,7 @@ var namespaces_dup =
       [ "lag_params", "namespacem__global__parameters__common.html#ad6632ddc3028c591d11a97a7e48998f5", null ],
       [ "low_mach", "namespacem__global__parameters__common.html#a5dcc4721bbaf912ce41188b98f741b63", null ],
       [ "m", "namespacem__global__parameters__common.html#a2fd7db9b3028508bb79f3e305c50ac14", null ],
+      [ "many_ib_patch_parallelism", "namespacem__global__parameters__common.html#a833bb296ddd1bcee8e7358cd7f575e47", null ],
       [ "mapped_weno", "namespacem__global__parameters__common.html#a19167b22e777dd4acdb506451293cb09", null ],
       [ "mhd", "namespacem__global__parameters__common.html#ac4f2e2a660507c0fdc78bc57857aae53", null ],
       [ "mixture_err", "namespacem__global__parameters__common.html#ab4b80eb8c5b58cff95b9cdf0eef67d2b", null ],
@@ -905,21 +906,14 @@ var namespaces_dup =
     ] ],
     [ "m_ib_patches", "namespacem__ib__patches.html", [
       [ "f_r", "namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564", null ],
-      [ "get_bounding_indices", "namespacem__ib__patches.html#a5b49a56add219c880c8ba5c758cf8977", null ],
+      [ "get_bounding_indices", "namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab", null ],
+      [ "get_indices_from_bounds", "namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27", null ],
       [ "s_apply_ib_patches", "namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a", null ],
+      [ "s_apply_ib_patches_grid_cell_parallelism", "namespacem__ib__patches.html#a7ae39b1544784fe4bd5a599a80a1045a", null ],
+      [ "s_apply_ib_patches_ib_parallelism", "namespacem__ib__patches.html#a5eb95c7b234b83782c65a50d308c0989", null ],
       [ "s_decode_patch_periodicity", "namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2", null ],
       [ "s_encode_patch_periodicity", "namespacem__ib__patches.html#aa30942f91c6604edab651d4d3ec2abaf", null ],
       [ "s_get_periodicities", "namespacem__ib__patches.html#a37849410326edb12eb6f5b5a16970462", null ],
-      [ "s_ib_3d_airfoil", "namespacem__ib__patches.html#a64a55fe4905819524901c6afb0145849", null ],
-      [ "s_ib_3d_model", "namespacem__ib__patches.html#a149e863c3398ff0811c1dd592fe145a8", null ],
-      [ "s_ib_airfoil", "namespacem__ib__patches.html#a03b0d1714ef68fa881d7b38baf2614ee", null ],
-      [ "s_ib_circle", "namespacem__ib__patches.html#a17473e70a43ab26cdc065a6153a5c263", null ],
-      [ "s_ib_cuboid", "namespacem__ib__patches.html#afb9c619078fd176927522ba470916bb6", null ],
-      [ "s_ib_cylinder", "namespacem__ib__patches.html#a003095b110e3cf4e07c430c414998e47", null ],
-      [ "s_ib_ellipse", "namespacem__ib__patches.html#a3d4bb456f34b8354ea54cc0bd5687150", null ],
-      [ "s_ib_model", "namespacem__ib__patches.html#a999aa5317d8df2fadd131c7e76be9b42", null ],
-      [ "s_ib_rectangle", "namespacem__ib__patches.html#ab410479cd61998d6d483a758447b87d8", null ],
-      [ "s_ib_sphere", "namespacem__ib__patches.html#aed5b4d04c19b0a08e3b4aea398b49a52", null ],
       [ "s_initialize_ib_airfoils", "namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6", null ],
       [ "s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ]
     ] ],
@@ -1060,8 +1054,17 @@ var namespaces_dup =
     [ "m_particle_cloud", "namespacem__particle__cloud.html", [
       [ "f_bin_hash", "namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be", null ],
       [ "f_xorshift", "namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc", null ],
+      [ "s_add_cloud_particle", "namespacem__particle__cloud.html#a6b09caec9e40c58549bf70089fab1ba9", null ],
       [ "s_generate_particle_clouds", "namespacem__particle__cloud.html#a2feae0e06656f459f3d1a43d00b3102d", null ],
+      [ "s_particle_cloud_lattice", "namespacem__particle__cloud.html#ab55abd1c2e9303636ae4b9c9581d9afb", null ],
       [ "s_particle_cloud_random_box", "namespacem__particle__cloud.html#aea3cd46bacb79079dcadca54a42b5150", null ]
+    ] ],
+    [ "m_patch_geometries", "namespacem__patch__geometries.html", [
+      [ "f_is_inside_airfoil", "namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe", null ],
+      [ "f_is_inside_cuboid", "namespacem__patch__geometries.html#a488e8317d848547d5652b53bafabd1fa", null ],
+      [ "f_is_inside_cylinder", "namespacem__patch__geometries.html#a4f236151439e8fe80d81a54b3300dd12", null ],
+      [ "f_is_inside_ellipse", "namespacem__patch__geometries.html#ab3f1c9d66160b9f49a9170ee2a4e2502", null ],
+      [ "f_is_inside_sphere", "namespacem__patch__geometries.html#a057b01b6ea14457a8c272602d0cda0ba", null ]
     ] ],
     [ "m_phase_change", "namespacem__phase__change.html", [
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],

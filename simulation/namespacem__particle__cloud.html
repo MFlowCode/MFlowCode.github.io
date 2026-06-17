@@ -167,6 +167,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a2feae0e06656f459f3d1a43d00b3102d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_array.  <br /></td></tr>
 <tr class="memitem:aea3cd46bacb79079dcadca54a42b5150" id="r_aea3cd46bacb79079dcadca54a42b5150"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aea3cd46bacb79079dcadca54a42b5150">s_particle_cloud_random_box</a> (cloud_idx, ib_idx, particle_cloud_ibs)</td></tr>
 <tr class="memdesc:aea3cd46bacb79079dcadca54a42b5150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random distributions of particles in a box with a minimum spacing.  <br /></td></tr>
+<tr class="memitem:ab55abd1c2e9303636ae4b9c9581d9afb" id="r_ab55abd1c2e9303636ae4b9c9581d9afb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab55abd1c2e9303636ae4b9c9581d9afb">s_particle_cloud_lattice</a> (cloud_idx, ib_idx, particle_cloud_ibs)</td></tr>
+<tr class="memdesc:ab55abd1c2e9303636ae4b9c9581d9afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D, a face-centered cubic lattice in 3D. The lattice spacing is set by the particle density (num_particles over the region area/volume); if that spacing falls below the required centre-to-centre distance (2*radius + min_spacing), the region is too dense and the run is aborted.  <br /></td></tr>
+<tr class="memitem:a6b09caec9e40c58549bf70089fab1ba9" id="r_a6b09caec9e40c58549bf70089fab1ba9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6b09caec9e40c58549bf70089fab1ba9">s_add_cloud_particle</a> (cloud_idx, ib_idx, geom, px, py, pz, particle_cloud_ibs)</td></tr>
+<tr class="memdesc:a6b09caec9e40c58549bf70089fab1ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx. Shared by all packing methods so the per-particle <a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a> setup stays in one place.  <br /></td></tr>
 <tr class="memitem:a733f14183bef377187ce1f2df3bf77bc" id="r_a733f14183bef377187ce1f2df3bf77bc"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a> (seed)</td></tr>
 <tr class="memdesc:a733f14183bef377187ce1f2df3bf77bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).  <br /></td></tr>
 <tr class="memitem:aa2803b020159e1a466b23af39ea4b7be" id="r_aa2803b020159e1a466b23af39ea4b7be"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a> (bx, by, bz, hash_size)</td></tr>
@@ -214,7 +218,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bins across buckets. Hash collisions are benign: the distance check catches false neighbours. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00220">220</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00322">322</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -248,11 +252,74 @@ Here is the caller graph for this function:</div>
 
 <p>Xorshift PRNG. Advances seed in-place and returns a value in [0, 1). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00205">205</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00307">307</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a733f14183bef377187ce1f2df3bf77bc_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a6b09caec9e40c58549bf70089fab1ba9" name="a6b09caec9e40c58549bf70089fab1ba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b09caec9e40c58549bf70089fab1ba9">&#9670;&#160;</a></span>s_add_cloud_particle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_particle_cloud::s_add_cloud_particle </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cloud_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ib_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>geom</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>px</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>py</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx. Shared by all packing methods so the per-particle <a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a> setup stays in one place. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00266">266</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a6b09caec9e40c58549bf70089fab1ba9_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -278,12 +345,60 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a2feae0e06656f459f3d1a43d00b3102d_cgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a2feae0e06656f459f3d1a43d00b3102d_cgraph.svg" width="100%" height="482"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a2feae0e06656f459f3d1a43d00b3102d_icgraph.svg" width="543" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab55abd1c2e9303636ae4b9c9581d9afb" name="ab55abd1c2e9303636ae4b9c9581d9afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab55abd1c2e9303636ae4b9c9581d9afb">&#9670;&#160;</a></span>s_particle_cloud_lattice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_particle_cloud::s_particle_cloud_lattice </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cloud_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ib_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D, a face-centered cubic lattice in 3D. The lattice spacing is set by the particle density (num_particles over the region area/volume); if that spacing falls below the required centre-to-centre distance (2*radius + min_spacing), the region is too dense and the run is aborted. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00181">181</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_ab55abd1c2e9303636ae4b9c9581d9afb_cgraph.svg" width="406" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_ab55abd1c2e9303636ae4b9c9581d9afb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -322,11 +437,11 @@ Here is the caller graph for this function:</div>
 
 <p>Generates a random distributions of particles in a box with a minimum spacing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00059">59</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00061">61</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_aea3cd46bacb79079dcadca54a42b5150_cgraph.svg" width="446" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_aea3cd46bacb79079dcadca54a42b5150_cgraph.svg" width="446" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

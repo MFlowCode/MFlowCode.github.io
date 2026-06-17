@@ -26,6 +26,8 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::gam_m", "namespacem__global__parameters.html#a412b521f53489c6e3924ac69de0495ac", null ],
     [ "m_global_parameters::gam_v", "namespacem__global__parameters.html#a84d496370176c91afe6e78c7695fc7ad", null ],
     [ "m_global_parameters::grid_geometry", "namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9", null ],
+    [ "m_global_parameters::ib_airfoil", "namespacem__global__parameters.html#a7ab8f9b3d8e12b58c6d694c5cc409dc8", null ],
+    [ "m_global_parameters::ib_airfoil_grids", "namespacem__global__parameters.html#a841493b7fdae45d19e91f355f7d0b70a", null ],
     [ "m_global_parameters::idwbuff", "namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab", null ],
     [ "m_global_parameters::idwint", "namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8", null ],
     [ "m_global_parameters::im_trans_c", "namespacem__global__parameters.html#a1acf0ecc974673284ad75ebe30751453", null ],

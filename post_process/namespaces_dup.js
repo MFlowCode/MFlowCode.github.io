@@ -252,6 +252,8 @@ var namespaces_dup =
       [ "gam_m", "namespacem__global__parameters.html#a412b521f53489c6e3924ac69de0495ac", null ],
       [ "gam_v", "namespacem__global__parameters.html#a84d496370176c91afe6e78c7695fc7ad", null ],
       [ "grid_geometry", "namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9", null ],
+      [ "ib_airfoil", "namespacem__global__parameters.html#a7ab8f9b3d8e12b58c6d694c5cc409dc8", null ],
+      [ "ib_airfoil_grids", "namespacem__global__parameters.html#a841493b7fdae45d19e91f355f7d0b70a", null ],
       [ "idwbuff", "namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab", null ],
       [ "idwint", "namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8", null ],
       [ "im_trans_c", "namespacem__global__parameters.html#a1acf0ecc974673284ad75ebe30751453", null ],
@@ -563,6 +565,13 @@ var namespaces_dup =
       [ "recvcounts", "namespacem__mpi__proxy.html#a2198e825f0884d4ee9e96b6efdb69cee", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
+    [ "m_patch_geometries", "namespacem__patch__geometries.html", [
+      [ "f_is_inside_airfoil", "namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe", null ],
+      [ "f_is_inside_cuboid", "namespacem__patch__geometries.html#a488e8317d848547d5652b53bafabd1fa", null ],
+      [ "f_is_inside_cylinder", "namespacem__patch__geometries.html#a4f236151439e8fe80d81a54b3300dd12", null ],
+      [ "f_is_inside_ellipse", "namespacem__patch__geometries.html#ab3f1c9d66160b9f49a9170ee2a4e2502", null ],
+      [ "f_is_inside_sphere", "namespacem__patch__geometries.html#a057b01b6ea14457a8c272602d0cda0ba", null ]
+    ] ],
     [ "m_phase_change", "namespacem__phase__change.html", [
       [ "s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
       [ "s_infinite_pt_relaxation_k", "namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7", null ],

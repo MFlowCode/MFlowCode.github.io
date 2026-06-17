@@ -1,21 +1,14 @@
 var m__ib__patches_8fpp_8f90 =
 [
     [ "m_ib_patches::f_r", "namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564", null ],
-    [ "m_ib_patches::get_bounding_indices", "namespacem__ib__patches.html#a5b49a56add219c880c8ba5c758cf8977", null ],
+    [ "m_ib_patches::get_bounding_indices", "namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab", null ],
+    [ "m_ib_patches::get_indices_from_bounds", "namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27", null ],
     [ "m_ib_patches::s_apply_ib_patches", "namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a", null ],
+    [ "m_ib_patches::s_apply_ib_patches_grid_cell_parallelism", "namespacem__ib__patches.html#a7ae39b1544784fe4bd5a599a80a1045a", null ],
+    [ "m_ib_patches::s_apply_ib_patches_ib_parallelism", "namespacem__ib__patches.html#a5eb95c7b234b83782c65a50d308c0989", null ],
     [ "m_ib_patches::s_decode_patch_periodicity", "namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2", null ],
     [ "m_ib_patches::s_encode_patch_periodicity", "namespacem__ib__patches.html#aa30942f91c6604edab651d4d3ec2abaf", null ],
     [ "m_ib_patches::s_get_periodicities", "namespacem__ib__patches.html#a37849410326edb12eb6f5b5a16970462", null ],
-    [ "m_ib_patches::s_ib_3d_airfoil", "namespacem__ib__patches.html#a64a55fe4905819524901c6afb0145849", null ],
-    [ "m_ib_patches::s_ib_3d_model", "namespacem__ib__patches.html#a149e863c3398ff0811c1dd592fe145a8", null ],
-    [ "m_ib_patches::s_ib_airfoil", "namespacem__ib__patches.html#a03b0d1714ef68fa881d7b38baf2614ee", null ],
-    [ "m_ib_patches::s_ib_circle", "namespacem__ib__patches.html#a17473e70a43ab26cdc065a6153a5c263", null ],
-    [ "m_ib_patches::s_ib_cuboid", "namespacem__ib__patches.html#afb9c619078fd176927522ba470916bb6", null ],
-    [ "m_ib_patches::s_ib_cylinder", "namespacem__ib__patches.html#a003095b110e3cf4e07c430c414998e47", null ],
-    [ "m_ib_patches::s_ib_ellipse", "namespacem__ib__patches.html#a3d4bb456f34b8354ea54cc0bd5687150", null ],
-    [ "m_ib_patches::s_ib_model", "namespacem__ib__patches.html#a999aa5317d8df2fadd131c7e76be9b42", null ],
-    [ "m_ib_patches::s_ib_rectangle", "namespacem__ib__patches.html#ab410479cd61998d6d483a758447b87d8", null ],
-    [ "m_ib_patches::s_ib_sphere", "namespacem__ib__patches.html#aed5b4d04c19b0a08e3b4aea398b49a52", null ],
     [ "m_ib_patches::s_initialize_ib_airfoils", "namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6", null ],
     [ "m_ib_patches::s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ]
 ];

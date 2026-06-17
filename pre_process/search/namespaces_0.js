@@ -27,10 +27,11 @@ var searchData=
   ['m_5fmpi_5fcommon_24',['m_mpi_common',['../namespacem__mpi__common.html',1,'']]],
   ['m_5fmpi_5fproxy_25',['m_mpi_proxy',['../namespacem__mpi__proxy.html',1,'']]],
   ['m_5fnvtx_26',['m_nvtx',['../namespacem__nvtx.html',1,'']]],
-  ['m_5fperturbation_27',['m_perturbation',['../namespacem__perturbation.html',1,'']]],
-  ['m_5fphase_5fchange_28',['m_phase_change',['../namespacem__phase__change.html',1,'']]],
-  ['m_5fprecision_5fselect_29',['m_precision_select',['../namespacem__precision__select.html',1,'']]],
-  ['m_5fsimplex_5fnoise_30',['m_simplex_noise',['../namespacem__simplex__noise.html',1,'']]],
-  ['m_5fstart_5fup_31',['m_start_up',['../namespacem__start__up.html',1,'']]],
-  ['m_5fvariables_5fconversion_32',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]]
+  ['m_5fpatch_5fgeometries_27',['m_patch_geometries',['../namespacem__patch__geometries.html',1,'']]],
+  ['m_5fperturbation_28',['m_perturbation',['../namespacem__perturbation.html',1,'']]],
+  ['m_5fphase_5fchange_29',['m_phase_change',['../namespacem__phase__change.html',1,'']]],
+  ['m_5fprecision_5fselect_30',['m_precision_select',['../namespacem__precision__select.html',1,'']]],
+  ['m_5fsimplex_5fnoise_31',['m_simplex_noise',['../namespacem__simplex__noise.html',1,'']]],
+  ['m_5fstart_5fup_32',['m_start_up',['../namespacem__start__up.html',1,'']]],
+  ['m_5fvariables_5fconversion_33',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]]
 ];
