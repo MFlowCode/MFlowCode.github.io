@@ -630,76 +630,75 @@ $(function(){initNavTree('m__helper__basic_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span><span class="comment">    !&gt; Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.</span></div>
 <div class="foldopen" id="foldopen00484" data-start="" data-end="">
 <div class="line"><a id="l00484" name="l00484"></a><span class="lineno"><a class="line" href="namespacem__helper__basic.html#a61ea0da229b8e0cf8105fdaa1128fa6c">  484</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a61ea0da229b8e0cf8105fdaa1128fa6c">s_configure_coordinate_bounds</a>(recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, &amp;</div>
-<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span> </div>
-<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>        &amp; bubbles_lagrange, m, n, p, num_dims, igr, ib)</div>
-<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span> </div>
-<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                :: recon_type, weno_polyn, muscl_polyn</div>
-<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                :: m, n, p, num_dims, igr_order</div>
-<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span>                             :: buff_size</div>
-<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">dimension(3)</span>, <span class="keywordtype">intent(inout)</span> :: idwint, idwbuff</div>
-<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                                :: viscous, bubbles_lagrange</div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                                :: igr</div>
-<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                                :: ib</div>
-<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span> </div>
-<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>        <span class="comment">! Determine ghost cell buffer size for boundary conditions</span></div>
-<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span> </div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>        <span class="keywordflow">if</span> (igr) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>            buff_size = (igr_order - 1)/2 + 2</div>
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (recon_type == recon_type_weno) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>            <span class="keywordflow">if</span> (viscous) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>                buff_size = 2*weno_polyn + 2</div>
-<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>                buff_size = weno_polyn + 2</div>
-<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (recon_type == recon_type_muscl) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>            buff_size = muscl_polyn + 2</div>
-<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span> </div>
-<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>        <span class="comment">! Correction for smearing function in the lagrangian subgrid bubble model</span></div>
-<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>        <span class="keywordflow">if</span> (bubbles_lagrange) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>            buff_size = max(buff_size, 6)</div>
-<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span> </div>
-<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>        <span class="keywordflow">if</span> (ib) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>            buff_size = max(buff_size, 10)</div>
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span> </div>
-<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>        <span class="comment">! Configuring Coordinate Direction Indexes</span></div>
-<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>        idwint(1)%beg = 0; idwint(2)%beg = 0; idwint(3)%beg = 0</div>
-<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span>        idwint(1)%end = m; idwint(2)%end = n; idwint(3)%end = p</div>
-<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span> </div>
-<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>        idwbuff(1)%beg = -buff_size</div>
-<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>        <span class="keywordflow">if</span> (num_dims &gt; 1) then; idwbuff(2)%beg = -buff_size; else; idwbuff(2)%beg = 0;<span class="keywordflow"> end if</span></div>
-<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span>        <span class="keywordflow">if</span> (num_dims &gt; 2) then; idwbuff(3)%beg = -buff_size; else; idwbuff(3)%beg = 0;<span class="keywordflow"> end if</span></div>
-<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span> </div>
-<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>        idwbuff(1)%end = idwint(1)%end - idwbuff(1)%beg</div>
-<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>        idwbuff(2)%end = idwint(2)%end - idwbuff(2)%beg</div>
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>        idwbuff(3)%end = idwint(3)%end - idwbuff(3)%beg</div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span> </div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>        &amp; bubbles_lagrange, m, n, p, num_dims, igr, ib)</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span> </div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                :: recon_type, weno_polyn, muscl_polyn</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                :: m, n, p, num_dims, igr_order</div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span>                             :: buff_size</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">dimension(3)</span>, <span class="keywordtype">intent(inout)</span> :: idwint, idwbuff</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                                :: viscous, bubbles_lagrange</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                                :: igr</div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                                :: ib</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span> </div>
+<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>        <span class="comment">! Determine ghost cell buffer size for boundary conditions</span></div>
+<div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
+<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>        <span class="keywordflow">if</span> (igr) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>            buff_size = (igr_order - 1)/2 + 2</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (recon_type == recon_type_weno) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>            <span class="keywordflow">if</span> (viscous) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>                buff_size = 2*weno_polyn + 2</div>
+<div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span>                buff_size = weno_polyn + 2</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (recon_type == recon_type_muscl) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span>            buff_size = muscl_polyn + 2</div>
+<div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00508" name="l00508"></a><span class="lineno">  508</span> </div>
+<div class="line"><a id="l00509" name="l00509"></a><span class="lineno">  509</span>        <span class="comment">! Correction for smearing function in the lagrangian subgrid bubble model</span></div>
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno">  510</span>        <span class="keywordflow">if</span> (bubbles_lagrange) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>            buff_size = max(buff_size, 6)</div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span> </div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>        <span class="keywordflow">if</span> (ib) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>            buff_size = max(buff_size, 10)</div>
+<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span> </div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>        <span class="comment">! Configuring Coordinate Direction Indexes</span></div>
+<div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span>        idwint(1)%beg = 0; idwint(2)%beg = 0; idwint(3)%beg = 0</div>
+<div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span>        idwint(1)%end = m; idwint(2)%end = n; idwint(3)%end = p</div>
+<div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span> </div>
+<div class="line"><a id="l00522" name="l00522"></a><span class="lineno">  522</span>        idwbuff(1)%beg = -buff_size</div>
+<div class="line"><a id="l00523" name="l00523"></a><span class="lineno">  523</span>        <span class="keywordflow">if</span> (num_dims &gt; 1) then; idwbuff(2)%beg = -buff_size; else; idwbuff(2)%beg = 0;<span class="keywordflow"> end if</span></div>
+<div class="line"><a id="l00524" name="l00524"></a><span class="lineno">  524</span>        <span class="keywordflow">if</span> (num_dims &gt; 2) then; idwbuff(3)%beg = -buff_size; else; idwbuff(3)%beg = 0;<span class="keywordflow"> end if</span></div>
+<div class="line"><a id="l00525" name="l00525"></a><span class="lineno">  525</span> </div>
+<div class="line"><a id="l00526" name="l00526"></a><span class="lineno">  526</span>        idwbuff(1)%end = idwint(1)%end - idwbuff(1)%beg</div>
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno">  527</span>        idwbuff(2)%end = idwint(2)%end - idwbuff(2)%beg</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>        idwbuff(3)%end = idwint(3)%end - idwbuff(3)%beg</div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span> </div>
 </div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a61ea0da229b8e0cf8105fdaa1128fa6c">s_configure_coordinate_bounds</a></div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span><span class="comment"></span> </div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span><span class="comment">    !&gt; Updates the min and max number of cells in each set of axes</span></div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span><span class="comment">    !! @param bounds Min and max values to update</span></div>
-<div class="foldopen" id="foldopen00535" data-start="" data-end="">
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno"><a class="line" href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">  535</a></span>    <span class="keywordtype">elemental</span> <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a>(bounds, m, n, p)</div>
-<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span> </div>
-<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>        <span class="keywordtype">type</span>(cell_num_bounds), <span class="keywordtype">intent(out)</span> :: bounds</div>
-<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                :: m, n, p</div>
-<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span> </div>
-<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        bounds%mn_max = max(m, n)</div>
-<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        bounds%np_max = max(n, p)</div>
-<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>        bounds%mp_max = max(m, p)</div>
-<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        bounds%mnp_max = max(m, n, p)</div>
-<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        bounds%mn_min = min(m, n)</div>
-<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        bounds%np_min = min(n, p)</div>
-<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>        bounds%mp_min = min(m, p)</div>
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span>        bounds%mnp_min = min(m, n, p)</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span> </div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a61ea0da229b8e0cf8105fdaa1128fa6c">s_configure_coordinate_bounds</a></div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span><span class="comment"></span> </div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span><span class="comment">    !&gt; Updates the min and max number of cells in each set of axes</span></div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span><span class="comment">    !! @param bounds Min and max values to update</span></div>
+<div class="foldopen" id="foldopen00534" data-start="" data-end="">
+<div class="line"><a id="l00534" name="l00534"></a><span class="lineno"><a class="line" href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">  534</a></span>    <span class="keywordtype">elemental</span> <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a>(bounds, m, n, p)</div>
+<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span> </div>
+<div class="line"><a id="l00536" name="l00536"></a><span class="lineno">  536</span>        <span class="keywordtype">type</span>(cell_num_bounds), <span class="keywordtype">intent(out)</span> :: bounds</div>
+<div class="line"><a id="l00537" name="l00537"></a><span class="lineno">  537</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                :: m, n, p</div>
+<div class="line"><a id="l00538" name="l00538"></a><span class="lineno">  538</span> </div>
+<div class="line"><a id="l00539" name="l00539"></a><span class="lineno">  539</span>        bounds%mn_max = max(m, n)</div>
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno">  540</span>        bounds%np_max = max(n, p)</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>        bounds%mp_max = max(m, p)</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>        bounds%mnp_max = max(m, n, p)</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        bounds%mn_min = min(m, n)</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span>        bounds%np_min = min(n, p)</div>
+<div class="line"><a id="l00545" name="l00545"></a><span class="lineno">  545</span>        bounds%mp_min = min(m, p)</div>
+<div class="line"><a id="l00546" name="l00546"></a><span class="lineno">  546</span>        bounds%mnp_min = min(m, n, p)</div>
+<div class="line"><a id="l00547" name="l00547"></a><span class="lineno">  547</span> </div>
 </div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a></div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span> </div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__helper__basic.html">m_helper_basic</a></div>
+<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a></div>
+<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span> </div>
+<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__helper__basic.html">m_helper_basic</a></div>
 <div class="ttc" id="anamespacem__constants_html"><div class="ttname"><a href="namespacem__constants.html">m_constants</a></div><div class="ttdoc">Compile-time constant parameters: default values, tolerances, and physical constants.</div><div class="ttdef"><b>Definition</b> <a href="m__constants_8fpp_8f90_source.html#l00007">m_constants.fpp.f90:7</a></div></div>
 <div class="ttc" id="anamespacem__constants_html_a53f91980a1eaa0a8f6b0f88c49831732"><div class="ttname"><a href="namespacem__constants.html#a53f91980a1eaa0a8f6b0f88c49831732">m_constants::recon_type_muscl</a></div><div class="ttdeci">integer, parameter recon_type_muscl</div><div class="ttdef"><b>Definition</b> <a href="m__constants_8fpp_8f90_source.html#l00148">m_constants.fpp.f90:148</a></div></div>
 <div class="ttc" id="anamespacem__constants_html_acf13b8c651b75ac793547e089951bd5f"><div class="ttname"><a href="namespacem__constants.html#acf13b8c651b75ac793547e089951bd5f">m_constants::recon_type_weno</a></div><div class="ttdeci">integer, parameter recon_type_weno</div><div class="ttdef"><b>Definition</b> <a href="m__constants_8fpp_8f90_source.html#l00147">m_constants.fpp.f90:147</a></div></div>
@@ -709,8 +708,8 @@ $(function(){initNavTree('m__helper__basic_8fpp_8f90_source.html','',''); });
 <div class="ttc" id="anamespacem__helper__basic_html_a2c677da1905f9b1c52e69ae431bfb70d"><div class="ttname"><a href="namespacem__helper__basic.html#a2c677da1905f9b1c52e69ae431bfb70d">m_helper_basic::f_is_integer</a></div><div class="ttdeci">logical elemental function, public f_is_integer(var)</div><div class="ttdoc">Checks if a real(wp) variable is an integer.</div><div class="ttdef"><b>Definition</b> <a href="#l00460">m_helper_basic.fpp.f90:461</a></div></div>
 <div class="ttc" id="anamespacem__helper__basic_html_a388ce5b49cbc696a303c4b90bc391dce"><div class="ttname"><a href="namespacem__helper__basic.html#a388ce5b49cbc696a303c4b90bc391dce">m_helper_basic::f_approx_in_array</a></div><div class="ttdeci">logical function, public f_approx_in_array(a, b, tol_input)</div><div class="ttdoc">Check if a wp value approximately matches any element of an array within tolerance.</div><div class="ttdef"><b>Definition</b> <a href="#l00382">m_helper_basic.fpp.f90:383</a></div></div>
 <div class="ttc" id="anamespacem__helper__basic_html_a3f0eae73a833f30924d4b2665a13a429"><div class="ttname"><a href="namespacem__helper__basic.html#a3f0eae73a833f30924d4b2665a13a429">m_helper_basic::f_approx_equal</a></div><div class="ttdeci">logical elemental function, public f_approx_equal(a, b, tol_input)</div><div class="ttdoc">Check if two floating point numbers of wp are within tolerance.</div><div class="ttdef"><b>Definition</b> <a href="#l00339">m_helper_basic.fpp.f90:340</a></div></div>
-<div class="ttc" id="anamespacem__helper__basic_html_a44b315932234aba936169db4c58e6ce6"><div class="ttname"><a href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">m_helper_basic::s_update_cell_bounds</a></div><div class="ttdeci">elemental subroutine, public s_update_cell_bounds(bounds, m, n, p)</div><div class="ttdoc">Updates the min and max number of cells in each set of axes.</div><div class="ttdef"><b>Definition</b> <a href="#l00535">m_helper_basic.fpp.f90:536</a></div></div>
-<div class="ttc" id="anamespacem__helper__basic_html_a61ea0da229b8e0cf8105fdaa1128fa6c"><div class="ttname"><a href="namespacem__helper__basic.html#a61ea0da229b8e0cf8105fdaa1128fa6c">m_helper_basic::s_configure_coordinate_bounds</a></div><div class="ttdeci">subroutine, public s_configure_coordinate_bounds(recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, bubbles_lagrange, m, n, p, num_dims, igr, ib)</div><div class="ttdoc">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.</div><div class="ttdef"><b>Definition</b> <a href="#l00484">m_helper_basic.fpp.f90:487</a></div></div>
+<div class="ttc" id="anamespacem__helper__basic_html_a44b315932234aba936169db4c58e6ce6"><div class="ttname"><a href="namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6">m_helper_basic::s_update_cell_bounds</a></div><div class="ttdeci">elemental subroutine, public s_update_cell_bounds(bounds, m, n, p)</div><div class="ttdoc">Updates the min and max number of cells in each set of axes.</div><div class="ttdef"><b>Definition</b> <a href="#l00534">m_helper_basic.fpp.f90:535</a></div></div>
+<div class="ttc" id="anamespacem__helper__basic_html_a61ea0da229b8e0cf8105fdaa1128fa6c"><div class="ttname"><a href="namespacem__helper__basic.html#a61ea0da229b8e0cf8105fdaa1128fa6c">m_helper_basic::s_configure_coordinate_bounds</a></div><div class="ttdeci">subroutine, public s_configure_coordinate_bounds(recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, bubbles_lagrange, m, n, p, num_dims, igr, ib)</div><div class="ttdoc">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.</div><div class="ttdef"><b>Definition</b> <a href="#l00484">m_helper_basic.fpp.f90:486</a></div></div>
 <div class="ttc" id="anamespacem__helper__basic_html_af1b06a05daa43f724ac3b0ff2f97db14"><div class="ttname"><a href="namespacem__helper__basic.html#af1b06a05daa43f724ac3b0ff2f97db14">m_helper_basic::f_is_default</a></div><div class="ttdeci">logical elemental function, public f_is_default(var)</div><div class="ttdoc">Checks if a real(wp) variable is of default value.</div><div class="ttdef"><b>Definition</b> <a href="#l00427">m_helper_basic.fpp.f90:428</a></div></div>
 <div class="ttc" id="anamespacem__precision__select_html"><div class="ttname"><a href="namespacem__precision__select.html">m_precision_select</a></div><div class="ttdoc">Working-precision kind selection (half/single/double) and corresponding MPI datatype parameters.</div><div class="ttdef"><b>Definition</b> <a href="m__precision__select_8f90_source.html#l00005">m_precision_select.f90:5</a></div></div>
 <div class="ttc" id="anamespacem__precision__select_html_a5c61bc246bcd3d3239269c38473c000a"><div class="ttname"><a href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">m_precision_select::wp</a></div><div class="ttdeci">integer, parameter wp</div><div class="ttdoc">Change to single_precision if needed.</div><div class="ttdef"><b>Definition</b> <a href="m__precision__select_8f90_source.html#l00025">m_precision_select.f90:25</a></div></div>
