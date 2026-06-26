@@ -3755,88 +3755,114 @@ $(function(){initNavTree('m__ibm_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l03583" name="l03583"></a><span class="lineno"> 3583</span><span class="preprocessor"></span>    <span class="keyword">deallocate</span> (ib_airfoil_grids(i)%lower)</div>
 <div class="line"><a id="l03584" name="l03584"></a><span class="lineno"> 3584</span><span class="keywordflow">            end if</span></div>
 <div class="line"><a id="l03585" name="l03585"></a><span class="lineno"> 3585</span><span class="keywordflow">        end do</span></div>
-<div class="line"><a id="l03586" name="l03586"></a><span class="lineno"> 3586</span> </div>
-<div class="line"><a id="l03587" name="l03587"></a><span class="lineno"> 3587</span>        <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(models)) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l03588" name="l03588"></a><span class="lineno"> 3588</span>            <span class="keywordflow">if</span> (<span class="keyword">size</span>(models) &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l03589" name="l03589"></a><span class="lineno"> 3589</span><span class="preprocessor">#ifdef MFC_DEBUG</span></div>
-<div class="line"><a id="l03590" name="l03590"></a><span class="lineno"> 3590</span><span class="preprocessor"></span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03591" name="l03591"></a><span class="lineno"> 3591</span><span class="preprocessor"></span>    block</div>
-<div class="line"><a id="l03592" name="l03592"></a><span class="lineno"> 3592</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03593" name="l03593"></a><span class="lineno"> 3593</span><span class="preprocessor"></span>        <span class="keywordtype">use </span>iso_fortran_env, <span class="keywordtype">only</span>: output_unit</div>
-<div class="line"><a id="l03594" name="l03594"></a><span class="lineno"> 3594</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03595" name="l03595"></a><span class="lineno"> 3595</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l03596" name="l03596"></a><span class="lineno"> 3596</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03597" name="l03597"></a><span class="lineno"> 3597</span><span class="preprocessor"></span>        print *, <span class="stringliteral">&#39;m_ibm.fpp:1525: &#39;</span>, <span class="stringliteral">&#39;@:DEALLOCATE(models)&#39;</span></div>
-<div class="line"><a id="l03598" name="l03598"></a><span class="lineno"> 3598</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03599" name="l03599"></a><span class="lineno"> 3599</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l03600" name="l03600"></a><span class="lineno"> 3600</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03601" name="l03601"></a><span class="lineno"> 3601</span><span class="preprocessor"></span>        <span class="keyword">call </span>flush (output_unit)</div>
-<div class="line"><a id="l03602" name="l03602"></a><span class="lineno"> 3602</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03603" name="l03603"></a><span class="lineno"> 3603</span><span class="preprocessor"></span>    <span class="keyword">end </span>block</div>
-<div class="line"><a id="l03604" name="l03604"></a><span class="lineno"> 3604</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03605" name="l03605"></a><span class="lineno"> 3605</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l03606" name="l03606"></a><span class="lineno"> 3606</span><span class="preprocessor"></span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03607" name="l03607"></a><span class="lineno"> 3607</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l03608" name="l03608"></a><span class="lineno"> 3608</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03609" name="l03609"></a><span class="lineno"> 3609</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
-<div class="line"><a id="l03610" name="l03610"></a><span class="lineno"> 3610</span><span class="preprocessor"></span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03611" name="l03611"></a><span class="lineno"> 3611</span><span class="preprocessor"></span><span class="comment">!$acc exit data delete(models) </span></div>
-<div class="line"><a id="l03612" name="l03612"></a><span class="lineno"> 3612</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03613" name="l03613"></a><span class="lineno"> 3613</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
-<div class="line"><a id="l03614" name="l03614"></a><span class="lineno"> 3614</span><span class="preprocessor"></span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03615" name="l03615"></a><span class="lineno"> 3615</span><span class="preprocessor"></span><span class="comment">!$omp target exit data map(release:models) </span></div>
-<div class="line"><a id="l03616" name="l03616"></a><span class="lineno"> 3616</span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03617" name="l03617"></a><span class="lineno"> 3617</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l03618" name="l03618"></a><span class="lineno"> 3618</span><span class="preprocessor"></span><span class="preprocessor"># 1525 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03619" name="l03619"></a><span class="lineno"> 3619</span><span class="preprocessor"></span>    <span class="keyword">deallocate</span> (models)</div>
-<div class="line"><a id="l03620" name="l03620"></a><span class="lineno"> 3620</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l03621" name="l03621"></a><span class="lineno"> 3621</span>                <span class="keyword">deallocate</span> (models)</div>
-<div class="line"><a id="l03622" name="l03622"></a><span class="lineno"> 3622</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l03623" name="l03623"></a><span class="lineno"> 3623</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l03624" name="l03624"></a><span class="lineno"> 3624</span> </div>
-<div class="line"><a id="l03625" name="l03625"></a><span class="lineno"> 3625</span>        <span class="keywordflow">if</span> (collision_model &gt; 0) <span class="keyword">call </span>s_finalize_collisions_module()</div>
-<div class="line"><a id="l03626" name="l03626"></a><span class="lineno"> 3626</span> </div>
-<div class="line"><a id="l03627" name="l03627"></a><span class="lineno"> 3627</span><span class="preprocessor">#ifdef MFC_MPI</span></div>
-<div class="line"><a id="l03628" name="l03628"></a><span class="lineno"> 3628</span><span class="preprocessor"></span>        <span class="keywordflow">if</span> (num_procs &gt; 1) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l03629" name="l03629"></a><span class="lineno"> 3629</span><span class="preprocessor">#ifdef MFC_DEBUG</span></div>
-<div class="line"><a id="l03630" name="l03630"></a><span class="lineno"> 3630</span><span class="preprocessor"></span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03631" name="l03631"></a><span class="lineno"> 3631</span><span class="preprocessor"></span>    block</div>
-<div class="line"><a id="l03632" name="l03632"></a><span class="lineno"> 3632</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03633" name="l03633"></a><span class="lineno"> 3633</span><span class="preprocessor"></span>        <span class="keywordtype">use </span>iso_fortran_env, <span class="keywordtype">only</span>: output_unit</div>
-<div class="line"><a id="l03634" name="l03634"></a><span class="lineno"> 3634</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03635" name="l03635"></a><span class="lineno"> 3635</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l03636" name="l03636"></a><span class="lineno"> 3636</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03637" name="l03637"></a><span class="lineno"> 3637</span><span class="preprocessor"></span>        print *, <span class="stringliteral">&#39;m_ibm.fpp:1535: &#39;</span>, <span class="stringliteral">&#39;@:DEALLOCATE(send_ids, send_ft)&#39;</span></div>
-<div class="line"><a id="l03638" name="l03638"></a><span class="lineno"> 3638</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03639" name="l03639"></a><span class="lineno"> 3639</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l03640" name="l03640"></a><span class="lineno"> 3640</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03641" name="l03641"></a><span class="lineno"> 3641</span><span class="preprocessor"></span>        <span class="keyword">call </span>flush (output_unit)</div>
-<div class="line"><a id="l03642" name="l03642"></a><span class="lineno"> 3642</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03643" name="l03643"></a><span class="lineno"> 3643</span><span class="preprocessor"></span>    <span class="keyword">end </span>block</div>
-<div class="line"><a id="l03644" name="l03644"></a><span class="lineno"> 3644</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03645" name="l03645"></a><span class="lineno"> 3645</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l03646" name="l03646"></a><span class="lineno"> 3646</span><span class="preprocessor"></span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03647" name="l03647"></a><span class="lineno"> 3647</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l03648" name="l03648"></a><span class="lineno"> 3648</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03649" name="l03649"></a><span class="lineno"> 3649</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
-<div class="line"><a id="l03650" name="l03650"></a><span class="lineno"> 3650</span><span class="preprocessor"></span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03651" name="l03651"></a><span class="lineno"> 3651</span><span class="preprocessor"></span><span class="comment">!$acc exit data delete(send_ids, send_ft) </span></div>
-<div class="line"><a id="l03652" name="l03652"></a><span class="lineno"> 3652</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03653" name="l03653"></a><span class="lineno"> 3653</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
-<div class="line"><a id="l03654" name="l03654"></a><span class="lineno"> 3654</span><span class="preprocessor"></span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03655" name="l03655"></a><span class="lineno"> 3655</span><span class="preprocessor"></span><span class="comment">!$omp target exit data map(release:send_ids, send_ft) </span></div>
-<div class="line"><a id="l03656" name="l03656"></a><span class="lineno"> 3656</span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03657" name="l03657"></a><span class="lineno"> 3657</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l03658" name="l03658"></a><span class="lineno"> 3658</span><span class="preprocessor"></span><span class="preprocessor"># 1535 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
-<div class="line"><a id="l03659" name="l03659"></a><span class="lineno"> 3659</span><span class="preprocessor"></span>    <span class="keyword">deallocate</span> (<a class="code hl_variable" href="namespacem__ibm.html#ae22ba9816e8ed2c198a6bf58f040af2a">send_ids</a>, <a class="code hl_variable" href="namespacem__ibm.html#a07625e52c398c7a7121dd74198983245">send_ft</a>)</div>
-<div class="line"><a id="l03660" name="l03660"></a><span class="lineno"> 3660</span>            <span class="keyword">deallocate</span> (<a class="code hl_variable" href="namespacem__ibm.html#a43163287929146faeaa0f96062ef90ab">recv_forces_snap</a>, <a class="code hl_variable" href="namespacem__ibm.html#afd537e7c3d09400b0ad7556244870dd0">recv_torques_snap</a>, <a class="code hl_variable" href="namespacem__ibm.html#ab75ccb8defeb334e64497b12196c97cb">recv_ids</a>, <a class="code hl_variable" href="namespacem__ibm.html#a84658096b3f0026c4a0f888132fa9e89">recv_ft</a>)</div>
-<div class="line"><a id="l03661" name="l03661"></a><span class="lineno"> 3661</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l03662" name="l03662"></a><span class="lineno"> 3662</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l03663" name="l03663"></a><span class="lineno"> 3663</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03586" name="l03586"></a><span class="lineno"> 3586</span>        <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(models)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l03587" name="l03587"></a><span class="lineno"> 3587</span><span class="preprocessor">#ifdef MFC_DEBUG</span></div>
+<div class="line"><a id="l03588" name="l03588"></a><span class="lineno"> 3588</span><span class="preprocessor"></span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03589" name="l03589"></a><span class="lineno"> 3589</span><span class="preprocessor"></span>    block</div>
+<div class="line"><a id="l03590" name="l03590"></a><span class="lineno"> 3590</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03591" name="l03591"></a><span class="lineno"> 3591</span><span class="preprocessor"></span>        <span class="keywordtype">use </span>iso_fortran_env, <span class="keywordtype">only</span>: output_unit</div>
+<div class="line"><a id="l03592" name="l03592"></a><span class="lineno"> 3592</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03593" name="l03593"></a><span class="lineno"> 3593</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03594" name="l03594"></a><span class="lineno"> 3594</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03595" name="l03595"></a><span class="lineno"> 3595</span><span class="preprocessor"></span>        print *, <span class="stringliteral">&#39;m_ibm.fpp:1523: &#39;</span>, <span class="stringliteral">&#39;@:DEALLOCATE(models)&#39;</span></div>
+<div class="line"><a id="l03596" name="l03596"></a><span class="lineno"> 3596</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03597" name="l03597"></a><span class="lineno"> 3597</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03598" name="l03598"></a><span class="lineno"> 3598</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03599" name="l03599"></a><span class="lineno"> 3599</span><span class="preprocessor"></span>        <span class="keyword">call </span>flush (output_unit)</div>
+<div class="line"><a id="l03600" name="l03600"></a><span class="lineno"> 3600</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03601" name="l03601"></a><span class="lineno"> 3601</span><span class="preprocessor"></span>    <span class="keyword">end </span>block</div>
+<div class="line"><a id="l03602" name="l03602"></a><span class="lineno"> 3602</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03603" name="l03603"></a><span class="lineno"> 3603</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03604" name="l03604"></a><span class="lineno"> 3604</span><span class="preprocessor"></span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03605" name="l03605"></a><span class="lineno"> 3605</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03606" name="l03606"></a><span class="lineno"> 3606</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03607" name="l03607"></a><span class="lineno"> 3607</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
+<div class="line"><a id="l03608" name="l03608"></a><span class="lineno"> 3608</span><span class="preprocessor"></span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03609" name="l03609"></a><span class="lineno"> 3609</span><span class="preprocessor"></span><span class="comment">!$acc exit data delete(models) </span></div>
+<div class="line"><a id="l03610" name="l03610"></a><span class="lineno"> 3610</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03611" name="l03611"></a><span class="lineno"> 3611</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
+<div class="line"><a id="l03612" name="l03612"></a><span class="lineno"> 3612</span><span class="preprocessor"></span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03613" name="l03613"></a><span class="lineno"> 3613</span><span class="preprocessor"></span><span class="comment">!$omp target exit data map(release:models) </span></div>
+<div class="line"><a id="l03614" name="l03614"></a><span class="lineno"> 3614</span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03615" name="l03615"></a><span class="lineno"> 3615</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03616" name="l03616"></a><span class="lineno"> 3616</span><span class="preprocessor"></span><span class="preprocessor"># 1523 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03617" name="l03617"></a><span class="lineno"> 3617</span><span class="preprocessor"></span>    <span class="keyword">deallocate</span> (models)</div>
+<div class="line"><a id="l03618" name="l03618"></a><span class="lineno"> 3618</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l03619" name="l03619"></a><span class="lineno"> 3619</span>        <span class="keywordflow">if</span> (<span class="keyword">allocated</span>(<a class="code hl_variable" href="namespacem__ibm.html#a3d7e47c58127b8a61046b4251160f535">ghost_points</a>)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l03620" name="l03620"></a><span class="lineno"> 3620</span><span class="preprocessor">#ifdef MFC_DEBUG</span></div>
+<div class="line"><a id="l03621" name="l03621"></a><span class="lineno"> 3621</span><span class="preprocessor"></span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03622" name="l03622"></a><span class="lineno"> 3622</span><span class="preprocessor"></span>    block</div>
+<div class="line"><a id="l03623" name="l03623"></a><span class="lineno"> 3623</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03624" name="l03624"></a><span class="lineno"> 3624</span><span class="preprocessor"></span>        <span class="keywordtype">use </span>iso_fortran_env, <span class="keywordtype">only</span>: output_unit</div>
+<div class="line"><a id="l03625" name="l03625"></a><span class="lineno"> 3625</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03626" name="l03626"></a><span class="lineno"> 3626</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03627" name="l03627"></a><span class="lineno"> 3627</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03628" name="l03628"></a><span class="lineno"> 3628</span><span class="preprocessor"></span>        print *, <span class="stringliteral">&#39;m_ibm.fpp:1526: &#39;</span>, <span class="stringliteral">&#39;@:DEALLOCATE(ghost_points)&#39;</span></div>
+<div class="line"><a id="l03629" name="l03629"></a><span class="lineno"> 3629</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03630" name="l03630"></a><span class="lineno"> 3630</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03631" name="l03631"></a><span class="lineno"> 3631</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03632" name="l03632"></a><span class="lineno"> 3632</span><span class="preprocessor"></span>        <span class="keyword">call </span>flush (output_unit)</div>
+<div class="line"><a id="l03633" name="l03633"></a><span class="lineno"> 3633</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03634" name="l03634"></a><span class="lineno"> 3634</span><span class="preprocessor"></span>    <span class="keyword">end </span>block</div>
+<div class="line"><a id="l03635" name="l03635"></a><span class="lineno"> 3635</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03636" name="l03636"></a><span class="lineno"> 3636</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03637" name="l03637"></a><span class="lineno"> 3637</span><span class="preprocessor"></span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03638" name="l03638"></a><span class="lineno"> 3638</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03639" name="l03639"></a><span class="lineno"> 3639</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03640" name="l03640"></a><span class="lineno"> 3640</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
+<div class="line"><a id="l03641" name="l03641"></a><span class="lineno"> 3641</span><span class="preprocessor"></span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03642" name="l03642"></a><span class="lineno"> 3642</span><span class="preprocessor"></span><span class="comment">!$acc exit data delete(ghost_points) </span></div>
+<div class="line"><a id="l03643" name="l03643"></a><span class="lineno"> 3643</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03644" name="l03644"></a><span class="lineno"> 3644</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
+<div class="line"><a id="l03645" name="l03645"></a><span class="lineno"> 3645</span><span class="preprocessor"></span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03646" name="l03646"></a><span class="lineno"> 3646</span><span class="preprocessor"></span><span class="comment">!$omp target exit data map(release:ghost_points) </span></div>
+<div class="line"><a id="l03647" name="l03647"></a><span class="lineno"> 3647</span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03648" name="l03648"></a><span class="lineno"> 3648</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03649" name="l03649"></a><span class="lineno"> 3649</span><span class="preprocessor"></span><span class="preprocessor"># 1526 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03650" name="l03650"></a><span class="lineno"> 3650</span><span class="preprocessor"></span>    <span class="keyword">deallocate</span> (<a class="code hl_variable" href="namespacem__ibm.html#a3d7e47c58127b8a61046b4251160f535">ghost_points</a>)</div>
+<div class="line"><a id="l03651" name="l03651"></a><span class="lineno"> 3651</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l03652" name="l03652"></a><span class="lineno"> 3652</span>        <span class="keywordflow">if</span> (collision_model &gt; 0) <span class="keyword">call </span>s_finalize_collisions_module()</div>
+<div class="line"><a id="l03653" name="l03653"></a><span class="lineno"> 3653</span><span class="preprocessor">#ifdef MFC_MPI</span></div>
+<div class="line"><a id="l03654" name="l03654"></a><span class="lineno"> 3654</span><span class="preprocessor"></span>        <span class="keywordflow">if</span> (num_procs &gt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l03655" name="l03655"></a><span class="lineno"> 3655</span><span class="preprocessor">#ifdef MFC_DEBUG</span></div>
+<div class="line"><a id="l03656" name="l03656"></a><span class="lineno"> 3656</span><span class="preprocessor"></span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03657" name="l03657"></a><span class="lineno"> 3657</span><span class="preprocessor"></span>    block</div>
+<div class="line"><a id="l03658" name="l03658"></a><span class="lineno"> 3658</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03659" name="l03659"></a><span class="lineno"> 3659</span><span class="preprocessor"></span>        <span class="keywordtype">use </span>iso_fortran_env, <span class="keywordtype">only</span>: output_unit</div>
+<div class="line"><a id="l03660" name="l03660"></a><span class="lineno"> 3660</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03661" name="l03661"></a><span class="lineno"> 3661</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03662" name="l03662"></a><span class="lineno"> 3662</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03663" name="l03663"></a><span class="lineno"> 3663</span><span class="preprocessor"></span>        print *, <span class="stringliteral">&#39;m_ibm.fpp:1531: &#39;</span>, <span class="stringliteral">&#39;@:DEALLOCATE(send_ids, send_ft)&#39;</span></div>
+<div class="line"><a id="l03664" name="l03664"></a><span class="lineno"> 3664</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03665" name="l03665"></a><span class="lineno"> 3665</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03666" name="l03666"></a><span class="lineno"> 3666</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03667" name="l03667"></a><span class="lineno"> 3667</span><span class="preprocessor"></span>        <span class="keyword">call </span>flush (output_unit)</div>
+<div class="line"><a id="l03668" name="l03668"></a><span class="lineno"> 3668</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03669" name="l03669"></a><span class="lineno"> 3669</span><span class="preprocessor"></span>    <span class="keyword">end </span>block</div>
+<div class="line"><a id="l03670" name="l03670"></a><span class="lineno"> 3670</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03671" name="l03671"></a><span class="lineno"> 3671</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03672" name="l03672"></a><span class="lineno"> 3672</span><span class="preprocessor"></span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03673" name="l03673"></a><span class="lineno"> 3673</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l03674" name="l03674"></a><span class="lineno"> 3674</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03675" name="l03675"></a><span class="lineno"> 3675</span><span class="preprocessor"></span><span class="preprocessor">#if defined(MFC_OpenACC)</span></div>
+<div class="line"><a id="l03676" name="l03676"></a><span class="lineno"> 3676</span><span class="preprocessor"></span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03677" name="l03677"></a><span class="lineno"> 3677</span><span class="preprocessor"></span><span class="comment">!$acc exit data delete(send_ids, send_ft) </span></div>
+<div class="line"><a id="l03678" name="l03678"></a><span class="lineno"> 3678</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03679" name="l03679"></a><span class="lineno"> 3679</span><span class="preprocessor"></span><span class="preprocessor">#elif defined(MFC_OpenMP)</span></div>
+<div class="line"><a id="l03680" name="l03680"></a><span class="lineno"> 3680</span><span class="preprocessor"></span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03681" name="l03681"></a><span class="lineno"> 3681</span><span class="preprocessor"></span><span class="comment">!$omp target exit data map(release:send_ids, send_ft) </span></div>
+<div class="line"><a id="l03682" name="l03682"></a><span class="lineno"> 3682</span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03683" name="l03683"></a><span class="lineno"> 3683</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03684" name="l03684"></a><span class="lineno"> 3684</span><span class="preprocessor"></span><span class="preprocessor"># 1531 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ibm.fpp&quot;</span></div>
+<div class="line"><a id="l03685" name="l03685"></a><span class="lineno"> 3685</span><span class="preprocessor"></span>    <span class="keyword">deallocate</span> (<a class="code hl_variable" href="namespacem__ibm.html#ae22ba9816e8ed2c198a6bf58f040af2a">send_ids</a>, <a class="code hl_variable" href="namespacem__ibm.html#a07625e52c398c7a7121dd74198983245">send_ft</a>)</div>
+<div class="line"><a id="l03686" name="l03686"></a><span class="lineno"> 3686</span>            <span class="keyword">deallocate</span> (<a class="code hl_variable" href="namespacem__ibm.html#a43163287929146faeaa0f96062ef90ab">recv_forces_snap</a>, <a class="code hl_variable" href="namespacem__ibm.html#afd537e7c3d09400b0ad7556244870dd0">recv_torques_snap</a>, <a class="code hl_variable" href="namespacem__ibm.html#ab75ccb8defeb334e64497b12196c97cb">recv_ids</a>, <a class="code hl_variable" href="namespacem__ibm.html#a84658096b3f0026c4a0f888132fa9e89">recv_ft</a>)</div>
+<div class="line"><a id="l03687" name="l03687"></a><span class="lineno"> 3687</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l03688" name="l03688"></a><span class="lineno"> 3688</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l03689" name="l03689"></a><span class="lineno"> 3689</span><span class="preprocessor"></span> </div>
 </div>
-<div class="line"><a id="l03664" name="l03664"></a><span class="lineno"> 3664</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ibm.html#a344f449cb9696fae6e6bc532085913f2">s_finalize_ibm_module</a></div>
-<div class="line"><a id="l03665" name="l03665"></a><span class="lineno"> 3665</span> </div>
-<div class="line"><a id="l03666" name="l03666"></a><span class="lineno"> 3666</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__ibm.html">m_ibm</a></div>
+<div class="line"><a id="l03690" name="l03690"></a><span class="lineno"> 3690</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ibm.html#a344f449cb9696fae6e6bc532085913f2">s_finalize_ibm_module</a></div>
+<div class="line"><a id="l03691" name="l03691"></a><span class="lineno"> 3691</span> </div>
+<div class="line"><a id="l03692" name="l03692"></a><span class="lineno"> 3692</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__ibm.html">m_ibm</a></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_a6d2af1366163bbea81771912d405abfa"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a></div><div class="ttdeci">type(scalar_field), dimension(sys_size), intent(inout) q_cons_vf</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l01076">m_phase_change.fpp.f90:1076</a></div></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_ab59687ec5969af6d5b7b9ba5cf2835aa"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a></div><div class="ttdeci">integer, intent(in) k</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l01078">m_phase_change.fpp.f90:1078</a></div></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_ace2eaec12668a4d4eedb46c8c99c94f2"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a></div><div class="ttdeci">integer, intent(in) j</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l01078">m_phase_change.fpp.f90:1078</a></div></div>
