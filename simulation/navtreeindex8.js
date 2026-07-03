@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[1,0,20,29,34],
+"structm__derived__types_1_1ic__patch__parameters.html#abee8783c1c06a03cdf5a3741a0f03b98":[2,0,0,29,34],
+"structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980":[1,0,20,29,7],
 "structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980":[2,0,0,29,7],
 "structm__derived__types_1_1ic__patch__parameters.html#ac7dd180a79d14067de1cd3930779339d":[1,0,20,29,39],
 "structm__derived__types_1_1ic__patch__parameters.html#ac7dd180a79d14067de1cd3930779339d":[2,0,0,29,39],
@@ -246,8 +249,5 @@ var NAVTREEINDEX8 =
 "structm__derived__types_1_1riemann__states.html":[1,0,20,12],
 "structm__derived__types_1_1riemann__states.html":[2,0,0,12],
 "structm__derived__types_1_1riemann__states.html#a8f54500cee0c91334b857c9378126159":[1,0,20,12,1],
-"structm__derived__types_1_1riemann__states.html#a8f54500cee0c91334b857c9378126159":[2,0,0,12,1],
-"structm__derived__types_1_1riemann__states.html#af842a510919e7aab678a5c4cd4e7929e":[1,0,20,12,0],
-"structm__derived__types_1_1riemann__states.html#af842a510919e7aab678a5c4cd4e7929e":[2,0,0,12,0],
-"structm__derived__types_1_1riemann__states__vec3.html":[1,0,20,13]
+"structm__derived__types_1_1riemann__states.html#a8f54500cee0c91334b857c9378126159":[2,0,0,12,1]
 };

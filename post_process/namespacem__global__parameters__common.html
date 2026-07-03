@@ -323,6 +323,12 @@ Variables</h2></td></tr>
 <tr class="memdesc:a595208b31ab2930d4760238216f43c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processor coordinates in MPI_CART_COMM.  <br /></td></tr>
 <tr class="memitem:a10ae5d4f21c4e0f9e6530ffcb9904b6a" id="r_a10ae5d4f21c4e0f9e6530ffcb9904b6a"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a10ae5d4f21c4e0f9e6530ffcb9904b6a">start_idx</a></td></tr>
 <tr class="memdesc:a10ae5d4f21c4e0f9e6530ffcb9904b6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starting cell-center index of local processor in global grid.  <br /></td></tr>
+<tr class="memitem:a5f1c53c238890ef24c450a162fd9daa2" id="r_a5f1c53c238890ef24c450a162fd9daa2"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a5f1c53c238890ef24c450a162fd9daa2">num_procs_x</a> = 1</td></tr>
+<tr class="memdesc:a5f1c53c238890ef24c450a162fd9daa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of MPI ranks in x-direction.  <br /></td></tr>
+<tr class="memitem:a4923fe1f16f7ad83c03fb4467458ae36" id="r_a4923fe1f16f7ad83c03fb4467458ae36"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a4923fe1f16f7ad83c03fb4467458ae36">num_procs_y</a> = 1</td></tr>
+<tr class="memdesc:a4923fe1f16f7ad83c03fb4467458ae36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of MPI ranks in y-direction.  <br /></td></tr>
+<tr class="memitem:a83e5d0948853d981c6e1f20634c0376f" id="r_a83e5d0948853d981c6e1f20634c0376f"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a83e5d0948853d981c6e1f20634c0376f">num_procs_z</a> = 1</td></tr>
+<tr class="memdesc:a83e5d0948853d981c6e1f20634c0376f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of MPI ranks in z-direction.  <br /></td></tr>
 <tr id="var-members-4" class="groupHeader"><td colspan="2"><div class="groupHeader">MPI info for parallel IO with Lustre file systems (identical across all three targets)</div></td></tr>
 <tr class="memitem:a9950fd98c1d4f4adb3972232030f310d" id="r_a9950fd98c1d4f4adb3972232030f310d"><td class="memItemLeft">character(len=<a class="el" href="namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757">name_len</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a9950fd98c1d4f4adb3972232030f310d">mpiiofs</a></td></tr>
 <tr class="memitem:a1464508407033638204757d692d1878b" id="r_a1464508407033638204757d692d1878b"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a1464508407033638204757d692d1878b">mpi_info_int</a></td></tr>
@@ -344,7 +350,7 @@ Variables</h2></td></tr>
 
 <p>Assign default values to the user-input parameters that are shared across all three executables (pre_process, simulation, post_process). Per-target defaults (bc_io, cfl_dt, precision, nb, chem_params, bub_pp scalar companions, fluid_pp loop, patch arrays, output flags) remain in the per-target s_assign_default_values_to_user_inputs routines, which call this subroutine first, then call s_update_cell_bounds(cells_bounds, m, n, p) (cells_bounds is per-target), then apply their own assignments. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01176">1176</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01179">1179</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -367,7 +373,7 @@ Here is the caller graph for this function:</div>
 
 <p>Shared finalize core: deallocate proc_coords and start_idx. Per-target finalize routines call this first, then handle their own extras (qbmm_idx, grid arrays, MPI_IO_DATA null/dealloc - those reference per-target typed variables and stay per-target). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01160">1160</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01163">1163</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -408,7 +414,7 @@ Here is the caller graph for this function:</div>
 <li>post-only: beta_idx increment (bubbles_lagrange path), offset/grid allocations </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00928">928</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00931">931</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -431,7 +437,7 @@ Here is the caller graph for this function:</div>
 
 <p>Configure MPI parallel I/O settings and allocate processor coordinate arrays. Shared across all three executables; num_dims/num_vels are computed here for pre/post unconditionally and for sim only when not case-optimized (in which case they are compile-time parameters). Callers must have already populated n and p (grid dimensions). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01111">1111</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01114">1114</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1551,7 +1557,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00911">911</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00914">914</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1567,7 +1573,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00910">910</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00913">913</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1732,6 +1738,60 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00424">424</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a5f1c53c238890ef24c450a162fd9daa2" name="a5f1c53c238890ef24c450a162fd9daa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1c53c238890ef24c450a162fd9daa2">&#9670;&#160;</a></span>num_procs_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters_common::num_procs_x = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of MPI ranks in x-direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00906">906</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4923fe1f16f7ad83c03fb4467458ae36" name="a4923fe1f16f7ad83c03fb4467458ae36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4923fe1f16f7ad83c03fb4467458ae36">&#9670;&#160;</a></span>num_procs_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters_common::num_procs_y = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of MPI ranks in y-direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00907">907</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a83e5d0948853d981c6e1f20634c0376f" name="a83e5d0948853d981c6e1f20634c0376f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e5d0948853d981c6e1f20634c0376f">&#9670;&#160;</a></span>num_procs_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters_common::num_procs_z = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of MPI ranks in z-direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00908">908</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>

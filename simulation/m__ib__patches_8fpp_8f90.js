@@ -7,8 +7,8 @@ var m__ib__patches_8fpp_8f90 =
     [ "m_ib_patches::s_apply_ib_patches_grid_cell_parallelism", "namespacem__ib__patches.html#a7ae39b1544784fe4bd5a599a80a1045a", null ],
     [ "m_ib_patches::s_apply_ib_patches_ib_parallelism", "namespacem__ib__patches.html#a5eb95c7b234b83782c65a50d308c0989", null ],
     [ "m_ib_patches::s_decode_patch_periodicity", "namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2", null ],
-    [ "m_ib_patches::s_encode_patch_periodicity", "namespacem__ib__patches.html#aa30942f91c6604edab651d4d3ec2abaf", null ],
-    [ "m_ib_patches::s_get_periodicities", "namespacem__ib__patches.html#a37849410326edb12eb6f5b5a16970462", null ],
+    [ "m_ib_patches::s_encode_patch_periodicity", "namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21", null ],
+    [ "m_ib_patches::s_get_periodicities", "namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f", null ],
     [ "m_ib_patches::s_initialize_ib_airfoils", "namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6", null ],
     [ "m_ib_patches::s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ]
 ];

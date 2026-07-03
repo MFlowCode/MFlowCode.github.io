@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"namespacem__viscous.html#abb9caed22e1825ad5437454a97053509":[1,0,58,0],
+"namespacem__viscous.html#acd9de9c89fd8e78eea15d7eb1f6a6b68":[1,0,58,1],
+"namespacem__weno.html":[1,0,59],
 "namespacem__weno.html#a0c2bd1d07653ab8baf9f296dacee49df":[1,0,59,4],
 "namespacem__weno.html#a182ded76fc3927a4dfdfcbf6dca61aaa":[1,0,59,16],
 "namespacem__weno.html#a196ba40cc4cc72d5f40f6ba8ffc43d8c":[1,0,59,11],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1eqn__idx__info.html#a3ee6d120c84f19d065e12e4dfab3ecbc":[1,0,20,18,9],
 "structm__derived__types_1_1eqn__idx__info.html#a3ee6d120c84f19d065e12e4dfab3ecbc":[2,0,0,18,9],
 "structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854":[1,0,20,18,2],
-"structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854":[2,0,0,18,2],
-"structm__derived__types_1_1eqn__idx__info.html#a57b4dbc640a3bedebcc32d39261970e2":[1,0,20,18,8],
-"structm__derived__types_1_1eqn__idx__info.html#a57b4dbc640a3bedebcc32d39261970e2":[2,0,0,18,8],
-"structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59":[1,0,20,18,11]
+"structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854":[2,0,0,18,2]
 };

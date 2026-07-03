@@ -12,7 +12,7 @@ var searchData=
   ['ib_5fbuff_5frecv_9',['ib_buff_recv',['../namespacem__mpi__proxy.html#a54e5acdc9f00af88eb577debcb5e354b',1,'m_mpi_proxy']]],
   ['ib_5fbuff_5fsend_10',['ib_buff_send',['../namespacem__mpi__proxy.html#a205043d174d9113dce8def64c9282261',1,'m_mpi_proxy']]],
   ['ib_5fcoefficient_5fof_5ffriction_11',['ib_coefficient_of_friction',['../namespacem__global__parameters__common.html#ae27765e826eebd4bb531113fe67a883d',1,'m_global_parameters_common']]],
-  ['ib_5fgbl_5fidx_5flookup_12',['ib_gbl_idx_lookup',['../namespacem__ibm.html#afef8d4c64664043842f578913323e6f2',1,'m_ibm']]],
+  ['ib_5fgbl_5fidx_5flookup_12',['ib_gbl_idx_lookup',['../namespacem__collisions.html#ae59d9c921f77996d71cf2049d5adee92',1,'m_collisions']]],
   ['ib_5fmarkers_13',['ib_markers',['../namespacem__ibm.html#a9cdfa4b47a00b8b5ef00feb84aa97aef',1,'m_ibm']]],
   ['ib_5fneighbor_5franks_14',['ib_neighbor_ranks',['../namespacem__global__parameters.html#aed31f377d8fd34213e1c0713bd2ff432',1,'m_global_parameters']]],
   ['ib_5fneighborhood_5fradius_15',['ib_neighborhood_radius',['../namespacem__global__parameters__common.html#ab9ccaa096249cba26380149a7ceac372',1,'m_global_parameters_common']]],

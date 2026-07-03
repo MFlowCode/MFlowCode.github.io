@@ -38,9 +38,12 @@ var searchData=
   ['num_5fpatches_5fmax_35',['num_patches_max',['../namespacem__constants.html#a2678965621459e6045edb254772ffdb5',1,'m_constants']]],
   ['num_5fprobes_5fmax_36',['num_probes_max',['../namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1',1,'m_constants']]],
   ['num_5fprocs_37',['num_procs',['../namespacem__global__parameters.html#aafb65952c33f1c363d1040bde29734ea',1,'m_global_parameters']]],
-  ['num_5fray_38',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
-  ['num_5fstcls_5fmin_39',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
-  ['num_5fstl_5fmodels_40',['num_stl_models',['../namespacem__global__parameters__common.html#a00d1315559ab4d5ecbf6f0238901eced',1,'m_global_parameters_common']]],
-  ['num_5fstl_5fmodels_5fmax_41',['num_stl_models_max',['../namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01',1,'m_constants']]],
-  ['num_5fvels_42',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]]
+  ['num_5fprocs_5fx_38',['num_procs_x',['../namespacem__global__parameters__common.html#a5f1c53c238890ef24c450a162fd9daa2',1,'m_global_parameters_common']]],
+  ['num_5fprocs_5fy_39',['num_procs_y',['../namespacem__global__parameters__common.html#a4923fe1f16f7ad83c03fb4467458ae36',1,'m_global_parameters_common']]],
+  ['num_5fprocs_5fz_40',['num_procs_z',['../namespacem__global__parameters__common.html#a83e5d0948853d981c6e1f20634c0376f',1,'m_global_parameters_common']]],
+  ['num_5fray_41',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
+  ['num_5fstcls_5fmin_42',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
+  ['num_5fstl_5fmodels_43',['num_stl_models',['../namespacem__global__parameters__common.html#a00d1315559ab4d5ecbf6f0238901eced',1,'m_global_parameters_common']]],
+  ['num_5fstl_5fmodels_5fmax_44',['num_stl_models_max',['../namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01',1,'m_constants']]],
+  ['num_5fvels_45',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]]
 ];
