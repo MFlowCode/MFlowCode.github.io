@@ -73,10 +73,13 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::x_cb", "namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627", null ],
     [ "m_global_parameters::x_cc", "namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555", null ],
     [ "m_global_parameters::x_domain", "namespacem__global__parameters.html#a58e390acc41a75facd63f1d89a8e60bc", null ],
+    [ "m_global_parameters::x_domain_glb", "namespacem__global__parameters.html#ac3e026ecd5d2a0664c275ad1e2fd253c", null ],
     [ "m_global_parameters::y_cb", "namespacem__global__parameters.html#a49b2b37d6e18e34be6bd6bf5aa3ed476", null ],
     [ "m_global_parameters::y_cc", "namespacem__global__parameters.html#a353ab56efc0b78fea27c11158c2cf536", null ],
     [ "m_global_parameters::y_domain", "namespacem__global__parameters.html#a94bfe5cc861c66dadab450d25a6b5817", null ],
+    [ "m_global_parameters::y_domain_glb", "namespacem__global__parameters.html#a0c29ed6effdba5cdf5b43025163ba92b", null ],
     [ "m_global_parameters::z_cb", "namespacem__global__parameters.html#a70be15795fc52175ecd412d80576f0aa", null ],
     [ "m_global_parameters::z_cc", "namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e", null ],
-    [ "m_global_parameters::z_domain", "namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc", null ]
+    [ "m_global_parameters::z_domain", "namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc", null ],
+    [ "m_global_parameters::z_domain_glb", "namespacem__global__parameters.html#afa0ba4f0b5d7a4f940ebbf0506d3c3a2", null ]
 ];

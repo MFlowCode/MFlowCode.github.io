@@ -318,12 +318,15 @@ var namespaces_dup =
       [ "x_cb", "namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627", null ],
       [ "x_cc", "namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555", null ],
       [ "x_domain", "namespacem__global__parameters.html#a58e390acc41a75facd63f1d89a8e60bc", null ],
+      [ "x_domain_glb", "namespacem__global__parameters.html#ac3e026ecd5d2a0664c275ad1e2fd253c", null ],
       [ "y_cb", "namespacem__global__parameters.html#a49b2b37d6e18e34be6bd6bf5aa3ed476", null ],
       [ "y_cc", "namespacem__global__parameters.html#a353ab56efc0b78fea27c11158c2cf536", null ],
       [ "y_domain", "namespacem__global__parameters.html#a94bfe5cc861c66dadab450d25a6b5817", null ],
+      [ "y_domain_glb", "namespacem__global__parameters.html#a0c29ed6effdba5cdf5b43025163ba92b", null ],
       [ "z_cb", "namespacem__global__parameters.html#a70be15795fc52175ecd412d80576f0aa", null ],
       [ "z_cc", "namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e", null ],
-      [ "z_domain", "namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc", null ]
+      [ "z_domain", "namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc", null ],
+      [ "z_domain_glb", "namespacem__global__parameters.html#afa0ba4f0b5d7a4f940ebbf0506d3c3a2", null ]
     ] ],
     [ "m_global_parameters_common", "namespacem__global__parameters__common.html", [
       [ "s_assign_common_defaults", "namespacem__global__parameters__common.html#ac60cf55595c6f64131b53f71ad86de69", null ],
