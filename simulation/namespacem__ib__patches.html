@@ -191,8 +191,8 @@ Functions/Subroutines</h2></td></tr>
 <li>y_coords(nrows) - stores y-coordinates from input files (3D case only)</li>
 </ul>
 <p><b>File Reading Operations:</b></p><ul>
-<li>Reads primitive variable data from multiple files with pattern: <span class="tt">prim.&lt;file_number&gt;.00.&lt;timestep&gt;.dat</span> where timestep uses <span class="tt">zeros_default</span> padding</li>
-<li>Files are read from directory specified by <span class="tt">init_dir</span> parameter</li>
+<li>Reads primitive variable data from multiple files with pattern: <span class="tt">prim.&lt;file_number&gt;.00.&lt;file_extension&gt;.dat</span></li>
+<li>Files are read from directory specified by <span class="tt">files_dir</span> parameter</li>
 <li>Supports 1D, 2D, and 3D computational domains</li>
 </ul>
 <p><b>Grid Structure Detection:</b></p><ul>
@@ -212,9 +212,9 @@ Functions/Subroutines</h2></td></tr>
 <li>Uses files_loaded flag to prevent redundant file operations</li>
 <li>Preserves data across multiple macro calls within same simulation</li>
 </ul>
-<dl class="section note"><dt>Note</dt><dd>File pattern uses <span class="tt">zeros_default</span> parameter (default: "000000") for timestep padding </dd>
+<dl class="section note"><dt>Note</dt><dd>File pattern timestep field is controlled by the <span class="tt">file_extension</span> parameter </dd>
 <dd>
-Directory path is hardcoded in <span class="tt">init_dir</span> parameter - modify as needed </dd></dl>
+Directory path is set via the <span class="tt">files_dir</span> parameter </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Aborts execution if file reading errors occur.</dd></dl>
 <p>Immersed boundary patch geometry constructors for 2D and 3D shapes </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
