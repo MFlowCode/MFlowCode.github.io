@@ -1,14 +1,8 @@
 var m__boundary__io_8fpp_8f90 =
 [
     [ "m_boundary_io::s_assign_default_bc_type", "namespacem__boundary__io.html#a54cc36c0c0b8f86ec53db19e98570fc7", null ],
-    [ "m_boundary_io::s_color_function_ghost_cell_extrapolation", "namespacem__boundary__io.html#adb6a0e442aa3216e2e0191fa7a0da914", null ],
-    [ "m_boundary_io::s_color_function_periodic", "namespacem__boundary__io.html#a231fadc5cbbb83a52954a0306dd5c4bf", null ],
-    [ "m_boundary_io::s_color_function_reflective", "namespacem__boundary__io.html#a8bb3fd54063d6b92147b941583df3719", null ],
     [ "m_boundary_io::s_create_mpi_types", "namespacem__boundary__io.html#a74922617e3b2c7a414056d32bc6aa14d", null ],
     [ "m_boundary_io::s_pack_boundary_condition_buffers", "namespacem__boundary__io.html#a8ed3282a661e5072782b8d824a7c6646", null ],
-    [ "m_boundary_io::s_populate_capillary_buffers", "namespacem__boundary__io.html#a38d99e155ccb0652ed708dd5a8dd0f16", null ],
-    [ "m_boundary_io::s_populate_f_igr_buffers", "namespacem__boundary__io.html#acf38966b8172d09b4c3e3bc26aca42b2", null ],
-    [ "m_boundary_io::s_populate_grid_variables_buffers", "namespacem__boundary__io.html#a1c1561e52ef2119fd1b48523c45ae2f0", null ],
     [ "m_boundary_io::s_read_parallel_boundary_condition_files", "namespacem__boundary__io.html#ab6281588667a9843f9e3829c2a68c851", null ],
     [ "m_boundary_io::s_read_serial_boundary_condition_files", "namespacem__boundary__io.html#a6bd453bc00436c7cbb2d823169f9dd10", null ],
     [ "m_boundary_io::s_write_parallel_boundary_condition_files", "namespacem__boundary__io.html#a1b6a5f4b89c0cc5313f8f448ce1a9b2c", null ],

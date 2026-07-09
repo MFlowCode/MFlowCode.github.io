@@ -169,6 +169,18 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:abfbb20311259fa39676228027f156929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the buffers of the primitive variables based on the selected boundary conditions.  <br /></td></tr>
 <tr class="memitem:a352fa827d9dbbfb0be060dedcce86792" id="r_a352fa827d9dbbfb0be060dedcce86792"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a352fa827d9dbbfb0be060dedcce86792">s_populate_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, q_prim_vf, pb_in, mv_in, q_t_sf)</td></tr>
 <tr class="memdesc:a352fa827d9dbbfb0be060dedcce86792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the variable buffers along one direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell BC routines over the boundary face.  <br /></td></tr>
+<tr class="memitem:adc1afccea975d65f8825dd140280ade7" id="r_adc1afccea975d65f8825dd140280ade7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adc1afccea975d65f8825dd140280ade7">s_populate_capillary_buffers</a> (c_divs, bc_type, bc)</td></tr>
+<tr class="memdesc:adc1afccea975d65f8825dd140280ade7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers for the color function and its divergence used in capillary surface tension.  <br /></td></tr>
+<tr class="memitem:a3ae990b28166105211eb26fe8360880c" id="r_a3ae990b28166105211eb26fe8360880c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3ae990b28166105211eb26fe8360880c">s_populate_capillary_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, c_divs)</td></tr>
+<tr class="memdesc:a3ae990b28166105211eb26fe8360880c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers for one capillary BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell capillary BC routines over the boundary face.  <br /></td></tr>
+<tr class="memitem:a62b22c0dcabb74e7ff70f8c53a0127a7" id="r_a62b22c0dcabb74e7ff70f8c53a0127a7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a62b22c0dcabb74e7ff70f8c53a0127a7">s_populate_f_igr_buffers</a> (bc_type, jac_sf)</td></tr>
+<tr class="memdesc:a62b22c0dcabb74e7ff70f8c53a0127a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers for the Jacobian scalar field used in the IGR elliptic solver.  <br /></td></tr>
+<tr class="memitem:a5014d78d9f42e377a76ac3848880d79d" id="r_a5014d78d9f42e377a76ac3848880d79d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5014d78d9f42e377a76ac3848880d79d">s_populate_f_igr_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, jac_sf)</td></tr>
+<tr class="memdesc:a5014d78d9f42e377a76ac3848880d79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers for one IGR Jacobian BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell IGR Jacobian BC routines over the boundary face.  <br /></td></tr>
+<tr class="memitem:aaa280302ca5033a37f9e83f72a7bbd62" id="r_aaa280302ca5033a37f9e83f72a7bbd62"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aaa280302ca5033a37f9e83f72a7bbd62">s_populate_grid_variables_buffers</a></td></tr>
+<tr class="memdesc:aaa280302ca5033a37f9e83f72a7bbd62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the buffers of the grid variables, which are constituted of the cell-boundary locations and cell-width distributions, based on the boundary conditions.  <br /></td></tr>
+<tr class="memitem:ac12f933780819f49894bc843e3df0a92" id="r_ac12f933780819f49894bc843e3df0a92"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac12f933780819f49894bc843e3df0a92">s_populate_grid_bc_direction</a> (bc_dir, bc_loc, bc_bounds, offset_dir)</td></tr>
+<tr class="memdesc:ac12f933780819f49894bc843e3df0a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate grid variable buffers (cell widths and centers) for one direction and location.  <br /></td></tr>
 <tr class="memitem:a69dbc2d02c7be259c30ea62e603f9f4b" id="r_a69dbc2d02c7be259c30ea62e603f9f4b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a69dbc2d02c7be259c30ea62e603f9f4b">s_finalize_boundary_common_module</a> ()</td></tr>
 <tr class="memdesc:a69dbc2d02c7be259c30ea62e603f9f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate boundary condition buffer arrays allocated during module initialization.  <br /></td></tr>
 </table>
@@ -189,7 +201,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Deallocate boundary condition buffer arrays allocated during module initialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00804">804</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01092">1092</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -277,6 +289,224 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a352fa827d9dbbfb0be060dedcce86792_icgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3ae990b28166105211eb26fe8360880c" name="a3ae990b28166105211eb26fe8360880c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae990b28166105211eb26fe8360880c">&#9670;&#160;</a></span>s_populate_capillary_bc_direction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_boundary_common::s_populate_capillary_bc_direction </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type_edge</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a> + 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c_divs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate ghost cell buffers for one capillary BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell capillary BC routines over the boundary face. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00831">831</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a3ae990b28166105211eb26fe8360880c_icgraph.svg" width="408" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adc1afccea975d65f8825dd140280ade7" name="adc1afccea975d65f8825dd140280ade7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc1afccea975d65f8825dd140280ade7">&#9670;&#160;</a></span>s_populate_capillary_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_boundary_common::s_populate_capillary_buffers </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a> + 1), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c_divs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1bc__xyz__info.html">bc_xyz_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate ghost cell buffers for the color function and its divergence used in capillary surface tension. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00804">804</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_adc1afccea975d65f8825dd140280ade7_cgraph.svg" width="408" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5014d78d9f42e377a76ac3848880d79d" name="a5014d78d9f42e377a76ac3848880d79d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5014d78d9f42e377a76ac3848880d79d">&#9670;&#160;</a></span>s_populate_f_igr_bc_direction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_boundary_common::s_populate_f_igr_bc_direction </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type_edge</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>jac_sf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate ghost cell buffers for one IGR Jacobian BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell IGR Jacobian BC routines over the boundary face. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00940">940</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a5014d78d9f42e377a76ac3848880d79d_icgraph.svg" width="415" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a62b22c0dcabb74e7ff70f8c53a0127a7" name="a62b22c0dcabb74e7ff70f8c53a0127a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b22c0dcabb74e7ff70f8c53a0127a7">&#9670;&#160;</a></span>s_populate_f_igr_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_boundary_common::s_populate_f_igr_buffers </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>jac_sf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate ghost cell buffers for the Jacobian scalar field used in the IGR elliptic solver. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00914">914</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a62b22c0dcabb74e7ff70f8c53a0127a7_cgraph.svg" width="415" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac12f933780819f49894bc843e3df0a92" name="ac12f933780819f49894bc843e3df0a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac12f933780819f49894bc843e3df0a92">&#9670;&#160;</a></span>s_populate_grid_bc_direction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_boundary_common::s_populate_grid_bc_direction </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>offset_dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate grid variable buffers (cell widths and centers) for one direction and location. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01060">1060</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_ac12f933780819f49894bc843e3df0a92_icgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aaa280302ca5033a37f9e83f72a7bbd62" name="aaa280302ca5033a37f9e83f72a7bbd62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa280302ca5033a37f9e83f72a7bbd62">&#9670;&#160;</a></span>s_populate_grid_variables_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_boundary_common::s_populate_grid_variables_buffers</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate the buffers of the grid variables, which are constituted of the cell-boundary locations and cell-width distributions, based on the boundary conditions. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01024">1024</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_aaa280302ca5033a37f9e83f72a7bbd62_cgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

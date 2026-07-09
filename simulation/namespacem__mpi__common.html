@@ -203,8 +203,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a8c037ba2780709c25f5f904e47641479"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors.  <br /></td></tr>
 <tr class="memitem:afe54fe25c12eda7afe195fbf0fa166fc" id="r_afe54fe25c12eda7afe195fbf0fa166fc"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#afe54fe25c12eda7afe195fbf0fa166fc">s_mpi_decompose_computational_domain</a></td></tr>
 <tr class="memdesc:afe54fe25c12eda7afe195fbf0fa166fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decompose the computational domain among processors by balancing cells per rank in each coordinate direction.  <br /></td></tr>
-<tr class="memitem:a30bc077674966874fec000b8afcbf2e9" id="r_a30bc077674966874fec000b8afcbf2e9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a30bc077674966874fec000b8afcbf2e9">s_mpi_sendrecv_grid_variables_buffers</a> (mpi_dir, pbc_loc)</td></tr>
-<tr class="memdesc:a30bc077674966874fec000b8afcbf2e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions.  <br /></td></tr>
+<tr class="memitem:a49a4131e4f0405e6bc53763ccc6ad801" id="r_a49a4131e4f0405e6bc53763ccc6ad801"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a49a4131e4f0405e6bc53763ccc6ad801">s_mpi_sendrecv_grid_variables_buffers</a> (mpi_dir, pbc_loc, offset)</td></tr>
+<tr class="memdesc:a49a4131e4f0405e6bc53763ccc6ad801"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions.  <br /></td></tr>
 <tr class="memitem:ab9e557649b1fca986ee793073abae4d4" id="r_ab9e557649b1fca986ee793073abae4d4"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab9e557649b1fca986ee793073abae4d4">s_finalize_mpi_common_module</a></td></tr>
 <tr class="memdesc:ab9e557649b1fca986ee793073abae4d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -264,7 +264,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02759">2759</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02798">2798</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -731,8 +731,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a30bc077674966874fec000b8afcbf2e9" name="a30bc077674966874fec000b8afcbf2e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30bc077674966874fec000b8afcbf2e9">&#9670;&#160;</a></span>s_mpi_sendrecv_grid_variables_buffers()</h2>
+<a id="a49a4131e4f0405e6bc53763ccc6ad801" name="a49a4131e4f0405e6bc53763ccc6ad801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49a4131e4f0405e6bc53763ccc6ad801">&#9670;&#160;</a></span>s_mpi_sendrecv_grid_variables_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,12 +745,23 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>pbc_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">offset</td><td>Ghost layers for cell-boundary arrays (buff_size in simulation, module offset_* in post-process) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02690">2690</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
