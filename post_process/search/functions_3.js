@@ -20,6 +20,7 @@ var searchData=
   ['f_5fmodel_5fis_5finside_17',['f_model_is_inside',['../namespacem__model.html#aa90c25197d99b77858e50c3f284dd6c9',1,'m_model']]],
   ['f_5fmodel_5fread_18',['f_model_read',['../namespacem__model.html#a8df07f3e9d228d00fef27cae7484d81e',1,'m_model']]],
   ['f_5fread_5fline_19',['f_read_line',['../namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc',1,'m_model']]],
-  ['f_5fxor_20',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['factorial_21',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5funit_5fvector_20',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
+  ['f_5fxor_21',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['factorial_22',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];

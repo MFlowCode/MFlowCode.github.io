@@ -85,6 +85,8 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::num_ray", "namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c", null ],
     [ "m_constants::num_stcls_min", "namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4", null ],
     [ "m_constants::num_stl_models_max", "namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01", null ],
+    [ "m_constants::num_synth_shells_max", "namespacem__constants.html#a9d6c5f89ebccd5bae22de26be2377a61", null ],
+    [ "m_constants::num_turb_sources_max", "namespacem__constants.html#a3f94e4cd97aed52a8e53a0c65cc38d10", null ],
     [ "m_constants::path_len", "namespacem__constants.html#a7307e61136aff6d037cfe3fb99eefd14", null ],
     [ "m_constants::pathlen_max", "namespacem__constants.html#a78c3f6cc5d1faa23da2ff4283e31fe4a", null ],
     [ "m_constants::pi", "namespacem__constants.html#ab7da26d9dc45c51080b93fcfa82696cb", null ],

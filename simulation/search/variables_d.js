@@ -61,9 +61,13 @@ var searchData=
   ['num_5fstcls_5fmin_58',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
   ['num_5fstl_5fmodels_59',['num_stl_models',['../namespacem__global__parameters__common.html#a00d1315559ab4d5ecbf6f0238901eced',1,'m_global_parameters_common']]],
   ['num_5fstl_5fmodels_5fmax_60',['num_stl_models_max',['../namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01',1,'m_constants']]],
-  ['num_5fts_61',['num_ts',['../namespacem__time__steppers.html#af1bbf3b693b9d269249a93dca5069b56',1,'m_time_steppers']]],
-  ['num_5fvels_62',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]],
-  ['nv_5fuvm_5figr_5ftemps_5fon_5fgpu_63',['nv_uvm_igr_temps_on_gpu',['../namespacem__global__parameters__common.html#a1579aa1503d5a1b4d86f6bf8cc00f54a',1,'m_global_parameters_common']]],
-  ['nv_5fuvm_5fout_5fof_5fcore_64',['nv_uvm_out_of_core',['../namespacem__global__parameters__common.html#a7237607b2e27acd8632c738a98d4a1bf',1,'m_global_parameters_common']]],
-  ['nv_5fuvm_5fpref_5fgpu_65',['nv_uvm_pref_gpu',['../namespacem__global__parameters__common.html#a390cf9138126e17f8e05ac9dc489f781',1,'m_global_parameters_common']]]
+  ['num_5fsynth_5fshells_5fmax_61',['num_synth_shells_max',['../namespacem__constants.html#a9d6c5f89ebccd5bae22de26be2377a61',1,'m_constants']]],
+  ['num_5fsynthetic_5fwave_5fnumbers_62',['num_synthetic_wave_numbers',['../namespacem__body__forces.html#ad35670f3ead31d47c559fa60af0b558b',1,'m_body_forces']]],
+  ['num_5fts_63',['num_ts',['../namespacem__time__steppers.html#af1bbf3b693b9d269249a93dca5069b56',1,'m_time_steppers']]],
+  ['num_5fturb_5fsources_5fmax_64',['num_turb_sources_max',['../namespacem__constants.html#a3f94e4cd97aed52a8e53a0c65cc38d10',1,'m_constants']]],
+  ['num_5fturbulent_5fsources_65',['num_turbulent_sources',['../namespacem__global__parameters__common.html#aff9b32733e583259808871fc267987c4',1,'m_global_parameters_common']]],
+  ['num_5fvels_66',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]],
+  ['nv_5fuvm_5figr_5ftemps_5fon_5fgpu_67',['nv_uvm_igr_temps_on_gpu',['../namespacem__global__parameters__common.html#a1579aa1503d5a1b4d86f6bf8cc00f54a',1,'m_global_parameters_common']]],
+  ['nv_5fuvm_5fout_5fof_5fcore_68',['nv_uvm_out_of_core',['../namespacem__global__parameters__common.html#a7237607b2e27acd8632c738a98d4a1bf',1,'m_global_parameters_common']]],
+  ['nv_5fuvm_5fpref_5fgpu_69',['nv_uvm_pref_gpu',['../namespacem__global__parameters__common.html#a390cf9138126e17f8e05ac9dc489f781',1,'m_global_parameters_common']]]
 ];

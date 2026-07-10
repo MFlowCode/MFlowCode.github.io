@@ -45,12 +45,14 @@ var searchData=
   ['num_5fstcls_5fmin_42',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
   ['num_5fstl_5fmodels_43',['num_stl_models',['../namespacem__global__parameters__common.html#a00d1315559ab4d5ecbf6f0238901eced',1,'m_global_parameters_common']]],
   ['num_5fstl_5fmodels_5fmax_44',['num_stl_models_max',['../namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01',1,'m_constants']]],
-  ['num_5fvels_45',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]],
-  ['nvtxendrange_46',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
-  ['nvtxeventattributes_47',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
-  ['nvtxrangepop_48',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx::nvtxrangepop'],['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop::nvtxrangepop()']]],
-  ['nvtxrangepush_49',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]],
-  ['nvtxrangepusha_50',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxrangepushex_51',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxstartrange_52',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]]
+  ['num_5fsynth_5fshells_5fmax_45',['num_synth_shells_max',['../namespacem__constants.html#a9d6c5f89ebccd5bae22de26be2377a61',1,'m_constants']]],
+  ['num_5fturb_5fsources_5fmax_46',['num_turb_sources_max',['../namespacem__constants.html#a3f94e4cd97aed52a8e53a0c65cc38d10',1,'m_constants']]],
+  ['num_5fvels_47',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]],
+  ['nvtxendrange_48',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
+  ['nvtxeventattributes_49',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
+  ['nvtxrangepop_50',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx::nvtxrangepop'],['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop::nvtxrangepop()']]],
+  ['nvtxrangepush_51',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]],
+  ['nvtxrangepusha_52',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxrangepushex_53',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxstartrange_54',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]]
 ];

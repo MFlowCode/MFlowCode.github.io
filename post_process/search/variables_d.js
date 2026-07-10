@@ -44,12 +44,14 @@ var searchData=
   ['num_5fray_41',['num_ray',['../namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c',1,'m_constants']]],
   ['num_5fstcls_5fmin_42',['num_stcls_min',['../namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4',1,'m_constants']]],
   ['num_5fstl_5fmodels_5fmax_43',['num_stl_models_max',['../namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01',1,'m_constants']]],
-  ['num_5fvels_44',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]],
-  ['nx_45',['nx',['../namespacem__start__up.html#acd12b69f414c109b1bdedc1244aee90a',1,'m_start_up']]],
-  ['nxloc_46',['nxloc',['../namespacem__start__up.html#a03e67292b4761fe7bd91ab1ca3d5e12f',1,'m_start_up']]],
-  ['ny_47',['ny',['../namespacem__start__up.html#a4a3d9f832e1e7fa3881dcdf3b948b8ba',1,'m_start_up']]],
-  ['nyloc_48',['nyloc',['../namespacem__start__up.html#a00c5400c016f438786528fd8212d655f',1,'m_start_up']]],
-  ['nyloc2_49',['nyloc2',['../namespacem__start__up.html#aaffd544e9ef13c1956f381e0eea73445',1,'m_start_up']]],
-  ['nz_50',['nz',['../namespacem__start__up.html#a3dee31fb599d8ac0846990a2929979d3',1,'m_start_up']]],
-  ['nzloc_51',['nzloc',['../namespacem__start__up.html#abd393f15313d45fcada828eab6fbe405',1,'m_start_up']]]
+  ['num_5fsynth_5fshells_5fmax_44',['num_synth_shells_max',['../namespacem__constants.html#a9d6c5f89ebccd5bae22de26be2377a61',1,'m_constants']]],
+  ['num_5fturb_5fsources_5fmax_45',['num_turb_sources_max',['../namespacem__constants.html#a3f94e4cd97aed52a8e53a0c65cc38d10',1,'m_constants']]],
+  ['num_5fvels_46',['num_vels',['../namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801',1,'m_global_parameters_common']]],
+  ['nx_47',['nx',['../namespacem__start__up.html#acd12b69f414c109b1bdedc1244aee90a',1,'m_start_up']]],
+  ['nxloc_48',['nxloc',['../namespacem__start__up.html#a03e67292b4761fe7bd91ab1ca3d5e12f',1,'m_start_up']]],
+  ['ny_49',['ny',['../namespacem__start__up.html#a4a3d9f832e1e7fa3881dcdf3b948b8ba',1,'m_start_up']]],
+  ['nyloc_50',['nyloc',['../namespacem__start__up.html#a00c5400c016f438786528fd8212d655f',1,'m_start_up']]],
+  ['nyloc2_51',['nyloc2',['../namespacem__start__up.html#aaffd544e9ef13c1956f381e0eea73445',1,'m_start_up']]],
+  ['nz_52',['nz',['../namespacem__start__up.html#a3dee31fb599d8ac0846990a2929979d3',1,'m_start_up']]],
+  ['nzloc_53',['nzloc',['../namespacem__start__up.html#abd393f15313d45fcada828eab6fbe405',1,'m_start_up']]]
 ];

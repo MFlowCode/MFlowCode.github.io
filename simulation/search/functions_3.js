@@ -50,7 +50,8 @@ var searchData=
   ['f_5frddot_5frp_47',['f_rddot_rp',['../namespacem__bubbles.html#af1d904ee7ec2c4fa5b6eecc8ac5d0b92',1,'m_bubbles']]],
   ['f_5fread_5fline_48',['f_read_line',['../namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc',1,'m_model']]],
   ['f_5fthinc_5fintegral_5f1d_49',['f_thinc_integral_1d',['../namespacem__thinc.html#a0345c418baa32c7c79e6f68be5d32e49',1,'m_thinc']]],
-  ['f_5fxor_50',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['f_5fxorshift_51',['f_xorshift',['../namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc',1,'m_particle_cloud']]],
-  ['factorial_52',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5funit_5fvector_50',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
+  ['f_5fxor_51',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['f_5fxorshift_52',['f_xorshift',['../namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc',1,'m_particle_cloud']]],
+  ['factorial_53',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];

@@ -213,6 +213,8 @@ var namespaces_dup =
       [ "num_ray", "namespacem__constants.html#ae4a5436df3eaaaea8640da8ccb7a6c0c", null ],
       [ "num_stcls_min", "namespacem__constants.html#a3a14ef6d3e63d1d44ded46d378a9fff4", null ],
       [ "num_stl_models_max", "namespacem__constants.html#af3878b61e52920838cb35cdbaa5b2e01", null ],
+      [ "num_synth_shells_max", "namespacem__constants.html#a9d6c5f89ebccd5bae22de26be2377a61", null ],
+      [ "num_turb_sources_max", "namespacem__constants.html#a3f94e4cd97aed52a8e53a0c65cc38d10", null ],
       [ "path_len", "namespacem__constants.html#a7307e61136aff6d037cfe3fb99eefd14", null ],
       [ "pathlen_max", "namespacem__constants.html#a78c3f6cc5d1faa23da2ff4283e31fe4a", null ],
       [ "pi", "namespacem__constants.html#ab7da26d9dc45c51080b93fcfa82696cb", null ],
@@ -481,8 +483,10 @@ var namespaces_dup =
       [ "f_cut_on", "namespacem__helper.html#a413a13fad04174ecec58d6f51395d44c", null ],
       [ "f_gx", "namespacem__helper.html#a5f8d74b3cd3f39b69d285906e65eb0e9", null ],
       [ "f_logical_to_int", "namespacem__helper.html#af7ebba2c1388bcbe54e7b330c4dfc611", null ],
+      [ "f_unit_vector", "namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1", null ],
       [ "f_xor", "namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c", null ],
       [ "factorial", "namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9", null ],
+      [ "modmul", "namespacem__helper.html#a14ba8abf702963f7506b3127fcaf98b5", null ],
       [ "real_ylm", "namespacem__helper.html#aefc6e387638ded938f886f931436a7bf", null ],
       [ "s_comp_n_from_cons", "namespacem__helper.html#aed8be5c8be0cadf256dece6f0912e475", null ],
       [ "s_comp_n_from_prim", "namespacem__helper.html#a08118839702b15012f3801529dc38429", null ],
@@ -493,6 +497,7 @@ var namespaces_dup =
       [ "s_initialize_nonpoly", "namespacem__helper.html#a1e9d8d03a5b81a2f4a1b5a6348d11023", null ],
       [ "s_int_to_str", "namespacem__helper.html#afd343d70a36c65cb7be86a183aa594ac", null ],
       [ "s_print_2d_array", "namespacem__helper.html#abbd5b22c98850611aad33bc330a4691d", null ],
+      [ "s_prng", "namespacem__helper.html#ac7e4e8792a668882d4145a218e26ad32", null ],
       [ "s_simpson", "namespacem__helper.html#a67fb0dea37f746739e38f0fc900a9455", null ],
       [ "s_swap", "namespacem__helper.html#aff3801894362c1c076e96c919b1212d6", null ],
       [ "s_transcoeff", "namespacem__helper.html#ac1336e267ccea00e591824e9974f6188", null ],
@@ -622,8 +627,6 @@ var namespaces_dup =
       [ "f_is_inside_sphere", "namespacem__patch__geometries.html#a057b01b6ea14457a8c272602d0cda0ba", null ]
     ] ],
     [ "m_perturbation", "namespacem__perturbation.html", [
-      [ "f_unit_vector", "namespacem__perturbation.html#a492ba3cf7b2070a7db7d75f7868eedc4", null ],
-      [ "modmul", "namespacem__perturbation.html#a0c2d38b30e2c0aacd18b87e2d43a2249", null ],
       [ "s_elliptic_smoothing", "namespacem__perturbation.html#a9a4020ba748540965324f6c18ae71e7b", null ],
       [ "s_finalize_perturbation_module", "namespacem__perturbation.html#a8f2edeeafb4b5041889c21a647356173", null ],
       [ "s_generate_random_perturbation", "namespacem__perturbation.html#a49336011b98f1698ccd754d19a70db20", null ],
@@ -632,7 +635,6 @@ var namespaces_dup =
       [ "s_perturb_simplex", "namespacem__perturbation.html#ab924ad132a3b19adeaa3494830f63937", null ],
       [ "s_perturb_sphere", "namespacem__perturbation.html#a2a73896e9dae92c7a3d973e069eef753", null ],
       [ "s_perturb_surrounding_flow", "namespacem__perturbation.html#a2f301707648fd0f0f5c215c439cdc171", null ],
-      [ "s_prng", "namespacem__perturbation.html#a54bbfa24f96c984b26015bddcfb59ee4", null ],
       [ "q_prim_temp", "namespacem__perturbation.html#a8ea2b657d5bc08fa83312d40be9c9914", null ]
     ] ],
     [ "m_phase_change", "namespacem__phase__change.html", [

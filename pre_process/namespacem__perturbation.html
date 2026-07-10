@@ -177,12 +177,6 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:afa02cfb00a8406637b02037a5d8a05ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute velocity perturbations for a temporal mixing layer with a hyperbolic tangent mean streamwise velocity profile, using an inverted version of the spectrum-based synthetic turbulence generation method proposed by Guo et al. (2023, JFM).  <br /></td></tr>
 <tr class="memitem:a49336011b98f1698ccd754d19a70db20" id="r_a49336011b98f1698ccd754d19a70db20"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a49336011b98f1698ccd754d19a70db20">s_generate_random_perturbation</a> (khat, xi, phi, ik, yloc)</td></tr>
 <tr class="memdesc:a49336011b98f1698ccd754d19a70db20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate deterministic pseudo-random wave vector, polarization, and phase for a perturbation mode.  <br /></td></tr>
-<tr class="memitem:a492ba3cf7b2070a7db7d75f7868eedc4" id="r_a492ba3cf7b2070a7db7d75f7868eedc4"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#a492ba3cf7b2070a7db7d75f7868eedc4">f_unit_vector</a> (theta, eta)</td></tr>
-<tr class="memdesc:a492ba3cf7b2070a7db7d75f7868eedc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a unit vector uniformly distributed on the sphere from two random parameters.  <br /></td></tr>
-<tr class="memitem:a54bbfa24f96c984b26015bddcfb59ee4" id="r_a54bbfa24f96c984b26015bddcfb59ee4"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a54bbfa24f96c984b26015bddcfb59ee4">s_prng</a> (var, seed)</td></tr>
-<tr class="memdesc:a54bbfa24f96c984b26015bddcfb59ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudo-random number between 0 and 1 using a linear congruential generator.  <br /></td></tr>
-<tr class="memitem:a0c2d38b30e2c0aacd18b87e2d43a2249" id="r_a0c2d38b30e2c0aacd18b87e2d43a2249"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#a0c2d38b30e2c0aacd18b87e2d43a2249">modmul</a> (a)</td></tr>
-<tr class="memdesc:a0c2d38b30e2c0aacd18b87e2d43a2249"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a modular multiplication step for the linear congruential pseudo-random number generator.  <br /></td></tr>
 <tr class="memitem:a8f2edeeafb4b5041889c21a647356173" id="r_a8f2edeeafb4b5041889c21a647356173"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8f2edeeafb4b5041889c21a647356173">s_finalize_perturbation_module</a> ()</td></tr>
 <tr class="memdesc:a8f2edeeafb4b5041889c21a647356173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate the temporary primitive variable array used by elliptic smoothing.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -193,62 +187,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Perturbs initial mean flow fields with random noise, mixing-layer instabilities, or simplex noise. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a492ba3cf7b2070a7db7d75f7868eedc4" name="a492ba3cf7b2070a7db7d75f7868eedc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a492ba3cf7b2070a7db7d75f7868eedc4">&#9670;&#160;</a></span>f_unit_vector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, dimension(3) m_perturbation::f_unit_vector </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>theta</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>eta</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate a unit vector uniformly distributed on the sphere from two random parameters. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00339">339</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a492ba3cf7b2070a7db7d75f7868eedc4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a0c2d38b30e2c0aacd18b87e2d43a2249" name="a0c2d38b30e2c0aacd18b87e2d43a2249"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c2d38b30e2c0aacd18b87e2d43a2249">&#9670;&#160;</a></span>modmul()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function m_perturbation::modmul </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute a modular multiplication step for the linear congruential pseudo-random number generator. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a0c2d38b30e2c0aacd18b87e2d43a2249_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="a9a4020ba748540965324f6c18ae71e7b" name="a9a4020ba748540965324f6c18ae71e7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9a4020ba748540965324f6c18ae71e7b">&#9670;&#160;</a></span>s_elliptic_smoothing()</h2>
 
@@ -303,7 +241,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate the temporary primitive variable array used by elliptic smoothing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00339">339</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -347,7 +285,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a49336011b98f1698ccd754d19a70db20_cgraph.svg" width="667" height="152"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a49336011b98f1698ccd754d19a70db20_cgraph.svg" width="631" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -396,7 +334,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_afa02cfb00a8406637b02037a5d8a05ae_cgraph.svg" width="100%" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_afa02cfb00a8406637b02037a5d8a05ae_cgraph.svg" width="100%" height="408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -485,41 +423,6 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a2f301707648fd0f0f5c215c439cdc171_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a54bbfa24f96c984b26015bddcfb59ee4" name="a54bbfa24f96c984b26015bddcfb59ee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54bbfa24f96c984b26015bddcfb59ee4">&#9670;&#160;</a></span>s_prng()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_perturbation::s_prng </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>var</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>seed</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generate a pseudo-random number between 0 and 1 using a linear congruential generator. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__perturbation_8fpp_8f90_source.html#l00354">354</a> of file <a class="el" href="m__perturbation_8fpp_8f90_source.html">m_perturbation.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a54bbfa24f96c984b26015bddcfb59ee4_cgraph.svg" width="416" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__perturbation_a54bbfa24f96c984b26015bddcfb59ee4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

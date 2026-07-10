@@ -173,6 +173,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ac56d2ccae6e6dbce231569d173aae88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the global time step size from CFL stability constraints across all cells.  <br /></td></tr>
 <tr class="memitem:a2238f553b1b6228709f9e3387d41cb01" id="r_a2238f553b1b6228709f9e3387d41cb01"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2238f553b1b6228709f9e3387d41cb01">s_apply_bodyforces</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt)</td></tr>
 <tr class="memdesc:a2238f553b1b6228709f9e3387d41cb01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the body forces source term at each Runge-Kutta stage.  <br /></td></tr>
+<tr class="memitem:a19b72196160438bd0c5f88c7ac4e6684" id="r_a19b72196160438bd0c5f88c7ac4e6684"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a19b72196160438bd0c5f88c7ac4e6684">s_apply_synthetic_turbulence_force</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt)</td></tr>
 <tr class="memitem:a65c2ff1a982205acab4822dc63db14c6" id="r_a65c2ff1a982205acab4822dc63db14c6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a65c2ff1a982205acab4822dc63db14c6">s_propagate_immersed_boundaries</a> (s)</td></tr>
 <tr class="memdesc:a65c2ff1a982205acab4822dc63db14c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update immersed boundary positions and velocities at the current Runge-Kutta stage.  <br /></td></tr>
 <tr class="memitem:a575aa7f95bf96994f49d81d71d19c192" id="r_a575aa7f95bf96994f49d81d71d19c192"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a575aa7f95bf96994f49d81d71d19c192">s_time_step_cycling</a> (t_step)</td></tr>
@@ -225,7 +226,7 @@ Variables</h2></td></tr>
 
 <p>Bubble source part in Strang operator splitting scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05116">5116</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05130">5130</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -271,11 +272,55 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05292">5292</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05306">5306</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a2238f553b1b6228709f9e3387d41cb01_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a19b72196160438bd0c5f88c7ac4e6684" name="a19b72196160438bd0c5f88c7ac4e6684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b72196160438bd0c5f88c7ac4e6684">&#9670;&#160;</a></span>s_apply_synthetic_turbulence_force()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_time_steppers::s_apply_synthetic_turbulence_force </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ldt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ldt</td><td>local dt </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05363">5363</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a19b72196160438bd0c5f88c7ac4e6684_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -294,7 +339,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the global time step size from CFL stability constraints across all cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05153">5153</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05167">5167</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,7 +362,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05668">5668</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05739">5739</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -361,7 +406,7 @@ Here is the caller graph for this function:</div>
 
 <p>Update immersed boundary positions and velocities at the current Runge-Kutta stage. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05350">5350</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05421">5421</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -387,7 +432,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save the temporary q_prim_vf vector into q_prim_ts for use in p_main. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05445">5445</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05516">5516</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -426,7 +471,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="378" height="259"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="458" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

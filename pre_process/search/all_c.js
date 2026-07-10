@@ -115,7 +115,7 @@ var searchData=
   ['model_5fthreshold_112',['model_threshold',['../structm__derived__types_1_1ib__stl__parameters.html#aecc1d6a18597f41482b627978a59cd20',1,'m_derived_types::ib_stl_parameters']]],
   ['model_5ftranslate_113',['model_translate',['../structm__derived__types_1_1ib__stl__parameters.html#a7e72d89c1bafdbc4b81ad53445c75d69',1,'m_derived_types::ib_stl_parameters']]],
   ['models_114',['models',['../namespacem__model.html#aa1fc17b48fc76b50bff7a8dd24a49d8f',1,'m_model']]],
-  ['modmul_115',['modmul',['../namespacem__perturbation.html#a0c2d38b30e2c0aacd18b87e2d43a2249',1,'m_perturbation']]],
+  ['modmul_115',['modmul',['../namespacem__helper.html#a14ba8abf702963f7506b3127fcaf98b5',1,'m_helper']]],
   ['modules_116',['Modules',['../index.html#autotoc_md0',1,'']]],
   ['modulus_117',['modulus',['../namespacem__constants.html#ab6a85a618a05e2cd09a2ad06b27d7d45',1,'m_constants']]],
   ['mom_118',['mom',['../structm__derived__types_1_1eqn__idx__info.html#ac003930e989aef4609d7f0539474a17f',1,'m_derived_types::eqn_idx_info']]],

@@ -1,7 +1,5 @@
 var m__perturbation_8fpp_8f90 =
 [
-    [ "m_perturbation::f_unit_vector", "namespacem__perturbation.html#a492ba3cf7b2070a7db7d75f7868eedc4", null ],
-    [ "m_perturbation::modmul", "namespacem__perturbation.html#a0c2d38b30e2c0aacd18b87e2d43a2249", null ],
     [ "m_perturbation::s_elliptic_smoothing", "namespacem__perturbation.html#a9a4020ba748540965324f6c18ae71e7b", null ],
     [ "m_perturbation::s_finalize_perturbation_module", "namespacem__perturbation.html#a8f2edeeafb4b5041889c21a647356173", null ],
     [ "m_perturbation::s_generate_random_perturbation", "namespacem__perturbation.html#a49336011b98f1698ccd754d19a70db20", null ],
@@ -10,6 +8,5 @@ var m__perturbation_8fpp_8f90 =
     [ "m_perturbation::s_perturb_simplex", "namespacem__perturbation.html#ab924ad132a3b19adeaa3494830f63937", null ],
     [ "m_perturbation::s_perturb_sphere", "namespacem__perturbation.html#a2a73896e9dae92c7a3d973e069eef753", null ],
     [ "m_perturbation::s_perturb_surrounding_flow", "namespacem__perturbation.html#a2f301707648fd0f0f5c215c439cdc171", null ],
-    [ "m_perturbation::s_prng", "namespacem__perturbation.html#a54bbfa24f96c984b26015bddcfb59ee4", null ],
     [ "m_perturbation::q_prim_temp", "namespacem__perturbation.html#a8ea2b657d5bc08fa83312d40be9c9914", null ]
 ];

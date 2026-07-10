@@ -24,7 +24,7 @@ var searchData=
   ['f_5fread_5fline_21',['f_read_line',['../namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc',1,'m_model']]],
   ['f_5fsimplex2d_22',['f_simplex2d',['../namespacem__simplex__noise.html#a570c7aecc2e4af4362d24a2c15c92b3b',1,'m_simplex_noise']]],
   ['f_5fsimplex3d_23',['f_simplex3d',['../namespacem__simplex__noise.html#acfab8f28b5f8ed34aba0607717a04ef8',1,'m_simplex_noise']]],
-  ['f_5funit_5fvector_24',['f_unit_vector',['../namespacem__perturbation.html#a492ba3cf7b2070a7db7d75f7868eedc4',1,'m_perturbation']]],
+  ['f_5funit_5fvector_24',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
   ['f_5fxor_25',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
   ['factorial_26',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];
