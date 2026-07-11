@@ -177,6 +177,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aec447bec43e7d39a55cd98722db22fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute shear stress tensor components.  <br /></td></tr>
 <tr class="memitem:aeabea1342b71ceb194d547cc48de4327" id="r_aeabea1342b71ceb194d547cc48de4327"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aeabea1342b71ceb194d547cc48de4327">s_calculate_bulk_stress_tensor</a> (re_bulk, divergence_v, tau_bulk_out)</td></tr>
 <tr class="memdesc:aeabea1342b71ceb194d547cc48de4327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute bulk stress tensor components (diagonal only).  <br /></td></tr>
+<tr class="memitem:aec165bfcc960faccfeb6b53f1237007a" id="r_aec165bfcc960faccfeb6b53f1237007a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aec165bfcc960faccfeb6b53f1237007a">s_accumulate_mixture_properties</a> (nf, alpha_rho_k, alpha_k, rho_k, gamma_k, pi_inf_k, qv_k)</td></tr>
+<tr class="memdesc:aec165bfcc960faccfeb6b53f1237007a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the mixture density, specific heat ratio function, liquid stiffness function, and internal energy reference of one Riemann state from its partial densities and volume fractions. The number of fluids is an explicit argument because the 5-equation bubble model accumulates over num_fluids - 1 fluids.  <br /></td></tr>
+<tr class="memitem:aa6e9f1a206a652c0642f49645e47ebc4" id="r_aa6e9f1a206a652c0642f49645e47ebc4"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa6e9f1a206a652c0642f49645e47ebc4">s_compute_interface_reynolds</a> (alpha_k, re_k, re_size_loc1, re_size_loc2)</td></tr>
+<tr class="memdesc:aa6e9f1a206a652c0642f49645e47ebc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the shear and volume Reynolds numbers of one Riemann state by inverse-weighting the fluid Reynolds numbers with the volume fractions.  <br /></td></tr>
+<tr class="memitem:a79c11408c7da3bd3f351beefbf93cf36" id="r_a79c11408c7da3bd3f351beefbf93cf36"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a79c11408c7da3bd3f351beefbf93cf36">s_compute_hypoelastic_interface_energy</a> (nf, alpha_l, alpha_r, damage_l, damage_r, tau_e_l, tau_e_r, g_l, g_r, e_l, e_r)</td></tr>
+<tr class="memdesc:a79c11408c7da3bd3f351beefbf93cf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the hypoelastic stress contribution to the energies of the left and right Riemann states: mix the shear modulus over the fluids, scale it by the continuum damage state when damage is modeled, and add the elastic energy of each stress component (doubled for the shear components) when both mixture moduli are non-negligible. The elastic shear stresses are loaded from the state buffers by the caller, which reuses them for the stress fluxes and elastic wave speeds. The G &gt; verysmall gate is a deliberate maintainer ruling that replaces HLL's former hard-coded G &gt; 1000 stability floor, retiring its "TODO take out if statement if stable without".  <br /></td></tr>
+<tr class="memitem:a8d5b7b8cbf28974e9eaf3f16f5fea941" id="r_a8d5b7b8cbf28974e9eaf3f16f5fea941"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a8d5b7b8cbf28974e9eaf3f16f5fea941">f_compute_hllc_star_momentum_flux</a> (rho_l, rho_r, vel_l_norm, vel_r_norm, s_m, s_p, s_s, xi_l, xi_r, xi_m, xi_p, dir_flg_norm)</td></tr>
+<tr class="memdesc:a8d5b7b8cbf28974e9eaf3f16f5fea941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the advective part of the HLLC star-state momentum flux in the wave-normal direction (pressure excluded), used to assemble the geometrical source flux of the cylindrical and azimuthal sweeps.  <br /></td></tr>
 <tr class="memitem:aa4a8e893633d8b7c01435f5e20b32de3" id="r_aa4a8e893633d8b7c01435f5e20b32de3"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa4a8e893633d8b7c01435f5e20b32de3">s_finalize_riemann_solver</a> (flux_vf, flux_src_vf, flux_gsrc_vf, norm_dir)</td></tr>
 <tr class="memdesc:aa4a8e893633d8b7c01435f5e20b32de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or disassociation procedures that are needed to finalize the selected Riemann problem solver.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -205,6 +213,157 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Shared Riemann-solver module state and the per-sweep setup, state-buffer population, viscous source flux, and finalization helpers. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a8d5b7b8cbf28974e9eaf3f16f5fea941" name="a8d5b7b8cbf28974e9eaf3f16f5fea941"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d5b7b8cbf28974e9eaf3f16f5fea941">&#9670;&#160;</a></span>f_compute_hllc_star_momentum_flux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_riemann_state::f_compute_hllc_star_momentum_flux </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_l_norm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_r_norm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s_m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s_p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s_s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>xi_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>xi_r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>xi_m</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>xi_p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir_flg_norm</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the advective part of the HLLC star-state momentum flux in the wave-normal direction (pressure excluded), used to assemble the geometrical source flux of the cylindrical and azimuthal sweeps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rho_r</td><td>Left and right densities </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vel_r_norm</td><td>Left and right wave-normal velocities </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s_s</td><td>Clamped left/right and contact wave speeds </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">xi_p</td><td>Star-state compression factors and upwind selectors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dir_flg_norm</td><td>Direction flag of the wave-normal direction </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02791">2791</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a8d5b7b8cbf28974e9eaf3f16f5fea941_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="aec165bfcc960faccfeb6b53f1237007a" name="aec165bfcc960faccfeb6b53f1237007a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec165bfcc960faccfeb6b53f1237007a">&#9670;&#160;</a></span>s_accumulate_mixture_properties()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_riemann_state::s_accumulate_mixture_properties </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(nf), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(nf), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>gamma_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>pi_inf_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>qv_k</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accumulate the mixture density, specific heat ratio function, liquid stiffness function, and internal energy reference of one Riemann state from its partial densities and volume fractions. The number of fluids is an explicit argument because the 5-equation bubble model accumulates over num_fluids - 1 fluids. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">nf</td><td>Number of fluids to accumulate over </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02535">2535</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_aec165bfcc960faccfeb6b53f1237007a_icgraph.svg" width="603" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="aeabea1342b71ceb194d547cc48de4327" name="aeabea1342b71ceb194d547cc48de4327"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeabea1342b71ceb194d547cc48de4327">&#9670;&#160;</a></span>s_calculate_bulk_stress_tensor()</h2>
 
@@ -447,6 +606,139 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a79c11408c7da3bd3f351beefbf93cf36" name="a79c11408c7da3bd3f351beefbf93cf36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79c11408c7da3bd3f351beefbf93cf36">&#9670;&#160;</a></span>s_compute_hypoelastic_interface_energy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_riemann_state::s_compute_hypoelastic_interface_energy </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(nf), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(nf), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>damage_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>damage_r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>tau_e_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>tau_e_r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>g_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>g_r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>e_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>e_r</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accumulate the hypoelastic stress contribution to the energies of the left and right Riemann states: mix the shear modulus over the fluids, scale it by the continuum damage state when damage is modeled, and add the elastic energy of each stress component (doubled for the shear components) when both mixture moduli are non-negligible. The elastic shear stresses are loaded from the state buffers by the caller, which reuses them for the stress fluxes and elastic wave speeds. The G &gt; verysmall gate is a deliberate maintainer ruling that replaces HLL's former hard-coded G &gt; 1000 stability floor, retiring its "TODO take out if statement if stable without". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">nf</td><td>Number of fluids to mix the shear modulus over </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alpha_r</td><td>Left and right volume fractions </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">damage_r</td><td>Continuum damage states (referenced only when cont_damage) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tau_e_r</td><td>Left and right elastic shear stresses </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">g_r</td><td>Left and right mixture shear moduli </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">e_r</td><td>Left and right state energies </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02693">2693</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a79c11408c7da3bd3f351beefbf93cf36_icgraph.svg" width="602" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa6e9f1a206a652c0642f49645e47ebc4" name="aa6e9f1a206a652c0642f49645e47ebc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e9f1a206a652c0642f49645e47ebc4">&#9670;&#160;</a></span>s_compute_interface_reynolds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_riemann_state::s_compute_interface_reynolds </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_size_loc1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_size_loc2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the shear and volume Reynolds numbers of one Riemann state by inverse-weighting the fluid Reynolds numbers with the volume fractions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">re_size_loc1</td><td>host copies of Re_size; amdflang reads the declare-target original stale cross-TU </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">re_size_loc2</td><td>host copies of Re_size; amdflang reads the declare-target original stale cross-TU </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02605">2605</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_aa6e9f1a206a652c0642f49645e47ebc4_icgraph.svg" width="655" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a4c00741a75787e5e7350139235baea51" name="a4c00741a75787e5e7350139235baea51"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4c00741a75787e5e7350139235baea51">&#9670;&#160;</a></span>s_compute_viscous_source_flux()</h2>
 
@@ -573,7 +865,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocation and/or disassociation procedures that are needed to finalize the selected Riemann problem solver. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02533">2533</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02844">2844</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

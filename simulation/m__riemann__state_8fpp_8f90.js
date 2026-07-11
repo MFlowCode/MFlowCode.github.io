@@ -1,9 +1,13 @@
 var m__riemann__state_8fpp_8f90 =
 [
+    [ "m_riemann_state::f_compute_hllc_star_momentum_flux", "namespacem__riemann__state.html#a8d5b7b8cbf28974e9eaf3f16f5fea941", null ],
+    [ "m_riemann_state::s_accumulate_mixture_properties", "namespacem__riemann__state.html#aec165bfcc960faccfeb6b53f1237007a", null ],
     [ "m_riemann_state::s_calculate_bulk_stress_tensor", "namespacem__riemann__state.html#aeabea1342b71ceb194d547cc48de4327", null ],
     [ "m_riemann_state::s_calculate_shear_stress_tensor", "namespacem__riemann__state.html#aec447bec43e7d39a55cd98722db22fc3", null ],
     [ "m_riemann_state::s_compute_cartesian_viscous_source_flux", "namespacem__riemann__state.html#ab4931552a5a57318bc6e60a6cd732416", null ],
     [ "m_riemann_state::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__state.html#ad5d1bfd233543b5d68d9350bb47bdb19", null ],
+    [ "m_riemann_state::s_compute_hypoelastic_interface_energy", "namespacem__riemann__state.html#a79c11408c7da3bd3f351beefbf93cf36", null ],
+    [ "m_riemann_state::s_compute_interface_reynolds", "namespacem__riemann__state.html#aa6e9f1a206a652c0642f49645e47ebc4", null ],
     [ "m_riemann_state::s_compute_viscous_source_flux", "namespacem__riemann__state.html#a4c00741a75787e5e7350139235baea51", null ],
     [ "m_riemann_state::s_finalize_riemann_solver", "namespacem__riemann__state.html#aa4a8e893633d8b7c01435f5e20b32de3", null ],
     [ "m_riemann_state::s_initialize_riemann_solver", "namespacem__riemann__state.html#a45a19c4d543571bb46370fc4468300ab", null ],
