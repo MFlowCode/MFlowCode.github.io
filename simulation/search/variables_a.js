@@ -9,5 +9,8 @@ var searchData=
   ['k_5fx_6',['k_x',['../namespacem__global__parameters__common.html#a6d83b1dcb0fbe49b718edae9e2c05187',1,'m_global_parameters_common']]],
   ['k_5fy_7',['k_y',['../namespacem__global__parameters__common.html#a6f01530f5fe92a8d72b324f03083d3c3',1,'m_global_parameters_common']]],
   ['k_5fz_8',['k_z',['../namespacem__global__parameters__common.html#afd0a6f5b1a0a345052a31501937244e2',1,'m_global_parameters_common']]],
-  ['kterm_9',['kterm',['../namespacem__rhs.html#a0757066fe9419ea7b18009aa553918b4',1,'m_rhs']]]
+  ['kahan_5fcomp_9',['kahan_comp',['../namespacem__bubbles__el.html#ad73f29bf191453f719914c3b95fda5c0',1,'m_bubbles_el']]],
+  ['kahan_5fsummation_10',['kahan_summation',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a08e927579cc8af10da9a0b1b241a7633',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['keep_5fbubble_11',['keep_bubble',['../namespacem__bubbles__el.html#a80f1497a3f0d298f579b0284c2609bbc',1,'m_bubbles_el']]],
+  ['kterm_12',['kterm',['../namespacem__rhs.html#a0757066fe9419ea7b18009aa553918b4',1,'m_rhs']]]
 ];

@@ -177,11 +177,5 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::weno_re_flux", "namespacem__global__parameters__common.html#a78cbb10f8bf372073496aa43b79cbcdf", null ],
     [ "m_global_parameters_common::wenojs", "namespacem__global__parameters__common.html#a1f2c2ae74f748f8536bd0cddf06cec49", null ],
     [ "m_global_parameters_common::wenoz", "namespacem__global__parameters__common.html#abc883cbc9615329c510f19a8c7fbd382", null ],
-    [ "m_global_parameters_common::wenoz_q", "namespacem__global__parameters__common.html#ac0db22d3733a8ae135b65c5b8857ec6b", null ],
-    [ "m_global_parameters_common::x_a", "namespacem__global__parameters__common.html#adb7401a7e91f56acac820b57ade9f8b9", null ],
-    [ "m_global_parameters_common::x_b", "namespacem__global__parameters__common.html#abf2158edd47ef927225913240c0649ae", null ],
-    [ "m_global_parameters_common::y_a", "namespacem__global__parameters__common.html#ab3aa56b21e92c0b6ce8b6aa9f48dbce3", null ],
-    [ "m_global_parameters_common::y_b", "namespacem__global__parameters__common.html#a2f41ab2cf203b8b4e787f355e93c28fe", null ],
-    [ "m_global_parameters_common::z_a", "namespacem__global__parameters__common.html#a4e86266d1253161e04bcd2ef2917eb44", null ],
-    [ "m_global_parameters_common::z_b", "namespacem__global__parameters__common.html#a5421ac05f3038d582ce492a54f507d10", null ]
+    [ "m_global_parameters_common::wenoz_q", "namespacem__global__parameters__common.html#ac0db22d3733a8ae135b65c5b8857ec6b", null ]
 ];

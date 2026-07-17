@@ -1,12 +1,25 @@
 var m__bubbles__EL__kernels_8fpp_8f90 =
 [
+    [ "m_bubbles_el_kernels::f_get_bubble_force", "namespacem__bubbles__el__kernels.html#a5980cb7ae9d244e429f1439e1ed554b1", null ],
+    [ "m_bubbles_el_kernels::f_interpolate_velocity", "namespacem__bubbles__el__kernels.html#a6fbc81b3aabd30c2456ed9c3c9998afa", null ],
     [ "m_bubbles_el_kernels::s_applygaussian", "namespacem__bubbles__el__kernels.html#a3a80d447e147039f919771f64753c7c6", null ],
+    [ "m_bubbles_el_kernels::s_build_cell_list", "namespacem__bubbles__el__kernels.html#a0eaa56538bf2c88d1b5cc39e1abe631d", null ],
     [ "m_bubbles_el_kernels::s_check_celloutside", "namespacem__bubbles__el__kernels.html#a3cab763fb4ff9f86bd275df5b08973ee", null ],
+    [ "m_bubbles_el_kernels::s_compute_pressure_gradients", "namespacem__bubbles__el__kernels.html#a57615c545545eb6e53e41c6af963b4eb", null ],
     [ "m_bubbles_el_kernels::s_compute_stddsv", "namespacem__bubbles__el__kernels.html#ab520e33e8f83634d629331a30fe04ddf", null ],
-    [ "m_bubbles_el_kernels::s_deltafunc", "namespacem__bubbles__el__kernels.html#af113cc86b3a1871d381e246c36d96762", null ],
-    [ "m_bubbles_el_kernels::s_gaussian", "namespacem__bubbles__el__kernels.html#a4236a62c45846f9546a10a88a19e4eff", null ],
+    [ "m_bubbles_el_kernels::s_deltafunc", "namespacem__bubbles__el__kernels.html#a3638d468bdfc8134090a666e8a20b1a2", null ],
+    [ "m_bubbles_el_kernels::s_gaussian", "namespacem__bubbles__el__kernels.html#add36415bcb7f4dd1d8c8944fb8284a41", null ],
     [ "m_bubbles_el_kernels::s_get_cell", "namespacem__bubbles__el__kernels.html#ae949e3cc1b67de45cd774a28d8d98b19", null ],
     [ "m_bubbles_el_kernels::s_get_char_vol", "namespacem__bubbles__el__kernels.html#acddf1e9af84379465a92629167e64a17", null ],
     [ "m_bubbles_el_kernels::s_shift_cell_symmetric_bc", "namespacem__bubbles__el__kernels.html#aa3d9eceb02c1dcaf6b264ff716944828", null ],
-    [ "m_bubbles_el_kernels::s_smoothfunction", "namespacem__bubbles__el__kernels.html#a0ff2f2eff59c7b976dd1019ae64c0483", null ]
+    [ "m_bubbles_el_kernels::s_smoothfunction", "namespacem__bubbles__el__kernels.html#ad37254d89ca03c716a9ffb41712c7b18", null ],
+    [ "m_bubbles_el_kernels::cell_list_count", "namespacem__bubbles__el__kernels.html#af499023155f2be32813be30567332e26", null ],
+    [ "m_bubbles_el_kernels::cell_list_idx", "namespacem__bubbles__el__kernels.html#a683d931f187158693e4877f693772b47", null ],
+    [ "m_bubbles_el_kernels::cell_list_start", "namespacem__bubbles__el__kernels.html#ab16d6d3f7248405c29ce4978bbfbff2b", null ],
+    [ "m_bubbles_el_kernels::fd_coeff_x_pgrad", "namespacem__bubbles__el__kernels.html#af5001ad001f63989fc8f62562ee66df9", null ],
+    [ "m_bubbles_el_kernels::fd_coeff_y_pgrad", "namespacem__bubbles__el__kernels.html#ac4cf2797f249947237e9500be9d06890", null ],
+    [ "m_bubbles_el_kernels::fd_coeff_z_pgrad", "namespacem__bubbles__el__kernels.html#a1f8bfd01242e0d1b5bd437c7cc2a184c", null ],
+    [ "m_bubbles_el_kernels::grad_p_x", "namespacem__bubbles__el__kernels.html#ac3a10330f0907defd0c4a65ef10ef8f2", null ],
+    [ "m_bubbles_el_kernels::grad_p_y", "namespacem__bubbles__el__kernels.html#a46f873e8bd8bb4336ba3cf270258793e", null ],
+    [ "m_bubbles_el_kernels::grad_p_z", "namespacem__bubbles__el__kernels.html#acd10f2dd6148ff225ade65cd30509247", null ]
 ];

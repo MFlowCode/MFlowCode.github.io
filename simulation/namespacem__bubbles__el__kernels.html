@@ -163,12 +163,14 @@ $(function(){initNavTree('namespacem__bubbles__el__kernels.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a0ff2f2eff59c7b976dd1019ae64c0483" id="r_a0ff2f2eff59c7b976dd1019ae64c0483"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0ff2f2eff59c7b976dd1019ae64c0483">s_smoothfunction</a> (nbubs, lbk_rad, lbk_vel, lbk_s, lbk_pos, updatedvar)</td></tr>
-<tr class="memdesc:a0ff2f2eff59c7b976dd1019ae64c0483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smear the Lagrangian bubble effects onto the Eulerian grid using the selected kernel.  <br /></td></tr>
-<tr class="memitem:af113cc86b3a1871d381e246c36d96762" id="r_af113cc86b3a1871d381e246c36d96762"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af113cc86b3a1871d381e246c36d96762">s_deltafunc</a> (nbubs, lbk_rad, lbk_vel, lbk_s, updatedvar)</td></tr>
-<tr class="memdesc:af113cc86b3a1871d381e246c36d96762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the delta kernel function to map bubble effects onto the containing cell.  <br /></td></tr>
-<tr class="memitem:a4236a62c45846f9546a10a88a19e4eff" id="r_a4236a62c45846f9546a10a88a19e4eff"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4236a62c45846f9546a10a88a19e4eff">s_gaussian</a> (nbubs, lbk_rad, lbk_vel, lbk_s, lbk_pos, updatedvar)</td></tr>
-<tr class="memdesc:a4236a62c45846f9546a10a88a19e4eff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the Gaussian kernel function to smear bubble effects onto surrounding cells.  <br /></td></tr>
+<tr class="memitem:ad37254d89ca03c716a9ffb41712c7b18" id="r_ad37254d89ca03c716a9ffb41712c7b18"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad37254d89ca03c716a9ffb41712c7b18">s_smoothfunction</a> (nbubs, lbk_rad, lbk_vel, lbk_s, lbk_pos, updatedvar, kcomp)</td></tr>
+<tr class="memdesc:ad37254d89ca03c716a9ffb41712c7b18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Smear the Lagrangian bubble effects onto the Eulerian grid using the selected kernel.  <br /></td></tr>
+<tr class="memitem:a0eaa56538bf2c88d1b5cc39e1abe631d" id="r_a0eaa56538bf2c88d1b5cc39e1abe631d"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0eaa56538bf2c88d1b5cc39e1abe631d">s_build_cell_list</a> (nbubs, lbk_s)</td></tr>
+<tr class="memdesc:a0eaa56538bf2c88d1b5cc39e1abe631d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a sorted cell list mapping each interior cell (0:m,0:n,0:p) to its resident bubbles. Uses a counting-sort on the host (O(nBubs + N_cells)). Must be called before s_gaussian each RK stage.  <br /></td></tr>
+<tr class="memitem:a3638d468bdfc8134090a666e8a20b1a2" id="r_a3638d468bdfc8134090a666e8a20b1a2"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3638d468bdfc8134090a666e8a20b1a2">s_deltafunc</a> (nbubs, lbk_rad, lbk_vel, lbk_s, updatedvar, kcomp)</td></tr>
+<tr class="memdesc:a3638d468bdfc8134090a666e8a20b1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell-centric delta-function smearing using the cell list (no GPU atomics). Each bubble only affects the cell it resides in. The outer GPU loop iterates over interior cells and sums contributions from resident bubbles.  <br /></td></tr>
+<tr class="memitem:add36415bcb7f4dd1d8c8944fb8284a41" id="r_add36415bcb7f4dd1d8c8944fb8284a41"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#add36415bcb7f4dd1d8c8944fb8284a41">s_gaussian</a> (nbubs, lbk_rad, lbk_vel, lbk_s, lbk_pos, updatedvar, kcomp)</td></tr>
+<tr class="memdesc:add36415bcb7f4dd1d8c8944fb8284a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell-centric gaussian smearing using the cell list (no GPU atomics). Each grid cell accumulates contributions from nearby bubbles looked up via cell_list_start/count/idx.  <br /></td></tr>
 <tr class="memitem:a3a80d447e147039f919771f64753c7c6" id="r_a3a80d447e147039f919771f64753c7c6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3a80d447e147039f919771f64753c7c6">s_applygaussian</a> (center, cellaux, nodecoord, stddsv, strength_idx, func)</td></tr>
 <tr class="memdesc:a3a80d447e147039f919771f64753c7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the Gaussian kernel at a grid node for a given bubble center.  <br /></td></tr>
 <tr class="memitem:a3cab763fb4ff9f86bd275df5b08973ee" id="r_a3cab763fb4ff9f86bd275df5b08973ee"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3cab763fb4ff9f86bd275df5b08973ee">s_check_celloutside</a> (cellaux, celloutside)</td></tr>
@@ -181,10 +183,142 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:acddf1e9af84379465a92629167e64a17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the characteristic cell volume.  <br /></td></tr>
 <tr class="memitem:ae949e3cc1b67de45cd774a28d8d98b19" id="r_ae949e3cc1b67de45cd774a28d8d98b19"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae949e3cc1b67de45cd774a28d8d98b19">s_get_cell</a> (s_cell, get_cell)</td></tr>
 <tr class="memdesc:ae949e3cc1b67de45cd774a28d8d98b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert bubble computational coordinates from real to integer cell indices.  <br /></td></tr>
+<tr class="memitem:a57615c545545eb6e53e41c6af963b4eb" id="r_a57615c545545eb6e53e41c6af963b4eb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a57615c545545eb6e53e41c6af963b4eb">s_compute_pressure_gradients</a> (q_prim_vf)</td></tr>
+<tr class="memdesc:a57615c545545eb6e53e41c6af963b4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precompute cell-centered pressure gradients (dp/dx, dp/dy, dp/dz).  <br /></td></tr>
+<tr class="memitem:a6fbc81b3aabd30c2456ed9c3c9998afa" id="r_a6fbc81b3aabd30c2456ed9c3c9998afa"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a6fbc81b3aabd30c2456ed9c3c9998afa">f_interpolate_velocity</a> (pos, cell, i, q_prim_vf)</td></tr>
+<tr class="memitem:a5980cb7ae9d244e429f1439e1ed554b1" id="r_a5980cb7ae9d244e429f1439e1ed554b1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a5980cb7ae9d244e429f1439e1ed554b1">f_get_bubble_force</a> (pos, rad, rdot, vel, mg, mv, re, rho, cell, i, q_prim_vf)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac3a10330f0907defd0c4a65ef10ef8f2" id="r_ac3a10330f0907defd0c4a65ef10ef8f2"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac3a10330f0907defd0c4a65ef10ef8f2">grad_p_x</a></td></tr>
+<tr class="memitem:a46f873e8bd8bb4336ba3cf270258793e" id="r_a46f873e8bd8bb4336ba3cf270258793e"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a46f873e8bd8bb4336ba3cf270258793e">grad_p_y</a></td></tr>
+<tr class="memitem:acd10f2dd6148ff225ade65cd30509247" id="r_acd10f2dd6148ff225ade65cd30509247"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#acd10f2dd6148ff225ade65cd30509247">grad_p_z</a></td></tr>
+<tr class="memitem:af5001ad001f63989fc8f62562ee66df9" id="r_af5001ad001f63989fc8f62562ee66df9"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af5001ad001f63989fc8f62562ee66df9">fd_coeff_x_pgrad</a></td></tr>
+<tr class="memitem:ac4cf2797f249947237e9500be9d06890" id="r_ac4cf2797f249947237e9500be9d06890"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac4cf2797f249947237e9500be9d06890">fd_coeff_y_pgrad</a></td></tr>
+<tr class="memitem:a1f8bfd01242e0d1b5bd437c7cc2a184c" id="r_a1f8bfd01242e0d1b5bd437c7cc2a184c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a1f8bfd01242e0d1b5bd437c7cc2a184c">fd_coeff_z_pgrad</a></td></tr>
+<tr class="memitem:ab16d6d3f7248405c29ce4978bbfbff2b" id="r_ab16d6d3f7248405c29ce4978bbfbff2b"><td class="memItemLeft">integer, dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ab16d6d3f7248405c29ce4978bbfbff2b">cell_list_start</a></td></tr>
+<tr class="memitem:af499023155f2be32813be30567332e26" id="r_af499023155f2be32813be30567332e26"><td class="memItemLeft">integer, dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af499023155f2be32813be30567332e26">cell_list_count</a></td></tr>
+<tr class="memitem:a683d931f187158693e4877f693772b47" id="r_a683d931f187158693e4877f693772b47"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a683d931f187158693e4877f693772b47">cell_list_idx</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Kernel functions (Gaussian, delta) that smear Lagrangian bubble effects onto the Eulerian grid. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a5980cb7ae9d244e429f1439e1ed554b1" name="a5980cb7ae9d244e429f1439e1ed554b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5980cb7ae9d244e429f1439e1ed554b1">&#9670;&#160;</a></span>f_get_bubble_force()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_bubbles_el_kernels::f_get_bubble_force </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rad</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rdot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>re</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01483">1483</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a5980cb7ae9d244e429f1439e1ed554b1_cgraph.svg" width="398" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a5980cb7ae9d244e429f1439e1ed554b1_icgraph.svg" width="428" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6fbc81b3aabd30c2456ed9c3c9998afa" name="a6fbc81b3aabd30c2456ed9c3c9998afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fbc81b3aabd30c2456ed9c3c9998afa">&#9670;&#160;</a></span>f_interpolate_velocity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_bubbles_el_kernels::f_interpolate_velocity </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>cell</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01352">1352</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a6fbc81b3aabd30c2456ed9c3c9998afa_icgraph.svg" width="648" height="79"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a3a80d447e147039f919771f64753c7c6" name="a3a80d447e147039f919771f64753c7c6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3a80d447e147039f919771f64753c7c6">&#9670;&#160;</a></span>s_applygaussian()</h2>
 
@@ -227,14 +361,39 @@ Functions/Subroutines</h2></td></tr>
 <p>Evaluate the Gaussian kernel at a grid node for a given bubble center. </p>
 <p>3D gaussian function</p>
 <p>2D cylindrical function:</p>
-<p>2D cartesian function:</p>
+<p>2D cartesian function: Equation (48) from Maeda and Colonius 2018</p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00770">770</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a3a80d447e147039f919771f64753c7c6_icgraph.svg" width="607" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a0eaa56538bf2c88d1b5cc39e1abe631d" name="a0eaa56538bf2c88d1b5cc39e1abe631d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eaa56538bf2c88d1b5cc39e1abe631d">&#9670;&#160;</a></span>s_build_cell_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_bubbles_el_kernels::s_build_cell_list </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nbubs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#ad6632ddc3028c591d11a97a7e48998f5">lag_params</a>%nbubs_glb,1:3,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lbk_s</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a sorted cell list mapping each interior cell (0:m,0:n,0:p) to its resident bubbles. Uses a counting-sort on the host (O(nBubs + N_cells)). Must be called before s_gaussian each RK stage. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -259,12 +418,28 @@ Here is the caller graph for this function:</div>
 
 <p>Check if the current cell is outside the computational domain including ghost cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00728">728</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a3cab763fb4ff9f86bd275df5b08973ee_icgraph.svg" width="607" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00864">864</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
 </div>
+</div>
+<a id="a57615c545545eb6e53e41c6af963b4eb" name="a57615c545545eb6e53e41c6af963b4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57615c545545eb6e53e41c6af963b4eb">&#9670;&#160;</a></span>s_compute_pressure_gradients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_bubbles_el_kernels::s_compute_pressure_gradients </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Precompute cell-centered pressure gradients (dp/dx, dp/dy, dp/dz). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01174">1174</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -297,7 +472,7 @@ Here is the caller graph for this function:</div>
 <p>Compute characteristic volume</p>
 <p>Compute Standard deviaton</p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00864">864</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01000">1000</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -306,8 +481,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="af113cc86b3a1871d381e246c36d96762" name="af113cc86b3a1871d381e246c36d96762"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af113cc86b3a1871d381e246c36d96762">&#9670;&#160;</a></span>s_deltafunc()</h2>
+<a id="a3638d468bdfc8134090a666e8a20b1a2" name="a3638d468bdfc8134090a666e8a20b1a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3638d468bdfc8134090a666e8a20b1a2">&#9670;&#160;</a></span>s_deltafunc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,29 +510,29 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>updatedvar</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>updatedvar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>kcomp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Apply the delta kernel function to map bubble effects onto the containing cell. </p>
+<p>Cell-centric delta-function smearing using the cell list (no GPU atomics). Each bubble only affects the cell it resides in. The outer GPU loop iterates over interior cells and sums contributions from resident bubbles. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_af113cc86b3a1871d381e246c36d96762_cgraph.svg" width="392" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_af113cc86b3a1871d381e246c36d96762_icgraph.svg" width="392" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a3638d468bdfc8134090a666e8a20b1a2_icgraph.svg" width="392" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a4236a62c45846f9546a10a88a19e4eff" name="a4236a62c45846f9546a10a88a19e4eff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4236a62c45846f9546a10a88a19e4eff">&#9670;&#160;</a></span>s_gaussian()</h2>
+<a id="add36415bcb7f4dd1d8c8944fb8284a41" name="add36415bcb7f4dd1d8c8944fb8284a41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add36415bcb7f4dd1d8c8944fb8284a41">&#9670;&#160;</a></span>s_gaussian()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -390,23 +565,28 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>updatedvar</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>updatedvar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>kcomp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Apply the Gaussian kernel function to smear bubble effects onto surrounding cells. </p>
+<p>Cell-centric gaussian smearing using the cell list (no GPU atomics). Each grid cell accumulates contributions from nearby bubbles looked up via cell_list_start/count/idx. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00460">460</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00586">586</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a4236a62c45846f9546a10a88a19e4eff_cgraph.svg" width="427" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_add36415bcb7f4dd1d8c8944fb8284a41_cgraph.svg" width="392" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a4236a62c45846f9546a10a88a19e4eff_icgraph.svg" width="392" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_add36415bcb7f4dd1d8c8944fb8284a41_icgraph.svg" width="392" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -432,11 +612,11 @@ Here is the caller graph for this function:</div>
 
 <p>Convert bubble computational coordinates from real to integer cell indices. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00988">988</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01124">1124</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_ae949e3cc1b67de45cd774a28d8d98b19_icgraph.svg" width="607" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_ae949e3cc1b67de45cd774a28d8d98b19_icgraph.svg" width="607" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -472,7 +652,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the characteristic cell volume. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00934">934</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l01070">1070</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -497,17 +677,12 @@ Here is the caller graph for this function:</div>
 
 <p>Relocate cells that intersect a symmetric boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00794">794</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_aa3d9eceb02c1dcaf6b264ff716944828_icgraph.svg" width="642" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00930">930</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a0ff2f2eff59c7b976dd1019ae64c0483" name="a0ff2f2eff59c7b976dd1019ae64c0483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ff2f2eff59c7b976dd1019ae64c0483">&#9670;&#160;</a></span>s_smoothfunction()</h2>
+<a id="ad37254d89ca03c716a9ffb41712c7b18" name="ad37254d89ca03c716a9ffb41712c7b18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad37254d89ca03c716a9ffb41712c7b18">&#9670;&#160;</a></span>s_smoothfunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,19 +715,169 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>updatedvar</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>updatedvar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>kcomp</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Smear the Lagrangian bubble effects onto the Eulerian grid using the selected kernel. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00332">332</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_a0ff2f2eff59c7b976dd1019ae64c0483_cgraph.svg" width="642" height="307"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__bubbles__el__kernels_ad37254d89ca03c716a9ffb41712c7b18_cgraph.svg" width="607" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="af499023155f2be32813be30567332e26" name="af499023155f2be32813be30567332e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af499023155f2be32813be30567332e26">&#9670;&#160;</a></span>cell_list_count</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:,:,:), allocatable m_bubbles_el_kernels::cell_list_count</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00361">361</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a683d931f187158693e4877f693772b47" name="a683d931f187158693e4877f693772b47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a683d931f187158693e4877f693772b47">&#9670;&#160;</a></span>cell_list_idx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:), allocatable m_bubbles_el_kernels::cell_list_idx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00362">362</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab16d6d3f7248405c29ce4978bbfbff2b" name="ab16d6d3f7248405c29ce4978bbfbff2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab16d6d3f7248405c29ce4978bbfbff2b">&#9670;&#160;</a></span>cell_list_start</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:,:,:), allocatable m_bubbles_el_kernels::cell_list_start</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00360">360</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="af5001ad001f63989fc8f62562ee66df9" name="af5001ad001f63989fc8f62562ee66df9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5001ad001f63989fc8f62562ee66df9">&#9670;&#160;</a></span>fd_coeff_x_pgrad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable m_bubbles_el_kernels::fd_coeff_x_pgrad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00344">344</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac4cf2797f249947237e9500be9d06890" name="ac4cf2797f249947237e9500be9d06890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4cf2797f249947237e9500be9d06890">&#9670;&#160;</a></span>fd_coeff_y_pgrad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable m_bubbles_el_kernels::fd_coeff_y_pgrad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00345">345</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1f8bfd01242e0d1b5bd437c7cc2a184c" name="a1f8bfd01242e0d1b5bd437c7cc2a184c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8bfd01242e0d1b5bd437c7cc2a184c">&#9670;&#160;</a></span>fd_coeff_z_pgrad</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable m_bubbles_el_kernels::fd_coeff_z_pgrad</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac3a10330f0907defd0c4a65ef10ef8f2" name="ac3a10330f0907defd0c4a65ef10ef8f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3a10330f0907defd0c4a65ef10ef8f2">&#9670;&#160;</a></span>grad_p_x</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_bubbles_el_kernels::grad_p_x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00330">330</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a46f873e8bd8bb4336ba3cf270258793e" name="a46f873e8bd8bb4336ba3cf270258793e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f873e8bd8bb4336ba3cf270258793e">&#9670;&#160;</a></span>grad_p_y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_bubbles_el_kernels::grad_p_y</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00330">330</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="acd10f2dd6148ff225ade65cd30509247" name="acd10f2dd6148ff225ade65cd30509247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd10f2dd6148ff225ade65cd30509247">&#9670;&#160;</a></span>grad_p_z</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_bubbles_el_kernels::grad_p_z</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html#l00330">330</a> of file <a class="el" href="m__bubbles__EL__kernels_8fpp_8f90_source.html">m_bubbles_EL_kernels.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -35,7 +35,8 @@ var searchData=
   ['double_5fprecision_32',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
   ['down_5fsample_33',['down_sample',['../namespacem__global__parameters__common.html#a84ba917e04628adef4930a67e6396f41',1,'m_global_parameters_common']]],
   ['dp_34',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
-  ['dx_35',['dx',['../namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b',1,'m_global_parameters']]],
-  ['dy_36',['dy',['../namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f',1,'m_global_parameters']]],
-  ['dz_37',['dz',['../namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd',1,'m_global_parameters']]]
+  ['drag_5fmodel_35',['drag_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#ac3e667c80f43772ba7f441a9303c1a50',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['dx_36',['dx',['../namespacem__global__parameters.html#af17f60669f762f385170ba7eb25dab1b',1,'m_global_parameters']]],
+  ['dy_37',['dy',['../namespacem__global__parameters.html#a92a394e5185f2e2ad8975c09f7f6b96f',1,'m_global_parameters']]],
+  ['dz_38',['dz',['../namespacem__global__parameters.html#a4dfe6af99cb9381fd69e6be677430bfd',1,'m_global_parameters']]]
 ];

@@ -169,7 +169,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:abfbb20311259fa39676228027f156929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the buffers of the primitive variables based on the selected boundary conditions.  <br /></td></tr>
 <tr class="memitem:a352fa827d9dbbfb0be060dedcce86792" id="r_a352fa827d9dbbfb0be060dedcce86792"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a352fa827d9dbbfb0be060dedcce86792">s_populate_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, q_prim_vf, pb_in, mv_in, q_t_sf)</td></tr>
 <tr class="memdesc:a352fa827d9dbbfb0be060dedcce86792"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate the variable buffers along one direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell BC routines over the boundary face.  <br /></td></tr>
-<tr class="memitem:adc1afccea975d65f8825dd140280ade7" id="r_adc1afccea975d65f8825dd140280ade7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adc1afccea975d65f8825dd140280ade7">s_populate_capillary_buffers</a> (c_divs, bc_type, bc)</td></tr>
+<tr class="memitem:adc1afccea975d65f8825dd140280ade7" id="r_adc1afccea975d65f8825dd140280ade7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adc1afccea975d65f8825dd140280ade7">s_populate_capillary_buffers</a> (c_divs, bc_type, <a class="el" href="namespacem__global__parameters.html#aeda2e543f9510f3d5836fa9398d3b0b0">bc</a>)</td></tr>
 <tr class="memdesc:adc1afccea975d65f8825dd140280ade7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers for the color function and its divergence used in capillary surface tension.  <br /></td></tr>
 <tr class="memitem:a3ae990b28166105211eb26fe8360880c" id="r_a3ae990b28166105211eb26fe8360880c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3ae990b28166105211eb26fe8360880c">s_populate_capillary_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, c_divs)</td></tr>
 <tr class="memdesc:a3ae990b28166105211eb26fe8360880c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers for one capillary BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell capillary BC routines over the boundary face.  <br /></td></tr>
@@ -183,6 +183,15 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ac12f933780819f49894bc843e3df0a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate grid variable buffers (cell widths and centers) for one direction and location.  <br /></td></tr>
 <tr class="memitem:a69dbc2d02c7be259c30ea62e603f9f4b" id="r_a69dbc2d02c7be259c30ea62e603f9f4b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a69dbc2d02c7be259c30ea62e603f9f4b">s_finalize_boundary_common_module</a> ()</td></tr>
 <tr class="memdesc:a69dbc2d02c7be259c30ea62e603f9f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate boundary condition buffer arrays allocated during module initialization.  <br /></td></tr>
+<tr class="memitem:ae7806a27c1ae0de40695f63fe66887f8" id="r_ae7806a27c1ae0de40695f63fe66887f8"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae7806a27c1ae0de40695f63fe66887f8">s_populate_beta_buffers</a> (q_beta, kahan_comp, bc_type, nvar)</td></tr>
+<tr class="memdesc:ae7806a27c1ae0de40695f63fe66887f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers of the Lagrangian-bubble beta (void fraction) variables based on the boundary conditions.  <br /></td></tr>
+<tr class="memitem:a3ff6536d3b88213b0e72542f1b8ff7a4" id="r_a3ff6536d3b88213b0e72542f1b8ff7a4"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3ff6536d3b88213b0e72542f1b8ff7a4">s_populate_beta_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, q_beta, kahan_comp, nvar)</td></tr>
+<tr class="memdesc:a3ff6536d3b88213b0e72542f1b8ff7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate beta variable buffers for one direction and location, by dispatching the per-cell beta BC routines over the boundary face and performing the paired MPI reduction for processor boundaries.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac0b243ce1b3e8c35413eac6f100c16b5" id="r_ac0b243ce1b3e8c35413eac6f100c16b5"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#ac0b243ce1b3e8c35413eac6f100c16b5">beta_bc_bounds</a></td></tr>
+<tr class="memdesc:ac0b243ce1b3e8c35413eac6f100c16b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lagrangian-bubble beta (void-fraction) buffer bounds (#1290).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Noncharacteristic and processor boundary condition application for ghost cells and buffer regions. </p>
@@ -201,7 +210,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Deallocate boundary condition buffer arrays allocated during module initialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01092">1092</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01159">1159</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -224,7 +233,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate and set up boundary condition buffer arrays for all coordinate directions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00360">360</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -284,11 +293,106 @@ Here is the caller graph for this function:</div>
 
 <p>Populate the variable buffers along one direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell BC routines over the boundary face. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00704">704</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00738">738</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a352fa827d9dbbfb0be060dedcce86792_icgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a352fa827d9dbbfb0be060dedcce86792_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3ff6536d3b88213b0e72542f1b8ff7a4" name="a3ff6536d3b88213b0e72542f1b8ff7a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff6536d3b88213b0e72542f1b8ff7a4">&#9670;&#160;</a></span>s_populate_beta_bc_direction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_boundary_common::s_populate_beta_bc_direction </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type_edge</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_beta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>kahan_comp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nvar</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate beta variable buffers for one direction and location, by dispatching the per-cell beta BC routines over the boundary face and performing the paired MPI reduction for processor boundaries. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01419">1419</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a3ff6536d3b88213b0e72542f1b8ff7a4_icgraph.svg" width="455" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae7806a27c1ae0de40695f63fe66887f8" name="ae7806a27c1ae0de40695f63fe66887f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7806a27c1ae0de40695f63fe66887f8">&#9670;&#160;</a></span>s_populate_beta_buffers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_boundary_common::s_populate_beta_buffers </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_beta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>kahan_comp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nvar</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate ghost cell buffers of the Lagrangian-bubble beta (void fraction) variables based on the boundary conditions. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01392">1392</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_ae7806a27c1ae0de40695f63fe66887f8_cgraph.svg" width="455" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -329,7 +433,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate ghost cell buffers for one capillary BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell capillary BC routines over the boundary face. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00831">831</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00865">865</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -364,7 +468,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate ghost cell buffers for the color function and its divergence used in capillary surface tension. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00804">804</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00838">838</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -409,7 +513,7 @@ Here is the call graph for this function:</div>
 
 <p>Populate ghost cell buffers for one IGR Jacobian BC direction and location, via MPI exchange for processor boundaries or by dispatching the per-cell IGR Jacobian BC routines over the boundary face. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00940">940</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00974">974</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -439,7 +543,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate ghost cell buffers for the Jacobian scalar field used in the IGR elliptic solver. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00914">914</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00948">948</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -479,7 +583,7 @@ Here is the call graph for this function:</div>
 
 <p>Populate grid variable buffers (cell widths and centers) for one direction and location. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01060">1060</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01127">1127</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -502,7 +606,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate the buffers of the grid variables, which are constituted of the cell-boundary locations and cell-width distributions, based on the boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01024">1024</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01058">1058</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -547,7 +651,7 @@ Here is the call graph for this function:</div>
 
 <p>Populate the buffers of the primitive variables based on the selected boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00672">672</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00710">710</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -556,8 +660,27 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_abfbb20311259fa39676228027f156929_icgraph.svg" width="100%" height="412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_abfbb20311259fa39676228027f156929_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ac0b243ce1b3e8c35413eac6f100c16b5" name="ac0b243ce1b3e8c35413eac6f100c16b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b243ce1b3e8c35413eac6f100c16b5">&#9670;&#160;</a></span>beta_bc_bounds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(3) m_boundary_common::beta_bc_bounds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lagrangian-bubble beta (void-fraction) buffer bounds (#1290). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l00356">356</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -182,7 +182,7 @@ Stiffened EOS Positivity</h3>
 <li><span class="tt">model_eqns</span> = 1 does not support <code class="f90l">fluid_pp(i)%</code><code class="f90r">gamma</code></li>
 <li><span class="tt">model_eqns</span> = 1 does not support <code class="f90l">fluid_pp(i)%</code><code class="f90r">pi_inf</code></li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a></p>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md452"></a>
 EOS Parameter Sanity (Transformed Gamma)</h3>
 <p class="formulaDsp">
@@ -195,7 +195,7 @@ EOS Parameter Sanity (Transformed Gamma)</h3>
 <li>\(\triangle\) <code class="f90l">fluid_pp(i)%</code><code class="f90r">gamma</code> implies physical gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1)</li>
 <li>\(\triangle\) <code class="f90l">fluid_pp(i)%</code><code class="f90r">gamma</code> implies physical gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?</li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a></p>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md453"></a>
 Patch Initial Condition Constraints</h3>
 <p class="formulaDsp">
@@ -329,7 +329,7 @@ Model Equation Selection</h3>
 <li><span class="tt">num_fluids</span> = 1 does not support <span class="tt">mpp_lim</span></li>
 <li>6-equation model (<span class="tt">model_eqns</span> = 3) does not support cylindrical coordinates (<span class="tt">cyl_coord</span> = T and <span class="tt">p</span> != 0)</li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[55]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>, Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[42]</a></p>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>, Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[46]</a></p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
 Boundary Conditions</h2>
@@ -397,7 +397,7 @@ Bubble Simulation Constraints</h3>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md476"></a>
 Euler-Lagrange Bubble Model</h3>
-<p>2D/3D only. Requires polytropic = F and thermal = 3. Not compatible with model_eqns = 3.</p>
+<p>2D/3D only. Requires polytropic = F and thermal = 3. Not compatible with model_eqns = 3. Kahan summation not compatible with &ndash;mixed precision.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
@@ -407,6 +407,12 @@ Euler-Lagrange Bubble Model</h3>
 <li><span class="tt">bubbles_lagrange</span> requires <span class="tt">polytropic</span> = F</li>
 <li><span class="tt">bubbles_lagrange</span> requires <span class="tt">thermal</span> = 3</li>
 <li><span class="tt">cluster_type</span> &gt;= 2 requires <span class="tt">smooth_type</span> = 1</li>
+<li><code class="f90l">lag_params%</code><code class="f90r">vel_model</code> must be 0, 1, or 2</li>
+<li><code class="f90l">lag_params%</code><code class="f90r">drag_model</code> must be 0, 1, 2, or 3</li>
+<li><code class="f90l">lag_params%</code><code class="f90r">charNz</code> must be positive for 2D <span class="tt">bubbles_lagrange</span></li>
+<li><code class="f90l">lag_params%</code><code class="f90r">charwidth</code> must be positive for 2D <span class="tt">bubbles_lagrange</span></li>
+<li>Non-zero <code class="f90l">lag_params%</code><code class="f90r">vel_model</code> requires <span class="tt">fd_order</span> to be set</li>
+<li><code class="f90l">lag_params%</code><code class="f90r">kahan_summation</code> = T is not compatible with &ndash;mixed precision</li>
 </ul>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md478"></a>
@@ -506,7 +512,7 @@ Non-Newtonian (Herschel-Bulkley) Viscosity</h3>
 <li><code class="f90l">fluid_pp(i)%</code><code class="f90r">mu_bulk</code> (non-Newtonian bulk viscosity) is not yet supported</li>
 <li><code class="f90l">fluid_pp(i)%</code><code class="f90r">Re(2)</code> (bulk viscosity) is not supported for non-Newtonian fluids</li>
 </ul>
-<p><b>References:</b> C. <a class="el" href="citelist.html#CITEREF_papanastasiou87">[36]</a></p>
+<p><b>References:</b> C. <a class="el" href="citelist.html#CITEREF_papanastasiou87">[39]</a></p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md487"></a>
 Numerical Schemes</h2>
@@ -668,7 +674,7 @@ IC Extrusion File Parameters</h3>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">hcid</code>=hcid requires <span class="tt">files_dir</span> to be set</li>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">hcid</code>=hcid requires <span class="tt">file_extension</span> to be set</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-07-16</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-07-17</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

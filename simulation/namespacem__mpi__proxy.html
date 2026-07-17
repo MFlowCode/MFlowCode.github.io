@@ -165,8 +165,16 @@ $(function(){initNavTree('namespacem__mpi__proxy.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a015ee2c0892e9cfcb858da8f27b646d5" id="r_a015ee2c0892e9cfcb858da8f27b646d5"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a015ee2c0892e9cfcb858da8f27b646d5">s_initialize_mpi_proxy_module</a> ()</td></tr>
 <tr class="memdesc:a015ee2c0892e9cfcb858da8f27b646d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the MPI proxy module.  <br /></td></tr>
+<tr class="memitem:a8c2154706ce7076bd2f82efcdb10f9c9" id="r_a8c2154706ce7076bd2f82efcdb10f9c9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8c2154706ce7076bd2f82efcdb10f9c9">s_initialize_particles_mpi</a> (lag_num_ts)</td></tr>
 <tr class="memitem:af90ff0c1a1201411176602946199f96c" id="r_af90ff0c1a1201411176602946199f96c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af90ff0c1a1201411176602946199f96c">s_mpi_bcast_user_inputs</a> ()</td></tr>
 <tr class="memdesc:af90ff0c1a1201411176602946199f96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Since only the processor with rank 0 reads and verifies the consistency of user inputs, these are initially not available to the other processors. Then, the purpose of this subroutine is to distribute the user inputs to the remaining processors in the communicator.  <br /></td></tr>
+<tr class="memitem:a7d62dd2fcd2b685b2d1bb9b6dfd0d55c" id="r_a7d62dd2fcd2b685b2d1bb9b6dfd0d55c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a7d62dd2fcd2b685b2d1bb9b6dfd0d55c">s_add_particles_to_transfer_list</a> (nbub, pos, posprev)</td></tr>
+<tr class="memdesc:a7d62dd2fcd2b685b2d1bb9b6dfd0d55c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds particles to the transfer list for the MPI communication.  <br /></td></tr>
+<tr class="memitem:aa071b0b737efc3db3026ba3cb9e14711" id="r_aa071b0b737efc3db3026ba3cb9e14711"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa071b0b737efc3db3026ba3cb9e14711">s_mpi_sendrecv_particles</a> (bub_r0, rmax_stats, rmin_stats, gas_mg, gas_betat, gas_betac, bub_dphidt, lag_id, gas_p, gas_mv, rad, rvel, pos, posprev, vel, scoord, drad, drvel, dgasp, dgasmv, dpos, dvel, lag_num_ts, nbubs, dest)</td></tr>
+<tr class="memdesc:aa071b0b737efc3db3026ba3cb9e14711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the MPI communication for lagrangian particles/bubbles.  <br /></td></tr>
+<tr class="memitem:a072585363c335d4221160641749d1dc3" id="r_a072585363c335d4221160641749d1dc3"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#a072585363c335d4221160641749d1dc3">neighbor_tag</a> (i, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>)</td></tr>
+<tr class="memdesc:a072585363c335d4221160641749d1dc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a unique tag for each neighbor based on its position relative to the current process.  <br /></td></tr>
+<tr class="memitem:a984057c68e36b8aea57fbc3c8dbf972b" id="r_a984057c68e36b8aea57fbc3c8dbf972b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a984057c68e36b8aea57fbc3c8dbf972b">s_wrap_particle_positions</a> (pos, posprev, nbubs, dest)</td></tr>
 <tr class="memitem:a7fd7006df83da0fe282503cd5f126870" id="r_a7fd7006df83da0fe282503cd5f126870"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a7fd7006df83da0fe282503cd5f126870">s_mpi_send_random_number</a> (phi_rn, num_freq)</td></tr>
 <tr class="memdesc:a7fd7006df83da0fe282503cd5f126870"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast random phase numbers from rank 0 to all MPI processes.  <br /></td></tr>
 <tr class="memitem:ac984c84fe4140876d6600250af9807da" id="r_ac984c84fe4140876d6600250af9807da"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac984c84fe4140876d6600250af9807da">s_finalize_mpi_proxy_module</a> ()</td></tr>
@@ -179,10 +187,101 @@ Variables</h2></td></tr>
 <tr class="memitem:a54e5acdc9f00af88eb577debcb5e354b" id="r_a54e5acdc9f00af88eb577debcb5e354b"><td class="memItemLeft">integer, dimension(:), allocatable, private&#160;</td><td class="memItemRight"><a class="el" href="#a54e5acdc9f00af88eb577debcb5e354b">ib_buff_recv</a></td></tr>
 <tr class="memdesc:a54e5acdc9f00af88eb577debcb5e354b"><td class="mdescLeft">&#160;</td><td class="mdescRight">IB marker receive buffer for halo exchange.  <br /></td></tr>
 <tr class="memitem:a27c37570263b75dbeada1687d5990d08" id="r_a27c37570263b75dbeada1687d5990d08"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a27c37570263b75dbeada1687d5990d08">i_halo_size</a></td></tr>
+<tr class="memitem:a9c03b26b8265a5691d14e6a84d6d9711" id="r_a9c03b26b8265a5691d14e6a84d6d9711"><td class="memItemLeft">integer, dimension(-1:1,-1:1,-1:1)&#160;</td><td class="memItemRight"><a class="el" href="#a9c03b26b8265a5691d14e6a84d6d9711">p_send_counts</a></td></tr>
+<tr class="memitem:a77515c1c14da01bb97c960a9848866da" id="r_a77515c1c14da01bb97c960a9848866da"><td class="memItemLeft">integer, dimension(-1:1,-1:1,-1:1)&#160;</td><td class="memItemRight"><a class="el" href="#a77515c1c14da01bb97c960a9848866da">p_recv_counts</a></td></tr>
+<tr class="memitem:afe6abcc8560ebb85ca62ceafaa7ad51f" id="r_afe6abcc8560ebb85ca62ceafaa7ad51f"><td class="memItemLeft">integer, dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#afe6abcc8560ebb85ca62ceafaa7ad51f">p_send_ids</a></td></tr>
+<tr class="memitem:a2d7dde0685ddd1ca50350811799985d9" id="r_a2d7dde0685ddd1ca50350811799985d9"><td class="memItemLeft">character(len=1), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2d7dde0685ddd1ca50350811799985d9">p_send_buff</a></td></tr>
+<tr class="memitem:a2ad4b676951f05bab54cb3e1d19048ad" id="r_a2ad4b676951f05bab54cb3e1d19048ad"><td class="memItemLeft">character(len=1), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2ad4b676951f05bab54cb3e1d19048ad">p_recv_buff</a></td></tr>
+<tr class="memitem:a75dd958e0976e426d90b83f3a617a6c5" id="r_a75dd958e0976e426d90b83f3a617a6c5"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a75dd958e0976e426d90b83f3a617a6c5">p_buff_size</a></td></tr>
+<tr class="memitem:a3e9191666022e8ea5eebb6dcfcfab535" id="r_a3e9191666022e8ea5eebb6dcfcfab535"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a3e9191666022e8ea5eebb6dcfcfab535">p_var_size</a></td></tr>
+<tr class="memitem:aba00417aaa2fe4da6d05118404519507" id="r_aba00417aaa2fe4da6d05118404519507"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a> = 27</td></tr>
+<tr class="memitem:aa7b8b7db031f996f98bb44d7efafef7d" id="r_aa7b8b7db031f996f98bb44d7efafef7d"><td class="memItemLeft">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>)&#160;</td><td class="memItemRight"><a class="el" href="#aa7b8b7db031f996f98bb44d7efafef7d">send_requests</a></td></tr>
+<tr class="memitem:a800c7b5310c5ce9b80d941244fdaf3ec" id="r_a800c7b5310c5ce9b80d941244fdaf3ec"><td class="memItemLeft">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a800c7b5310c5ce9b80d941244fdaf3ec">recv_requests</a></td></tr>
+<tr class="memitem:a07a4aa8ef809bb25977c445adfdffa37" id="r_a07a4aa8ef809bb25977c445adfdffa37"><td class="memItemLeft">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a07a4aa8ef809bb25977c445adfdffa37">recv_offsets</a></td></tr>
+<tr class="memitem:a641f22f736497c1018b4f0b03139232d" id="r_a641f22f736497c1018b4f0b03139232d"><td class="memItemLeft">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>, 3)&#160;</td><td class="memItemRight"><a class="el" href="#a641f22f736497c1018b4f0b03139232d">neighbor_list</a></td></tr>
+<tr class="memitem:ae4a029447c7014bcf623dab62e5d5978" id="r_ae4a029447c7014bcf623dab62e5d5978"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ae4a029447c7014bcf623dab62e5d5978">n_neighbors</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MPI halo exchange, domain decomposition, and buffer packing/unpacking for the simulation solver. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a072585363c335d4221160641749d1dc3" name="a072585363c335d4221160641749d1dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a072585363c335d4221160641749d1dc3">&#9670;&#160;</a></span>neighbor_tag()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function m_mpi_proxy::neighbor_tag </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return a unique tag for each neighbor based on its position relative to the current process. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01447">1447</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__mpi__proxy_a072585363c335d4221160641749d1dc3_icgraph.svg" width="419" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7d62dd2fcd2b685b2d1bb9b6dfd0d55c" name="a7d62dd2fcd2b685b2d1bb9b6dfd0d55c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d62dd2fcd2b685b2d1bb9b6dfd0d55c">&#9670;&#160;</a></span>s_add_particles_to_transfer_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_mpi_proxy::s_add_particles_to_transfer_list </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nbub</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>posprev</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds particles to the transfer list for the MPI communication. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nBub</td><td>Current LOCAL number of bubbles </td></tr>
+    <tr><td class="paramname">pos</td><td>Current position of each bubble </td></tr>
+    <tr><td class="paramname">posPrev</td><td>Previous position of each bubble (optional, not used for communication of initial condition) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01136">1136</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__mpi__proxy_a7d62dd2fcd2b685b2d1bb9b6dfd0d55c_cgraph.svg" width="450" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="ac984c84fe4140876d6600250af9807da" name="ac984c84fe4140876d6600250af9807da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac984c84fe4140876d6600250af9807da">&#9670;&#160;</a></span>s_finalize_mpi_proxy_module()</h2>
 
@@ -197,7 +296,7 @@ Variables</h2></td></tr>
 
 <p>Finalize the MPI proxy module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01033">1033</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01528">1528</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -215,12 +314,31 @@ Variables</h2></td></tr>
 
 <p>Initialize the MPI proxy module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__mpi__proxy_a015ee2c0892e9cfcb858da8f27b646d5_icgraph.svg" width="539" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a8c2154706ce7076bd2f82efcdb10f9c9" name="a8c2154706ce7076bd2f82efcdb10f9c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c2154706ce7076bd2f82efcdb10f9c9">&#9670;&#160;</a></span>s_initialize_particles_mpi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_mpi_proxy::s_initialize_particles_mpi </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>lag_num_ts</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -238,7 +356,7 @@ Here is the caller graph for this function:</div>
 
 <p>Since only the processor with rank 0 reads and verifies the consistency of user inputs, these are initially not available to the other processors. Then, the purpose of this subroutine is to distribute the user inputs to the remaining processors in the communicator. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -263,7 +381,190 @@ Here is the caller graph for this function:</div>
 
 <p>Broadcast random phase numbers from rank 0 to all MPI processes. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01020">1020</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01515">1515</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa071b0b737efc3db3026ba3cb9e14711" name="aa071b0b737efc3db3026ba3cb9e14711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa071b0b737efc3db3026ba3cb9e14711">&#9670;&#160;</a></span>s_mpi_sendrecv_particles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_mpi_proxy::s_mpi_sendrecv_particles </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>bub_r0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>rmax_stats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>rmin_stats</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>gas_mg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>gas_betat</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>gas_betac</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:)</td>          <td class="paramname"><span class="paramname"><em>bub_dphidt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>lag_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>gas_p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>gas_mv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>rad</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>rvel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>posprev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>scoord</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>drad</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>drvel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>dgasp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:)</td>          <td class="paramname"><span class="paramname"><em>dgasmv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>dpos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>dvel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>lag_num_ts</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>nbubs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform the MPI communication for lagrangian particles/bubbles. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01218">1218</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__mpi__proxy_aa071b0b737efc3db3026ba3cb9e14711_cgraph.svg" width="419" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a984057c68e36b8aea57fbc3c8dbf972b" name="a984057c68e36b8aea57fbc3c8dbf972b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a984057c68e36b8aea57fbc3c8dbf972b">&#9670;&#160;</a></span>s_wrap_particle_positions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_mpi_proxy::s_wrap_particle_positions </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:)</td>          <td class="paramname"><span class="paramname"><em>posprev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>nbubs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01455">1455</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__mpi__proxy_a984057c68e36b8aea57fbc3c8dbf972b_icgraph.svg" width="380" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -333,6 +634,214 @@ Here is the caller graph for this function:</div>
 <p>IB marker send buffer for halo exchange. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aba00417aaa2fe4da6d05118404519507" name="aba00417aaa2fe4da6d05118404519507"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba00417aaa2fe4da6d05118404519507">&#9670;&#160;</a></span>max_neighbors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_mpi_proxy::max_neighbors = 27</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00370">370</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae4a029447c7014bcf623dab62e5d5978" name="ae4a029447c7014bcf623dab62e5d5978"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a029447c7014bcf623dab62e5d5978">&#9670;&#160;</a></span>n_neighbors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_mpi_proxy::n_neighbors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00374">374</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a641f22f736497c1018b4f0b03139232d" name="a641f22f736497c1018b4f0b03139232d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641f22f736497c1018b4f0b03139232d">&#9670;&#160;</a></span>neighbor_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>, 3) m_mpi_proxy::neighbor_list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a75dd958e0976e426d90b83f3a617a6c5" name="a75dd958e0976e426d90b83f3a617a6c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75dd958e0976e426d90b83f3a617a6c5">&#9670;&#160;</a></span>p_buff_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_mpi_proxy::p_buff_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2ad4b676951f05bab54cb3e1d19048ad" name="a2ad4b676951f05bab54cb3e1d19048ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad4b676951f05bab54cb3e1d19048ad">&#9670;&#160;</a></span>p_recv_buff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=1), dimension(:), allocatable m_mpi_proxy::p_recv_buff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a77515c1c14da01bb97c960a9848866da" name="a77515c1c14da01bb97c960a9848866da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77515c1c14da01bb97c960a9848866da">&#9670;&#160;</a></span>p_recv_counts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(-1:1,-1:1,-1:1) m_mpi_proxy::p_recv_counts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2d7dde0685ddd1ca50350811799985d9" name="a2d7dde0685ddd1ca50350811799985d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d7dde0685ddd1ca50350811799985d9">&#9670;&#160;</a></span>p_send_buff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=1), dimension(:), allocatable m_mpi_proxy::p_send_buff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a9c03b26b8265a5691d14e6a84d6d9711" name="a9c03b26b8265a5691d14e6a84d6d9711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c03b26b8265a5691d14e6a84d6d9711">&#9670;&#160;</a></span>p_send_counts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(-1:1,-1:1,-1:1) m_mpi_proxy::p_send_counts</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="afe6abcc8560ebb85ca62ceafaa7ad51f" name="afe6abcc8560ebb85ca62ceafaa7ad51f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe6abcc8560ebb85ca62ceafaa7ad51f">&#9670;&#160;</a></span>p_send_ids</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:,:,:,:), allocatable m_mpi_proxy::p_send_ids</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3e9191666022e8ea5eebb6dcfcfab535" name="a3e9191666022e8ea5eebb6dcfcfab535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e9191666022e8ea5eebb6dcfcfab535">&#9670;&#160;</a></span>p_var_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_mpi_proxy::p_var_size</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a07a4aa8ef809bb25977c445adfdffa37" name="a07a4aa8ef809bb25977c445adfdffa37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a4aa8ef809bb25977c445adfdffa37">&#9670;&#160;</a></span>recv_offsets</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>) m_mpi_proxy::recv_offsets</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a800c7b5310c5ce9b80d941244fdaf3ec" name="a800c7b5310c5ce9b80d941244fdaf3ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800c7b5310c5ce9b80d941244fdaf3ec">&#9670;&#160;</a></span>recv_requests</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>) m_mpi_proxy::recv_requests</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa7b8b7db031f996f98bb44d7efafef7d" name="aa7b8b7db031f996f98bb44d7efafef7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7b8b7db031f996f98bb44d7efafef7d">&#9670;&#160;</a></span>send_requests</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="#aba00417aaa2fe4da6d05118404519507">max_neighbors</a>) m_mpi_proxy::send_requests</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 
 </div>
 </div>

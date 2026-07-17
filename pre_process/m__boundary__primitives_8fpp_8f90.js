@@ -1,6 +1,9 @@
 var m__boundary__primitives_8fpp_8f90 =
 [
     [ "m_boundary_primitives::s_axis", "namespacem__boundary__primitives.html#a882379d572d555c1b5f73fd360cb1d79", null ],
+    [ "m_boundary_primitives::s_beta_extrapolation", "namespacem__boundary__primitives.html#ab4cccbeaf9ef7a2173ad5ce7d98ff5f7", null ],
+    [ "m_boundary_primitives::s_beta_periodic", "namespacem__boundary__primitives.html#a236eb952c19c103a13abd6fa558d35af", null ],
+    [ "m_boundary_primitives::s_beta_reflective", "namespacem__boundary__primitives.html#aa9ec6aa478cf93ee3837f332341c10a0", null ],
     [ "m_boundary_primitives::s_color_function_ghost_cell_extrapolation", "namespacem__boundary__primitives.html#ae18204f041ac1ddafadba998425ffd9b", null ],
     [ "m_boundary_primitives::s_color_function_periodic", "namespacem__boundary__primitives.html#a55342895e5e8de409f6c701463f97b01", null ],
     [ "m_boundary_primitives::s_color_function_reflective", "namespacem__boundary__primitives.html#a99d77a99c6bbc0951fb6f1c9226f0bb6", null ],

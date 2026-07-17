@@ -15,12 +15,13 @@ var searchData=
   ['ve3_12',['ve3',['../structm__derived__types_1_1int__bounds__info.html#a2f7bff2b19ae5b866d64480a1b8cfb2a',1,'m_derived_types::int_bounds_info']]],
   ['vel_13',['vel',['../structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139',1,'m_derived_types::ic_patch_parameters::vel'],['../structm__derived__types_1_1ib__patch__parameters.html#a98912b082c30f25c788059a38f298f4a',1,'m_derived_types::ib_patch_parameters::vel']]],
   ['vel_5fin_14',['vel_in',['../structm__derived__types_1_1int__bounds__info.html#a605e1e77b7e92b13861ed1c97c2de515',1,'m_derived_types::int_bounds_info']]],
-  ['vel_5fout_15',['vel_out',['../structm__derived__types_1_1int__bounds__info.html#af343b628e182ad5917268d34db727ead',1,'m_derived_types::int_bounds_info']]],
-  ['version_16',['version',['../structm__nvtx_1_1nvtxeventattributes.html#abea96c114d8adfd0734147f2a385fcea',1,'m_nvtx::nvtxeventattributes']]],
-  ['verysmall_17',['verysmall',['../namespacem__constants.html#ae5ca79b5bbc3e0f374743575b3b27459',1,'m_constants']]],
-  ['vf_18',['vf',['../structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141',1,'m_derived_types::vector_field']]],
-  ['view_19',['view',['../structm__derived__types_1_1mpi__io__var.html#a19194d57a71bab3f81f1bb6c05743fed',1,'m_derived_types::mpi_io_var::view'],['../structm__derived__types_1_1mpi__io__ib__var.html#a658eb06300820497067e2e738dd9378d',1,'m_derived_types::mpi_io_ib_var::view'],['../structm__derived__types_1_1mpi__io__levelset__var.html#ad8e22b1e6278191978539b433f1896bb',1,'m_derived_types::mpi_io_levelset_var::view'],['../structm__derived__types_1_1mpi__io__levelset__norm__var.html#a241d46b5c25ecb008d41fceb8dd73ac4',1,'m_derived_types::mpi_io_levelset_norm_var::view'],['../structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a6b0981a060c97ca959c8d44e018e65d0',1,'m_derived_types::mpi_io_airfoil_ib_var::view']]],
-  ['viscous_20',['viscous',['../namespacem__global__parameters__common.html#a0c9281e484bb906ba492e82b894a912b',1,'m_global_parameters_common']]],
-  ['vp_21',['vp',['../namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837',1,'m_phase_change']]],
-  ['vs_22',['vs',['../structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72',1,'m_derived_types::qbmm_idx_info']]]
+  ['vel_5fmodel_15',['vel_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a198e7c9fc18bba8078cd86f0c5102e60',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['vel_5fout_16',['vel_out',['../structm__derived__types_1_1int__bounds__info.html#af343b628e182ad5917268d34db727ead',1,'m_derived_types::int_bounds_info']]],
+  ['version_17',['version',['../structm__nvtx_1_1nvtxeventattributes.html#abea96c114d8adfd0734147f2a385fcea',1,'m_nvtx::nvtxeventattributes']]],
+  ['verysmall_18',['verysmall',['../namespacem__constants.html#ae5ca79b5bbc3e0f374743575b3b27459',1,'m_constants']]],
+  ['vf_19',['vf',['../structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141',1,'m_derived_types::vector_field']]],
+  ['view_20',['view',['../structm__derived__types_1_1mpi__io__var.html#a19194d57a71bab3f81f1bb6c05743fed',1,'m_derived_types::mpi_io_var::view'],['../structm__derived__types_1_1mpi__io__ib__var.html#a658eb06300820497067e2e738dd9378d',1,'m_derived_types::mpi_io_ib_var::view'],['../structm__derived__types_1_1mpi__io__levelset__var.html#ad8e22b1e6278191978539b433f1896bb',1,'m_derived_types::mpi_io_levelset_var::view'],['../structm__derived__types_1_1mpi__io__levelset__norm__var.html#a241d46b5c25ecb008d41fceb8dd73ac4',1,'m_derived_types::mpi_io_levelset_norm_var::view'],['../structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a6b0981a060c97ca959c8d44e018e65d0',1,'m_derived_types::mpi_io_airfoil_ib_var::view']]],
+  ['viscous_21',['viscous',['../namespacem__global__parameters__common.html#a0c9281e484bb906ba492e82b894a912b',1,'m_global_parameters_common']]],
+  ['vp_22',['vp',['../namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837',1,'m_phase_change']]],
+  ['vs_23',['vs',['../structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72',1,'m_derived_types::qbmm_idx_info']]]
 ];
