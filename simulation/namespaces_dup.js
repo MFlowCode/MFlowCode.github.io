@@ -111,7 +111,7 @@ var namespaces_dup =
     ] ],
     [ "m_bubbles", "namespacem__bubbles.html", [
       [ "f_advance_step", "namespacem__bubbles.html#a8052fe0b4b286ef9b36667635dceefde", null ],
-      [ "f_bpres_dot", "namespacem__bubbles.html#ae3ca1a6edc576f4331e56f7dd4d31e00", null ],
+      [ "f_bpres_dot", "namespacem__bubbles.html#ad1a6e09565ef3eb6ef260180b0517a9f", null ],
       [ "f_cgas", "namespacem__bubbles.html#ab3c7de079ecdb18efcf47e90b7a8a76f", null ],
       [ "f_cpbw", "namespacem__bubbles.html#acf969c463802618c14b93110723f5666", null ],
       [ "f_cpbw_km", "namespacem__bubbles.html#a8d416603cfcd7a26400ca3a3e8fd36da", null ],
@@ -126,10 +126,7 @@ var namespaces_dup =
       [ "s_advance_substep", "namespacem__bubbles.html#ada2623f1499c4719141069dcd4f5c5d1", null ],
       [ "s_bwproperty", "namespacem__bubbles.html#a45d3deb8a93b5f1beaada1084e0303a4", null ],
       [ "s_initial_substep_h", "namespacem__bubbles.html#a4b48725a84a60c73af7e378ffc3d3438", null ],
-      [ "s_vflux", "namespacem__bubbles.html#aba97c9ada8f37d3df171e93fabec9c22", null ],
-      [ "chi_vw", "namespacem__bubbles.html#adf27a9408c9ea6efc46e4a4c35c51656", null ],
-      [ "k_mw", "namespacem__bubbles.html#a5553a622f61df640bb073c9bd8cc5562", null ],
-      [ "rho_mw", "namespacem__bubbles.html#a8c1051ebc96b54711f3ceec1cb093f76", null ]
+      [ "s_vflux", "namespacem__bubbles.html#ac9d96b7f27a1cd724888bfc891c1ce56", null ]
     ] ],
     [ "m_bubbles_ee", "namespacem__bubbles__ee.html", [
       [ "s_comp_alpha_from_n", "namespacem__bubbles__ee.html#a523f8112128cbb1d0ec8b2bab674475e", null ],
@@ -1219,7 +1216,7 @@ var namespaces_dup =
     [ "m_rhs", "namespacem__rhs.html", [
       [ "s_compute_additional_physics_rhs", "namespacem__rhs.html#a2df6b2a1323afaca022b5ef77dd4c0e0", null ],
       [ "s_compute_advection_source_term", "namespacem__rhs.html#a5809a021c8e55e523aa8bfabb41a3e1e", null ],
-      [ "s_compute_rhs", "namespacem__rhs.html#a2ae49f9ae363fe7f37509d8526ac7f03", null ],
+      [ "s_compute_rhs", "namespacem__rhs.html#a37d36d411217c838e6a9fbef27ccc70e", null ],
       [ "s_finalize_rhs_module", "namespacem__rhs.html#aeefd0e45989eb229ad465d3f56cda6f9", null ],
       [ "s_initialize_rhs_module", "namespacem__rhs.html#ac1a58ddfd0761eea057f097f428a36ba", null ],
       [ "s_reconstruct_cell_boundary_values", "namespacem__rhs.html#a306d7ba75fae114389274c00e5982588", null ],

@@ -1,7 +1,7 @@
 var m__bubbles_8fpp_8f90 =
 [
     [ "m_bubbles::f_advance_step", "namespacem__bubbles.html#a8052fe0b4b286ef9b36667635dceefde", null ],
-    [ "m_bubbles::f_bpres_dot", "namespacem__bubbles.html#ae3ca1a6edc576f4331e56f7dd4d31e00", null ],
+    [ "m_bubbles::f_bpres_dot", "namespacem__bubbles.html#ad1a6e09565ef3eb6ef260180b0517a9f", null ],
     [ "m_bubbles::f_cgas", "namespacem__bubbles.html#ab3c7de079ecdb18efcf47e90b7a8a76f", null ],
     [ "m_bubbles::f_cpbw", "namespacem__bubbles.html#acf969c463802618c14b93110723f5666", null ],
     [ "m_bubbles::f_cpbw_km", "namespacem__bubbles.html#a8d416603cfcd7a26400ca3a3e8fd36da", null ],
@@ -16,8 +16,5 @@ var m__bubbles_8fpp_8f90 =
     [ "m_bubbles::s_advance_substep", "namespacem__bubbles.html#ada2623f1499c4719141069dcd4f5c5d1", null ],
     [ "m_bubbles::s_bwproperty", "namespacem__bubbles.html#a45d3deb8a93b5f1beaada1084e0303a4", null ],
     [ "m_bubbles::s_initial_substep_h", "namespacem__bubbles.html#a4b48725a84a60c73af7e378ffc3d3438", null ],
-    [ "m_bubbles::s_vflux", "namespacem__bubbles.html#aba97c9ada8f37d3df171e93fabec9c22", null ],
-    [ "m_bubbles::chi_vw", "namespacem__bubbles.html#adf27a9408c9ea6efc46e4a4c35c51656", null ],
-    [ "m_bubbles::k_mw", "namespacem__bubbles.html#a5553a622f61df640bb073c9bd8cc5562", null ],
-    [ "m_bubbles::rho_mw", "namespacem__bubbles.html#a8c1051ebc96b54711f3ceec1cb093f76", null ]
+    [ "m_bubbles::s_vflux", "namespacem__bubbles.html#ac9d96b7f27a1cd724888bfc891c1ce56", null ]
 ];
