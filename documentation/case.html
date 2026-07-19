@@ -1377,10 +1377,18 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">chem_params%transport_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Methodology for calculating the diffusion coefficients  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">chem_params%reaction_substeps</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sub-steps for operator-split reaction integration (0 = off)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">chem_params%adap_substeps</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Per-rank adaptive sub-step count driven by local stiffness  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">chem_params%reaction_substeps_max</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sub-step ceiling when <span class="tt">adap_substeps</span> is enabled  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">cantera_file</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera-format mechanism file (e.g., .yaml)  </td></tr>
 </table>
 <ul>
 <li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
+<li><span class="tt">chem_params%reaction_substeps</span> controls how the reaction source is integrated. With <span class="tt">0</span> (default) the net production rates are added to the flow right-hand side and advanced by the flow time stepper (fine for hydrogen). With a value <span class="tt">&gt; 0</span>, the reaction is instead integrated by operator splitting after each flow update: every cell's constant-density, constant-internal-energy reactor is advanced over the timestep with that many sub-steps of an <b>α-QSS</b> (quasi-steady-state) integrator — a matrix-free, Jacobian-free predictor–corrector (Mott/CHEMEQ2) that splits the net rate into creation/destruction parts and applies a Padé α-weighting, so it stays stable on stiff mechanisms where an explicit source diverges. This decouples the (often much faster) chemical timescale from the flow timestep and is required for stiff mechanisms — e.g. hydrocarbons such as GRI-Mech methane, which otherwise diverge on the first step</li>
+<li><span class="tt">chem_params%adap_substeps</span> (default <span class="tt">F</span>) makes each rank choose its α-QSS sub-step count per flow step from the largest chemical stiffness among its own cells: the count sits at <span class="tt">reaction_substeps</span> (the floor) in inert or burned gas and rises toward <span class="tt">reaction_substeps_max</span> (the ceiling) only across the reaction front. It uses no MPI collectives. When enabled, <span class="tt">reaction_substeps &gt;= 1</span> and <span class="tt">reaction_substeps_max &gt;= reaction_substeps</span> are required</li>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>

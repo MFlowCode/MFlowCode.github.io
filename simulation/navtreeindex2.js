@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"namespacem__collisions.html":[1,0,13],
 "namespacem__collisions.html#a131aeed17e5d88a0b7c72f7066e25f20":[1,0,13,11],
 "namespacem__collisions.html#a33e203cad81386ebb2f2d698cbcd9134":[1,0,13,14],
 "namespacem__collisions.html#a582bc12bbbdb4389578c76e37255a201":[1,0,13,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "namespacem__global__parameters.html#a05611379b68a394593875c335c83f9fd":[1,0,24,98],
 "namespacem__global__parameters.html#a088b6f9c52bdd38ace95a8545d1c8ae2":[1,0,24,82],
 "namespacem__global__parameters.html#a095092296f6162a5f65131a9b0d384da":[1,0,24,34],
-"namespacem__global__parameters.html#a09c7e736980589a2a963352638771622":[1,0,24,104],
-"namespacem__global__parameters.html#a0a67704d4c227871a155d6c26590f685":[1,0,24,126]
+"namespacem__global__parameters.html#a09c7e736980589a2a963352638771622":[1,0,24,104]
 };

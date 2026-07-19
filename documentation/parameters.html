@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md378"></a>
 Overview</h2>
-<p>MFC supports <b>3,775</b> case parameters organized into families.</p>
+<p>MFC supports <b>3,778</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md379"></a>
 Parameter Families</h2>
@@ -225,7 +225,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="#stl_models" title="stl_models">stl_models</a>  </td><td class="markdownTableBodyNone">8  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="#chem_params" title="chem_params">chem_params</a>  </td><td class="markdownTableBodyNone">4  </td><td class="markdownTableBodyNone">Chemistry model parameters  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#chem_params" title="chem_params">chem_params</a>  </td><td class="markdownTableBodyNone">7  </td><td class="markdownTableBodyNone">Chemistry model parameters  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="#ib_airfoil" title="ib_airfoil">ib_airfoil</a>  </td><td class="markdownTableBodyNone">4  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
@@ -1082,17 +1082,23 @@ Patterns</h3>
 <h2 class="doxsection"><a class="anchor" id="chem_params"></a>
 chem_params</h2>
 <p><em>Chemistry model parameters</em></p>
-<p><b>4 parameters</b></p>
+<p><b>7 parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Constraints  </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">chem_params%adap_substeps</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Chemistry parameter: adap_substeps  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">chem_params%diffusion</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable species diffusion for chemistry  </td><td class="markdownTableBodyNone">Isothermal In (<span class="tt">bc_xisothermal_in</span>) requires both <span class="tt">chemistry</span>='T' and <span class="tt">chem_paramsdiffusion</span>='T' to calculate heat conduction.; Isothermal Out (<span class="tt">bc_xisothermal_out</span>) requires both <span class="tt">chemistry</span>='T' and <span class="tt">chem_paramsdiffusion</span>='T' to calculate heat conduction.; Isothermal In (<span class="tt">bc_yisothermal_in</span>) requires both <span class="tt">chemistry</span>='T' and <span class="tt">chem_paramsdiffusion</span>='T' to calculate heat conduction.  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">chem_params%gamma_method</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Gamma calculation method (1=formulation, 2=cp/cv ratio)  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">chem_params%reactions</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable chemical reactions  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">chem_params%gamma_method</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Gamma calculation method (1=formulation, 2=cp/cv ratio)  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">chem_params%reaction_substeps</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Chemistry parameter: reaction_substeps  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">chem_params%reaction_substeps_max</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Chemistry parameter: reaction_substeps_max  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">chem_params%reactions</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable chemical reactions  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">chem_params%transport_model</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Transport model selection for chemistry  </td><td class="markdownTableBodyNone">Chemistry parameter  </td></tr>
 </table>
 <hr  />
@@ -1715,7 +1721,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-07-18</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-07-19</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

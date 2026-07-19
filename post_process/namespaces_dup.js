@@ -61,6 +61,7 @@ var namespaces_dup =
     ] ],
     [ "m_chemistry", "namespacem__chemistry.html", [
       [ "compute_viscosity_and_inversion", "namespacem__chemistry.html#adcf7ea4e71da08b937a94689dc134882", null ],
+      [ "s_chemistry_reaction_substep", "namespacem__chemistry.html#ac8e41fe81d743b1fb307fe95ffdc0c1b", null ],
       [ "s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#a55a54a1b3fd9a34cc80b7a38c747dbfb", null ],
       [ "s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6", null ],
       [ "s_compute_q_t_sf", "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9", null ],
