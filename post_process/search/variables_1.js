@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info::b'],['../namespacem__phase__change.html#ac04f23df5534e980ade4a7db80575145',1,'m_phase_change::b']]],
+  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info']]],
   ['b_5fsize_1',['b_size',['../namespacem__global__parameters__common.html#acef411c737493cf66460a2728bf48116',1,'m_global_parameters_common']]],
   ['bb_5fbandwidth_2',['bb_bandwidth',['../structm__derived__types_1_1acoustic__parameters.html#afb4e9d0ccb0dd5d027d8481a8b7435fa',1,'m_derived_types::acoustic_parameters']]],
   ['bb_5flowest_5ffreq_3',['bb_lowest_freq',['../structm__derived__types_1_1acoustic__parameters.html#ae5df21fb5eeea484118aac065b43f314',1,'m_derived_types::acoustic_parameters']]],

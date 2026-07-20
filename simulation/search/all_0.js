@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters::a'],['../namespacem__phase__change.html#a344f6041e2adbadbffa3381620d8f2a8',1,'m_phase_change::a']]],
+  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters']]],
   ['accel_5fbf_1',['accel_bf',['../namespacem__global__parameters.html#a4d953db2f36f05624766c42cc9851362',1,'m_global_parameters']]],
   ['accel_5fmag_2',['accel_mag',['../namespacem__derived__variables.html#a2ab3ca4fa9e4d44a3343ceaecdf71afd',1,'m_derived_variables']]],
   ['acoustic_3',['acoustic',['../namespacem__global__parameters__common.html#a835597025d19a2d9d8c120e1b428c23a',1,'m_global_parameters_common']]],

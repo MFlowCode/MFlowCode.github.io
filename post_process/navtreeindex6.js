@@ -1,8 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structm__derived__types_1_1output__context.html#af5b8a4d176a3d6dab85b79e085b144b4":[1,0,11,21,5],
-"structm__derived__types_1_1output__context.html#af5b8a4d176a3d6dab85b79e085b144b4":[2,0,1,21,5],
-"structm__derived__types_1_1particle__cloud__parameters.html":[1,0,11,34],
 "structm__derived__types_1_1particle__cloud__parameters.html":[2,0,1,34],
 "structm__derived__types_1_1particle__cloud__parameters.html#a010f1fa96e46e1e0d821f56f9601a96c":[1,0,11,34,4],
 "structm__derived__types_1_1particle__cloud__parameters.html#a010f1fa96e46e1e0d821f56f9601a96c":[2,0,1,34,4],

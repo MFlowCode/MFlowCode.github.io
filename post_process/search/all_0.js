@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters::a'],['../namespacem__phase__change.html#a344f6041e2adbadbffa3381620d8f2a8',1,'m_phase_change::a']]],
+  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters']]],
   ['acoustic_5fparameters_1',['acoustic_parameters',['../structm__derived__types_1_1acoustic__parameters.html',1,'m_derived_types']]],
   ['acoustic_5fspatial_5fsupport_5fwidth_2',['acoustic_spatial_support_width',['../namespacem__constants.html#a92bc4d3446d8473183e165116932778f',1,'m_constants']]],
   ['adap_5fsubsteps_3',['adap_substeps',['../structm__derived__types_1_1chemistry__parameters.html#a0c7ceba5ade3212e03a699c1b36084c6',1,'m_derived_types::chemistry_parameters']]],

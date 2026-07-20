@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info::b'],['../namespacem__phase__change.html#ac04f23df5534e980ade4a7db80575145',1,'m_phase_change::b']]],
+  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info']]],
   ['b_5fsize_1',['b_size',['../namespacem__global__parameters__common.html#acef411c737493cf66460a2728bf48116',1,'m_global_parameters_common']]],
   ['batch_5fsize_2',['batch_size',['../namespacem__fftw.html#a565da54ad2fc806890cd3dc017ca9639',1,'m_fftw']]],
   ['bb_5fbandwidth_3',['bb_bandwidth',['../structm__derived__types_1_1acoustic__parameters.html#afb4e9d0ccb0dd5d027d8481a8b7435fa',1,'m_derived_types::acoustic_parameters::bb_bandwidth'],['../namespacem__acoustic__src.html#af2d136ef242278a53b52156f3f7d07ec',1,'m_acoustic_src::bb_bandwidth']]],

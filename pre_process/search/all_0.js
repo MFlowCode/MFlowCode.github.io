@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters::a'],['../namespacem__phase__change.html#a344f6041e2adbadbffa3381620d8f2a8',1,'m_phase_change::a']]],
+  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters']]],
   ['a_5fx_1',['a_x',['../namespacem__global__parameters__common.html#a31015da2e02b66a2f85d058a3f6e2107',1,'m_global_parameters_common']]],
   ['a_5fy_2',['a_y',['../namespacem__global__parameters__common.html#a2809bd226dca0d0870b5ea3eaf198c6b',1,'m_global_parameters_common']]],
   ['a_5fz_3',['a_z',['../namespacem__global__parameters__common.html#a08ebb9d211c4ced4e7195f89e74f5997',1,'m_global_parameters_common']]],
