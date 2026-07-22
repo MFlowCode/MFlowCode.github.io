@@ -165,12 +165,16 @@ $(function(){initNavTree('namespacem__body__forces.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a7db192e742e55158a9a8ad8018f98897" id="r_a7db192e742e55158a9a8ad8018f98897"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7db192e742e55158a9a8ad8018f98897">s_initialize_body_forces_module</a></td></tr>
 <tr class="memdesc:a7db192e742e55158a9a8ad8018f98897"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the body forces module. When synthetic_turbulence is enabled, generates random wave vectors for each energy shell on rank 0, then broadcasts to all MPI ranks and copies to GPU.  <br /></td></tr>
+<tr class="memitem:a76c0998dabb6d70fa0142f4fe013ceec" id="r_a76c0998dabb6d70fa0142f4fe013ceec"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a76c0998dabb6d70fa0142f4fe013ceec">s_initialize_body_force_with_spatial_support</a></td></tr>
+<tr class="memdesc:a76c0998dabb6d70fa0142f4fe013ceec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize a body force with spatial support presented in Wei &amp; Freund (JFM, 2005).  <br /></td></tr>
 <tr class="memitem:ab227c5ae90649946f0090c234e5d0163" id="r_ab227c5ae90649946f0090c234e5d0163"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab227c5ae90649946f0090c234e5d0163">s_compute_acceleration</a> (t)</td></tr>
 <tr class="memdesc:ab227c5ae90649946f0090c234e5d0163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the acceleration at time t.  <br /></td></tr>
-<tr class="memitem:a8d20d22747d67b572df90aa7e6446afd" id="r_a8d20d22747d67b572df90aa7e6446afd"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8d20d22747d67b572df90aa7e6446afd">s_compute_mixture_density</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
-<tr class="memdesc:a8d20d22747d67b572df90aa7e6446afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mixture density at each cell center.  <br /></td></tr>
-<tr class="memitem:a08cd17a95f78e75d8e95c31d30e5188f" id="r_a08cd17a95f78e75d8e95c31d30e5188f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a08cd17a95f78e75d8e95c31d30e5188f">s_compute_body_forces_rhs</a> (q_prim_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhs_vf)</td></tr>
-<tr class="memdesc:a08cd17a95f78e75d8e95c31d30e5188f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the body force source terms for momentum and energy equations.  <br /></td></tr>
+<tr class="memitem:a418c876a8a4e110aec2d4754123b1311" id="r_a418c876a8a4e110aec2d4754123b1311"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a418c876a8a4e110aec2d4754123b1311">s_compute_body_force_with_spatial_support</a> (t, bounds)</td></tr>
+<tr class="memdesc:a418c876a8a4e110aec2d4754123b1311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the body force of Wei &amp; Freund (JFM, 2005).  <br /></td></tr>
+<tr class="memitem:ad7fa644abec73f19de32e59aa7d4a7f7" id="r_ad7fa644abec73f19de32e59aa7d4a7f7"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad7fa644abec73f19de32e59aa7d4a7f7">s_compute_mixture_density</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, bounds)</td></tr>
+<tr class="memdesc:ad7fa644abec73f19de32e59aa7d4a7f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the mixture density at each cell center.  <br /></td></tr>
+<tr class="memitem:aeee7bf67a0a52da91317e89d2abfa282" id="r_aeee7bf67a0a52da91317e89d2abfa282"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aeee7bf67a0a52da91317e89d2abfa282">s_compute_body_forces_rhs</a> (q_prim_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhs_vf, bounds)</td></tr>
+<tr class="memdesc:aeee7bf67a0a52da91317e89d2abfa282"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the body force source terms for momentum and energy equations.  <br /></td></tr>
 <tr class="memitem:a68d941c7ca102fa11d8551de404c0cb9" id="r_a68d941c7ca102fa11d8551de404c0cb9"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a68d941c7ca102fa11d8551de404c0cb9">s_compute_synthetic_forces_rhs</a> (q_prim_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhs_vf)</td></tr>
 <tr class="memdesc:a68d941c7ca102fa11d8551de404c0cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the synthetic turbulence RHS contribution.  <br /></td></tr>
 <tr class="memitem:adf9ca798003a8cc4fb2c278fd9756ce0" id="r_adf9ca798003a8cc4fb2c278fd9756ce0"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adf9ca798003a8cc4fb2c278fd9756ce0">s_finalize_body_forces_module</a></td></tr>
@@ -178,6 +182,14 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a0dbb543fd11a114478dc6aafbada163d" id="r_a0dbb543fd11a114478dc6aafbada163d"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a0dbb543fd11a114478dc6aafbada163d">spbf_num_freq</a> = 8</td></tr>
+<tr class="memitem:a026fd8e0887596c17a5245b7def63305" id="r_a026fd8e0887596c17a5245b7def63305"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a026fd8e0887596c17a5245b7def63305">spbf_amp</a></td></tr>
+<tr class="memitem:a822672e91c2bb683307496082acfcbe9" id="r_a822672e91c2bb683307496082acfcbe9"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a822672e91c2bb683307496082acfcbe9">spbf_xc</a></td></tr>
+<tr class="memitem:a250dcb97765e89628f0aa592f392813b" id="r_a250dcb97765e89628f0aa592f392813b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a250dcb97765e89628f0aa592f392813b">spbf_yc</a></td></tr>
+<tr class="memitem:a3e36abe46cf885e97f4f6b0c9aed09db" id="r_a3e36abe46cf885e97f4f6b0c9aed09db"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a3e36abe46cf885e97f4f6b0c9aed09db">spbf_conv_vel</a></td></tr>
+<tr class="memitem:abe594b6d51cdbd70fad1f0afc0147063" id="r_abe594b6d51cdbd70fad1f0afc0147063"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#abe594b6d51cdbd70fad1f0afc0147063">spbf_sigma</a></td></tr>
+<tr class="memitem:a60ffd7bffadca618855a8bb6d37e1af8" id="r_a60ffd7bffadca618855a8bb6d37e1af8"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a60ffd7bffadca618855a8bb6d37e1af8">freq</a></td></tr>
+<tr class="memitem:a19650d0cd53cc308f618cf6e623a9e87" id="r_a19650d0cd53cc308f618cf6e623a9e87"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a19650d0cd53cc308f618cf6e623a9e87">phase</a></td></tr>
 <tr class="memitem:accd825ba224c4748c924853d2aab331f" id="r_accd825ba224c4748c924853d2aab331f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#accd825ba224c4748c924853d2aab331f">rhom</a></td></tr>
 <tr class="memitem:ad35670f3ead31d47c559fa60af0b558b" id="r_ad35670f3ead31d47c559fa60af0b558b"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ad35670f3ead31d47c559fa60af0b558b">num_synthetic_wave_numbers</a></td></tr>
 <tr class="memitem:ad39d87e27153eed3089c1339a842e5e0" id="r_ad39d87e27153eed3089c1339a842e5e0"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ad39d87e27153eed3089c1339a842e5e0">synthetic_k_x</a></td></tr>
@@ -217,7 +229,7 @@ Variables</h2></td></tr>
 
 <p>Compute the acceleration at time t. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00920">920</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01133">1133</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -226,8 +238,46 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a08cd17a95f78e75d8e95c31d30e5188f" name="a08cd17a95f78e75d8e95c31d30e5188f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08cd17a95f78e75d8e95c31d30e5188f">&#9670;&#160;</a></span>s_compute_body_forces_rhs()</h2>
+<a id="a418c876a8a4e110aec2d4754123b1311" name="a418c876a8a4e110aec2d4754123b1311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a418c876a8a4e110aec2d4754123b1311">&#9670;&#160;</a></span>s_compute_body_force_with_spatial_support()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_body_forces::s_compute_body_force_with_spatial_support </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply the body force of Wei &amp; Freund (JFM, 2005). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01166">1166</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a418c876a8a4e110aec2d4754123b1311_icgraph.svg" width="459" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aeee7bf67a0a52da91317e89d2abfa282" name="aeee7bf67a0a52da91317e89d2abfa282"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee7bf67a0a52da91317e89d2abfa282">&#9670;&#160;</a></span>s_compute_body_forces_rhs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -245,24 +295,29 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Compute the body force source terms for momentum and energy equations. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01004">1004</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01335">1335</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a08cd17a95f78e75d8e95c31d30e5188f_cgraph.svg" width="459" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_aeee7bf67a0a52da91317e89d2abfa282_cgraph.svg" width="459" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a8d20d22747d67b572df90aa7e6446afd" name="a8d20d22747d67b572df90aa7e6446afd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d20d22747d67b572df90aa7e6446afd">&#9670;&#160;</a></span>s_compute_mixture_density()</h2>
+<a id="ad7fa644abec73f19de32e59aa7d4a7f7" name="ad7fa644abec73f19de32e59aa7d4a7f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7fa644abec73f19de32e59aa7d4a7f7">&#9670;&#160;</a></span>s_compute_mixture_density()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,8 +328,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_body_forces::s_compute_mixture_density </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -286,11 +345,11 @@ Here is the call graph for this function:</div>
 
 <p>Compute the mixture density at each cell center. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00953">953</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01281">1281</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a8d20d22747d67b572df90aa7e6446afd_icgraph.svg" width="459" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_ad7fa644abec73f19de32e59aa7d4a7f7_icgraph.svg" width="459" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -322,7 +381,7 @@ Here is the caller graph for this function:</div>
 <p>Compute the synthetic turbulence RHS contribution. </p>
 <p>Each Fourier mode m has wave vector k_m and a pre-computed solenoidal (divergence-free) direction e_m perpendicular to k_m. The force field is F = rho * (sum_m A_m * cos(k_m.(x-U*t*xhat) + phi_m) * e_m) * (U/Lx) * G. This excites all velocity components correctly and is zero outside the bounding box of the Gaussian window. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01198">1198</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01595">1595</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -340,7 +399,38 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the body forces module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01372">1372</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01769">1769</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a76c0998dabb6d70fa0142f4fe013ceec" name="a76c0998dabb6d70fa0142f4fe013ceec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76c0998dabb6d70fa0142f4fe013ceec">&#9670;&#160;</a></span>s_initialize_body_force_with_spatial_support()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_body_forces::s_initialize_body_force_with_spatial_support</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize a body force with spatial support presented in Wei &amp; Freund (JFM, 2005). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00931">931</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a76c0998dabb6d70fa0142f4fe013ceec_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -358,7 +448,12 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the body forces module. When synthetic_turbulence is enabled, generates random wave vectors for each energy shell on rank 0, then broadcasts to all MPI ranks and copies to GPU. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a7db192e742e55158a9a8ad8018f98897_cgraph.svg" width="456" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -368,6 +463,30 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a60ffd7bffadca618855a8bb6d37e1af8" name="a60ffd7bffadca618855a8bb6d37e1af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60ffd7bffadca618855a8bb6d37e1af8">&#9670;&#160;</a></span>freq</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_body_forces::freq</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="ad35670f3ead31d47c559fa60af0b558b" name="ad35670f3ead31d47c559fa60af0b558b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad35670f3ead31d47c559fa60af0b558b">&#9670;&#160;</a></span>num_synthetic_wave_numbers</h2>
 
@@ -388,7 +507,31 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00360">360</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a19650d0cd53cc308f618cf6e623a9e87" name="a19650d0cd53cc308f618cf6e623a9e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19650d0cd53cc308f618cf6e623a9e87">&#9670;&#160;</a></span>phase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_body_forces::phase</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00346">346</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -412,7 +555,151 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00347">347</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a026fd8e0887596c17a5245b7def63305" name="a026fd8e0887596c17a5245b7def63305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a026fd8e0887596c17a5245b7def63305">&#9670;&#160;</a></span>spbf_amp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_body_forces::spbf_amp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00341">341</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3e36abe46cf885e97f4f6b0c9aed09db" name="a3e36abe46cf885e97f4f6b0c9aed09db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e36abe46cf885e97f4f6b0c9aed09db">&#9670;&#160;</a></span>spbf_conv_vel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_body_forces::spbf_conv_vel</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00344">344</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a0dbb543fd11a114478dc6aafbada163d" name="a0dbb543fd11a114478dc6aafbada163d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dbb543fd11a114478dc6aafbada163d">&#9670;&#160;</a></span>spbf_num_freq</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_body_forces::spbf_num_freq = 8</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00340">340</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="abe594b6d51cdbd70fad1f0afc0147063" name="abe594b6d51cdbd70fad1f0afc0147063"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe594b6d51cdbd70fad1f0afc0147063">&#9670;&#160;</a></span>spbf_sigma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_body_forces::spbf_sigma</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00345">345</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a822672e91c2bb683307496082acfcbe9" name="a822672e91c2bb683307496082acfcbe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a822672e91c2bb683307496082acfcbe9">&#9670;&#160;</a></span>spbf_xc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_body_forces::spbf_xc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00342">342</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a250dcb97765e89628f0aa592f392813b" name="a250dcb97765e89628f0aa592f392813b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a250dcb97765e89628f0aa592f392813b">&#9670;&#160;</a></span>spbf_yc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_body_forces::spbf_yc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00343">343</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -436,7 +723,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00374">374</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -460,7 +747,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -484,7 +771,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -508,7 +795,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -532,7 +819,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -556,7 +843,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -580,7 +867,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -604,7 +891,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00367">367</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00374">374</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>

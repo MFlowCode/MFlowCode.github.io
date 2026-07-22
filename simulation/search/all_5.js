@@ -115,8 +115,9 @@ var searchData=
   ['fourier_5frings_112',['fourier_rings',['../namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183',1,'m_constants']]],
   ['fourier_5fsin_113',['fourier_sin',['../structm__derived__types_1_1ic__patch__parameters.html#ac9ef6fb398e78d6e9a578126e3650473',1,'m_derived_types::ic_patch_parameters']]],
   ['fp_114',['fp',['../structm__derived__types_1_1field__position.html#ab3739d21e99742473b7fdfb99b9d9dbe',1,'m_derived_types::field_position']]],
-  ['frequency_115',['frequency',['../structm__derived__types_1_1acoustic__parameters.html#a2e07a70596715caaa5d4eca019cc7aec',1,'m_derived_types::acoustic_parameters::frequency'],['../namespacem__acoustic__src.html#ae58e593fe352876d15a8514a284f9355',1,'m_acoustic_src::frequency']]],
-  ['fullmom_116',['fullmom',['../structm__derived__types_1_1qbmm__idx__info.html#a49559aa1540ceb867c9f9792625606c4',1,'m_derived_types::qbmm_idx_info']]],
-  ['fwd_5fplan_117',['fwd_plan',['../namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a',1,'m_fftw']]],
-  ['fwd_5fplan_5fgpu_118',['fwd_plan_gpu',['../namespacem__fftw.html#ae218a57224a455f5d06b3804cff5bb08',1,'m_fftw']]]
+  ['freq_115',['freq',['../structm__derived__types_1_1spbf__parameters.html#a5ef89294d46f5d2399b4cf56e7464f55',1,'m_derived_types::spbf_parameters::freq'],['../namespacem__body__forces.html#a60ffd7bffadca618855a8bb6d37e1af8',1,'m_body_forces::freq']]],
+  ['frequency_116',['frequency',['../structm__derived__types_1_1acoustic__parameters.html#a2e07a70596715caaa5d4eca019cc7aec',1,'m_derived_types::acoustic_parameters::frequency'],['../namespacem__acoustic__src.html#ae58e593fe352876d15a8514a284f9355',1,'m_acoustic_src::frequency']]],
+  ['fullmom_117',['fullmom',['../structm__derived__types_1_1qbmm__idx__info.html#a49559aa1540ceb867c9f9792625606c4',1,'m_derived_types::qbmm_idx_info']]],
+  ['fwd_5fplan_118',['fwd_plan',['../namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a',1,'m_fftw']]],
+  ['fwd_5fplan_5fgpu_119',['fwd_plan_gpu',['../namespacem__fftw.html#ae218a57224a455f5d06b3804cff5bb08',1,'m_fftw']]]
 ];

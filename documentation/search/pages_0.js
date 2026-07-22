@@ -62,10 +62,10 @@ var searchData=
   ['18_20chemistry_20specific_20boundary_20conditions_59',['18. Chemistry-Specific Boundary Conditions',['../case.html#autotoc_md35',1,'']]],
   ['18_20flux_20limiting_60',['18. Flux Limiting',['../equations.html#autotoc_md215',1,'']]],
   ['19_20non_20newtonian_20herschel_20bulkley_20viscosity_61',['19. Non-Newtonian (Herschel-Bulkley) Viscosity',['../case.html#sec-non-newtonian',1,'']]],
-  ['1_3a_20setting_20up_20your_20environment_62',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md613',1,'']]],
+  ['1_3a_20setting_20up_20your_20environment_62',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md615',1,'']]],
   ['1b_20units_20dimensions_20and_20non_20dimensionalization_63',['1b. Units, Dimensions, and Non-Dimensionalization',['../equations.html#sec-units-dimensions',1,'']]],
   ['1d_64',['1D',['../examples.html#autotoc_md289',1,'Lax shock tube problem (1D)'],['../examples.html#autotoc_md268',1,'Shu-Osher problem (1D)'],['../examples.html#autotoc_md254',1,'Titarev-Toro problem (1D)']]],
   ['1d_20multi_20component_20inert_20shock_20tube_65',['1D Multi-Component Inert Shock Tube',['../examples.html#autotoc_md303',1,'']]],
   ['1d_20multi_20component_20reactive_20shock_20tube_66',['1D Multi-Component Reactive Shock Tube',['../examples.html#autotoc_md284',1,'']]],
-  ['1d_20rendering_67',['Tiled 1D rendering',['../visualization.html#autotoc_md601',1,'']]]
+  ['1d_20rendering_67',['Tiled 1D rendering',['../visualization.html#autotoc_md603',1,'']]]
 ];

@@ -46,6 +46,7 @@ var annotated_dup =
       [ "subgrid_bubble_physical_parameters", "structm__derived__types_1_1subgrid__bubble__physical__parameters.html", "structm__derived__types_1_1subgrid__bubble__physical__parameters" ],
       [ "mpi_io_airfoil_ib_var", "structm__derived__types_1_1mpi__io__airfoil__ib__var.html", "structm__derived__types_1_1mpi__io__airfoil__ib__var" ],
       [ "integral_parameters", "structm__derived__types_1_1integral__parameters.html", "structm__derived__types_1_1integral__parameters" ],
+      [ "spbf_parameters", "structm__derived__types_1_1spbf__parameters.html", "structm__derived__types_1_1spbf__parameters" ],
       [ "acoustic_parameters", "structm__derived__types_1_1acoustic__parameters.html", "structm__derived__types_1_1acoustic__parameters" ],
       [ "source_spatial_type", "structm__derived__types_1_1source__spatial__type.html", "structm__derived__types_1_1source__spatial__type" ],
       [ "ghost_point", "structm__derived__types_1_1ghost__point.html", "structm__derived__types_1_1ghost__point" ],

@@ -391,6 +391,8 @@ Hard Coded Patches</h4>
 <li><span class="tt">case(170)</span>: Load 1D profile from data files</li>
 <li><span class="tt">case(270)</span>: Extrude 1D data to 2D domain</li>
 <li><span class="tt">case(370)</span>: Extrude 2D data to 3D domain</li>
+<li><span class="tt">case(273)</span>: Extrude 1D data to 2D domain, with the mom%beg data column carrying the extruded-axis (mom%end) velocity profile instead of its own (zeroed) component. Used by <span class="tt">examples/2D_reacting_mixing_layer</span> to give a temporally-evolving mixing layer a nonzero streamwise velocity profile along the extruded axis, which <span class="tt">case(270)</span> cannot represent since it always zeros that component.</li>
+<li><span class="tt">case(274)</span>: Load a full 2D <span class="tt">(x, y)</span> field with no extrusion &ndash; one data file per variable, <span class="tt">(m_glb+1)*(n_glb+1)</span> lines each in x-major order, covering all primitive variables directly (unlike <span class="tt">case(270)</span>/<span class="tt">case(273)</span>, no component is zeroed or repurposed). Used by <span class="tt">examples/2D_spatial_reacting_mixing_layer</span> for a spatially-evolving mixing layer, where the cross-stream profile must vary with the streamwise coordinate too (via the <span class="tt">bf_spatial_support</span> body force) so no single extrusion axis applies. The file's line count, origin, and (uniform) cell spacing must match the run grid; a mismatched file is rejected with a fatal error, so regenerate the IC whenever the grid changes.</li>
 </ul>
 <p>Setup: Only requires specifying <span class="tt">files_dir</span> and filename pattern via <span class="tt">file_extension</span>. The files are located, for example, at <span class="tt">examples/1D_flamelet/IC</span>, and their format is <span class="tt">prim.XX.YY.file_extension.dat</span>. Implementation: All variables and file handling are managed in the <span class="tt">case.py</span> file of the simulation. Usage: Ideal for initializing simulations from lower-dimensional solutions, enabling users to add perturbations or modifications to the base extruded fields for flow instability studies.</p>
 <p>The following parameters support hardcoded initial conditions that read interface data from files:</p>
@@ -1283,19 +1285,22 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">bf_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable body forces in the x[y,z] direction  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">k_x[y,y]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Magnitude of oscillating acceleration  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">k_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Magnitude of oscillating acceleration  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">w_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Frequency of oscillating acceleration  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">p_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Phase shift of oscillating acceleration  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">g_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Magnitude of background acceleration  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">bf_spatial_support</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable spatially supported body force (Wei &amp; Freund, JFM 2005)  </td></tr>
 </table>
 <p><span class="tt">k_x[y,z]</span>, <span class="tt">w_x[y,z]</span>, <span class="tt">p_x[y,z]</span>, and <span class="tt">g_x[y,z]</span> define an oscillating acceleration in the <span class="tt">x[y,z]</span> direction with the form</p>
 <p class="formulaDsp">
 \[ a_{x[y,z]} = g_{x[y,z]} + k_{x[y,z]}\sin\left(w_{x[y,z]}t + p_{x[y,z]}\right). \]
 </p>
 <p>By convention, positive accelerations in the <span class="tt">x[y,z]</span> direction are in the positive <span class="tt">x[y,z]</span> direction.</p>
+<p>When <span class="tt">bf_spatial_support</span> is enabled, the body force is given a localized spatial envelope following Wei &amp; Freund (JFM, 2005), parameterized through the <span class="tt">spatial_bf</span> derived type with attributes <span class="tt">amp</span>, <span class="tt">x_centroid</span>, <span class="tt">y_centroid</span>, <span class="tt">conv_vel</span>, <span class="tt">sigma</span>, and per-mode arrays <span class="tt">freq(1:8)</span>, <span class="tt">phase(1:8)</span>. Unlike the domain-wide <span class="tt">k/w/p/g</span> forcing above, it seeds a downstream instability at a fixed streamwise location with a ladder of forcing frequencies. <span class="tt">x</span> is the streamwise direction by convention for this forcing: the <span class="tt">x</span> component advects with the mean flow via a <span class="tt">conv_vel*t</span> term, while the cross-stream (<span class="tt">y</span>) component does not. The source is constructed from a streamfunction, so it is divergence-free, and the corresponding <span class="tt">u*f</span> work term is added to the energy equation. This forcing is implemented for <b>2D cases only</b>; enabling it in 1D or 3D is rejected at startup.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
 14. Magnetohydrodynamics (MHD)</h3>
 <table class="markdownTable">

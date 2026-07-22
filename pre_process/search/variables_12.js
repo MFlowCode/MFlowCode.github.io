@@ -15,7 +15,7 @@ var searchData=
   ['shear_5fbc_5fflip_5fnum_12',['shear_bc_flip_num',['../namespacem__global__parameters__common.html#a4f2ed03f6c839071a4ca5c1dfcd1fbaf',1,'m_global_parameters_common']]],
   ['shear_5findices_13',['shear_indices',['../namespacem__global__parameters__common.html#adf9e2f6b461eed9e6271d36dc810081c',1,'m_global_parameters_common']]],
   ['shear_5fnum_14',['shear_num',['../namespacem__global__parameters__common.html#a1e7367b69a81a0e5b297a7e4fdc3fb0f',1,'m_global_parameters_common']]],
-  ['sigma_15',['sigma',['../namespacem__global__parameters__common.html#ad6cfccf1e3b09ea2943fb4fe3ba24d60',1,'m_global_parameters_common']]],
+  ['sigma_15',['sigma',['../structm__derived__types_1_1spbf__parameters.html#a2e0bd9ed37d90f86dc22e3c17a34d482',1,'m_derived_types::spbf_parameters::sigma'],['../namespacem__global__parameters__common.html#ad6cfccf1e3b09ea2943fb4fe3ba24d60',1,'m_global_parameters_common::sigma']]],
   ['sigr_16',['sigr',['../namespacem__global__parameters__common.html#a66bde9261379d3c283d1fdc859b7980e',1,'m_global_parameters_common']]],
   ['sigv_17',['sigv',['../namespacem__global__parameters__common.html#af4ad5373f5383534ab8b2904eebbf7b5',1,'m_global_parameters_common']]],
   ['simplex_5fparams_18',['simplex_params',['../namespacem__global__parameters__common.html#ac4d10270827f171a5b19f7b264096ce8',1,'m_global_parameters_common']]],

@@ -132,6 +132,8 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::re_trans_t", "namespacem__global__parameters.html#a38a29138166e436370b8d57be3207692", null ],
     [ "m_global_parameters::rho0ref", "namespacem__global__parameters.html#aaa2e4cb122f5199ed349265c96bfd7f8", null ],
     [ "m_global_parameters::shear_stress", "namespacem__global__parameters.html#aea6b06272f010d3e4172931d3742acb2", null ],
+    [ "m_global_parameters::spbf_source_x", "namespacem__global__parameters.html#a7c0a948dbb5761dab3b7b0f7426c4e95", null ],
+    [ "m_global_parameters::spbf_source_y", "namespacem__global__parameters.html#a49d5850fb018af5b820c1341eedb02dd", null ],
     [ "m_global_parameters::ss", "namespacem__global__parameters.html#a1943e3ee91d78fc8fda27a276e6f7496", null ],
     [ "m_global_parameters::synth_amp_shell", "namespacem__global__parameters.html#a19421744b023de43694e97061d9acd40", null ],
     [ "m_global_parameters::synth_k_shell", "namespacem__global__parameters.html#a0c4c5edbd2cbbe3148436586173e085e", null ],

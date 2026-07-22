@@ -1,7 +1,7 @@
 var searchData=
 [
   ['lag_5fparams_0',['lag_params',['../parameters.html#lag_params',1,'']]],
-  ['lagrange_20bubble_20model_1',['Euler-Lagrange Bubble Model',['../physics_constraints.html#autotoc_md476',1,'']]],
+  ['lagrange_20bubble_20model_1',['Euler-Lagrange Bubble Model',['../physics_constraints.html#autotoc_md478',1,'']]],
   ['lagrange_20bubbles_20bubbles_5flagrange_20true_20maeda18_2',['6.2 Euler-Lagrange Bubbles (&lt;span class=&quot;tt&quot;&gt;bubbles_lagrange = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_maeda18&quot;&gt;[32]&lt;/a&gt;)',['../equations.html#autotoc_md167',1,'']]],
   ['law_20poiseuille_20channel_3',['2D IBM-Walled Power-Law Poiseuille Channel',['../examples.html#autotoc_md237',1,'']]],
   ['law_20shear_20thickening_20poiseuille_20channel_4',['2D Power-Law (Shear-Thickening) Poiseuille Channel',['../examples.html#autotoc_md222',1,'']]],
@@ -10,7 +10,7 @@ var searchData=
   ['layer_203d_7',['3D Turbulent Mixing layer (3D)',['../examples.html#autotoc_md313',1,'']]],
   ['layout_8',['Layout',['../architecture.html#autotoc_md1',1,'Directory Layout'],['../contributing.html#autotoc_md88',1,'Directory Layout']]],
   ['lemetayer04_20wilfong26_20sec_202_202_9',['3.1 Stiffened Gas EOS (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_menikoff89&quot;&gt;[36]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_lemetayer04&quot;&gt;[28]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[60]&lt;/a&gt; Sec. 2.2)',['../equations.html#autotoc_md152',1,'']]],
-  ['levels_10',['Verbosity Levels',['../troubleshooting.html#autotoc_md548',1,'']]],
+  ['levels_10',['Verbosity Levels',['../troubleshooting.html#autotoc_md550',1,'']]],
   ['lid_20driven_20cavity_11',['2D Shear-Thinning Lid-Driven Cavity',['../examples.html#autotoc_md277',1,'']]],
   ['lid_20driven_20cavity_20problem_202d_12',['Lid-Driven Cavity Problem (2D)',['../examples.html#autotoc_md310',1,'']]],
   ['limiting_13',['18. Flux Limiting',['../equations.html#autotoc_md215',1,'']]],
@@ -20,11 +20,11 @@ var searchData=
   ['lint_20gate_20runs_20first_20blocks_20all_20other_20jobs_17',['Lint Gate (runs first, blocks all other jobs)',['../contributing.html#autotoc_md120',1,'']]],
   ['liutex_20visualization_20at_20transitional_20state_18',['Liutex visualization at transitional state',['../examples.html#autotoc_md314',1,'']]],
   ['load_19',['load',['../cli-reference.html#load',1,'']]],
-  ['location_20',['Test Output Location',['../troubleshooting.html#autotoc_md563',1,'']]],
-  ['log_21',['Debug Log',['../troubleshooting.html#autotoc_md557',1,'']]],
+  ['location_20',['Test Output Location',['../troubleshooting.html#autotoc_md565',1,'']]],
+  ['log_21',['Debug Log',['../troubleshooting.html#autotoc_md559',1,'']]],
   ['log_22',['Debug Logging (&lt;span class=&quot;tt&quot;&gt;-d, --debug-log&lt;/span&gt;)',['../cli-reference.html#autotoc_md83',1,'']]],
   ['logging_20d_20debug_20log_23',['Debug Logging (&lt;span class=&quot;tt&quot;&gt;-d, --debug-log&lt;/span&gt;)',['../cli-reference.html#autotoc_md83',1,'']]],
-  ['looks_20wrong_20or_20has_20artifacts_24',['Visualization looks wrong or has artifacts',['../troubleshooting.html#autotoc_md589',1,'']]],
+  ['looks_20wrong_20or_20has_20artifacts_24',['Visualization looks wrong or has artifacts',['../troubleshooting.html#autotoc_md591',1,'']]],
   ['lookup_25',['Parameter Lookup',['../getting-started.html#autotoc_md346',1,'']]],
   ['loop_26',['Loop',['../contributing.html#autotoc_md109',1,'How to Write a GPU Parallel Loop'],['../architecture.html#autotoc_md3',1,'The Simulation Loop']]],
   ['low_20mach_20number_20corrections_20wilfong26_20sec_204_202_204_27',['17. Low Mach Number Corrections (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[60]&lt;/a&gt; Sec. 4.2.4)',['../equations.html#autotoc_md213',1,'']]]
