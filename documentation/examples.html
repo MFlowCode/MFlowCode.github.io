@@ -160,119 +160,9 @@ $(function(){initNavTree('examples.html','',''); });
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md216"></a>
 Example Cases</h1>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md217"></a>
-Kelvin-Helmholtz Instability (2D)</h2>
-<p>Reference: See Example 4.8. </p><blockquote class="doxtable">
-<p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
-</blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md218"></a>
-Initial State</h4>
-<p><img src="figure0-2D_kelvin_helmholtz-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md219"></a>
-Evolved State</h4>
-<p><img src="figure1-2D_kelvin_helmholtz-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md220"></a>
-IBM Bow Shock (3D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md221"></a>
-Final Condition</h3>
-<p><img src="result-3D_ibm_bowshock-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md222"></a>
-2D Power-Law (Shear-Thickening) Poiseuille Channel</h2>
-<p>Validates the <b>power-law term</b> of MFC's Herschel-Bulkley non-Newtonian viscosity against a closed-form analytic Poiseuille profile, in the shear-**thickening** regime (<span class="tt">nn &gt; 1</span>): the velocity profile is more <b>pointed</b> (sharper-topped) than a parabola. Companion to <span class="tt">examples/2D_poiseuille_nn</span> (shear-thinning, <span class="tt">nn = 0.7</span>).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md223"></a>
-Regime and parameters</h3>
-<p>Single Papanastasiou-regularized Herschel-Bulkley fluid with <b>no yield stress</b> (<span class="tt">tau0 = 0</span>), so the effective viscosity is the pure power law <span class="tt">mu = K*gamma_dot^(n-1)</span>, clamped to <span class="tt">[mu_min, mu_max]</span>:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Value  </th><th class="markdownTableHeadNone">Role  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)K</span>  </td><td class="markdownTableBodyNone"><span class="tt">5.0e-2</span>  </td><td class="markdownTableBodyNone">consistency index  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)nn</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.5</span>  </td><td class="markdownTableBodyNone">flow index <span class="tt">&gt; 1</span> -&gt; shear-thickening  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)tau0</span>  </td><td class="markdownTableBodyNone"><span class="tt">0.0</span>  </td><td class="markdownTableBodyNone">no yield stress (pure power law)  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)hb_m</span>  </td><td class="markdownTableBodyNone"><span class="tt">1000.0</span>  </td><td class="markdownTableBodyNone">Papanastasiou regularization parameter  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">0.035</span>  </td><td class="markdownTableBodyNone">viscosity clamp  </td></tr>
-</table>
-<p>Driven by a constant body acceleration <span class="tt">g_x = 5e-2</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span> (sound speed ~3.74), giving <span class="tt">u_max ~ 0.013</span> and Mach ~3e-3 (effectively incompressible). Channel <span class="tt">L_y = 0.2</span>, half-height <span class="tt">H = L_y/2 = 0.1</span>, no-slip walls at <span class="tt">y = 0, L_y</span>, periodic in <span class="tt">x</span>. Grid <span class="tt">m = 24</span> (x), <span class="tt">n = 63</span> (y).</p>
-<p>For <span class="tt">n &gt; 1</span> the maximum physical viscosity is at the <b>wall</b> (highest shear rate), <span class="tt">mu_wall = K^(1/n) * (rho*g*H)^((n-1)/n) = 0.0232</span>. <span class="tt">mu_max = 0.035 ~ 1.5*mu_wall</span> sits just above that maximum, so the clamp <b>never activates</b> (the analytic profile stays exact everywhere) while keeping the explicit viscous timestep large — the timestep scales as <span class="tt">1/mu_max</span>, so set <span class="tt">mu_max</span> just above the physical maximum viscosity.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md224"></a>
-Governing physics and analytic solution</h3>
-<p>Fully-developed steady channel flow balances the body force against the shear stress, <span class="tt">tau = rho*g*(H - y)</span>. With <span class="tt">tau = K*|du/dy|^n</span> (power law) the closed form is </p><pre class="fragment">u(y) = (n/(n+1)) * (rho*g/K)^(1/n) * ( H^((n+1)/n) - |y - H|^((n+1)/n) )
-</pre><p>(<span class="tt">n &lt; 1</span> blunt/flat-topped; <span class="tt">n = 1</span> parabola; <span class="tt">n &gt; 1</span> pointed). For <span class="tt">n &gt; 1</span> the effective viscosity <span class="tt">mu = K*gamma_dot^(n-1) -&gt; 0</span> at the shear-free centerline (rather than diverging as for <span class="tt">n &lt; 1</span>), so no regularization cap is needed and the analytic profile is an exact reference everywhere.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md225"></a>
-How to run</h3>
-<pre class="fragment">./mfc.sh run examples/2D_poiseuille_thickening_nn/case.py -n 2
-python examples/2D_poiseuille_thickening_nn/compare_analytic.py
-</pre><p>The run reaches <span class="tt">t_stop = 0.9</span> (~2 wall-viscous diffusion times) in ~1 min on 2 CPU ranks with <span class="tt">dt = 8.4e-5</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md226"></a>
-Validation result</h3>
-<p>Relative L2 error vs. the analytic power-law profile: <b>1.46%</b> (2-rank run, steady-state drift between the last two saves 3.9e-3). The local momentum balance <span class="tt">K*|du/dy|^n = rho*g*(H-y)</span> holds to ~1.4% across the channel, and the profile bluntness (mean/peak = <b>0.626</b>) matches the <span class="tt">n = 1.5</span> theory <span class="tt">(n+1)/(2n+1) = 0.625</span>, confirming the pointed shear-thickening profile. <span class="tt">u_max = 1.288e-2</span> matches the analytic <span class="tt">1.291e-2</span>, confirming the clamp stays inactive.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md227"></a>
-References</h3>
-<ul>
-<li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md228"></a>
-2D General Herschel-Bulkley Poiseuille Channel</h2>
-<p>Validates the <b>combined</b> non-Newtonian terms of MFC's Herschel-Bulkley viscosity against a closed-form analytic Poiseuille profile: a shear-thinning power law (<span class="tt">nn = 0.5 &lt; 1</span>) <b>and</b> a yield stress (<span class="tt">tau0 &gt; 0</span>) acting together. The companion examples isolate each effect — <span class="tt">2D_poiseuille_nn</span> / <span class="tt">2D_poiseuille_thickening_nn</span> (power-law only, <span class="tt">tau0 = 0</span>) and <span class="tt">2D_bingham_poiseuille_nn</span> (yield only, <span class="tt">nn = 1</span>). The signature of a correct general Herschel-Bulkley model is a rigid <b>plug</b> near the centerline (where <span class="tt">|tau| &lt; tau0</span>) joined to a shear-thinning sheared profile at the walls.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md229"></a>
-Regime and parameters</h3>
-<p>Single Papanastasiou-regularized Herschel-Bulkley fluid with both a sub-unity flow index and a finite yield stress:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Value  </th><th class="markdownTableHeadNone">Role  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)K</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.5e-2</span>  </td><td class="markdownTableBodyNone">consistency index  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)nn</span>  </td><td class="markdownTableBodyNone"><span class="tt">0.5</span>  </td><td class="markdownTableBodyNone">flow index <span class="tt">&lt; 1</span> -&gt; shear-thinning  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)tau0</span>  </td><td class="markdownTableBodyNone"><span class="tt">3.5e-3</span>  </td><td class="markdownTableBodyNone">yield stress -&gt; plug half-width <span class="tt">y0 = 0.35 H</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)hb_m</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.0e4</span>  </td><td class="markdownTableBodyNone">sharp Papanastasiou yield regularization  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">0.3</span>  </td><td class="markdownTableBodyNone">viscosity clamp (rigid plug)  </td></tr>
-</table>
-<p>Driven by <span class="tt">g_x = 0.1</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span>, giving <span class="tt">tau_w = rho*g*H = 1e-2</span>, <span class="tt">u_plug ~ 4e-3</span> and Mach ~1e-3. Channel <span class="tt">L_y = 0.2</span>, <span class="tt">H = 0.1</span>, no-slip walls, periodic in <span class="tt">x</span>. Grid <span class="tt">m = 24</span> (x), <span class="tt">n = 63</span> (y).</p>
-<p>The plug viscosity diverges as the shear rate <span class="tt">-&gt; 0</span>, so the clamp <span class="tt">mu_max</span> sets the plug rigidity. <span class="tt">mu_max = 0.3</span> (~6x the wall effective viscosity) keeps a clear plug while keeping the explicit viscous timestep <span class="tt">dt ~ dy^2 rho/mu_max</span> tractable: <span class="tt">dt</span> scales as <span class="tt">1/mu_max</span>, so set <span class="tt">mu_max</span> just above the physical maximum required.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md230"></a>
-Governing physics and analytic solution</h3>
-<p>The shear stress is <span class="tt">tau = rho*g*(H - y)</span>; the fluid only flows where <span class="tt">|tau| &gt; tau0</span>. With <span class="tt">tau = tau0 + K*|du/dy|^n</span> and <span class="tt">tau_w = rho*g*H &gt; tau0</span>: </p><pre class="fragment">plug half-width   : y0   = tau0/(rho*g)
-sheared region    : u(y) = (n/((n+1)*rho*g)) * K^(-1/n) *
-                           [ (tau_w - tau0)^((n+1)/n)
-                             - (rho*g*(H-y) - tau0)^((n+1)/n) ]   (|y-H| &gt;= y0)
-plug              : u_plug = (n/((n+1)*rho*g)) * K^(-1/n) *
-                             (tau_w - tau0)^((n+1)/n)             (|y-H| &lt;  y0)
-</pre><p>(upper half mirrors about <span class="tt">y = H</span>). Requires <span class="tt">tau_w &gt; tau0</span> for any flow.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md231"></a>
-How to run</h3>
-<pre class="fragment">./mfc.sh run examples/2D_herschel_bulkley_poiseuille_nn/case.py -n 2
-python examples/2D_herschel_bulkley_poiseuille_nn/compare_analytic.py
-</pre><p>The run reaches <span class="tt">t_stop = 0.4</span> in ~5 min on 2 CPU ranks with <span class="tt">dt ~ 1e-5</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md232"></a>
-Validation result</h3>
-<p>Relative L2 error vs. the analytic Herschel-Bulkley profile: <b>3.8%</b> (2-rank run, steady-state drift between the last two saves ~1.1%). The sheared-region momentum balance <span class="tt">K*|du/dy|^n + tau0 = rho*g*(H-y)</span> holds to ~1% near the walls. A flat plug forms at the centerline: because the Papanastasiou plug is regularized (not perfectly rigid), the strict <span class="tt">&gt;=99% u_max</span> band understates it, but the <b><span class="tt">&gt;=95% u_max</span> plug half-width = 0.0359 = 1.03 y0</b>, matching the analytic <span class="tt">y0 = tau0/(rho*g) = 0.035 = 0.35 H</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md233"></a>
-References</h3>
-<ul>
-<li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md234"></a>
-Richtmyer-Meshkov Instability (2D)</h2>
-<p>Reference: See Example 4.18. </p><blockquote class="doxtable">
-<p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
-</blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md235"></a>
-Initial State</h4>
-<p><img src="figure0-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md236"></a>
-Evolved State</h4>
-<p><img src="figure1-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md237"></a>
 2D IBM-Walled Power-Law Poiseuille Channel</h2>
 <p>Validates the <b>immersed boundary (IBM) + non-Newtonian viscosity interaction</b>: the channel's no-slip walls are two rectangular IB slabs instead of domain boundary conditions, so the flow exercises the per-stencil-sample Herschel-Bulkley viscosity <span class="tt">mu_eff</span> used by the IBM ghost-point and force machinery (<span class="tt">s_compute_viscous_stress_tensor</span> in <span class="tt">m_viscous.fpp</span>, consumed by <span class="tt">s_compute_ib_forces</span> in <span class="tt">m_ibm.fpp</span>). Companion to <span class="tt">examples/2D_poiseuille_thickening_nn</span>, which validates the same fluid against the same analytic profile with BC walls.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md238"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md218"></a>
 Geometry and parameters</h3>
 <p>Domain <span class="tt">x in [0, 0.2]</span> (periodic), <span class="tt">y in [0, 0.3]</span>, grid <span class="tt">m = 24</span>, <span class="tt">n = 95</span> (<span class="tt">dy = 0.003125</span>). Two rectangle IB slabs (<span class="tt">patch_ibgeometry = 3</span>, no-slip) bound the flow gap <span class="tt">y in [0.05, 0.25]</span> (half-height <span class="tt">H = 0.1</span>, centerline <span class="tt">y_c = 0.15</span>, 64 cells across the gap). Each slab extends beyond the domain in <span class="tt">x</span> and mostly outside the domain in <span class="tt">y</span>, so the only IB surface seen by the flow is its flat gap face; the slab centroids sit just <em>inside</em> the domain (a centroid exactly on the boundary is owned by no rank and its <span class="tt">ib_state</span> force record is never written). The domain BCs behind the slabs are no-slip walls (<span class="tt">bc_y = -16</span>), which keep the body-forced dead fluid inside the slabs benign. <span class="tt">patch_ibmass = 0</span> so the reported IB force is the pure pressure+viscous volume integration (no <span class="tt">bf_x*mass</span> bookkeeping term); <span class="tt">ib_state_wrt = T</span> writes it at every save.</p>
 <p>Fluid and forcing match the BC-walled template (single Papanastasiou-regularized Herschel-Bulkley fluid, no yield stress):</p>
@@ -291,11 +181,11 @@ Geometry and parameters</h3>
 <td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">0.035</span>  </td><td class="markdownTableBodyNone">viscosity clamp (<span class="tt">~1.5x mu_wall = 0.0232</span>, clamp inactive)  </td></tr>
 </table>
 <p>Driven by <span class="tt">g_x = 5e-2</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span> (Mach ~3e-3); <span class="tt">cfl_adap_dt</span> with <span class="tt">cfl_target = 0.3</span> to <span class="tt">t_stop = 0.9</span> (~2 wall-viscous diffusion times).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md239"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md219"></a>
 Analytic solution</h3>
 <p>In the gap the steady fully-developed power-law profile is </p><pre class="fragment">u(y) = (n/(n+1)) * (rho*g/K)^(1/n) * ( H^((n+1)/n) - |y - y_c|^((n+1)/n) )
 </pre><p>and the steady x-force per wall per unit depth is <span class="tt">tau_w * L_x</span> with <span class="tt">tau_w = rho*g*H = 5e-3</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md240"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md220"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_poiseuille_nn/case.py -n 2
 ./build/venv/bin/python3 examples/2D_ibm_poiseuille_nn/compare_analytic.py
@@ -306,136 +196,36 @@ How to run</h3>
 done
 ./build/venv/bin/python3 examples/2D_ibm_poiseuille_nn/check_equivalence.py \
     build/ibm_nn_equiv/newtonian build/ibm_nn_equiv/nn1
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md241"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md221"></a>
 Validation results</h3>
 <p><b>A — n = 1 Newtonian equivalence (IBM mu_eff degeneracy).</b> A power-law fluid with <span class="tt">nn = 1, tau0 = 0, K = 0.02</span> is analytically the same fluid as a Newtonian one with <span class="tt">mu = 0.02</span>. Running both modes with the same fixed <span class="tt">dt = 6e-5</span> to <span class="tt">t = 0.3</span> gives <b>bitwise identical</b> velocity fields (max abs and rel L2 difference <span class="tt">0.0</span>) <em>and</em> bitwise identical IBM-integrated wall forces — the non-Newtonian IBM path reduces exactly to the Newtonian one.</p>
 <p><b>B — analytic power-law profile (n = 1.5).</b> Relative L2 error of the steady x-averaged gap profile vs. the analytic solution: <b>5.8%</b> with the nominal <span class="tt">H = 0.1</span> (slab faces), <b>2.6%</b> with <span class="tt">H = 0.1016</span> fitted from the <span class="tt">u -&gt; 0</span> crossings (IBM walls are sharp only to ~half a cell; the fitted walls sit <span class="tt">~dy/2 = 0.0016</span> outside the faces). Steady-state drift between the last two saves 2.0e-3; profile bluntness (mean/peak) 0.640 vs. the <span class="tt">n = 1.5</span> theory 0.625 (parabola 0.667), confirming the pointed shear-thickening profile. The BC-walled template achieves 1.46% on the same fluid; the extra error is the diffuse-wall representation, not the viscosity model.</p>
 <p><b>C — IBM-integrated wall force.</b> The volume-integrated x-force converges to <b>8.05e-4</b> per wall (both walls identical by symmetry; plateaued by <span class="tt">t = 0.9</span>) vs. the analytic <span class="tt">tau_w*L_x = 1.0e-3</span> — a ratio of <b>0.80</b>. The deficit is the known coarseness of the volume-integration force estimator (second-order finite differences of ghost/dead-cell states inside the body), not the viscosity model: in Validation A the same integral is bitwise identical between the Newtonian and non-Newtonian code paths.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md242"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md222"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md243"></a>
-Shock Droplet (2D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023) </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md244"></a>
-Initial Condition</h3>
-<p><img src="initial-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md245"></a>
-Result</h3>
-<p><img src="result-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md246"></a>
-2D Hardcodied IC Example</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md247"></a>
-Initial Condition and Result</h3>
-<p><img src="initial-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/> <img src="result-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md248"></a>
-2D Bingham (Yield-Stress) Poiseuille Channel</h2>
-<p>Validates the <b>yield-stress term</b> of MFC's Herschel-Bulkley non-Newtonian viscosity against a closed-form analytic Poiseuille profile. Demonstrates the Bingham regime (<span class="tt">nn = 1</span>, <span class="tt">tau0 &gt; 0</span>): a rigid <b>plug</b> of uniform velocity forms near the centerline, where the shear stress falls below the yield stress.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md249"></a>
-Regime and parameters</h3>
-<p>Single Papanastasiou-regularized Herschel-Bulkley fluid with unit flow index, so <span class="tt">K = mu</span> is a plain Newtonian consistency and the only non-Newtonian effect is the yield stress:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Value  </th><th class="markdownTableHeadNone">Role  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)K</span>  </td><td class="markdownTableBodyNone"><span class="tt">5.0e-2</span>  </td><td class="markdownTableBodyNone"><span class="tt">n = 1</span> -&gt; plain dynamic viscosity <span class="tt">mu</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)nn</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.0</span>  </td><td class="markdownTableBodyNone">flow index = 1 (Bingham, no power-law)  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)tau0</span>  </td><td class="markdownTableBodyNone"><span class="tt">4.0e-3</span>  </td><td class="markdownTableBodyNone">yield stress -&gt; plug half-width <span class="tt">y0 = 0.4 H</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)hb_m</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.0e4</span>  </td><td class="markdownTableBodyNone">sharp Papanastasiou yield regularization  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">1.0</span>  </td><td class="markdownTableBodyNone">viscosity clamp (rigid plug)  </td></tr>
-</table>
-<p>Driven by <span class="tt">g_x = 0.1</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span>, giving <span class="tt">tau_w = rho*g*H = 1e-2</span>, <span class="tt">u_plug ~ 3.6e-3</span> and Mach ~1e-3. Channel <span class="tt">L_y = 0.2</span>, <span class="tt">H = 0.1</span>, no-slip walls, periodic in <span class="tt">x</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md250"></a>
-Governing physics and analytic solution</h3>
-<p>The shear stress is <span class="tt">tau = rho*g*(H - y)</span>; the fluid only flows where <span class="tt">|tau| &gt; tau0</span>. With <span class="tt">n = 1</span>, <span class="tt">K = mu</span>, <span class="tt">tau_w = rho*g*H &gt; tau0</span>: </p><pre class="fragment">plug half-width   : y0   = tau0/(rho*g)
-sheared region    : u(y) = (1/(2*mu*rho*g)) *
-                           [ (tau_w - tau0)^2 - (rho*g*(H-y) - tau0)^2 ]   (|y-H| &gt;= y0)
-plug              : u_plug = (1/(2*mu*rho*g)) * (tau_w - tau0)^2            (|y-H| &lt;  y0)
-</pre><p>The signature of a correct yield term is the flat plug of uniform velocity within <span class="tt">|y - H| &lt; y0</span>. Requires <span class="tt">tau_w &gt; tau0</span> for any flow.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md251"></a>
-How to run</h3>
-<pre class="fragment">./mfc.sh run examples/2D_bingham_poiseuille_nn/case.py -n 2
-python examples/2D_bingham_poiseuille_nn/compare_analytic.py
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md252"></a>
-Validation result</h3>
-<p>Relative L2 error vs. the analytic Bingham profile: <b>2.5%</b> (2-rank run, steady state confirmed). A plug forms at the centerline with half-width matching the analytic <span class="tt">y0 = tau0/(rho*g) = 0.4 H</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md253"></a>
-References</h3>
-<ul>
-<li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md254"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md223"></a>
+Rayleigh-Taylor Instability (3D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md224"></a>
+Final Condition and Linear Theory</h3>
+<p><img src="final_condition-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/> <img src="linear_theory-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md225"></a>
 Titarev-Toro problem (1D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>V. A. Titarev, E. F. Toro, Finite-volume WENO schemes for three-dimensional conservation laws, Journal of Computational Physics 201 (1) (2004) 238–260. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md255"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md226"></a>
 Initial Condition</h3>
 <p><img src="initial-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md256"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md227"></a>
 Result</h3>
 <p><img src="result-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md257"></a>
-2D Triple Point (2D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Trojak, W., &amp; Dzanic, T. Positivity-preserving discoutinous spectral element method for compressible multi-species flows. arXiv:2308.02426 </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md258"></a>
-Numerical Schlieren at Final Time</h3>
-<p><img src="final-2D_triple_point-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md259"></a>
-Gas Jet (2D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md260"></a>
-Final Condition</h3>
-<p><img src="final_condition-2D_jet-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md261"></a>
-Rayleigh-Taylor Instability (2D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md262"></a>
-Final Condition and Linear Theory</h3>
-<p><img src="result-2D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md263"></a>
-Isentropic vortex problem (2D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Coralic, V., &amp; Colonius, T. (2014). Finite-volume Weno scheme for viscous compressible multicomponent flows. Journal of Computational Physics, 274, 95–121. <a href="https://doi.org/10.1016/j.jcp.2014.06.003">https://doi.org/10.1016/j.jcp.2014.06.003</a> </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md264"></a>
-Density</h3>
-<p><img src="alpha_rho1-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md265"></a>
-Density Norms</h3>
-<p><img src="density_norms-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md266"></a>
-Taylor-Green Vortex (3D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Hillewaert, K. (2013). TestCase C3.5 - DNS of the transition of the Taylor-Green vortex, Re=1600 - Introduction and result summary. 2nd International Workshop on high-order methods for CFD. </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md267"></a>
-Final Condition</h3>
-<p>This figure shows the isosurface with zero q-criterion.</p>
-<p><img src="result-3D_TaylorGreenVortex-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md268"></a>
-Shu-Osher problem (1D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5. </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md269"></a>
-Initial Condition</h3>
-<p><img src="initial-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md270"></a>
-Result</h3>
-<p><img src="result-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md271"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md228"></a>
 2D Power-Law (Shear-Thinning) Poiseuille Channel</h2>
 <p>Validates the <b>power-law term</b> of MFC's Herschel-Bulkley non-Newtonian viscosity against a closed-form analytic Poiseuille profile. Demonstrates the shear-thinning regime (<span class="tt">nn &lt; 1</span>): the velocity profile is blunter (flatter-topped) than a parabola.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md272"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md229"></a>
 Regime and parameters</h3>
 <p>Single Papanastasiou-regularized Herschel-Bulkley fluid with <b>no yield stress</b> (<span class="tt">tau0 = 0</span>), so the effective viscosity is the pure power law <span class="tt">mu = K*gamma_dot^(n-1)</span>, clamped to <span class="tt">[mu_min, mu_max]</span>:</p>
 <table class="markdownTable">
@@ -453,26 +243,150 @@ Regime and parameters</h3>
 <td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">10.0</span>  </td><td class="markdownTableBodyNone">viscosity clamp  </td></tr>
 </table>
 <p>Driven by a constant body acceleration <span class="tt">g_x = 8e-2</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span> (sound speed ~3.74), giving <span class="tt">u_max ~ 0.011</span> and Mach ~3e-3 (effectively incompressible). Channel <span class="tt">L_y = 0.2</span>, half-height <span class="tt">H = L_y/2 = 0.1</span>, no-slip walls at <span class="tt">y = 0, L_y</span>, periodic in <span class="tt">x</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md273"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md230"></a>
 Governing physics and analytic solution</h3>
 <p>Fully-developed steady channel flow balances the body force against the shear stress, <span class="tt">tau = rho*g*(H - y)</span>. With <span class="tt">tau = K*|du/dy|^n</span> (power law) the closed form is </p><pre class="fragment">u(y) = (n/(n+1)) * (rho*g/K)^(1/n) * ( H^((n+1)/n) - |y - H|^((n+1)/n) )
 </pre><p>(<span class="tt">n &lt; 1</span> blunt/flat-topped; <span class="tt">n = 1</span> parabola; <span class="tt">n &gt; 1</span> pointed). For <span class="tt">n &lt; 1</span> the viscosity diverges at the shear-free centerline, so any regularized solver caps it there; the near-wall momentum balance <span class="tt">K*|du/dy|^n = rho*g*(H-y)</span> is the cleanest pointwise correctness test and holds regardless of the cap.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md274"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md231"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_poiseuille_nn/case.py -n 2
 python examples/2D_poiseuille_nn/compare_analytic.py
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md275"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md232"></a>
 Validation result</h3>
 <p>Relative L2 error vs. the analytic power-law profile: <b>0.68%</b> (2-rank run, steady state confirmed). The local momentum balance holds to ~0.1% across the channel, and the profile bluntness (mean/peak = <b>0.706</b>) matches the <span class="tt">n = 0.7</span> theory <span class="tt">(n+1)/(2n+1) = 0.708</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md276"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md233"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md277"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md234"></a>
+Viscous Shock Tube (2D)</h2>
+<p>Reference: See Example 4.13. </p><blockquote class="doxtable">
+<p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021)., see Example 4.13 </p>
+</blockquote>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md235"></a>
+Initial State</h4>
+<p><img src="figure0-2D_viscous_shock_tube-example.png" alt="" height="400" class="inline"/></p>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md236"></a>
+Evolved State</h4>
+<p><img src="figure1-2D_viscous_shock_tube-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md237"></a>
+IBM Bow Shock (3D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md238"></a>
+Final Condition</h3>
+<p><img src="result-3D_ibm_bowshock-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md239"></a>
+Richtmyer-Meshkov Instability (2D)</h2>
+<p>Reference: See Example 4.18. </p><blockquote class="doxtable">
+<p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
+</blockquote>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md240"></a>
+Initial State</h4>
+<p><img src="figure0-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md241"></a>
+Evolved State</h4>
+<p><img src="figure1-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md242"></a>
+Perfectly Stirred Reactor</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>G. B. Skinner and G. H. Ringrose, “Ignition Delays of a Hydrogen—Oxygen—Argon Mixture at Relatively Low Temperatures”, J. Chem. Phys., vol. 42, no. 6, pp. 2190–2192, Mar. 1965. Accessed: Oct. 13, 2024. </p>
+</blockquote>
+<p><img src="result-nD_perfect_reactor-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md243"></a>
+Validation</h3>
+<p>After running the simulation, compare MFC species mass fractions and induction time against a Cantera 0-D ideal-gas reactor reference:</p>
+<div class="fragment"><div class="line">python analyze.py</div>
+</div><!-- fragment --><p>This reads the Silo output, runs an equivalent Cantera reactor, prints the induction times (Skinner et al. / Cantera / (Che)MFC), and saves <span class="tt">plots-nD_perfect_reactor-example.png</span>. All dependencies are installed automatically by the MFC toolchain.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md244"></a>
+Scaling and Performance test</h2>
+<p>The scaling case can exercise both weak- and strong-scaling. It adjusts itself depending on the number of requested ranks.</p>
+<p>This directory also contains a collection of scripts used to test strong and weak scaling on OLCF Frontier.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md245"></a>
+Weak Scaling</h3>
+<p>Pass <span class="tt">--scaling weak</span>. The <span class="tt">--memory</span> option controls (approximately) how much memory each rank should use, in Gigabytes. The number of cells in each dimension is then adjusted according to the number of requested ranks and an approximation for the relation between cell count and memory usage. The problem size increases linearly with the number of ranks.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md246"></a>
+Strong Scaling</h3>
+<p>Pass <span class="tt">--scaling strong</span>. The <span class="tt">--memory</span> option controls (approximately) how much memory should be used in total during simulation, across all ranks, in Gigabytes. The problem size remains constant as the number of ranks increases.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md247"></a>
+Example</h3>
+<p>For example, to run a weak-scaling test that uses ~4GB of GPU memory per rank on 8 2-rank nodes with case optimization, one could:</p>
+<div class="fragment"><div class="line">./mfc.sh run examples/scaling/benchmark.py -t pre_process simulation                    \</div>
+<div class="line">             -e batch -p mypartition -N 8 -n 2 -w &quot;01:00:00&quot; -# &quot;MFC Weak Scaling&quot; \</div>
+<div class="line">             --case-optimization -j 32 -- --scaling weak --memory 4</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md248"></a>
+1D Multi-Component Inert Shock Tube</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md249"></a>
+Initial Condition</h3>
+<p><img src="initial-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md250"></a>
+Results</h3>
+<p><img src="result-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md251"></a>
+Forward Facing Step (2D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Woodward, P. <em>(1984). The numerical simulation of two-dimensional fluid flow with strong shocks. Journal of Computational Physics, 54(1), 115–173. <a href="https://doi.org/10.1016/0021-9991(84)90140-2">https://doi.org/10.1016/0021-9991(84)90140-2</a></em> </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md252"></a>
+Final Condition (Density)</h3>
+<p><img src="final-2D_forward_facing_step-example.png" alt="" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md253"></a>
+Lid-Driven Cavity Problem (2D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Bezgin, D. A., &amp; Buhendwa A. B., &amp; Adams N. A. (2022). JAX-FLUIDS: A fully-differentiable high-order computational fluid dynamics solver for compressible two-phase flows. arXiv:2203.13760 </p>
+</blockquote>
+<blockquote class="doxtable">
+<p>Ghia, U., &amp; Ghia, K. N., &amp; Shin, C. T. (1982). High-re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. Journal of Computational Physics, 48, 387-411 </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md254"></a>
+Final Condition</h3>
+<p><img src="final_condition-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md255"></a>
+Centerline Velocities</h3>
+<p><img src="centerline_velocities-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md256"></a>
+Gas Jet (2D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md257"></a>
+Final Condition</h3>
+<p><img src="final_condition-2D_jet-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md258"></a>
+2D Hardcodied IC Example</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md259"></a>
+Initial Condition and Result</h3>
+<p><img src="initial-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/> <img src="result-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md260"></a>
+Lax shock tube problem (1D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>P. D. Lax, Weak solutions of nonlinear hyperbolic equations and their numerical computation, Communications on pure and applied mathematics 7 (1) (1954) 159–193. </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md261"></a>
+Initial Condition</h3>
+<p><img src="initial-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md262"></a>
+Result</h3>
+<p><img src="result-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md263"></a>
+Isentropic vortex problem (2D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Coralic, V., &amp; Colonius, T. (2014). Finite-volume Weno scheme for viscous compressible multicomponent flows. Journal of Computational Physics, 274, 95–121. <a href="https://doi.org/10.1016/j.jcp.2014.06.003">https://doi.org/10.1016/j.jcp.2014.06.003</a> </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md264"></a>
+Density</h3>
+<p><img src="alpha_rho1-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md265"></a>
+Density Norms</h3>
+<p><img src="density_norms-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md266"></a>
+Backward Facing Step (2D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md267"></a>
+Final Condition (Density)</h3>
+<p><img src="final-2D_backward_facing_step-example.png" alt="" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md268"></a>
 2D Shear-Thinning Lid-Driven Cavity</h2>
 <p>Qualitative demonstration of MFC's Herschel-Bulkley non-Newtonian viscosity in a recirculating flow. A shear-thinning fluid fills a unit square cavity driven by a moving top lid. Unlike the Poiseuille examples, <b>this case has no closed-form analytic solution</b> — it is a qualitative demonstration of the expected shear-thinning trend (a primary vortex center shifted toward the moving lid, with stronger near-wall velocity gradients relative to the Newtonian case).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md278"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md269"></a>
 Regime and parameters</h3>
 <p>Two identical Papanastasiou-regularized Herschel-Bulkley fluids (a two-fluid setup sharing one rheology), pure power law (<span class="tt">tau0 = 0</span>):</p>
 <table class="markdownTable">
@@ -491,25 +405,105 @@ Regime and parameters</h3>
 </table>
 <p>Unit square <span class="tt">[0,1]^2</span>, <span class="tt">m = n = 99</span> (coarse smoke-run grid), all walls no-slip with the top lid moving at <span class="tt">bc_yve1 = 0.5</span>. Effective Reynolds number <span class="tt">Re_eff = 1/K = 100</span> at unit shear rate; the conventional lid-based Reynolds number <span class="tt">rho*U*L/mu(1) = 0.5/1e-2 = 50</span> with <span class="tt">U = 0.5</span> and <span class="tt">mu(1) = K</span>.</p>
 <p>The auto-registered CI test of this example is truncated to 50 time steps and serves as smoke coverage only, not a physics anchor.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md279"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md270"></a>
 Governing physics</h3>
 <p>Incompressible recirculating cavity flow with the shear-dependent power-law viscosity <span class="tt">mu = K*gamma_dot^(n-1)</span>. With <span class="tt">n &lt; 1</span> the fluid thins under the strong shear beneath the lid and in the corner boundary layers, while the slow cavity core stays comparatively viscous.</p>
 <p><b>What to look for</b> (qualitative, no analytic match): a primary recirculating vortex whose center, relative to a Newtonian cavity at the same Reynolds number, is shifted toward the moving lid, with stronger near-wall velocity gradients — the expected shear-thinning trend. Do not expect a quantitative error; the committed grid (<span class="tt">m = n = 99</span>) is intentionally coarse. For quantitative comparison use <span class="tt">m = n = 499</span> or finer with a longer <span class="tt">t_step_stop</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md280"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md271"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_lid_driven_cavity_nn/case.py -n 2
 </pre><p>Post-process and inspect the velocity / vorticity (<span class="tt">omega_wrt(3)</span>) fields; there is no <span class="tt">compare_analytic.py</span> for this qualitative case.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md281"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md272"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md282"></a>
-Rayleigh-Taylor Instability (3D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md283"></a>
-Final Condition and Linear Theory</h3>
-<p><img src="final_condition-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/> <img src="linear_theory-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md273"></a>
+2D General Herschel-Bulkley Poiseuille Channel</h2>
+<p>Validates the <b>combined</b> non-Newtonian terms of MFC's Herschel-Bulkley viscosity against a closed-form analytic Poiseuille profile: a shear-thinning power law (<span class="tt">nn = 0.5 &lt; 1</span>) <b>and</b> a yield stress (<span class="tt">tau0 &gt; 0</span>) acting together. The companion examples isolate each effect — <span class="tt">2D_poiseuille_nn</span> / <span class="tt">2D_poiseuille_thickening_nn</span> (power-law only, <span class="tt">tau0 = 0</span>) and <span class="tt">2D_bingham_poiseuille_nn</span> (yield only, <span class="tt">nn = 1</span>). The signature of a correct general Herschel-Bulkley model is a rigid <b>plug</b> near the centerline (where <span class="tt">|tau| &lt; tau0</span>) joined to a shear-thinning sheared profile at the walls.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md274"></a>
+Regime and parameters</h3>
+<p>Single Papanastasiou-regularized Herschel-Bulkley fluid with both a sub-unity flow index and a finite yield stress:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Value  </th><th class="markdownTableHeadNone">Role  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)K</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.5e-2</span>  </td><td class="markdownTableBodyNone">consistency index  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)nn</span>  </td><td class="markdownTableBodyNone"><span class="tt">0.5</span>  </td><td class="markdownTableBodyNone">flow index <span class="tt">&lt; 1</span> -&gt; shear-thinning  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)tau0</span>  </td><td class="markdownTableBodyNone"><span class="tt">3.5e-3</span>  </td><td class="markdownTableBodyNone">yield stress -&gt; plug half-width <span class="tt">y0 = 0.35 H</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)hb_m</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.0e4</span>  </td><td class="markdownTableBodyNone">sharp Papanastasiou yield regularization  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">0.3</span>  </td><td class="markdownTableBodyNone">viscosity clamp (rigid plug)  </td></tr>
+</table>
+<p>Driven by <span class="tt">g_x = 0.1</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span>, giving <span class="tt">tau_w = rho*g*H = 1e-2</span>, <span class="tt">u_plug ~ 4e-3</span> and Mach ~1e-3. Channel <span class="tt">L_y = 0.2</span>, <span class="tt">H = 0.1</span>, no-slip walls, periodic in <span class="tt">x</span>. Grid <span class="tt">m = 24</span> (x), <span class="tt">n = 63</span> (y).</p>
+<p>The plug viscosity diverges as the shear rate <span class="tt">-&gt; 0</span>, so the clamp <span class="tt">mu_max</span> sets the plug rigidity. <span class="tt">mu_max = 0.3</span> (~6x the wall effective viscosity) keeps a clear plug while keeping the explicit viscous timestep <span class="tt">dt ~ dy^2 rho/mu_max</span> tractable: <span class="tt">dt</span> scales as <span class="tt">1/mu_max</span>, so set <span class="tt">mu_max</span> just above the physical maximum required.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md275"></a>
+Governing physics and analytic solution</h3>
+<p>The shear stress is <span class="tt">tau = rho*g*(H - y)</span>; the fluid only flows where <span class="tt">|tau| &gt; tau0</span>. With <span class="tt">tau = tau0 + K*|du/dy|^n</span> and <span class="tt">tau_w = rho*g*H &gt; tau0</span>: </p><pre class="fragment">plug half-width   : y0   = tau0/(rho*g)
+sheared region    : u(y) = (n/((n+1)*rho*g)) * K^(-1/n) *
+                           [ (tau_w - tau0)^((n+1)/n)
+                             - (rho*g*(H-y) - tau0)^((n+1)/n) ]   (|y-H| &gt;= y0)
+plug              : u_plug = (n/((n+1)*rho*g)) * K^(-1/n) *
+                             (tau_w - tau0)^((n+1)/n)             (|y-H| &lt;  y0)
+</pre><p>(upper half mirrors about <span class="tt">y = H</span>). Requires <span class="tt">tau_w &gt; tau0</span> for any flow.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md276"></a>
+How to run</h3>
+<pre class="fragment">./mfc.sh run examples/2D_herschel_bulkley_poiseuille_nn/case.py -n 2
+python examples/2D_herschel_bulkley_poiseuille_nn/compare_analytic.py
+</pre><p>The run reaches <span class="tt">t_stop = 0.4</span> in ~5 min on 2 CPU ranks with <span class="tt">dt ~ 1e-5</span>.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md277"></a>
+Validation result</h3>
+<p>Relative L2 error vs. the analytic Herschel-Bulkley profile: <b>3.8%</b> (2-rank run, steady-state drift between the last two saves ~1.1%). The sheared-region momentum balance <span class="tt">K*|du/dy|^n + tau0 = rho*g*(H-y)</span> holds to ~1% near the walls. A flat plug forms at the centerline: because the Papanastasiou plug is regularized (not perfectly rigid), the strict <span class="tt">&gt;=99% u_max</span> band understates it, but the <b><span class="tt">&gt;=95% u_max</span> plug half-width = 0.0359 = 1.03 y0</b>, matching the analytic <span class="tt">y0 = tau0/(rho*g) = 0.035 = 0.35 H</span>.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md278"></a>
+References</h3>
+<ul>
+<li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md279"></a>
+2D Riemann Test (2D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Chamarthi, A., &amp; Hoffmann, N., &amp; Nishikawa, H., &amp; Frankel S. (2023). Implicit gradients based conservative numerical scheme for compressible flows. arXiv:2110.05461 </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md280"></a>
+Density Initial and Final Conditions</h3>
+<p><img src="alpha_rho1_initial-2D_riemann_test-example.png" alt="" width="45%" class="inline"/> <img src="alpha_rho1_final-2D_riemann_test-example.png" alt="" width="45%" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md281"></a>
+Kelvin-Helmholtz Instability (2D)</h2>
+<p>Reference: See Example 4.8. </p><blockquote class="doxtable">
+<p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
+</blockquote>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md282"></a>
+Initial State</h4>
+<p><img src="figure0-2D_kelvin_helmholtz-example.png" alt="" height="400" class="inline"/></p>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md283"></a>
+Evolved State</h4>
+<p><img src="figure1-2D_kelvin_helmholtz-example.png" alt="" height="400" class="inline"/></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md284"></a>
+Taylor-Green Vortex (3D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Hillewaert, K. (2013). TestCase C3.5 - DNS of the transition of the Taylor-Green vortex, Re=1600 - Introduction and result summary. 2nd International Workshop on high-order methods for CFD. </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md285"></a>
+Final Condition</h3>
+<p>This figure shows the isosurface with zero q-criterion.</p>
+<p><img src="result-3D_TaylorGreenVortex-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md286"></a>
+2D Triple Point (2D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>Trojak, W., &amp; Dzanic, T. Positivity-preserving discoutinous spectral element method for compressible multi-species flows. arXiv:2308.02426 </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md287"></a>
+Numerical Schlieren at Final Time</h3>
+<p><img src="final-2D_triple_point-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md288"></a>
+2D IBM CFL dt (2D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md289"></a>
+Result</h3>
+<p><img src="result-2D_ibm_cfl_dt-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md290"></a>
 1D Multi-Component Reactive Shock Tube</h2>
 <p>References: </p><blockquote class="doxtable">
 <p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
@@ -517,120 +511,126 @@ Final Condition and Linear Theory</h3>
 <blockquote class="doxtable">
 <p>H. Chen, C. Si, Y. Wu, H. Hu, and Y. Zhu, “Numerical investigation of the effect of equivalence ratio on the propagation characteristics and performance of rotating detonation engine”, Int. J. Hydrogen Energy, Mar. 2023. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.ijhydene.2023.03.190">https://doi.org/10.1016/j.ijhydene.2023.03.190</a> </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md285"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md291"></a>
 Initial Condition</h3>
 <p><img src="initial-1D_reactive_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md286"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md292"></a>
 Results</h3>
 <p><img src="result-1D_reactive_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md287"></a>
-Backward Facing Step (2D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md288"></a>
-Final Condition (Density)</h3>
-<p><img src="final-2D_backward_facing_step-example.png" alt="" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md289"></a>
-Lax shock tube problem (1D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>P. D. Lax, Weak solutions of nonlinear hyperbolic equations and their numerical computation, Communications on pure and applied mathematics 7 (1) (1954) 159–193. </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md290"></a>
-Initial Condition</h3>
-<p><img src="initial-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md291"></a>
-Result</h3>
-<p><img src="result-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md292"></a>
-Viscous Shock Tube (2D)</h2>
-<p>Reference: See Example 4.13. </p><blockquote class="doxtable">
-<p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021)., see Example 4.13 </p>
-</blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md293"></a>
-Initial State</h4>
-<p><img src="figure0-2D_viscous_shock_tube-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md294"></a>
-Evolved State</h4>
-<p><img src="figure1-2D_viscous_shock_tube-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md293"></a>
+Rayleigh-Taylor Instability (2D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md294"></a>
+Final Condition and Linear Theory</h3>
+<p><img src="result-2D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md295"></a>
-Forward Facing Step (2D)</h2>
+Shock Droplet (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
-<p>Woodward, P. <em>(1984). The numerical simulation of two-dimensional fluid flow with strong shocks. Journal of Computational Physics, 54(1), 115–173. <a href="https://doi.org/10.1016/0021-9991(84)90140-2">https://doi.org/10.1016/0021-9991(84)90140-2</a></em> </p>
+<p>Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023) </p>
 </blockquote>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md296"></a>
-Final Condition (Density)</h3>
-<p><img src="final-2D_forward_facing_step-example.png" alt="" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md297"></a>
-2D Riemann Test (2D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Chamarthi, A., &amp; Hoffmann, N., &amp; Nishikawa, H., &amp; Frankel S. (2023). Implicit gradients based conservative numerical scheme for compressible flows. arXiv:2110.05461 </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md298"></a>
-Density Initial and Final Conditions</h3>
-<p><img src="alpha_rho1_initial-2D_riemann_test-example.png" alt="" width="45%" class="inline"/> <img src="alpha_rho1_final-2D_riemann_test-example.png" alt="" width="45%" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md299"></a>
-Scaling and Performance test</h2>
-<p>The scaling case can exercise both weak- and strong-scaling. It adjusts itself depending on the number of requested ranks.</p>
-<p>This directory also contains a collection of scripts used to test strong and weak scaling on OLCF Frontier.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
-Weak Scaling</h3>
-<p>Pass <span class="tt">--scaling weak</span>. The <span class="tt">--memory</span> option controls (approximately) how much memory each rank should use, in Gigabytes. The number of cells in each dimension is then adjusted according to the number of requested ranks and an approximation for the relation between cell count and memory usage. The problem size increases linearly with the number of ranks.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
-Strong Scaling</h3>
-<p>Pass <span class="tt">--scaling strong</span>. The <span class="tt">--memory</span> option controls (approximately) how much memory should be used in total during simulation, across all ranks, in Gigabytes. The problem size remains constant as the number of ranks increases.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
-Example</h3>
-<p>For example, to run a weak-scaling test that uses ~4GB of GPU memory per rank on 8 2-rank nodes with case optimization, one could:</p>
-<div class="fragment"><div class="line">./mfc.sh run examples/scaling/benchmark.py -t pre_process simulation                    \</div>
-<div class="line">             -e batch -p mypartition -N 8 -n 2 -w &quot;01:00:00&quot; -# &quot;MFC Weak Scaling&quot; \</div>
-<div class="line">             --case-optimization -j 32 -- --scaling weak --memory 4</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
-1D Multi-Component Inert Shock Tube</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
 Initial Condition</h3>
-<p><img src="initial-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
-Results</h3>
-<p><img src="result-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
+<p><img src="initial-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md297"></a>
+Result</h3>
+<p><img src="result-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
 <p>This example case contains an automated convergence test using a 1D, two-component advection case. The case can be run by executing the bash script <span class="tt">./submitJobs.sh</span> in a terminal after enabling execution permissions with <span class="tt">chmod +x ./submitJobs.sh</span> and setting the <span class="tt">ROOT_DIR</span> and <span class="tt">MFC_DIR</span> variables. By default the script runs the case for 6 different grid resolutions with 1st, 3rd, and 5th, order spatial reconstructions. These settings can be modified by editing the variables at the top of the script. You can also run different model equations by setting the <span class="tt">ME</span> variable and different Riemann solvers by setting the <span class="tt">RS</span> variable.</p>
 <p>Once the simulations have been run, you can generate convergence plots with matplotlib by running <span class="tt">python3 plot.py</span> in a terminal. This will generate plots of the L1, L2, and Linf error norms and save the results to <span class="tt">errors.csv</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
-2D IBM CFL dt (2D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
-Result</h3>
-<p><img src="result-2D_ibm_cfl_dt-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
-Perfectly Stirred Reactor</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>G. B. Skinner and G. H. Ringrose, “Ignition Delays of a Hydrogen—Oxygen—Argon Mixture at Relatively Low Temperatures”, J. Chem. Phys., vol. 42, no. 6, pp. 2190–2192, Mar. 1965. Accessed: Oct. 13, 2024. </p>
-</blockquote>
-<p><img src="result-nD_perfect_reactor-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
-Validation</h3>
-<p>After running the simulation, compare MFC species mass fractions and induction time against a Cantera 0-D ideal-gas reactor reference:</p>
-<div class="fragment"><div class="line">python analyze.py</div>
-</div><!-- fragment --><p>This reads the Silo output, runs an equivalent Cantera reactor, prints the induction times (Skinner et al. / Cantera / (Che)MFC), and saves <span class="tt">plots-nD_perfect_reactor-example.png</span>. All dependencies are installed automatically by the MFC toolchain.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
-Lid-Driven Cavity Problem (2D)</h2>
-<p>Reference: </p><blockquote class="doxtable">
-<p>Bezgin, D. A., &amp; Buhendwa A. B., &amp; Adams N. A. (2022). JAX-FLUIDS: A fully-differentiable high-order computational fluid dynamics solver for compressible two-phase flows. arXiv:2203.13760 </p>
-</blockquote>
-<blockquote class="doxtable">
-<p>Ghia, U., &amp; Ghia, K. N., &amp; Shin, C. T. (1982). High-re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. Journal of Computational Physics, 48, 387-411 </p>
-</blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
-Final Condition</h3>
-<p><img src="final_condition-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
-Centerline Velocities</h3>
-<p><img src="centerline_velocities-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md298"></a>
 3D Turbulent Mixing layer (3D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md299"></a>
 Liutex visualization at transitional state</h3>
 <p><img src="result-3D_turb_mixing-example.png" alt="" height="400" class="inline"/></p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-07-23</div> </div></div><!-- contents -->
+<h2 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
+2D Bingham (Yield-Stress) Poiseuille Channel</h2>
+<p>Validates the <b>yield-stress term</b> of MFC's Herschel-Bulkley non-Newtonian viscosity against a closed-form analytic Poiseuille profile. Demonstrates the Bingham regime (<span class="tt">nn = 1</span>, <span class="tt">tau0 &gt; 0</span>): a rigid <b>plug</b> of uniform velocity forms near the centerline, where the shear stress falls below the yield stress.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
+Regime and parameters</h3>
+<p>Single Papanastasiou-regularized Herschel-Bulkley fluid with unit flow index, so <span class="tt">K = mu</span> is a plain Newtonian consistency and the only non-Newtonian effect is the yield stress:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Value  </th><th class="markdownTableHeadNone">Role  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)K</span>  </td><td class="markdownTableBodyNone"><span class="tt">5.0e-2</span>  </td><td class="markdownTableBodyNone"><span class="tt">n = 1</span> -&gt; plain dynamic viscosity <span class="tt">mu</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)nn</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.0</span>  </td><td class="markdownTableBodyNone">flow index = 1 (Bingham, no power-law)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)tau0</span>  </td><td class="markdownTableBodyNone"><span class="tt">4.0e-3</span>  </td><td class="markdownTableBodyNone">yield stress -&gt; plug half-width <span class="tt">y0 = 0.4 H</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)hb_m</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.0e4</span>  </td><td class="markdownTableBodyNone">sharp Papanastasiou yield regularization  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">1.0</span>  </td><td class="markdownTableBodyNone">viscosity clamp (rigid plug)  </td></tr>
+</table>
+<p>Driven by <span class="tt">g_x = 0.1</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span>, giving <span class="tt">tau_w = rho*g*H = 1e-2</span>, <span class="tt">u_plug ~ 3.6e-3</span> and Mach ~1e-3. Channel <span class="tt">L_y = 0.2</span>, <span class="tt">H = 0.1</span>, no-slip walls, periodic in <span class="tt">x</span>.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
+Governing physics and analytic solution</h3>
+<p>The shear stress is <span class="tt">tau = rho*g*(H - y)</span>; the fluid only flows where <span class="tt">|tau| &gt; tau0</span>. With <span class="tt">n = 1</span>, <span class="tt">K = mu</span>, <span class="tt">tau_w = rho*g*H &gt; tau0</span>: </p><pre class="fragment">plug half-width   : y0   = tau0/(rho*g)
+sheared region    : u(y) = (1/(2*mu*rho*g)) *
+                           [ (tau_w - tau0)^2 - (rho*g*(H-y) - tau0)^2 ]   (|y-H| &gt;= y0)
+plug              : u_plug = (1/(2*mu*rho*g)) * (tau_w - tau0)^2            (|y-H| &lt;  y0)
+</pre><p>The signature of a correct yield term is the flat plug of uniform velocity within <span class="tt">|y - H| &lt; y0</span>. Requires <span class="tt">tau_w &gt; tau0</span> for any flow.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
+How to run</h3>
+<pre class="fragment">./mfc.sh run examples/2D_bingham_poiseuille_nn/case.py -n 2
+python examples/2D_bingham_poiseuille_nn/compare_analytic.py
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
+Validation result</h3>
+<p>Relative L2 error vs. the analytic Bingham profile: <b>2.5%</b> (2-rank run, steady state confirmed). A plug forms at the centerline with half-width matching the analytic <span class="tt">y0 = tau0/(rho*g) = 0.4 H</span>.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
+References</h3>
+<ul>
+<li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
+Shu-Osher problem (1D)</h2>
+<p>Reference: </p><blockquote class="doxtable">
+<p>C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5. </p>
+</blockquote>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
+Initial Condition</h3>
+<p><img src="initial-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
+Result</h3>
+<p><img src="result-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
+2D Power-Law (Shear-Thickening) Poiseuille Channel</h2>
+<p>Validates the <b>power-law term</b> of MFC's Herschel-Bulkley non-Newtonian viscosity against a closed-form analytic Poiseuille profile, in the shear-**thickening** regime (<span class="tt">nn &gt; 1</span>): the velocity profile is more <b>pointed</b> (sharper-topped) than a parabola. Companion to <span class="tt">examples/2D_poiseuille_nn</span> (shear-thinning, <span class="tt">nn = 0.7</span>).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
+Regime and parameters</h3>
+<p>Single Papanastasiou-regularized Herschel-Bulkley fluid with <b>no yield stress</b> (<span class="tt">tau0 = 0</span>), so the effective viscosity is the pure power law <span class="tt">mu = K*gamma_dot^(n-1)</span>, clamped to <span class="tt">[mu_min, mu_max]</span>:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Value  </th><th class="markdownTableHeadNone">Role  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)K</span>  </td><td class="markdownTableBodyNone"><span class="tt">5.0e-2</span>  </td><td class="markdownTableBodyNone">consistency index  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)nn</span>  </td><td class="markdownTableBodyNone"><span class="tt">1.5</span>  </td><td class="markdownTableBodyNone">flow index <span class="tt">&gt; 1</span> -&gt; shear-thickening  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)tau0</span>  </td><td class="markdownTableBodyNone"><span class="tt">0.0</span>  </td><td class="markdownTableBodyNone">no yield stress (pure power law)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)hb_m</span>  </td><td class="markdownTableBodyNone"><span class="tt">1000.0</span>  </td><td class="markdownTableBodyNone">Papanastasiou regularization parameter  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">0.035</span>  </td><td class="markdownTableBodyNone">viscosity clamp  </td></tr>
+</table>
+<p>Driven by a constant body acceleration <span class="tt">g_x = 5e-2</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span> (sound speed ~3.74), giving <span class="tt">u_max ~ 0.013</span> and Mach ~3e-3 (effectively incompressible). Channel <span class="tt">L_y = 0.2</span>, half-height <span class="tt">H = L_y/2 = 0.1</span>, no-slip walls at <span class="tt">y = 0, L_y</span>, periodic in <span class="tt">x</span>. Grid <span class="tt">m = 24</span> (x), <span class="tt">n = 63</span> (y).</p>
+<p>For <span class="tt">n &gt; 1</span> the maximum physical viscosity is at the <b>wall</b> (highest shear rate), <span class="tt">mu_wall = K^(1/n) * (rho*g*H)^((n-1)/n) = 0.0232</span>. <span class="tt">mu_max = 0.035 ~ 1.5*mu_wall</span> sits just above that maximum, so the clamp <b>never activates</b> (the analytic profile stays exact everywhere) while keeping the explicit viscous timestep large — the timestep scales as <span class="tt">1/mu_max</span>, so set <span class="tt">mu_max</span> just above the physical maximum viscosity.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
+Governing physics and analytic solution</h3>
+<p>Fully-developed steady channel flow balances the body force against the shear stress, <span class="tt">tau = rho*g*(H - y)</span>. With <span class="tt">tau = K*|du/dy|^n</span> (power law) the closed form is </p><pre class="fragment">u(y) = (n/(n+1)) * (rho*g/K)^(1/n) * ( H^((n+1)/n) - |y - H|^((n+1)/n) )
+</pre><p>(<span class="tt">n &lt; 1</span> blunt/flat-topped; <span class="tt">n = 1</span> parabola; <span class="tt">n &gt; 1</span> pointed). For <span class="tt">n &gt; 1</span> the effective viscosity <span class="tt">mu = K*gamma_dot^(n-1) -&gt; 0</span> at the shear-free centerline (rather than diverging as for <span class="tt">n &lt; 1</span>), so no regularization cap is needed and the analytic profile is an exact reference everywhere.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
+How to run</h3>
+<pre class="fragment">./mfc.sh run examples/2D_poiseuille_thickening_nn/case.py -n 2
+python examples/2D_poiseuille_thickening_nn/compare_analytic.py
+</pre><p>The run reaches <span class="tt">t_stop = 0.9</span> (~2 wall-viscous diffusion times) in ~1 min on 2 CPU ranks with <span class="tt">dt = 8.4e-5</span>.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
+Validation result</h3>
+<p>Relative L2 error vs. the analytic power-law profile: <b>1.46%</b> (2-rank run, steady-state drift between the last two saves 3.9e-3). The local momentum balance <span class="tt">K*|du/dy|^n = rho*g*(H-y)</span> holds to ~1.4% across the channel, and the profile bluntness (mean/peak = <b>0.626</b>) matches the <span class="tt">n = 1.5</span> theory <span class="tt">(n+1)/(2n+1) = 0.625</span>, confirming the pointed shear-thickening profile. <span class="tt">u_max = 1.288e-2</span> matches the analytic <span class="tt">1.291e-2</span>, confirming the clamp stays inactive.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
+References</h3>
+<ul>
+<li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
+</ul>
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-07-24</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
