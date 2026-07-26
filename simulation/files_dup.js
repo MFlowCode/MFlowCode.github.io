@@ -41,6 +41,7 @@ var files_dup =
     [ "m_phase_change.fpp.f90", "m__phase__change_8fpp_8f90.html", "m__phase__change_8fpp_8f90" ],
     [ "m_pressure_relaxation.fpp.f90", "m__pressure__relaxation_8fpp_8f90.html", "m__pressure__relaxation_8fpp_8f90" ],
     [ "m_qbmm.fpp.f90", "m__qbmm_8fpp_8f90.html", "m__qbmm_8fpp_8f90" ],
+    [ "m_reactive_burn.fpp.f90", "m__reactive__burn_8fpp_8f90.html", "m__reactive__burn_8fpp_8f90" ],
     [ "m_rhs.fpp.f90", "m__rhs_8fpp_8f90.html", "m__rhs_8fpp_8f90" ],
     [ "m_riemann_solver_hll.fpp.f90", "m__riemann__solver__hll_8fpp_8f90.html", "m__riemann__solver__hll_8fpp_8f90" ],
     [ "m_riemann_solver_hllc.fpp.f90", "m__riemann__solver__hllc_8fpp_8f90.html", "m__riemann__solver__hllc_8fpp_8f90" ],

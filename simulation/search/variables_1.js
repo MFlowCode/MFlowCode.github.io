@@ -71,10 +71,12 @@ var searchData=
   ['buff_5fsend_68',['buff_send',['../namespacem__mpi__common.html#a3deaeac1e239299664faa426e15f3285',1,'m_mpi_common']]],
   ['buff_5fsize_69',['buff_size',['../namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92',1,'m_global_parameters']]],
   ['bulk_5fstress_70',['bulk_stress',['../namespacem__global__parameters.html#a0b37a6651dbf11451894e9cf7d0c9a64',1,'m_global_parameters']]],
-  ['bwd_5fplan_71',['bwd_plan',['../namespacem__fftw.html#a5120d0924ad190de0c0967cfdfdffb64',1,'m_fftw']]],
-  ['bwd_5fplan_5fgpu_72',['bwd_plan_gpu',['../namespacem__fftw.html#a8878277dc23c5cb1f80450e4b793725e',1,'m_fftw']]],
-  ['bx_73',['bx',['../structm__derived__types_1_1ic__patch__parameters.html#a68c2727a8d0bb337c909eb3b78778154',1,'m_derived_types::ic_patch_parameters']]],
-  ['bx0_74',['bx0',['../namespacem__global__parameters__common.html#a108b3bc8945890ed9e734b14f0749e7e',1,'m_global_parameters_common']]],
-  ['by_75',['by',['../structm__derived__types_1_1ic__patch__parameters.html#a53d54fe2c3cb4ef1648ebdf19c27e1c9',1,'m_derived_types::ic_patch_parameters']]],
-  ['bz_76',['bz',['../structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980',1,'m_derived_types::ic_patch_parameters']]]
+  ['burn_5frate_5fexp_71',['burn_rate_exp',['../structm__derived__types_1_1ib__patch__parameters.html#adbc38d4ee109595774b6125ce52ba5e5',1,'m_derived_types::ib_patch_parameters']]],
+  ['burn_5frate_5fpref_72',['burn_rate_pref',['../structm__derived__types_1_1ib__patch__parameters.html#aa0ea62975b928036e5cbef1fcb63c5ae',1,'m_derived_types::ib_patch_parameters']]],
+  ['bwd_5fplan_73',['bwd_plan',['../namespacem__fftw.html#a5120d0924ad190de0c0967cfdfdffb64',1,'m_fftw']]],
+  ['bwd_5fplan_5fgpu_74',['bwd_plan_gpu',['../namespacem__fftw.html#a8878277dc23c5cb1f80450e4b793725e',1,'m_fftw']]],
+  ['bx_75',['bx',['../structm__derived__types_1_1ic__patch__parameters.html#a68c2727a8d0bb337c909eb3b78778154',1,'m_derived_types::ic_patch_parameters']]],
+  ['bx0_76',['bx0',['../namespacem__global__parameters__common.html#a108b3bc8945890ed9e734b14f0749e7e',1,'m_global_parameters_common']]],
+  ['by_77',['by',['../structm__derived__types_1_1ic__patch__parameters.html#a53d54fe2c3cb4ef1648ebdf19c27e1c9',1,'m_derived_types::ic_patch_parameters']]],
+  ['bz_78',['bz',['../structm__derived__types_1_1ic__patch__parameters.html#ac3a5bf6d908460ad06b6d2a1be351980',1,'m_derived_types::ic_patch_parameters']]]
 ];

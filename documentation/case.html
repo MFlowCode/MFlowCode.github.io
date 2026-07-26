@@ -1349,9 +1349,22 @@ Adaptive Time-Stepping</h5>
 <td class="markdownTableBodyRight"><span class="tt">cont_damage_s</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Power <span class="tt">s</span> for continuum damage model  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">alpha_bar</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Damage factor (rate) for continuum damage model  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">reactive_burn</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable condensed-phase reactive burn  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">rburn%k</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reactive-burn rate coefficient [1/s]  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">rburn%pign</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reactive-burn ignition pressure threshold [Pa]  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">rburn%pref</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reactive-burn reference pressure for the drive [Pa]  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">rburn%n</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reactive-burn pressure-drive exponent  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">rburn%ta</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Reactive-burn activation temperature [K] (0 = off)  </td></tr>
 </table>
 <ul>
 <li><span class="tt">cont_damage</span> activates continuum damage model for solid materials. Requires <span class="tt">tau_star</span>, <span class="tt">cont_damage_s</span>, and <span class="tt">alpha_bar</span> to be set (empirically determined) (Cao et al. <a class="el" href="citelist.html#CITEREF_cao19">[10]</a>).</li>
+<li><span class="tt">reactive_burn</span> converts a "reactant" fluid into a "product" fluid (<span class="tt">num_fluids = 2</span>, <span class="tt">chemistry = 'F'</span>) via a programmed pressure burn <span class="tt">dlambda/dt = rburn%k (1 - lambda) ((p - rburn%pign)/rburn%pref)^rburn%n</span>. The two fluids share the same <span class="tt">gamma</span>/<span class="tt">pi_inf</span> and differ only in <span class="tt">qv</span>, so the conversion releases <span class="tt">qv</span> through the mixture EOS — a reactive-Euler/ZND detonation model on the diffuse-interface framework. It runs on the 5-equation (<span class="tt">model_eqns = 2</span>) and 6-equation (<span class="tt">model_eqns = 3</span>) multi-fluid models. Setting <span class="tt">rburn%ta &gt; 0</span> multiplies the rate by an Arrhenius factor <span class="tt">exp(-rburn%ta/T)</span>, where <span class="tt">T</span> is the reactant phasic temperature, giving temperature-driven ignition instead of a pure pressure switch.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
 16. Cylindrical Coordinates</h3>

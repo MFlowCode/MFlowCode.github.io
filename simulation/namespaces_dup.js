@@ -294,6 +294,7 @@ var namespaces_dup =
     [ "m_checker", "namespacem__checker.html", [
       [ "s_check_inputs", "namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072", null ],
       [ "s_check_inputs_compilers", "namespacem__checker.html#aae9a516509d46e5ac36d150bb75254f2", null ],
+      [ "s_check_inputs_ib_injection", "namespacem__checker.html#a59e363db1dcb8b8a12e361590766a81a", null ],
       [ "s_check_inputs_muscl", "namespacem__checker.html#a96654b50668ae39c0b9eca1426a3fe56", null ],
       [ "s_check_inputs_nvidia_uvm", "namespacem__checker.html#aceda94ae9a006496d062f1e764db5b67", null ],
       [ "s_check_inputs_particle_clouds", "namespacem__checker.html#a395a1d302f6ed4d70d79e6c04648be8a", null ],
@@ -854,8 +855,10 @@ var namespaces_dup =
       [ "ptgalpha_eps", "namespacem__global__parameters__common.html#aaa7c727dc1ee89061b9489e45d9ed61d", null ],
       [ "qbmm", "namespacem__global__parameters__common.html#a1d75c2964eb0a5b6577a7ffdfd3dc51b", null ],
       [ "r0ref", "namespacem__global__parameters__common.html#ac230e5ada9359082eda144e5a0f6531f", null ],
+      [ "rburn", "namespacem__global__parameters__common.html#ae602d8be9f9a8201154c658d5979d4ce", null ],
       [ "rdma_mpi", "namespacem__global__parameters__common.html#aadf67064d01659ac79bb78ea028806c6", null ],
       [ "re_inv", "namespacem__global__parameters__common.html#acf943ae63eb7131dc914b3b92d20dd57", null ],
+      [ "reactive_burn", "namespacem__global__parameters__common.html#aa50899cfa2e097467f9266010bd953c2", null ],
       [ "recon_type", "namespacem__global__parameters__common.html#a53b6980a27274d0e743f7bc4de53bb80", null ],
       [ "relativity", "namespacem__global__parameters__common.html#a2e12228fc83e69992634a5e0a9407de8", null ],
       [ "relax", "namespacem__global__parameters__common.html#ad4079a07d8a1d8e5c2a56afea5caec66", null ],
@@ -1014,7 +1017,7 @@ var namespaces_dup =
       [ "s_ibm_correct_state", "namespacem__ibm.html#adaced843ac419db411b064ccf39b6104", null ],
       [ "s_ibm_setup", "namespacem__ibm.html#a14f4b0cb1d4933c3e8e0a30f301da3ad", null ],
       [ "s_initialize_ibm_module", "namespacem__ibm.html#ab7c53e6e972a356b5fb74efaf876f426", null ],
-      [ "s_interpolate_image_point", "namespacem__ibm.html#a389d54181e5d734b16be27f045637703", null ],
+      [ "s_interpolate_image_point", "namespacem__ibm.html#a115e213a2be87a5e60e9f756394e8323", null ],
       [ "s_update_ib_lookup", "namespacem__ibm.html#a1f7d09eb6dba3c194e7bfe8a76c5885f", null ],
       [ "s_update_mib", "namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff", null ],
       [ "s_wrap_periodic_ibs", "namespacem__ibm.html#ac922ef4566b7018082b062fabf82b9c9", null ],
@@ -1224,6 +1227,9 @@ var namespaces_dup =
       [ "is3_qbmm", "namespacem__qbmm.html#a9ea88105fd3d2f68bd33c77ff58277f9", null ],
       [ "momrhs", "namespacem__qbmm.html#a83d47c5446f8792e33831ce50ae6745c", null ],
       [ "nterms", "namespacem__qbmm.html#a5b1f3128a74558c0c782697a7393b5b1", null ]
+    ] ],
+    [ "m_reactive_burn", "namespacem__reactive__burn.html", [
+      [ "s_compute_reactive_burn", "namespacem__reactive__burn.html#a037edf3a057e36a78c3613e56a47d591", null ]
     ] ],
     [ "m_rhs", "namespacem__rhs.html", [
       [ "s_compute_additional_physics_rhs", "namespacem__rhs.html#a2df6b2a1323afaca022b5ef77dd4c0e0", null ],

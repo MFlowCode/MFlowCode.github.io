@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n_0',['n',['../structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59',1,'m_derived_types::eqn_idx_info::n'],['../structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85',1,'m_derived_types::t_triangle::n'],['../namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2',1,'m_global_parameters_common::n']]],
+  ['n_0',['n',['../structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59',1,'m_derived_types::eqn_idx_info::n'],['../structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85',1,'m_derived_types::t_triangle::n'],['../structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f',1,'m_derived_types::reactive_burn_parameters::n'],['../namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2',1,'m_global_parameters_common::n']]],
   ['n_5fel_5fbubs_5fglb_1',['n_el_bubs_glb',['../namespacem__global__parameters.html#a82ed0990fb0fd58b811b8f5437f88e3d',1,'m_global_parameters']]],
   ['n_5fel_5fbubs_5floc_2',['n_el_bubs_loc',['../namespacem__global__parameters.html#a6b643da1edaab2fe66ce9b106d3a8baf',1,'m_global_parameters']]],
   ['n_5fglb_3',['n_glb',['../namespacem__global__parameters.html#adab11dab474410541d4c37725bea01e1',1,'m_global_parameters']]],

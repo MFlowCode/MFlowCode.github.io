@@ -49,6 +49,7 @@ var annotated_dup =
       [ "ghost_point", "structm__derived__types_1_1ghost__point.html", "structm__derived__types_1_1ghost__point" ],
       [ "species_parameters", "structm__derived__types_1_1species__parameters.html", "structm__derived__types_1_1species__parameters" ],
       [ "chemistry_parameters", "structm__derived__types_1_1chemistry__parameters.html", "structm__derived__types_1_1chemistry__parameters" ],
+      [ "reactive_burn_parameters", "structm__derived__types_1_1reactive__burn__parameters.html", "structm__derived__types_1_1reactive__burn__parameters" ],
       [ "bubbles_lagrange_parameters", "structm__derived__types_1_1bubbles__lagrange__parameters.html", "structm__derived__types_1_1bubbles__lagrange__parameters" ],
       [ "cell_num_bounds", "structm__derived__types_1_1cell__num__bounds.html", "structm__derived__types_1_1cell__num__bounds" ],
       [ "simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ]

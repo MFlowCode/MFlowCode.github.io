@@ -192,6 +192,14 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:af7f4778de0a02949c5c51518b0b703ef" id="r_af7f4778de0a02949c5c51518b0b703ef"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#af7f4778de0a02949c5c51518b0b703ef">slip</a></td></tr>
 <tr class="memitem:abb8e097e5c073a19db8bced8d50b08c8" id="r_abb8e097e5c073a19db8bced8d50b08c8"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#abb8e097e5c073a19db8bced8d50b08c8">moving_ibm</a></td></tr>
 <tr class="memdesc:abb8e097e5c073a19db8bced8d50b08c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">0 for no moving, 1 for moving, 2 for moving on forced path  <br /></td></tr>
+<tr class="memitem:a5d26b4909f9d64c66eb77d5efbf3d068" id="r_a5d26b4909f9d64c66eb77d5efbf3d068"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a5d26b4909f9d64c66eb77d5efbf3d068">v_blow</a></td></tr>
+<tr class="memdesc:a5d26b4909f9d64c66eb77d5efbf3d068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wall-normal surface blowing speed (burning/transpiring IB surface); 0 = impermeable.  <br /></td></tr>
+<tr class="memitem:aa99beb9f60685c7cc45a3ac6e1414d2f" id="r_aa99beb9f60685c7cc45a3ac6e1414d2f"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#aa99beb9f60685c7cc45a3ac6e1414d2f">inj_species</a></td></tr>
+<tr class="memdesc:aa99beb9f60685c7cc45a3ac6e1414d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Injected species index at a blowing surface (chemistry); 0 = mirror ambient.  <br /></td></tr>
+<tr class="memitem:adbc38d4ee109595774b6125ce52ba5e5" id="r_adbc38d4ee109595774b6125ce52ba5e5"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#adbc38d4ee109595774b6125ce52ba5e5">burn_rate_exp</a></td></tr>
+<tr class="memdesc:adbc38d4ee109595774b6125ce52ba5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure exponent n in v_blow*(p/p_ref)^n (Vieille's law); 0 = constant blowing.  <br /></td></tr>
+<tr class="memitem:aa0ea62975b928036e5cbef1fcb63c5ae" id="r_aa0ea62975b928036e5cbef1fcb63c5ae"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#aa0ea62975b928036e5cbef1fcb63c5ae">burn_rate_pref</a></td></tr>
+<tr class="memdesc:aa0ea62975b928036e5cbef1fcb63c5ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference pressure p_ref for the pressure-coupled burn rate; 0 = coupling off.  <br /></td></tr>
 <tr class="memitem:a83f04c36c63c9e8f46f936726018d036" id="r_a83f04c36c63c9e8f46f936726018d036"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a83f04c36c63c9e8f46f936726018d036">mass</a></td></tr>
 <tr class="memitem:a85c7d297590c1e312f711958c4485b1b" id="r_a85c7d297590c1e312f711958c4485b1b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a85c7d297590c1e312f711958c4485b1b">moment</a></td></tr>
 <tr class="memdesc:a85c7d297590c1e312f711958c4485b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">mass and moment of inertia of object used to compute forces in 2-way coupling  <br /></td></tr>
@@ -255,7 +263,43 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00678">678</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00682">682</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="adbc38d4ee109595774b6125ce52ba5e5" name="adbc38d4ee109595774b6125ce52ba5e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbc38d4ee109595774b6125ce52ba5e5">&#9670;&#160;</a></span>burn_rate_exp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_derived_types::ib_patch_parameters::burn_rate_exp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pressure exponent n in v_blow*(p/p_ref)^n (Vieille's law); 0 = constant blowing. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00676">676</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa0ea62975b928036e5cbef1fcb63c5ae" name="aa0ea62975b928036e5cbef1fcb63c5ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ea62975b928036e5cbef1fcb63c5ae">&#9670;&#160;</a></span>burn_rate_pref</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_derived_types::ib_patch_parameters::burn_rate_pref</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reference pressure p_ref for the pressure-coupled burn rate; 0 = coupling off. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00677">677</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -289,7 +333,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00679">679</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -324,6 +368,24 @@ Public Attributes</h2></td></tr>
 <p>Type of geometry for the patch. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00655">655</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa99beb9f60685c7cc45a3ac6e1414d2f" name="aa99beb9f60685c7cc45a3ac6e1414d2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa99beb9f60685c7cc45a3ac6e1414d2f">&#9670;&#160;</a></span>inj_species</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_derived_types::ib_patch_parameters::inj_species</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Injected species index at a blowing surface (chemistry); 0 = mirror ambient. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -389,7 +451,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00674">674</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00678">678</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -425,7 +487,7 @@ Public Attributes</h2></td></tr>
 
 <p>mass and moment of inertia of object used to compute forces in 2-way coupling </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00674">674</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00678">678</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -547,7 +609,7 @@ Public Attributes</h2></td></tr>
 
 <p>velocity array used to store intermediate steps in the time_stepper module </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00679">679</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00683">683</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -565,7 +627,7 @@ Public Attributes</h2></td></tr>
 
 <p>velocity array used to store intermediate steps in the time_stepper module </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00677">677</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00681">681</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -633,7 +695,25 @@ Public Attributes</h2></td></tr>
 
 <p>vectors for the computed force and torque values applied to an IB </p>
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00679">679</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a5d26b4909f9d64c66eb77d5efbf3d068" name="a5d26b4909f9d64c66eb77d5efbf3d068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d26b4909f9d64c66eb77d5efbf3d068">&#9670;&#160;</a></span>v_blow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_derived_types::ib_patch_parameters::v_blow</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wall-normal surface blowing speed (burning/transpiring IB surface); 0 = impermeable. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00674">674</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -649,7 +729,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00676">676</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__derived__types_8fpp_8f90_source.html#l00680">680</a> of file <a class="el" href="m__derived__types_8fpp_8f90_source.html">m_derived_types.fpp.f90</a>.</p>
 
 </div>
 </div>

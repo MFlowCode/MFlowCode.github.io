@@ -445,41 +445,52 @@ $(function(){initNavTree('m__particle__cloud_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>        particle_cloud_ibs(ib_idx)%moving_ibm = particle_cloud(cloud_idx)%moving_ibm</div>
 <div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        particle_cloud_ibs(ib_idx)%slip = .false.</div>
 <div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>        <span class="comment">! Particles are inert surfaces. These must be set explicitly: particle_cloud_ibs is</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <span class="comment">! allocated (not default-initialized) and s_reduce_ib_patch_array copies the whole</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <span class="comment">! struct into patch_ib, overwriting the defaults from</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        <span class="comment">! s_assign_default_values_to_user_inputs -- so anything left unset here reaches the</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="comment">! solver as uninitialized memory (a nonzero v_blow injects a garbage wall-normal</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="comment">! velocity and NaNs the field).</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        particle_cloud_ibs(ib_idx)%v_blow = 0._wp</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        particle_cloud_ibs(ib_idx)%inj_species = 0</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        particle_cloud_ibs(ib_idx)%burn_rate_exp = 0._wp</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        particle_cloud_ibs(ib_idx)%burn_rate_pref = 0._wp</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
 </div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a6b09caec9e40c58549bf70089fab1ba9">s_add_cloud_particle</a></div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment"></span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment">    !&gt; Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</span></div>
-<div class="foldopen" id="foldopen00307" data-start="" data-end="">
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">  307</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a>(seed) <span class="keyword">result</span>(rval)</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span> :: seed</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="keywordtype">        real</span>(wp)               :: rval</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        seed = ieor(seed, ishft(seed, 13))</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        seed = ieor(seed, ishft(seed, -17))</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        seed = ieor(seed, ishft(seed, 5))</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        rval = abs(real(seed, wp))/real(huge(seed), wp)</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a6b09caec9e40c58549bf70089fab1ba9">s_add_cloud_particle</a></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="comment"></span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment">    !&gt; Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</span></div>
+<div class="foldopen" id="foldopen00318" data-start="" data-end="">
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">  318</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a>(seed) <span class="keyword">result</span>(rval)</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span> :: seed</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="keywordtype">        real</span>(wp)               :: rval</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span> </div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        seed = ieor(seed, ishft(seed, 13))</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        seed = ieor(seed, ishft(seed, -17))</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        seed = ieor(seed, ishft(seed, 5))</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        rval = abs(real(seed, wp))/real(huge(seed), wp)</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
 </div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a></div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment"></span> </div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment">    !&gt; Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bins across buckets. Hash</span></div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">    !! collisions are benign: the distance check catches false neighbours.</span></div>
-<div class="foldopen" id="foldopen00322" data-start="" data-end="">
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">  322</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a>(bx, by, bz, hash_size) <span class="keyword">result</span>(slot)</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: bx, by, bz, hash_size</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>        <span class="keywordtype">integer</span>             :: slot</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        <span class="keywordtype">integer(8)</span>          :: key</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        key = ieor(ieor(int(bx, 8)*73856093_8, int(by, 8)*19349663_8), int(bz, 8)*83492791_8)</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        slot = int(mod(abs(key), int(hash_size, 8))) + 1</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span><span class="comment"></span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span><span class="comment">    !&gt; Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bins across buckets. Hash</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="comment">    !! collisions are benign: the distance check catches false neighbours.</span></div>
+<div class="foldopen" id="foldopen00333" data-start="" data-end="">
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">  333</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a>(bx, by, bz, hash_size) <span class="keyword">result</span>(slot)</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span> </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: bx, by, bz, hash_size</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keywordtype">integer</span>             :: slot</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordtype">integer(8)</span>          :: key</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        key = ieor(ieor(int(bx, 8)*73856093_8, int(by, 8)*19349663_8), int(bz, 8)*83492791_8)</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        slot = int(mod(abs(key), int(hash_size, 8))) + 1</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span> </div>
 </div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a></div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__particle__cloud.html">m_particle_cloud</a></div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__particle__cloud.html">m_particle_cloud</a></div>
 <div class="ttc" id="anamespacem__constants_html"><div class="ttname"><a href="namespacem__constants.html">m_constants</a></div><div class="ttdoc">Compile-time constant parameters: default values, tolerances, and physical constants.</div><div class="ttdef"><b>Definition</b> <a href="m__constants_8fpp_8f90_source.html#l00007">m_constants.fpp.f90:7</a></div></div>
 <div class="ttc" id="anamespacem__constants_html_a53cf8dfd06fcfa36c018ab624ef988b6"><div class="ttname"><a href="namespacem__constants.html#a53cf8dfd06fcfa36c018ab624ef988b6">m_constants::dflt_real</a></div><div class="ttdeci">real(wp), parameter dflt_real</div><div class="ttdoc">Default real value.</div><div class="ttdef"><b>Definition</b> <a href="m__constants_8fpp_8f90_source.html#l00012">m_constants.fpp.f90:12</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html"><div class="ttname"><a href="namespacem__global__parameters.html">m_global_parameters</a></div><div class="ttdoc">Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00334">m_global_parameters.fpp.f90:334</a></div></div>
@@ -489,8 +500,8 @@ $(function(){initNavTree('m__particle__cloud_8fpp_8f90_source.html','',''); });
 <div class="ttc" id="anamespacem__particle__cloud_html"><div class="ttname"><a href="namespacem__particle__cloud.html">m_particle_cloud</a></div><div class="ttdoc">Generates particle beds by converting particle_cloud patch specifications into individual immersed bo...</div><div class="ttdef"><b>Definition</b> <a href="#l00009">m_particle_cloud.fpp.f90:9</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_a2feae0e06656f459f3d1a43d00b3102d"><div class="ttname"><a href="namespacem__particle__cloud.html#a2feae0e06656f459f3d1a43d00b3102d">m_particle_cloud::s_generate_particle_clouds</a></div><div class="ttdeci">impure subroutine, public s_generate_particle_clouds(particle_cloud_ibs)</div><div class="ttdoc">Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_...</div><div class="ttdef"><b>Definition</b> <a href="#l00024">m_particle_cloud.fpp.f90:25</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_a6b09caec9e40c58549bf70089fab1ba9"><div class="ttname"><a href="namespacem__particle__cloud.html#a6b09caec9e40c58549bf70089fab1ba9">m_particle_cloud::s_add_cloud_particle</a></div><div class="ttdeci">subroutine s_add_cloud_particle(cloud_idx, ib_idx, geom, px, py, pz, particle_cloud_ibs)</div><div class="ttdoc">Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx....</div><div class="ttdef"><b>Definition</b> <a href="#l00266">m_particle_cloud.fpp.f90:267</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_a733f14183bef377187ce1f2df3bf77bc"><div class="ttname"><a href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">m_particle_cloud::f_xorshift</a></div><div class="ttdeci">real(wp) function f_xorshift(seed)</div><div class="ttdoc">Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</div><div class="ttdef"><b>Definition</b> <a href="#l00307">m_particle_cloud.fpp.f90:308</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_aa2803b020159e1a466b23af39ea4b7be"><div class="ttname"><a href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">m_particle_cloud::f_bin_hash</a></div><div class="ttdeci">integer function f_bin_hash(bx, by, bz, hash_size)</div><div class="ttdoc">Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bi...</div><div class="ttdef"><b>Definition</b> <a href="#l00322">m_particle_cloud.fpp.f90:323</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_a733f14183bef377187ce1f2df3bf77bc"><div class="ttname"><a href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">m_particle_cloud::f_xorshift</a></div><div class="ttdeci">real(wp) function f_xorshift(seed)</div><div class="ttdoc">Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</div><div class="ttdef"><b>Definition</b> <a href="#l00318">m_particle_cloud.fpp.f90:319</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_aa2803b020159e1a466b23af39ea4b7be"><div class="ttname"><a href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">m_particle_cloud::f_bin_hash</a></div><div class="ttdeci">integer function f_bin_hash(bx, by, bz, hash_size)</div><div class="ttdoc">Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bi...</div><div class="ttdef"><b>Definition</b> <a href="#l00333">m_particle_cloud.fpp.f90:334</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_ab55abd1c2e9303636ae4b9c9581d9afb"><div class="ttname"><a href="namespacem__particle__cloud.html#ab55abd1c2e9303636ae4b9c9581d9afb">m_particle_cloud::s_particle_cloud_lattice</a></div><div class="ttdeci">subroutine s_particle_cloud_lattice(cloud_idx, ib_idx, particle_cloud_ibs)</div><div class="ttdoc">Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D,...</div><div class="ttdef"><b>Definition</b> <a href="#l00181">m_particle_cloud.fpp.f90:182</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_aea3cd46bacb79079dcadca54a42b5150"><div class="ttname"><a href="namespacem__particle__cloud.html#aea3cd46bacb79079dcadca54a42b5150">m_particle_cloud::s_particle_cloud_random_box</a></div><div class="ttdeci">subroutine s_particle_cloud_random_box(cloud_idx, ib_idx, particle_cloud_ibs)</div><div class="ttdoc">Generates a random distributions of particles in a box with a minimum spacing.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">m_particle_cloud.fpp.f90:62</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

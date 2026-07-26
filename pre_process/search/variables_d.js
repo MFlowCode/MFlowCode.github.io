@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n_0',['n',['../structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59',1,'m_derived_types::eqn_idx_info::n'],['../structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85',1,'m_derived_types::t_triangle::n'],['../namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2',1,'m_global_parameters_common::n']]],
+  ['n_0',['n',['../structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59',1,'m_derived_types::eqn_idx_info::n'],['../structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85',1,'m_derived_types::t_triangle::n'],['../structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f',1,'m_derived_types::reactive_burn_parameters::n'],['../namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2',1,'m_global_parameters_common::n']]],
   ['n_5fglb_1',['n_glb',['../namespacem__global__parameters.html#adab11dab474410541d4c37725bea01e1',1,'m_global_parameters']]],
   ['n_5fprocesses_5ffile_5faccess_2',['n_processes_file_access',['../namespacem__delay__file__access.html#ab213216c1359e4dac71415abf3e1b5fe',1,'m_delay_file_access']]],
   ['n_5fstart_3',['n_start',['../namespacem__global__parameters__common.html#abbd01b5e315692c405bba8fe113399d8',1,'m_global_parameters_common']]],
