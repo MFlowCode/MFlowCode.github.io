@@ -15,6 +15,5 @@ var structm__derived__types_1_1eqn__idx__info =
     [ "pi_inf", "structm__derived__types_1_1eqn__idx__info.html#ad1598964e74e3d9258282abf7803e99f", null ],
     [ "psi", "structm__derived__types_1_1eqn__idx__info.html#a187a487d12954f51d6b36c3905b7f166", null ],
     [ "species", "structm__derived__types_1_1eqn__idx__info.html#a93cc4f795f4c449ebc1ad05c4427fce4", null ],
-    [ "stress", "structm__derived__types_1_1eqn__idx__info.html#a34de6c19a6e9bc3b3b3a1053cb549751", null ],
-    [ "xi", "structm__derived__types_1_1eqn__idx__info.html#a9ae0e1721afe6ba65dd5f7e4d155b209", null ]
+    [ "stress", "structm__derived__types_1_1eqn__idx__info.html#a34de6c19a6e9bc3b3b3a1053cb549751", null ]
 ];

@@ -1,7 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"namespacem__checker__common.html#a96fa54018d14ac0ea114fd0805dedd97":[1,0,11,0],
-"namespacem__checker__common.html#abf7ee76feb76e0dfa1301860374be234":[1,0,11,2],
 "namespacem__chemistry.html":[1,0,12],
 "namespacem__chemistry.html#a55a54a1b3fd9a34cc80b7a38c747dbfb":[1,0,12,2],
 "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9":[1,0,12,4],
@@ -249,5 +247,7 @@ var NAVTREEINDEX2 =
 "namespacem__fftw.html#af11fdf92674d3f43569149f7bfc1ce11":[1,0,22,2],
 "namespacem__fftw.html#af2941eb61a53cf144a4ae896764ac89b":[1,0,22,1],
 "namespacem__fftw.html#af302c0b08b0db24d65b7d9324079efbc":[1,0,22,23],
-"namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a":[1,0,22,16]
+"namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a":[1,0,22,16],
+"namespacem__fftw.html#af89f50d9e375031d15a2bdd5a3fa9343":[1,0,22,19],
+"namespacem__fftw.html#afa99ee82497ae0ee316e97734ad0d7d3":[1,0,22,6]
 };

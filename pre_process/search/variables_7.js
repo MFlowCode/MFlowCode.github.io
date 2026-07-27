@@ -9,6 +9,5 @@ var searchData=
   ['hi_5foffset_6',['hi_offset',['../structm__derived__types_1_1output__context.html#a1d50c3cc4fceed653698eb4a8599dd4c',1,'m_derived_types::output_context']]],
   ['hp_7',['hp',['../namespacem__precision__select.html#aae1265756d05d3113702b0a0383a50c9',1,'m_precision_select']]],
   ['hyper_5fcleaning_8',['hyper_cleaning',['../namespacem__global__parameters__common.html#a4724699cb454e5156bb55fa9a40c2855',1,'m_global_parameters_common']]],
-  ['hyperelasticity_9',['hyperelasticity',['../namespacem__global__parameters__common.html#a48a4499cdeb3b1aa64f38d08beec4fdd',1,'m_global_parameters_common']]],
-  ['hypoelasticity_10',['hypoelasticity',['../namespacem__global__parameters__common.html#a533a3f4c2c09dc919fa899f2a2f22987',1,'m_global_parameters_common']]]
+  ['hypoelasticity_9',['hypoelasticity',['../namespacem__global__parameters__common.html#a533a3f4c2c09dc919fa899f2a2f22987',1,'m_global_parameters_common']]]
 ];

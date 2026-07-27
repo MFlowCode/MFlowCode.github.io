@@ -17,7 +17,5 @@ var searchData=
   ['hyper_5fcleaning_14',['hyper_cleaning',['../namespacem__global__parameters__common.html#a4724699cb454e5156bb55fa9a40c2855',1,'m_global_parameters_common']]],
   ['hyper_5fcleaning_5fspeed_15',['hyper_cleaning_speed',['../namespacem__global__parameters__common.html#a5a69c3996f0a3ebdbbd4e6fa775c402c',1,'m_global_parameters_common']]],
   ['hyper_5fcleaning_5ftau_16',['hyper_cleaning_tau',['../namespacem__global__parameters__common.html#a5c284f7778a325d543410df94ec833ec',1,'m_global_parameters_common']]],
-  ['hyper_5fmodel_17',['hyper_model',['../namespacem__global__parameters.html#a9319da4e5fa3c04c6d8e169d85523fdf',1,'m_global_parameters']]],
-  ['hyperelasticity_18',['hyperelasticity',['../namespacem__global__parameters__common.html#a48a4499cdeb3b1aa64f38d08beec4fdd',1,'m_global_parameters_common']]],
-  ['hypoelasticity_19',['hypoelasticity',['../namespacem__global__parameters__common.html#a533a3f4c2c09dc919fa899f2a2f22987',1,'m_global_parameters_common']]]
+  ['hypoelasticity_17',['hypoelasticity',['../namespacem__global__parameters__common.html#a533a3f4c2c09dc919fa899f2a2f22987',1,'m_global_parameters_common']]]
 ];

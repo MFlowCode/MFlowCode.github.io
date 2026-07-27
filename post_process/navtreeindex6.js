@@ -1,11 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structm__derived__types_1_1output__context.html#ac37d4811d37f448e8bb40e3bb57226c6":[2,0,1,21,2],
-"structm__derived__types_1_1output__context.html#ac6a3813847b35c4c97ba94028ffb4be2":[1,0,11,21,12],
-"structm__derived__types_1_1output__context.html#ac6a3813847b35c4c97ba94028ffb4be2":[2,0,1,21,12],
-"structm__derived__types_1_1output__context.html#ad4b177d4e1ac2baeb3919cb2713124ba":[1,0,11,21,1],
-"structm__derived__types_1_1output__context.html#ad4b177d4e1ac2baeb3919cb2713124ba":[2,0,1,21,1],
-"structm__derived__types_1_1output__context.html#af244677f2a83e6f3f175b700420aa6ff":[1,0,11,21,16],
 "structm__derived__types_1_1output__context.html#af244677f2a83e6f3f175b700420aa6ff":[2,0,1,21,16],
 "structm__derived__types_1_1output__context.html#af5b8a4d176a3d6dab85b79e085b144b4":[1,0,11,21,5],
 "structm__derived__types_1_1output__context.html#af5b8a4d176a3d6dab85b79e085b144b4":[2,0,1,21,5],
@@ -249,5 +243,11 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1vector__field.html":[2,0,1,10],
 "structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141":[1,0,11,10,0],
 "structm__derived__types_1_1vector__field.html#a0d280a8c838b68b70c4aca281de74141":[2,0,1,10,0],
-"structm__nvtx_1_1nvtxeventattributes.html":[1,0,21,0]
+"structm__nvtx_1_1nvtxeventattributes.html":[1,0,21,0],
+"structm__nvtx_1_1nvtxeventattributes.html":[2,0,2,0],
+"structm__nvtx_1_1nvtxeventattributes.html#a28114f0de57d3cd7d1dd54b7a9a6cb99":[1,0,21,0,8],
+"structm__nvtx_1_1nvtxeventattributes.html#a28114f0de57d3cd7d1dd54b7a9a6cb99":[2,0,2,0,8],
+"structm__nvtx_1_1nvtxeventattributes.html#a37a6f715453d35ed14e1117bae0f3079":[1,0,21,0,3],
+"structm__nvtx_1_1nvtxeventattributes.html#a37a6f715453d35ed14e1117bae0f3079":[2,0,2,0,3],
+"structm__nvtx_1_1nvtxeventattributes.html#a420eb146e93e94d3ea83b4e76df49bbd":[1,0,21,0,4]
 };

@@ -49,7 +49,6 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::hb_mu_min", "namespacem__global__parameters.html#ac3d88bc596ee1578777af7adb4b220fb", null ],
     [ "m_global_parameters::hb_nn", "namespacem__global__parameters.html#a569bbe3c66ed7c214107c172052fde70", null ],
     [ "m_global_parameters::hb_tau0", "namespacem__global__parameters.html#a274c7706e3ba7597c7c4b74c6bb944ba", null ],
-    [ "m_global_parameters::hyper_model", "namespacem__global__parameters.html#a9319da4e5fa3c04c6d8e169d85523fdf", null ],
     [ "m_global_parameters::ib_airfoil_grids", "namespacem__global__parameters.html#ae653054cb7cedd87b02167c5ca537de9", null ],
     [ "m_global_parameters::ib_bc_x", "namespacem__global__parameters.html#a2bfbeeeb77d384a09fefe56e18dbcf4d", null ],
     [ "m_global_parameters::ib_bc_y", "namespacem__global__parameters.html#a246e07bb93c4b02b6a6bf0e628cfc0b4", null ],
