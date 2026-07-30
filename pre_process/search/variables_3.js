@@ -25,12 +25,13 @@ var searchData=
   ['dims_22',['dims',['../structm__derived__types_1_1output__context.html#abbdf1ff17861e88d62f24134db9b1fae',1,'m_derived_types::output_context']]],
   ['dipole_23',['dipole',['../structm__derived__types_1_1acoustic__parameters.html#aa4ba699fa87f54cb9ea63cf7a3f5a6c9',1,'m_derived_types::acoustic_parameters']]],
   ['dir_24',['dir',['../structm__derived__types_1_1bc__patch__parameters.html#af8285d960e49a96e8f0d1b738366041d',1,'m_derived_types::bc_patch_parameters::dir'],['../structm__derived__types_1_1acoustic__parameters.html#a7c1bc17e6471b4ba5421714bf29cabc2',1,'m_derived_types::acoustic_parameters::dir']]],
-  ['dist_5ftype_25',['dist_type',['../namespacem__global__parameters__common.html#a89c03d724e97351b9beb1f66577d5cfa',1,'m_global_parameters_common']]],
-  ['double_5fprecision_26',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
-  ['down_5fsample_27',['down_sample',['../namespacem__global__parameters__common.html#a84ba917e04628adef4930a67e6396f41',1,'m_global_parameters_common']]],
-  ['dp_28',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
-  ['drag_5fmodel_29',['drag_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#ac3e667c80f43772ba7f441a9303c1a50',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['dx_30',['dx',['../namespacem__global__parameters.html#a742174580da5b9b325a2f00c24aca536',1,'m_global_parameters']]],
-  ['dy_31',['dy',['../namespacem__global__parameters.html#a380743bc7a4af4ab7143cb0c8679d972',1,'m_global_parameters']]],
-  ['dz_32',['dz',['../namespacem__global__parameters.html#a29818b2dd42d5384d99765393d965049',1,'m_global_parameters']]]
+  ['dirichlet_5ffrom_5fbuffers_25',['dirichlet_from_buffers',['../namespacem__boundary__primitives.html#a2f2f9bfcf2aa3cdcebe112fa902c9ac1',1,'m_boundary_primitives']]],
+  ['dist_5ftype_26',['dist_type',['../namespacem__global__parameters__common.html#a89c03d724e97351b9beb1f66577d5cfa',1,'m_global_parameters_common']]],
+  ['double_5fprecision_27',['double_precision',['../namespacem__precision__select.html#a159a9aa9e9c401b7e7601fcc9bb9164e',1,'m_precision_select']]],
+  ['down_5fsample_28',['down_sample',['../namespacem__global__parameters__common.html#a84ba917e04628adef4930a67e6396f41',1,'m_global_parameters_common']]],
+  ['dp_29',['dp',['../namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315',1,'m_precision_select']]],
+  ['drag_5fmodel_30',['drag_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#ac3e667c80f43772ba7f441a9303c1a50',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['dx_5fmin_31',['dx_min',['../namespacem__global__parameters__common.html#a3d416fc9f60f4bb22533afca7437ce9c',1,'m_global_parameters_common']]],
+  ['dy_5fmin_32',['dy_min',['../namespacem__global__parameters__common.html#a0006a47bf3c50e489d66aaae0e55ceee',1,'m_global_parameters_common']]],
+  ['dz_5fmin_33',['dz_min',['../namespacem__global__parameters__common.html#acd6d2d02b5d312c747d814aed35bf530',1,'m_global_parameters_common']]]
 ];

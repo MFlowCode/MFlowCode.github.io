@@ -12,7 +12,7 @@ var searchData=
   ['gamma_9',['gamma',['../structm__derived__types_1_1eqn__idx__info.html#a57b4dbc640a3bedebcc32d39261970e2',1,'m_derived_types::eqn_idx_info::gamma'],['../structm__derived__types_1_1ic__patch__parameters.html#aa982c729c370f311364340efb90d02dd',1,'m_derived_types::ic_patch_parameters::gamma'],['../structm__derived__types_1_1physical__parameters.html#a57c24082056bd7924df53fdca07cb5c1',1,'m_derived_types::physical_parameters::gamma']]],
   ['gamma_5fmethod_10',['gamma_method',['../structm__derived__types_1_1chemistry__parameters.html#a462d16aed0477dda722268218eee7b32',1,'m_derived_types::chemistry_parameters']]],
   ['gamma_5fsf_11',['gamma_sf',['../namespacem__variables__conversion.html#aa4e71dc86386a0e652bcdaf71014cb1d',1,'m_variables_conversion']]],
-  ['gammas_12',['gammas',['../namespacem__global__parameters.html#aef0610dbe267fc113667d78467015cd3',1,'m_global_parameters::gammas'],['../namespacem__variables__conversion.html#a1d9e637b2271cb6db05f932942fd3ffb',1,'m_variables_conversion::gammas']]],
+  ['gammas_12',['gammas',['../namespacem__global__parameters__common.html#a2289b961bfaf04f76e6e16a431afd135',1,'m_global_parameters_common']]],
   ['gas_5fbetac_13',['gas_betac',['../namespacem__bubbles__el.html#ac5d8d516af82e87746d674aca77568a9',1,'m_bubbles_el']]],
   ['gas_5fbetat_14',['gas_betat',['../namespacem__bubbles__el.html#a0aeba6aef548e693665b87aa3f523559',1,'m_bubbles_el']]],
   ['gas_5fdmvdt_15',['gas_dmvdt',['../namespacem__bubbles__el.html#a740417e744a56c4460f38ddc62852cb0',1,'m_bubbles_el']]],
@@ -51,7 +51,7 @@ var searchData=
   ['grcbc_5fvel_5fout_48',['grcbc_vel_out',['../structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80',1,'m_derived_types::int_bounds_info']]],
   ['grid_5fgeometry_49',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]],
   ['gs_5fhypo_50',['gs_hypo',['../namespacem__hypoelastic.html#a0b609359bab5eda290ed1467b1162420',1,'m_hypoelastic']]],
-  ['gs_5fmin_51',['gs_min',['../namespacem__global__parameters.html#aeff0b4922a35a8bbef1dafa9bf74b6db',1,'m_global_parameters::gs_min'],['../namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908',1,'m_variables_conversion::gs_min']]],
+  ['gs_5fmin_51',['gs_min',['../namespacem__global__parameters__common.html#a3ce3f4b0fe15e7f2f3e52310095a3a85',1,'m_global_parameters_common']]],
   ['gs_5frs_52',['gs_rs',['../namespacem__riemann__state.html#a4fdec5f95ec7676d349cf418805ee1f5',1,'m_riemann_state']]],
   ['gs_5fvc_53',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
 ];

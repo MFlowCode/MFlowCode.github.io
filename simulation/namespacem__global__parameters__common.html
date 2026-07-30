@@ -163,8 +163,8 @@ $(function(){initNavTree('namespacem__global__parameters__common.html','',''); }
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a9ff5283437e24cbb0bb7ddfa435b2aa6" id="r_a9ff5283437e24cbb0bb7ddfa435b2aa6"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9ff5283437e24cbb0bb7ddfa435b2aa6">s_initialize_eqn_idx</a> (nmom_in, nb_in)</td></tr>
-<tr class="memdesc:a9ff5283437e24cbb0bb7ddfa435b2aa6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize equation-index state (eqn_idx and sys_size) from the namelist parameters. This is the shared skeleton: it covers the model_eqns dispatch, all eqn_idx field assignments, and the hypoelastic/surface-tension/chemistry extensions.  <br /></td></tr>
+<tr class="memitem:afe172fab1aa8c8cf8c161037e059472b" id="r_afe172fab1aa8c8cf8c161037e059472b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#afe172fab1aa8c8cf8c161037e059472b">s_initialize_eqn_idx</a> (nmom_in, nb_in, six_eqn_alf_is_advected)</td></tr>
+<tr class="memdesc:afe172fab1aa8c8cf8c161037e059472b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize equation-index state (eqn_idx and sys_size) from the namelist parameters. This is the shared skeleton: it covers the model_eqns dispatch, all eqn_idx field assignments, and the hypoelastic/surface-tension/chemistry extensions.  <br /></td></tr>
 <tr class="memitem:aa804dc9bb0ab17b1ea7fd822abdf2212" id="r_aa804dc9bb0ab17b1ea7fd822abdf2212"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa804dc9bb0ab17b1ea7fd822abdf2212">s_initialize_parallel_io_common</a></td></tr>
 <tr class="memdesc:aa804dc9bb0ab17b1ea7fd822abdf2212"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure MPI parallel I/O settings and allocate processor coordinate arrays. Shared across all three executables; num_dims/num_vels are computed here for pre/post unconditionally and for sim only when not case-optimized (in which case they are compile-time parameters). Callers must have already populated n and p (grid dimensions).  <br /></td></tr>
 <tr class="memitem:a111f4b8f2df875b3a318db289bed468c" id="r_a111f4b8f2df875b3a318db289bed468c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a111f4b8f2df875b3a318db289bed468c">s_finalize_global_parameters_common</a></td></tr>
@@ -275,6 +275,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a9fcd157c8cc2beee47ee298afc00b417" id="r_a9fcd157c8cc2beee47ee298afc00b417"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a9fcd157c8cc2beee47ee298afc00b417">rhoref</a></td></tr>
 <tr class="memitem:a24096e8f6e7be156a1ae9d07dadfaf75" id="r_a24096e8f6e7be156a1ae9d07dadfaf75"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a24096e8f6e7be156a1ae9d07dadfaf75">riemann_solver</a></td></tr>
 <tr class="memitem:ab17241db8d67e45024a160dc48b5c74d" id="r_ab17241db8d67e45024a160dc48b5c74d"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#ab17241db8d67e45024a160dc48b5c74d">run_time_info</a></td></tr>
+<tr class="memitem:a66bde9261379d3c283d1fdc859b7980e" id="r_a66bde9261379d3c283d1fdc859b7980e"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a66bde9261379d3c283d1fdc859b7980e">sigr</a></td></tr>
 <tr class="memitem:ad6cfccf1e3b09ea2943fb4fe3ba24d60" id="r_ad6cfccf1e3b09ea2943fb4fe3ba24d60"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ad6cfccf1e3b09ea2943fb4fe3ba24d60">sigma</a></td></tr>
 <tr class="memitem:a075c54267c968a7b78122aabf7631844" id="r_a075c54267c968a7b78122aabf7631844"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a075c54267c968a7b78122aabf7631844">surface_tension</a></td></tr>
 <tr class="memitem:a991416708d1576cb0437f699e116f925" id="r_a991416708d1576cb0437f699e116f925"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a991416708d1576cb0437f699e116f925">synth_u_inf</a></td></tr>
@@ -323,13 +324,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a83e5abc68994404fcf4453fbb80cb4e4" id="r_a83e5abc68994404fcf4453fbb80cb4e4"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1spbf__parameters.html">spbf_parameters</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a83e5abc68994404fcf4453fbb80cb4e4">spatial_bf</a></td></tr>
 <tr class="memdesc:a83e5abc68994404fcf4453fbb80cb4e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters for spatially supported body force (Wei &amp; Freund, JFM 2005).  <br /></td></tr>
 <tr class="memitem:a64d11fd6634dff139506a5b1ecd70a91" id="r_a64d11fd6634dff139506a5b1ecd70a91"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a></td></tr>
-<tr class="memdesc:a64d11fd6634dff139506a5b1ecd70a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of spatial dimensions.  <br /></td></tr>
 <tr class="memitem:a79f161d4e6a43af26d89187f69dc9801" id="r_a79f161d4e6a43af26d89187f69dc9801"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a79f161d4e6a43af26d89187f69dc9801">num_vels</a></td></tr>
-<tr class="memdesc:a79f161d4e6a43af26d89187f69dc9801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of velocity components (different from num_dims for mhd).  <br /></td></tr>
 <tr class="memitem:ab707f0720d499fb44c689015c7669ca9" id="r_ab707f0720d499fb44c689015c7669ca9"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ab707f0720d499fb44c689015c7669ca9">weno_polyn</a></td></tr>
-<tr class="memdesc:ab707f0720d499fb44c689015c7669ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degree of the WENO polynomials.  <br /></td></tr>
 <tr class="memitem:a003559a78abe1adb77137c37de082c51" id="r_a003559a78abe1adb77137c37de082c51"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a003559a78abe1adb77137c37de082c51">muscl_polyn</a></td></tr>
-<tr class="memdesc:a003559a78abe1adb77137c37de082c51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Degree of the MUSCL polynomials.  <br /></td></tr>
 <tr class="memitem:a1e43da745672fa02550837b7d426dff7" id="r_a1e43da745672fa02550837b7d426dff7"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a1e43da745672fa02550837b7d426dff7">weno_num_stencils</a></td></tr>
 <tr class="memitem:a1f2c2ae74f748f8536bd0cddf06cec49" id="r_a1f2c2ae74f748f8536bd0cddf06cec49"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a1f2c2ae74f748f8536bd0cddf06cec49">wenojs</a></td></tr>
 <tr class="memitem:a2059a73bab13312fccb9c299e2ed2eed" id="r_a2059a73bab13312fccb9c299e2ed2eed"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a2059a73bab13312fccb9c299e2ed2eed">igr</a></td></tr>
@@ -348,6 +345,10 @@ Variables</h2></td></tr>
 <tr class="memitem:addcc2b4e025f06396376dbacd33f2e0f" id="r_addcc2b4e025f06396376dbacd33f2e0f"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#addcc2b4e025f06396376dbacd33f2e0f">weno_order</a></td></tr>
 <tr class="memitem:abc883cbc9615329c510f19a8c7fbd382" id="r_abc883cbc9615329c510f19a8c7fbd382"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#abc883cbc9615329c510f19a8c7fbd382">wenoz</a></td></tr>
 <tr class="memitem:ac0db22d3733a8ae135b65c5b8857ec6b" id="r_ac0db22d3733a8ae135b65c5b8857ec6b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ac0db22d3733a8ae135b65c5b8857ec6b">wenoz_q</a></td></tr>
+<tr class="memitem:a3d416fc9f60f4bb22533afca7437ce9c" id="r_a3d416fc9f60f4bb22533afca7437ce9c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a3d416fc9f60f4bb22533afca7437ce9c">dx_min</a></td></tr>
+<tr class="memdesc:a3d416fc9f60f4bb22533afca7437ce9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum cell widths. These are distinct from the per-cell width arrays named dx, dy, and dz in simulation and post-process.  <br /></td></tr>
+<tr class="memitem:a0006a47bf3c50e489d66aaae0e55ceee" id="r_a0006a47bf3c50e489d66aaae0e55ceee"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a0006a47bf3c50e489d66aaae0e55ceee">dy_min</a></td></tr>
+<tr class="memitem:acd6d2d02b5d312c747d814aed35bf530" id="r_acd6d2d02b5d312c747d814aed35bf530"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#acd6d2d02b5d312c747d814aed35bf530">dz_min</a></td></tr>
 <tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Annotations of the structure of the state and flux vectors in terms of the size and configuration of the system of</div></td></tr>
 <tr><td colspan="2" class="ititle"><div class="groupText"><p>equations </p>
 </div></td></tr>
@@ -366,7 +367,21 @@ Variables</h2></td></tr>
 <tr class="memdesc:a4f2ed03f6c839071a4ca5c1dfcd1fbaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of shear stress components to reflect for boundary conditions.  <br /></td></tr>
 <tr class="memitem:a8a7614d8109ee890d5b04f92d80afc06" id="r_a8a7614d8109ee890d5b04f92d80afc06"><td class="memItemLeft">integer, dimension(3, 2)&#160;</td><td class="memItemRight"><a class="el" href="#a8a7614d8109ee890d5b04f92d80afc06">shear_bc_flip_indices</a></td></tr>
 <tr class="memdesc:a8a7614d8109ee890d5b04f92d80afc06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shear stress BC reflection indices (1:3, 1:shear_BC_flip_num).  <br /></td></tr>
-<tr id="var-members-3" class="groupHeader"><td colspan="2"><div class="groupHeader">Processor coordinates and parallel-IO addressing (identical declaration across all three targets)</div></td></tr>
+<tr id="var-members-3" class="groupHeader"><td colspan="2"><div class="groupHeader">Material properties derived from fluid_pp</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>One declaration is shared by all executables and initialized by <a class="el" href="namespacem__variables__conversion.html" title="Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation.">m_variables_conversion</a> after the case parameters have been read. </p>
+</div></td></tr>
+<tr class="memitem:a2289b961bfaf04f76e6e16a431afd135" id="r_a2289b961bfaf04f76e6e16a431afd135"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2289b961bfaf04f76e6e16a431afd135">gammas</a></td></tr>
+<tr class="memitem:a3ce3f4b0fe15e7f2f3e52310095a3a85" id="r_a3ce3f4b0fe15e7f2f3e52310095a3a85"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a3ce3f4b0fe15e7f2f3e52310095a3a85">gs_min</a></td></tr>
+<tr class="memitem:aba1ccb4037252fcbbb71aa6ad0d2ea58" id="r_aba1ccb4037252fcbbb71aa6ad0d2ea58"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aba1ccb4037252fcbbb71aa6ad0d2ea58">pi_infs</a></td></tr>
+<tr class="memitem:af62536702163fb4044f915789fa1f3f0" id="r_af62536702163fb4044f915789fa1f3f0"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#af62536702163fb4044f915789fa1f3f0">ps_inf</a></td></tr>
+<tr class="memitem:a58dcc1d6d3c51cc39e2164752e9cc460" id="r_a58dcc1d6d3c51cc39e2164752e9cc460"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a58dcc1d6d3c51cc39e2164752e9cc460">cvs</a></td></tr>
+<tr class="memitem:a1ee0b401a6be6e4fe322f6170f31c85a" id="r_a1ee0b401a6be6e4fe322f6170f31c85a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a1ee0b401a6be6e4fe322f6170f31c85a">qvs</a></td></tr>
+<tr class="memitem:aac1b14351ac4a10fab7c368088d34e53" id="r_aac1b14351ac4a10fab7c368088d34e53"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aac1b14351ac4a10fab7c368088d34e53">qvps</a></td></tr>
+<tr id="var-members-4" class="groupHeader"><td colspan="2"><div class="groupHeader">Fluids participating in shear and bulk viscosity</div></td></tr>
+<tr class="memitem:a201563f7d8fbe0094448fd4780dde73a" id="r_a201563f7d8fbe0094448fd4780dde73a"><td class="memItemLeft">integer, dimension(2)&#160;</td><td class="memItemRight"><a class="el" href="#a201563f7d8fbe0094448fd4780dde73a">re_size</a> = 0</td></tr>
+<tr class="memitem:afbc497687550d3f654575cfc8cea507f" id="r_afbc497687550d3f654575cfc8cea507f"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#afbc497687550d3f654575cfc8cea507f">re_size_max</a> = 0</td></tr>
+<tr class="memitem:a4948c1001a8275c4be86add3481f075f" id="r_a4948c1001a8275c4be86add3481f075f"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a4948c1001a8275c4be86add3481f075f">re_idx</a></td></tr>
+<tr id="var-members-5" class="groupHeader"><td colspan="2"><div class="groupHeader">Processor coordinates and parallel-IO addressing (identical declaration across all three targets)</div></td></tr>
 <tr class="memitem:a595208b31ab2930d4760238216f43c99" id="r_a595208b31ab2930d4760238216f43c99"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a595208b31ab2930d4760238216f43c99">proc_coords</a></td></tr>
 <tr class="memdesc:a595208b31ab2930d4760238216f43c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processor coordinates in MPI_CART_COMM.  <br /></td></tr>
 <tr class="memitem:a10ae5d4f21c4e0f9e6530ffcb9904b6a" id="r_a10ae5d4f21c4e0f9e6530ffcb9904b6a"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a10ae5d4f21c4e0f9e6530ffcb9904b6a">start_idx</a></td></tr>
@@ -377,7 +392,7 @@ Variables</h2></td></tr>
 <tr class="memdesc:a4923fe1f16f7ad83c03fb4467458ae36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of MPI ranks in y-direction.  <br /></td></tr>
 <tr class="memitem:a83e5d0948853d981c6e1f20634c0376f" id="r_a83e5d0948853d981c6e1f20634c0376f"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a83e5d0948853d981c6e1f20634c0376f">num_procs_z</a> = 1</td></tr>
 <tr class="memdesc:a83e5d0948853d981c6e1f20634c0376f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of MPI ranks in z-direction.  <br /></td></tr>
-<tr id="var-members-4" class="groupHeader"><td colspan="2"><div class="groupHeader">MPI info for parallel IO with Lustre file systems (identical across all three targets)</div></td></tr>
+<tr id="var-members-6" class="groupHeader"><td colspan="2"><div class="groupHeader">MPI info for parallel IO with Lustre file systems (identical across all three targets)</div></td></tr>
 <tr class="memitem:a9950fd98c1d4f4adb3972232030f310d" id="r_a9950fd98c1d4f4adb3972232030f310d"><td class="memItemLeft">character(len=<a class="el" href="namespacem__constants.html#a1de9ebff81a0be652121ae336ffb8757">name_len</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a9950fd98c1d4f4adb3972232030f310d">mpiiofs</a></td></tr>
 <tr class="memitem:a1464508407033638204757d692d1878b" id="r_a1464508407033638204757d692d1878b"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a1464508407033638204757d692d1878b">mpi_info_int</a></td></tr>
 </table>
@@ -398,7 +413,7 @@ Variables</h2></td></tr>
 
 <p>Assign default values to the user-input parameters that are shared across all three executables (pre_process, simulation, post_process). Per-target defaults (bc_io, cfl_dt, precision, nb, chem_params, bub_pp scalar companions, fluid_pp loop, patch arrays, output flags) remain in the per-target s_assign_default_values_to_user_inputs routines, which call this subroutine first, then call s_update_cell_bounds(cells_bounds, m, n, p) (cells_bounds is per-target), then apply their own assignments. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01314">1314</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01882">1882</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -421,12 +436,12 @@ Here is the caller graph for this function:</div>
 
 <p>Shared finalize core: deallocate proc_coords and start_idx. Per-target finalize routines call this first, then handle their own extras (qbmm_idx, grid arrays, MPI_IO_DATA null/dealloc - those reference per-target typed variables and stay per-target). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01298">1298</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01866">1866</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a9ff5283437e24cbb0bb7ddfa435b2aa6" name="a9ff5283437e24cbb0bb7ddfa435b2aa6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ff5283437e24cbb0bb7ddfa435b2aa6">&#9670;&#160;</a></span>s_initialize_eqn_idx()</h2>
+<a id="afe172fab1aa8c8cf8c161037e059472b" name="afe172fab1aa8c8cf8c161037e059472b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe172fab1aa8c8cf8c161037e059472b">&#9670;&#160;</a></span>s_initialize_eqn_idx()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,7 +454,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nb_in</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nb_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>six_eqn_alf_is_advected</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -457,11 +477,11 @@ Here is the caller graph for this function:</div>
 <li>post-only: beta_idx increment (bubbles_lagrange path), offset/grid allocations </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01077">1077</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01656">1656</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__global__parameters__common_a9ff5283437e24cbb0bb7ddfa435b2aa6_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__global__parameters__common_afe172fab1aa8c8cf8c161037e059472b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -480,7 +500,7 @@ Here is the caller graph for this function:</div>
 
 <p>Configure MPI parallel I/O settings and allocate processor coordinate arrays. Shared across all three executables; num_dims/num_vels are computed here for pre/post unconditionally and for sim only when not case-optimized (in which case they are compile-time parameters). Callers must have already populated n and p (grid dimensions). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01249">1249</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01827">1827</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -499,7 +519,7 @@ Here is the caller graph for this function:</div>
 
 <p>Acoustic source parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00517">517</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -725,7 +745,7 @@ Here is the caller graph for this function:</div>
 
 <p>Subgrid bubble physical parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00478">478</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00479">479</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -885,7 +905,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00529">529</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00530">530</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -901,7 +921,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00634">634</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01556">1556</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -985,6 +1005,22 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a58dcc1d6d3c51cc39e2164752e9cc460" name="a58dcc1d6d3c51cc39e2164752e9cc460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58dcc1d6d3c51cc39e2164752e9cc460">&#9670;&#160;</a></span>cvs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::cvs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a114ef11eca404ec87ac136d8ffbb1509" name="a114ef11eca404ec87ac136d8ffbb1509"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a114ef11eca404ec87ac136d8ffbb1509">&#9670;&#160;</a></span>cyl_coord</h2>
 
@@ -1033,6 +1069,56 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a3d416fc9f60f4bb22533afca7437ce9c" name="a3d416fc9f60f4bb22533afca7437ce9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d416fc9f60f4bb22533afca7437ce9c">&#9670;&#160;</a></span>dx_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_global_parameters_common::dx_min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minimum cell widths. These are distinct from the per-cell width arrays named dx, dy, and dz in simulation and post-process. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01603">1603</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a0006a47bf3c50e489d66aaae0e55ceee" name="a0006a47bf3c50e489d66aaae0e55ceee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0006a47bf3c50e489d66aaae0e55ceee">&#9670;&#160;</a></span>dy_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_global_parameters_common::dy_min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01603">1603</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="acd6d2d02b5d312c747d814aed35bf530" name="acd6d2d02b5d312c747d814aed35bf530"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd6d2d02b5d312c747d814aed35bf530">&#9670;&#160;</a></span>dz_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_global_parameters_common::dz_min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01603">1603</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a80a963bfbdb8f497ff540a7b4beb6e75" name="a80a963bfbdb8f497ff540a7b4beb6e75"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a80a963bfbdb8f497ff540a7b4beb6e75">&#9670;&#160;</a></span>eqn_idx</h2>
 
@@ -1047,7 +1133,7 @@ Here is the caller graph for this function:</div>
 
 <p>All conserved-variable equation index ranges and scalars. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00629">629</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01551">1551</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1199,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-fluid stiffened-gas EOS parameters, Reynolds numbers, and shear modulus. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00478">478</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1162,6 +1248,38 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2289b961bfaf04f76e6e16a431afd135" name="a2289b961bfaf04f76e6e16a431afd135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2289b961bfaf04f76e6e16a431afd135">&#9670;&#160;</a></span>gammas</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::gammas</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3ce3f4b0fe15e7f2f3e52310095a3a85" name="a3ce3f4b0fe15e7f2f3e52310095a3a85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce3f4b0fe15e7f2f3e52310095a3a85">&#9670;&#160;</a></span>gs_min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::gs_min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1259,7 +1377,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-airfoil NACA user inputs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00491">491</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00492">492</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1355,7 +1473,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00592">592</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01286">1286</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1371,7 +1489,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00593">593</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01287">1287</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1387,7 +1505,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00594">594</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01288">1288</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1403,7 +1521,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01289">1289</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1435,7 +1553,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00516">516</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00517">517</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1517,7 +1635,7 @@ Here is the caller graph for this function:</div>
 
 <p>Lagrange bubbles' parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00553">553</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00554">554</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1581,7 +1699,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01290">1290</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1597,7 +1715,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01291">1291</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1661,7 +1779,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01061">1061</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01640">1640</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1677,7 +1795,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01060">1060</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01639">1639</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1725,7 +1843,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01292">1292</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1741,7 +1859,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01293">1293</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1757,9 +1875,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Degree of the MUSCL polynomials. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00589">589</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01283">1283</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1839,9 +1955,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Number of spatial dimensions. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00586">586</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01280">1280</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1857,7 +1971,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01294">1294</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1971,7 +2085,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of MPI ranks in x-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01053">1053</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01632">1632</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1989,7 +2103,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of MPI ranks in y-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01054">1054</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01633">1633</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2007,7 +2121,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of MPI ranks in z-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01055">1055</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01634">1634</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2071,9 +2185,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Number of velocity components (different from num_dims for mhd). </p>
-
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00587">587</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01281">1281</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2235,7 +2347,7 @@ Here is the caller graph for this function:</div>
 
 <p>Particle bed specifications. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00566">566</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2253,7 +2365,7 @@ Here is the caller graph for this function:</div>
 
 <p>Immersed boundary patch parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00479">479</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00480">480</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2270,6 +2382,22 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aba1ccb4037252fcbbb71aa6ad0d2ea58" name="aba1ccb4037252fcbbb71aa6ad0d2ea58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba1ccb4037252fcbbb71aa6ad0d2ea58">&#9670;&#160;</a></span>pi_infs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::pi_infs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2381,7 +2509,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00515">515</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00516">516</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2415,7 +2543,23 @@ Here is the caller graph for this function:</div>
 
 <p>Processor coordinates in MPI_CART_COMM. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01051">1051</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01630">1630</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="af62536702163fb4044f915789fa1f3f0" name="af62536702163fb4044f915789fa1f3f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af62536702163fb4044f915789fa1f3f0">&#9670;&#160;</a></span>ps_inf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::ps_inf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2451,6 +2595,38 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aac1b14351ac4a10fab7c368088d34e53" name="aac1b14351ac4a10fab7c368088d34e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1b14351ac4a10fab7c368088d34e53">&#9670;&#160;</a></span>qvps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::qvps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1ee0b401a6be6e4fe322f6170f31c85a" name="a1ee0b401a6be6e4fe322f6170f31c85a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ee0b401a6be6e4fe322f6170f31c85a">&#9670;&#160;</a></span>qvs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_global_parameters_common::qvs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01570">1570</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="ac230e5ada9359082eda144e5a0f6531f" name="ac230e5ada9359082eda144e5a0f6531f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac230e5ada9359082eda144e5a0f6531f">&#9670;&#160;</a></span>r0ref</h2>
 
@@ -2481,7 +2657,7 @@ Here is the caller graph for this function:</div>
 
 <p>Condensed-phase reactive-burn (programmed detonation) parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00541">541</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00542">542</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2501,6 +2677,22 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a4948c1001a8275c4be86add3481f075f" name="a4948c1001a8275c4be86add3481f075f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4948c1001a8275c4be86add3481f075f">&#9670;&#160;</a></span>re_idx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:,:), allocatable m_global_parameters_common::re_idx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01588">1588</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="acf943ae63eb7131dc914b3b92d20dd57" name="acf943ae63eb7131dc914b3b92d20dd57"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acf943ae63eb7131dc914b3b92d20dd57">&#9670;&#160;</a></span>re_inv</h2>
 
@@ -2514,6 +2706,38 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00355">355</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a201563f7d8fbe0094448fd4780dde73a" name="a201563f7d8fbe0094448fd4780dde73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a201563f7d8fbe0094448fd4780dde73a">&#9670;&#160;</a></span>re_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(2) m_global_parameters_common::re_size = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01586">1586</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="afbc497687550d3f654575cfc8cea507f" name="afbc497687550d3f654575cfc8cea507f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc497687550d3f654575cfc8cea507f">&#9670;&#160;</a></span>re_size_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters_common::re_size_max = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01587">1587</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2545,7 +2769,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00601">601</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01295">1295</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2561,7 +2785,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00602">602</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01296">1296</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2659,7 +2883,7 @@ Here is the caller graph for this function:</div>
 
 <p>Shear stress BC reflection indices (1:3, 1:shear_BC_flip_num). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00642">642</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01564">1564</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2677,7 +2901,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of shear stress components to reflect for boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00641">641</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01563">1563</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2695,7 +2919,7 @@ Here is the caller graph for this function:</div>
 
 <p>Indices of the stress components that represent shear stress. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00640">640</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01562">1562</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2713,7 +2937,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of shear stress components. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00639">639</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01561">1561</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2725,6 +2949,22 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_global_parameters_common::sigma</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a66bde9261379d3c283d1fdc859b7980e" name="a66bde9261379d3c283d1fdc859b7980e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66bde9261379d3c283d1fdc859b7980e">&#9670;&#160;</a></span>sigr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_global_parameters_common::sigr</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -2747,7 +2987,7 @@ Here is the caller graph for this function:</div>
 
 <p>Parameters for spatially supported body force (Wei &amp; Freund, JFM 2005). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00566">566</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00567">567</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2765,7 +3005,7 @@ Here is the caller graph for this function:</div>
 
 <p>Starting cell-center index of local processor in global grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01052">1052</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01631">1631</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2783,7 +3023,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-STL model parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00503">503</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00504">504</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2799,7 +3039,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00455">455</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2815,7 +3055,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2831,7 +3071,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2847,7 +3087,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00455">455</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2863,7 +3103,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00459">459</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2881,7 +3121,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of unknowns in system of equations. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00628">628</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01550">1550</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2897,7 +3137,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00459">459</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00460">460</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2913,7 +3153,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00460">460</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00461">461</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2929,7 +3169,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00461">461</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00462">462</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2945,7 +3185,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00462">462</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00463">463</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2961,7 +3201,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00463">463</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2977,7 +3217,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00465">465</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2993,7 +3233,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00465">465</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3009,7 +3249,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00467">467</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3025,7 +3265,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00603">603</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01297">1297</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3041,7 +3281,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00467">467</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00468">468</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3057,7 +3297,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00468">468</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00469">469</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3073,7 +3313,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00469">469</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3089,7 +3329,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00604">604</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01298">1298</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3105,7 +3345,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00471">471</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3121,7 +3361,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00471">471</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00472">472</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3137,7 +3377,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00472">472</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00473">473</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3153,7 +3393,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00473">473</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3185,7 +3425,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3201,7 +3441,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3217,7 +3457,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00590">590</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01284">1284</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3233,7 +3473,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00605">605</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01299">1299</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3249,9 +3489,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Degree of the WENO polynomials. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00588">588</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01282">1282</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3267,7 +3505,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3283,7 +3521,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00591">591</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01285">1285</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3299,7 +3537,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00606">606</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01300">1300</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3315,7 +3553,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l00607">607</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html#l01301">1301</a> of file <a class="el" href="m__global__parameters__common_8fpp_8f90_source.html">m_global_parameters_common.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -171,10 +171,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a8b30b668d9de48d0bf0d53fa56116847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert mixture variables to density, gamma, pi_inf, and qv for the gamma/pi_inf model. Given conservative or primitive variables, transfers the density, specific heat ratio function and the liquid stiffness function from q_vf to rho, gamma and pi_inf.  <br /></td></tr>
 <tr class="memitem:a7f3bffa0ba13432f79f095a78fcf6e5a" id="r_a7f3bffa0ba13432f79f095a78fcf6e5a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7f3bffa0ba13432f79f095a78fcf6e5a">s_convert_species_to_mixture_variables</a> (q_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, r, rho, gamma, pi_inf, qv, re_k, g_k, g)</td></tr>
 <tr class="memdesc:a7f3bffa0ba13432f79f095a78fcf6e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert species volume fractions and partial densities to mixture density, gamma, pi_inf, and qv. Given conservative or primitive variables, computes the density, the specific heat ratio function and the liquid stiffness function from q_vf and stores the results into rho, gamma and pi_inf.  <br /></td></tr>
-<tr class="memitem:af1bda14464459b0fd9448dd8885741c7" id="r_af1bda14464459b0fd9448dd8885741c7"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#af1bda14464459b0fd9448dd8885741c7">s_convert_species_to_mixture_variables_acc</a> (rho_k, gamma_k, pi_inf_k, qv_k, alpha_k, alpha_rho_k, re_k, g_k, g)</td></tr>
-<tr class="memdesc:af1bda14464459b0fd9448dd8885741c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPU-accelerated conversion of species volume fractions and partial densities to mixture density, gamma, pi_inf, and qv.  <br /></td></tr>
-<tr class="memitem:a7ebd3fab94230d88d603e76ac5435e05" id="r_a7ebd3fab94230d88d603e76ac5435e05"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7ebd3fab94230d88d603e76ac5435e05">s_initialize_variables_conversion_module</a></td></tr>
-<tr class="memdesc:a7ebd3fab94230d88d603e76ac5435e05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the variables conversion module.  <br /></td></tr>
+<tr class="memitem:ac00dd41bc1a03bc4ee830cfa4fc7f2e6" id="r_ac00dd41bc1a03bc4ee830cfa4fc7f2e6"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac00dd41bc1a03bc4ee830cfa4fc7f2e6">s_convert_species_to_mixture_variables_kernel</a> (rho_k, gamma_k, pi_inf_k, qv_k, alpha_k, alpha_rho_k, re_k, g_k, g)</td></tr>
+<tr class="memdesc:ac00dd41bc1a03bc4ee830cfa4fc7f2e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Host- and device-callable conversion kernel for species and mixture variables.  <br /></td></tr>
+<tr class="memitem:aaad21817e69bab852d3bcb46ddbb0caa" id="r_aaad21817e69bab852d3bcb46ddbb0caa"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aaad21817e69bab852d3bcb46ddbb0caa">s_initialize_variables_conversion_module</a> (store_mixture_fields, enforce_density_floor, preserve_qbmm_number, lagrange_beta_index)</td></tr>
+<tr class="memdesc:aaad21817e69bab852d3bcb46ddbb0caa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the variables conversion module.  <br /></td></tr>
 <tr class="memitem:a55f61a59d5d979886829dab99e00b4e8" id="r_a55f61a59d5d979886829dab99e00b4e8"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a55f61a59d5d979886829dab99e00b4e8">s_initialize_mv</a> (qk_cons_vf, mv)</td></tr>
 <tr class="memdesc:a55f61a59d5d979886829dab99e00b4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize bubble mass-vapor values at quadrature nodes from the conserved moment statistics.  <br /></td></tr>
 <tr class="memitem:a572d64fd75d1710f3dbce61d9b6e6c0d" id="r_a572d64fd75d1710f3dbce61d9b6e6c0d"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a572d64fd75d1710f3dbce61d9b6e6c0d">s_initialize_pb</a> (qk_cons_vf, mv, pb)</td></tr>
@@ -183,26 +183,19 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a7d567315b057c0da0cb37f89ef298031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert conserved variables (rho*alpha, rho*u, E, alpha) to primitives (rho, u, p, alpha). Conversion depends on model_eqns: each model has different variable sets and EOS.  <br /></td></tr>
 <tr class="memitem:a6948eb28c04a325dc94f777d20558a1e" id="r_a6948eb28c04a325dc94f777d20558a1e"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6948eb28c04a325dc94f777d20558a1e">s_convert_primitive_to_conservative_variables</a> (q_prim_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
 <tr class="memdesc:a6948eb28c04a325dc94f777d20558a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert primitives (rho, u, p, alpha) to conserved variables (rho*alpha, rho*u, E, alpha).  <br /></td></tr>
-<tr class="memitem:a103ba56044f0a89e365ed91ca11eb38a" id="r_a103ba56044f0a89e365ed91ca11eb38a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a103ba56044f0a89e365ed91ca11eb38a">s_convert_primitive_to_flux_variables</a> (qk_prim_vf, fk_vf, fk_src_vf, is1, is2, is3, s2b, s3b)</td></tr>
-<tr class="memdesc:a103ba56044f0a89e365ed91ca11eb38a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert primitive variables to Eulerian flux variables.  <br /></td></tr>
+<tr class="memitem:afb8d9abe86036f40292ab43e94eefe18" id="r_afb8d9abe86036f40292ab43e94eefe18"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afb8d9abe86036f40292ab43e94eefe18">s_convert_primitive_to_flux_variables</a> (qk_prim_vf, fk_vf, fk_src_vf, is1, is2, is3, s2b, s3b, dir_idx_in, dir_flg_in)</td></tr>
+<tr class="memdesc:afb8d9abe86036f40292ab43e94eefe18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert primitive variables to Eulerian flux variables.  <br /></td></tr>
 <tr class="memitem:a21906a4c29bbb1187212feb969c00502" id="r_a21906a4c29bbb1187212feb969c00502"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a21906a4c29bbb1187212feb969c00502">s_compute_species_fraction</a> (q_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, r, alpha_rho_k, alpha_k)</td></tr>
 <tr class="memdesc:a21906a4c29bbb1187212feb969c00502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute partial densities and volume fractions.  <br /></td></tr>
-<tr class="memitem:aceaf9a1f34881d42e50dca63cbde506b" id="r_aceaf9a1f34881d42e50dca63cbde506b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aceaf9a1f34881d42e50dca63cbde506b">s_finalize_variables_conversion_module</a> ()</td></tr>
-<tr class="memdesc:aceaf9a1f34881d42e50dca63cbde506b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate fluid property arrays and post-processing fields allocated during module initialization.  <br /></td></tr>
-<tr class="memitem:a2592c29f5aae1605bdcf12dcf6315748" id="r_a2592c29f5aae1605bdcf12dcf6315748"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2592c29f5aae1605bdcf12dcf6315748">s_compute_speed_of_sound</a> (pres, rho, gamma, pi_inf, h, adv, vel_sum, c_c, c, qv)</td></tr>
-<tr class="memdesc:a2592c29f5aae1605bdcf12dcf6315748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the speed of sound from thermodynamic state variables, supporting multiple equation-of-state models.  <br /></td></tr>
-<tr class="memitem:a03d13e39beb1daa9f6a59a469b10ebb5" id="r_a03d13e39beb1daa9f6a59a469b10ebb5"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a03d13e39beb1daa9f6a59a469b10ebb5">s_compute_fast_magnetosonic_speed</a> (rho, c, b, norm, c_fast, h)</td></tr>
-<tr class="memdesc:a03d13e39beb1daa9f6a59a469b10ebb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the fast magnetosonic wave speed from the sound speed, density, and magnetic field components.  <br /></td></tr>
+<tr class="memitem:a4e5737d07ee26f0d8547418aa8e79326" id="r_a4e5737d07ee26f0d8547418aa8e79326"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4e5737d07ee26f0d8547418aa8e79326">s_finalize_variables_conversion_module</a> ()</td></tr>
+<tr class="memdesc:a4e5737d07ee26f0d8547418aa8e79326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate fluid property arrays and post-processing fields allocated during module initialization.  <br /></td></tr>
+<tr class="memitem:a61487c861a17acf1d2d7bfef6ad85380" id="r_a61487c861a17acf1d2d7bfef6ad85380"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a61487c861a17acf1d2d7bfef6ad85380">s_compute_speed_of_sound</a> (pres, rho, gamma, pi_inf, h, adv, vel_sum, c_c, c, qv)</td></tr>
+<tr class="memdesc:a61487c861a17acf1d2d7bfef6ad85380"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the speed of sound from thermodynamic state variables, supporting multiple equation-of-state models.  <br /></td></tr>
+<tr class="memitem:aa1a6ec147af9288501df5c16adf2c833" id="r_aa1a6ec147af9288501df5c16adf2c833"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa1a6ec147af9288501df5c16adf2c833">s_compute_fast_magnetosonic_speed</a> (rho, c, b, norm, c_fast, h)</td></tr>
+<tr class="memdesc:aa1a6ec147af9288501df5c16adf2c833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the fast magnetosonic wave speed from the sound speed, density, and magnetic field components.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a1d9e637b2271cb6db05f932942fd3ffb" id="r_a1d9e637b2271cb6db05f932942fd3ffb"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a1d9e637b2271cb6db05f932942fd3ffb">gammas</a></td></tr>
-<tr class="memitem:a2b34c428b120e988541dbcd8fc646908" id="r_a2b34c428b120e988541dbcd8fc646908"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a2b34c428b120e988541dbcd8fc646908">gs_min</a></td></tr>
-<tr class="memitem:ab6b053315b36074bfef4aec10b3cb38a" id="r_ab6b053315b36074bfef4aec10b3cb38a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ab6b053315b36074bfef4aec10b3cb38a">pi_infs</a></td></tr>
-<tr class="memitem:a20eddf4f73253831dcf2b48f4997c781" id="r_a20eddf4f73253831dcf2b48f4997c781"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a20eddf4f73253831dcf2b48f4997c781">ps_inf</a></td></tr>
-<tr class="memitem:a5834620bed23766a40b8cb049170cba1" id="r_a5834620bed23766a40b8cb049170cba1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a5834620bed23766a40b8cb049170cba1">cvs</a></td></tr>
-<tr class="memitem:a3115694a0163ff2d8ff01532ecbe6952" id="r_a3115694a0163ff2d8ff01532ecbe6952"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a3115694a0163ff2d8ff01532ecbe6952">qvs</a></td></tr>
-<tr class="memitem:a7a4b3841aa7a29fee4382d9de70df0cb" id="r_a7a4b3841aa7a29fee4382d9de70df0cb"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a7a4b3841aa7a29fee4382d9de70df0cb">qvps</a></td></tr>
 <tr class="memitem:abdd1fbcaa7d9bb36fbe1f4b4fed80d49" id="r_abdd1fbcaa7d9bb36fbe1f4b4fed80d49"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#abdd1fbcaa7d9bb36fbe1f4b4fed80d49">gs_vc</a></td></tr>
 <tr class="memitem:abc019c747ff4300fd22628fdcf259575" id="r_abc019c747ff4300fd22628fdcf259575"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#abc019c747ff4300fd22628fdcf259575">bubrs_vc</a></td></tr>
 <tr class="memitem:a44c0bad49c8b6544e912d698d2e04af5" id="r_a44c0bad49c8b6544e912d698d2e04af5"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a44c0bad49c8b6544e912d698d2e04af5">res_vc</a></td></tr>
@@ -212,6 +205,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ac6ef13046c1ccd16dc9a9dee32d886c0" id="r_ac6ef13046c1ccd16dc9a9dee32d886c0"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ac6ef13046c1ccd16dc9a9dee32d886c0">is1e</a></td></tr>
 <tr class="memitem:aad965403f327ed31ada1f384b3853891" id="r_aad965403f327ed31ada1f384b3853891"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#aad965403f327ed31ada1f384b3853891">is2e</a></td></tr>
 <tr class="memitem:a494b160cf0c59565ee6f2585841f66de" id="r_a494b160cf0c59565ee6f2585841f66de"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a494b160cf0c59565ee6f2585841f66de">is3e</a></td></tr>
+<tr class="memitem:ac0a9330e3866671a2c04062d6a6b11a3" id="r_ac0a9330e3866671a2c04062d6a6b11a3"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#ac0a9330e3866671a2c04062d6a6b11a3">enforce_density_floor_vc</a> = .false.</td></tr>
+<tr class="memitem:aebd4c7f3c5481e91ef2abcb0ccdd28ea" id="r_aebd4c7f3c5481e91ef2abcb0ccdd28ea"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#aebd4c7f3c5481e91ef2abcb0ccdd28ea">preserve_qbmm_number_vc</a> = .false.</td></tr>
+<tr class="memitem:adf574dccf02ef4866b4cf5282a0baaaf" id="r_adf574dccf02ef4866b4cf5282a0baaaf"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#adf574dccf02ef4866b4cf5282a0baaaf">lagrange_beta_index_vc</a> = 0</td></tr>
 <tr class="memitem:aadb7f5bb0ac300d191b82f5ce60b21af" id="r_aadb7f5bb0ac300d191b82f5ce60b21af"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#aadb7f5bb0ac300d191b82f5ce60b21af">rho_sf</a></td></tr>
 <tr class="memdesc:aadb7f5bb0ac300d191b82f5ce60b21af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar density function.  <br /></td></tr>
 <tr class="memitem:aa4e71dc86386a0e652bcdaf71014cb1d" id="r_aa4e71dc86386a0e652bcdaf71014cb1d"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#aa4e71dc86386a0e652bcdaf71014cb1d">gamma_sf</a></td></tr>
@@ -224,17 +220,14 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a03d13e39beb1daa9f6a59a469b10ebb5" name="a03d13e39beb1daa9f6a59a469b10ebb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03d13e39beb1daa9f6a59a469b10ebb5">&#9670;&#160;</a></span>s_compute_fast_magnetosonic_speed()</h2>
+<a id="aa1a6ec147af9288501df5c16adf2c833" name="aa1a6ec147af9288501df5c16adf2c833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a6ec147af9288501df5c16adf2c833">&#9670;&#160;</a></span>s_compute_fast_magnetosonic_speed()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine m_variables_conversion::s_compute_fast_magnetosonic_speed </td>
+          <td class="memname">subroutine, public m_variables_conversion::s_compute_fast_magnetosonic_speed </td>
           <td>(</td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
         </tr>
@@ -264,11 +257,6 @@ Variables</h2></td></tr>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the fast magnetosonic wave speed from the sound speed, density, and magnetic field components. </p>
@@ -279,11 +267,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02661">2661</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02562">2562</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a03d13e39beb1daa9f6a59a469b10ebb5_icgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa1a6ec147af9288501df5c16adf2c833_icgraph.svg" width="100%" height="434"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -369,7 +357,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the pressure from the appropriate equation of state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00426">426</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -419,7 +407,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute partial densities and volume fractions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02318">2318</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02292">2292</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -428,17 +416,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2592c29f5aae1605bdcf12dcf6315748" name="a2592c29f5aae1605bdcf12dcf6315748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2592c29f5aae1605bdcf12dcf6315748">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
+<a id="a61487c861a17acf1d2d7bfef6ad85380" name="a61487c861a17acf1d2d7bfef6ad85380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61487c861a17acf1d2d7bfef6ad85380">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine m_variables_conversion::s_compute_speed_of_sound </td>
+          <td class="memname">subroutine, public m_variables_conversion::s_compute_speed_of_sound </td>
           <td>(</td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
         </tr>
@@ -488,20 +473,15 @@ Here is the caller graph for this function:</div>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qv</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Compute the speed of sound from thermodynamic state variables, supporting multiple equation-of-state models. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02577">2577</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02480">2480</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a2592c29f5aae1605bdcf12dcf6315748_icgraph.svg" width="655" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a61487c861a17acf1d2d7bfef6ad85380_icgraph.svg" width="655" height="371"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -537,11 +517,11 @@ Here is the caller graph for this function:</div>
 
 <p>Convert conserved variables (rho*alpha, rho*u, E, alpha) to primitives (rho, u, p, alpha). Conversion depends on model_eqns: each model has different variable sets and EOS. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01261">1261</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01238">1238</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7d567315b057c0da0cb37f89ef298031_cgraph.svg" width="100%" height="495"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7d567315b057c0da0cb37f89ef298031_cgraph.svg" width="100%" height="511"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -602,7 +582,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert mixture variables to density, gamma, pi_inf, and qv for the gamma/pi_inf model. Given conservative or primitive variables, transfers the density, specific heat ratio function and the liquid stiffness function from q_vf to rho, gamma and pi_inf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00531">531</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -632,17 +612,17 @@ Here is the caller graph for this function:</div>
 
 <p>Convert primitives (rho, u, p, alpha) to conserved variables (rho*alpha, rho*u, E, alpha). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01786">1786</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01761">1761</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a6948eb28c04a325dc94f777d20558a1e_cgraph.svg" width="100%" height="408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a6948eb28c04a325dc94f777d20558a1e_cgraph.svg" width="100%" height="435"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a103ba56044f0a89e365ed91ca11eb38a" name="a103ba56044f0a89e365ed91ca11eb38a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a103ba56044f0a89e365ed91ca11eb38a">&#9670;&#160;</a></span>s_convert_primitive_to_flux_variables()</h2>
+<a id="afb8d9abe86036f40292ab43e94eefe18" name="afb8d9abe86036f40292ab43e94eefe18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb8d9abe86036f40292ab43e94eefe18">&#9670;&#160;</a></span>s_convert_primitive_to_flux_variables()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -685,18 +665,34 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>s3b</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>s3b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir_idx_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir_flg_in</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Convert primitive variables to Eulerian flux variables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dir_idx_in</td><td>Working-direction mapping, passed explicitly: it is simulation state (<a class="el" href="namespacem__global__parameters.html" title="Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...">m_global_parameters</a>), and use-associating it into this common kernel spills registers on AMD OpenMP offload. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02025">2025</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01994">1994</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a103ba56044f0a89e365ed91ca11eb38a_cgraph.svg" width="419" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_afb8d9abe86036f40292ab43e94eefe18_cgraph.svg" width="434" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -767,11 +763,11 @@ Here is the call graph for this function:</div>
 
 <p>Convert species volume fractions and partial densities to mixture density, gamma, pi_inf, and qv. Given conservative or primitive variables, computes the density, the specific heat ratio function and the liquid stiffness function from q_vf and stores the results into rho, gamma and pi_inf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00560">560</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00548">548</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7f3bffa0ba13432f79f095a78fcf6e5a_cgraph.svg" width="454" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7f3bffa0ba13432f79f095a78fcf6e5a_cgraph.svg" width="454" height="131"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -781,14 +777,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="af1bda14464459b0fd9448dd8885741c7" name="af1bda14464459b0fd9448dd8885741c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1bda14464459b0fd9448dd8885741c7">&#9670;&#160;</a></span>s_convert_species_to_mixture_variables_acc()</h2>
+<a id="ac00dd41bc1a03bc4ee830cfa4fc7f2e6" name="ac00dd41bc1a03bc4ee830cfa4fc7f2e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac00dd41bc1a03bc4ee830cfa4fc7f2e6">&#9670;&#160;</a></span>s_convert_species_to_mixture_variables_kernel()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_convert_species_to_mixture_variables_acc </td>
+          <td class="memname">subroutine, public m_variables_conversion::s_convert_species_to_mixture_variables_kernel </td>
           <td>(</td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho_k</em></span>, </td>
         </tr>
@@ -820,7 +816,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_k</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>re_k</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -835,13 +831,13 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>GPU-accelerated conversion of species volume fractions and partial densities to mixture density, gamma, pi_inf, and qv. </p>
+<p>Host- and device-callable conversion kernel for species and mixture variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00628">628</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00580">580</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_af1bda14464459b0fd9448dd8885741c7_icgraph.svg" width="100%" height="457"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ac00dd41bc1a03bc4ee830cfa4fc7f2e6_icgraph.svg" width="100%" height="542"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -912,11 +908,11 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch to the s_convert_mixture_to_mixture_variables and s_convert_species_to_mixture_variables subroutines. Replaces a procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ad79dc943a9108e838d80bb2b264fba8e_cgraph.svg" width="100%" height="408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ad79dc943a9108e838d80bb2b264fba8e_cgraph.svg" width="100%" height="435"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -926,29 +922,21 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="aceaf9a1f34881d42e50dca63cbde506b" name="aceaf9a1f34881d42e50dca63cbde506b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceaf9a1f34881d42e50dca63cbde506b">&#9670;&#160;</a></span>s_finalize_variables_conversion_module()</h2>
+<a id="a4e5737d07ee26f0d8547418aa8e79326" name="a4e5737d07ee26f0d8547418aa8e79326"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5737d07ee26f0d8547418aa8e79326">&#9670;&#160;</a></span>s_finalize_variables_conversion_module()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine m_variables_conversion::s_finalize_variables_conversion_module</td>
+          <td class="memname">impure subroutine, public m_variables_conversion::s_finalize_variables_conversion_module</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Deallocate fluid property arrays and post-processing fields allocated during module initialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02401">2401</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02375">2375</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -973,7 +961,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble mass-vapor values at quadrature nodes from the conserved moment statistics. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01176">1176</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01153">1153</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1003,29 +991,46 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble internal pressures at quadrature nodes using isothermal relations from the Preston model. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01215">1215</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01192">1192</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a7ebd3fab94230d88d603e76ac5435e05" name="a7ebd3fab94230d88d603e76ac5435e05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ebd3fab94230d88d603e76ac5435e05">&#9670;&#160;</a></span>s_initialize_variables_conversion_module()</h2>
+<a id="aaad21817e69bab852d3bcb46ddbb0caa" name="aaad21817e69bab852d3bcb46ddbb0caa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaad21817e69bab852d3bcb46ddbb0caa">&#9670;&#160;</a></span>s_initialize_variables_conversion_module()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine, public m_variables_conversion::s_initialize_variables_conversion_module</td>
+          <td class="memname">impure subroutine, public m_variables_conversion::s_initialize_variables_conversion_module </td>
+          <td>(</td>
+          <td class="paramtype">logical, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>store_mixture_fields</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>enforce_density_floor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>preserve_qbmm_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>lagrange_beta_index</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Initialize the variables conversion module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00736">736</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00686">686</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7ebd3fab94230d88d603e76ac5435e05_icgraph.svg" width="531" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aaad21817e69bab852d3bcb46ddbb0caa_icgraph.svg" width="531" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1051,23 +1056,31 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00357">357</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a5834620bed23766a40b8cb049170cba1" name="a5834620bed23766a40b8cb049170cba1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5834620bed23766a40b8cb049170cba1">&#9670;&#160;</a></span>cvs</h2>
+<a id="ac0a9330e3866671a2c04062d6a6b11a3" name="ac0a9330e3866671a2c04062d6a6b11a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a9330e3866671a2c04062d6a6b11a3">&#9670;&#160;</a></span>enforce_density_floor_vc</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#a7aeab17a6b8e890fb0e0f22c4b4e04da">m_variables_conversion::cvs</a></td>
+          <td class="memname">logical m_variables_conversion::enforce_density_floor_vc = .false.</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1085,39 +1098,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar sp. heat ratio function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a1d9e637b2271cb6db05f932942fd3ffb" name="a1d9e637b2271cb6db05f932942fd3ffb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d9e637b2271cb6db05f932942fd3ffb">&#9670;&#160;</a></span>gammas</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#aef0610dbe267fc113667d78467015cd3">m_variables_conversion::gammas</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a2b34c428b120e988541dbcd8fc646908" name="a2b34c428b120e988541dbcd8fc646908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b34c428b120e988541dbcd8fc646908">&#9670;&#160;</a></span>gs_min</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#aeff0b4922a35a8bbef1dafa9bf74b6db">m_variables_conversion::gs_min</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1141,7 +1122,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00383">383</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00356">356</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1165,7 +1146,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1189,7 +1170,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1213,7 +1194,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1237,7 +1218,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1242,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1285,7 +1266,31 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="adf574dccf02ef4866b4cf5282a0baaaf" name="adf574dccf02ef4866b4cf5282a0baaaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf574dccf02ef4866b4cf5282a0baaaf">&#9670;&#160;</a></span>lagrange_beta_index_vc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_variables_conversion::lagrange_beta_index_vc = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1303,39 +1308,31 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar liquid stiffness function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00413">413</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ab6b053315b36074bfef4aec10b3cb38a" name="ab6b053315b36074bfef4aec10b3cb38a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6b053315b36074bfef4aec10b3cb38a">&#9670;&#160;</a></span>pi_infs</h2>
+<a id="aebd4c7f3c5481e91ef2abcb0ccdd28ea" name="aebd4c7f3c5481e91ef2abcb0ccdd28ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebd4c7f3c5481e91ef2abcb0ccdd28ea">&#9670;&#160;</a></span>preserve_qbmm_number_vc</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#aacc407bd8ed96f3c714c4eff0004f418">m_variables_conversion::pi_infs</a></td>
+          <td class="memname">logical m_variables_conversion::preserve_qbmm_number_vc = .false.</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a20eddf4f73253831dcf2b48f4997c781" name="a20eddf4f73253831dcf2b48f4997c781"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20eddf4f73253831dcf2b48f4997c781">&#9670;&#160;</a></span>ps_inf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#a715608efc0c27d3bca072f67fd4c8e55">m_variables_conversion::ps_inf</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1353,39 +1350,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar liquid energy reference function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a7a4b3841aa7a29fee4382d9de70df0cb" name="a7a4b3841aa7a29fee4382d9de70df0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a4b3841aa7a29fee4382d9de70df0cb">&#9670;&#160;</a></span>qvps</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#a8780eea6af1d24812fe7a3872e178a58">m_variables_conversion::qvps</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a3115694a0163ff2d8ff01532ecbe6952" name="a3115694a0163ff2d8ff01532ecbe6952"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3115694a0163ff2d8ff01532ecbe6952">&#9670;&#160;</a></span>qvs</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable, public <a class="el" href="namespacem__global__parameters.html#aaa457b06ecf47fc3f70101adea479ebb">m_variables_conversion::qvs</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1409,7 +1374,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00358">358</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1427,7 +1392,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar density function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>

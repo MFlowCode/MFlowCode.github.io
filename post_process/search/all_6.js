@@ -8,7 +8,7 @@ var searchData=
   ['gamma_5fmethod_5',['gamma_method',['../structm__derived__types_1_1chemistry__parameters.html#a462d16aed0477dda722268218eee7b32',1,'m_derived_types::chemistry_parameters']]],
   ['gamma_5fsf_6',['gamma_sf',['../namespacem__variables__conversion.html#aa4e71dc86386a0e652bcdaf71014cb1d',1,'m_variables_conversion']]],
   ['gamma_5fwrt_7',['gamma_wrt',['../namespacem__global__parameters__common.html#af750968fc15611200cd68c4bb0e98ee8',1,'m_global_parameters_common']]],
-  ['gammas_8',['gammas',['../namespacem__variables__conversion.html#a1d9e637b2271cb6db05f932942fd3ffb',1,'m_variables_conversion']]],
+  ['gammas_8',['gammas',['../namespacem__global__parameters__common.html#a2289b961bfaf04f76e6e16a431afd135',1,'m_global_parameters_common']]],
   ['gauss_5fsigma_5fdist_9',['gauss_sigma_dist',['../structm__derived__types_1_1acoustic__parameters.html#a0b6e3e454ada12a7e1059665e8b33d14',1,'m_derived_types::acoustic_parameters']]],
   ['gauss_5fsigma_5ftime_10',['gauss_sigma_time',['../structm__derived__types_1_1acoustic__parameters.html#a1a735a086df941e80f1628ef44236c0c',1,'m_derived_types::acoustic_parameters']]],
   ['gbl_5fpatch_5fid_11',['gbl_patch_id',['../structm__derived__types_1_1ib__patch__parameters.html#af7516ecceaa9ef868284466aa5e7cca4',1,'m_derived_types::ib_patch_parameters']]],
@@ -26,6 +26,6 @@ var searchData=
   ['grcbc_5fout_23',['grcbc_out',['../structm__derived__types_1_1int__bounds__info.html#a6a1dbe9bff662fd81ad5dc56f3c6ee35',1,'m_derived_types::int_bounds_info']]],
   ['grcbc_5fvel_5fout_24',['grcbc_vel_out',['../structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80',1,'m_derived_types::int_bounds_info']]],
   ['grid_5fgeometry_25',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]],
-  ['gs_5fmin_26',['gs_min',['../namespacem__variables__conversion.html#a2b34c428b120e988541dbcd8fc646908',1,'m_variables_conversion']]],
+  ['gs_5fmin_26',['gs_min',['../namespacem__global__parameters__common.html#a3ce3f4b0fe15e7f2f3e52310095a3a85',1,'m_global_parameters_common']]],
   ['gs_5fvc_27',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
 ];

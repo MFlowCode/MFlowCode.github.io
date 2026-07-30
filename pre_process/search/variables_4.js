@@ -7,9 +7,11 @@ var searchData=
   ['elliptic_5fsmoothing_4',['elliptic_smoothing',['../namespacem__global__parameters__common.html#a0b6735a7f939f0b78be4e5156674e342',1,'m_global_parameters_common']]],
   ['elliptic_5fsmoothing_5fiters_5',['elliptic_smoothing_iters',['../namespacem__global__parameters__common.html#ae96413f1435f5f05e30539b208392da0',1,'m_global_parameters_common']]],
   ['end_6',['end',['../structm__derived__types_1_1idx__bounds__info.html#abcf3d5c204140e7c8de98490c8801652',1,'m_derived_types::idx_bounds_info::end'],['../structm__derived__types_1_1int__bounds__info.html#aaf13834e181a2f6618008592ae58df70',1,'m_derived_types::int_bounds_info::end'],['../structm__derived__types_1_1bounds__info.html#a4724a0cc6ee6eeb8df5645908c629dd8',1,'m_derived_types::bounds_info::end']]],
-  ['epsilon_7',['epsilon',['../structm__derived__types_1_1ic__patch__parameters.html#a8ccdad6303b38c28dd84d2cc9d518909',1,'m_derived_types::ic_patch_parameters']]],
-  ['epsilonb_8',['epsilonb',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#af7e775a975b57bac1f45ca41b1abae58',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['eqn_5fidx_9',['eqn_idx',['../namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75',1,'m_global_parameters_common']]],
-  ['eta_10',['eta',['../namespacem__icpp__patches.html#a9912585d5233ceb0bd47a02a255a30a1',1,'m_icpp_patches']]],
-  ['eu_11',['eu',['../namespacem__global__parameters.html#afae3ee499776f2b3712201dec49664b2',1,'m_global_parameters']]]
+  ['enforce_5fdensity_5ffloor_5fvc_7',['enforce_density_floor_vc',['../namespacem__variables__conversion.html#ac0a9330e3866671a2c04062d6a6b11a3',1,'m_variables_conversion']]],
+  ['epsilon_8',['epsilon',['../structm__derived__types_1_1ic__patch__parameters.html#a8ccdad6303b38c28dd84d2cc9d518909',1,'m_derived_types::ic_patch_parameters']]],
+  ['epsilonb_9',['epsilonb',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#af7e775a975b57bac1f45ca41b1abae58',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['eqn_5fidx_10',['eqn_idx',['../namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75',1,'m_global_parameters_common']]],
+  ['eta_11',['eta',['../namespacem__icpp__patches.html#a9912585d5233ceb0bd47a02a255a30a1',1,'m_icpp_patches']]],
+  ['eu_12',['eu',['../namespacem__global__parameters.html#afae3ee499776f2b3712201dec49664b2',1,'m_global_parameters']]],
+  ['exchange_5fall_5fchemistry_5ftemperatures_13',['exchange_all_chemistry_temperatures',['../namespacem__mpi__common.html#aebb5dd2f13edc5147e1dd9e2aa43b530',1,'m_mpi_common']]]
 ];
