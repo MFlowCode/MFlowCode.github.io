@@ -540,16 +540,6 @@ Geometry</h3>
 <li><b>Note:</b> Not compatible with bubbles or 3D cylindrical </li>
 </ul>
 </details>
-<details >
-<summary >
-<b>Model 4: 4-Equation</b></summary>
-<p></p>
-<ul>
-<li><b>Use for:</b> Single-component flows with bubbles</li>
-<li><b>Value:</b> <span class="tt">model_eqns = 4</span></li>
-<li><b>Requirements:</b> Set <span class="tt">rhoref</span>, Set <span class="tt">pref</span>, <span class="tt">num_fluids</span> = <span class="tt">1</span> (1) </li>
-</ul>
-</details>
 <h2 class="doxsection"><a class="anchor" id="riemann-solvers"></a>
 ⚙️ Riemann Solvers</h2>
 <table class="markdownTable">
@@ -571,7 +561,7 @@ Geometry</h3>
 <b>Euler-Euler (<span class="tt">bubbles_euler</span>)</b></summary>
 <p></p>
 <p><b>Requirements:</b></p><ul>
-<li><span class="tt">model_eqns</span> = <span class="tt">2</span> (5-Equation) or <span class="tt">4</span> (4-Equation)</li>
+<li><span class="tt">model_eqns</span> = <span class="tt">2</span> (5-Equation)</li>
 <li><span class="tt">riemann_solver</span> = <span class="tt">2</span> (HLLC)</li>
 <li><span class="tt">avg_state</span> = <span class="tt">2</span> (arithmetic)</li>
 <li>Recommended to also set: <span class="tt">nb</span>, <span class="tt">polytropic</span></li>
@@ -690,7 +680,7 @@ Geometry</h3>
 <b>Euler-Euler Bubble Model</b> (<span class="tt">bubbles_euler</span>)</summary>
 <p></p>
 <p><b>Dependencies:</b></p><ul>
-<li>When enabled, requires <span class="tt">model_eqns</span> = <span class="tt">2</span> (5-Equation) or <span class="tt">4</span> (4-Equation), <span class="tt">riemann_solver</span> = <span class="tt">2</span> (HLLC), <span class="tt">avg_state</span> = <span class="tt">2</span> (arithmetic)</li>
+<li>When enabled, requires <span class="tt">model_eqns</span> = <span class="tt">2</span> (5-Equation), <span class="tt">riemann_solver</span> = <span class="tt">2</span> (HLLC), <span class="tt">avg_state</span> = <span class="tt">2</span> (arithmetic)</li>
 <li>When enabled, recommends: <span class="tt">nb</span>, <span class="tt">polytropic</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
@@ -880,18 +870,16 @@ Geometry</h3>
 <b>Model Equations</b> (<span class="tt">model_eqns</span>)</summary>
 <p></p>
 <p><b>Schema constraints:</b></p><ul>
-<li>Choices: <span class="tt">1</span> = Gamma-law, <span class="tt">2</span> = 5-Equation, <span class="tt">3</span> = 6-Equation, <span class="tt">4</span> = 4-Equation</li>
+<li>Choices: <span class="tt">1</span> = Gamma-law, <span class="tt">2</span> = 5-Equation, <span class="tt">3</span> = 6-Equation</li>
 </ul>
 <p><b>Dependencies:</b></p><ul>
 <li>When = 2, requires: <span class="tt">num_fluids</span></li>
 <li>When = 3, requires <span class="tt">riemann_solver</span> = <span class="tt">2</span> (HLLC), <span class="tt">avg_state</span> = <span class="tt">2</span> (arithmetic), <span class="tt">wave_speeds</span> = <span class="tt">1</span> (direct)</li>
-<li>When = 4, requires: <span class="tt">rhoref</span>, <span class="tt">pref</span></li>
-<li>When = 4, requires <span class="tt">num_fluids</span> = <span class="tt">1</span> (1)</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>5-equation model (model_eqns = 2) requires num_fluids to be set</li>
 <li>6-equation model (model_eqns = 3) requires num_fluids to be set</li>
-<li>4-equation model (model_eqns = 4) requires num_fluids to be set</li>
+<li>hypoelasticity requires model_eqns = 2</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>num_fluids is not supported for model_eqns = 1</li>
@@ -899,7 +887,7 @@ Geometry</h3>
 <li>6-equation model (model_eqns = 3) does not support cylindrical coordinates (cyl_coord = T and p != 0)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
-<li>model_eqns must be 1, 2, 3, or 4</li>
+<li>model_eqns must be 1, 2, or 3</li>
 </ul>
 <p></p>
 </details>
@@ -985,7 +973,7 @@ Geometry</h3>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>5-equation model (model_eqns = 2) requires num_fluids to be set</li>
 <li>6-equation model (model_eqns = 3) requires num_fluids to be set</li>
-<li>4-equation model (model_eqns = 4) requires num_fluids to be set</li>
+<li>int_comp &gt; 0 requires num_fluids = 2</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>num_fluids is not supported for model_eqns = 1</li>
@@ -1460,7 +1448,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-09</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

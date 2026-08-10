@@ -56,7 +56,6 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::mapcells", "namespacem__constants.html#ae89d49daff5ba33ed4286d11e767cea5", null ],
     [ "m_constants::max_2d_fourier_modes", "namespacem__constants.html#a6715cc08b5626e7c08272b42e93c3c12", null ],
     [ "m_constants::max_sph_harm_degree", "namespacem__constants.html#a9442a10b8a7bc475c5119dc2d89e54ec", null ],
-    [ "m_constants::model_eqns_4eq", "namespacem__constants.html#a00752d560dae3e0b42160540c22f6e52", null ],
     [ "m_constants::model_eqns_5eq", "namespacem__constants.html#a087291be019c2c597afadb979fff51bc", null ],
     [ "m_constants::model_eqns_6eq", "namespacem__constants.html#aebabd2fb9ed006bca8fefcc295b1547d", null ],
     [ "m_constants::model_eqns_gamma_law", "namespacem__constants.html#af3d9f24c521411945147a5283112a10f", null ],

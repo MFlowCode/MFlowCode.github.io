@@ -1,8 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a3ed6c5307443abf3259ac5a7c445ac34":[1,0,14,36,1],
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a3ed6c5307443abf3259ac5a7c445ac34":[2,0,2,36,1],
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a54955c3a053dddde0d7ee978213c9033":[1,0,14,36,19],
 "structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a54955c3a053dddde0d7ee978213c9033":[2,0,2,36,19],
 "structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a5eb9c51abcdb7c6dff2386bf7ce69402":[1,0,14,36,4],
 "structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a5eb9c51abcdb7c6dff2386bf7ce69402":[2,0,2,36,4],

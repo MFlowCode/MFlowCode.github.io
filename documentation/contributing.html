@@ -348,7 +348,7 @@ MPI Correctness</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
 Physics and Model Consistency</h3>
 <ul>
-<li><b>Pressure formula</b> must match <span class="tt">model_eqns</span> value. Model 2/3 (multi-fluid), model 4 (bubbles), MHD, and hypoelastic each use different EOS formulations. Wrong formula = wrong physics.</li>
+<li><b>Pressure formula</b> must match <span class="tt">model_eqns</span> value. Model 2/3 (multi-fluid), MHD, and hypoelastic each use different EOS formulations. Wrong formula = wrong physics.</li>
 <li><b>Conservative-primitive conversion:</b> Density recovery, kinetic energy, and pressure each have model-specific paths. Verify the correct branch is taken.</li>
 <li><b>Volume fractions</b> must sum to 1. <span class="tt">alpha_rho_K</span> must be non-negative. Species mass fractions should be clipped to [0,1].</li>
 <li><b>Boundary conditions:</b> Periodic BCs must match at both ends (<span class="tt">bc_x%beg</span> and <span class="tt">bc_x%end</span>). Cylindrical coordinates have special requirements (<span class="tt">bc_y%beg = -14</span> for axis in 3D).</li>

@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md376"></a>
 Overview</h2>
-<p>MFC supports <b>3,808</b> case parameters organized into families.</p>
+<p>MFC supports <b>3,806</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md377"></a>
 Parameter Families</h2>
@@ -253,7 +253,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="#z_output" title="z_output">z_output</a>  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">Z-direction output region  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">225  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">223  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="patch_icpp"></a>
@@ -1305,7 +1305,7 @@ z_output</h2>
 <h2 class="doxsection"><a class="anchor" id="general"></a>
 general</h2>
 <p><em>Core simulation parameters (grid, time, model, etc.)</em></p>
-<p><b>225 parameters</b></p>
+<p><b>223 parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Symbol  </th><th class="markdownTableHeadNone">Constraints  </th></tr>
@@ -1358,7 +1358,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">bubble_model</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Bubble dynamics model (0 ('particle')=Particle, 1 ('gilmore')=Gilmore, 2 ('ke...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">0 (<span class="tt">particle</span>)=Particle, 1 (<span class="tt">gilmore</span>)=Gilmore, 2 (<span class="tt">keller_miksis</span>)=Keller-Miksis, 3 (<span class="tt">rayleigh_plesset</span>)=Rayleigh-Plesset; The 5-equation bubbly flow model does not support <span class="tt">bubble_model</span> = 1 (Gilmore)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">bubbles_euler</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable Euler-Euler bubble model  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">The Ensemble-Averaged Bubble Model requires <span class="tt">nb</span> &gt;= 1; Polydisperse bubble dynamics requires <span class="tt">nb</span> &gt; 1; <span class="tt">rhoref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">bubbles_euler</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable Euler-Euler bubble model  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">The Ensemble-Averaged Bubble Model requires <span class="tt">nb</span> &gt;= 1; Polydisperse bubble dynamics requires <span class="tt">nb</span> &gt; 1; Bubble modeling requires HLLC Riemann solver (<span class="tt">riemann_solver</span> = 2)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">bubbles_lagrange</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable Lagrangian bubble tracking  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">bubbles_lagrange</span> requires <span class="tt">polytropic</span> = F; <span class="tt">bubbles_lagrange</span> requires <span class="tt">thermal</span> = 3; <span class="tt">cluster_type</span> &gt;= 2 requires <span class="tt">smooth_type</span> = 1  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1538,7 +1538,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mixture_err</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable mixture error checking  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">model_eqns</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Model equations (1 ('gamma_law')=Gamma-law, 2 ('5eq')=5-Equation, 3 ('6eq')=6...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1 (<span class="tt">gamma_law</span>)=Gamma-law, 2 (<span class="tt">5eq</span>)=5-Equation, 3 (<span class="tt">6eq</span>)=6-Equation, 4 (<span class="tt">4eq</span>)=4-Equation; 5-equation model (<span class="tt">model_eqns</span> = 2) requires <span class="tt">num_fluids</span> to be set; 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">num_fluids</span> to be set; 4-equation model (<span class="tt">model_eqns</span> = 4) requires <span class="tt">num_fluids</span> to be set  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">model_eqns</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Model equations (1 ('gamma_law')=Gamma-law, 2 ('5eq')=5-Equation, 3 ('6eq')=6...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1 (<span class="tt">gamma_law</span>)=Gamma-law, 2 (<span class="tt">5eq</span>)=5-Equation, 3 (<span class="tt">6eq</span>)=6-Equation; 5-equation model (<span class="tt">model_eqns</span> = 2) requires <span class="tt">num_fluids</span> to be set; 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">num_fluids</span> to be set; 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">avg_state</span> = 2  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">mp_weno</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable monotonicity-preserving WENO  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">mp_weno</span> requires <span class="tt">weno_order</span> = 5  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1636,39 +1636,35 @@ general</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">precision</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Output precision (1 ('single')=single, 2 ('double')=double)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1 (<span class="tt">single</span>)=single, 2 (<span class="tt">double</span>)=double; <span class="tt">precision</span> = 2 (double output) requires MFC built without &ndash;single; <span class="tt">precision</span> must be 1 or 2  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">pref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reference pressure  </td><td class="markdownTableBodyNone">\(p_\text{ref}\)  </td><td class="markdownTableBodyNone"><span class="tt">pref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4; <span class="tt">pref</span> (reference pressure) must be positive  </td></tr>
-<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">pres_inf_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write reference pressure field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">output_partial_domain</span> is incompatible with certain output flags; None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">pres_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write pressure field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">prim_vars_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write primitive variables  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">probe_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write probe data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">fd_order</span> must be specified for <span class="tt">probe_wrt</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ptgalpha_eps</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Volume fraction epsilon for PTG relaxation  </td><td class="markdownTableBodyNone">\(\varepsilon_\alpha\)  </td><td class="markdownTableBodyNone"><span class="tt">ptgalpha_eps</span> must be positive; <span class="tt">ptgalpha_eps</span> must be less than 1  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">qbmm</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable quadrature-based moment method  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">QBMM requires the <span class="tt">bubbles_euler</span> flag to be set; QBMM requires nnode = 4; <span class="tt">dist_type</span> must be set if using QBMM  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">qm_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write Q-criterion field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">qm_wrt</span> requires n &gt; 0 (at least 2D)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">rdma_mpi</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable RDMA for MPI communication (GPUs)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">reactive_burn</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable condensed-phase reactive burn (programmed pressure burn on the multi-f...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">reactive_burn</span> requires <span class="tt">model_eqns</span> = 2 or 3 (5- or 6-equation multi-fluid model); <span class="tt">reactive_burn</span> requires <span class="tt">rburnk</span> &gt; 0 (rate coefficient [1/s]); <span class="tt">reactive_burn</span> requires <span class="tt">rburnpign</span> to be set (ignition pressure threshold [Pa])  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">recon_type</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Reconstruction type (1 ('weno')=WENO, 2 ('muscl')=MUSCL)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1 (<span class="tt">weno</span>)=WENO, 2 (<span class="tt">muscl</span>)=MUSCL; <span class="tt">recon_type</span> must be one of _recon_shown  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">relativity</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable special relativity  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">relativity</span> requires <span class="tt">mhd</span> to be enabled; HLLD is not available for RMHD (<span class="tt">relativity</span>)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">relax</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable relaxation terms  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">phase change requires <span class="tt">model_eqns</span>==2 with <span class="tt">relax_model</span> in [5,6] or <span class="tt">model_eqns</span>==3 with <span class="tt">relax_model</span> in [1,4,5,6]; <span class="tt">palpha_eps</span> must be positive; <span class="tt">palpha_eps</span> must be less than 1  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">relax_model</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Relaxation model type  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">phase change requires <span class="tt">model_eqns</span>==2 with <span class="tt">relax_model</span> in [5,6] or <span class="tt">model_eqns</span>==3 with <span class="tt">relax_model</span> in [1,4,5,6]  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">rhoRV</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Bubble radius-velocity correlation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">rhoRV</span> cannot be used with <span class="tt">dist_type</span> != 1  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">rho_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write density field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">rhoRV</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Bubble radius-velocity correlation  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">rhoRV</span> cannot be used with <span class="tt">dist_type</span> != 1  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">rhoref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reference density  </td><td class="markdownTableBodyNone">\(\rho_\text{ref}\)  </td><td class="markdownTableBodyNone"><span class="tt">rhoref</span> must be set if using <span class="tt">bubbles_euler</span> with <span class="tt">model_eqns</span> = 4; <span class="tt">rhoref</span> (reference density) must be positive  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">rho_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write density field  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">None of the flow variables have been selected for post-process  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">riemann_solver</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Riemann solver (1 ('hll')=HLL, 2 ('hllc')=HLLC, 4 ('hlld')=HLLD, 5 ('lax_frie...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">1 (<span class="tt">hll</span>)=HLL, 2 (<span class="tt">hllc</span>)=HLLC, 4 (<span class="tt">hlld</span>)=HLLD, 5 (<span class="tt">lax_friedrichs</span>)=Lax-Friedrichs; <span class="tt">riemann_solver</span> must be specified (1=HLL, 2=HLLC, 4=HLLD, 5=Lax-Friedrichs); 6-equation model (<span class="tt">model_eqns</span> = 3) requires <span class="tt">riemann_solver</span> = 2 (HLLC); <span class="tt">wave_speeds</span> must be set for <span class="tt">riemann_solver</span> 1, 2, or 4  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1775,7 +1771,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-09</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

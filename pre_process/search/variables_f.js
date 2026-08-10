@@ -50,7 +50,7 @@ var searchData=
   ['precision_47',['precision',['../namespacem__global__parameters__common.html#aeb2ddc27a114247bb7f598990b9b61a4',1,'m_global_parameters_common']]],
   ['precision_5fdouble_48',['precision_double',['../namespacem__constants.html#a0dc8adff14e39113b8c8e98739b9da05',1,'m_constants']]],
   ['precision_5fsingle_49',['precision_single',['../namespacem__constants.html#aac033aea8c6a09867b7fd92a0423c43c',1,'m_constants']]],
-  ['pref_50',['pref',['../structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4',1,'m_derived_types::reactive_burn_parameters::pref'],['../namespacem__global__parameters__common.html#a9a54b1fe2c63beb63c87897f6debda5a',1,'m_global_parameters_common::pref']]],
+  ['pref_50',['pref',['../structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4',1,'m_derived_types::reactive_burn_parameters']]],
   ['pres_51',['pres',['../structm__derived__types_1_1ic__patch__parameters.html#a634377dd2a7c7792bc112c63ba9902a8',1,'m_derived_types::ic_patch_parameters']]],
   ['pres_5fin_52',['pres_in',['../structm__derived__types_1_1int__bounds__info.html#ab32c1485da19a0d178e942b73cd58551',1,'m_derived_types::int_bounds_info']]],
   ['pres_5fout_53',['pres_out',['../structm__derived__types_1_1int__bounds__info.html#ac4962448f70b10200451dd6c7baccf98',1,'m_derived_types::int_bounds_info']]],
