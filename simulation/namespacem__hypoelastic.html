@@ -165,8 +165,14 @@ $(function(){initNavTree('namespacem__hypoelastic.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ae831b1e378765b92095b58285aa16315" id="r_ae831b1e378765b92095b58285aa16315"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae831b1e378765b92095b58285aa16315">s_initialize_hypoelastic_module</a></td></tr>
 <tr class="memdesc:ae831b1e378765b92095b58285aa16315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the hypoelastic module.  <br /></td></tr>
-<tr class="memitem:a5266bd12f864c70e79c42147811f3e4a" id="r_a5266bd12f864c70e79c42147811f3e4a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a5266bd12f864c70e79c42147811f3e4a">s_compute_hypoelastic_rhs</a> (idir, q_prim_vf, rhs_vf)</td></tr>
-<tr class="memdesc:a5266bd12f864c70e79c42147811f3e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the hypoelastic stress source terms.  <br /></td></tr>
+<tr class="memitem:a8a3a2cae3796c8e403ef408bbca0978c" id="r_a8a3a2cae3796c8e403ef408bbca0978c"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8a3a2cae3796c8e403ef408bbca0978c">s_compute_hypoelastic_rhs_finite_diff_per_sweep</a> (idir, q_prim_vf, rhs_vf)</td></tr>
+<tr class="memdesc:a8a3a2cae3796c8e403ef408bbca0978c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Legacy FD-based hypoelastic RHS (Mode 1: HLL). Uses finite-difference velocity gradients computed from cell-centered primitive variables. Called once per direction inside the dim-split loop. Supports 1D/2D/3D Cartesian and cylindrical geometry.  <br /></td></tr>
+<tr class="memitem:a7f1fd697efc4c4ffcab9ab501bc67423" id="r_a7f1fd697efc4c4ffcab9ab501bc67423"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7f1fd697efc4c4ffcab9ab501bc67423">s_compute_hypoelastic_rhs_iface</a> (q_prim_vf, rhs_vf, nc_iface_vel_n)</td></tr>
+<tr class="memdesc:a7f1fd697efc4c4ffcab9ab501bc67423"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface-consistent hypoelastic RHS (Mode 2: HLL/HLLC). Uses interface velocities from the Riemann solver to compute velocity gradients. Called once after all dimensional sweeps. Supports 1D, 2D Cartesian, 2D axisymmetric, and 3D Cartesian.  <br /></td></tr>
+<tr class="memitem:ae90478bd282079be365b3cd82e1bc51c" id="r_ae90478bd282079be365b3cd82e1bc51c"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae90478bd282079be365b3cd82e1bc51c">s_compute_hypoelastic_rhs_axisym_geom_iface</a> (q_prim_vf, rhs_vf, nc_iface_vel_x_vf, nc_iface_vel_y_vf)</td></tr>
+<tr class="memdesc:ae90478bd282079be365b3cd82e1bc51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Axisymmetric geometric source terms for the hypoelastic stress evolution, using interface velocities. Adds the v/r and div(u) contributions that arise in cylindrical (r-z) coordinates: tau_xx, tau_xr, tau_rr get a -rho*(v/r) source; tau_thetatheta gets a combined divergence and hoop-stress source. Called from s_compute_hypoelastic_rhs_iface when grid_geometry == 2.  <br /></td></tr>
+<tr class="memitem:a9c200332a3d4e1f857947f659c1ae859" id="r_a9c200332a3d4e1f857947f659c1ae859"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a9c200332a3d4e1f857947f659c1ae859">s_compute_hypoelastic_rhs_axisym_geom_dual_pass</a> (q_prim_vf, rhs_vf, nc_iface_vel_y_vf, nc_iface_vel_y_hatr_vf)</td></tr>
+<tr class="memdesc:a9c200332a3d4e1f857947f659c1ae859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cylindrical completion for the dual-pass (anchored HLLD) hypoelastic path. The anchored augmented fluxes already carry every axial/radial derivative term of the stress law and the stress rows of flux_gsrc are zero, so the complete remaining cylindrical physics is the cell-local v/r family below: the advective metric -q_s*v/r plus the constitutive v/r terms (and +/-K*C for the volume fractions under alt_soundspeed). The discrete C = v/r averages the cell's own two anchored radial face traces (hat_L outer face, hat_R inner face) over y_cc, so no absolute axial velocity enters and uniform axial translation gives exactly zero. Called once after the two anchored partial RHS's are summed. Continuum damage needs no handling here: HLLD + cont_damage is prohibited (m_checker.fpp).  <br /></td></tr>
 <tr class="memitem:af55a4cd98f2c7efebc4d7d6730ca8aa5" id="r_af55a4cd98f2c7efebc4d7d6730ca8aa5"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#af55a4cd98f2c7efebc4d7d6730ca8aa5">s_finalize_hypoelastic_module</a> ()</td></tr>
 <tr class="memdesc:af55a4cd98f2c7efebc4d7d6730ca8aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the hypoelastic module.  <br /></td></tr>
 <tr class="memitem:ac6eb281503f9bed7595215afd514549f" id="r_ac6eb281503f9bed7595215afd514549f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac6eb281503f9bed7595215afd514549f">s_compute_damage_state</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhs_vf)</td></tr>
@@ -214,18 +220,111 @@ Variables</h2></td></tr>
 
 <p>Compute the continuum damage source term from the principal stress state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01645">1645</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02286">2286</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a5266bd12f864c70e79c42147811f3e4a" name="a5266bd12f864c70e79c42147811f3e4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5266bd12f864c70e79c42147811f3e4a">&#9670;&#160;</a></span>s_compute_hypoelastic_rhs()</h2>
+<a id="a9c200332a3d4e1f857947f659c1ae859" name="a9c200332a3d4e1f857947f659c1ae859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c200332a3d4e1f857947f659c1ae859">&#9670;&#160;</a></span>s_compute_hypoelastic_rhs_axisym_geom_dual_pass()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine, public m_hypoelastic::s_compute_hypoelastic_rhs </td>
+          <td class="memname">subroutine, public m_hypoelastic::s_compute_hypoelastic_rhs_axisym_geom_dual_pass </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>nc_iface_vel_y_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>nc_iface_vel_y_hatr_vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cylindrical completion for the dual-pass (anchored HLLD) hypoelastic path. The anchored augmented fluxes already carry every axial/radial derivative term of the stress law and the stress rows of flux_gsrc are zero, so the complete remaining cylindrical physics is the cell-local v/r family below: the advective metric -q_s*v/r plus the constitutive v/r terms (and +/-K*C for the volume fractions under alt_soundspeed). The discrete C = v/r averages the cell's own two anchored radial face traces (hat_L outer face, hat_R inner face) over y_cc, so no absolute axial velocity enters and uniform axial translation gives exactly zero. Called once after the two anchored partial RHS's are summed. Continuum damage needs no handling here: HLLD + cont_damage is prohibited (m_checker.fpp). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">rhs_vf</td><td>rhs variables </td></tr>
+    <tr><td class="paramname">nc_iface_vel_y_vf</td><td>hat_L-pass radial-direction interface velocities </td></tr>
+    <tr><td class="paramname">nc_iface_vel_y_hatR_vf</td><td>hat_R-pass radial-direction interface velocities </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01928">1928</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae90478bd282079be365b3cd82e1bc51c" name="ae90478bd282079be365b3cd82e1bc51c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae90478bd282079be365b3cd82e1bc51c">&#9670;&#160;</a></span>s_compute_hypoelastic_rhs_axisym_geom_iface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_hypoelastic::s_compute_hypoelastic_rhs_axisym_geom_iface </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>nc_iface_vel_x_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>nc_iface_vel_y_vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Axisymmetric geometric source terms for the hypoelastic stress evolution, using interface velocities. Adds the v/r and div(u) contributions that arise in cylindrical (r-z) coordinates: tau_xx, tau_xr, tau_rr get a -rho*(v/r) source; tau_thetatheta gets a combined divergence and hoop-stress source. Called from s_compute_hypoelastic_rhs_iface when grid_geometry == 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">rhs_vf</td><td>rhs variables </td></tr>
+    <tr><td class="paramname">nc_iface_vel_x_vf</td><td>Interface velocities in x-direction </td></tr>
+    <tr><td class="paramname">nc_iface_vel_y_vf</td><td>Interface velocities in y-direction </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01799">1799</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hypoelastic_ae90478bd282079be365b3cd82e1bc51c_icgraph.svg" width="451" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8a3a2cae3796c8e403ef408bbca0978c" name="a8a3a2cae3796c8e403ef408bbca0978c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a3a2cae3796c8e403ef408bbca0978c">&#9670;&#160;</a></span>s_compute_hypoelastic_rhs_finite_diff_per_sweep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_hypoelastic::s_compute_hypoelastic_rhs_finite_diff_per_sweep </td>
           <td>(</td>
           <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>idir</em></span>, </td>
         </tr>
@@ -242,9 +341,60 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the hypoelastic stress source terms. </p>
+<p>Legacy FD-based hypoelastic RHS (Mode 1: HLL). Uses finite-difference velocity gradients computed from cell-centered primitive variables. Called once per direction inside the dim-split loop. Supports 1D/2D/3D Cartesian and cylindrical geometry. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">idir</td><td>Dimension splitting index </td></tr>
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">rhs_vf</td><td>rhs variables </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00777">777</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00783">783</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a7f1fd697efc4c4ffcab9ab501bc67423" name="a7f1fd697efc4c4ffcab9ab501bc67423"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f1fd697efc4c4ffcab9ab501bc67423">&#9670;&#160;</a></span>s_compute_hypoelastic_rhs_iface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_hypoelastic::s_compute_hypoelastic_rhs_iface </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1vector__field.html">vector_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>nc_iface_vel_n</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interface-consistent hypoelastic RHS (Mode 2: HLL/HLLC). Uses interface velocities from the Riemann solver to compute velocity gradients. Called once after all dimensional sweeps. Supports 1D, 2D Cartesian, 2D axisymmetric, and 3D Cartesian. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q_prim_vf</td><td>Primitive variables </td></tr>
+    <tr><td class="paramname">rhs_vf</td><td>rhs variables </td></tr>
+    <tr><td class="paramname">nc_iface_vel_n</td><td>Interface velocities per direction </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01396">1396</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hypoelastic_a7f1fd697efc4c4ffcab9ab501bc67423_cgraph.svg" width="451" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -262,7 +412,7 @@ Variables</h2></td></tr>
 
 <p>Finalize the hypoelastic module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01387">1387</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02028">2028</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -280,7 +430,7 @@ Variables</h2></td></tr>
 
 <p>Initialize the hypoelastic module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -297,7 +447,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00348">348</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -313,7 +463,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00348">348</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -329,7 +479,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00348">348</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -345,7 +495,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -361,7 +511,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -377,7 +527,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00349">349</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -393,7 +543,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -409,7 +559,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -425,7 +575,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -441,7 +591,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00376">376</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00377">377</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -457,7 +607,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00377">377</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -473,7 +623,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -489,7 +639,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00363">363</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00364">364</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -505,7 +655,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00335">335</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00336">336</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -521,7 +671,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00363">363</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00364">364</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>

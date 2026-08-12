@@ -45,6 +45,7 @@ var files_dup =
     [ "m_riemann_solver_hll.fpp.f90", "m__riemann__solver__hll_8fpp_8f90.html", "m__riemann__solver__hll_8fpp_8f90" ],
     [ "m_riemann_solver_hllc.fpp.f90", "m__riemann__solver__hllc_8fpp_8f90.html", "m__riemann__solver__hllc_8fpp_8f90" ],
     [ "m_riemann_solver_hlld.fpp.f90", "m__riemann__solver__hlld_8fpp_8f90.html", "m__riemann__solver__hlld_8fpp_8f90" ],
+    [ "m_riemann_solver_hypo_hlld.fpp.f90", "m__riemann__solver__hypo__hlld_8fpp_8f90.html", "m__riemann__solver__hypo__hlld_8fpp_8f90" ],
     [ "m_riemann_solver_lf.fpp.f90", "m__riemann__solver__lf_8fpp_8f90.html", "m__riemann__solver__lf_8fpp_8f90" ],
     [ "m_riemann_solvers.fpp.f90", "m__riemann__solvers_8fpp_8f90.html", "m__riemann__solvers_8fpp_8f90" ],
     [ "m_riemann_state.fpp.f90", "m__riemann__state_8fpp_8f90.html", "m__riemann__state_8fpp_8f90" ],

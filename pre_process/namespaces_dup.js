@@ -717,7 +717,7 @@ var namespaces_dup =
       [ "s_convert_conservative_to_primitive_variables", "namespacem__variables__conversion.html#a7d567315b057c0da0cb37f89ef298031", null ],
       [ "s_convert_mixture_to_mixture_variables", "namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847", null ],
       [ "s_convert_primitive_to_conservative_variables", "namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e", null ],
-      [ "s_convert_primitive_to_flux_variables", "namespacem__variables__conversion.html#afb8d9abe86036f40292ab43e94eefe18", null ],
+      [ "s_convert_primitive_to_flux_variables", "namespacem__variables__conversion.html#aa198f649115ef044b285170f886094ac", null ],
       [ "s_convert_species_to_mixture_variables", "namespacem__variables__conversion.html#a7f3bffa0ba13432f79f095a78fcf6e5a", null ],
       [ "s_convert_species_to_mixture_variables_kernel", "namespacem__variables__conversion.html#ac00dd41bc1a03bc4ee830cfa4fc7f2e6", null ],
       [ "s_convert_to_mixture_variables", "namespacem__variables__conversion.html#ad79dc943a9108e838d80bb2b264fba8e", null ],

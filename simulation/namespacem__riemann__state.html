@@ -182,11 +182,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa6e9f1a206a652c0642f49645e47ebc4" id="r_aa6e9f1a206a652c0642f49645e47ebc4"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa6e9f1a206a652c0642f49645e47ebc4">s_compute_interface_reynolds</a> (alpha_k, re_k, re_size_loc1, re_size_loc2)</td></tr>
 <tr class="memdesc:aa6e9f1a206a652c0642f49645e47ebc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the shear and volume Reynolds numbers of one Riemann state by inverse-weighting the fluid Reynolds numbers with the volume fractions.  <br /></td></tr>
 <tr class="memitem:a79c11408c7da3bd3f351beefbf93cf36" id="r_a79c11408c7da3bd3f351beefbf93cf36"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a79c11408c7da3bd3f351beefbf93cf36">s_compute_hypoelastic_interface_energy</a> (nf, alpha_l, alpha_r, damage_l, damage_r, tau_e_l, tau_e_r, g_l, g_r, e_l, e_r)</td></tr>
-<tr class="memdesc:a79c11408c7da3bd3f351beefbf93cf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the hypoelastic stress contribution to the energies of the left and right Riemann states: mix the shear modulus over the fluids, scale it by the continuum damage state when damage is modeled, and add the elastic energy of each stress component (doubled for the shear components) when both mixture moduli are non-negligible. The elastic shear stresses are loaded from the state buffers by the caller, which reuses them for the stress fluxes and elastic wave speeds. The G &gt; verysmall gate is a deliberate maintainer ruling that replaces HLL's former hard-coded G &gt; 1000 stability floor, retiring its "TODO take out if statement if stable without".  <br /></td></tr>
+<tr class="memdesc:a79c11408c7da3bd3f351beefbf93cf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the hypoelastic stress contribution to the energies of the left and right Riemann states: mix the shear modulus over the fluids, scale it by the continuum damage state when damage is modeled, and add the elastic energy of each stress component (doubled for the shear components) on each side whose mixture modulus is non-negligible. The elastic shear stresses are loaded from the state buffers by the caller, which reuses them for the stress fluxes and elastic wave speeds. The G &gt; verysmall per-side gate is a deliberate maintainer ruling that replaces HLL's former hard-coded G &gt; 1000 stability floor, retiring its "TODO take out if statement if stable without".  <br /></td></tr>
 <tr class="memitem:a8d5b7b8cbf28974e9eaf3f16f5fea941" id="r_a8d5b7b8cbf28974e9eaf3f16f5fea941"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a8d5b7b8cbf28974e9eaf3f16f5fea941">f_compute_hllc_star_momentum_flux</a> (rho_l, rho_r, vel_l_norm, vel_r_norm, s_m, s_p, s_s, xi_l, xi_r, xi_m, xi_p, dir_flg_norm)</td></tr>
 <tr class="memdesc:a8d5b7b8cbf28974e9eaf3f16f5fea941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the advective part of the HLLC star-state momentum flux in the wave-normal direction (pressure excluded), used to assemble the geometrical source flux of the cylindrical and azimuthal sweeps.  <br /></td></tr>
 <tr class="memitem:aa4a8e893633d8b7c01435f5e20b32de3" id="r_aa4a8e893633d8b7c01435f5e20b32de3"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa4a8e893633d8b7c01435f5e20b32de3">s_finalize_riemann_solver</a> (flux_vf, flux_src_vf, flux_gsrc_vf, norm_dir)</td></tr>
-<tr class="memdesc:aa4a8e893633d8b7c01435f5e20b32de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation and/or disassociation procedures that are needed to finalize the selected Riemann problem solver.  <br /></td></tr>
+<tr class="memdesc:aa4a8e893633d8b7c01435f5e20b32de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reshape and copy the Riemann-solver flux buffers back to the physical-space output arrays for the selected sweep direction, finalizing the Riemann solve. Two variants are emitted from one template so the shared unpermute logic cannot drift apart: the plain routine also copies the advection flux_src set and the grid_geometry==3 z-sweep geometric source flux, while the _hatR variant unpermutes the hat_R-anchored flux_hatR_rs* set of the fused dual-pass HLLD solve (called between the two RHS assemblies) and is a strict subset: flux_src is anchor-independent (already finalized with the hat_L set) and its geometric source flux only exists for the axisymmetric y-sweep.  <br /></td></tr>
+<tr class="memitem:a2282bce6eb265cbaf74c8d8dba0d5db6" id="r_a2282bce6eb265cbaf74c8d8dba0d5db6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2282bce6eb265cbaf74c8d8dba0d5db6">s_finalize_riemann_solver_hatr</a> (flux_vf, flux_gsrc_vf, norm_dir)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -202,6 +203,11 @@ Variables</h2></td></tr>
 <tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:ab58d02b4bf6948d0036dfa3dbf77b7f1" id="r_ab58d02b4bf6948d0036dfa3dbf77b7f1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ab58d02b4bf6948d0036dfa3dbf77b7f1">flux_gsrc_rsx_vf</a></td></tr>
 <tr class="memdesc:ab58d02b4bf6948d0036dfa3dbf77b7f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cell-boundary values of the geometrical source flux that are computed through the chosen Riemann problem solver by using the left and right states given in qK_prim_rs_vf. Currently 2D axisymmetric for inviscid only.  <br /></td></tr>
+<tr class="memitem:a4f7ebb4b33ec4ac75f6dd39cb3b2d91a" id="r_a4f7ebb4b33ec4ac75f6dd39cb3b2d91a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a4f7ebb4b33ec4ac75f6dd39cb3b2d91a">nc_iface_vel_rsx_vf</a></td></tr>
+<tr class="memitem:aa98da7e26f4b11723bcdd37ea31ef615" id="r_aa98da7e26f4b11723bcdd37ea31ef615"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa98da7e26f4b11723bcdd37ea31ef615">flux_hatr_rsx_vf</a></td></tr>
+<tr class="memdesc:aa98da7e26f4b11723bcdd37ea31ef615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dual-pass HLLD second flux set: the hat_R-anchored fluxes (and, for axisymmetric runs, the hat_R interface velocities) written by the same fused solve that fills flux_rsx / nc_iface_vel_rsx with the hat_L-anchored values. Allocated only when hypo_nc_mode_dual_pass.  <br /></td></tr>
+<tr class="memitem:ac6fb6f558806d46dbec5b3e76ce12f81" id="r_ac6fb6f558806d46dbec5b3e76ce12f81"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ac6fb6f558806d46dbec5b3e76ce12f81">nc_iface_vel_hatr_rsx_vf</a></td></tr>
+<tr class="memitem:ae9c52c6ffd531f1e42c2f314e2bd295d" id="r_ae9c52c6ffd531f1e42c2f314e2bd295d"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ae9c52c6ffd531f1e42c2f314e2bd295d">flux_gsrc_hatr_rsx_vf</a></td></tr>
 <tr id="var-members-2" class="groupHeader"><td colspan="2"><div class="groupHeader">Indical bounds in the s1-, s2- and s3-directions</div></td></tr>
 <tr class="memitem:afa0ae2a1960e64216f8176378056d6b7" id="r_afa0ae2a1960e64216f8176378056d6b7"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#afa0ae2a1960e64216f8176378056d6b7">is1</a></td></tr>
 <tr class="memitem:a9e5192bd2c8e2ede0d407a6cd87d3ac6" id="r_a9e5192bd2c8e2ede0d407a6cd87d3ac6"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a9e5192bd2c8e2ede0d407a6cd87d3ac6">is2</a></td></tr>
@@ -294,7 +300,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02791">2791</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02861">2861</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -355,7 +361,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02535">2535</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02600">2600</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -390,7 +396,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute bulk stress tensor components (diagonal only). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02497">2497</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02562">2562</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -430,7 +436,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute shear stress tensor components. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02454">2454</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02519">2519</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -495,7 +501,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute Cartesian viscous source flux contributions for momentum and energy. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02253">2253</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02316">2316</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -592,7 +598,7 @@ Here is the caller graph for this function:</div>
 <p>Interface velocity ( \(v_1,v_2,v_3\)) (grid directions) for viscous work.</p>
 <p>Shear stress vector ( \(\sigma_{N1}, \sigma_{N2}, \sigma_{N3}\)) on N-face (grid directions).</p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01987">1987</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02048">2048</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -670,7 +676,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Accumulate the hypoelastic stress contribution to the energies of the left and right Riemann states: mix the shear modulus over the fluids, scale it by the continuum damage state when damage is modeled, and add the elastic energy of each stress component (doubled for the shear components) when both mixture moduli are non-negligible. The elastic shear stresses are loaded from the state buffers by the caller, which reuses them for the stress fluxes and elastic wave speeds. The G &gt; verysmall gate is a deliberate maintainer ruling that replaces HLL's former hard-coded G &gt; 1000 stability floor, retiring its "TODO take out if statement if stable without". </p>
+<p>Accumulate the hypoelastic stress contribution to the energies of the left and right Riemann states: mix the shear modulus over the fluids, scale it by the continuum damage state when damage is modeled, and add the elastic energy of each stress component (doubled for the shear components) on each side whose mixture modulus is non-negligible. The elastic shear stresses are loaded from the state buffers by the caller, which reuses them for the stress fluxes and elastic wave speeds. The G &gt; verysmall per-side gate is a deliberate maintainer ruling that replaces HLL's former hard-coded G &gt; 1000 stability floor, retiring its "TODO take out if statement if stable without". </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">nf</td><td>Number of fluids to mix the shear modulus over </td></tr>
@@ -683,11 +689,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02693">2693</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02758">2758</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a79c11408c7da3bd3f351beefbf93cf36_icgraph.svg" width="602" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a79c11408c7da3bd3f351beefbf93cf36_icgraph.svg" width="608" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -730,7 +736,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02605">2605</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02670">2670</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -820,7 +826,7 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch to the subroutines that are utilized to compute the viscous source fluxes for either Cartesian or cylindrical geometries. For more information please refer to: 1) s_compute_cartesian_viscous_source_flux 2) s_compute_cylindrical_viscous_source_flux. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00469">469</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -863,14 +869,42 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Deallocation and/or disassociation procedures that are needed to finalize the selected Riemann problem solver. </p>
+<p>Reshape and copy the Riemann-solver flux buffers back to the physical-space output arrays for the selected sweep direction, finalizing the Riemann solve. Two variants are emitted from one template so the shared unpermute logic cannot drift apart: the plain routine also copies the advection flux_src set and the grid_geometry==3 z-sweep geometric source flux, while the _hatR variant unpermutes the hat_R-anchored flux_hatR_rs* set of the fused dual-pass HLLD solve (called between the two RHS assemblies) and is a strict subset: flux_src is anchor-independent (already finalized with the hat_L set) and its geometric source flux only exists for the axisymmetric y-sweep. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02844">2844</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02922">2922</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_aa4a8e893633d8b7c01435f5e20b32de3_icgraph.svg" width="626" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_aa4a8e893633d8b7c01435f5e20b32de3_icgraph.svg" width="648" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a2282bce6eb265cbaf74c8d8dba0d5db6" name="a2282bce6eb265cbaf74c8d8dba0d5db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2282bce6eb265cbaf74c8d8dba0d5db6">&#9670;&#160;</a></span>s_finalize_riemann_solver_hatr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_riemann_state::s_finalize_riemann_solver_hatr </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_gsrc_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>norm_dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03418">3418</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -895,11 +929,11 @@ Here is the caller graph for this function:</div>
 
 <p>Set up the chosen Riemann solver algorithm for the current direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01568">1568</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01629">1629</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a45a19c4d543571bb46370fc4468300ab_icgraph.svg" width="592" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a45a19c4d543571bb46370fc4468300ab_icgraph.svg" width="615" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -975,16 +1009,32 @@ Here is the caller graph for this function:</div>
 
 <p>Populate the left and right Riemann state variable buffers based on boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00491">491</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00546">546</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a579b60e182e8fc49410c6bd525872526_icgraph.svg" width="636" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a579b60e182e8fc49410c6bd525872526_icgraph.svg" width="659" height="323"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ae9c52c6ffd531f1e42c2f314e2bd295d" name="ae9c52c6ffd531f1e42c2f314e2bd295d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c52c6ffd531f1e42c2f314e2bd295d">&#9670;&#160;</a></span>flux_gsrc_hatr_rsx_vf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_riemann_state::flux_gsrc_hatr_rsx_vf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="ab58d02b4bf6948d0036dfa3dbf77b7f1" name="ab58d02b4bf6948d0036dfa3dbf77b7f1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab58d02b4bf6948d0036dfa3dbf77b7f1">&#9670;&#160;</a></span>flux_gsrc_rsx_vf</h2>
 
@@ -1000,6 +1050,24 @@ Here is the caller graph for this function:</div>
 <p>The cell-boundary values of the geometrical source flux that are computed through the chosen Riemann problem solver by using the left and right states given in qK_prim_rs_vf. Currently 2D axisymmetric for inviscid only. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa98da7e26f4b11723bcdd37ea31ef615" name="aa98da7e26f4b11723bcdd37ea31ef615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa98da7e26f4b11723bcdd37ea31ef615">&#9670;&#160;</a></span>flux_hatr_rsx_vf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_riemann_state::flux_hatr_rsx_vf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dual-pass HLLD second flux set: the hat_R-anchored fluxes (and, for axisymmetric runs, the hat_R interface velocities) written by the same fused solve that fills flux_rsx / nc_iface_vel_rsx with the hat_L-anchored values. Allocated only when hypo_nc_mode_dual_pass. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1049,7 +1117,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00493">493</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1065,7 +1133,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1081,7 +1149,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1097,7 +1165,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1113,7 +1181,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00478">478</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1129,7 +1197,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00478">478</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1213,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00478">478</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1161,7 +1229,39 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00449">449</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac6fb6f558806d46dbec5b3e76ce12f81" name="ac6fb6f558806d46dbec5b3e76ce12f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6fb6f558806d46dbec5b3e76ce12f81">&#9670;&#160;</a></span>nc_iface_vel_hatr_rsx_vf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_riemann_state::nc_iface_vel_hatr_rsx_vf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a4f7ebb4b33ec4ac75f6dd39cb3b2d91a" name="a4f7ebb4b33ec4ac75f6dd39cb3b2d91a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f7ebb4b33ec4ac75f6dd39cb3b2d91a">&#9670;&#160;</a></span>nc_iface_vel_rsx_vf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:,:), allocatable m_riemann_state::nc_iface_vel_rsx_vf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1177,7 +1277,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00462">462</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1193,7 +1293,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00506">506</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1209,7 +1309,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>

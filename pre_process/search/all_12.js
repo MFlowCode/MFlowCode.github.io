@@ -78,7 +78,7 @@ var searchData=
   ['s_5fconvert_5fcylindrical_5fto_5fcartesian_5fcoord_75',['s_convert_cylindrical_to_cartesian_coord',['../namespacem__icpp__patches.html#acbe8a03d5a5b6d11880bb904f91e9e0b',1,'m_icpp_patches']]],
   ['s_5fconvert_5fmixture_5fto_5fmixture_5fvariables_76',['s_convert_mixture_to_mixture_variables',['../namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847',1,'m_variables_conversion']]],
   ['s_5fconvert_5fprimitive_5fto_5fconservative_5fvariables_77',['s_convert_primitive_to_conservative_variables',['../namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e',1,'m_variables_conversion']]],
-  ['s_5fconvert_5fprimitive_5fto_5fflux_5fvariables_78',['s_convert_primitive_to_flux_variables',['../namespacem__variables__conversion.html#afb8d9abe86036f40292ab43e94eefe18',1,'m_variables_conversion']]],
+  ['s_5fconvert_5fprimitive_5fto_5fflux_5fvariables_78',['s_convert_primitive_to_flux_variables',['../namespacem__variables__conversion.html#aa198f649115ef044b285170f886094ac',1,'m_variables_conversion']]],
   ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_79',['s_convert_species_to_mixture_variables',['../namespacem__variables__conversion.html#a7f3bffa0ba13432f79f095a78fcf6e5a',1,'m_variables_conversion']]],
   ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5fkernel_80',['s_convert_species_to_mixture_variables_kernel',['../namespacem__variables__conversion.html#ac00dd41bc1a03bc4ee830cfa4fc7f2e6',1,'m_variables_conversion']]],
   ['s_5fconvert_5fto_5fmixture_5fvariables_81',['s_convert_to_mixture_variables',['../namespacem__variables__conversion.html#ad79dc943a9108e838d80bb2b264fba8e',1,'m_variables_conversion']]],

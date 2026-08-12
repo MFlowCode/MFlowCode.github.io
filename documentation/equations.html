@@ -992,8 +992,8 @@ HLLC (<span class="tt">riemann_solver = 2</span>) (Toro et al. <a class="el" hre
 Exact (<span class="tt">riemann_solver = 3</span>)</h4>
 <p>Iterative exact Riemann solver.</p>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md198"></a>
-HLLD (<span class="tt">riemann_solver = 4</span>, MHD only)</h4>
-<p>Seven-state solver for ideal MHD resolving fast magnetosonic, Alfven, and contact waves (Miyoshi and Kusano <a class="el" href="citelist.html#CITEREF_miyoshi05">[37]</a>). The Riemann fan is divided by outer wave speeds \(S_L\), \(S_R\), Alfven speeds \(S_L^*\), \(S_R^*\), and a middle contact \(S_M\):</p>
+HLLD (<span class="tt">riemann_solver = 4</span>, MHD or hypoelasticity)</h4>
+<p><b>MHD HLLD.</b> Seven-state solver for ideal MHD resolving fast magnetosonic, Alfven, and contact waves (Miyoshi and Kusano <a class="el" href="citelist.html#CITEREF_miyoshi05">[37]</a>). The Riemann fan is divided by outer wave speeds \(S_L\), \(S_R\), Alfven speeds \(S_L^*\), \(S_R^*\), and a middle contact \(S_M\):</p>
 <p class="formulaDsp">
 \[S_M = \frac{(S_R - u_R)\rho_R u_R - (S_L - u_L)\rho_L u_L - p_{T,R} + p_{T,L}}{(S_R - u_R)\rho_R - (S_L - u_L)\rho_L}\]
 </p>
@@ -1001,10 +1001,26 @@ HLLD (<span class="tt">riemann_solver = 4</span>, MHD only)</h4>
 \[S_L^* = S_M - \frac{|B_x|}{\sqrt{\rho_L^*}}, \qquad S_R^* = S_M + \frac{|B_x|}{\sqrt{\rho_R^*}}\]
 </p>
 <p>where \(p_T = p + |\mathbf{B}|^2/2\) is the total (thermal + magnetic) pressure. Continuity of normal velocity and total pressure is enforced across the Riemann fan.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md199"></a>
+<p><b>Hypoelastic HLLD.</b> Shares the five-wave Riemann fan structure with MHD HLLD, but differs substantially in formulation. Elastic shear waves play the role of Alfven waves, with total pressure \(p_T = p - \tau_{nn}\) and shear wave impedance \(C = \hat{\rho}(\hat{G} + \hat{\tau}_{nn})\). However, the non-conservative nature of the multi-component elastic stress equations — particularly at material interfaces where \(G\) is discontinuous — requires a dedicated treatment distinct from the MHD solver.</p>
+<p>The solver uses an <b>anchored dual-pass</b> formulation. Each Riemann solve at interface \(j{+}1/2\) requires cell-centered quantities for the non-conservative products; these are taken as cell-centered values from the cell that the flux will update, rather than from the reconstructed interface states:</p>
+<p class="formulaDsp">
+\[\mathbf{F}_{j+1/2}^{\text{left}} = \text{HLLD}\!\left(\mathbf{q}_{j+1/2}^L,\;\mathbf{q}_{j+1/2}^R;\;\mathbf{q}_{\text{cell},\,j}\right), \qquad \mathbf{F}_{j-1/2}^{\text{right}} = \text{HLLD}\!\left(\mathbf{q}_{j-1/2}^L,\;\mathbf{q}_{j-1/2}^R;\;\mathbf{q}_{\text{cell},\,j}\right)\]
+</p>
+<p class="formulaDsp">
+\[\frac{d\mathbf{U}_j}{dt} = \frac{1}{\Delta x}\!\left(\mathbf{F}_{j-1/2}^{\text{right}} - \mathbf{F}_{j+1/2}^{\text{left}}\right)\]
+</p>
+<p>This formulation enables HLLD to be used with the non-conservative terms that affect the eigenstructure of the quasi-linear Jacobian. Volume fraction advection is built into the HLLD flux rather than treated as a separate non-conservative step.</p>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md199"></a>
+Developer Notes on Non-Conservative Term Implementation</h4>
+<p>For details on how the Riemann solvers discretize non-conservative terms (volume fraction advection, Kapila \(K\,\nabla\!\cdot\!\mathbf{u}\), and hypoelastic velocity gradients) and hand off interface quantities to the RHS, see the notes in <span class="tt">misc/dev_notes/</span>:</p>
+<ul>
+<li><span class="tt">HLL_HLLC_non_conservative_terms_derivations.md</span> — Mathematical derivation of HLL Method 1 (alpha-interface), Method 2 (u-interface), and HLLC transport traces, including the \(S_M\zeta_K\) star-branch construction and ADC blending.</li>
+<li><span class="tt">Riemann_and_RHS_source_terms_explanations.md</span> — Code dataflow: which arrays carry what between m_riemann_solvers and m_rhs, overloading of flux_src, the three NC advection modes (adv_src_mode_alpha_iface, adv_src_mode_vel_iface, adv_src_mode_none), and the nc_iface_vel second export channel.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md200"></a>
 15.3 Time Integration</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_time_steppers.fpp</span></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md200"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md201"></a>
 TVD Runge-Kutta (<span class="tt">time_stepper = 1, 2, 3</span>) (Gottlieb and Shu <a class="el" href="citelist.html#CITEREF_gottlieb98">[18]</a>)</h4>
 <p><b>RK1 (Forward Euler):</b></p>
 <p class="formulaDsp">
@@ -1027,10 +1043,10 @@ TVD Runge-Kutta (<span class="tt">time_stepper = 1, 2, 3</span>) (Gottlieb and S
 <p class="formulaDsp">
 \[\mathbf{q}^{n+1} = \frac{1}{3}\mathbf{q}^n + \frac{2}{3}\mathbf{q}^{(2)} + \frac{2}{3}\Delta t\,\mathbf{L}(\mathbf{q}^{(2)})\]
 </p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md201"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md202"></a>
 Adaptive Time Stepping (<span class="tt">adap_dt = .true.</span>)</h4>
 <p>Embedded RK pairs for error estimation with Hairer-Norsett-Wanner algorithm for initial step size.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md202"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md203"></a>
 Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49]</a>) (for stiff bubble dynamics)</h4>
 <p>For equations of the form \(\partial \mathbf{q}/\partial t = -\nabla \cdot \mathbf{F}(\mathbf{q}) + \mathbf{s}(\mathbf{q})\), the Strang splitting scheme integrates three sub-equations per time step:</p>
 <p class="formulaDsp">
@@ -1043,7 +1059,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 \[\frac{\partial \mathbf{q}&#39;&#39;&#39;}{\partial t} = \mathbf{s}(\mathbf{q}&#39;&#39;&#39;), \quad t \in [0,\,\Delta t/2], \quad \mathbf{q}^{n+1} = \mathbf{q}&#39;&#39;&#39;(\Delta t/2)\]
 </p>
 <p>The stiff bubble source terms are integrated using an adaptive embedded Runge-Kutta scheme with error control.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md203"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md204"></a>
 15.4 CFL Condition</h3>
 <p><b>Inviscid:</b></p>
 <p class="formulaDsp">
@@ -1054,7 +1070,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 \[\Delta t_v = \text{CFL} \cdot \min\left(\frac{\Delta x^2}{\nu}\right)\]
 </p>
 <p>where \(c\) is the mixture sound speed and \(\nu\) is the kinematic viscosity.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md204"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md205"></a>
 15.5 Finite Differences (<span class="tt">fd_order = 1, 2, 4</span>)</h3>
 <p><b>Source:</b> <span class="tt">src/common/m_finite_differences.fpp</span></p>
 <p>Used for viscous fluxes and velocity gradients.</p>
@@ -1078,10 +1094,10 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 \[f&#39;_i\big|_\text{right} = \frac{3f_i - 4f_{i-1} + f_{i-2}}{x_i - x_{i-2}}\]
 </p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md206"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md207"></a>
 16. Boundary Conditions</h2>
 <p><b>Source:</b> <span class="tt">src/simulation/m_cbc.fpp</span>, <span class="tt">src/simulation/m_compute_cbc.fpp</span>, <span class="tt">src/common/m_constants.fpp</span></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md207"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md208"></a>
 16.1 Simple BCs</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1101,7 +1117,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-16</span>  </td><td class="markdownTableBodyNone">No-slip wall  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md208"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md209"></a>
 16.2 Characteristic BCs (Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[52]</a>, Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[53]</a>; <span class="tt">bc_x%beg = -5</span> to <span class="tt">-12</span>)</h3>
 <p><b>Characteristic decomposition:</b></p>
 <p class="formulaDsp">
@@ -1120,7 +1136,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 \[\mathcal{L} = -\boldsymbol{\Lambda}^o\,\mathbf{L}_x\,\frac{\partial \mathbf{q}_c}{\partial x} + n_x\,\lambda^i\,\mathbf{L}_x\,\frac{\mathbf{P}\,(\mathbf{q}_p^{(g)} - \mathbf{q}_p)}{\Delta}\]
 </p>
 <p><b>8 types:</b> slip wall (<span class="tt">-5</span>), non-reflecting buffer (<span class="tt">-6</span>), non-reflecting sub. inflow (<span class="tt">-7</span>), non-reflecting sub. outflow (<span class="tt">-8</span>), force-free sub. outflow (<span class="tt">-9</span>), constant-pressure sub. outflow (<span class="tt">-10</span>), supersonic inflow (<span class="tt">-11</span>), supersonic outflow (<span class="tt">-12</span>).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md209"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md210"></a>
 16.3 Immersed Boundary Method (<span class="tt">ib = .true.</span>) (Tseng and Ferziger <a class="el" href="citelist.html#CITEREF_tseng03">[57]</a>; Mittal and Iaccarino <a class="el" href="citelist.html#CITEREF_mittal05">[36]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[59]</a> Sec. 4.1.1)</h3>
 <p><b>Source:</b> <span class="tt">src/simulation/m_ibm.fpp</span></p>
 <p>Ghost-cell IBM with level set field \(\phi\).</p>
@@ -1135,7 +1151,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 <p><b>Neumann BC</b> for pressure, density, and volume fractions.</p>
 <p>Supports STL/OBJ geometry import with ray tracing for inside/outside determination.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md211"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md212"></a>
 17. Low Mach Number Corrections (Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[59]</a> Sec. 4.2.4)</h2>
 <p><b>Chen correction</b> (<span class="tt">low_Mach = 1</span>, Chen et al. <a class="el" href="citelist.html#CITEREF_chen22">[11]</a>): anti-dissipation pressure correction (APC) added to the HLLC flux:</p>
 <p class="formulaDsp">
@@ -1155,7 +1171,7 @@ Strang Splitting (Strang <a class="el" href="citelist.html#CITEREF_strang68">[49
 <p>This reduces numerical dissipation at low Mach numbers while recovering the standard scheme at high Mach numbers.</p>
 <p>Additionally, the <b>artificial Mach number</b> technique (<span class="tt">pi_fac</span>) modifies \(\pi_\infty\) to artificially increase the local Mach number.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md213"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md214"></a>
 18. Flux Limiting</h2>
 <p><b>Volume fraction limiting:</b> enforces \(0 \le \alpha_k \le 1\) and rescales as:</p>
 <p class="formulaDsp">

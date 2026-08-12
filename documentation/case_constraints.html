@@ -689,8 +689,9 @@ Geometry</h3>
 <li>adv_n requires bubbles_euler to be enabled</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
+<li>Hypoelasticity does not support Euler-Euler bubbles</li>
+<li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
 <li>Activate only one of the bubble subgrid models (bubbles_euler or bubbles_lagrange)</li>
-<li>alt_soundspeed is not compatible with bubbles_euler</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>patch_icpp(istr)r0 must be positive (got r0)</li>
@@ -750,6 +751,10 @@ Geometry</h3>
 <li>Isothermal Out (bc_xisothermal_out) requires both chemistry='T' and chem_paramsdiffusion='T' to calculate heat conduction.</li>
 <li>Isothermal In (bc_yisothermal_in) requires both chemistry='T' and chem_paramsdiffusion='T' to calculate heat conduction.</li>
 </ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>HLLD hypoelasticity does not support chemistry</li>
+<li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
+</ul>
 <p></p>
 </details>
 <details >
@@ -785,6 +790,36 @@ Geometry</h3>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>format must be 1 or 2</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>hll_u_interface</b> (<span class="tt">hll_u_interface</span>)</summary>
+<p></p>
+<p><b>Dependencies:</b></p><ul>
+<li>When enabled, requires <span class="tt">riemann_solver</span> = <span class="tt">1</span> (HLL)</li>
+</ul>
+<p><b>Requirements</b> (errors):</p><ul>
+<li>hll_u_interface requires HLL Riemann solver (riemann_solver = 1)</li>
+<li>surface_tension requires a shared interface-velocity representation (HLL Method 2 or HLLC)</li>
+</ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>HLL Method 2 does not support MHD (the MHD path zeroes the shared interface-velocity trace)</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>hypo_hll_interface_rhs</b> (<span class="tt">hypo_hll_interface_rhs</span>)</summary>
+<p></p>
+<p><b>Dependencies:</b></p><ul>
+<li>When enabled, requires: <span class="tt">hypoelasticity</span></li>
+<li>When enabled, requires <span class="tt">riemann_solver</span> = <span class="tt">1</span> (HLL)</li>
+</ul>
+<p><b>Requirements</b> (errors):</p><ul>
+<li>hypo_hll_interface_rhs requires hypoelasticity to be enabled</li>
+<li>hypo_hll_interface_rhs requires HLL Riemann solver (riemann_solver = 1)</li>
 </ul>
 <p></p>
 </details>
@@ -933,8 +968,8 @@ Geometry</h3>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>int_comp = 2 (MTHINC) requires at least 2D (n &gt; 0)</li>
+<li>HLLD hypoelasticity requires at least 2D (n &gt; 0)</li>
 <li>Immersed Boundaries do not work in 1D (requires n &gt; 0)</li>
-<li>down sample requires n divisible by 3</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Bx0 must not be set in 2D/3D MHD simulations</li>
@@ -1059,6 +1094,7 @@ Geometry</h3>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>6-equation model (model_eqns = 3) does not support cylindrical coordinates (cyl_coord = T and p != 0)</li>
+<li>3D cylindrical hypoelasticity is not supported</li>
 <li>Fully 3D cylindrical geometry (cyl_coord = T, p &gt; 0) is not supported in single precision (&ndash;single)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
@@ -1159,18 +1195,40 @@ Geometry</h3>
 </details>
 <details >
 <summary >
+<b>riemann_hypo_ADC</b> (<span class="tt">riemann_hypo_ADC</span>)</summary>
+<p></p>
+<p><b>Dependencies:</b></p><ul>
+<li>When enabled, requires: <span class="tt">hypoelasticity</span></li>
+<li>When enabled, requires <span class="tt">riemann_solver</span> = <span class="tt">2</span> (HLLC) or <span class="tt">4</span> (HLLD)</li>
+</ul>
+<p><b>Requirements</b> (errors):</p><ul>
+<li>riemann_hypo_ADC requires hypoelasticity to be enabled</li>
+</ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
+<li>riemann_hypo_ADC does not support low_Mach (the ADC HLL reference flux uses pre-correction velocities)</li>
+</ul>
+<p><b>Valid values</b> (errors):</p><ul>
+<li>ADC_kappa must be positive</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
 <b>Riemann Solver</b> (<span class="tt">riemann_solver</span>)</summary>
 <p></p>
 <p><b>Schema constraints:</b></p><ul>
 <li>Choices: <span class="tt">1</span> = HLL, <span class="tt">2</span> = HLLC, <span class="tt">4</span> = HLLD, <span class="tt">5</span> = Lax-Friedrichs</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
-<li>hypoelasticity requires HLL Riemann solver (riemann_solver = 1)</li>
-<li>riemann_solver must be specified (1=HLL, 2=HLLC, 4=HLLD, 5=Lax-Friedrichs)</li>
-<li>6-equation model (model_eqns = 3) requires riemann_solver = 2 (HLLC)</li>
+<li>hypoelasticity requires HLL (1), HLLC (2), or HLLD (4) Riemann solver</li>
+<li>hypo_hll_interface_rhs requires HLL Riemann solver (riemann_solver = 1)</li>
+<li>HLLD hypoelasticity requires at least 2D (n &gt; 0)</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
-<li>HLLD is not available for RMHD (relativity)</li>
+<li>HLLD hypoelasticity does not support viscous effects (the dual-pass omits the viscous source term)</li>
+<li>HLLD hypoelasticity does not support surface tension (the dual-pass omits the surface-tension source term)</li>
+<li>HLLD hypoelasticity does not support continuum damage (the dual-pass does not damage-scale the shear modulus)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>riemann_solver must be 1 (HLL), 2 (HLLC), 4 (HLLD), or 5 (Lax-Friedrichs)</li>
@@ -1282,6 +1340,10 @@ Geometry</h3>
 <li>The surface tension model requires model_eqns = 2 or model_eqns = 3</li>
 <li>The surface tension model requires num_fluids = 2</li>
 </ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>HLLD hypoelasticity does not support surface tension (the dual-pass omits the surface-tension source term)</li>
+<li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
+</ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>sigma must be greater than or equal to zero</li>
 </ul>
@@ -1377,6 +1439,9 @@ Geometry</h3>
 <li>weno_Re_flux requires viscous to be enabled</li>
 <li>fluid_pp(i)non_newtonian requires viscous = T</li>
 </ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>HLLD hypoelasticity does not support viscous effects (the dual-pass omits the viscous source term)</li>
+</ul>
 <p></p>
 </details>
 <details >
@@ -1390,6 +1455,9 @@ Geometry</h3>
 <li>wave_speeds must be set for riemann_solver 1, 2, or 4</li>
 <li>6-equation model (model_eqns = 3) requires wave_speeds = 1</li>
 <li>MHD requires wave_speeds = 1</li>
+</ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>HLLD uses its own direct wave-speed estimates; wave_speeds = 2 is not supported</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>wave_speeds must be 1 or 2</li>
@@ -1448,7 +1516,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-11</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-12</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -5,15 +5,15 @@ var searchData=
   ['3_202_20ideal_20gas_20eos_20chemistry_20chemistry_20true_2',['3.2 Ideal Gas EOS (Chemistry, &lt;span class=&quot;tt&quot;&gt;chemistry = .true.&lt;/span&gt;)',['../equations.html#autotoc_md153',1,'']]],
   ['3_205_207_3',['WENO (&lt;span class=&quot;tt&quot;&gt;weno_order = 3, 5, 7&lt;/span&gt;)',['../equations.html#autotoc_md191',1,'']]],
   ['3_20equations_20of_20state_4',['3. Equations of State',['../equations.html#autotoc_md151',1,'']]],
-  ['3_20gottlieb98_5',['TVD Runge-Kutta (&lt;span class=&quot;tt&quot;&gt;time_stepper = 1, 2, 3&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_gottlieb98&quot;&gt;[18]&lt;/a&gt;)',['../equations.html#autotoc_md200',1,'']]],
-  ['3_20immersed_20boundary_20method_20ib_20true_20tseng03_20mittal05_20wilfong26_20sec_204_201_201_6',['16.3 Immersed Boundary Method (&lt;span class=&quot;tt&quot;&gt;ib = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_tseng03&quot;&gt;[57]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_mittal05&quot;&gt;[36]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[59]&lt;/a&gt; Sec. 4.1.1)',['../equations.html#autotoc_md209',1,'']]],
+  ['3_20gottlieb98_5',['TVD Runge-Kutta (&lt;span class=&quot;tt&quot;&gt;time_stepper = 1, 2, 3&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_gottlieb98&quot;&gt;[18]&lt;/a&gt;)',['../equations.html#autotoc_md201',1,'']]],
+  ['3_20immersed_20boundary_20method_20ib_20true_20tseng03_20mittal05_20wilfong26_20sec_204_201_201_6',['16.3 Immersed Boundary Method (&lt;span class=&quot;tt&quot;&gt;ib = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_tseng03&quot;&gt;[57]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_mittal05&quot;&gt;[36]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[59]&lt;/a&gt; Sec. 4.1.1)',['../equations.html#autotoc_md210',1,'']]],
   ['3_20keller_20miksis_20bubble_5fmodel_202_20keller80_7',['6.1.3 Keller-Miksis (&lt;span class=&quot;tt&quot;&gt;bubble_model = 2&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_keller80&quot;&gt;[26]&lt;/a&gt;)',['../equations.html#autotoc_md163',1,'']]],
   ['3_20other_20model_20variants_8',['2.3 Other Model Variants',['../equations.html#autotoc_md149',1,'']]],
   ['3_20patches_9',['3. Patches',['../case.html#sec-patches',1,'']]],
   ['3_20rayleigh17_20plesset49_10',['6.1.2 Rayleigh-Plesset (&lt;span class=&quot;tt&quot;&gt;bubble_model = 3&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_rayleigh17&quot;&gt;[29]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_plesset49&quot;&gt;[40]&lt;/a&gt;)',['../equations.html#autotoc_md162',1,'']]],
-  ['3_20time_20integration_11',['15.3 Time Integration',['../equations.html#autotoc_md199',1,'']]],
-  ['3_3a_20running_20pace_20paraview_20server_12',['Step 3: Running pace-paraview-server',['../visualization.html#autotoc_md619',1,'']]],
-  ['3d_13',['3D',['../examples.html#autotoc_md296',1,'3D Turbulent Mixing layer (3D)'],['../examples.html#autotoc_md235',1,'IBM Bow Shock (3D)'],['../examples.html#autotoc_md221',1,'Rayleigh-Taylor Instability (3D)'],['../examples.html#autotoc_md282',1,'Taylor-Green Vortex (3D)']]],
-  ['3d_20slicing_14',['3D slicing',['../visualization.html#autotoc_md603',1,'']]],
-  ['3d_20turbulent_20mixing_20layer_203d_15',['3D Turbulent Mixing layer (3D)',['../examples.html#autotoc_md296',1,'']]]
+  ['3_20time_20integration_11',['15.3 Time Integration',['../equations.html#autotoc_md200',1,'']]],
+  ['3_3a_20running_20pace_20paraview_20server_12',['Step 3: Running pace-paraview-server',['../visualization.html#autotoc_md620',1,'']]],
+  ['3d_13',['3D',['../examples.html#autotoc_md278',1,'3D Turbulent Mixing layer (3D)'],['../examples.html#autotoc_md232',1,'IBM Bow Shock (3D)'],['../examples.html#autotoc_md243',1,'Rayleigh-Taylor Instability (3D)'],['../examples.html#autotoc_md245',1,'Taylor-Green Vortex (3D)']]],
+  ['3d_20slicing_14',['3D slicing',['../visualization.html#autotoc_md604',1,'']]],
+  ['3d_20turbulent_20mixing_20layer_203d_15',['3D Turbulent Mixing layer (3D)',['../examples.html#autotoc_md278',1,'']]]
 ];
