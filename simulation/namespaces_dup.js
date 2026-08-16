@@ -1345,7 +1345,6 @@ var namespaces_dup =
     ] ],
     [ "m_sim_helpers", "namespacem__sim__helpers.html", [
       [ "f_compute_filtered_dtheta", "namespacem__sim__helpers.html#aa641aecbabcfd37456c476ac6d8549a8", null ],
-      [ "f_compute_multidim_cfl_terms", "namespacem__sim__helpers.html#ae1073a6c7bde04f4502e8f93f81698dd", null ],
       [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a3d187753f4e292887a3030707059b421", null ],
       [ "s_compute_enthalpy", "namespacem__sim__helpers.html#a3c26ca717ef0246e7e32d91b00d6f0da", null ],
       [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a4d9544afc8bb29583e9448d133880e5a", null ]
