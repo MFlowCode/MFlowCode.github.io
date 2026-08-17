@@ -325,7 +325,6 @@ var namespaces_dup =
       [ "s_apply_ib_collision_forces_soft_sphere", "namespacem__collisions.html#ab9608ec22b9d2f89741faa0a9582dc7a", null ],
       [ "s_apply_wall_collision_forces_soft_sphere", "namespacem__collisions.html#af40a32d6d0e4db1d0dd7030d2639a915", null ],
       [ "s_detect_ib_collisions", "namespacem__collisions.html#a8dac6fb2b3da2ea0e6d3df93df7c9e94", null ],
-      [ "s_detect_ib_collisions_n2", "namespacem__collisions.html#afc91e801df54bde06f8db286aecae19b", null ],
       [ "s_detect_wall_collisions", "namespacem__collisions.html#a582bc12bbbdb4389578c76e37255a201", null ],
       [ "s_finalize_collisions_module", "namespacem__collisions.html#a6da9569c8e2a07f8609c8a706bbf1849", null ],
       [ "s_initialize_collisions_module", "namespacem__collisions.html#ab75b5d1e5a69e4f989675e0ba2c868ed", null ],
@@ -447,7 +446,6 @@ var namespaces_dup =
       [ "num_bc_patches_max", "namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431", null ],
       [ "num_fluids_max", "namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1", null ],
       [ "num_ib_airfoils_max", "namespacem__constants.html#a00a06abac10f6cb8ad7d7468b0c0b33e", null ],
-      [ "num_ib_patches_max", "namespacem__constants.html#a79dab2f2e7dd62e15f74542ae56a4b69", null ],
       [ "num_ib_patches_max_namelist", "namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b", null ],
       [ "num_local_ibs_max", "namespacem__constants.html#a0ef5dbdaf637c46bc04b4abd1cb1233d", null ],
       [ "num_particle_clouds_max", "namespacem__constants.html#a3d55a69cf4cc9d7d00e179db3be28e6a", null ],
@@ -518,7 +516,7 @@ var namespaces_dup =
       [ "vcfl_max", "namespacem__data__output.html#a4566bfca1a62d6dc4a2ae2e390b8be45", null ]
     ] ],
     [ "m_delay_file_access", "namespacem__delay__file__access.html", [
-      [ "delayfileaccess", "namespacem__delay__file__access.html#a9b90086a2cf6bbb569047c955d2e67fe", null ],
+      [ "s_delay_file_access", "namespacem__delay__file__access.html#af30d2642ae2ac77620de729f4c78b1bf", null ],
       [ "file_access_delay_unit", "namespacem__delay__file__access.html#ac86039f49509375179810ae226dac69b", null ],
       [ "n_processes_file_access", "namespacem__delay__file__access.html#ab213216c1359e4dac71415abf3e1b5fe", null ]
     ] ],
@@ -796,8 +794,6 @@ var namespaces_dup =
       [ "igr_order", "namespacem__global__parameters__common.html#a8698448318affdac440a7eb61a65d60f", null ],
       [ "igr_pres_lim", "namespacem__global__parameters__common.html#a8821420895662625debf163e1d60a7d1", null ],
       [ "int_comp", "namespacem__global__parameters__common.html#a761e08b8a29520a8c413ac64fa6e616b", null ],
-      [ "integral", "namespacem__global__parameters__common.html#a4678d513cd443550b6fc37520db7e893", null ],
-      [ "integral_wrt", "namespacem__global__parameters__common.html#afd1e4ca5d1d1fc9a326ca7e2a7034bdd", null ],
       [ "k_x", "namespacem__global__parameters__common.html#a6d83b1dcb0fbe49b718edae9e2c05187", null ],
       [ "k_y", "namespacem__global__parameters__common.html#a6f01530f5fe92a8d72b324f03083d3c3", null ],
       [ "k_z", "namespacem__global__parameters__common.html#afd0a6f5b1a0a345052a31501937244e2", null ],
@@ -826,7 +822,6 @@ var namespaces_dup =
       [ "num_ibs", "namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a", null ],
       [ "num_igr_iters", "namespacem__global__parameters__common.html#aa1e22da9a10e91416ed94dbe3ab7ba6c", null ],
       [ "num_igr_warm_start_iters", "namespacem__global__parameters__common.html#a92acc33f22f3d952ebd02abc394e0c40", null ],
-      [ "num_integrals", "namespacem__global__parameters__common.html#a3436a6ce71779b982185af5b261259d2", null ],
       [ "num_particle_clouds", "namespacem__global__parameters__common.html#afd19941d4e6671d30ec5feff9291606d", null ],
       [ "num_probes", "namespacem__global__parameters__common.html#a5a42f33a6449f59a10f940ce5a125213", null ],
       [ "num_procs_x", "namespacem__global__parameters__common.html#a5f1c53c238890ef24c450a162fd9daa2", null ],
@@ -1167,10 +1162,11 @@ var namespaces_dup =
     [ "m_particle_cloud", "namespacem__particle__cloud.html", [
       [ "f_bin_hash", "namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be", null ],
       [ "f_xorshift", "namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc", null ],
-      [ "s_add_cloud_particle", "namespacem__particle__cloud.html#a6b09caec9e40c58549bf70089fab1ba9", null ],
-      [ "s_generate_particle_clouds", "namespacem__particle__cloud.html#a2feae0e06656f459f3d1a43d00b3102d", null ],
-      [ "s_particle_cloud_lattice", "namespacem__particle__cloud.html#ab55abd1c2e9303636ae4b9c9581d9afb", null ],
-      [ "s_particle_cloud_random_box", "namespacem__particle__cloud.html#aea3cd46bacb79079dcadca54a42b5150", null ]
+      [ "s_add_cloud_particle", "namespacem__particle__cloud.html#a4b179b0701b9813eb9d7d2feea5ed1c5", null ],
+      [ "s_generate_particle_clouds", "namespacem__particle__cloud.html#aa5f460970e7d842ed4079588c709632f", null ],
+      [ "s_particle_cloud_lattice", "namespacem__particle__cloud.html#acedaa7ab4782dc03d33cf3456692bfdb", null ],
+      [ "s_particle_cloud_random_box", "namespacem__particle__cloud.html#a43768d4eca3269ef64ad871bbe2f4aaa", null ],
+      [ "s_reduce_particle_cloud_ibs", "namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad", null ]
     ] ],
     [ "m_patch_geometries", "namespacem__patch__geometries.html", [
       [ "f_is_inside_airfoil", "namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe", null ],
@@ -1364,7 +1360,7 @@ var namespaces_dup =
       [ "s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
       [ "s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
       [ "s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
-      [ "s_reduce_ib_patch_array", "namespacem__start__up.html#a3d9a79bf656d698f1f1e9d1fb6cb82f7", null ],
+      [ "s_reduce_ib_patch_array", "namespacem__start__up.html#aa8d8bb7ccfccd073646ffb816baacd72", null ],
       [ "s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
       [ "s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
       [ "dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],

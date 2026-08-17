@@ -6,7 +6,6 @@ var m__collisions_8fpp_8f90 =
     [ "m_collisions::s_apply_ib_collision_forces_soft_sphere", "namespacem__collisions.html#ab9608ec22b9d2f89741faa0a9582dc7a", null ],
     [ "m_collisions::s_apply_wall_collision_forces_soft_sphere", "namespacem__collisions.html#af40a32d6d0e4db1d0dd7030d2639a915", null ],
     [ "m_collisions::s_detect_ib_collisions", "namespacem__collisions.html#a8dac6fb2b3da2ea0e6d3df93df7c9e94", null ],
-    [ "m_collisions::s_detect_ib_collisions_n2", "namespacem__collisions.html#afc91e801df54bde06f8db286aecae19b", null ],
     [ "m_collisions::s_detect_wall_collisions", "namespacem__collisions.html#a582bc12bbbdb4389578c76e37255a201", null ],
     [ "m_collisions::s_finalize_collisions_module", "namespacem__collisions.html#a6da9569c8e2a07f8609c8a706bbf1849", null ],
     [ "m_collisions::s_initialize_collisions_module", "namespacem__collisions.html#ab75b5d1e5a69e4f989675e0ba2c868ed", null ],

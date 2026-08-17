@@ -7,7 +7,5 @@ var searchData=
   ['x_5fcentroid_4',['x_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#aef7ef14d93a66bf0e9517bb79a7ebd6f',1,'m_derived_types::ic_patch_parameters::x_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b',1,'m_derived_types::ib_patch_parameters::x_centroid'],['../structm__derived__types_1_1particle__cloud__parameters.html#acc9f78ecfc242099095202261b3c23b7',1,'m_derived_types::particle_cloud_parameters::x_centroid'],['../structm__derived__types_1_1spbf__parameters.html#aef9f0f62436efae67dffa5c364fc7133',1,'m_derived_types::spbf_parameters::x_centroid']]],
   ['x_5fperiodicity_5',['x_periodicity',['../structm__derived__types_1_1ghost__point.html#a20328680231423e909f012c110cc81aa',1,'m_derived_types::ghost_point']]],
   ['x_5fsize_6',['x_size',['../namespacem__fftw.html#a246f1941ea684614558888dbe69c5952',1,'m_fftw']]],
-  ['xmax_7',['xmax',['../structm__derived__types_1_1integral__parameters.html#a99a964162e77c2dca48e0f5c34ff2cd9',1,'m_derived_types::integral_parameters']]],
-  ['xmin_8',['xmin',['../structm__derived__types_1_1integral__parameters.html#aa844f0e04d0391e7946e4f0ca43835bb',1,'m_derived_types::integral_parameters']]],
-  ['xyz_5fto_5fr_5fratios_9',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aeb4fc8950a2b24d41d2195346d175f59',1,'m_derived_types::source_spatial_type']]]
+  ['xyz_5fto_5fr_5fratios_7',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aeb4fc8950a2b24d41d2195346d175f59',1,'m_derived_types::source_spatial_type']]]
 ];

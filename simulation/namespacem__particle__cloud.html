@@ -163,14 +163,16 @@ $(function(){initNavTree('namespacem__particle__cloud.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:a2feae0e06656f459f3d1a43d00b3102d" id="r_a2feae0e06656f459f3d1a43d00b3102d"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2feae0e06656f459f3d1a43d00b3102d">s_generate_particle_clouds</a> (particle_cloud_ibs)</td></tr>
-<tr class="memdesc:a2feae0e06656f459f3d1a43d00b3102d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_array.  <br /></td></tr>
-<tr class="memitem:aea3cd46bacb79079dcadca54a42b5150" id="r_aea3cd46bacb79079dcadca54a42b5150"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aea3cd46bacb79079dcadca54a42b5150">s_particle_cloud_random_box</a> (cloud_idx, ib_idx, particle_cloud_ibs)</td></tr>
-<tr class="memdesc:aea3cd46bacb79079dcadca54a42b5150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random distributions of particles in a box with a minimum spacing.  <br /></td></tr>
-<tr class="memitem:ab55abd1c2e9303636ae4b9c9581d9afb" id="r_ab55abd1c2e9303636ae4b9c9581d9afb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab55abd1c2e9303636ae4b9c9581d9afb">s_particle_cloud_lattice</a> (cloud_idx, ib_idx, particle_cloud_ibs)</td></tr>
-<tr class="memdesc:ab55abd1c2e9303636ae4b9c9581d9afb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D, a face-centered cubic lattice in 3D. The lattice spacing is set by the particle density (num_particles over the region area/volume); if that spacing falls below the required centre-to-centre distance (2*radius + min_spacing), the region is too dense and the run is aborted.  <br /></td></tr>
-<tr class="memitem:a6b09caec9e40c58549bf70089fab1ba9" id="r_a6b09caec9e40c58549bf70089fab1ba9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6b09caec9e40c58549bf70089fab1ba9">s_add_cloud_particle</a> (cloud_idx, ib_idx, geom, px, py, pz, particle_cloud_ibs)</td></tr>
-<tr class="memdesc:a6b09caec9e40c58549bf70089fab1ba9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx. Shared by all packing methods so the per-particle <a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a> setup stays in one place.  <br /></td></tr>
+<tr class="memitem:aa5f460970e7d842ed4079588c709632f" id="r_aa5f460970e7d842ed4079588c709632f"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa5f460970e7d842ed4079588c709632f">s_generate_particle_clouds</a> (particle_cloud_ibs, num_particle_cloud_ibs)</td></tr>
+<tr class="memdesc:aa5f460970e7d842ed4079588c709632f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_array. Each packing method owns and allocates its own per-cloud working array (see s_particle_cloud_lattice / s_particle_cloud_random_box) and hands back only the entries that fall within this rank's IB neighborhood. Only the first num_particle_cloud_ibs of them are actually written - callers must use that count, not size(particle_cloud_ibs), since the remainder of the array is left uninitialized.  <br /></td></tr>
+<tr class="memitem:a43768d4eca3269ef64ad871bbe2f4aaa" id="r_a43768d4eca3269ef64ad871bbe2f4aaa"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a43768d4eca3269ef64ad871bbe2f4aaa">s_particle_cloud_random_box</a> (cloud_idx, glbl_idx, cloud_ibs, num_cloud_ibs)</td></tr>
+<tr class="memdesc:a43768d4eca3269ef64ad871bbe2f4aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random distributions of particles in a box with a minimum spacing. Rejection sampling needs every placed particle tracked (regardless of which rank's neighborhood it falls in) to detect overlaps deterministically, so cloud_ibs is allocated here to the cloud's full requested particle count and only pared down to this rank's neighborhood afterwards, via s_reduce_particle_cloud_ibs.  <br /></td></tr>
+<tr class="memitem:acedaa7ab4782dc03d33cf3456692bfdb" id="r_acedaa7ab4782dc03d33cf3456692bfdb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acedaa7ab4782dc03d33cf3456692bfdb">s_particle_cloud_lattice</a> (cloud_idx, glbl_idx, cloud_ibs, num_cloud_ibs)</td></tr>
+<tr class="memdesc:acedaa7ab4782dc03d33cf3456692bfdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D, a face-centered cubic lattice in 3D. The lattice spacing is set by the particle density (num_particles over the region area/volume); if that spacing falls below the required centre-to-centre distance (2*radius + min_spacing), the region is too dense and the run is aborted. No two lattice sites can overlap, so unlike rejection packing each site's IB neighborhood membership (get_neighbor_bounds() must already have run) is checked as it is generated and only in-neighborhood sites are stored; cloud_ibs is therefore allocated to the neighborhood-sized cap rather than the cloud's full particle count.  <br /></td></tr>
+<tr class="memitem:a4b179b0701b9813eb9d7d2feea5ed1c5" id="r_a4b179b0701b9813eb9d7d2feea5ed1c5"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4b179b0701b9813eb9d7d2feea5ed1c5">s_add_cloud_particle</a> (cloud_idx, ib_idx, glbl_idx, geom, px, py, pz, particle_cloud_ibs)</td></tr>
+<tr class="memdesc:a4b179b0701b9813eb9d7d2feea5ed1c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx. The caller decides whether this particle belongs in the array (neighborhood membership, for lattice packing, or unconditionally for rejection packing - see s_particle_cloud_lattice / s_particle_cloud_random_box) and supplies its already-assigned, absolute global patch id via glbl_idx - s_reduce_ib_patch_array copies gbl_patch_id as-is. Shared by all packing methods so the per-particle <a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a> setup stays in one place.  <br /></td></tr>
+<tr class="memitem:a56e47151d0fc9b578c8f9ee0589ed7ad" id="r_a56e47151d0fc9b578c8f9ee0589ed7ad"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a56e47151d0fc9b578c8f9ee0589ed7ad">s_reduce_particle_cloud_ibs</a> (cloud_ibs, num_cloud_ibs)</td></tr>
+<tr class="memdesc:a56e47151d0fc9b578c8f9ee0589ed7ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compacts cloud_ibs(1:num_ibs) in place, discarding entries outside this rank's IB neighborhood (get_neighbor_bounds() must already have run) and updating num_ibs to the retained count. Used by rejection packing, which cannot filter as it places particles (see s_particle_cloud_random_box), to pare its full, unfiltered placement down to this rank's neighborhood.  <br /></td></tr>
 <tr class="memitem:a733f14183bef377187ce1f2df3bf77bc" id="r_a733f14183bef377187ce1f2df3bf77bc"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a> (seed)</td></tr>
 <tr class="memdesc:a733f14183bef377187ce1f2df3bf77bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).  <br /></td></tr>
 <tr class="memitem:aa2803b020159e1a466b23af39ea4b7be" id="r_aa2803b020159e1a466b23af39ea4b7be"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a> (bx, by, bz, hash_size)</td></tr>
@@ -218,7 +220,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bins across buckets. Hash collisions are benign: the distance check catches false neighbours. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00333">333</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00733">733</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -252,7 +254,7 @@ Here is the caller graph for this function:</div>
 
 <p>Xorshift PRNG. Advances seed in-place and returns a value in [0, 1). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00318">318</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00718">718</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -261,8 +263,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6b09caec9e40c58549bf70089fab1ba9" name="a6b09caec9e40c58549bf70089fab1ba9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b09caec9e40c58549bf70089fab1ba9">&#9670;&#160;</a></span>s_add_cloud_particle()</h2>
+<a id="a4b179b0701b9813eb9d7d2feea5ed1c5" name="a4b179b0701b9813eb9d7d2feea5ed1c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b179b0701b9813eb9d7d2feea5ed1c5">&#9670;&#160;</a></span>s_add_cloud_particle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,6 +281,11 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ib_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>glbl_idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -313,19 +320,24 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx. Shared by all packing methods so the per-particle <a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a> setup stays in one place. </p>
+<p>Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx. The caller decides whether this particle belongs in the array (neighborhood membership, for lattice packing, or unconditionally for rejection packing - see s_particle_cloud_lattice / s_particle_cloud_random_box) and supplies its already-assigned, absolute global patch id via glbl_idx - s_reduce_ib_patch_array copies gbl_patch_id as-is. Shared by all packing methods so the per-particle <a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a> setup stays in one place. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00266">266</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00638">638</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a4b179b0701b9813eb9d7d2feea5ed1c5_cgraph.svg" width="639" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a6b09caec9e40c58549bf70089fab1ba9_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a4b179b0701b9813eb9d7d2feea5ed1c5_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a2feae0e06656f459f3d1a43d00b3102d" name="a2feae0e06656f459f3d1a43d00b3102d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2feae0e06656f459f3d1a43d00b3102d">&#9670;&#160;</a></span>s_generate_particle_clouds()</h2>
+<a id="aa5f460970e7d842ed4079588c709632f" name="aa5f460970e7d842ed4079588c709632f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5f460970e7d842ed4079588c709632f">&#9670;&#160;</a></span>s_generate_particle_clouds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -333,30 +345,34 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine, public m_particle_cloud::s_generate_particle_clouds </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_particle_cloud_ibs</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_array. </p>
+<p>Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_array. Each packing method owns and allocates its own per-cloud working array (see s_particle_cloud_lattice / s_particle_cloud_random_box) and hands back only the entries that fall within this rank's IB neighborhood. Only the first num_particle_cloud_ibs of them are actually written - callers must use that count, not size(particle_cloud_ibs), since the remainder of the array is left uninitialized. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00024">24</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00345">345</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a2feae0e06656f459f3d1a43d00b3102d_cgraph.svg" width="100%" height="482"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_aa5f460970e7d842ed4079588c709632f_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a2feae0e06656f459f3d1a43d00b3102d_icgraph.svg" width="543" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_aa5f460970e7d842ed4079588c709632f_icgraph.svg" width="543" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ab55abd1c2e9303636ae4b9c9581d9afb" name="ab55abd1c2e9303636ae4b9c9581d9afb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab55abd1c2e9303636ae4b9c9581d9afb">&#9670;&#160;</a></span>s_particle_cloud_lattice()</h2>
+<a id="acedaa7ab4782dc03d33cf3456692bfdb" name="acedaa7ab4782dc03d33cf3456692bfdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acedaa7ab4782dc03d33cf3456692bfdb">&#9670;&#160;</a></span>s_particle_cloud_lattice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -372,12 +388,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ib_idx</em></span>, </td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>glbl_idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>cloud_ibs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_cloud_ibs</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -387,24 +408,24 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D, a face-centered cubic lattice in 3D. The lattice spacing is set by the particle density (num_particles over the region area/volume); if that spacing falls below the required centre-to-centre distance (2*radius + min_spacing), the region is too dense and the run is aborted. </p>
+<p>Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D, a face-centered cubic lattice in 3D. The lattice spacing is set by the particle density (num_particles over the region area/volume); if that spacing falls below the required centre-to-centre distance (2*radius + min_spacing), the region is too dense and the run is aborted. No two lattice sites can overlap, so unlike rejection packing each site's IB neighborhood membership (get_neighbor_bounds() must already have run) is checked as it is generated and only in-neighborhood sites are stored; cloud_ibs is therefore allocated to the neighborhood-sized cap rather than the cloud's full particle count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00181">181</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_ab55abd1c2e9303636ae4b9c9581d9afb_cgraph.svg" width="406" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_acedaa7ab4782dc03d33cf3456692bfdb_cgraph.svg" width="100%" height="408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_ab55abd1c2e9303636ae4b9c9581d9afb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_acedaa7ab4782dc03d33cf3456692bfdb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="aea3cd46bacb79079dcadca54a42b5150" name="aea3cd46bacb79079dcadca54a42b5150"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea3cd46bacb79079dcadca54a42b5150">&#9670;&#160;</a></span>s_particle_cloud_random_box()</h2>
+<a id="a43768d4eca3269ef64ad871bbe2f4aaa" name="a43768d4eca3269ef64ad871bbe2f4aaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43768d4eca3269ef64ad871bbe2f4aaa">&#9670;&#160;</a></span>s_particle_cloud_random_box()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,12 +441,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ib_idx</em></span>, </td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>glbl_idx</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>cloud_ibs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_cloud_ibs</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -435,18 +461,61 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Generates a random distributions of particles in a box with a minimum spacing. </p>
+<p>Generates a random distributions of particles in a box with a minimum spacing. Rejection sampling needs every placed particle tracked (regardless of which rank's neighborhood it falls in) to detect overlaps deterministically, so cloud_ibs is allocated here to the cloud's full requested particle count and only pared down to this rank's neighborhood afterwards, via s_reduce_particle_cloud_ibs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00061">61</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_aea3cd46bacb79079dcadca54a42b5150_cgraph.svg" width="446" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a43768d4eca3269ef64ad871bbe2f4aaa_cgraph.svg" width="100%" height="520"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_aea3cd46bacb79079dcadca54a42b5150_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a43768d4eca3269ef64ad871bbe2f4aaa_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a56e47151d0fc9b578c8f9ee0589ed7ad" name="a56e47151d0fc9b578c8f9ee0589ed7ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e47151d0fc9b578c8f9ee0589ed7ad">&#9670;&#160;</a></span>s_reduce_particle_cloud_ibs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_particle_cloud::s_reduce_particle_cloud_ibs </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>cloud_ibs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>num_cloud_ibs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compacts cloud_ibs(1:num_ibs) in place, discarding entries outside this rank's IB neighborhood (get_neighbor_bounds() must already have run) and updating num_ibs to the retained count. Used by rejection packing, which cannot filter as it places particles (see s_particle_cloud_random_box), to pare its full, unfiltered placement down to this rank's neighborhood. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particle__cloud_8fpp_8f90_source.html#l00697">697</a> of file <a class="el" href="m__particle__cloud_8fpp_8f90_source.html">m_particle_cloud.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a56e47151d0fc9b578c8f9ee0589ed7ad_cgraph.svg" width="468" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particle__cloud_a56e47151d0fc9b578c8f9ee0589ed7ad_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

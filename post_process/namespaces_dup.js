@@ -153,7 +153,6 @@ var namespaces_dup =
       [ "num_bc_patches_max", "namespacem__constants.html#a8c2d85f8212ead54a233542e4b44a431", null ],
       [ "num_fluids_max", "namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1", null ],
       [ "num_ib_airfoils_max", "namespacem__constants.html#a00a06abac10f6cb8ad7d7468b0c0b33e", null ],
-      [ "num_ib_patches_max", "namespacem__constants.html#a79dab2f2e7dd62e15f74542ae56a4b69", null ],
       [ "num_ib_patches_max_namelist", "namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b", null ],
       [ "num_local_ibs_max", "namespacem__constants.html#a0ef5dbdaf637c46bc04b4abd1cb1233d", null ],
       [ "num_particle_clouds_max", "namespacem__constants.html#a3d55a69cf4cc9d7d00e179db3be28e6a", null ],
@@ -220,7 +219,7 @@ var namespaces_dup =
       [ "out", "namespacem__data__output.html#acdeb8b0cf51decddadad9b90af33e18a", null ]
     ] ],
     [ "m_delay_file_access", "namespacem__delay__file__access.html", [
-      [ "delayfileaccess", "namespacem__delay__file__access.html#a9b90086a2cf6bbb569047c955d2e67fe", null ],
+      [ "s_delay_file_access", "namespacem__delay__file__access.html#af30d2642ae2ac77620de729f4c78b1bf", null ],
       [ "file_access_delay_unit", "namespacem__delay__file__access.html#ac86039f49509375179810ae226dac69b", null ],
       [ "n_processes_file_access", "namespacem__delay__file__access.html#ab213216c1359e4dac71415abf3e1b5fe", null ]
     ] ],
