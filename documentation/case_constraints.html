@@ -755,6 +755,10 @@ Geometry</h3>
 <li>HLLD hypoelasticity does not support chemistry</li>
 <li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
 </ul>
+<p><b>Valid values</b> (errors):</p><ul>
+<li>chem_paramsreaction_substeps must be &gt;= 0 (0 = reaction source in the flow RHS; &gt; 0 = operator-split sub-stepping)</li>
+<li>chem_paramsreaction_substeps_max must be &gt;= reaction_substeps when adap_substeps = T</li>
+</ul>
 <p></p>
 </details>
 <details >
@@ -806,6 +810,8 @@ Geometry</h3>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLL Method 2 does not support MHD (the MHD path zeroes the shared interface-velocity trace)</li>
+<li>HLL Method 2 is not supported for 3D cylindrical geometry</li>
+<li>alt_soundspeed with HLL Method 1 is not supported for 2D axisymmetric geometry</li>
 </ul>
 <p></p>
 </details>
@@ -1073,7 +1079,7 @@ Geometry</h3>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>6-equation model (model_eqns = 3) does not support cylindrical coordinates (cyl_coord = T and p != 0)</li>
 <li>3D cylindrical hypoelasticity is not supported</li>
-<li>Fully 3D cylindrical geometry (cyl_coord = T, p &gt; 0) is not supported in single precision (&ndash;single)</li>
+<li>HLL Method 2 is not supported for 3D cylindrical geometry</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>p must be non-negative</li>
@@ -1494,7 +1500,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-18</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-19</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
