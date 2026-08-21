@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"structm__derived__types_1_1ib__patch__parameters.html#a85c7d297590c1e312f711958c4485b1b":[1,0,20,33,15],
 "structm__derived__types_1_1ib__patch__parameters.html#a85c7d297590c1e312f711958c4485b1b":[2,0,0,33,15],
 "structm__derived__types_1_1ib__patch__parameters.html#a8d4bed578b10e00c1b528310be67dcca":[1,0,20,33,17],
 "structm__derived__types_1_1ib__patch__parameters.html#a8d4bed578b10e00c1b528310be67dcca":[2,0,0,33,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "structm__derived__types_1_1mpi__io__ib__var.html#a658eb06300820497067e2e738dd9378d":[1,0,20,7,1],
 "structm__derived__types_1_1mpi__io__ib__var.html#a658eb06300820497067e2e738dd9378d":[2,0,0,7,1],
 "structm__derived__types_1_1mpi__io__levelset__norm__var.html":[1,0,20,9],
-"structm__derived__types_1_1mpi__io__levelset__norm__var.html":[2,0,0,9],
-"structm__derived__types_1_1mpi__io__levelset__norm__var.html#a241d46b5c25ecb008d41fceb8dd73ac4":[1,0,20,9,1]
+"structm__derived__types_1_1mpi__io__levelset__norm__var.html":[2,0,0,9]
 };

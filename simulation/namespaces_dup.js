@@ -139,6 +139,7 @@ var namespaces_dup =
       [ "s_comp_alpha_from_n", "namespacem__bubbles__ee.html#a523f8112128cbb1d0ec8b2bab674475e", null ],
       [ "s_compute_bubble_ee_source", "namespacem__bubbles__ee.html#ab15ff78772125079eec3132ae9a5bea1", null ],
       [ "s_compute_bubbles_ee_rhs", "namespacem__bubbles__ee.html#a95ca95b3f22f62885bf1dd09eda53f3a", null ],
+      [ "s_compute_ptilde", "namespacem__bubbles__ee.html#a0a2216eea31da1917887f93bbdcdc5e3", null ],
       [ "s_initialize_bubbles_ee_module", "namespacem__bubbles__ee.html#acdf857ad6b9f389ee1bd4dd81bbc23a5", null ],
       [ "bub_adv_src", "namespacem__bubbles__ee.html#a75e41b12f290decf36c8317a5df45799", null ],
       [ "bub_m_src", "namespacem__bubbles__ee.html#ab3e7e32a515a15bd575b5d1a5583ab11", null ],

@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f":[1,0,12,7],
 "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6":[1,0,12,3],
 "namespacem__chemistry.html#ab7f799f6d59cfeaf7b0d0c1219bc12f3":[1,0,12,9],
 "namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d":[1,0,12,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "namespacem__global__parameters.html":[1,0,24],
 "namespacem__global__parameters.html#a009e29c1972b4e5adcf5954496be29e5":[1,0,24,59],
 "namespacem__global__parameters.html#a03359dd44b1b9090b34787e1b5e0bec1":[1,0,24,80],
-"namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c":[1,0,24,93],
-"namespacem__global__parameters.html#a03ef84feb5fc99a2defcad7261f6d5d0":[1,0,24,144]
+"namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c":[1,0,24,93]
 };
