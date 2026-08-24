@@ -210,7 +210,7 @@ Quick Reference</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#count" title="count"><code>count</code></a>  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Count LOC in MFC.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#count_diff" title="count_diff"><code>count_diff</code></a>  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Compare LOC between branches.  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#count_diff" title="count_diff"><code>count_diff</code></a>  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Compare LOC between two MFC source trees.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><code>fp-stability</code>  </td><td class="markdownTableBodyNone">-  </td><td class="markdownTableBodyNone">Run floating-point stability tests using Verrou.  </td></tr>
 </table>
@@ -835,8 +835,13 @@ count</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="count_diff"></a>
 count_diff</h3>
-<p>Compare LOC between branches.</p>
-<p><b>Usage:</b> <span class="tt">./mfc.sh count_diff [OPTIONS]</span></p>
+<p>Compare LOC between two MFC source trees.</p>
+<p><b>Usage:</b> <span class="tt">./mfc.sh count_diff BASE PR [OPTIONS]</span></p>
+<p><b>Arguments:</b></p>
+<ul>
+<li><span class="tt">BASE</span> - Path to the baseline MFC source tree.</li>
+<li><span class="tt">PR</span> - Path to the MFC source tree to compare against the baseline.</li>
+</ul>
 <p><b>Options:</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -850,15 +855,20 @@ count_diff</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-d</span>, <span class="tt">--debug-log</span>  </td><td class="markdownTableBodyNone">Enable Python toolchain debug logging (not MFC code).  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--markdown</span>  </td><td class="markdownTableBodyNone">Also write the diff as GitHub-flavored Markdown to PATH (empty if nothing changed).  </td><td class="markdownTableBodyNone">-  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--mpi</span>, <span class="tt">--no-mpi</span>  </td><td class="markdownTableBodyNone">Enable/disable MPI  </td><td class="markdownTableBodyNone"><span class="tt">true</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
-<hr  />
+<p><b>Examples:</b></p>
+<div class="fragment"><div class="line"># Compare this tree&#39;s LOC against another checkout</div>
+<div class="line">./mfc.sh count_diff ../master .</div>
+</div><!-- fragment --><hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md72"></a>
 CI Commands</h2>
 <h3 class="doxsection"><a class="anchor" id="bench"></a>
@@ -981,7 +991,7 @@ Verbosity (<span class="tt">-v, --verbose</span>)</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md81"></a>
 Debug Logging (<span class="tt">-d, --debug-log</span>)</h3>
 <p>Enables debug logging for the Python toolchain (mfc.sh internals). This is for troubleshooting the build system, not the MFC simulation code.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-08-24</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
