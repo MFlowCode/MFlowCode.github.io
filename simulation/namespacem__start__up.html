@@ -195,7 +195,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aa8d8bb7ccfccd073646ffb816baacd72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Merges patch_ib (namelist patches, fixed at num_ib_patches_max_namelist) with particle_cloud_ibs (already filtered by s_generate_particle_clouds to this rank's IB neighborhood, each entry already tagged with its final, absolute gbl_patch_id) and reduces to only the patches in or near the local computational domain. patch_ib is never reallocated; the local subset is written in-place from the front. particle_cloud_ibs is owned by the caller and freed there after this returns. num_particle_cloud_ibs is the number of entries s_generate_particle_clouds actually wrote into particle_cloud_ibs - it may be allocated to a larger worst-case capacity, so size() of it must never be used as the valid-entry count.  <br /></td></tr>
 <tr class="memitem:a3d543d2498cb1126d6e674c66a3c694a" id="r_a3d543d2498cb1126d6e674c66a3c694a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3d543d2498cb1126d6e674c66a3c694a">s_compute_ib_neighbor_ranks</a> ()</td></tr>
 <tr class="memdesc:a3d543d2498cb1126d6e674c66a3c694a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SENDRECV cascades - face neighbors are known from bc_*, edge neighbors are obtained in round 1, and (3D) corner neighbors in round 2.  <br /></td></tr>
-<tr class="memitem:a3adcb37778a49b76d2a4914f172228dc" id="r_a3adcb37778a49b76d2a4914f172228dc"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3adcb37778a49b76d2a4914f172228dc">get_neighbor_bounds</a> ()</td></tr>
+<tr class="memitem:a563ba13f878984d4aa0b5b35fb707e0b" id="r_a563ba13f878984d4aa0b5b35fb707e0b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a563ba13f878984d4aa0b5b35fb707e0b">s_get_neighbor_bounds</a> ()</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -205,27 +205,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Reads input files, loads initial conditions and grid data, and orchestrates solver initialization and finalization. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a3adcb37778a49b76d2a4914f172228dc" name="a3adcb37778a49b76d2a4914f172228dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3adcb37778a49b76d2a4914f172228dc">&#9670;&#160;</a></span>get_neighbor_bounds()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_start_up::get_neighbor_bounds</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02360">2360</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a3adcb37778a49b76d2a4914f172228dc_icgraph.svg" width="539" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="ad26e747c87bb6bcf4c9d6baa21d044c1" name="ad26e747c87bb6bcf4c9d6baa21d044c1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad26e747c87bb6bcf4c9d6baa21d044c1">&#9670;&#160;</a></span>s_check_input_file()</h2>
 
@@ -296,6 +275,27 @@ Here is the caller graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_aca13f477717fbe9c77304a91bc9d8cc9_icgraph.svg" width="294" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a563ba13f878984d4aa0b5b35fb707e0b" name="a563ba13f878984d4aa0b5b35fb707e0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563ba13f878984d4aa0b5b35fb707e0b">&#9670;&#160;</a></span>s_get_neighbor_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_start_up::s_get_neighbor_bounds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02360">2360</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a563ba13f878984d4aa0b5b35fb707e0b_icgraph.svg" width="554" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

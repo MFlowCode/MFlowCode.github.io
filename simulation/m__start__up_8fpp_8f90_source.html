@@ -1554,21 +1554,21 @@ $(function(){initNavTree('m__start__up_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span>                <span class="keywordtype">type</span>(<a class="code hl_struct" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), <span class="keywordtype">allocatable</span> :: particle_cloud_ibs(:)</div>
 <div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>                <span class="keywordtype">integer</span>                                :: num_particle_cloud_ibs</div>
 <div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span> </div>
-<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc">get_neighbor_bounds</a>()</div>
-<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span> </div>
-<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacem__global__parameters.html#afdfa7d87d094d7ded9d41b6c724d159a">cfl_dt</a> .and. n_start &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span>                    <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#a191081d40ca4d71652c77df4c3bad640">s_read_ib_restart_data</a>(n_start)</div>
-<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span>                    <span class="keyword">allocate</span> (particle_cloud_ibs(0))</div>
-<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span>                    num_particle_cloud_ibs = 0</div>
-<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t_step_start &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span>                    <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#a191081d40ca4d71652c77df4c3bad640">s_read_ib_restart_data</a>(t_step_start)</div>
-<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span>                    <span class="keyword">allocate</span> (particle_cloud_ibs(0))</div>
-<div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span>                    num_particle_cloud_ibs = 0</div>
-<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span>                <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span>                    <span class="keyword">call </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa5f460970e7d842ed4079588c709632f">s_generate_particle_clouds</a>(particle_cloud_ibs, num_particle_cloud_ibs)</div>
-<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span><span class="keywordflow">                end if</span></div>
-<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__model.html#ad9f8c664e4672afe1a2ea1d0f92accd9">s_instantiate_stl_models</a>()</div>
-<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6">s_initialize_ib_airfoils</a>()</div>
+<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__model.html#ad9f8c664e4672afe1a2ea1d0f92accd9">s_instantiate_stl_models</a>()</div>
+<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6">s_initialize_ib_airfoils</a>()</div>
+<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b">s_get_neighbor_bounds</a>()</div>
+<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span> </div>
+<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span>                <span class="keywordflow">if</span> (<a class="code hl_variable" href="namespacem__global__parameters.html#afdfa7d87d094d7ded9d41b6c724d159a">cfl_dt</a> .and. n_start &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span>                    <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#a191081d40ca4d71652c77df4c3bad640">s_read_ib_restart_data</a>(n_start)</div>
+<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span>                    <span class="keyword">allocate</span> (particle_cloud_ibs(0))</div>
+<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span>                    num_particle_cloud_ibs = 0</div>
+<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (t_step_start &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span>                    <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#a191081d40ca4d71652c77df4c3bad640">s_read_ib_restart_data</a>(t_step_start)</div>
+<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span>                    <span class="keyword">allocate</span> (particle_cloud_ibs(0))</div>
+<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span>                    num_particle_cloud_ibs = 0</div>
+<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span>                    <span class="keyword">call </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa5f460970e7d842ed4079588c709632f">s_generate_particle_clouds</a>(particle_cloud_ibs, num_particle_cloud_ibs)</div>
+<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>                <span class="keyword">call </span><a class="code hl_function" href="namespacem__start__up.html#aa8d8bb7ccfccd073646ffb816baacd72">s_reduce_ib_patch_array</a>(particle_cloud_ibs, num_particle_cloud_ibs)</div>
 <div class="line"><a id="l01417" name="l01417"></a><span class="lineno"> 1417</span>                <span class="keyword">deallocate</span> (particle_cloud_ibs)</div>
 <div class="line"><a id="l01418" name="l01418"></a><span class="lineno"> 1418</span>            <span class="keyword">end </span>block</div>
@@ -2527,10 +2527,10 @@ $(function(){initNavTree('m__start__up_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l02358" name="l02358"></a><span class="lineno"> 2358</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a">s_compute_ib_neighbor_ranks</a></div>
 <div class="line"><a id="l02359" name="l02359"></a><span class="lineno"> 2359</span> </div>
 <div class="foldopen" id="foldopen02360" data-start="" data-end="">
-<div class="line"><a id="l02360" name="l02360"></a><span class="lineno"><a class="line" href="namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc"> 2360</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc">get_neighbor_bounds</a>()</div>
+<div class="line"><a id="l02360" name="l02360"></a><span class="lineno"><a class="line" href="namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b"> 2360</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b">s_get_neighbor_bounds</a>()</div>
 <div class="line"><a id="l02361" name="l02361"></a><span class="lineno"> 2361</span> </div>
-<div class="line"><a id="l02362" name="l02362"></a><span class="lineno"> 2362</span><span class="keywordtype">        real</span>(wp) :: beg_val, end_val, recv_val</div>
-<div class="line"><a id="l02363" name="l02363"></a><span class="lineno"> 2363</span>        <span class="keywordtype">integer</span>  :: k, send_neighbor, recv_neighbor, ierr</div>
+<div class="line"><a id="l02362" name="l02362"></a><span class="lineno"> 2362</span><span class="keywordtype">        real</span>(wp) :: beg_val, end_val, recv_val, bound, max_ib_bound, local_rank_width, min_rank_width</div>
+<div class="line"><a id="l02363" name="l02363"></a><span class="lineno"> 2363</span>        <span class="keywordtype">integer</span>  :: k, send_neighbor, recv_neighbor, ierr, temporary_radius</div>
 <div class="line"><a id="l02364" name="l02364"></a><span class="lineno"> 2364</span> </div>
 <div class="line"><a id="l02365" name="l02365"></a><span class="lineno"> 2365</span>        <span class="comment">! Default: unbounded in all directions (covers single-rank and no-MPI cases)</span></div>
 <div class="line"><a id="l02366" name="l02366"></a><span class="lineno"> 2366</span> </div>
@@ -2542,102 +2542,132 @@ $(function(){initNavTree('m__start__up_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l02372" name="l02372"></a><span class="lineno"> 2372</span>        neighbor_domain_z%end = huge(0._wp)</div>
 <div class="line"><a id="l02373" name="l02373"></a><span class="lineno"> 2373</span> </div>
 <div class="line"><a id="l02374" name="l02374"></a><span class="lineno"> 2374</span><span class="preprocessor">#ifdef MFC_MPI</span></div>
-<div class="line"><a id="l02375" name="l02375"></a><span class="lineno"> 2375</span><span class="preprocessor"></span>        <span class="comment">! For each direction, propagate the left/right boundary edges outward ib_neighborhood_radius hops. After k rounds: beg_val =</span></div>
-<div class="line"><a id="l02376" name="l02376"></a><span class="lineno"> 2376</span>        <span class="comment">! left edge of the rank k hops to the left; end_val = right edge of the rank k hops to the right.</span></div>
-<div class="line"><a id="l02377" name="l02377"></a><span class="lineno"> 2377</span><span class="preprocessor"># 1516 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
-<div class="line"><a id="l02378" name="l02378"></a><span class="lineno"> 2378</span><span class="preprocessor"></span>            <span class="keywordflow">if</span> (num_dims &gt;= 1) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02379" name="l02379"></a><span class="lineno"> 2379</span>                beg_val = x_cb(-1)</div>
-<div class="line"><a id="l02380" name="l02380"></a><span class="lineno"> 2380</span>                end_val = x_cb(m)</div>
-<div class="line"><a id="l02381" name="l02381"></a><span class="lineno"> 2381</span>                <span class="keywordflow">do</span> k = 1, ib_neighborhood_radius</div>
-<div class="line"><a id="l02382" name="l02382"></a><span class="lineno"> 2382</span>                    send_neighbor = merge(bc_x%end, mpi_proc_null, bc_x%end &gt;= 0)</div>
-<div class="line"><a id="l02383" name="l02383"></a><span class="lineno"> 2383</span>                    recv_neighbor = merge(bc_x%beg, mpi_proc_null, bc_x%beg &gt;= 0)</div>
-<div class="line"><a id="l02384" name="l02384"></a><span class="lineno"> 2384</span>                    recv_val = -huge(0._wp)</div>
-<div class="line"><a id="l02385" name="l02385"></a><span class="lineno"> 2385</span>                    <span class="keyword">call </span>mpi_sendrecv(beg_val, 1, mpi_p, send_neighbor, 100, recv_val, 1, mpi_p, recv_neighbor, 100, &amp;</div>
-<div class="line"><a id="l02386" name="l02386"></a><span class="lineno"> 2386</span>                                      &amp; mpi_comm_world, mpi_status_ignore, ierr)</div>
-<div class="line"><a id="l02387" name="l02387"></a><span class="lineno"> 2387</span>                    beg_val = recv_val</div>
+<div class="line"><a id="l02375" name="l02375"></a><span class="lineno"> 2375</span><span class="preprocessor"></span>        <span class="comment">! perform setup if we are doing automatic radius checking</span></div>
+<div class="line"><a id="l02376" name="l02376"></a><span class="lineno"> 2376</span>        <span class="keywordflow">if</span> (ib_neighborhood_radius &lt; 1) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02377" name="l02377"></a><span class="lineno"> 2377</span>            ib_neighborhood_radius = 0  <span class="comment">! ensure we are starting with 0 neighborhood radius</span></div>
+<div class="line"><a id="l02378" name="l02378"></a><span class="lineno"> 2378</span> </div>
+<div class="line"><a id="l02379" name="l02379"></a><span class="lineno"> 2379</span>            <span class="comment">! determine the maximum length of space that needs to be contained by the neighborhood</span></div>
+<div class="line"><a id="l02380" name="l02380"></a><span class="lineno"> 2380</span>            max_ib_bound = -1._wp</div>
+<div class="line"><a id="l02381" name="l02381"></a><span class="lineno"> 2381</span>            <span class="keywordflow">do</span> k = 1, num_ibs</div>
+<div class="line"><a id="l02382" name="l02382"></a><span class="lineno"> 2382</span>                <span class="keyword">call </span>s_get_ib_bound(patch_ib(k), bound)</div>
+<div class="line"><a id="l02383" name="l02383"></a><span class="lineno"> 2383</span>                max_ib_bound = max(max_ib_bound, bound)</div>
+<div class="line"><a id="l02384" name="l02384"></a><span class="lineno"> 2384</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l02385" name="l02385"></a><span class="lineno"> 2385</span>            <span class="keywordflow">do</span> k = 1, num_particle_clouds</div>
+<div class="line"><a id="l02386" name="l02386"></a><span class="lineno"> 2386</span>                max_ib_bound = max(max_ib_bound, particle_cloud(k)%radius)</div>
+<div class="line"><a id="l02387" name="l02387"></a><span class="lineno"> 2387</span><span class="keywordflow">            end do</span></div>
 <div class="line"><a id="l02388" name="l02388"></a><span class="lineno"> 2388</span> </div>
-<div class="line"><a id="l02389" name="l02389"></a><span class="lineno"> 2389</span>                    send_neighbor = merge(bc_x%beg, mpi_proc_null, bc_x%beg &gt;= 0)</div>
-<div class="line"><a id="l02390" name="l02390"></a><span class="lineno"> 2390</span>                    recv_neighbor = merge(bc_x%end, mpi_proc_null, bc_x%end &gt;= 0)</div>
-<div class="line"><a id="l02391" name="l02391"></a><span class="lineno"> 2391</span>                    recv_val = huge(0._wp)</div>
-<div class="line"><a id="l02392" name="l02392"></a><span class="lineno"> 2392</span>                    <span class="keyword">call </span>mpi_sendrecv(end_val, 1, mpi_p, send_neighbor, 101, recv_val, 1, mpi_p, recv_neighbor, &amp;</div>
-<div class="line"><a id="l02393" name="l02393"></a><span class="lineno"> 2393</span>                                      &amp; 101, mpi_comm_world, mpi_status_ignore, ierr)</div>
-<div class="line"><a id="l02394" name="l02394"></a><span class="lineno"> 2394</span>                    end_val = recv_val</div>
-<div class="line"><a id="l02395" name="l02395"></a><span class="lineno"> 2395</span> </div>
-<div class="line"><a id="l02396" name="l02396"></a><span class="lineno"> 2396</span>                    <span class="comment">! protect from looping back around on yourself multiple times</span></div>
-<div class="line"><a id="l02397" name="l02397"></a><span class="lineno"> 2397</span>                    <span class="keywordflow">if</span> (f_approx_equal(beg_val, x_cb(m)) .or. f_approx_equal(end_val, x_cb(-1))) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02398" name="l02398"></a><span class="lineno"> 2398</span>                        beg_val = -huge(0._wp)</div>
-<div class="line"><a id="l02399" name="l02399"></a><span class="lineno"> 2399</span>                        end_val = huge(0._wp)</div>
-<div class="line"><a id="l02400" name="l02400"></a><span class="lineno"> 2400</span>                        <span class="keywordflow">exit</span></div>
-<div class="line"><a id="l02401" name="l02401"></a><span class="lineno"> 2401</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l02402" name="l02402"></a><span class="lineno"> 2402</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l02403" name="l02403"></a><span class="lineno"> 2403</span>                neighbor_domain_x%beg = beg_val</div>
-<div class="line"><a id="l02404" name="l02404"></a><span class="lineno"> 2404</span>                neighbor_domain_x%end = end_val</div>
-<div class="line"><a id="l02405" name="l02405"></a><span class="lineno"> 2405</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l02406" name="l02406"></a><span class="lineno"> 2406</span><span class="preprocessor"># 1516 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
-<div class="line"><a id="l02407" name="l02407"></a><span class="lineno"> 2407</span><span class="preprocessor"></span>            <span class="keywordflow">if</span> (num_dims &gt;= 2) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02408" name="l02408"></a><span class="lineno"> 2408</span>                beg_val = y_cb(-1)</div>
-<div class="line"><a id="l02409" name="l02409"></a><span class="lineno"> 2409</span>                end_val = y_cb(n)</div>
-<div class="line"><a id="l02410" name="l02410"></a><span class="lineno"> 2410</span>                <span class="keywordflow">do</span> k = 1, ib_neighborhood_radius</div>
-<div class="line"><a id="l02411" name="l02411"></a><span class="lineno"> 2411</span>                    send_neighbor = merge(bc_y%end, mpi_proc_null, bc_y%end &gt;= 0)</div>
-<div class="line"><a id="l02412" name="l02412"></a><span class="lineno"> 2412</span>                    recv_neighbor = merge(bc_y%beg, mpi_proc_null, bc_y%beg &gt;= 0)</div>
-<div class="line"><a id="l02413" name="l02413"></a><span class="lineno"> 2413</span>                    recv_val = -huge(0._wp)</div>
-<div class="line"><a id="l02414" name="l02414"></a><span class="lineno"> 2414</span>                    <span class="keyword">call </span>mpi_sendrecv(beg_val, 1, mpi_p, send_neighbor, 102, recv_val, 1, mpi_p, recv_neighbor, 102, &amp;</div>
-<div class="line"><a id="l02415" name="l02415"></a><span class="lineno"> 2415</span>                                      &amp; mpi_comm_world, mpi_status_ignore, ierr)</div>
-<div class="line"><a id="l02416" name="l02416"></a><span class="lineno"> 2416</span>                    beg_val = recv_val</div>
-<div class="line"><a id="l02417" name="l02417"></a><span class="lineno"> 2417</span> </div>
-<div class="line"><a id="l02418" name="l02418"></a><span class="lineno"> 2418</span>                    send_neighbor = merge(bc_y%beg, mpi_proc_null, bc_y%beg &gt;= 0)</div>
-<div class="line"><a id="l02419" name="l02419"></a><span class="lineno"> 2419</span>                    recv_neighbor = merge(bc_y%end, mpi_proc_null, bc_y%end &gt;= 0)</div>
-<div class="line"><a id="l02420" name="l02420"></a><span class="lineno"> 2420</span>                    recv_val = huge(0._wp)</div>
-<div class="line"><a id="l02421" name="l02421"></a><span class="lineno"> 2421</span>                    <span class="keyword">call </span>mpi_sendrecv(end_val, 1, mpi_p, send_neighbor, 103, recv_val, 1, mpi_p, recv_neighbor, &amp;</div>
-<div class="line"><a id="l02422" name="l02422"></a><span class="lineno"> 2422</span>                                      &amp; 103, mpi_comm_world, mpi_status_ignore, ierr)</div>
-<div class="line"><a id="l02423" name="l02423"></a><span class="lineno"> 2423</span>                    end_val = recv_val</div>
-<div class="line"><a id="l02424" name="l02424"></a><span class="lineno"> 2424</span> </div>
-<div class="line"><a id="l02425" name="l02425"></a><span class="lineno"> 2425</span>                    <span class="comment">! protect from looping back around on yourself multiple times</span></div>
-<div class="line"><a id="l02426" name="l02426"></a><span class="lineno"> 2426</span>                    <span class="keywordflow">if</span> (f_approx_equal(beg_val, y_cb(n)) .or. f_approx_equal(end_val, y_cb(-1))) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02427" name="l02427"></a><span class="lineno"> 2427</span>                        beg_val = -huge(0._wp)</div>
-<div class="line"><a id="l02428" name="l02428"></a><span class="lineno"> 2428</span>                        end_val = huge(0._wp)</div>
-<div class="line"><a id="l02429" name="l02429"></a><span class="lineno"> 2429</span>                        <span class="keywordflow">exit</span></div>
-<div class="line"><a id="l02430" name="l02430"></a><span class="lineno"> 2430</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l02431" name="l02431"></a><span class="lineno"> 2431</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l02432" name="l02432"></a><span class="lineno"> 2432</span>                neighbor_domain_y%beg = beg_val</div>
-<div class="line"><a id="l02433" name="l02433"></a><span class="lineno"> 2433</span>                neighbor_domain_y%end = end_val</div>
-<div class="line"><a id="l02434" name="l02434"></a><span class="lineno"> 2434</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l02435" name="l02435"></a><span class="lineno"> 2435</span><span class="preprocessor"># 1516 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
-<div class="line"><a id="l02436" name="l02436"></a><span class="lineno"> 2436</span><span class="preprocessor"></span>            <span class="keywordflow">if</span> (num_dims &gt;= 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02437" name="l02437"></a><span class="lineno"> 2437</span>                beg_val = z_cb(-1)</div>
-<div class="line"><a id="l02438" name="l02438"></a><span class="lineno"> 2438</span>                end_val = z_cb(p)</div>
-<div class="line"><a id="l02439" name="l02439"></a><span class="lineno"> 2439</span>                <span class="keywordflow">do</span> k = 1, ib_neighborhood_radius</div>
-<div class="line"><a id="l02440" name="l02440"></a><span class="lineno"> 2440</span>                    send_neighbor = merge(bc_z%end, mpi_proc_null, bc_z%end &gt;= 0)</div>
-<div class="line"><a id="l02441" name="l02441"></a><span class="lineno"> 2441</span>                    recv_neighbor = merge(bc_z%beg, mpi_proc_null, bc_z%beg &gt;= 0)</div>
-<div class="line"><a id="l02442" name="l02442"></a><span class="lineno"> 2442</span>                    recv_val = -huge(0._wp)</div>
-<div class="line"><a id="l02443" name="l02443"></a><span class="lineno"> 2443</span>                    <span class="keyword">call </span>mpi_sendrecv(beg_val, 1, mpi_p, send_neighbor, 104, recv_val, 1, mpi_p, recv_neighbor, 104, &amp;</div>
-<div class="line"><a id="l02444" name="l02444"></a><span class="lineno"> 2444</span>                                      &amp; mpi_comm_world, mpi_status_ignore, ierr)</div>
-<div class="line"><a id="l02445" name="l02445"></a><span class="lineno"> 2445</span>                    beg_val = recv_val</div>
-<div class="line"><a id="l02446" name="l02446"></a><span class="lineno"> 2446</span> </div>
-<div class="line"><a id="l02447" name="l02447"></a><span class="lineno"> 2447</span>                    send_neighbor = merge(bc_z%beg, mpi_proc_null, bc_z%beg &gt;= 0)</div>
-<div class="line"><a id="l02448" name="l02448"></a><span class="lineno"> 2448</span>                    recv_neighbor = merge(bc_z%end, mpi_proc_null, bc_z%end &gt;= 0)</div>
-<div class="line"><a id="l02449" name="l02449"></a><span class="lineno"> 2449</span>                    recv_val = huge(0._wp)</div>
-<div class="line"><a id="l02450" name="l02450"></a><span class="lineno"> 2450</span>                    <span class="keyword">call </span>mpi_sendrecv(end_val, 1, mpi_p, send_neighbor, 105, recv_val, 1, mpi_p, recv_neighbor, &amp;</div>
-<div class="line"><a id="l02451" name="l02451"></a><span class="lineno"> 2451</span>                                      &amp; 105, mpi_comm_world, mpi_status_ignore, ierr)</div>
-<div class="line"><a id="l02452" name="l02452"></a><span class="lineno"> 2452</span>                    end_val = recv_val</div>
-<div class="line"><a id="l02453" name="l02453"></a><span class="lineno"> 2453</span> </div>
-<div class="line"><a id="l02454" name="l02454"></a><span class="lineno"> 2454</span>                    <span class="comment">! protect from looping back around on yourself multiple times</span></div>
-<div class="line"><a id="l02455" name="l02455"></a><span class="lineno"> 2455</span>                    <span class="keywordflow">if</span> (f_approx_equal(beg_val, z_cb(p)) .or. f_approx_equal(end_val, z_cb(-1))) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02456" name="l02456"></a><span class="lineno"> 2456</span>                        beg_val = -huge(0._wp)</div>
-<div class="line"><a id="l02457" name="l02457"></a><span class="lineno"> 2457</span>                        end_val = huge(0._wp)</div>
-<div class="line"><a id="l02458" name="l02458"></a><span class="lineno"> 2458</span>                        <span class="keywordflow">exit</span></div>
-<div class="line"><a id="l02459" name="l02459"></a><span class="lineno"> 2459</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l02460" name="l02460"></a><span class="lineno"> 2460</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l02461" name="l02461"></a><span class="lineno"> 2461</span>                neighbor_domain_z%beg = beg_val</div>
-<div class="line"><a id="l02462" name="l02462"></a><span class="lineno"> 2462</span>                neighbor_domain_z%end = end_val</div>
-<div class="line"><a id="l02463" name="l02463"></a><span class="lineno"> 2463</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l02464" name="l02464"></a><span class="lineno"> 2464</span><span class="preprocessor"># 1545 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
-<div class="line"><a id="l02465" name="l02465"></a><span class="lineno"> 2465</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l02466" name="l02466"></a><span class="lineno"> 2466</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l02389" name="l02389"></a><span class="lineno"> 2389</span>            <span class="comment">! determine the upper bound on the size</span></div>
+<div class="line"><a id="l02390" name="l02390"></a><span class="lineno"> 2390</span>            local_rank_width = -1._wp</div>
+<div class="line"><a id="l02391" name="l02391"></a><span class="lineno"> 2391</span><span class="preprocessor"># 1530 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02392" name="l02392"></a><span class="lineno"> 2392</span><span class="preprocessor"></span>                <span class="keywordflow">if</span> (num_dims &gt;= 1) local_rank_width = max(local_rank_width, abs(x_cb(m) - x_cb(-1)))</div>
+<div class="line"><a id="l02393" name="l02393"></a><span class="lineno"> 2393</span><span class="preprocessor"># 1530 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02394" name="l02394"></a><span class="lineno"> 2394</span><span class="preprocessor"></span>                <span class="keywordflow">if</span> (num_dims &gt;= 2) local_rank_width = max(local_rank_width, abs(y_cb(n) - y_cb(-1)))</div>
+<div class="line"><a id="l02395" name="l02395"></a><span class="lineno"> 2395</span><span class="preprocessor"># 1530 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02396" name="l02396"></a><span class="lineno"> 2396</span><span class="preprocessor"></span>                <span class="keywordflow">if</span> (num_dims &gt;= 3) local_rank_width = max(local_rank_width, abs(z_cb(p) - z_cb(-1)))</div>
+<div class="line"><a id="l02397" name="l02397"></a><span class="lineno"> 2397</span><span class="preprocessor"># 1532 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02398" name="l02398"></a><span class="lineno"> 2398</span><span class="preprocessor"></span>            <span class="keyword">call </span>s_mpi_allreduce_min(local_rank_width, min_rank_width)</div>
+<div class="line"><a id="l02399" name="l02399"></a><span class="lineno"> 2399</span> </div>
+<div class="line"><a id="l02400" name="l02400"></a><span class="lineno"> 2400</span>            <span class="comment">! approximate the size of the neighborhood with a local 1.1x fudge factor for safety, lower bound of 1</span></div>
+<div class="line"><a id="l02401" name="l02401"></a><span class="lineno"> 2401</span>            ib_neighborhood_radius = max(1, ceiling(1.1_wp*max_ib_bound/(min_rank_width)))</div>
+<div class="line"><a id="l02402" name="l02402"></a><span class="lineno"> 2402</span>            <span class="keywordflow">if</span> (proc_rank == 0) print *, <span class="stringliteral">&quot;Automatic choice of ib_neighborhood_radius selected: &quot;</span>, ib_neighborhood_radius</div>
+<div class="line"><a id="l02403" name="l02403"></a><span class="lineno"> 2403</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l02404" name="l02404"></a><span class="lineno"> 2404</span> </div>
+<div class="line"><a id="l02405" name="l02405"></a><span class="lineno"> 2405</span>        <span class="comment">! For each direction, propagate the left/right boundary edges outward ib_neighborhood_radius hops. After k rounds: beg_val =</span></div>
+<div class="line"><a id="l02406" name="l02406"></a><span class="lineno"> 2406</span>        <span class="comment">! left edge of the rank k hops to the left; end_val = right edge of the rank k hops to the right.</span></div>
+<div class="line"><a id="l02407" name="l02407"></a><span class="lineno"> 2407</span><span class="preprocessor"># 1542 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02408" name="l02408"></a><span class="lineno"> 2408</span><span class="preprocessor"></span>            <span class="keywordflow">if</span> (num_dims &gt;= 1) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02409" name="l02409"></a><span class="lineno"> 2409</span>                beg_val = x_cb(-1)</div>
+<div class="line"><a id="l02410" name="l02410"></a><span class="lineno"> 2410</span>                end_val = x_cb(m)</div>
+<div class="line"><a id="l02411" name="l02411"></a><span class="lineno"> 2411</span>                <span class="keywordflow">do</span> k = 1, ib_neighborhood_radius</div>
+<div class="line"><a id="l02412" name="l02412"></a><span class="lineno"> 2412</span>                    send_neighbor = merge(bc_x%end, mpi_proc_null, bc_x%end &gt;= 0)</div>
+<div class="line"><a id="l02413" name="l02413"></a><span class="lineno"> 2413</span>                    recv_neighbor = merge(bc_x%beg, mpi_proc_null, bc_x%beg &gt;= 0)</div>
+<div class="line"><a id="l02414" name="l02414"></a><span class="lineno"> 2414</span>                    recv_val = -huge(0._wp)</div>
+<div class="line"><a id="l02415" name="l02415"></a><span class="lineno"> 2415</span>                    <span class="keyword">call </span>mpi_sendrecv(beg_val, 1, mpi_p, send_neighbor, 100, recv_val, 1, mpi_p, recv_neighbor, 100, &amp;</div>
+<div class="line"><a id="l02416" name="l02416"></a><span class="lineno"> 2416</span>                                      &amp; mpi_comm_world, mpi_status_ignore, ierr)</div>
+<div class="line"><a id="l02417" name="l02417"></a><span class="lineno"> 2417</span>                    beg_val = recv_val</div>
+<div class="line"><a id="l02418" name="l02418"></a><span class="lineno"> 2418</span> </div>
+<div class="line"><a id="l02419" name="l02419"></a><span class="lineno"> 2419</span>                    send_neighbor = merge(bc_x%beg, mpi_proc_null, bc_x%beg &gt;= 0)</div>
+<div class="line"><a id="l02420" name="l02420"></a><span class="lineno"> 2420</span>                    recv_neighbor = merge(bc_x%end, mpi_proc_null, bc_x%end &gt;= 0)</div>
+<div class="line"><a id="l02421" name="l02421"></a><span class="lineno"> 2421</span>                    recv_val = huge(0._wp)</div>
+<div class="line"><a id="l02422" name="l02422"></a><span class="lineno"> 2422</span>                    <span class="keyword">call </span>mpi_sendrecv(end_val, 1, mpi_p, send_neighbor, 101, recv_val, 1, mpi_p, recv_neighbor, &amp;</div>
+<div class="line"><a id="l02423" name="l02423"></a><span class="lineno"> 2423</span>                                      &amp; 101, mpi_comm_world, mpi_status_ignore, ierr)</div>
+<div class="line"><a id="l02424" name="l02424"></a><span class="lineno"> 2424</span>                    end_val = recv_val</div>
+<div class="line"><a id="l02425" name="l02425"></a><span class="lineno"> 2425</span> </div>
+<div class="line"><a id="l02426" name="l02426"></a><span class="lineno"> 2426</span>                    <span class="comment">! protect from looping back around on yourself multiple times</span></div>
+<div class="line"><a id="l02427" name="l02427"></a><span class="lineno"> 2427</span>                    <span class="keywordflow">if</span> (f_approx_equal(beg_val, x_cb(m)) .or. f_approx_equal(end_val, x_cb(-1))) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02428" name="l02428"></a><span class="lineno"> 2428</span>                        beg_val = -huge(0._wp)</div>
+<div class="line"><a id="l02429" name="l02429"></a><span class="lineno"> 2429</span>                        end_val = huge(0._wp)</div>
+<div class="line"><a id="l02430" name="l02430"></a><span class="lineno"> 2430</span>                        <span class="keywordflow">exit</span></div>
+<div class="line"><a id="l02431" name="l02431"></a><span class="lineno"> 2431</span><span class="keywordflow">                    end if</span></div>
+<div class="line"><a id="l02432" name="l02432"></a><span class="lineno"> 2432</span><span class="keywordflow">                end do</span></div>
+<div class="line"><a id="l02433" name="l02433"></a><span class="lineno"> 2433</span>                neighbor_domain_x%beg = beg_val</div>
+<div class="line"><a id="l02434" name="l02434"></a><span class="lineno"> 2434</span>                neighbor_domain_x%end = end_val</div>
+<div class="line"><a id="l02435" name="l02435"></a><span class="lineno"> 2435</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l02436" name="l02436"></a><span class="lineno"> 2436</span><span class="preprocessor"># 1542 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02437" name="l02437"></a><span class="lineno"> 2437</span><span class="preprocessor"></span>            <span class="keywordflow">if</span> (num_dims &gt;= 2) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02438" name="l02438"></a><span class="lineno"> 2438</span>                beg_val = y_cb(-1)</div>
+<div class="line"><a id="l02439" name="l02439"></a><span class="lineno"> 2439</span>                end_val = y_cb(n)</div>
+<div class="line"><a id="l02440" name="l02440"></a><span class="lineno"> 2440</span>                <span class="keywordflow">do</span> k = 1, ib_neighborhood_radius</div>
+<div class="line"><a id="l02441" name="l02441"></a><span class="lineno"> 2441</span>                    send_neighbor = merge(bc_y%end, mpi_proc_null, bc_y%end &gt;= 0)</div>
+<div class="line"><a id="l02442" name="l02442"></a><span class="lineno"> 2442</span>                    recv_neighbor = merge(bc_y%beg, mpi_proc_null, bc_y%beg &gt;= 0)</div>
+<div class="line"><a id="l02443" name="l02443"></a><span class="lineno"> 2443</span>                    recv_val = -huge(0._wp)</div>
+<div class="line"><a id="l02444" name="l02444"></a><span class="lineno"> 2444</span>                    <span class="keyword">call </span>mpi_sendrecv(beg_val, 1, mpi_p, send_neighbor, 102, recv_val, 1, mpi_p, recv_neighbor, 102, &amp;</div>
+<div class="line"><a id="l02445" name="l02445"></a><span class="lineno"> 2445</span>                                      &amp; mpi_comm_world, mpi_status_ignore, ierr)</div>
+<div class="line"><a id="l02446" name="l02446"></a><span class="lineno"> 2446</span>                    beg_val = recv_val</div>
+<div class="line"><a id="l02447" name="l02447"></a><span class="lineno"> 2447</span> </div>
+<div class="line"><a id="l02448" name="l02448"></a><span class="lineno"> 2448</span>                    send_neighbor = merge(bc_y%beg, mpi_proc_null, bc_y%beg &gt;= 0)</div>
+<div class="line"><a id="l02449" name="l02449"></a><span class="lineno"> 2449</span>                    recv_neighbor = merge(bc_y%end, mpi_proc_null, bc_y%end &gt;= 0)</div>
+<div class="line"><a id="l02450" name="l02450"></a><span class="lineno"> 2450</span>                    recv_val = huge(0._wp)</div>
+<div class="line"><a id="l02451" name="l02451"></a><span class="lineno"> 2451</span>                    <span class="keyword">call </span>mpi_sendrecv(end_val, 1, mpi_p, send_neighbor, 103, recv_val, 1, mpi_p, recv_neighbor, &amp;</div>
+<div class="line"><a id="l02452" name="l02452"></a><span class="lineno"> 2452</span>                                      &amp; 103, mpi_comm_world, mpi_status_ignore, ierr)</div>
+<div class="line"><a id="l02453" name="l02453"></a><span class="lineno"> 2453</span>                    end_val = recv_val</div>
+<div class="line"><a id="l02454" name="l02454"></a><span class="lineno"> 2454</span> </div>
+<div class="line"><a id="l02455" name="l02455"></a><span class="lineno"> 2455</span>                    <span class="comment">! protect from looping back around on yourself multiple times</span></div>
+<div class="line"><a id="l02456" name="l02456"></a><span class="lineno"> 2456</span>                    <span class="keywordflow">if</span> (f_approx_equal(beg_val, y_cb(n)) .or. f_approx_equal(end_val, y_cb(-1))) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02457" name="l02457"></a><span class="lineno"> 2457</span>                        beg_val = -huge(0._wp)</div>
+<div class="line"><a id="l02458" name="l02458"></a><span class="lineno"> 2458</span>                        end_val = huge(0._wp)</div>
+<div class="line"><a id="l02459" name="l02459"></a><span class="lineno"> 2459</span>                        <span class="keywordflow">exit</span></div>
+<div class="line"><a id="l02460" name="l02460"></a><span class="lineno"> 2460</span><span class="keywordflow">                    end if</span></div>
+<div class="line"><a id="l02461" name="l02461"></a><span class="lineno"> 2461</span><span class="keywordflow">                end do</span></div>
+<div class="line"><a id="l02462" name="l02462"></a><span class="lineno"> 2462</span>                neighbor_domain_y%beg = beg_val</div>
+<div class="line"><a id="l02463" name="l02463"></a><span class="lineno"> 2463</span>                neighbor_domain_y%end = end_val</div>
+<div class="line"><a id="l02464" name="l02464"></a><span class="lineno"> 2464</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l02465" name="l02465"></a><span class="lineno"> 2465</span><span class="preprocessor"># 1542 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02466" name="l02466"></a><span class="lineno"> 2466</span><span class="preprocessor"></span>            <span class="keywordflow">if</span> (num_dims &gt;= 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02467" name="l02467"></a><span class="lineno"> 2467</span>                beg_val = z_cb(-1)</div>
+<div class="line"><a id="l02468" name="l02468"></a><span class="lineno"> 2468</span>                end_val = z_cb(p)</div>
+<div class="line"><a id="l02469" name="l02469"></a><span class="lineno"> 2469</span>                <span class="keywordflow">do</span> k = 1, ib_neighborhood_radius</div>
+<div class="line"><a id="l02470" name="l02470"></a><span class="lineno"> 2470</span>                    send_neighbor = merge(bc_z%end, mpi_proc_null, bc_z%end &gt;= 0)</div>
+<div class="line"><a id="l02471" name="l02471"></a><span class="lineno"> 2471</span>                    recv_neighbor = merge(bc_z%beg, mpi_proc_null, bc_z%beg &gt;= 0)</div>
+<div class="line"><a id="l02472" name="l02472"></a><span class="lineno"> 2472</span>                    recv_val = -huge(0._wp)</div>
+<div class="line"><a id="l02473" name="l02473"></a><span class="lineno"> 2473</span>                    <span class="keyword">call </span>mpi_sendrecv(beg_val, 1, mpi_p, send_neighbor, 104, recv_val, 1, mpi_p, recv_neighbor, 104, &amp;</div>
+<div class="line"><a id="l02474" name="l02474"></a><span class="lineno"> 2474</span>                                      &amp; mpi_comm_world, mpi_status_ignore, ierr)</div>
+<div class="line"><a id="l02475" name="l02475"></a><span class="lineno"> 2475</span>                    beg_val = recv_val</div>
+<div class="line"><a id="l02476" name="l02476"></a><span class="lineno"> 2476</span> </div>
+<div class="line"><a id="l02477" name="l02477"></a><span class="lineno"> 2477</span>                    send_neighbor = merge(bc_z%beg, mpi_proc_null, bc_z%beg &gt;= 0)</div>
+<div class="line"><a id="l02478" name="l02478"></a><span class="lineno"> 2478</span>                    recv_neighbor = merge(bc_z%end, mpi_proc_null, bc_z%end &gt;= 0)</div>
+<div class="line"><a id="l02479" name="l02479"></a><span class="lineno"> 2479</span>                    recv_val = huge(0._wp)</div>
+<div class="line"><a id="l02480" name="l02480"></a><span class="lineno"> 2480</span>                    <span class="keyword">call </span>mpi_sendrecv(end_val, 1, mpi_p, send_neighbor, 105, recv_val, 1, mpi_p, recv_neighbor, &amp;</div>
+<div class="line"><a id="l02481" name="l02481"></a><span class="lineno"> 2481</span>                                      &amp; 105, mpi_comm_world, mpi_status_ignore, ierr)</div>
+<div class="line"><a id="l02482" name="l02482"></a><span class="lineno"> 2482</span>                    end_val = recv_val</div>
+<div class="line"><a id="l02483" name="l02483"></a><span class="lineno"> 2483</span> </div>
+<div class="line"><a id="l02484" name="l02484"></a><span class="lineno"> 2484</span>                    <span class="comment">! protect from looping back around on yourself multiple times</span></div>
+<div class="line"><a id="l02485" name="l02485"></a><span class="lineno"> 2485</span>                    <span class="keywordflow">if</span> (f_approx_equal(beg_val, z_cb(p)) .or. f_approx_equal(end_val, z_cb(-1))) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l02486" name="l02486"></a><span class="lineno"> 2486</span>                        beg_val = -huge(0._wp)</div>
+<div class="line"><a id="l02487" name="l02487"></a><span class="lineno"> 2487</span>                        end_val = huge(0._wp)</div>
+<div class="line"><a id="l02488" name="l02488"></a><span class="lineno"> 2488</span>                        <span class="keywordflow">exit</span></div>
+<div class="line"><a id="l02489" name="l02489"></a><span class="lineno"> 2489</span><span class="keywordflow">                    end if</span></div>
+<div class="line"><a id="l02490" name="l02490"></a><span class="lineno"> 2490</span><span class="keywordflow">                end do</span></div>
+<div class="line"><a id="l02491" name="l02491"></a><span class="lineno"> 2491</span>                neighbor_domain_z%beg = beg_val</div>
+<div class="line"><a id="l02492" name="l02492"></a><span class="lineno"> 2492</span>                neighbor_domain_z%end = end_val</div>
+<div class="line"><a id="l02493" name="l02493"></a><span class="lineno"> 2493</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l02494" name="l02494"></a><span class="lineno"> 2494</span><span class="preprocessor"># 1571 &quot;/home/runner/work/MFC/MFC/src/simulation/m_start_up.fpp&quot;</span></div>
+<div class="line"><a id="l02495" name="l02495"></a><span class="lineno"> 2495</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l02496" name="l02496"></a><span class="lineno"> 2496</span><span class="preprocessor"></span> </div>
 </div>
-<div class="line"><a id="l02467" name="l02467"></a><span class="lineno"> 2467</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc">get_neighbor_bounds</a></div>
-<div class="line"><a id="l02468" name="l02468"></a><span class="lineno"> 2468</span> </div>
-<div class="line"><a id="l02469" name="l02469"></a><span class="lineno"> 2469</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__start__up.html">m_start_up</a></div>
+<div class="line"><a id="l02497" name="l02497"></a><span class="lineno"> 2497</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b">s_get_neighbor_bounds</a></div>
+<div class="line"><a id="l02498" name="l02498"></a><span class="lineno"> 2498</span> </div>
+<div class="line"><a id="l02499" name="l02499"></a><span class="lineno"> 2499</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__start__up.html">m_start_up</a></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_a6d2af1366163bbea81771912d405abfa"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a></div><div class="ttdeci">type(scalar_field), dimension(sys_size), intent(inout) q_cons_vf</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l00987">m_phase_change.fpp.f90:987</a></div></div>
 <div class="ttc" id="anamespacem__acoustic__src_html"><div class="ttname"><a href="namespacem__acoustic__src.html">m_acoustic_src</a></div><div class="ttdoc">One-way acoustic source injection, Maeda and Colonius JCP (2017).</div><div class="ttdef"><b>Definition</b> <a href="m__acoustic__src_8fpp_8f90_source.html#l00323">m_acoustic_src.fpp.f90:323</a></div></div>
 <div class="ttc" id="anamespacem__acoustic__src_html_ab35bc877e24a62748ab7df0548ebd08d"><div class="ttname"><a href="namespacem__acoustic__src.html#ab35bc877e24a62748ab7df0548ebd08d">m_acoustic_src::s_initialize_acoustic_src</a></div><div class="ttdeci">impure subroutine, public s_initialize_acoustic_src</div><div class="ttdoc">Initialize the acoustic source module.</div><div class="ttdef"><b>Definition</b> <a href="m__acoustic__src_8fpp_8f90_source.html#l00498">m_acoustic_src.fpp.f90:499</a></div></div>
@@ -2702,7 +2732,7 @@ $(function(){initNavTree('m__start__up_8fpp_8f90_source.html','',''); });
 <div class="ttc" id="anamespacem__global__parameters_html_a6bbde61f76fc10a0dead8a652b17deab"><div class="ttname"><a href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">m_global_parameters::idwbuff</a></div><div class="ttdeci">type(int_bounds_info), dimension(1:3) idwbuff</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00687">m_global_parameters.fpp.f90:687</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html_a6e342ae3eb66f89e0eeb94e11aa42d92"><div class="ttname"><a href="namespacem__global__parameters.html#a6e342ae3eb66f89e0eeb94e11aa42d92">m_global_parameters::buff_size</a></div><div class="ttdeci">integer buff_size</div><div class="ttdoc">Number of ghost cells for boundary condition storage.</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00762">m_global_parameters.fpp.f90:762</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html_a7a7bb7c9caddde4f86bd27169b0f150d"><div class="ttname"><a href="namespacem__global__parameters.html#a7a7bb7c9caddde4f86bd27169b0f150d">m_global_parameters::bc_y</a></div><div class="ttdeci">type(int_bounds_info) bc_y</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00539">m_global_parameters.fpp.f90:539</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html_a7d78db66d7d2bd3001d7a7ef981b0d87"><div class="ttname"><a href="namespacem__global__parameters.html#a7d78db66d7d2bd3001d7a7ef981b0d87">m_global_parameters::s_initialize_global_parameters_module</a></div><div class="ttdeci">impure subroutine s_initialize_global_parameters_module</div><div class="ttdoc">Initialize the global parameters module.</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l01519">m_global_parameters.fpp.f90:1520</a></div></div>
+<div class="ttc" id="anamespacem__global__parameters_html_a7d78db66d7d2bd3001d7a7ef981b0d87"><div class="ttname"><a href="namespacem__global__parameters.html#a7d78db66d7d2bd3001d7a7ef981b0d87">m_global_parameters::s_initialize_global_parameters_module</a></div><div class="ttdeci">impure subroutine s_initialize_global_parameters_module</div><div class="ttdoc">Initialize the global parameters module.</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l01523">m_global_parameters.fpp.f90:1524</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html_a7db7cbac68843362ac9b31227d8ec17b"><div class="ttname"><a href="namespacem__global__parameters.html#a7db7cbac68843362ac9b31227d8ec17b">m_global_parameters::y_cc</a></div><div class="ttdeci">real(wp), dimension(:), allocatable, target y_cc</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00399">m_global_parameters.fpp.f90:399</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html_a829d601cfc997840116b884698329161"><div class="ttname"><a href="namespacem__global__parameters.html#a829d601cfc997840116b884698329161">m_global_parameters::pb_ts</a></div><div class="ttdeci">type(pres_field), dimension(:), allocatable pb_ts</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l01003">m_global_parameters.fpp.f90:1003</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html_a849db5b91ee7fdb34c885364ddacaafa"><div class="ttname"><a href="namespacem__global__parameters.html#a849db5b91ee7fdb34c885364ddacaafa">m_global_parameters::mv_ts</a></div><div class="ttdeci">type(pres_field), dimension(:), allocatable mv_ts</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l01004">m_global_parameters.fpp.f90:1004</a></div></div>
@@ -2780,9 +2810,9 @@ $(function(){initNavTree('m__start__up_8fpp_8f90_source.html','',''); });
 <div class="ttc" id="anamespacem__start__up_html_a3226ddf0c64cff078579641fda52781d"><div class="ttname"><a href="namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d">m_start_up::s_read_parallel_data_files</a></div><div class="ttdeci">impure subroutine, public s_read_parallel_data_files(q_cons_vf)</div><div class="ttdoc">Read parallel initial condition and grid data files via MPI I/O.</div><div class="ttdef"><b>Definition</b> <a href="#l00625">m_start_up.fpp.f90:626</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a38182f7fcc92c1c687840339a20e85cd"><div class="ttname"><a href="namespacem__start__up.html#a38182f7fcc92c1c687840339a20e85cd">m_start_up::s_initialize_internal_energy_equations</a></div><div class="ttdeci">subroutine, public s_initialize_internal_energy_equations(v_vf)</div><div class="ttdoc">Initialize internal-energy equations from phase mass, mixture momentum, and total energy.</div><div class="ttdef"><b>Definition</b> <a href="#l00865">m_start_up.fpp.f90:866</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a39b74a3be1912601a03c3190b6dbf5b3"><div class="ttname"><a href="namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3">m_start_up::s_save_performance_metrics</a></div><div class="ttdeci">impure subroutine, public s_save_performance_metrics(time_avg, time_final, io_time_avg, io_time_final, proc_time, io_proc_time, file_exists)</div><div class="ttdoc">Collect per-process wall-clock times and write aggregate performance metrics to file.</div><div class="ttdef"><b>Definition</b> <a href="#l01041">m_start_up.fpp.f90:1043</a></div></div>
-<div class="ttc" id="anamespacem__start__up_html_a3adcb37778a49b76d2a4914f172228dc"><div class="ttname"><a href="namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc">m_start_up::get_neighbor_bounds</a></div><div class="ttdeci">subroutine get_neighbor_bounds()</div><div class="ttdef"><b>Definition</b> <a href="#l02360">m_start_up.fpp.f90:2361</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a3d543d2498cb1126d6e674c66a3c694a"><div class="ttname"><a href="namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a">m_start_up::s_compute_ib_neighbor_ranks</a></div><div class="ttdeci">subroutine s_compute_ib_neighbor_ranks()</div><div class="ttdoc">Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SE...</div><div class="ttdef"><b>Definition</b> <a href="#l02177">m_start_up.fpp.f90:2178</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a47ade6ffcd98aafcccf10910f626142d"><div class="ttname"><a href="namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d">m_start_up::s_save_data</a></div><div class="ttdeci">impure subroutine, public s_save_data(t_step, start, finish, io_time_avg, nt)</div><div class="ttdoc">Save conservative variable data to disk at the current time step.</div><div class="ttdef"><b>Definition</b> <a href="#l01101">m_start_up.fpp.f90:1102</a></div></div>
+<div class="ttc" id="anamespacem__start__up_html_a563ba13f878984d4aa0b5b35fb707e0b"><div class="ttname"><a href="namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b">m_start_up::s_get_neighbor_bounds</a></div><div class="ttdeci">subroutine s_get_neighbor_bounds()</div><div class="ttdef"><b>Definition</b> <a href="#l02360">m_start_up.fpp.f90:2361</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a5ff0195ab839246aa31217659f44f8d3"><div class="ttname"><a href="namespacem__start__up.html#a5ff0195ab839246aa31217659f44f8d3">m_start_up::q_cons_temp</a></div><div class="ttdeci">type(scalar_field), dimension(:), allocatable q_cons_temp</div><div class="ttdef"><b>Definition</b> <a href="#l00395">m_start_up.fpp.f90:395</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a7fae29ca4b4772f23e7d68568f49c752"><div class="ttname"><a href="namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752">m_start_up::dt_init</a></div><div class="ttdeci">real(wp) dt_init</div><div class="ttdef"><b>Definition</b> <a href="#l00396">m_start_up.fpp.f90:396</a></div></div>
 <div class="ttc" id="anamespacem__start__up_html_a855eb78d2fa11b5bfc5f570069e6f2f8"><div class="ttname"><a href="namespacem__start__up.html#a855eb78d2fa11b5bfc5f570069e6f2f8">m_start_up::s_initialize_gpu_vars</a></div><div class="ttdeci">subroutine, public s_initialize_gpu_vars</div><div class="ttdoc">Transfer initial conservative variable and model parameter data to the GPU device.</div><div class="ttdef"><b>Definition</b> <a href="#l01529">m_start_up.fpp.f90:1530</a></div></div>

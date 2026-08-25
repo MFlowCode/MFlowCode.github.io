@@ -510,7 +510,7 @@ Parameter Descriptions</h4>
 <li><span class="tt">collision_model</span> is an integer to select the collision model being used for IB collisions. Using 0 disables collisions and collision checking. 1 enables the soft-sphere collision model, where all IBs must be circles or sphere and those IBs can collide with each other as well as walls.</li>
 <li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring constant used to apply collision forces.</li>
 <li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
-<li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. This value defaults to 1, which indicates that any given rank is aware of IBs up to 1 ranks away. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
+<li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. A value of $r$ indicates that any given rank is aware of IBs up to $r$ ranks away. This value defaults to 0, which leaves the radius unset so that it is selected automatically. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
 Particle Clouds</h4>
@@ -521,7 +521,7 @@ Particle Clouds</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centre of the cloud region in the [x,y,z]-direction.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Extent of the cloud region in the [x,y,z]-direction.  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Extent of the cloud region in the [x,y,z]-direction for <span class="tt">cloud_geometry = 1</span>; ignored by <span class="tt">cloud_geometry = 2</span>.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">num_particles</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of particles to place in the region.  </td></tr>
 <tr class="markdownTableRowEven">
@@ -531,16 +531,28 @@ Particle Clouds</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">min_spacing</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Minimum surface-to-surface gap between particles (centres are <span class="tt">2*radius + min_spacing</span> apart).  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Motion flag applied to every particle (see <span class="tt">patch_ib(j)%moving_ibm</span>).  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">cloud_geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Shape of the cloud region.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">seed</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Random seed for reproducible placement (used by <span class="tt">packing_method = 1</span>).  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">shell_inner_radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Inner radius for hemisphere-shell clouds (<span class="tt">cloud_geometry = 2</span>).  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">shell_outer_radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Outer radius for hemisphere-shell clouds (<span class="tt">cloud_geometry = 2</span>).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Motion flag applied to every particle (see <span class="tt">patch_ib(j)%moving_ibm</span>).  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">seed</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Random seed for reproducible placement (used by <span class="tt">packing_method = 1</span>).  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">packing_method</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Algorithm used to place the particles.  </td></tr>
 </table>
 <ul>
+<li><span class="tt">cloud_geometry</span> selects the cloud region:<ul>
+<li><span class="tt">1</span> (box) uses <span class="tt">x[y,z]_centroid</span> and <span class="tt">length_x[y,z]</span> to define the region.</li>
+<li><span class="tt">2</span> uses <span class="tt">x[y,z]_centroid</span>, <span class="tt">shell_inner_radius</span>, and <span class="tt">shell_outer_radius</span> to define a half-annulus in 2D and a hemisphere shell in 3D. Particle centres are sampled between <span class="tt">shell_inner_radius + radius</span> and <span class="tt">shell_outer_radius - radius</span>, and the flat plane is kept clear by one particle radius. The flat face is fixed at <span class="tt">y_centroid</span> in 2D and <span class="tt">z_centroid</span> in 3D; the filled region opens toward positive <span class="tt">y</span> in 2D and positive <span class="tt">z</span> in 3D. The full shell extent (<span class="tt">x[y,z]_centroid +/- shell_outer_radius</span> on the open side, and one particle radius of clearance on the flat-face side) must lie inside the computational domain; a hemisphere shell also requires at least two dimensions (<span class="tt">n &gt; 0</span>).</li>
+</ul>
+</li>
 <li><span class="tt">packing_method</span> selects how the <span class="tt">num_particles</span> are positioned within the cloud region:<ul>
 <li><span class="tt">1</span> (rejection sampling) draws random positions and rejects any that violate <span class="tt">min_spacing</span>, producing a disordered bed. <span class="tt">seed</span> makes the placement reproducible.</li>
 <li><span class="tt">2</span> (lattice) places the particles on the optimally dense lattice for the geometry — a triangular lattice in 2D and a face-centered cubic lattice in 3D. The lattice spacing is derived from the particle density (<span class="tt">num_particles</span> over the region area/volume); if that spacing is below the required <span class="tt">2*radius + min_spacing</span>, the region is too dense and the run aborts.</li>
+<li>Hemisphere-shell clouds currently support rejection sampling only; <span class="tt">cloud_geometry = 2</span> with <span class="tt">packing_method = 2</span> is rejected during input validation.</li>
 </ul>
 </li>
 </ul>

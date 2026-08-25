@@ -984,13 +984,14 @@ var namespaces_dup =
     ] ],
     [ "m_ib_patches", "namespacem__ib__patches.html", [
       [ "f_r", "namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564", null ],
-      [ "get_bounding_indices", "namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab", null ],
       [ "get_indices_from_bounds", "namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27", null ],
       [ "s_apply_ib_patches", "namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a", null ],
       [ "s_apply_ib_patches_grid_cell_parallelism", "namespacem__ib__patches.html#a7ae39b1544784fe4bd5a599a80a1045a", null ],
       [ "s_apply_ib_patches_ib_parallelism", "namespacem__ib__patches.html#a5eb95c7b234b83782c65a50d308c0989", null ],
       [ "s_decode_patch_periodicity", "namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2", null ],
       [ "s_encode_patch_periodicity", "namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21", null ],
+      [ "s_get_bounding_indices", "namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb", null ],
+      [ "s_get_ib_bound", "namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea", null ],
       [ "s_get_periodicities", "namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f", null ],
       [ "s_initialize_ib_airfoils", "namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6", null ],
       [ "s_update_ib_rotation_matrix", "namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb", null ]
@@ -1159,10 +1160,13 @@ var namespaces_dup =
       [ "f_bin_hash", "namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be", null ],
       [ "f_xorshift", "namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc", null ],
       [ "s_add_cloud_particle", "namespacem__particle__cloud.html#a4b179b0701b9813eb9d7d2feea5ed1c5", null ],
+      [ "s_check_cloud_particle_overlap", "namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577", null ],
       [ "s_generate_particle_clouds", "namespacem__particle__cloud.html#aa5f460970e7d842ed4079588c709632f", null ],
+      [ "s_get_cloud_bin", "namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc", null ],
       [ "s_particle_cloud_lattice", "namespacem__particle__cloud.html#acedaa7ab4782dc03d33cf3456692bfdb", null ],
-      [ "s_particle_cloud_random_box", "namespacem__particle__cloud.html#a43768d4eca3269ef64ad871bbe2f4aaa", null ],
-      [ "s_reduce_particle_cloud_ibs", "namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad", null ]
+      [ "s_particle_cloud_rejection_pack", "namespacem__particle__cloud.html#ae3c24295683ec9db3db5d1f03495364f", null ],
+      [ "s_reduce_particle_cloud_ibs", "namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad", null ],
+      [ "s_sample_cloud_candidate", "namespacem__particle__cloud.html#af5453c5d4afe49a5954513c29c90a8d2", null ]
     ] ],
     [ "m_patch_geometries", "namespacem__patch__geometries.html", [
       [ "f_is_inside_airfoil", "namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe", null ],
@@ -1342,10 +1346,10 @@ var namespaces_dup =
       [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a4d9544afc8bb29583e9448d133880e5a", null ]
     ] ],
     [ "m_start_up", "namespacem__start__up.html", [
-      [ "get_neighbor_bounds", "namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc", null ],
       [ "s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
       [ "s_compute_ib_neighbor_ranks", "namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a", null ],
       [ "s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
+      [ "s_get_neighbor_bounds", "namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b", null ],
       [ "s_initialize_gpu_vars", "namespacem__start__up.html#a855eb78d2fa11b5bfc5f570069e6f2f8", null ],
       [ "s_initialize_internal_energy_equations", "namespacem__start__up.html#a38182f7fcc92c1c687840339a20e85cd", null ],
       [ "s_initialize_modules", "namespacem__start__up.html#a1fb7a3f9d412acd2a9cbcfe8b45006dd", null ],

@@ -171,7 +171,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ae9c1d0dfb93f8fd329061b059be276a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the NACA surface grids for all airfoil IB patches. Must be called after the grid is established (so dx is valid) and before s_apply_ib_patches or s_apply_levelset.  <br /></td></tr>
 <tr class="memitem:a02137079d6bc025565bf1f4d0e5940fb" id="r_a02137079d6bc025565bf1f4d0e5940fb"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a02137079d6bc025565bf1f4d0e5940fb">s_update_ib_rotation_matrix</a> (patch_id)</td></tr>
 <tr class="memdesc:a02137079d6bc025565bf1f4d0e5940fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a rotation matrix for converting to the rotating frame of the boundary.  <br /></td></tr>
-<tr class="memitem:ad85d575f53026e9fd45ae4a1448f14ab" id="r_ad85d575f53026e9fd45ae4a1448f14ab"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a> (patch, center, il, ir, jl, jr, kl, kr)</td></tr>
+<tr class="memitem:a22773266b33691fb98deeeec33a6c7ea" id="r_a22773266b33691fb98deeeec33a6c7ea"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a22773266b33691fb98deeeec33a6c7ea">s_get_ib_bound</a> (patch, bound)</td></tr>
+<tr class="memitem:a391bc6342b15b9fc9d1064acdbde06cb" id="r_a391bc6342b15b9fc9d1064acdbde06cb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a> (patch, center, il, ir, jl, jr, kl, kr)</td></tr>
 <tr class="memitem:a12a440228072b7e454f8b4c8dad8db27" id="r_a12a440228072b7e454f8b4c8dad8db27"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a> (left_bound, right_bound, cell_centers, left_index, right_index)</td></tr>
 <tr class="memitem:aefc22ad9a7d433709711d12c2095cd21" id="r_aefc22ad9a7d433709711d12c2095cd21"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a> (patch_id, x_periodicity, y_periodicity, z_periodicity, encoded_patch_id)</td></tr>
 <tr class="memdesc:aefc22ad9a7d433709711d12c2095cd21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode the patch ID with a unique offset containing periodicity information.  <br /></td></tr>
@@ -244,7 +245,7 @@ Directory path is set via the <span class="tt">files_dir</span> parameter </dd><
 
 <p>Archimedes spiral function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01390">1390</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01433">1433</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -254,69 +255,6 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_af5ec2b3362739e6cdd95f35f3c402564_icgraph.svg" width="148" height="60"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad85d575f53026e9fd45ae4a1448f14ab" name="ad85d575f53026e9fd45ae4a1448f14ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad85d575f53026e9fd45ae4a1448f14ab">&#9670;&#160;</a></span>get_bounding_indices()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_ib_patches::get_bounding_indices </td>
-          <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>patch</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>center</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>il</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ir</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>jl</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>jr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>kl</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>kr</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01087">1087</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_ad85d575f53026e9fd45ae4a1448f14ab_cgraph.svg" width="462" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_ad85d575f53026e9fd45ae4a1448f14ab_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -355,7 +293,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01211">1211</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01254">1254</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -409,7 +347,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a7ae39b1544784fe4bd5a599a80a1045a_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a7ae39b1544784fe4bd5a599a80a1045a_cgraph.svg" width="654" height="563"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -484,7 +422,7 @@ Here is the caller graph for this function:</div>
 
 <p>Decode the encoded ID to recover the original patch ID and periodicity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01301">1301</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01344">1344</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -524,11 +462,102 @@ Here is the caller graph for this function:</div>
 
 <p>Encode the patch ID with a unique offset containing periodicity information. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01267">1267</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01310">1310</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_aefc22ad9a7d433709711d12c2095cd21_icgraph.svg" width="658" height="131"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a391bc6342b15b9fc9d1064acdbde06cb" name="a391bc6342b15b9fc9d1064acdbde06cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a391bc6342b15b9fc9d1064acdbde06cb">&#9670;&#160;</a></span>s_get_bounding_indices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_ib_patches::s_get_bounding_indices </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>patch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>center</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>il</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>jl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>jr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>kl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>kr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01148">1148</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a391bc6342b15b9fc9d1064acdbde06cb_cgraph.svg" width="408" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a391bc6342b15b9fc9d1064acdbde06cb_icgraph.svg" width="631" height="131"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a22773266b33691fb98deeeec33a6c7ea" name="a22773266b33691fb98deeeec33a6c7ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22773266b33691fb98deeeec33a6c7ea">&#9670;&#160;</a></span>s_get_ib_bound()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_ib_patches::s_get_ib_bound </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>patch</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>bound</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01087">1087</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a22773266b33691fb98deeeec33a6c7ea_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -574,7 +603,7 @@ Here is the caller graph for this function:</div>
 
 <p>Determine the periodic wrapping bounds in each direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01344">1344</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01387">1387</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

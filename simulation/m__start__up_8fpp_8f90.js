@@ -1,9 +1,9 @@
 var m__start__up_8fpp_8f90 =
 [
-    [ "m_start_up::get_neighbor_bounds", "namespacem__start__up.html#a3adcb37778a49b76d2a4914f172228dc", null ],
     [ "m_start_up::s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
     [ "m_start_up::s_compute_ib_neighbor_ranks", "namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a", null ],
     [ "m_start_up::s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
+    [ "m_start_up::s_get_neighbor_bounds", "namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b", null ],
     [ "m_start_up::s_initialize_gpu_vars", "namespacem__start__up.html#a855eb78d2fa11b5bfc5f570069e6f2f8", null ],
     [ "m_start_up::s_initialize_internal_energy_equations", "namespacem__start__up.html#a38182f7fcc92c1c687840339a20e85cd", null ],
     [ "m_start_up::s_initialize_modules", "namespacem__start__up.html#a1fb7a3f9d412acd2a9cbcfe8b45006dd", null ],

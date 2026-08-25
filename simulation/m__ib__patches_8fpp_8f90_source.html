@@ -540,7 +540,7 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
 <div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>    <span class="keywordtype">private</span>; <span class="keywordtype">public</span> :: <a class="code hl_function" href="namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a">s_apply_ib_patches</a>, <a class="code hl_function" href="namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb">s_update_ib_rotation_matrix</a>, <a class="code hl_function" href="namespacem__model.html#ad9f8c664e4672afe1a2ea1d0f92accd9">s_instantiate_stl_models</a>, <a class="code hl_function" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">s_decode_patch_periodicity</a>, &amp;</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        &amp; <a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>, <a class="code hl_function" href="namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6">s_initialize_ib_airfoils</a>, <a class="code hl_function" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        &amp; <a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>, <a class="code hl_function" href="namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6">s_initialize_ib_airfoils</a>, <a class="code hl_function" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a>, <a class="code hl_function" href="namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea">s_get_ib_bound</a></div>
 <div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
 <div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><span class="keyword">contains</span></div>
 <div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><span class="comment"></span> </div>
@@ -595,7 +595,7 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>(patch_ib(patch_id)%gbl_patch_id, xp, yp, zp, encoded_patch_id)</div>
 <div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span> </div>
 <div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>                            <span class="comment">! find the indices to the left and right of the IB in i, j, k</span></div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
 <div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span> </div>
 <div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>                            <span class="comment">! skip patches whose bounding box does not overlap this rank&#39;s domain</span></div>
 <div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>                            <span class="keywordflow">if</span> (ir &lt; il .or. jr &lt; jl .or. kr &lt; kl) cycle</div>
@@ -699,7 +699,7 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span>                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>(patch_ib(patch_id)%gbl_patch_id, xp, yp, 0, encoded_patch_id)</div>
 <div class="line"><a id="l00560" name="l00560"></a><span class="lineno">  560</span> </div>
 <div class="line"><a id="l00561" name="l00561"></a><span class="lineno">  561</span>                        <span class="comment">! find the indices to the left and right of the IB in i, j, k</span></div>
-<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
+<div class="line"><a id="l00562" name="l00562"></a><span class="lineno">  562</span>                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
 <div class="line"><a id="l00563" name="l00563"></a><span class="lineno">  563</span> </div>
 <div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>                        <span class="comment">! skip patches whose bounding box does not overlap this rank&#39;s domain</span></div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>                        <span class="keywordflow">if</span> (ir &lt; il .or. jr &lt; jl) cycle</div>
@@ -834,7 +834,7 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>(patch_ib(patch_id)%gbl_patch_id, xp, yp, zp, encoded_patch_id)</div>
 <div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span> </div>
 <div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>                            <span class="comment">! find the indices to the left and right of the IB in i, j, k</span></div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
 <div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span> </div>
 <div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                            <span class="keywordflow">do</span> k = kl, kr</div>
 <div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>                                <span class="keywordflow">do</span> j = jl, jr</div>
@@ -935,7 +935,7 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>(patch_ib(patch_id)%gbl_patch_id, xp, yp, 0, encoded_patch_id)</div>
 <div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span> </div>
 <div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>                        <span class="comment">! find the indices to the left and right of the IB in i, j, k</span></div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a>(patch_ib(patch_id), center, il, ir, jl, jr, kl, kr)</div>
 <div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span> </div>
 <div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>                        <span class="keywordflow">do</span> j = jl, jr</div>
 <div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>                            <span class="keywordflow">do</span> i = il, ir</div>
@@ -1232,7 +1232,7 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l01085" name="l01085"></a><span class="lineno"> 1085</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb">s_update_ib_rotation_matrix</a></div>
 <div class="line"><a id="l01086" name="l01086"></a><span class="lineno"> 1086</span> </div>
 <div class="foldopen" id="foldopen01087" data-start="" data-end="">
-<div class="line"><a id="l01087" name="l01087"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab"> 1087</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a>(patch, center, il, ir, jl, jr, kl, kr)</div>
+<div class="line"><a id="l01087" name="l01087"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea"> 1087</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea">s_get_ib_bound</a>(patch, bound)</div>
 <div class="line"><a id="l01088" name="l01088"></a><span class="lineno"> 1088</span> </div>
 <div class="line"><a id="l01089" name="l01089"></a><span class="lineno"> 1089</span> </div>
 <div class="line"><a id="l01090" name="l01090"></a><span class="lineno"> 1090</span><span class="preprocessor"># 463 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
@@ -1251,330 +1251,375 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l01103" name="l01103"></a><span class="lineno"> 1103</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l01104" name="l01104"></a><span class="lineno"> 1104</span><span class="preprocessor"></span> </div>
 <div class="line"><a id="l01105" name="l01105"></a><span class="lineno"> 1105</span>        <span class="keywordtype">type</span>(ib_patch_parameters), <span class="keywordtype">intent(in)</span> :: patch</div>
-<div class="line"><a id="l01106" name="l01106"></a><span class="lineno"> 1106</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(3)</span>, <span class="keywordtype">intent(in)</span>    :: center</div>
-<div class="line"><a id="l01107" name="l01107"></a><span class="lineno"> 1107</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>                  :: il, ir, jl, jr, kl, kr</div>
-<div class="line"><a id="l01108" name="l01108"></a><span class="lineno"> 1108</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(3)</span>                :: bbox_min, bbox_max, local_corner, world_corner</div>
-<div class="line"><a id="l01109" name="l01109"></a><span class="lineno"> 1109</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(2)</span>                :: lx, ly, lz</div>
-<div class="line"><a id="l01110" name="l01110"></a><span class="lineno"> 1110</span>        <span class="keywordtype">integer</span>                               :: cx, cy, cz</div>
-<div class="line"><a id="l01111" name="l01111"></a><span class="lineno"> 1111</span>        <span class="keywordtype">logical</span>                               :: outside_domain</div>
-<div class="line"><a id="l01112" name="l01112"></a><span class="lineno"> 1112</span> </div>
-<div class="line"><a id="l01113" name="l01113"></a><span class="lineno"> 1113</span>        <span class="keywordflow">if</span> (patch%geometry == 2 .or. patch%geometry == 8) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01114" name="l01114"></a><span class="lineno"> 1114</span>            <span class="comment">! circle and sphere geometries</span></div>
-<div class="line"><a id="l01115" name="l01115"></a><span class="lineno"> 1115</span>            bbox_min = center - patch%radius</div>
-<div class="line"><a id="l01116" name="l01116"></a><span class="lineno"> 1116</span>            bbox_max = center + patch%radius</div>
-<div class="line"><a id="l01117" name="l01117"></a><span class="lineno"> 1117</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01118" name="l01118"></a><span class="lineno"> 1118</span>            <span class="comment">! rectangular geometries</span></div>
-<div class="line"><a id="l01119" name="l01119"></a><span class="lineno"> 1119</span>            bbox_min = center - 0.5_wp*sqrt(patch%length_x**2 + patch%length_y**2)</div>
-<div class="line"><a id="l01120" name="l01120"></a><span class="lineno"> 1120</span>            bbox_max = center + 0.5_wp*sqrt(patch%length_x**2 + patch%length_y**2)</div>
-<div class="line"><a id="l01121" name="l01121"></a><span class="lineno"> 1121</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 4 .or. patch%geometry == 11) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01122" name="l01122"></a><span class="lineno"> 1122</span>            <span class="comment">! airfoil geometries TODO :: This can be better optimized, since airfoils are typically very long in one dimension</span></div>
-<div class="line"><a id="l01123" name="l01123"></a><span class="lineno"> 1123</span>            bbox_min = center - ib_airfoil(patch%airfoil_id)%c</div>
-<div class="line"><a id="l01124" name="l01124"></a><span class="lineno"> 1124</span>            bbox_max = center + ib_airfoil(patch%airfoil_id)%c</div>
-<div class="line"><a id="l01125" name="l01125"></a><span class="lineno"> 1125</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 5) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01126" name="l01126"></a><span class="lineno"> 1126</span>            <span class="comment">! STL model geometry</span></div>
-<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span>            lx(1) = stl_bounding_boxes(patch%model_id, 1, 1) + patch%centroid_offset(1)</div>
-<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>            lx(2) = stl_bounding_boxes(patch%model_id, 1, 3) + patch%centroid_offset(1)</div>
-<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span>            ly(1) = stl_bounding_boxes(patch%model_id, 2, 1) + patch%centroid_offset(2)</div>
-<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span>            ly(2) = stl_bounding_boxes(patch%model_id, 2, 3) + patch%centroid_offset(2)</div>
-<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span> </div>
-<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>            bbox_min = 1e12</div>
-<div class="line"><a id="l01133" name="l01133"></a><span class="lineno"> 1133</span>            bbox_max = -1e12</div>
-<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>            <span class="comment">! Enumerate all 4 corners of the local bounding box, rotate to world space, track world-space AABB</span></div>
-<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span>            <span class="keywordflow">do</span> cx = 1, 2</div>
-<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>                <span class="keywordflow">do</span> cy = 1, 2</div>
-<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span>                    local_corner = [lx(cx), ly(cy), 0._wp]</div>
-<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>                    world_corner = matmul(patch%rotation_matrix, local_corner) + center</div>
-<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span>                    bbox_min(1) = min(bbox_min(1), world_corner(1))</div>
-<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span>                    bbox_min(2) = min(bbox_min(2), world_corner(2))</div>
-<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span>                    bbox_max(1) = max(bbox_max(1), world_corner(1))</div>
-<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span>                    bbox_max(2) = max(bbox_max(2), world_corner(2))</div>
-<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l01145" name="l01145"></a><span class="lineno"> 1145</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 6) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span>            <span class="comment">! ellipse geometry</span></div>
-<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span>            bbox_min = center - 0.5_wp*max(patch%length_x, patch%length_y)</div>
-<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>            bbox_max = center + 0.5_wp*max(patch%length_x, patch%length_y)</div>
-<div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 9) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>            <span class="comment">! cuboid geometries</span></div>
-<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span>            bbox_min = center - 0.5_wp*sqrt(patch%length_x**2 + patch%length_y**2 + patch%length_z**2)</div>
-<div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span>            bbox_max = center + 0.5_wp*sqrt(patch%length_x**2 + patch%length_y**2 + patch%length_z**2)</div>
-<div class="line"><a id="l01153" name="l01153"></a><span class="lineno"> 1153</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 10) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01154" name="l01154"></a><span class="lineno"> 1154</span>            <span class="comment">! cylinder geometry</span></div>
-<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span>            bbox_min = center - sqrt(patch%radius**2 + patch%length_x**2)</div>
-<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span>            bbox_max = center + sqrt(patch%radius**2 + patch%length_x**2)</div>
-<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 12) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01158" name="l01158"></a><span class="lineno"> 1158</span>            <span class="comment">! Local-space bounding box extents (min=1, max=2 in the third index)</span></div>
-<div class="line"><a id="l01159" name="l01159"></a><span class="lineno"> 1159</span>            lx(1) = stl_bounding_boxes(patch%model_id, 1, 1) + patch%centroid_offset(1)</div>
-<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span>            lx(2) = stl_bounding_boxes(patch%model_id, 1, 3) + patch%centroid_offset(1)</div>
-<div class="line"><a id="l01161" name="l01161"></a><span class="lineno"> 1161</span>            ly(1) = stl_bounding_boxes(patch%model_id, 2, 1) + patch%centroid_offset(2)</div>
-<div class="line"><a id="l01162" name="l01162"></a><span class="lineno"> 1162</span>            ly(2) = stl_bounding_boxes(patch%model_id, 2, 3) + patch%centroid_offset(2)</div>
-<div class="line"><a id="l01163" name="l01163"></a><span class="lineno"> 1163</span>            lz(1) = stl_bounding_boxes(patch%model_id, 3, 1) + patch%centroid_offset(3)</div>
-<div class="line"><a id="l01164" name="l01164"></a><span class="lineno"> 1164</span>            lz(2) = stl_bounding_boxes(patch%model_id, 3, 3) + patch%centroid_offset(3)</div>
-<div class="line"><a id="l01165" name="l01165"></a><span class="lineno"> 1165</span> </div>
-<div class="line"><a id="l01166" name="l01166"></a><span class="lineno"> 1166</span>            bbox_min = 1e12</div>
-<div class="line"><a id="l01167" name="l01167"></a><span class="lineno"> 1167</span>            bbox_max = -1e12</div>
-<div class="line"><a id="l01168" name="l01168"></a><span class="lineno"> 1168</span>            <span class="comment">! Enumerate all 8 corners of the local bounding box, rotate to world space, track world-space AABB</span></div>
-<div class="line"><a id="l01169" name="l01169"></a><span class="lineno"> 1169</span>            <span class="keywordflow">do</span> cx = 1, 2</div>
-<div class="line"><a id="l01170" name="l01170"></a><span class="lineno"> 1170</span>                <span class="keywordflow">do</span> cy = 1, 2</div>
-<div class="line"><a id="l01171" name="l01171"></a><span class="lineno"> 1171</span>                    <span class="keywordflow">do</span> cz = 1, 2</div>
-<div class="line"><a id="l01172" name="l01172"></a><span class="lineno"> 1172</span>                        local_corner = [lx(cx), ly(cy), lz(cz)]</div>
-<div class="line"><a id="l01173" name="l01173"></a><span class="lineno"> 1173</span>                        world_corner = matmul(patch%rotation_matrix, local_corner) + center</div>
-<div class="line"><a id="l01174" name="l01174"></a><span class="lineno"> 1174</span>                        bbox_min(1) = min(bbox_min(1), world_corner(1))</div>
-<div class="line"><a id="l01175" name="l01175"></a><span class="lineno"> 1175</span>                        bbox_min(2) = min(bbox_min(2), world_corner(2))</div>
-<div class="line"><a id="l01176" name="l01176"></a><span class="lineno"> 1176</span>                        bbox_min(3) = min(bbox_min(3), world_corner(3))</div>
-<div class="line"><a id="l01177" name="l01177"></a><span class="lineno"> 1177</span>                        bbox_max(1) = max(bbox_max(1), world_corner(1))</div>
-<div class="line"><a id="l01178" name="l01178"></a><span class="lineno"> 1178</span>                        bbox_max(2) = max(bbox_max(2), world_corner(2))</div>
-<div class="line"><a id="l01179" name="l01179"></a><span class="lineno"> 1179</span>                        bbox_max(3) = max(bbox_max(3), world_corner(3))</div>
-<div class="line"><a id="l01180" name="l01180"></a><span class="lineno"> 1180</span><span class="keywordflow">                    end do</span></div>
-<div class="line"><a id="l01181" name="l01181"></a><span class="lineno"> 1181</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l01182" name="l01182"></a><span class="lineno"> 1182</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l01183" name="l01183"></a><span class="lineno"> 1183</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l01184" name="l01184"></a><span class="lineno"> 1184</span> </div>
-<div class="line"><a id="l01185" name="l01185"></a><span class="lineno"> 1185</span>        <span class="comment">! completely skip patches whose bounding box does not overlap this rank&#39;s domain</span></div>
-<div class="line"><a id="l01186" name="l01186"></a><span class="lineno"> 1186</span>        outside_domain = bbox_min(1) &gt; x_cc(m + gp_layers + 1) .or. bbox_max(1) &lt; x_cc(-gp_layers - 1) .or. bbox_min(2) &gt; y_cc(n &amp;</div>
-<div class="line"><a id="l01187" name="l01187"></a><span class="lineno"> 1187</span>                                  &amp; + gp_layers + 1) .or. bbox_max(2) &lt; y_cc(-gp_layers - 1)</div>
-<div class="line"><a id="l01188" name="l01188"></a><span class="lineno"> 1188</span>        <span class="keywordflow">if</span> (num_dims == 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01189" name="l01189"></a><span class="lineno"> 1189</span>            outside_domain = outside_domain .or. bbox_min(3) &gt; z_cc(p + gp_layers + 1) .or. bbox_max(3) &lt; z_cc(-gp_layers - 1)</div>
-<div class="line"><a id="l01190" name="l01190"></a><span class="lineno"> 1190</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l01191" name="l01191"></a><span class="lineno"> 1191</span> </div>
-<div class="line"><a id="l01192" name="l01192"></a><span class="lineno"> 1192</span>        <span class="keywordflow">if</span> (outside_domain) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01193" name="l01193"></a><span class="lineno"> 1193</span>            il = 1; ir = 0</div>
-<div class="line"><a id="l01194" name="l01194"></a><span class="lineno"> 1194</span>            jl = 1; jr = 0</div>
-<div class="line"><a id="l01195" name="l01195"></a><span class="lineno"> 1195</span>            kl = 1; kr = 0</div>
-<div class="line"><a id="l01196" name="l01196"></a><span class="lineno"> 1196</span>            <span class="keywordflow">return</span></div>
-<div class="line"><a id="l01197" name="l01197"></a><span class="lineno"> 1197</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l01198" name="l01198"></a><span class="lineno"> 1198</span> </div>
-<div class="line"><a id="l01199" name="l01199"></a><span class="lineno"> 1199</span>        il = -gp_layers - 1</div>
-<div class="line"><a id="l01200" name="l01200"></a><span class="lineno"> 1200</span>        jl = -gp_layers - 1</div>
-<div class="line"><a id="l01201" name="l01201"></a><span class="lineno"> 1201</span>        kl = -gp_layers - 1</div>
-<div class="line"><a id="l01202" name="l01202"></a><span class="lineno"> 1202</span>        ir = m + gp_layers + 1</div>
-<div class="line"><a id="l01203" name="l01203"></a><span class="lineno"> 1203</span>        jr = n + gp_layers + 1</div>
-<div class="line"><a id="l01204" name="l01204"></a><span class="lineno"> 1204</span>        kr = p + gp_layers + 1</div>
-<div class="line"><a id="l01205" name="l01205"></a><span class="lineno"> 1205</span>        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(bbox_min(1), bbox_max(1), x_cc, il, ir)</div>
-<div class="line"><a id="l01206" name="l01206"></a><span class="lineno"> 1206</span>        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(bbox_min(2), bbox_max(2), y_cc, jl, jr)</div>
-<div class="line"><a id="l01207" name="l01207"></a><span class="lineno"> 1207</span>        <span class="keywordflow">if</span> (num_dims == 3) <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(bbox_min(3), bbox_max(3), z_cc, kl, kr)</div>
-<div class="line"><a id="l01208" name="l01208"></a><span class="lineno"> 1208</span> </div>
+<div class="line"><a id="l01106" name="l01106"></a><span class="lineno"> 1106</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(out)</span>                 :: bound</div>
+<div class="line"><a id="l01107" name="l01107"></a><span class="lineno"> 1107</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(2)</span>                :: lx, ly, lz</div>
+<div class="line"><a id="l01108" name="l01108"></a><span class="lineno"> 1108</span> </div>
+<div class="line"><a id="l01109" name="l01109"></a><span class="lineno"> 1109</span>        <span class="keywordflow">if</span> (patch%geometry == 2 .or. patch%geometry == 8) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01110" name="l01110"></a><span class="lineno"> 1110</span>            <span class="comment">! circle and sphere geometries</span></div>
+<div class="line"><a id="l01111" name="l01111"></a><span class="lineno"> 1111</span>            bound = patch%radius</div>
+<div class="line"><a id="l01112" name="l01112"></a><span class="lineno"> 1112</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01113" name="l01113"></a><span class="lineno"> 1113</span>            bound = 0.5_wp*sqrt(patch%length_x**2 + patch%length_y**2)</div>
+<div class="line"><a id="l01114" name="l01114"></a><span class="lineno"> 1114</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 4 .or. patch%geometry == 11) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01115" name="l01115"></a><span class="lineno"> 1115</span>            <span class="comment">! rectangular geometries</span></div>
+<div class="line"><a id="l01116" name="l01116"></a><span class="lineno"> 1116</span>            bound = ib_airfoil(patch%airfoil_id)%c</div>
+<div class="line"><a id="l01117" name="l01117"></a><span class="lineno"> 1117</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 5) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01118" name="l01118"></a><span class="lineno"> 1118</span>            <span class="comment">! STL model geometry</span></div>
+<div class="line"><a id="l01119" name="l01119"></a><span class="lineno"> 1119</span>            lx(1) = stl_bounding_boxes(patch%model_id, 1, 1)</div>
+<div class="line"><a id="l01120" name="l01120"></a><span class="lineno"> 1120</span>            lx(2) = stl_bounding_boxes(patch%model_id, 1, 3)</div>
+<div class="line"><a id="l01121" name="l01121"></a><span class="lineno"> 1121</span>            ly(1) = stl_bounding_boxes(patch%model_id, 2, 1)</div>
+<div class="line"><a id="l01122" name="l01122"></a><span class="lineno"> 1122</span>            ly(2) = stl_bounding_boxes(patch%model_id, 2, 3)</div>
+<div class="line"><a id="l01123" name="l01123"></a><span class="lineno"> 1123</span> </div>
+<div class="line"><a id="l01124" name="l01124"></a><span class="lineno"> 1124</span>            bound = 0.5_wp*sqrt((lx(2) - lx(1))**2 + (ly(2) - ly(1))**2)</div>
+<div class="line"><a id="l01125" name="l01125"></a><span class="lineno"> 1125</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 6) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01126" name="l01126"></a><span class="lineno"> 1126</span>            <span class="comment">! ellipse geometry</span></div>
+<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span>            bound = 0.5_wp*max(patch%length_x, patch%length_y)</div>
+<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 9) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span>            <span class="comment">! cuboid geometries</span></div>
+<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span>            bound = 0.5_wp*sqrt(patch%length_x**2 + patch%length_y**2 + patch%length_z**2)</div>
+<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 10) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>            <span class="comment">! cylinder geometry</span></div>
+<div class="line"><a id="l01133" name="l01133"></a><span class="lineno"> 1133</span>            bound = sqrt(patch%radius**2 + patch%length_x**2)</div>
+<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 12) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span>            <span class="comment">! Local-space bounding box extents (min=1, max=2 in the third index)</span></div>
+<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>            lx(1) = stl_bounding_boxes(patch%model_id, 1, 1) + patch%centroid_offset(1)</div>
+<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span>            lx(2) = stl_bounding_boxes(patch%model_id, 1, 3) + patch%centroid_offset(1)</div>
+<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>            ly(1) = stl_bounding_boxes(patch%model_id, 2, 1) + patch%centroid_offset(2)</div>
+<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span>            ly(2) = stl_bounding_boxes(patch%model_id, 2, 3) + patch%centroid_offset(2)</div>
+<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span>            lz(1) = stl_bounding_boxes(patch%model_id, 3, 1) + patch%centroid_offset(3)</div>
+<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span>            lz(2) = stl_bounding_boxes(patch%model_id, 3, 3) + patch%centroid_offset(3)</div>
+<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span> </div>
+<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span>            bound = 0.5_wp*sqrt((lx(2) - lx(1))**2 + (ly(2) - ly(1))**2 + (lz(2) - lz(1))**2)</div>
+<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01145" name="l01145"></a><span class="lineno"> 1145</span> </div>
 </div>
-<div class="line"><a id="l01209" name="l01209"></a><span class="lineno"> 1209</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">get_bounding_indices</a></div>
-<div class="line"><a id="l01210" name="l01210"></a><span class="lineno"> 1210</span> </div>
-<div class="foldopen" id="foldopen01211" data-start="" data-end="">
-<div class="line"><a id="l01211" name="l01211"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27"> 1211</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(left_bound, right_bound, cell_centers, left_index, right_index)</div>
-<div class="line"><a id="l01212" name="l01212"></a><span class="lineno"> 1212</span> </div>
-<div class="line"><a id="l01213" name="l01213"></a><span class="lineno"> 1213</span> </div>
-<div class="line"><a id="l01214" name="l01214"></a><span class="lineno"> 1214</span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01215" name="l01215"></a><span class="lineno"> 1215</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
-<div class="line"><a id="l01216" name="l01216"></a><span class="lineno"> 1216</span><span class="preprocessor"></span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01217" name="l01217"></a><span class="lineno"> 1217</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
-<div class="line"><a id="l01218" name="l01218"></a><span class="lineno"> 1218</span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01219" name="l01219"></a><span class="lineno"> 1219</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
-<div class="line"><a id="l01220" name="l01220"></a><span class="lineno"> 1220</span><span class="preprocessor"></span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01221" name="l01221"></a><span class="lineno"> 1221</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01222" name="l01222"></a><span class="lineno"> 1222</span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01223" name="l01223"></a><span class="lineno"> 1223</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01224" name="l01224"></a><span class="lineno"> 1224</span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01225" name="l01225"></a><span class="lineno"> 1225</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
-<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span><span class="preprocessor"># 573 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01227" name="l01227"></a><span class="lineno"> 1227</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l01228" name="l01228"></a><span class="lineno"> 1228</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01229" name="l01229"></a><span class="lineno"> 1229</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>                         :: left_bound, right_bound</div>
-<div class="line"><a id="l01230" name="l01230"></a><span class="lineno"> 1230</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span>                       :: left_index, right_index</div>
-<div class="line"><a id="l01231" name="l01231"></a><span class="lineno"> 1231</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(-buff_size:)</span>, <span class="keywordtype">intent(in)</span> :: cell_centers</div>
-<div class="line"><a id="l01232" name="l01232"></a><span class="lineno"> 1232</span>        <span class="keywordtype">integer</span>                                      :: itr_left, itr_middle, itr_right</div>
-<div class="line"><a id="l01233" name="l01233"></a><span class="lineno"> 1233</span> </div>
-<div class="line"><a id="l01234" name="l01234"></a><span class="lineno"> 1234</span>        itr_left = left_index</div>
-<div class="line"><a id="l01235" name="l01235"></a><span class="lineno"> 1235</span>        itr_right = right_index</div>
-<div class="line"><a id="l01236" name="l01236"></a><span class="lineno"> 1236</span> </div>
-<div class="line"><a id="l01237" name="l01237"></a><span class="lineno"> 1237</span>        <span class="keywordflow">do</span> <span class="keywordflow">while</span> (itr_left + 1 &lt; itr_right)</div>
-<div class="line"><a id="l01238" name="l01238"></a><span class="lineno"> 1238</span>            itr_middle = (itr_left + itr_right)/2</div>
-<div class="line"><a id="l01239" name="l01239"></a><span class="lineno"> 1239</span>            <span class="keywordflow">if</span> (cell_centers(itr_middle) &lt; left_bound) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01240" name="l01240"></a><span class="lineno"> 1240</span>                itr_left = itr_middle</div>
-<div class="line"><a id="l01241" name="l01241"></a><span class="lineno"> 1241</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cell_centers(itr_middle) &gt; left_bound) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01242" name="l01242"></a><span class="lineno"> 1242</span>                itr_right = itr_middle</div>
-<div class="line"><a id="l01243" name="l01243"></a><span class="lineno"> 1243</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01244" name="l01244"></a><span class="lineno"> 1244</span>                itr_left = itr_middle</div>
-<div class="line"><a id="l01245" name="l01245"></a><span class="lineno"> 1245</span>                <span class="keywordflow">exit</span></div>
-<div class="line"><a id="l01246" name="l01246"></a><span class="lineno"> 1246</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"> 1247</span><span class="keywordflow">        end do</span></div>
-<div class="line"><a id="l01248" name="l01248"></a><span class="lineno"> 1248</span>        left_index = itr_left</div>
-<div class="line"><a id="l01249" name="l01249"></a><span class="lineno"> 1249</span> </div>
-<div class="line"><a id="l01250" name="l01250"></a><span class="lineno"> 1250</span>        itr_right = right_index</div>
-<div class="line"><a id="l01251" name="l01251"></a><span class="lineno"> 1251</span>        <span class="keywordflow">do</span> <span class="keywordflow">while</span> (itr_left + 1 &lt; itr_right)</div>
-<div class="line"><a id="l01252" name="l01252"></a><span class="lineno"> 1252</span>            itr_middle = (itr_left + itr_right)/2</div>
-<div class="line"><a id="l01253" name="l01253"></a><span class="lineno"> 1253</span>            <span class="keywordflow">if</span> (cell_centers(itr_middle) &lt; right_bound) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01254" name="l01254"></a><span class="lineno"> 1254</span>                itr_left = itr_middle</div>
-<div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cell_centers(itr_middle) &gt; right_bound) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01256" name="l01256"></a><span class="lineno"> 1256</span>                itr_right = itr_middle</div>
-<div class="line"><a id="l01257" name="l01257"></a><span class="lineno"> 1257</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span>                itr_right = itr_middle</div>
-<div class="line"><a id="l01259" name="l01259"></a><span class="lineno"> 1259</span>                <span class="keywordflow">exit</span></div>
-<div class="line"><a id="l01260" name="l01260"></a><span class="lineno"> 1260</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l01261" name="l01261"></a><span class="lineno"> 1261</span><span class="keywordflow">        end do</span></div>
-<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"> 1262</span>        right_index = itr_right</div>
-<div class="line"><a id="l01263" name="l01263"></a><span class="lineno"> 1263</span> </div>
+<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea">s_get_ib_bound</a></div>
+<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span> </div>
+<div class="foldopen" id="foldopen01148" data-start="" data-end="">
+<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb"> 1148</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a>(patch, center, il, ir, jl, jr, kl, kr)</div>
+<div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span> </div>
+<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span> </div>
+<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
+<div class="line"><a id="l01153" name="l01153"></a><span class="lineno"> 1153</span><span class="preprocessor"></span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01154" name="l01154"></a><span class="lineno"> 1154</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
+<div class="line"><a id="l01155" name="l01155"></a><span class="lineno"> 1155</span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01156" name="l01156"></a><span class="lineno"> 1156</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
+<div class="line"><a id="l01157" name="l01157"></a><span class="lineno"> 1157</span><span class="preprocessor"></span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01158" name="l01158"></a><span class="lineno"> 1158</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01159" name="l01159"></a><span class="lineno"> 1159</span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01160" name="l01160"></a><span class="lineno"> 1160</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01161" name="l01161"></a><span class="lineno"> 1161</span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01162" name="l01162"></a><span class="lineno"> 1162</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
+<div class="line"><a id="l01163" name="l01163"></a><span class="lineno"> 1163</span><span class="preprocessor"># 510 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01164" name="l01164"></a><span class="lineno"> 1164</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01165" name="l01165"></a><span class="lineno"> 1165</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01166" name="l01166"></a><span class="lineno"> 1166</span>        <span class="keywordtype">type</span>(ib_patch_parameters), <span class="keywordtype">intent(in)</span> :: patch</div>
+<div class="line"><a id="l01167" name="l01167"></a><span class="lineno"> 1167</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(3)</span>, <span class="keywordtype">intent(in)</span>    :: center</div>
+<div class="line"><a id="l01168" name="l01168"></a><span class="lineno"> 1168</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>                  :: il, ir, jl, jr, kl, kr</div>
+<div class="line"><a id="l01169" name="l01169"></a><span class="lineno"> 1169</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(3)</span>                :: bbox_min, bbox_max, local_corner, world_corner</div>
+<div class="line"><a id="l01170" name="l01170"></a><span class="lineno"> 1170</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(2)</span>                :: lx, ly, lz</div>
+<div class="line"><a id="l01171" name="l01171"></a><span class="lineno"> 1171</span><span class="keywordtype">        real</span>(wp)                              :: bound</div>
+<div class="line"><a id="l01172" name="l01172"></a><span class="lineno"> 1172</span>        <span class="keywordtype">integer</span>                               :: cx, cy, cz</div>
+<div class="line"><a id="l01173" name="l01173"></a><span class="lineno"> 1173</span>        <span class="keywordtype">logical</span>                               :: outside_domain</div>
+<div class="line"><a id="l01174" name="l01174"></a><span class="lineno"> 1174</span> </div>
+<div class="line"><a id="l01175" name="l01175"></a><span class="lineno"> 1175</span>        <span class="keywordflow">if</span> (patch%geometry == 5) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01176" name="l01176"></a><span class="lineno"> 1176</span>            <span class="comment">! STL model geometry</span></div>
+<div class="line"><a id="l01177" name="l01177"></a><span class="lineno"> 1177</span>            lx(1) = stl_bounding_boxes(patch%model_id, 1, 1) + patch%centroid_offset(1)</div>
+<div class="line"><a id="l01178" name="l01178"></a><span class="lineno"> 1178</span>            lx(2) = stl_bounding_boxes(patch%model_id, 1, 3) + patch%centroid_offset(1)</div>
+<div class="line"><a id="l01179" name="l01179"></a><span class="lineno"> 1179</span>            ly(1) = stl_bounding_boxes(patch%model_id, 2, 1) + patch%centroid_offset(2)</div>
+<div class="line"><a id="l01180" name="l01180"></a><span class="lineno"> 1180</span>            ly(2) = stl_bounding_boxes(patch%model_id, 2, 3) + patch%centroid_offset(2)</div>
+<div class="line"><a id="l01181" name="l01181"></a><span class="lineno"> 1181</span> </div>
+<div class="line"><a id="l01182" name="l01182"></a><span class="lineno"> 1182</span>            bbox_min = 1e12</div>
+<div class="line"><a id="l01183" name="l01183"></a><span class="lineno"> 1183</span>            bbox_max = -1e12</div>
+<div class="line"><a id="l01184" name="l01184"></a><span class="lineno"> 1184</span>            <span class="comment">! Enumerate all 4 corners of the local bounding box, rotate to world space, track world-space AABB</span></div>
+<div class="line"><a id="l01185" name="l01185"></a><span class="lineno"> 1185</span>            <span class="keywordflow">do</span> cx = 1, 2</div>
+<div class="line"><a id="l01186" name="l01186"></a><span class="lineno"> 1186</span>                <span class="keywordflow">do</span> cy = 1, 2</div>
+<div class="line"><a id="l01187" name="l01187"></a><span class="lineno"> 1187</span>                    local_corner = [lx(cx), ly(cy), 0._wp]</div>
+<div class="line"><a id="l01188" name="l01188"></a><span class="lineno"> 1188</span>                    world_corner = matmul(patch%rotation_matrix, local_corner) + center</div>
+<div class="line"><a id="l01189" name="l01189"></a><span class="lineno"> 1189</span>                    bbox_min(1) = min(bbox_min(1), world_corner(1))</div>
+<div class="line"><a id="l01190" name="l01190"></a><span class="lineno"> 1190</span>                    bbox_min(2) = min(bbox_min(2), world_corner(2))</div>
+<div class="line"><a id="l01191" name="l01191"></a><span class="lineno"> 1191</span>                    bbox_max(1) = max(bbox_max(1), world_corner(1))</div>
+<div class="line"><a id="l01192" name="l01192"></a><span class="lineno"> 1192</span>                    bbox_max(2) = max(bbox_max(2), world_corner(2))</div>
+<div class="line"><a id="l01193" name="l01193"></a><span class="lineno"> 1193</span><span class="keywordflow">                end do</span></div>
+<div class="line"><a id="l01194" name="l01194"></a><span class="lineno"> 1194</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l01195" name="l01195"></a><span class="lineno"> 1195</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch%geometry == 12) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01196" name="l01196"></a><span class="lineno"> 1196</span>            <span class="comment">! Local-space bounding box extents (min=1, max=2 in the third index)</span></div>
+<div class="line"><a id="l01197" name="l01197"></a><span class="lineno"> 1197</span>            lx(1) = stl_bounding_boxes(patch%model_id, 1, 1) + patch%centroid_offset(1)</div>
+<div class="line"><a id="l01198" name="l01198"></a><span class="lineno"> 1198</span>            lx(2) = stl_bounding_boxes(patch%model_id, 1, 3) + patch%centroid_offset(1)</div>
+<div class="line"><a id="l01199" name="l01199"></a><span class="lineno"> 1199</span>            ly(1) = stl_bounding_boxes(patch%model_id, 2, 1) + patch%centroid_offset(2)</div>
+<div class="line"><a id="l01200" name="l01200"></a><span class="lineno"> 1200</span>            ly(2) = stl_bounding_boxes(patch%model_id, 2, 3) + patch%centroid_offset(2)</div>
+<div class="line"><a id="l01201" name="l01201"></a><span class="lineno"> 1201</span>            lz(1) = stl_bounding_boxes(patch%model_id, 3, 1) + patch%centroid_offset(3)</div>
+<div class="line"><a id="l01202" name="l01202"></a><span class="lineno"> 1202</span>            lz(2) = stl_bounding_boxes(patch%model_id, 3, 3) + patch%centroid_offset(3)</div>
+<div class="line"><a id="l01203" name="l01203"></a><span class="lineno"> 1203</span> </div>
+<div class="line"><a id="l01204" name="l01204"></a><span class="lineno"> 1204</span>            bbox_min = 1e12</div>
+<div class="line"><a id="l01205" name="l01205"></a><span class="lineno"> 1205</span>            bbox_max = -1e12</div>
+<div class="line"><a id="l01206" name="l01206"></a><span class="lineno"> 1206</span>            <span class="comment">! Enumerate all 8 corners of the local bounding box, rotate to world space, track world-space AABB</span></div>
+<div class="line"><a id="l01207" name="l01207"></a><span class="lineno"> 1207</span>            <span class="keywordflow">do</span> cx = 1, 2</div>
+<div class="line"><a id="l01208" name="l01208"></a><span class="lineno"> 1208</span>                <span class="keywordflow">do</span> cy = 1, 2</div>
+<div class="line"><a id="l01209" name="l01209"></a><span class="lineno"> 1209</span>                    <span class="keywordflow">do</span> cz = 1, 2</div>
+<div class="line"><a id="l01210" name="l01210"></a><span class="lineno"> 1210</span>                        local_corner = [lx(cx), ly(cy), lz(cz)]</div>
+<div class="line"><a id="l01211" name="l01211"></a><span class="lineno"> 1211</span>                        world_corner = matmul(patch%rotation_matrix, local_corner) + center</div>
+<div class="line"><a id="l01212" name="l01212"></a><span class="lineno"> 1212</span>                        bbox_min(1) = min(bbox_min(1), world_corner(1))</div>
+<div class="line"><a id="l01213" name="l01213"></a><span class="lineno"> 1213</span>                        bbox_min(2) = min(bbox_min(2), world_corner(2))</div>
+<div class="line"><a id="l01214" name="l01214"></a><span class="lineno"> 1214</span>                        bbox_min(3) = min(bbox_min(3), world_corner(3))</div>
+<div class="line"><a id="l01215" name="l01215"></a><span class="lineno"> 1215</span>                        bbox_max(1) = max(bbox_max(1), world_corner(1))</div>
+<div class="line"><a id="l01216" name="l01216"></a><span class="lineno"> 1216</span>                        bbox_max(2) = max(bbox_max(2), world_corner(2))</div>
+<div class="line"><a id="l01217" name="l01217"></a><span class="lineno"> 1217</span>                        bbox_max(3) = max(bbox_max(3), world_corner(3))</div>
+<div class="line"><a id="l01218" name="l01218"></a><span class="lineno"> 1218</span><span class="keywordflow">                    end do</span></div>
+<div class="line"><a id="l01219" name="l01219"></a><span class="lineno"> 1219</span><span class="keywordflow">                end do</span></div>
+<div class="line"><a id="l01220" name="l01220"></a><span class="lineno"> 1220</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l01221" name="l01221"></a><span class="lineno"> 1221</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01222" name="l01222"></a><span class="lineno"> 1222</span>            <span class="comment">! All other IBs</span></div>
+<div class="line"><a id="l01223" name="l01223"></a><span class="lineno"> 1223</span>            <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea">s_get_ib_bound</a>(patch, bound)</div>
+<div class="line"><a id="l01224" name="l01224"></a><span class="lineno"> 1224</span>            bbox_min = center - bound</div>
+<div class="line"><a id="l01225" name="l01225"></a><span class="lineno"> 1225</span>            bbox_max = center + bound</div>
+<div class="line"><a id="l01226" name="l01226"></a><span class="lineno"> 1226</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01227" name="l01227"></a><span class="lineno"> 1227</span> </div>
+<div class="line"><a id="l01228" name="l01228"></a><span class="lineno"> 1228</span>        <span class="comment">! completely skip patches whose bounding box does not overlap this rank&#39;s domain</span></div>
+<div class="line"><a id="l01229" name="l01229"></a><span class="lineno"> 1229</span>        outside_domain = bbox_min(1) &gt; x_cc(m + gp_layers + 1) .or. bbox_max(1) &lt; x_cc(-gp_layers - 1) .or. bbox_min(2) &gt; y_cc(n &amp;</div>
+<div class="line"><a id="l01230" name="l01230"></a><span class="lineno"> 1230</span>                                  &amp; + gp_layers + 1) .or. bbox_max(2) &lt; y_cc(-gp_layers - 1)</div>
+<div class="line"><a id="l01231" name="l01231"></a><span class="lineno"> 1231</span>        <span class="keywordflow">if</span> (num_dims == 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01232" name="l01232"></a><span class="lineno"> 1232</span>            outside_domain = outside_domain .or. bbox_min(3) &gt; z_cc(p + gp_layers + 1) .or. bbox_max(3) &lt; z_cc(-gp_layers - 1)</div>
+<div class="line"><a id="l01233" name="l01233"></a><span class="lineno"> 1233</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01234" name="l01234"></a><span class="lineno"> 1234</span> </div>
+<div class="line"><a id="l01235" name="l01235"></a><span class="lineno"> 1235</span>        <span class="keywordflow">if</span> (outside_domain) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01236" name="l01236"></a><span class="lineno"> 1236</span>            il = 1; ir = 0</div>
+<div class="line"><a id="l01237" name="l01237"></a><span class="lineno"> 1237</span>            jl = 1; jr = 0</div>
+<div class="line"><a id="l01238" name="l01238"></a><span class="lineno"> 1238</span>            kl = 1; kr = 0</div>
+<div class="line"><a id="l01239" name="l01239"></a><span class="lineno"> 1239</span>            <span class="keywordflow">return</span></div>
+<div class="line"><a id="l01240" name="l01240"></a><span class="lineno"> 1240</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01241" name="l01241"></a><span class="lineno"> 1241</span> </div>
+<div class="line"><a id="l01242" name="l01242"></a><span class="lineno"> 1242</span>        il = -gp_layers - 1</div>
+<div class="line"><a id="l01243" name="l01243"></a><span class="lineno"> 1243</span>        jl = -gp_layers - 1</div>
+<div class="line"><a id="l01244" name="l01244"></a><span class="lineno"> 1244</span>        kl = -gp_layers - 1</div>
+<div class="line"><a id="l01245" name="l01245"></a><span class="lineno"> 1245</span>        ir = m + gp_layers + 1</div>
+<div class="line"><a id="l01246" name="l01246"></a><span class="lineno"> 1246</span>        jr = n + gp_layers + 1</div>
+<div class="line"><a id="l01247" name="l01247"></a><span class="lineno"> 1247</span>        kr = p + gp_layers + 1</div>
+<div class="line"><a id="l01248" name="l01248"></a><span class="lineno"> 1248</span>        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(bbox_min(1), bbox_max(1), x_cc, il, ir)</div>
+<div class="line"><a id="l01249" name="l01249"></a><span class="lineno"> 1249</span>        <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(bbox_min(2), bbox_max(2), y_cc, jl, jr)</div>
+<div class="line"><a id="l01250" name="l01250"></a><span class="lineno"> 1250</span>        <span class="keywordflow">if</span> (num_dims == 3) <span class="keyword">call </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(bbox_min(3), bbox_max(3), z_cc, kl, kr)</div>
+<div class="line"><a id="l01251" name="l01251"></a><span class="lineno"> 1251</span> </div>
 </div>
-<div class="line"><a id="l01264" name="l01264"></a><span class="lineno"> 1264</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a></div>
-<div class="line"><a id="l01265" name="l01265"></a><span class="lineno"> 1265</span><span class="comment"></span> </div>
-<div class="line"><a id="l01266" name="l01266"></a><span class="lineno"> 1266</span><span class="comment">    !&gt; Encode the patch ID with a unique offset containing periodicity information</span></div>
-<div class="foldopen" id="foldopen01267" data-start="" data-end="">
-<div class="line"><a id="l01267" name="l01267"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21"> 1267</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>(patch_id, x_periodicity, y_periodicity, z_periodicity, encoded_patch_id)</div>
-<div class="line"><a id="l01268" name="l01268"></a><span class="lineno"> 1268</span> </div>
-<div class="line"><a id="l01269" name="l01269"></a><span class="lineno"> 1269</span> </div>
-<div class="line"><a id="l01270" name="l01270"></a><span class="lineno"> 1270</span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01271" name="l01271"></a><span class="lineno"> 1271</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
-<div class="line"><a id="l01272" name="l01272"></a><span class="lineno"> 1272</span><span class="preprocessor"></span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01273" name="l01273"></a><span class="lineno"> 1273</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
-<div class="line"><a id="l01274" name="l01274"></a><span class="lineno"> 1274</span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01275" name="l01275"></a><span class="lineno"> 1275</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
-<div class="line"><a id="l01276" name="l01276"></a><span class="lineno"> 1276</span><span class="preprocessor"></span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01277" name="l01277"></a><span class="lineno"> 1277</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01278" name="l01278"></a><span class="lineno"> 1278</span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01279" name="l01279"></a><span class="lineno"> 1279</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01280" name="l01280"></a><span class="lineno"> 1280</span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01281" name="l01281"></a><span class="lineno"> 1281</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
-<div class="line"><a id="l01282" name="l01282"></a><span class="lineno"> 1282</span><span class="preprocessor"># 615 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01283" name="l01283"></a><span class="lineno"> 1283</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l01284" name="l01284"></a><span class="lineno"> 1284</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01285" name="l01285"></a><span class="lineno"> 1285</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>  :: patch_id, x_periodicity, y_periodicity, z_periodicity</div>
-<div class="line"><a id="l01286" name="l01286"></a><span class="lineno"> 1286</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: encoded_patch_id</div>
-<div class="line"><a id="l01287" name="l01287"></a><span class="lineno"> 1287</span>        <span class="keywordtype">integer</span>              :: temp_x_per, temp_y_per, temp_z_per, offset</div>
-<div class="line"><a id="l01288" name="l01288"></a><span class="lineno"> 1288</span> </div>
-<div class="line"><a id="l01289" name="l01289"></a><span class="lineno"> 1289</span>        encoded_patch_id = patch_id</div>
-<div class="line"><a id="l01290" name="l01290"></a><span class="lineno"> 1290</span> </div>
-<div class="line"><a id="l01291" name="l01291"></a><span class="lineno"> 1291</span>        temp_x_per = x_periodicity; <span class="keywordflow">if</span> (x_periodicity == -1) temp_x_per = 2</div>
-<div class="line"><a id="l01292" name="l01292"></a><span class="lineno"> 1292</span>        temp_y_per = y_periodicity; <span class="keywordflow">if</span> (y_periodicity == -1) temp_y_per = 2</div>
-<div class="line"><a id="l01293" name="l01293"></a><span class="lineno"> 1293</span>        temp_z_per = z_periodicity; <span class="keywordflow">if</span> (z_periodicity == -1) temp_z_per = 2</div>
-<div class="line"><a id="l01294" name="l01294"></a><span class="lineno"> 1294</span> </div>
-<div class="line"><a id="l01295" name="l01295"></a><span class="lineno"> 1295</span>        offset = (num_gbl_ibs + 1)*temp_x_per + 3*(num_gbl_ibs + 1)*temp_y_per + 9*(num_gbl_ibs + 1)*temp_z_per</div>
-<div class="line"><a id="l01296" name="l01296"></a><span class="lineno"> 1296</span>        encoded_patch_id = patch_id + offset</div>
-<div class="line"><a id="l01297" name="l01297"></a><span class="lineno"> 1297</span> </div>
+<div class="line"><a id="l01252" name="l01252"></a><span class="lineno"> 1252</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">s_get_bounding_indices</a></div>
+<div class="line"><a id="l01253" name="l01253"></a><span class="lineno"> 1253</span> </div>
+<div class="foldopen" id="foldopen01254" data-start="" data-end="">
+<div class="line"><a id="l01254" name="l01254"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27"> 1254</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a>(left_bound, right_bound, cell_centers, left_index, right_index)</div>
+<div class="line"><a id="l01255" name="l01255"></a><span class="lineno"> 1255</span> </div>
+<div class="line"><a id="l01256" name="l01256"></a><span class="lineno"> 1256</span> </div>
+<div class="line"><a id="l01257" name="l01257"></a><span class="lineno"> 1257</span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01258" name="l01258"></a><span class="lineno"> 1258</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
+<div class="line"><a id="l01259" name="l01259"></a><span class="lineno"> 1259</span><span class="preprocessor"></span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01260" name="l01260"></a><span class="lineno"> 1260</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
+<div class="line"><a id="l01261" name="l01261"></a><span class="lineno"> 1261</span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01262" name="l01262"></a><span class="lineno"> 1262</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
+<div class="line"><a id="l01263" name="l01263"></a><span class="lineno"> 1263</span><span class="preprocessor"></span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01264" name="l01264"></a><span class="lineno"> 1264</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01265" name="l01265"></a><span class="lineno"> 1265</span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01266" name="l01266"></a><span class="lineno"> 1266</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01267" name="l01267"></a><span class="lineno"> 1267</span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01268" name="l01268"></a><span class="lineno"> 1268</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
+<div class="line"><a id="l01269" name="l01269"></a><span class="lineno"> 1269</span><span class="preprocessor"># 602 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01270" name="l01270"></a><span class="lineno"> 1270</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01271" name="l01271"></a><span class="lineno"> 1271</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01272" name="l01272"></a><span class="lineno"> 1272</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>                         :: left_bound, right_bound</div>
+<div class="line"><a id="l01273" name="l01273"></a><span class="lineno"> 1273</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span>                       :: left_index, right_index</div>
+<div class="line"><a id="l01274" name="l01274"></a><span class="lineno"> 1274</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(-buff_size:)</span>, <span class="keywordtype">intent(in)</span> :: cell_centers</div>
+<div class="line"><a id="l01275" name="l01275"></a><span class="lineno"> 1275</span>        <span class="keywordtype">integer</span>                                      :: itr_left, itr_middle, itr_right</div>
+<div class="line"><a id="l01276" name="l01276"></a><span class="lineno"> 1276</span> </div>
+<div class="line"><a id="l01277" name="l01277"></a><span class="lineno"> 1277</span>        itr_left = left_index</div>
+<div class="line"><a id="l01278" name="l01278"></a><span class="lineno"> 1278</span>        itr_right = right_index</div>
+<div class="line"><a id="l01279" name="l01279"></a><span class="lineno"> 1279</span> </div>
+<div class="line"><a id="l01280" name="l01280"></a><span class="lineno"> 1280</span>        <span class="keywordflow">do</span> <span class="keywordflow">while</span> (itr_left + 1 &lt; itr_right)</div>
+<div class="line"><a id="l01281" name="l01281"></a><span class="lineno"> 1281</span>            itr_middle = (itr_left + itr_right)/2</div>
+<div class="line"><a id="l01282" name="l01282"></a><span class="lineno"> 1282</span>            <span class="keywordflow">if</span> (cell_centers(itr_middle) &lt; left_bound) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01283" name="l01283"></a><span class="lineno"> 1283</span>                itr_left = itr_middle</div>
+<div class="line"><a id="l01284" name="l01284"></a><span class="lineno"> 1284</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cell_centers(itr_middle) &gt; left_bound) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01285" name="l01285"></a><span class="lineno"> 1285</span>                itr_right = itr_middle</div>
+<div class="line"><a id="l01286" name="l01286"></a><span class="lineno"> 1286</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01287" name="l01287"></a><span class="lineno"> 1287</span>                itr_left = itr_middle</div>
+<div class="line"><a id="l01288" name="l01288"></a><span class="lineno"> 1288</span>                <span class="keywordflow">exit</span></div>
+<div class="line"><a id="l01289" name="l01289"></a><span class="lineno"> 1289</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l01290" name="l01290"></a><span class="lineno"> 1290</span><span class="keywordflow">        end do</span></div>
+<div class="line"><a id="l01291" name="l01291"></a><span class="lineno"> 1291</span>        left_index = itr_left</div>
+<div class="line"><a id="l01292" name="l01292"></a><span class="lineno"> 1292</span> </div>
+<div class="line"><a id="l01293" name="l01293"></a><span class="lineno"> 1293</span>        itr_right = right_index</div>
+<div class="line"><a id="l01294" name="l01294"></a><span class="lineno"> 1294</span>        <span class="keywordflow">do</span> <span class="keywordflow">while</span> (itr_left + 1 &lt; itr_right)</div>
+<div class="line"><a id="l01295" name="l01295"></a><span class="lineno"> 1295</span>            itr_middle = (itr_left + itr_right)/2</div>
+<div class="line"><a id="l01296" name="l01296"></a><span class="lineno"> 1296</span>            <span class="keywordflow">if</span> (cell_centers(itr_middle) &lt; right_bound) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01297" name="l01297"></a><span class="lineno"> 1297</span>                itr_left = itr_middle</div>
+<div class="line"><a id="l01298" name="l01298"></a><span class="lineno"> 1298</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (cell_centers(itr_middle) &gt; right_bound) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01299" name="l01299"></a><span class="lineno"> 1299</span>                itr_right = itr_middle</div>
+<div class="line"><a id="l01300" name="l01300"></a><span class="lineno"> 1300</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01301" name="l01301"></a><span class="lineno"> 1301</span>                itr_right = itr_middle</div>
+<div class="line"><a id="l01302" name="l01302"></a><span class="lineno"> 1302</span>                <span class="keywordflow">exit</span></div>
+<div class="line"><a id="l01303" name="l01303"></a><span class="lineno"> 1303</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l01304" name="l01304"></a><span class="lineno"> 1304</span><span class="keywordflow">        end do</span></div>
+<div class="line"><a id="l01305" name="l01305"></a><span class="lineno"> 1305</span>        right_index = itr_right</div>
+<div class="line"><a id="l01306" name="l01306"></a><span class="lineno"> 1306</span> </div>
 </div>
-<div class="line"><a id="l01298" name="l01298"></a><span class="lineno"> 1298</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a></div>
-<div class="line"><a id="l01299" name="l01299"></a><span class="lineno"> 1299</span><span class="comment"></span> </div>
-<div class="line"><a id="l01300" name="l01300"></a><span class="lineno"> 1300</span><span class="comment">    !&gt; Decode the encoded ID to recover the original patch ID and periodicity</span></div>
-<div class="foldopen" id="foldopen01301" data-start="" data-end="">
-<div class="line"><a id="l01301" name="l01301"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2"> 1301</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">s_decode_patch_periodicity</a>(encoded_patch_id, patch_id, x_periodicity, y_periodicity, z_periodicity)</div>
-<div class="line"><a id="l01302" name="l01302"></a><span class="lineno"> 1302</span> </div>
-<div class="line"><a id="l01303" name="l01303"></a><span class="lineno"> 1303</span> </div>
-<div class="line"><a id="l01304" name="l01304"></a><span class="lineno"> 1304</span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01305" name="l01305"></a><span class="lineno"> 1305</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
-<div class="line"><a id="l01306" name="l01306"></a><span class="lineno"> 1306</span><span class="preprocessor"></span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01307" name="l01307"></a><span class="lineno"> 1307</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
-<div class="line"><a id="l01308" name="l01308"></a><span class="lineno"> 1308</span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01309" name="l01309"></a><span class="lineno"> 1309</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
-<div class="line"><a id="l01310" name="l01310"></a><span class="lineno"> 1310</span><span class="preprocessor"></span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01311" name="l01311"></a><span class="lineno"> 1311</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01312" name="l01312"></a><span class="lineno"> 1312</span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01313" name="l01313"></a><span class="lineno"> 1313</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01314" name="l01314"></a><span class="lineno"> 1314</span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01315" name="l01315"></a><span class="lineno"> 1315</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
-<div class="line"><a id="l01316" name="l01316"></a><span class="lineno"> 1316</span><span class="preprocessor"># 635 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01317" name="l01317"></a><span class="lineno"> 1317</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l01318" name="l01318"></a><span class="lineno"> 1318</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01319" name="l01319"></a><span class="lineno"> 1319</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>            :: encoded_patch_id</div>
-<div class="line"><a id="l01320" name="l01320"></a><span class="lineno"> 1320</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>           :: patch_id</div>
-<div class="line"><a id="l01321" name="l01321"></a><span class="lineno"> 1321</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: x_periodicity, y_periodicity, z_periodicity</div>
-<div class="line"><a id="l01322" name="l01322"></a><span class="lineno"> 1322</span>        <span class="keywordtype">integer</span>                        :: offset, remainder, xp, yp, zp, base</div>
-<div class="line"><a id="l01323" name="l01323"></a><span class="lineno"> 1323</span> </div>
-<div class="line"><a id="l01324" name="l01324"></a><span class="lineno"> 1324</span>        base = num_gbl_ibs + 1</div>
-<div class="line"><a id="l01325" name="l01325"></a><span class="lineno"> 1325</span> </div>
-<div class="line"><a id="l01326" name="l01326"></a><span class="lineno"> 1326</span>        patch_id = mod(encoded_patch_id - 1, base) + 1</div>
-<div class="line"><a id="l01327" name="l01327"></a><span class="lineno"> 1327</span>        offset = (encoded_patch_id - patch_id)/base</div>
-<div class="line"><a id="l01328" name="l01328"></a><span class="lineno"> 1328</span> </div>
-<div class="line"><a id="l01329" name="l01329"></a><span class="lineno"> 1329</span>        xp = mod(offset, 3)</div>
-<div class="line"><a id="l01330" name="l01330"></a><span class="lineno"> 1330</span>        remainder = offset/3</div>
-<div class="line"><a id="l01331" name="l01331"></a><span class="lineno"> 1331</span>        yp = mod(remainder, 3)</div>
-<div class="line"><a id="l01332" name="l01332"></a><span class="lineno"> 1332</span>        zp = remainder/3</div>
+<div class="line"><a id="l01307" name="l01307"></a><span class="lineno"> 1307</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">get_indices_from_bounds</a></div>
+<div class="line"><a id="l01308" name="l01308"></a><span class="lineno"> 1308</span><span class="comment"></span> </div>
+<div class="line"><a id="l01309" name="l01309"></a><span class="lineno"> 1309</span><span class="comment">    !&gt; Encode the patch ID with a unique offset containing periodicity information</span></div>
+<div class="foldopen" id="foldopen01310" data-start="" data-end="">
+<div class="line"><a id="l01310" name="l01310"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21"> 1310</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a>(patch_id, x_periodicity, y_periodicity, z_periodicity, encoded_patch_id)</div>
+<div class="line"><a id="l01311" name="l01311"></a><span class="lineno"> 1311</span> </div>
+<div class="line"><a id="l01312" name="l01312"></a><span class="lineno"> 1312</span> </div>
+<div class="line"><a id="l01313" name="l01313"></a><span class="lineno"> 1313</span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01314" name="l01314"></a><span class="lineno"> 1314</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
+<div class="line"><a id="l01315" name="l01315"></a><span class="lineno"> 1315</span><span class="preprocessor"></span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01316" name="l01316"></a><span class="lineno"> 1316</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
+<div class="line"><a id="l01317" name="l01317"></a><span class="lineno"> 1317</span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01318" name="l01318"></a><span class="lineno"> 1318</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
+<div class="line"><a id="l01319" name="l01319"></a><span class="lineno"> 1319</span><span class="preprocessor"></span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01320" name="l01320"></a><span class="lineno"> 1320</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01321" name="l01321"></a><span class="lineno"> 1321</span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01322" name="l01322"></a><span class="lineno"> 1322</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01323" name="l01323"></a><span class="lineno"> 1323</span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01324" name="l01324"></a><span class="lineno"> 1324</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
+<div class="line"><a id="l01325" name="l01325"></a><span class="lineno"> 1325</span><span class="preprocessor"># 644 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01326" name="l01326"></a><span class="lineno"> 1326</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01327" name="l01327"></a><span class="lineno"> 1327</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01328" name="l01328"></a><span class="lineno"> 1328</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>  :: patch_id, x_periodicity, y_periodicity, z_periodicity</div>
+<div class="line"><a id="l01329" name="l01329"></a><span class="lineno"> 1329</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: encoded_patch_id</div>
+<div class="line"><a id="l01330" name="l01330"></a><span class="lineno"> 1330</span>        <span class="keywordtype">integer</span>              :: temp_x_per, temp_y_per, temp_z_per, offset</div>
+<div class="line"><a id="l01331" name="l01331"></a><span class="lineno"> 1331</span> </div>
+<div class="line"><a id="l01332" name="l01332"></a><span class="lineno"> 1332</span>        encoded_patch_id = patch_id</div>
 <div class="line"><a id="l01333" name="l01333"></a><span class="lineno"> 1333</span> </div>
-<div class="line"><a id="l01334" name="l01334"></a><span class="lineno"> 1334</span>        <span class="comment">! Reverse map: 2 -&gt; -1, 0 -&gt; 0, 1 -&gt; 1</span></div>
-<div class="line"><a id="l01335" name="l01335"></a><span class="lineno"> 1335</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(x_periodicity) .and. <span class="keyword">present</span>(y_periodicity) .and. <span class="keyword">present</span>(z_periodicity)) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01336" name="l01336"></a><span class="lineno"> 1336</span>            x_periodicity = xp; <span class="keywordflow">if</span> (xp == 2) x_periodicity = -1</div>
-<div class="line"><a id="l01337" name="l01337"></a><span class="lineno"> 1337</span>            y_periodicity = yp; <span class="keywordflow">if</span> (yp == 2) y_periodicity = -1</div>
-<div class="line"><a id="l01338" name="l01338"></a><span class="lineno"> 1338</span>            z_periodicity = zp; <span class="keywordflow">if</span> (zp == 2) z_periodicity = -1</div>
-<div class="line"><a id="l01339" name="l01339"></a><span class="lineno"> 1339</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01334" name="l01334"></a><span class="lineno"> 1334</span>        temp_x_per = x_periodicity; <span class="keywordflow">if</span> (x_periodicity == -1) temp_x_per = 2</div>
+<div class="line"><a id="l01335" name="l01335"></a><span class="lineno"> 1335</span>        temp_y_per = y_periodicity; <span class="keywordflow">if</span> (y_periodicity == -1) temp_y_per = 2</div>
+<div class="line"><a id="l01336" name="l01336"></a><span class="lineno"> 1336</span>        temp_z_per = z_periodicity; <span class="keywordflow">if</span> (z_periodicity == -1) temp_z_per = 2</div>
+<div class="line"><a id="l01337" name="l01337"></a><span class="lineno"> 1337</span> </div>
+<div class="line"><a id="l01338" name="l01338"></a><span class="lineno"> 1338</span>        offset = (num_gbl_ibs + 1)*temp_x_per + 3*(num_gbl_ibs + 1)*temp_y_per + 9*(num_gbl_ibs + 1)*temp_z_per</div>
+<div class="line"><a id="l01339" name="l01339"></a><span class="lineno"> 1339</span>        encoded_patch_id = patch_id + offset</div>
 <div class="line"><a id="l01340" name="l01340"></a><span class="lineno"> 1340</span> </div>
 </div>
-<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">s_decode_patch_periodicity</a></div>
+<div class="line"><a id="l01341" name="l01341"></a><span class="lineno"> 1341</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">s_encode_patch_periodicity</a></div>
 <div class="line"><a id="l01342" name="l01342"></a><span class="lineno"> 1342</span><span class="comment"></span> </div>
-<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span><span class="comment">    !&gt; Determine the periodic wrapping bounds in each direction</span></div>
+<div class="line"><a id="l01343" name="l01343"></a><span class="lineno"> 1343</span><span class="comment">    !&gt; Decode the encoded ID to recover the original patch ID and periodicity</span></div>
 <div class="foldopen" id="foldopen01344" data-start="" data-end="">
-<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f"> 1344</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a>(xp_lower, xp_upper, yp_lower, yp_upper, zp_lower, zp_upper)</div>
+<div class="line"><a id="l01344" name="l01344"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2"> 1344</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">s_decode_patch_periodicity</a>(encoded_patch_id, patch_id, x_periodicity, y_periodicity, z_periodicity)</div>
 <div class="line"><a id="l01345" name="l01345"></a><span class="lineno"> 1345</span> </div>
-<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>           :: xp_lower, xp_upper, yp_lower, yp_upper</div>
-<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: zp_lower, zp_upper</div>
-<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span> </div>
-<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span>        <span class="comment">! check domain wraps in x, y</span></div>
-<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span> </div>
-<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span><span class="preprocessor"># 670 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span><span class="preprocessor"></span>            <span class="comment">! check for periodicity</span></div>
-<div class="line"><a id="l01353" name="l01353"></a><span class="lineno"> 1353</span>            <span class="keywordflow">if</span> (ib_bc_x%beg == bc_periodic) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01354" name="l01354"></a><span class="lineno"> 1354</span>                xp_lower = -1</div>
-<div class="line"><a id="l01355" name="l01355"></a><span class="lineno"> 1355</span>                xp_upper = 1</div>
-<div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span>                <span class="comment">! if it is not periodic, then both elements are 0</span></div>
-<div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span>                xp_lower = 0</div>
-<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span>                xp_upper = 0</div>
-<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span><span class="preprocessor"># 670 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span><span class="preprocessor"></span>            <span class="comment">! check for periodicity</span></div>
-<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span>            <span class="keywordflow">if</span> (ib_bc_y%beg == bc_periodic) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span>                yp_lower = -1</div>
-<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span>                yp_upper = 1</div>
-<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span>                <span class="comment">! if it is not periodic, then both elements are 0</span></div>
-<div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span>                yp_lower = 0</div>
-<div class="line"><a id="l01369" name="l01369"></a><span class="lineno"> 1369</span>                yp_upper = 0</div>
-<div class="line"><a id="l01370" name="l01370"></a><span class="lineno"> 1370</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l01371" name="l01371"></a><span class="lineno"> 1371</span><span class="preprocessor"># 680 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01372" name="l01372"></a><span class="lineno"> 1372</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01373" name="l01373"></a><span class="lineno"> 1373</span>        <span class="comment">! z only if 3D</span></div>
-<div class="line"><a id="l01374" name="l01374"></a><span class="lineno"> 1374</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(zp_lower) .and. num_dims == 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01375" name="l01375"></a><span class="lineno"> 1375</span>            <span class="keywordflow">if</span> (ib_bc_z%beg == bc_periodic) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span>                zp_lower = -1</div>
-<div class="line"><a id="l01377" name="l01377"></a><span class="lineno"> 1377</span>                zp_upper = 1</div>
-<div class="line"><a id="l01378" name="l01378"></a><span class="lineno"> 1378</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>                zp_lower = 0</div>
-<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>                zp_upper = 0</div>
-<div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">present</span>(zp_lower)) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span>            zp_lower = 0</div>
-<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>            zp_upper = 0</div>
-<div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l01386" name="l01386"></a><span class="lineno"> 1386</span> </div>
+<div class="line"><a id="l01346" name="l01346"></a><span class="lineno"> 1346</span> </div>
+<div class="line"><a id="l01347" name="l01347"></a><span class="lineno"> 1347</span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01348" name="l01348"></a><span class="lineno"> 1348</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
+<div class="line"><a id="l01349" name="l01349"></a><span class="lineno"> 1349</span><span class="preprocessor"></span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01350" name="l01350"></a><span class="lineno"> 1350</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
+<div class="line"><a id="l01351" name="l01351"></a><span class="lineno"> 1351</span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01352" name="l01352"></a><span class="lineno"> 1352</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
+<div class="line"><a id="l01353" name="l01353"></a><span class="lineno"> 1353</span><span class="preprocessor"></span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01354" name="l01354"></a><span class="lineno"> 1354</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01355" name="l01355"></a><span class="lineno"> 1355</span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01356" name="l01356"></a><span class="lineno"> 1356</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01357" name="l01357"></a><span class="lineno"> 1357</span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01358" name="l01358"></a><span class="lineno"> 1358</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
+<div class="line"><a id="l01359" name="l01359"></a><span class="lineno"> 1359</span><span class="preprocessor"># 664 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01360" name="l01360"></a><span class="lineno"> 1360</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01361" name="l01361"></a><span class="lineno"> 1361</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01362" name="l01362"></a><span class="lineno"> 1362</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>            :: encoded_patch_id</div>
+<div class="line"><a id="l01363" name="l01363"></a><span class="lineno"> 1363</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>           :: patch_id</div>
+<div class="line"><a id="l01364" name="l01364"></a><span class="lineno"> 1364</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: x_periodicity, y_periodicity, z_periodicity</div>
+<div class="line"><a id="l01365" name="l01365"></a><span class="lineno"> 1365</span>        <span class="keywordtype">integer</span>                        :: offset, remainder, xp, yp, zp, base</div>
+<div class="line"><a id="l01366" name="l01366"></a><span class="lineno"> 1366</span> </div>
+<div class="line"><a id="l01367" name="l01367"></a><span class="lineno"> 1367</span>        base = num_gbl_ibs + 1</div>
+<div class="line"><a id="l01368" name="l01368"></a><span class="lineno"> 1368</span> </div>
+<div class="line"><a id="l01369" name="l01369"></a><span class="lineno"> 1369</span>        patch_id = mod(encoded_patch_id - 1, base) + 1</div>
+<div class="line"><a id="l01370" name="l01370"></a><span class="lineno"> 1370</span>        offset = (encoded_patch_id - patch_id)/base</div>
+<div class="line"><a id="l01371" name="l01371"></a><span class="lineno"> 1371</span> </div>
+<div class="line"><a id="l01372" name="l01372"></a><span class="lineno"> 1372</span>        xp = mod(offset, 3)</div>
+<div class="line"><a id="l01373" name="l01373"></a><span class="lineno"> 1373</span>        remainder = offset/3</div>
+<div class="line"><a id="l01374" name="l01374"></a><span class="lineno"> 1374</span>        yp = mod(remainder, 3)</div>
+<div class="line"><a id="l01375" name="l01375"></a><span class="lineno"> 1375</span>        zp = remainder/3</div>
+<div class="line"><a id="l01376" name="l01376"></a><span class="lineno"> 1376</span> </div>
+<div class="line"><a id="l01377" name="l01377"></a><span class="lineno"> 1377</span>        <span class="comment">! Reverse map: 2 -&gt; -1, 0 -&gt; 0, 1 -&gt; 1</span></div>
+<div class="line"><a id="l01378" name="l01378"></a><span class="lineno"> 1378</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(x_periodicity) .and. <span class="keyword">present</span>(y_periodicity) .and. <span class="keyword">present</span>(z_periodicity)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01379" name="l01379"></a><span class="lineno"> 1379</span>            x_periodicity = xp; <span class="keywordflow">if</span> (xp == 2) x_periodicity = -1</div>
+<div class="line"><a id="l01380" name="l01380"></a><span class="lineno"> 1380</span>            y_periodicity = yp; <span class="keywordflow">if</span> (yp == 2) y_periodicity = -1</div>
+<div class="line"><a id="l01381" name="l01381"></a><span class="lineno"> 1381</span>            z_periodicity = zp; <span class="keywordflow">if</span> (zp == 2) z_periodicity = -1</div>
+<div class="line"><a id="l01382" name="l01382"></a><span class="lineno"> 1382</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01383" name="l01383"></a><span class="lineno"> 1383</span> </div>
 </div>
-<div class="line"><a id="l01387" name="l01387"></a><span class="lineno"> 1387</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a></div>
-<div class="line"><a id="l01388" name="l01388"></a><span class="lineno"> 1388</span><span class="comment"></span> </div>
-<div class="line"><a id="l01389" name="l01389"></a><span class="lineno"> 1389</span><span class="comment">    !&gt; Archimedes spiral function</span></div>
-<div class="foldopen" id="foldopen01390" data-start="" data-end="">
-<div class="line"><a id="l01390" name="l01390"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564"> 1390</a></span>    <span class="keywordtype">pure</span> <span class="keywordtype">elemental</span> <span class="keyword">function </span><a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a>(myth, offset, a)</div>
+<div class="line"><a id="l01384" name="l01384"></a><span class="lineno"> 1384</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">s_decode_patch_periodicity</a></div>
+<div class="line"><a id="l01385" name="l01385"></a><span class="lineno"> 1385</span><span class="comment"></span> </div>
+<div class="line"><a id="l01386" name="l01386"></a><span class="lineno"> 1386</span><span class="comment">    !&gt; Determine the periodic wrapping bounds in each direction</span></div>
+<div class="foldopen" id="foldopen01387" data-start="" data-end="">
+<div class="line"><a id="l01387" name="l01387"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f"> 1387</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a>(xp_lower, xp_upper, yp_lower, yp_upper, zp_lower, zp_upper)</div>
+<div class="line"><a id="l01388" name="l01388"></a><span class="lineno"> 1388</span> </div>
+<div class="line"><a id="l01389" name="l01389"></a><span class="lineno"> 1389</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>           :: xp_lower, xp_upper, yp_lower, yp_upper</div>
+<div class="line"><a id="l01390" name="l01390"></a><span class="lineno"> 1390</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>, <span class="keywordtype">optional</span> :: zp_lower, zp_upper</div>
 <div class="line"><a id="l01391" name="l01391"></a><span class="lineno"> 1391</span> </div>
-<div class="line"><a id="l01392" name="l01392"></a><span class="lineno"> 1392</span> </div>
-<div class="line"><a id="l01393" name="l01393"></a><span class="lineno"> 1393</span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01394" name="l01394"></a><span class="lineno"> 1394</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
-<div class="line"><a id="l01395" name="l01395"></a><span class="lineno"> 1395</span><span class="preprocessor"></span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01396" name="l01396"></a><span class="lineno"> 1396</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
-<div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
-<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span><span class="preprocessor"></span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
-<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span><span class="preprocessor"># 700 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
-<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span><span class="preprocessor"></span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span> :: myth, offset, a</div>
-<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span><span class="keywordtype">        real</span>(wp)             :: b</div>
-<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span><span class="keywordtype">        real</span>(wp)             :: <a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a></div>
-<div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span> </div>
-<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span>        <span class="comment">! r(th) = a + b*th</span></div>
-<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span> </div>
-<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span>        b = 2._wp*a/(2._wp*pi)</div>
-<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span>        <a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a> = a + b*myth + offset</div>
-<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span> </div>
+<div class="line"><a id="l01392" name="l01392"></a><span class="lineno"> 1392</span>        <span class="comment">! check domain wraps in x, y</span></div>
+<div class="line"><a id="l01393" name="l01393"></a><span class="lineno"> 1393</span> </div>
+<div class="line"><a id="l01394" name="l01394"></a><span class="lineno"> 1394</span><span class="preprocessor"># 699 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01395" name="l01395"></a><span class="lineno"> 1395</span><span class="preprocessor"></span>            <span class="comment">! check for periodicity</span></div>
+<div class="line"><a id="l01396" name="l01396"></a><span class="lineno"> 1396</span>            <span class="keywordflow">if</span> (ib_bc_x%beg == bc_periodic) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01397" name="l01397"></a><span class="lineno"> 1397</span>                xp_lower = -1</div>
+<div class="line"><a id="l01398" name="l01398"></a><span class="lineno"> 1398</span>                xp_upper = 1</div>
+<div class="line"><a id="l01399" name="l01399"></a><span class="lineno"> 1399</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01400" name="l01400"></a><span class="lineno"> 1400</span>                <span class="comment">! if it is not periodic, then both elements are 0</span></div>
+<div class="line"><a id="l01401" name="l01401"></a><span class="lineno"> 1401</span>                xp_lower = 0</div>
+<div class="line"><a id="l01402" name="l01402"></a><span class="lineno"> 1402</span>                xp_upper = 0</div>
+<div class="line"><a id="l01403" name="l01403"></a><span class="lineno"> 1403</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l01404" name="l01404"></a><span class="lineno"> 1404</span><span class="preprocessor"># 699 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01405" name="l01405"></a><span class="lineno"> 1405</span><span class="preprocessor"></span>            <span class="comment">! check for periodicity</span></div>
+<div class="line"><a id="l01406" name="l01406"></a><span class="lineno"> 1406</span>            <span class="keywordflow">if</span> (ib_bc_y%beg == bc_periodic) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01407" name="l01407"></a><span class="lineno"> 1407</span>                yp_lower = -1</div>
+<div class="line"><a id="l01408" name="l01408"></a><span class="lineno"> 1408</span>                yp_upper = 1</div>
+<div class="line"><a id="l01409" name="l01409"></a><span class="lineno"> 1409</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01410" name="l01410"></a><span class="lineno"> 1410</span>                <span class="comment">! if it is not periodic, then both elements are 0</span></div>
+<div class="line"><a id="l01411" name="l01411"></a><span class="lineno"> 1411</span>                yp_lower = 0</div>
+<div class="line"><a id="l01412" name="l01412"></a><span class="lineno"> 1412</span>                yp_upper = 0</div>
+<div class="line"><a id="l01413" name="l01413"></a><span class="lineno"> 1413</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l01414" name="l01414"></a><span class="lineno"> 1414</span><span class="preprocessor"># 709 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01415" name="l01415"></a><span class="lineno"> 1415</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>        <span class="comment">! z only if 3D</span></div>
+<div class="line"><a id="l01417" name="l01417"></a><span class="lineno"> 1417</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(zp_lower) .and. num_dims == 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01418" name="l01418"></a><span class="lineno"> 1418</span>            <span class="keywordflow">if</span> (ib_bc_z%beg == bc_periodic) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01419" name="l01419"></a><span class="lineno"> 1419</span>                zp_lower = -1</div>
+<div class="line"><a id="l01420" name="l01420"></a><span class="lineno"> 1420</span>                zp_upper = 1</div>
+<div class="line"><a id="l01421" name="l01421"></a><span class="lineno"> 1421</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01422" name="l01422"></a><span class="lineno"> 1422</span>                zp_lower = 0</div>
+<div class="line"><a id="l01423" name="l01423"></a><span class="lineno"> 1423</span>                zp_upper = 0</div>
+<div class="line"><a id="l01424" name="l01424"></a><span class="lineno"> 1424</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l01425" name="l01425"></a><span class="lineno"> 1425</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<span class="keyword">present</span>(zp_lower)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01426" name="l01426"></a><span class="lineno"> 1426</span>            zp_lower = 0</div>
+<div class="line"><a id="l01427" name="l01427"></a><span class="lineno"> 1427</span>            zp_upper = 0</div>
+<div class="line"><a id="l01428" name="l01428"></a><span class="lineno"> 1428</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l01429" name="l01429"></a><span class="lineno"> 1429</span> </div>
 </div>
-<div class="line"><a id="l01416" name="l01416"></a><span class="lineno"> 1416</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a></div>
-<div class="line"><a id="l01417" name="l01417"></a><span class="lineno"> 1417</span> </div>
-<div class="line"><a id="l01418" name="l01418"></a><span class="lineno"> 1418</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__ib__patches.html">m_ib_patches</a></div>
+<div class="line"><a id="l01430" name="l01430"></a><span class="lineno"> 1430</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a></div>
+<div class="line"><a id="l01431" name="l01431"></a><span class="lineno"> 1431</span><span class="comment"></span> </div>
+<div class="line"><a id="l01432" name="l01432"></a><span class="lineno"> 1432</span><span class="comment">    !&gt; Archimedes spiral function</span></div>
+<div class="foldopen" id="foldopen01433" data-start="" data-end="">
+<div class="line"><a id="l01433" name="l01433"></a><span class="lineno"><a class="line" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564"> 1433</a></span>    <span class="keywordtype">pure</span> <span class="keywordtype">elemental</span> <span class="keyword">function </span><a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a>(myth, offset, a)</div>
+<div class="line"><a id="l01434" name="l01434"></a><span class="lineno"> 1434</span> </div>
+<div class="line"><a id="l01435" name="l01435"></a><span class="lineno"> 1435</span> </div>
+<div class="line"><a id="l01436" name="l01436"></a><span class="lineno"> 1436</span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01437" name="l01437"></a><span class="lineno"> 1437</span><span class="preprocessor"></span><span class="preprocessor">#if MFC_OpenACC</span></div>
+<div class="line"><a id="l01438" name="l01438"></a><span class="lineno"> 1438</span><span class="preprocessor"></span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01439" name="l01439"></a><span class="lineno"> 1439</span><span class="preprocessor"></span><span class="comment">!$acc routine seq </span></div>
+<div class="line"><a id="l01440" name="l01440"></a><span class="lineno"> 1440</span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01441" name="l01441"></a><span class="lineno"> 1441</span><span class="preprocessor"></span><span class="preprocessor">#elif MFC_OpenMP</span></div>
+<div class="line"><a id="l01442" name="l01442"></a><span class="lineno"> 1442</span><span class="preprocessor"></span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01443" name="l01443"></a><span class="lineno"> 1443</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01444" name="l01444"></a><span class="lineno"> 1444</span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01445" name="l01445"></a><span class="lineno"> 1445</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l01446" name="l01446"></a><span class="lineno"> 1446</span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01447" name="l01447"></a><span class="lineno"> 1447</span><span class="preprocessor"></span><span class="comment">!$omp declare target device_type(any) </span></div>
+<div class="line"><a id="l01448" name="l01448"></a><span class="lineno"> 1448</span><span class="preprocessor"># 729 &quot;/home/runner/work/MFC/MFC/src/simulation/m_ib_patches.fpp&quot;</span></div>
+<div class="line"><a id="l01449" name="l01449"></a><span class="lineno"> 1449</span><span class="preprocessor"></span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l01450" name="l01450"></a><span class="lineno"> 1450</span><span class="preprocessor"></span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span> :: myth, offset, a</div>
+<div class="line"><a id="l01451" name="l01451"></a><span class="lineno"> 1451</span><span class="keywordtype">        real</span>(wp)             :: b</div>
+<div class="line"><a id="l01452" name="l01452"></a><span class="lineno"> 1452</span><span class="keywordtype">        real</span>(wp)             :: <a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a></div>
+<div class="line"><a id="l01453" name="l01453"></a><span class="lineno"> 1453</span> </div>
+<div class="line"><a id="l01454" name="l01454"></a><span class="lineno"> 1454</span>        <span class="comment">! r(th) = a + b*th</span></div>
+<div class="line"><a id="l01455" name="l01455"></a><span class="lineno"> 1455</span> </div>
+<div class="line"><a id="l01456" name="l01456"></a><span class="lineno"> 1456</span>        b = 2._wp*a/(2._wp*pi)</div>
+<div class="line"><a id="l01457" name="l01457"></a><span class="lineno"> 1457</span>        <a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a> = a + b*myth + offset</div>
+<div class="line"><a id="l01458" name="l01458"></a><span class="lineno"> 1458</span> </div>
+</div>
+<div class="line"><a id="l01459" name="l01459"></a><span class="lineno"> 1459</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">f_r</a></div>
+<div class="line"><a id="l01460" name="l01460"></a><span class="lineno"> 1460</span> </div>
+<div class="line"><a id="l01461" name="l01461"></a><span class="lineno"> 1461</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__ib__patches.html">m_ib_patches</a></div>
 <div class="ttc" id="am__phase__change_8fpp_8f90_html_ace2eaec12668a4d4eedb46c8c99c94f2"><div class="ttname"><a href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a></div><div class="ttdeci">integer, intent(in) j</div><div class="ttdef"><b>Definition</b> <a href="m__phase__change_8fpp_8f90_source.html#l00989">m_phase_change.fpp.f90:989</a></div></div>
 <div class="ttc" id="anamespacem__derived__types_html"><div class="ttname"><a href="namespacem__derived__types.html">m_derived_types</a></div><div class="ttdoc">Shared derived types for field data, patch geometry, bubble dynamics, and MPI I/O structures.</div><div class="ttdef"><b>Definition</b> <a href="m__derived__types_8fpp_8f90_source.html#l00323">m_derived_types.fpp.f90:323</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html"><div class="ttname"><a href="namespacem__global__parameters.html">m_global_parameters</a></div><div class="ttdoc">Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00334">m_global_parameters.fpp.f90:334</a></div></div>
@@ -1588,16 +1633,17 @@ $(function(){initNavTree('m__ib__patches_8fpp_8f90_source.html','',''); });
 <div class="ttc" id="anamespacem__helper_html"><div class="ttname"><a href="namespacem__helper.html">m_helper</a></div><div class="ttdoc">Utility routines for bubble model setup, coordinate transforms, array sampling, and special functions...</div><div class="ttdef"><b>Definition</b> <a href="m__helper_8fpp_8f90_source.html#l00334">m_helper.fpp.f90:334</a></div></div>
 <div class="ttc" id="anamespacem__ib__patches_html"><div class="ttname"><a href="namespacem__ib__patches.html">m_ib_patches</a></div><div class="ttdoc">Allocate memory and read initial condition data for IC extrusion.</div><div class="ttdef"><b>Definition</b> <a href="#l00393">m_ib_patches.fpp.f90:393</a></div></div>
 <div class="ttc" id="anamespacem__ib__patches_html_a02137079d6bc025565bf1f4d0e5940fb"><div class="ttname"><a href="namespacem__ib__patches.html#a02137079d6bc025565bf1f4d0e5940fb">m_ib_patches::s_update_ib_rotation_matrix</a></div><div class="ttdeci">subroutine, public s_update_ib_rotation_matrix(patch_id)</div><div class="ttdoc">Compute a rotation matrix for converting to the rotating frame of the boundary.</div><div class="ttdef"><b>Definition</b> <a href="#l01027">m_ib_patches.fpp.f90:1028</a></div></div>
-<div class="ttc" id="anamespacem__ib__patches_html_a12a440228072b7e454f8b4c8dad8db27"><div class="ttname"><a href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">m_ib_patches::get_indices_from_bounds</a></div><div class="ttdeci">subroutine get_indices_from_bounds(left_bound, right_bound, cell_centers, left_index, right_index)</div><div class="ttdef"><b>Definition</b> <a href="#l01211">m_ib_patches.fpp.f90:1212</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_a12a440228072b7e454f8b4c8dad8db27"><div class="ttname"><a href="namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27">m_ib_patches::get_indices_from_bounds</a></div><div class="ttdeci">subroutine get_indices_from_bounds(left_bound, right_bound, cell_centers, left_index, right_index)</div><div class="ttdef"><b>Definition</b> <a href="#l01254">m_ib_patches.fpp.f90:1255</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_a22773266b33691fb98deeeec33a6c7ea"><div class="ttname"><a href="namespacem__ib__patches.html#a22773266b33691fb98deeeec33a6c7ea">m_ib_patches::s_get_ib_bound</a></div><div class="ttdeci">subroutine, public s_get_ib_bound(patch, bound)</div><div class="ttdef"><b>Definition</b> <a href="#l01087">m_ib_patches.fpp.f90:1088</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_a391bc6342b15b9fc9d1064acdbde06cb"><div class="ttname"><a href="namespacem__ib__patches.html#a391bc6342b15b9fc9d1064acdbde06cb">m_ib_patches::s_get_bounding_indices</a></div><div class="ttdeci">subroutine s_get_bounding_indices(patch, center, il, ir, jl, jr, kl, kr)</div><div class="ttdef"><b>Definition</b> <a href="#l01148">m_ib_patches.fpp.f90:1149</a></div></div>
 <div class="ttc" id="anamespacem__ib__patches_html_a5eb95c7b234b83782c65a50d308c0989"><div class="ttname"><a href="namespacem__ib__patches.html#a5eb95c7b234b83782c65a50d308c0989">m_ib_patches::s_apply_ib_patches_ib_parallelism</a></div><div class="ttdeci">subroutine s_apply_ib_patches_ib_parallelism(ib_markers)</div><div class="ttdef"><b>Definition</b> <a href="#l00649">m_ib_patches.fpp.f90:650</a></div></div>
 <div class="ttc" id="anamespacem__ib__patches_html_a7ae39b1544784fe4bd5a599a80a1045a"><div class="ttname"><a href="namespacem__ib__patches.html#a7ae39b1544784fe4bd5a599a80a1045a">m_ib_patches::s_apply_ib_patches_grid_cell_parallelism</a></div><div class="ttdeci">subroutine s_apply_ib_patches_grid_cell_parallelism(ib_markers)</div><div class="ttdef"><b>Definition</b> <a href="#l00423">m_ib_patches.fpp.f90:424</a></div></div>
 <div class="ttc" id="anamespacem__ib__patches_html_ab06da168882fb777f4122978c8ddd91a"><div class="ttname"><a href="namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a">m_ib_patches::s_apply_ib_patches</a></div><div class="ttdeci">impure subroutine, public s_apply_ib_patches(ib_markers)</div><div class="ttdoc">Apply all immersed boundary patch geometries to mark interior cells in the IB marker array.</div><div class="ttdef"><b>Definition</b> <a href="#l00411">m_ib_patches.fpp.f90:412</a></div></div>
-<div class="ttc" id="anamespacem__ib__patches_html_acbcf356203316a9b92241180755ae03f"><div class="ttname"><a href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">m_ib_patches::s_get_periodicities</a></div><div class="ttdeci">subroutine, public s_get_periodicities(xp_lower, xp_upper, yp_lower, yp_upper, zp_lower, zp_upper)</div><div class="ttdoc">Determine the periodic wrapping bounds in each direction.</div><div class="ttdef"><b>Definition</b> <a href="#l01344">m_ib_patches.fpp.f90:1345</a></div></div>
-<div class="ttc" id="anamespacem__ib__patches_html_ad85d575f53026e9fd45ae4a1448f14ab"><div class="ttname"><a href="namespacem__ib__patches.html#ad85d575f53026e9fd45ae4a1448f14ab">m_ib_patches::get_bounding_indices</a></div><div class="ttdeci">subroutine get_bounding_indices(patch, center, il, ir, jl, jr, kl, kr)</div><div class="ttdef"><b>Definition</b> <a href="#l01087">m_ib_patches.fpp.f90:1088</a></div></div>
-<div class="ttc" id="anamespacem__ib__patches_html_ae15ced43c5c59a33663282947a6d11d2"><div class="ttname"><a href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">m_ib_patches::s_decode_patch_periodicity</a></div><div class="ttdeci">subroutine, public s_decode_patch_periodicity(encoded_patch_id, patch_id, x_periodicity, y_periodicity, z_periodicity)</div><div class="ttdoc">Decode the encoded ID to recover the original patch ID and periodicity.</div><div class="ttdef"><b>Definition</b> <a href="#l01301">m_ib_patches.fpp.f90:1302</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_acbcf356203316a9b92241180755ae03f"><div class="ttname"><a href="namespacem__ib__patches.html#acbcf356203316a9b92241180755ae03f">m_ib_patches::s_get_periodicities</a></div><div class="ttdeci">subroutine, public s_get_periodicities(xp_lower, xp_upper, yp_lower, yp_upper, zp_lower, zp_upper)</div><div class="ttdoc">Determine the periodic wrapping bounds in each direction.</div><div class="ttdef"><b>Definition</b> <a href="#l01387">m_ib_patches.fpp.f90:1388</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_ae15ced43c5c59a33663282947a6d11d2"><div class="ttname"><a href="namespacem__ib__patches.html#ae15ced43c5c59a33663282947a6d11d2">m_ib_patches::s_decode_patch_periodicity</a></div><div class="ttdeci">subroutine, public s_decode_patch_periodicity(encoded_patch_id, patch_id, x_periodicity, y_periodicity, z_periodicity)</div><div class="ttdoc">Decode the encoded ID to recover the original patch ID and periodicity.</div><div class="ttdef"><b>Definition</b> <a href="#l01344">m_ib_patches.fpp.f90:1345</a></div></div>
 <div class="ttc" id="anamespacem__ib__patches_html_ae9c1d0dfb93f8fd329061b059be276a6"><div class="ttname"><a href="namespacem__ib__patches.html#ae9c1d0dfb93f8fd329061b059be276a6">m_ib_patches::s_initialize_ib_airfoils</a></div><div class="ttdeci">subroutine, public s_initialize_ib_airfoils()</div><div class="ttdoc">Initialize the NACA surface grids for all airfoil IB patches. Must be called after the grid is establ...</div><div class="ttdef"><b>Definition</b> <a href="#l00860">m_ib_patches.fpp.f90:861</a></div></div>
-<div class="ttc" id="anamespacem__ib__patches_html_aefc22ad9a7d433709711d12c2095cd21"><div class="ttname"><a href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">m_ib_patches::s_encode_patch_periodicity</a></div><div class="ttdeci">subroutine, public s_encode_patch_periodicity(patch_id, x_periodicity, y_periodicity, z_periodicity, encoded_patch_id)</div><div class="ttdoc">Encode the patch ID with a unique offset containing periodicity information.</div><div class="ttdef"><b>Definition</b> <a href="#l01267">m_ib_patches.fpp.f90:1268</a></div></div>
-<div class="ttc" id="anamespacem__ib__patches_html_af5ec2b3362739e6cdd95f35f3c402564"><div class="ttname"><a href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">m_ib_patches::f_r</a></div><div class="ttdeci">pure elemental real(wp) function f_r(myth, offset, a)</div><div class="ttdoc">Archimedes spiral function.</div><div class="ttdef"><b>Definition</b> <a href="#l01390">m_ib_patches.fpp.f90:1391</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_aefc22ad9a7d433709711d12c2095cd21"><div class="ttname"><a href="namespacem__ib__patches.html#aefc22ad9a7d433709711d12c2095cd21">m_ib_patches::s_encode_patch_periodicity</a></div><div class="ttdeci">subroutine, public s_encode_patch_periodicity(patch_id, x_periodicity, y_periodicity, z_periodicity, encoded_patch_id)</div><div class="ttdoc">Encode the patch ID with a unique offset containing periodicity information.</div><div class="ttdef"><b>Definition</b> <a href="#l01310">m_ib_patches.fpp.f90:1311</a></div></div>
+<div class="ttc" id="anamespacem__ib__patches_html_af5ec2b3362739e6cdd95f35f3c402564"><div class="ttname"><a href="namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564">m_ib_patches::f_r</a></div><div class="ttdeci">pure elemental real(wp) function f_r(myth, offset, a)</div><div class="ttdoc">Archimedes spiral function.</div><div class="ttdef"><b>Definition</b> <a href="#l01433">m_ib_patches.fpp.f90:1434</a></div></div>
 <div class="ttc" id="anamespacem__model_html"><div class="ttname"><a href="namespacem__model.html">m_model</a></div><div class="ttdoc">Binary STL file reader and processor for immersed boundary geometry.</div><div class="ttdef"><b>Definition</b> <a href="m__model_8fpp_8f90_source.html#l00324">m_model.fpp.f90:324</a></div></div>
 <div class="ttc" id="anamespacem__model_html_a67f88868e4694fecf2151ffd5df4fc75"><div class="ttname"><a href="namespacem__model.html#a67f88868e4694fecf2151ffd5df4fc75">m_model::gpu_ntrs</a></div><div class="ttdeci">integer, dimension(:), allocatable, public gpu_ntrs</div><div class="ttdoc">GPU-friendly flat arrays for STL model data.</div><div class="ttdef"><b>Definition</b> <a href="m__model_8fpp_8f90_source.html#l00345">m_model.fpp.f90:345</a></div></div>
 <div class="ttc" id="anamespacem__model_html_aa90c25197d99b77858e50c3f284dd6c9"><div class="ttname"><a href="namespacem__model.html#aa90c25197d99b77858e50c3f284dd6c9">m_model::f_model_is_inside</a></div><div class="ttdeci">real(wp) function, public f_model_is_inside(ntrs, pid, point)</div><div class="ttdoc">Determine if a point is inside a surface using the generalized winding number (Jacobson et al....</div><div class="ttdef"><b>Definition</b> <a href="m__model_8fpp_8f90_source.html#l00791">m_model.fpp.f90:792</a></div></div>

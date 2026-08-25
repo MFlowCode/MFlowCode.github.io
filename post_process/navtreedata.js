@@ -63,7 +63,7 @@ var NAVTREEINDEX =
 "structm__derived__types_1_1bubbles__lagrange__parameters.html",
 "structm__derived__types_1_1ic__context.html#a173150e4cf88cf0f4995ed4d0996ac85",
 "structm__derived__types_1_1output__context.html#af5b8a4d176a3d6dab85b79e085b144b4",
-"structm__nvtx_1_1nvtxeventattributes.html#a6c0adfd6fef5a8a05ec816b92fe759a6"
+"structm__nvtx_1_1nvtxeventattributes.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
