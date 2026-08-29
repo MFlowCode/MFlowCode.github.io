@@ -939,6 +939,20 @@ NVHPC OpenMP Options</h3>
 <li>The backend is invoked with the <span class="tt">LIBOMPTARGET_JIT_OPT_LEVEL</span> flag.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md372"></a>
+AMD flang (amdflang) Known Issues</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md373"></a>
+Whole-image device codegen instability (worked around in the build)</h3>
+<p>amdflang generates device code for the whole image at link time. Once the image carries enough OpenMP target regions, the device link's <span class="tt">Attributor</span> pass exceeds its <span class="tt">AAPointerInfo</span> access cap on a heavily shared object; pointer information goes pessimistic and <span class="tt">OpenMPOpt</span>'s <span class="tt">__kmpc_parallel</span> cleanup then fails for the whole module. The visible effect: adding (or removing) ANY kernel anywhere silently regenerates UNTOUCHED kernels with far worse ISA — measured 2.4-4.5x slower, with register spills and an extra 512 B of LDS in every kernel. A wall-time A/B between two commits that differ in target-region count is confounded by this whole-image effect.</p>
+<p>MFC's build raises the cap (<span class="tt">-attributor-max-pi-accesses=16384</span>, passed to the offload linker in <span class="tt">cmake/MFCTargets.cmake</span>), which restores full pointer precision for the whole image and makes kernel quality independent of unrelated edits. The cost is a longer device link. If a build's device link is unexpectedly slow, this flag is why — do not remove it; kernel performance becomes nondeterministic across commits without it.</p>
+<p>The failure signature without the flag: after adding a kernel, unrelated kernels' resource usage shifts image-wide (uniform LDS increase, scratch/spill jumps visible in <span class="tt">rocprofv3</span> dispatch records) and previously fast kernels slow several-fold.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md374"></a>
+Target regions inside Fortran BLOCK constructs are silently dropped</h3>
+<p>A <span class="tt">GPU_PARALLEL_LOOP</span> (OpenMP target region) written inside a Fortran <span class="tt">block ...
+end block</span> construct compiles cleanly, but amdflang omits it from the device image while the host still registers it. The first launch aborts with </p><pre class="fragment">hsa_executable_get_symbol_by_name(__omp_offloading_..._l&lt;line&gt;.kd):
+HSA_STATUS_ERROR_INVALID_SYMBOL_NAME
+omptarget error: Failed to load kernel ...
+</pre><p>followed by a segmentation fault. Never place a GPU kernel inside a <span class="tt">block</span> construct; hoist it into its own (module) subroutine with the locals passed as arguments.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md375"></a>
 Compiler Documentation</h2>
 <ul>
 <li><a href="https://cpe.ext.hpe.com/docs/24.11/cce/man7/intro_openmp.7.html#environment-variables">Cray &amp; OpenMP Docs</a></li>
