@@ -817,7 +817,7 @@ Constant Time-Stepping</h4>
 <li><span class="tt">dt</span> specifies the constant time step size used in the simulation. The value of <span class="tt">dt</span> needs to be sufficiently small to satisfy the Courant-Friedrichs-Lewy (CFL) condition.</li>
 <li><span class="tt">t_step_start</span> and <span class="tt">t_step_stop</span> define the time steps at which the simulation starts and ends.</li>
 </ul>
-<p><span class="tt">t_step_save</span> is the time step interval for data output during simulation. To newly start the simulation, set <span class="tt">t_step_start = 0</span>. To restart the simulation from $k$-th time step, set <span class="tt">t_step_start = k</span>; see <a class="el" href="running.html" title="Running">Restarting Cases</a>.</p>
+<p><span class="tt">t_step_save</span> is the time step interval for data output during simulation. To newly start the simulation, set <span class="tt">t_step_start = 0</span>. To restart the simulation from $k$-th time step, set <span class="tt">t_step_start = k</span>; see <a class="el" href="running.html" title="Running">Restarting Cases</a>. When <span class="tt">t_step_start &gt; 0</span>, <span class="tt">./mfc.sh run</span> skips <span class="tt">pre_process</span> by default, since it would otherwise overwrite the restart data being resumed from. Pass <span class="tt">-t pre_process</span> explicitly (as in the restart workflow) if regenerating it is intended.</p>
 <h5 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
 Adaptive Time-Stepping</h5>
 <ul>
