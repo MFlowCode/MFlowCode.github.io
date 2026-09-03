@@ -784,6 +784,96 @@ Geometry</h3>
 </details>
 <details >
 <summary >
+<b>fluid_pp(1)eos</b> (<span class="tt">fluid_pp(1)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(10)eos</b> (<span class="tt">fluid_pp(10)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(2)eos</b> (<span class="tt">fluid_pp(2)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(3)eos</b> (<span class="tt">fluid_pp(3)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(4)eos</b> (<span class="tt">fluid_pp(4)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(5)eos</b> (<span class="tt">fluid_pp(5)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(6)eos</b> (<span class="tt">fluid_pp(6)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(7)eos</b> (<span class="tt">fluid_pp(7)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(8)eos</b> (<span class="tt">fluid_pp(8)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>fluid_pp(9)eos</b> (<span class="tt">fluid_pp(9)eos</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = stiffened-gas, <span class="tt">2</span> = ideal-gas</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
 <b>format</b> (<span class="tt">format</span>)</summary>
 <p></p>
 <p><b>Schema constraints:</b></p><ul>
@@ -1006,10 +1096,11 @@ Geometry</h3>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>num_fluids is not supported for model_eqns = 1</li>
 <li>num_fluids = 1 does not support mpp_lim</li>
+<li>igr does not support fluid_pp(i)qv (heat of formation); it is discarded</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>num_fluids must be positive</li>
-<li>perturb_flow_fluid must be between 0 and num_fluids</li>
+<li>The Ensemble-Averaged Bubble Model is derived for a single carrier liquid; num_fluids must be &lt;= 2</li>
 </ul>
 <p></p>
 </details>
@@ -1494,13 +1585,15 @@ Geometry</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>Alpha-Rho Consistency</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): alpha(j) = 0 but alpha_rho(j) = alpha_rho (density in absent phase); patch_icpp(i): alpha(j) = alpha but alpha_rho(j) = 0 (present phase has zero density)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
+<td class="markdownTableBodyNone"><b>Bubbles Euler</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">patch_icpp(i)alpha(void_idx) = alpha is not a dilute void fraction; the Ensemble-Averaged Bubble Model is an O(alpha) expansion and is not recommended above DILUTE_VOID_FRACTION_MAX  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>Volume Fraction Sum</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): volume fractions sum to alpha_sum, expected 1.0  </td></tr>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-02</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-03</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

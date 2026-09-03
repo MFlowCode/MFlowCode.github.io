@@ -56,10 +56,9 @@ var searchData=
   ['proc_5frank13_53',['proc_rank13',['../namespacem__start__up.html#afc5a1516886711c23c62d07443f53895',1,'m_start_up']]],
   ['proc_5frank_5fdir_54',['proc_rank_dir',['../structm__derived__types_1_1output__context.html#a39969f06423c1bfee9586c0dd656fb7a',1,'m_derived_types::output_context']]],
   ['ps_55',['ps',['../structm__derived__types_1_1qbmm__idx__info.html#a929f371a5331d8dd08b86d3652d6f5fa',1,'m_derived_types::qbmm_idx_info']]],
-  ['ps_5finf_56',['ps_inf',['../namespacem__global__parameters__common.html#af62536702163fb4044f915789fa1f3f0',1,'m_global_parameters_common']]],
-  ['psi_57',['psi',['../structm__derived__types_1_1eqn__idx__info.html#a187a487d12954f51d6b36c3905b7f166',1,'m_derived_types::eqn_idx_info']]],
-  ['ptg_5fls_5fmax_58',['ptg_ls_max',['../namespacem__phase__change.html#aa04df18774be592f56c5595128d6cca6',1,'m_phase_change']]],
-  ['ptgalpha_5feps_59',['ptgalpha_eps',['../namespacem__global__parameters__common.html#aaa7c727dc1ee89061b9489e45d9ed61d',1,'m_global_parameters_common']]],
-  ['pulse_60',['pulse',['../structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1',1,'m_derived_types::acoustic_parameters']]],
-  ['pv_61',['pv',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a2f3aa95c76e50131286c04de425ea624',1,'m_derived_types::subgrid_bubble_physical_parameters::pv'],['../namespacem__global__parameters.html#ae3a8a13b274ed1d409f89868ae1c8b7d',1,'m_global_parameters::pv']]]
+  ['psi_56',['psi',['../structm__derived__types_1_1eqn__idx__info.html#a187a487d12954f51d6b36c3905b7f166',1,'m_derived_types::eqn_idx_info']]],
+  ['ptg_5fls_5fmax_57',['ptg_ls_max',['../namespacem__phase__change.html#aa04df18774be592f56c5595128d6cca6',1,'m_phase_change']]],
+  ['ptgalpha_5feps_58',['ptgalpha_eps',['../namespacem__global__parameters__common.html#aaa7c727dc1ee89061b9489e45d9ed61d',1,'m_global_parameters_common']]],
+  ['pulse_59',['pulse',['../structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1',1,'m_derived_types::acoustic_parameters']]],
+  ['pv_60',['pv',['../structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a2f3aa95c76e50131286c04de425ea624',1,'m_derived_types::subgrid_bubble_physical_parameters::pv'],['../namespacem__global__parameters.html#ae3a8a13b274ed1d409f89868ae1c8b7d',1,'m_global_parameters::pv']]]
 ];

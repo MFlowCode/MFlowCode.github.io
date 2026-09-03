@@ -524,6 +524,29 @@ How to Allocate and Manage GPU Arrays</h3>
 <div class="fragment"><div class="line">@:<span class="keyword">DEALLOCATE</span>(my_array)</div>
 </div><!-- fragment --><p>If an array is allocated inside an <span class="tt">if</span> block, its deallocation must follow the same condition.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md109"></a>
+How to Add an Equation of State</h3>
+<p>Every stiffened-gas expression lives in <span class="tt">src/common/m_variables_conversion.fpp</span>. Adding a second EOS means supplying these, not grepping for <span class="tt">gammas</span>:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Operator  </th><th class="markdownTableHeadNone">Gives  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">s_compute_mixture_coefficients</span> / <span class="tt">_dt</span>  </td><td class="markdownTableBodyNone">mixture \(\Gamma, \Pi_\infty, q_v\) from the phase fractions, and their time derivative  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">f_pressure</span> / <span class="tt">s_compute_energy</span>  </td><td class="markdownTableBodyNone">\(p(e)\) and \(E(p)\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">f_bulk_modulus</span>  </td><td class="markdownTableBodyNone">\(K(p)\) - every sound speed in MFC is \(K/\rho\), differing only in how phases are mixed  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">s_compute_speed_of_sound</span> / <span class="tt">_avg</span>  </td><td class="markdownTableBodyNone">that mixing: Wood's law, 6-equation, bubble-diluted  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">f_phase_internal_energy</span>  </td><td class="markdownTableBodyNone">per-phase internal energy (6-equation model)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">f_isentrope_exponent</span> / <span class="tt">f_isentrope_pressure</span> / <span class="tt">f_pressure_on_isentrope</span>  </td><td class="markdownTableBodyNone">the isentrope \(p + B = \textrm{const}\,\rho^n\)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">f_sg_thermal</span>  </td><td class="markdownTableBodyNone">the thermal law \(p + B = (n-1)c_v\rho T\)  </td></tr>
+</table>
+<p>The first six are <em>mechanical</em> - they need only \(p, \rho, e, c\). The last two are <em>caloric</em> and additionally need \(c_v\) and \(q&#39;_v\). An EOS that supplies only the mechanical set cannot support phase change (<span class="tt">m_phase_change</span> also needs entropy and enthalpy) or reactive burn, so those features must be prohibited for it in <span class="tt">case_validator.py</span>.</p>
+<p>The coefficients arrive in two parameterizations of the same EOS: <span class="tt">gammas</span>/<span class="tt">pi_infs</span> are the stored forms the user supplies (see <a class="el" href="equations.html#sec-stored-forms" title="Stored Parameter Conventions">Stored Parameter Conventions</a>), and <span class="tt">isentrope_n</span>/<span class="tt">isentrope_B</span> are the same EOS as \(p + B = \textrm{const}\,\rho^n\), derived once at start-up. Convert with the <span class="tt">f_isentrope_*</span> operators rather than open-coding either relation.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
 How to Add a Test Case</h3>
 <p><b>Step 1: Create a case file</b></p>
 <p>Test cases are Python scripts that print a JSON dict of parameters. See <span class="tt">examples/</span> for templates:</p>
@@ -568,7 +591,7 @@ How to Add a Test Case</h3>
 </div><!-- fragment --><p>Golden files are stored as binary snapshots in <span class="tt">tests/&lt;hash&gt;/</span>.</p>
 <p><b>Step 4: Run</b></p>
 <div class="fragment"><div class="line">./mfc.sh test -j $(nproc)</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
 How to Create a New Fortran Module</h3>
 <p><b>Step 1: Create the file</b></p>
 <p>Name it <span class="tt">src/&lt;target&gt;/m_&lt;feature&gt;.fpp</span>. CMake auto-discovers <span class="tt">.fpp</span> files — no build system changes needed.</p>
@@ -622,7 +645,7 @@ How to Create a New Fortran Module</h3>
 <li>Every <span class="tt">@:ALLOCATE</span> has a matching <span class="tt">@:DEALLOCATE</span></li>
 <li>Every argument has explicit <span class="tt">intent</span></li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
 Working with the Precision System</h3>
 <p>MFC supports double (default), single, and mixed precision. The types are defined in <span class="tt">src/common/m_precision_select.f90</span>:</p>
 <table class="markdownTable">
@@ -644,7 +667,7 @@ Working with the Precision System</h3>
 <li><b>Forbidden</b> double-precision intrinsics: <span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dlog</span>, <span class="tt">dble</span>, <span class="tt">dabs</span>, <span class="tt">real(8)</span>, <span class="tt">real(4)</span></li>
 <li>Conversions between <span class="tt">stp</span> and <span class="tt">wp</span> must be intentional, especially in MPI pack/unpack</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
 How to Extend MPI Halo Exchange</h3>
 <p>Halo exchange is in <span class="tt">src/simulation/m_mpi_proxy.fpp</span> (and <span class="tt">src/common/m_mpi_common.fpp</span> for buffer allocation).</p>
 <p>To add new data to the halo exchange:</p>
@@ -669,7 +692,7 @@ How to Extend MPI Halo Exchange</h3>
 <div class="line"><span class="keyword">call </span>mpi_sendrecv(buff_send, ..., buff_recv, ..., ierr)</div>
 <div class="line">$:gpu_update(device=<span class="stringliteral">&#39;[buff_recv]&#39;</span>)     ! cpu → gpu after receive</div>
 </div><!-- fragment --><p><b>Step 4: Add unpack loop</b> mirroring the pack loop with <span class="tt">unpack_offset</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
 How to Add a Post-Processing Output Variable</h3>
 <p>Post-processing derived variables live in <span class="tt">src/post_process/m_derived_variables.fpp</span>.</p>
 <p><b>Step 1: Allocate storage</b> in <span class="tt">s_initialize_derived_variables_module</span>:</p>
@@ -700,7 +723,7 @@ How to Add a Post-Processing Output Variable</h3>
 <div class="line">    <span class="keyword">call </span>s_derive_my_variable(q_prim_vf, q_sf)</div>
 <div class="line">    <span class="keyword">call </span>s_write_variable_to_formatted_database_file(q_sf, <span class="stringliteral">&#39;my_variable&#39;</span>, dbfile, dbroot)</div>
 <div class="line"><span class="keyword">end </span>if</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
 Modifying <span class="tt">src/common/</span></h3>
 <p>Code in <span class="tt">src/common/</span> is compiled into all three executables (pre_process, simulation, post_process). Changes here have wide blast radius.</p>
 <p>Checklist:</p><ul>
@@ -709,7 +732,7 @@ Modifying <span class="tt">src/common/</span></h3>
 <li>Check that new <span class="tt">use</span> statements don't create circular dependencies</li>
 <li>New modules need <span class="tt">implicit none</span> and explicit <span class="tt">intent</span> on all arguments</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 Debugging</h3>
 <p>See <a class="el" href="troubleshooting.html" title="Troubleshooting Guide">Troubleshooting Guide</a> for debugging workflows, profiling tools, GPU diagnostic environment variables, common build/runtime errors, and fixes.</p>
 <h3 class="doxsection"><a class="anchor" id="how-to-document-physics-constraints"></a>
@@ -745,7 +768,7 @@ How to Document Physics Constraints</h3>
 <td class="markdownTableBodyNone"><span class="tt">exceptions</span>  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">List of cases where the constraint doesn't apply  </td></tr>
 </table>
 <p><b>Categories:</b> Thermodynamic Constraints, Mixture Constraints, Domain and Geometry, Velocity and Dimensional Consistency, Model Equations, Boundary Conditions, Bubble Physics, Feature Compatibility, Numerical Schemes, Acoustic Sources, Post-Processing.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
 Testing</h2>
 <p>MFC has 500+ regression tests. See <a class="el" href="testing.html" title="Testing">Testing</a> for the full guide.</p>
 <ul>
@@ -754,10 +777,10 @@ Testing</h2>
 <li>Keep tests fast: use small grids and short runtimes</li>
 <li>Test with <span class="tt">-a</span> to include post-processing validation</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
 CI Pipeline</h2>
 <p>Every push to a PR triggers CI. Understanding the pipeline helps you fix failures quickly.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
 Lint Gate (runs first, blocks all other jobs)</h3>
 <p>All five checks must pass before any builds start:</p>
 <ol type="1">
@@ -771,7 +794,7 @@ Lint Gate (runs first, blocks all other jobs)</h3>
 </li>
 <li><b>Doc references</b> — validates documentation cross-references</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
 Build and Test Matrix</h3>
 <p>After the lint gate passes:</p>
 <ul>
@@ -782,7 +805,7 @@ Build and Test Matrix</h3>
 <li><b>Retries:</b> Tests retry up to 3 times before failing</li>
 <li><b>Cleanliness check:</b> Compiler warnings are tracked — your PR cannot increase the warning count</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
 Common CI Failures</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -799,14 +822,14 @@ Common CI Failures</h3>
 <td class="markdownTableBodyNone">Warnings increased  </td><td class="markdownTableBodyNone">Fix the new compiler warnings before merging  </td></tr>
 </table>
 <p>See <a class="el" href="troubleshooting.html" title="Troubleshooting Guide">Troubleshooting Guide</a> for detailed debugging workflows.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
 Documentation</h2>
 <ul>
 <li>Add or update <b>Doxygen docstrings</b> in source files for new public routines</li>
 <li>Update <b>markdown docs</b> under <span class="tt">docs/</span> if user-facing behavior changes</li>
 <li>Provide a minimal <b>example case</b> in <span class="tt">examples/</span> for new features when practical</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
 Submitting a Pull Request</h2>
 <ol type="1">
 <li><b>PRs come from your fork.</b> Do not create branches on <span class="tt">MFlowCode/MFC</span> directly. Push to your fork and open a PR from there against <span class="tt">MFlowCode/MFC:master</span>.</li>
@@ -817,7 +840,7 @@ Submitting a Pull Request</h2>
 <li><b>Describe your testing</b>: what you ran, which compilers/platforms you used.</li>
 </ol>
 <p>If your change touches GPU code (<span class="tt">src/simulation/</span>), see the GPU checklist in the PR template.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
 Code Review and Merge</h2>
 <ul>
 <li>Respond to reviewer comments promptly</li>

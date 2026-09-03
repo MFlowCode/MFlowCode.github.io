@@ -43,6 +43,8 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::dflt_real", "namespacem__constants.html#a53cf8dfd06fcfa36c018ab624ef988b6", null ],
     [ "m_constants::dflt_t_guess", "namespacem__constants.html#a347d9c638ece21f6f356c5ba91e6438e", null ],
     [ "m_constants::dflt_vcfl_dt", "namespacem__constants.html#ae54580d6fa55ec139c1d82f85340dcc4", null ],
+    [ "m_constants::eos_ideal_gas", "namespacem__constants.html#a8a91f8091f40b64128be166719c86f31", null ],
+    [ "m_constants::eos_stiffened_gas", "namespacem__constants.html#ab3459d4ad9a24bbc8d34c53ca3e8c69b", null ],
     [ "m_constants::format_binary", "namespacem__constants.html#a71e922f3cce7368b2eb5466a1817e468", null ],
     [ "m_constants::format_silo", "namespacem__constants.html#a2ed40ac166ba1a63f2b0aa3f875d39b5", null ],
     [ "m_constants::fourier_rings", "namespacem__constants.html#ad33b5162f889bfb141eb03b8276ac183", null ],

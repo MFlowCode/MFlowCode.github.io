@@ -1,6 +1,7 @@
 var structm__derived__types_1_1physical__parameters =
 [
     [ "cv", "structm__derived__types_1_1physical__parameters.html#ad777ad2c8b76b8d502d43056720ef4b4", null ],
+    [ "eos", "structm__derived__types_1_1physical__parameters.html#af51060578c54a4a88cde14d1cd1e36cd", null ],
     [ "g", "structm__derived__types_1_1physical__parameters.html#a7bc1342a166e56763fff96421205d5c2", null ],
     [ "gamma", "structm__derived__types_1_1physical__parameters.html#a57c24082056bd7924df53fdca07cb5c1", null ],
     [ "hb_m", "structm__derived__types_1_1physical__parameters.html#aca32e49749c29ed97a12a983f2d87feb", null ],

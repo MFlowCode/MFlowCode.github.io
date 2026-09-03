@@ -169,8 +169,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a045a171a9b44005a0e190f9a99784853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checking that the user inputs make sense, i.e. that the individual choices are compatible with the code's options and that the combination of these choices results into a valid configuration for the post-process.  <br /></td></tr>
 <tr class="memitem:a8d9327774aa09798e954fe48fb02f0d5" id="r_a8d9327774aa09798e954fe48fb02f0d5"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8d9327774aa09798e954fe48fb02f0d5">s_perform_time_step</a> (t_step)</td></tr>
 <tr class="memdesc:a8d9327774aa09798e954fe48fb02f0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load grid and conservative data for a time step, fill ghost-cell buffers, and convert to primitive variables.  <br /></td></tr>
-<tr class="memitem:a029c0f28f15ce3aab7ada6d95db89688" id="r_a029c0f28f15ce3aab7ada6d95db89688"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a029c0f28f15ce3aab7ada6d95db89688">s_save_data</a> (t_step, varname, pres, c, h)</td></tr>
-<tr class="memdesc:a029c0f28f15ce3aab7ada6d95db89688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derive requested flow quantities from primitive variables and write them to the formatted database files.  <br /></td></tr>
+<tr class="memitem:a1b658dbb130b83de8ace22b3b76d76b3" id="r_a1b658dbb130b83de8ace22b3b76d76b3"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1b658dbb130b83de8ace22b3b76d76b3">s_save_data</a> (t_step, varname, pres, c)</td></tr>
+<tr class="memdesc:a1b658dbb130b83de8ace22b3b76d76b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derive requested flow quantities from primitive variables and write them to the formatted database files.  <br /></td></tr>
 <tr class="memitem:a742dab7988fbf7098faea99c924cfe74" id="r_a742dab7988fbf7098faea99c924cfe74"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a742dab7988fbf7098faea99c924cfe74">s_write_field</a> (varname, t_step, src, x_beg, x_end, y_beg, y_end, z_beg, z_end)</td></tr>
 <tr class="memdesc:a742dab7988fbf7098faea99c924cfe74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill outq_sf from src (if given), write varname to the database, and clear varname.  <br /></td></tr>
 <tr class="memitem:ad77380e95bac4295091e2d5ddbdfe5c6" id="r_ad77380e95bac4295091e2d5ddbdfe5c6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad77380e95bac4295091e2d5ddbdfe5c6">s_mpi_transpose_x2y</a></td></tr>
@@ -261,7 +261,7 @@ Here is the caller graph for this function:</div>
 
 <p>Destroy FFTW plans, free MPI communicators, and finalize all post-process sub-modules. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01511">1511</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01508">1508</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -284,7 +284,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize all post-process sub-modules, set up I/O pointers, and prepare FFTW plans and MPI communicators. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01100">1100</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01097">1097</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -312,7 +312,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up the MPI environment, read and broadcast user inputs, and decompose the computational domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01480">1480</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01477">1477</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -340,7 +340,7 @@ Here is the caller graph for this function:</div>
 
 <p>Perform a distributed forward 3-D FFT using pencil decomposition with FFTW and MPI transposes. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01413">1413</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01410">1410</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -368,7 +368,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transpose 3-D complex data from x-pencil to y-pencil layout via MPI_Alltoall. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01015">1015</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01012">1012</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -391,7 +391,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transpose 3-D complex data from y-pencil to z-pencil layout via MPI_Alltoall. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01057">1057</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01054">1054</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -421,7 +421,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a8d9327774aa09798e954fe48fb02f0d5_cgraph.svg" width="100%" height="583"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a8d9327774aa09798e954fe48fb02f0d5_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -459,8 +459,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a029c0f28f15ce3aab7ada6d95db89688" name="a029c0f28f15ce3aab7ada6d95db89688"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a029c0f28f15ce3aab7ada6d95db89688">&#9670;&#160;</a></span>s_save_data()</h2>
+<a id="a1b658dbb130b83de8ace22b3b76d76b3" name="a1b658dbb130b83de8ace22b3b76d76b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b658dbb130b83de8ace22b3b76d76b3">&#9670;&#160;</a></span>s_save_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -483,12 +483,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -499,12 +494,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a029c0f28f15ce3aab7ada6d95db89688_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a1b658dbb130b83de8ace22b3b76d76b3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a029c0f28f15ce3aab7ada6d95db89688_icgraph.svg" width="314" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a1b658dbb130b83de8ace22b3b76d76b3_icgraph.svg" width="314" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -574,7 +569,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00991">991</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00988">988</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

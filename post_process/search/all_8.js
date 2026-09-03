@@ -43,6 +43,8 @@ var searchData=
   ['isc1_40',['isc1',['../namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d',1,'m_chemistry']]],
   ['isc2_41',['isc2',['../namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f',1,'m_chemistry']]],
   ['isc3_42',['isc3',['../namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d',1,'m_chemistry']]],
-  ['isothermal_5fin_43',['isothermal_in',['../structm__derived__types_1_1int__bounds__info.html#a9900712062c49d821967e73a353516e2',1,'m_derived_types::int_bounds_info']]],
-  ['isothermal_5fout_44',['isothermal_out',['../structm__derived__types_1_1int__bounds__info.html#af09f9e137ba6d364c73b89c181ff1cfa',1,'m_derived_types::int_bounds_info']]]
+  ['isentrope_5fb_43',['isentrope_b',['../namespacem__global__parameters__common.html#aa7406e913186d283155931ab80c4a409',1,'m_global_parameters_common']]],
+  ['isentrope_5fn_44',['isentrope_n',['../namespacem__global__parameters__common.html#a4c25cf0a9d0ef96107fc74dc9d9a758e',1,'m_global_parameters_common']]],
+  ['isothermal_5fin_45',['isothermal_in',['../structm__derived__types_1_1int__bounds__info.html#a9900712062c49d821967e73a353516e2',1,'m_derived_types::int_bounds_info']]],
+  ['isothermal_5fout_46',['isothermal_out',['../structm__derived__types_1_1int__bounds__info.html#af09f9e137ba6d364c73b89c181ff1cfa',1,'m_derived_types::int_bounds_info']]]
 ];

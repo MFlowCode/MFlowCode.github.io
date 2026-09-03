@@ -1,10 +1,16 @@
 var m__riemann__state_8fpp_8f90 =
 [
     [ "m_riemann_state::f_compute_hllc_star_momentum_flux", "namespacem__riemann__state.html#a8d5b7b8cbf28974e9eaf3f16f5fea941", null ],
-    [ "m_riemann_state::s_accumulate_mixture_properties", "namespacem__riemann__state.html#aec165bfcc960faccfeb6b53f1237007a", null ],
+    [ "m_riemann_state::f_elastic_signal_speed", "namespacem__riemann__state.html#a0d3789c7ee1ade852bfe386bd26ddafe", null ],
+    [ "m_riemann_state::f_low_mach_pcorr_hll", "namespacem__riemann__state.html#a5a2606d00e72a61ee46328e0a26e52b4", null ],
+    [ "m_riemann_state::f_low_mach_pcorr_hllc", "namespacem__riemann__state.html#a3dac9cf413b6e391a68b3ec504ecb95a", null ],
+    [ "m_riemann_state::f_low_mach_zcoef", "namespacem__riemann__state.html#a023e407514644aa28f47b726a652d0ad", null ],
+    [ "m_riemann_state::s_apply_low_mach_velocity", "namespacem__riemann__state.html#abb40d68fb2e6a237bcbb5415b377ef89", null ],
     [ "m_riemann_state::s_calculate_bulk_stress_tensor", "namespacem__riemann__state.html#aeabea1342b71ceb194d547cc48de4327", null ],
     [ "m_riemann_state::s_calculate_shear_stress_tensor", "namespacem__riemann__state.html#aec447bec43e7d39a55cd98722db22fc3", null ],
+    [ "m_riemann_state::s_compute_average_state", "namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce", null ],
     [ "m_riemann_state::s_compute_cartesian_viscous_source_flux", "namespacem__riemann__state.html#ab4931552a5a57318bc6e60a6cd732416", null ],
+    [ "m_riemann_state::s_compute_chemistry_average_state", "namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af", null ],
     [ "m_riemann_state::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__state.html#ad5d1bfd233543b5d68d9350bb47bdb19", null ],
     [ "m_riemann_state::s_compute_hypoelastic_interface_energy", "namespacem__riemann__state.html#a79c11408c7da3bd3f351beefbf93cf36", null ],
     [ "m_riemann_state::s_compute_interface_reynolds", "namespacem__riemann__state.html#aa6e9f1a206a652c0642f49645e47ebc4", null ],

@@ -165,8 +165,9 @@ $(function(){initNavTree('namespacem__viscous.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa1a81172de199531cec223318c914df9" id="r_aa1a81172de199531cec223318c914df9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa1a81172de199531cec223318c914df9">s_initialize_viscous_module</a></td></tr>
 <tr class="memdesc:aa1a81172de199531cec223318c914df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the viscous module.  <br /></td></tr>
+<tr class="memitem:a6fadb6156833127ecc7ec19a23ba37e9" id="r_a6fadb6156833127ecc7ec19a23ba37e9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6fadb6156833127ecc7ec19a23ba37e9">s_compute_axis_inv_re</a> (grad_x_vf, grad_y_vf, grad_z_vf, alpha_visc, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, re_visc)</td></tr>
+<tr class="memdesc:a6fadb6156833127ecc7ec19a23ba37e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute viscous stress tensor near cylindrical axis, avoiding 1/r singularity at y_cb(-1)=0 Inverse Reynolds numbers of the mixture at one cell. Non-Newtonian fluids need the local shear rate, which comes from the velocity gradients; Newtonian ones reduce to the volume-fraction-weighted harmonic mean.  <br /></td></tr>
 <tr class="memitem:aae94249734e8bf23fa1af7ef74f5290a" id="r_aae94249734e8bf23fa1af7ef74f5290a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aae94249734e8bf23fa1af7ef74f5290a">s_compute_viscous_stress_cylindrical_boundary</a> (q_prim_vf, grad_x_vf, grad_y_vf, grad_z_vf, tau_re_vf, ix, iy, iz)</td></tr>
-<tr class="memdesc:aae94249734e8bf23fa1af7ef74f5290a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute viscous stress tensor near cylindrical axis, avoiding 1/r singularity at y_cb(-1)=0.  <br /></td></tr>
 <tr class="memitem:a436acf146b82950f8c287a6697b0e0d9" id="r_a436acf146b82950f8c287a6697b0e0d9"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a436acf146b82950f8c287a6697b0e0d9">s_get_viscous</a> (ql_prim_rsx_vf, dql_prim_dx_n, dql_prim_dy_n, dql_prim_dz_n, ql_prim, qr_prim_rsx_vf, dqr_prim_dx_n, dqr_prim_dy_n, dqr_prim_dz_n, qr_prim, q_prim_qp, dq_prim_dx_qp, dq_prim_dy_qp, dq_prim_dz_qp, ix, iy, iz)</td></tr>
 <tr class="memdesc:a436acf146b82950f8c287a6697b0e0d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes viscous terms.  <br /></td></tr>
 <tr class="memitem:a9e91f73ebb7688ef32d7035955078108" id="r_a9e91f73ebb7688ef32d7035955078108"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9e91f73ebb7688ef32d7035955078108">s_reconstruct_cell_boundary_values_visc</a> (v_vf, vl_x, vr_x, norm_dir, vl_prim_vf, vr_prim_vf, ix, iy, iz)</td></tr>
@@ -259,11 +260,71 @@ Variables</h2></td></tr>
 
 <p>Compute cell-average spatial derivatives via the scalar divergence theorem. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03044">3044</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02605">2605</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__viscous_abb9caed22e1825ad5437454a97053509_icgraph.svg" width="459" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6fadb6156833127ecc7ec19a23ba37e9" name="a6fadb6156833127ecc7ec19a23ba37e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fadb6156833127ecc7ec19a23ba37e9">&#9670;&#160;</a></span>s_compute_axis_inv_re()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_viscous::s_compute_axis_inv_re </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>grad_x_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>grad_y_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>grad_z_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_visc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_visc</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute viscous stress tensor near cylindrical axis, avoiding 1/r singularity at y_cb(-1)=0 Inverse Reynolds numbers of the mixture at one cell. Non-Newtonian fluids need the local shear rate, which comes from the velocity gradients; Newtonian ones reduce to the volume-fraction-weighted harmonic mean. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__viscous_a6fadb6156833127ecc7ec19a23ba37e9_icgraph.svg" width="428" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -299,7 +360,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the scalar gradient fields via finite differences. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03261">3261</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02822">2822</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -357,9 +418,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Compute viscous stress tensor near cylindrical axis, avoiding 1/r singularity at y_cb(-1)=0. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00449">449</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__viscous_aae94249734e8bf23fa1af7ef74f5290a_cgraph.svg" width="428" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -404,7 +468,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the viscous stress tensor at a single grid cell using finite-difference velocity gradients. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03794">3794</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03355">3355</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -422,7 +486,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the viscous module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03888">3888</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03449">3449</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -522,7 +586,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes viscous terms. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l01499">1499</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l01060">1060</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -610,7 +674,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstruct left and right cell-boundary values of viscous primitive variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02614">2614</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02175">2175</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -675,7 +739,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstruct left and right cell-boundary values of viscous primitive variable derivatives. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02830">2830</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02391">2391</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>

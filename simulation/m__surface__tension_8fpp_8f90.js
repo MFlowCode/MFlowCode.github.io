@@ -1,6 +1,7 @@
 var m__surface__tension_8fpp_8f90 =
 [
     [ "m_surface_tension::s_compute_capillary_source_flux", "namespacem__surface__tension.html#ac5b0e91c15b69b26098a4310a0c5a54a", null ],
+    [ "m_surface_tension::s_compute_capillary_stress_tensor", "namespacem__surface__tension.html#a97314f28f43cfec6d47631416fe23a2e", null ],
     [ "m_surface_tension::s_finalize_surface_tension_module", "namespacem__surface__tension.html#acfee64be67c2ca10b9e1ed0e759ed517", null ],
     [ "m_surface_tension::s_get_capillary", "namespacem__surface__tension.html#a57a8d87ff4910eadaabd1b65ced7d8d7", null ],
     [ "m_surface_tension::s_initialize_surface_tension_module", "namespacem__surface__tension.html#aa4565334b85e2519cf6dfda4ab6c2091", null ],

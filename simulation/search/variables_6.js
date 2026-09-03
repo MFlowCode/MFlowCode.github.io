@@ -48,7 +48,6 @@ var searchData=
   ['grcbc_5fvel_5fout_45',['grcbc_vel_out',['../structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80',1,'m_derived_types::int_bounds_info']]],
   ['grid_5fgeometry_46',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]],
   ['gs_5fhypo_47',['gs_hypo',['../namespacem__hypoelastic.html#a0b609359bab5eda290ed1467b1162420',1,'m_hypoelastic']]],
-  ['gs_5fmin_48',['gs_min',['../namespacem__global__parameters__common.html#a3ce3f4b0fe15e7f2f3e52310095a3a85',1,'m_global_parameters_common']]],
-  ['gs_5frs_49',['gs_rs',['../namespacem__riemann__state.html#a4fdec5f95ec7676d349cf418805ee1f5',1,'m_riemann_state']]],
-  ['gs_5fvc_50',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
+  ['gs_5frs_48',['gs_rs',['../namespacem__riemann__state.html#a4fdec5f95ec7676d349cf418805ee1f5',1,'m_riemann_state']]],
+  ['gs_5fvc_49',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
 ];

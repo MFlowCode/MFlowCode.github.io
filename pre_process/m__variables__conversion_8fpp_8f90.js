@@ -1,9 +1,23 @@
 var m__variables__conversion_8fpp_8f90 =
 [
+    [ "m_variables_conversion::f_bulk_modulus", "namespacem__variables__conversion.html#a024c07b63b9bf9991aac6bccd35ff28e", null ],
+    [ "m_variables_conversion::f_elastic_energy", "namespacem__variables__conversion.html#a118badeed66ce02f17b580efc2b5b835", null ],
+    [ "m_variables_conversion::f_hypoelastic_energy", "namespacem__variables__conversion.html#a5176752dcf27dd6f0bf1005d6cd9d808", null ],
+    [ "m_variables_conversion::f_isentrope_exponent", "namespacem__variables__conversion.html#aa67f0053c00464ae92227c3d1f1e27a0", null ],
+    [ "m_variables_conversion::f_isentrope_pressure", "namespacem__variables__conversion.html#ab4cc28ea1e231e3d1efe5d29894f35b6", null ],
+    [ "m_variables_conversion::f_phase_internal_energy", "namespacem__variables__conversion.html#abf91270b6a00446baabe8eb80b4b6293", null ],
+    [ "m_variables_conversion::f_pressure", "namespacem__variables__conversion.html#ae34515ed090883f8b25cead816bdbb6c", null ],
+    [ "m_variables_conversion::f_pressure_on_isentrope", "namespacem__variables__conversion.html#a7c7642cd61da9293548cb544f257cdb3", null ],
+    [ "m_variables_conversion::f_relativistic_enthalpy", "namespacem__variables__conversion.html#a7efd1978a45cc045b1915b0bfd379992", null ],
+    [ "m_variables_conversion::f_sg_thermal", "namespacem__variables__conversion.html#a79978839333dff97c5faa778b70a71fa", null ],
+    [ "m_variables_conversion::s_compute_energy", "namespacem__variables__conversion.html#a94d4c83c80c0e5eb55a27addc9b849c3", null ],
     [ "m_variables_conversion::s_compute_fast_magnetosonic_speed", "namespacem__variables__conversion.html#aa1a6ec147af9288501df5c16adf2c833", null ],
-    [ "m_variables_conversion::s_compute_pressure", "namespacem__variables__conversion.html#a58c19a9ba2767016cd7c916cd52b8d0e", null ],
+    [ "m_variables_conversion::s_compute_mixture_coefficients", "namespacem__variables__conversion.html#a4f2b4d1845afc9f1fb8008832b039940", null ],
+    [ "m_variables_conversion::s_compute_mixture_coefficients_dt", "namespacem__variables__conversion.html#a676e504fa2cfbfe59aabd8a3935426d8", null ],
+    [ "m_variables_conversion::s_compute_pressure", "namespacem__variables__conversion.html#a8647994d1a1fe32636ef4a3b843eadce", null ],
     [ "m_variables_conversion::s_compute_species_fraction", "namespacem__variables__conversion.html#a21906a4c29bbb1187212feb969c00502", null ],
-    [ "m_variables_conversion::s_compute_speed_of_sound", "namespacem__variables__conversion.html#a61487c861a17acf1d2d7bfef6ad85380", null ],
+    [ "m_variables_conversion::s_compute_speed_of_sound", "namespacem__variables__conversion.html#aa21891aa8c1cd6d0e3f6c3230d189de6", null ],
+    [ "m_variables_conversion::s_compute_speed_of_sound_avg", "namespacem__variables__conversion.html#a43b112cbac06eb73df76e65bbc5808db", null ],
     [ "m_variables_conversion::s_convert_conservative_to_primitive_variables", "namespacem__variables__conversion.html#a7d567315b057c0da0cb37f89ef298031", null ],
     [ "m_variables_conversion::s_convert_mixture_to_mixture_variables", "namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847", null ],
     [ "m_variables_conversion::s_convert_primitive_to_conservative_variables", "namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e", null ],
@@ -28,7 +42,6 @@ var m__variables__conversion_8fpp_8f90 =
     [ "m_variables_conversion::lagrange_beta_index_vc", "namespacem__variables__conversion.html#adf574dccf02ef4866b4cf5282a0baaaf", null ],
     [ "m_variables_conversion::pi_inf_sf", "namespacem__variables__conversion.html#a8f75a3f6d4d2f0bf57f0ad2da4ecba17", null ],
     [ "m_variables_conversion::preserve_qbmm_number_vc", "namespacem__variables__conversion.html#aebd4c7f3c5481e91ef2abcb0ccdd28ea", null ],
-    [ "m_variables_conversion::qv_sf", "namespacem__variables__conversion.html#a7f98b7096dbb8325dcc2065027b1b15b", null ],
     [ "m_variables_conversion::res_vc", "namespacem__variables__conversion.html#a44c0bad49c8b6544e912d698d2e04af5", null ],
     [ "m_variables_conversion::rho_sf", "namespacem__variables__conversion.html#aadb7f5bb0ac300d191b82f5ce60b21af", null ]
 ];

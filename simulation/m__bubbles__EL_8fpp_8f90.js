@@ -9,7 +9,6 @@ var m__bubbles__EL_8fpp_8f90 =
     [ "m_bubbles_el::s_close_void_evol", "namespacem__bubbles__el.html#a2ef4b48f6a9de8822d44044bfeaf1374", null ],
     [ "m_bubbles_el::s_compute_bubble_el_dynamics", "namespacem__bubbles__el.html#ad46cdb3e6b52db648c58b072c05251c4", null ],
     [ "m_bubbles_el::s_compute_bubbles_el_source", "namespacem__bubbles__el.html#a7f93509f0a39d6470a23a5b3ce859780", null ],
-    [ "m_bubbles_el::s_compute_cson_from_pinf", "namespacem__bubbles__el.html#a941dbe4bd6563db98c1396eaeec78f93", null ],
     [ "m_bubbles_el::s_copy_lag_bubble", "namespacem__bubbles__el.html#ac149e30fa735ef743f6dd21234a3796e", null ],
     [ "m_bubbles_el::s_enforce_el_bubbles_boundary_conditions", "namespacem__bubbles__el.html#ab9362775fa50fb84d0376b261c38aa55", null ],
     [ "m_bubbles_el::s_finalize_lagrangian_solver", "namespacem__bubbles__el.html#ade4e00f6ff205074c51fac9ee67b5fc1", null ],

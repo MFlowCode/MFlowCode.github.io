@@ -1,5 +1,6 @@
 var m__riemann__solver__hypo__hlld_8fpp_8f90 =
 [
+    [ "m_riemann_solver_hypo_hlld::f_hll_flux", "namespacem__riemann__solver__hypo__hlld.html#a4200125accf086e2be7d0af543df8a3e", null ],
     [ "m_riemann_solver_hypo_hlld::f_hlld_wave_zone", "namespacem__riemann__solver__hypo__hlld.html#a7391125e6469881e275915db09dd254c", null ],
     [ "m_riemann_solver_hypo_hlld::s_finalize_nc_iface_vel", "namespacem__riemann__solver__hypo__hlld.html#a4dee936b60bf2959e15058da81e49113", null ],
     [ "m_riemann_solver_hypo_hlld::s_finalize_nc_iface_vel_hatr", "namespacem__riemann__solver__hypo__hlld.html#a0e622d6ed683e0e8e9817f30be0af860", null ],

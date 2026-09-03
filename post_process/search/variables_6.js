@@ -25,6 +25,5 @@ var searchData=
   ['grcbc_5fout_22',['grcbc_out',['../structm__derived__types_1_1int__bounds__info.html#a6a1dbe9bff662fd81ad5dc56f3c6ee35',1,'m_derived_types::int_bounds_info']]],
   ['grcbc_5fvel_5fout_23',['grcbc_vel_out',['../structm__derived__types_1_1int__bounds__info.html#ad2cb55ed5faeeebdbe757e50bc41dd80',1,'m_derived_types::int_bounds_info']]],
   ['grid_5fgeometry_24',['grid_geometry',['../namespacem__global__parameters.html#a0f2d413d9739928f8e1a98f0a5783ab9',1,'m_global_parameters']]],
-  ['gs_5fmin_25',['gs_min',['../namespacem__global__parameters__common.html#a3ce3f4b0fe15e7f2f3e52310095a3a85',1,'m_global_parameters_common']]],
-  ['gs_5fvc_26',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
+  ['gs_5fvc_25',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
 ];

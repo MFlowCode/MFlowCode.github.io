@@ -165,8 +165,9 @@ $(function(){initNavTree('namespacem__surface__tension.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aa4565334b85e2519cf6dfda4ab6c2091" id="r_aa4565334b85e2519cf6dfda4ab6c2091"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa4565334b85e2519cf6dfda4ab6c2091">s_initialize_surface_tension_module</a></td></tr>
 <tr class="memdesc:aa4565334b85e2519cf6dfda4ab6c2091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate and initialize surface tension module arrays.  <br /></td></tr>
+<tr class="memitem:a97314f28f43cfec6d47631416fe23a2e" id="r_a97314f28f43cfec6d47631416fe23a2e"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a97314f28f43cfec6d47631416fe23a2e">s_compute_capillary_stress_tensor</a> (sigma_c, w1, w2, w3, normw, omega)</td></tr>
+<tr class="memdesc:a97314f28f43cfec6d47631416fe23a2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the capillary source flux from reconstructed color-gradient fields Capillary stress tensor of Schmidmayer et al. JCP (2017) for one face. Omega is intent(inout): the entries a given dimensionality does not define are left as the caller had them, which is what the macro this replaced did.  <br /></td></tr>
 <tr class="memitem:ac5b0e91c15b69b26098a4310a0c5a54a" id="r_ac5b0e91c15b69b26098a4310a0c5a54a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac5b0e91c15b69b26098a4310a0c5a54a">s_compute_capillary_source_flux</a> (vsrc_rsx_vf, flux_src_vf, id, isx, isy, isz)</td></tr>
-<tr class="memdesc:ac5b0e91c15b69b26098a4310a0c5a54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the capillary source flux from reconstructed color-gradient fields.  <br /></td></tr>
 <tr class="memitem:a57a8d87ff4910eadaabd1b65ced7d8d7" id="r_a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a57a8d87ff4910eadaabd1b65ced7d8d7">s_get_capillary</a> (q_prim_vf, bc_type)</td></tr>
 <tr class="memdesc:a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute color-function gradients and reconstruct them at cell boundaries.  <br /></td></tr>
 <tr class="memitem:a891c834b47c89b5da009b510f0987e4f" id="r_a891c834b47c89b5da009b510f0987e4f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a891c834b47c89b5da009b510f0987e4f">s_reconstruct_cell_boundary_values_capillary</a> (v_vf, vl_x, vr_x, norm_dir)</td></tr>
@@ -228,13 +229,66 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the capillary source flux from reconstructed color-gradient fields. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00664">664</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__surface__tension_ac5b0e91c15b69b26098a4310a0c5a54a_cgraph.svg" width="371" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__surface__tension_ac5b0e91c15b69b26098a4310a0c5a54a_icgraph.svg" width="596" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a97314f28f43cfec6d47631416fe23a2e" name="a97314f28f43cfec6d47631416fe23a2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97314f28f43cfec6d47631416fe23a2e">&#9670;&#160;</a></span>s_compute_capillary_stress_tensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_surface_tension::s_compute_capillary_stress_tensor </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sigma_c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>w1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>w2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>w3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>normw</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>, <a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>omega</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the capillary source flux from reconstructed color-gradient fields Capillary stress tensor of Schmidmayer et al. JCP (2017) for one face. Omega is intent(inout): the entries a given dimensionality does not define are left as the caller had them, which is what the macro this replaced did. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__surface__tension_a97314f28f43cfec6d47631416fe23a2e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -253,7 +307,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the surface tension module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01198">1198</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01178">1178</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -278,7 +332,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute color-function gradients and reconstruct them at cell boundaries. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00927">927</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00907">907</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -301,7 +355,7 @@ Here is the call graph for this function:</div>
 
 <p>Allocate and initialize surface tension module arrays. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -341,7 +395,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstruct left and right cell-boundary values of capillary variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01132">1132</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01112">1112</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -363,7 +417,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00355">355</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -379,7 +433,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -395,7 +449,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00368">368</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -411,7 +465,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -427,7 +481,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -443,7 +497,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -459,7 +513,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
