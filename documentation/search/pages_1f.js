@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['walled_20power_20law_20poiseuille_20channel_0',['2D IBM-Walled Power-Law Poiseuille Channel',['../examples.html#autotoc_md283',1,'']]],
+  ['walled_20power_20law_20poiseuille_20channel_0',['2D IBM-Walled Power-Law Poiseuille Channel',['../examples.html#autotoc_md307',1,'']]],
   ['warnings_1',['⚠️ Physics Warnings',['../case_constraints.html#physics-warnings',1,'']]],
-  ['weak_20scaling_2',['Weak Scaling',['../examples.html#autotoc_md228',1,'']]],
+  ['weak_20scaling_2',['Weak Scaling',['../examples.html#autotoc_md280',1,'']]],
   ['weak_20scaling_3',['Weak scaling',['../expectedPerformance.html#autotoc_md324',1,'']]],
   ['weak_20scaling_4',['GPU weak scaling',['../expectedPerformance.html#autotoc_md325',1,'']]],
   ['weno_20reconstruction_5',['WENO Reconstruction',['../physics_constraints.html#autotoc_md493',1,'']]],
