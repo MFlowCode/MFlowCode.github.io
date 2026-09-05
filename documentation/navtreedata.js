@@ -332,125 +332,125 @@ var NAVTREE =
     ] ],
     [ "Example Cases", "examples.html", [
       [ "Example Cases", "examples.html#autotoc_md214", [
-        [ "Viscous Shock Tube (2D)", "examples.html#autotoc_md215", null ],
-        [ "Backward Facing Step (2D)", "examples.html#autotoc_md218", [
-          [ "Final Condition (Density)", "examples.html#autotoc_md219", null ]
+        [ "Backward Facing Step (2D)", "examples.html#autotoc_md215", [
+          [ "Final Condition (Density)", "examples.html#autotoc_md216", null ]
         ] ],
-        [ "Lax shock tube problem (1D)", "examples.html#autotoc_md220", [
+        [ "1D Multi-Component Inert Shock Tube", "examples.html#autotoc_md217", [
+          [ "Initial Condition", "examples.html#autotoc_md218", null ],
+          [ "Results", "examples.html#autotoc_md219", null ]
+        ] ],
+        [ "1D Multi-Component Reactive Shock Tube", "examples.html#autotoc_md220", [
           [ "Initial Condition", "examples.html#autotoc_md221", null ],
-          [ "Result", "examples.html#autotoc_md222", null ]
+          [ "Results", "examples.html#autotoc_md222", null ]
         ] ],
-        [ "1D Multi-Component Reactive Shock Tube", "examples.html#autotoc_md223", [
-          [ "Initial Condition", "examples.html#autotoc_md224", null ],
-          [ "Results", "examples.html#autotoc_md225", null ]
+        [ "2D Triple Point (2D)", "examples.html#autotoc_md223", [
+          [ "Numerical Schlieren at Final Time", "examples.html#autotoc_md224", null ]
         ] ],
-        [ "Lid-Driven Cavity Problem (2D)", "examples.html#autotoc_md226", [
-          [ "Final Condition", "examples.html#autotoc_md227", null ],
-          [ "Centerline Velocities", "examples.html#autotoc_md228", null ]
+        [ "2D IBM CFL dt (2D)", "examples.html#autotoc_md225", [
+          [ "Result", "examples.html#autotoc_md226", null ]
         ] ],
-        [ "2D Riemann Test (2D)", "examples.html#autotoc_md229", [
-          [ "Density Initial and Final Conditions", "examples.html#autotoc_md230", null ]
+        [ "Scaling and Performance test", "examples.html#autotoc_md227", [
+          [ "Weak Scaling", "examples.html#autotoc_md228", null ],
+          [ "Strong Scaling", "examples.html#autotoc_md229", null ],
+          [ "Example", "examples.html#autotoc_md230", null ]
         ] ],
-        [ "IBM Bow Shock (3D)", "examples.html#autotoc_md231", [
-          [ "Final Condition", "examples.html#autotoc_md232", null ]
+        [ "Shu-Osher problem (1D)", "examples.html#autotoc_md231", [
+          [ "Initial Condition", "examples.html#autotoc_md232", null ],
+          [ "Result", "examples.html#autotoc_md233", null ]
         ] ],
-        [ "2D Power-Law (Shear-Thickening) Poiseuille Channel", "examples.html#autotoc_md233", [
-          [ "Regime and parameters", "examples.html#autotoc_md234", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md235", null ],
-          [ "How to run", "examples.html#autotoc_md236", null ],
-          [ "Validation result", "examples.html#autotoc_md237", null ],
-          [ "References", "examples.html#autotoc_md238", null ]
+        [ "Kelvin-Helmholtz Instability (2D)", "examples.html#autotoc_md234", null ],
+        [ "2D General Herschel-Bulkley Poiseuille Channel", "examples.html#autotoc_md237", [
+          [ "Regime and parameters", "examples.html#autotoc_md238", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md239", null ],
+          [ "How to run", "examples.html#autotoc_md240", null ],
+          [ "Validation result", "examples.html#autotoc_md241", null ],
+          [ "References", "examples.html#autotoc_md242", null ]
         ] ],
-        [ "1D Multi-Component Inert Shock Tube", "examples.html#autotoc_md239", [
-          [ "Initial Condition", "examples.html#autotoc_md240", null ],
-          [ "Results", "examples.html#autotoc_md241", null ]
+        [ "Viscous Shock Tube (2D)", "examples.html#autotoc_md243", null ],
+        [ "2D Riemann Test (2D)", "examples.html#autotoc_md246", [
+          [ "Density Initial and Final Conditions", "examples.html#autotoc_md247", null ]
         ] ],
-        [ "Rayleigh-Taylor Instability (3D)", "examples.html#autotoc_md242", [
-          [ "Final Condition and Linear Theory", "examples.html#autotoc_md243", null ]
+        [ "Titarev-Toro problem (1D)", "examples.html#autotoc_md248", [
+          [ "Initial Condition", "examples.html#autotoc_md249", null ],
+          [ "Result", "examples.html#autotoc_md250", null ]
         ] ],
-        [ "Taylor-Green Vortex (3D)", "examples.html#autotoc_md244", [
-          [ "Final Condition", "examples.html#autotoc_md245", null ]
+        [ "Forward Facing Step (2D)", "examples.html#autotoc_md251", [
+          [ "Final Condition (Density)", "examples.html#autotoc_md252", null ]
         ] ],
-        [ "Perfectly Stirred Reactor", "examples.html#autotoc_md246", [
-          [ "Validation", "examples.html#autotoc_md247", null ]
+        [ "2D Power-Law (Shear-Thinning) Poiseuille Channel", "examples.html#autotoc_md253", [
+          [ "Regime and parameters", "examples.html#autotoc_md254", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md255", null ],
+          [ "How to run", "examples.html#autotoc_md256", null ],
+          [ "Validation result", "examples.html#autotoc_md257", null ],
+          [ "References", "examples.html#autotoc_md258", null ]
         ] ],
-        [ "2D Bingham (Yield-Stress) Poiseuille Channel", "examples.html#autotoc_md248", [
-          [ "Regime and parameters", "examples.html#autotoc_md249", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md250", null ],
-          [ "How to run", "examples.html#autotoc_md251", null ],
-          [ "Validation result", "examples.html#autotoc_md252", null ],
-          [ "References", "examples.html#autotoc_md253", null ]
+        [ "Rayleigh-Taylor Instability (3D)", "examples.html#autotoc_md259", [
+          [ "Final Condition and Linear Theory", "examples.html#autotoc_md260", null ]
         ] ],
-        [ "Isentropic vortex problem (2D)", "examples.html#autotoc_md254", [
-          [ "Density", "examples.html#autotoc_md255", null ],
-          [ "Density Norms", "examples.html#autotoc_md256", null ]
+        [ "Lid-Driven Cavity Problem (2D)", "examples.html#autotoc_md261", [
+          [ "Final Condition", "examples.html#autotoc_md262", null ],
+          [ "Centerline Velocities", "examples.html#autotoc_md263", null ]
         ] ],
-        [ "Rayleigh-Taylor Instability (2D)", "examples.html#autotoc_md257", [
-          [ "Final Condition and Linear Theory", "examples.html#autotoc_md258", null ]
+        [ "Perfectly Stirred Reactor", "examples.html#autotoc_md264", [
+          [ "Validation", "examples.html#autotoc_md265", null ]
         ] ],
-        [ "Titarev-Toro problem (1D)", "examples.html#autotoc_md259", [
-          [ "Initial Condition", "examples.html#autotoc_md260", null ],
-          [ "Result", "examples.html#autotoc_md261", null ]
+        [ "2D Power-Law (Shear-Thickening) Poiseuille Channel", "examples.html#autotoc_md266", [
+          [ "Regime and parameters", "examples.html#autotoc_md267", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md268", null ],
+          [ "How to run", "examples.html#autotoc_md269", null ],
+          [ "Validation result", "examples.html#autotoc_md270", null ],
+          [ "References", "examples.html#autotoc_md271", null ]
         ] ],
-        [ "2D Triple Point (2D)", "examples.html#autotoc_md262", [
-          [ "Numerical Schlieren at Final Time", "examples.html#autotoc_md263", null ]
+        [ "3D Turbulent Mixing layer (3D)", "examples.html#autotoc_md272", [
+          [ "Liutex visualization at transitional state", "examples.html#autotoc_md273", null ]
         ] ],
-        [ "2D Shear-Thinning Lid-Driven Cavity", "examples.html#autotoc_md264", [
-          [ "Regime and parameters", "examples.html#autotoc_md265", null ],
-          [ "Governing physics", "examples.html#autotoc_md266", null ],
-          [ "How to run", "examples.html#autotoc_md267", null ],
-          [ "References", "examples.html#autotoc_md268", null ]
+        [ "Isentropic vortex problem (2D)", "examples.html#autotoc_md274", [
+          [ "Density", "examples.html#autotoc_md275", null ],
+          [ "Density Norms", "examples.html#autotoc_md276", null ]
         ] ],
-        [ "2D Power-Law (Shear-Thinning) Poiseuille Channel", "examples.html#autotoc_md269", [
-          [ "Regime and parameters", "examples.html#autotoc_md270", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md271", null ],
-          [ "How to run", "examples.html#autotoc_md272", null ],
-          [ "Validation result", "examples.html#autotoc_md273", null ],
-          [ "References", "examples.html#autotoc_md274", null ]
+        [ "2D Bingham (Yield-Stress) Poiseuille Channel", "examples.html#autotoc_md277", [
+          [ "Regime and parameters", "examples.html#autotoc_md278", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md279", null ],
+          [ "How to run", "examples.html#autotoc_md280", null ],
+          [ "Validation result", "examples.html#autotoc_md281", null ],
+          [ "References", "examples.html#autotoc_md282", null ]
         ] ],
-        [ "2D Hardcodied IC Example", "examples.html#autotoc_md275", [
-          [ "Initial Condition and Result", "examples.html#autotoc_md276", null ]
+        [ "2D IBM-Walled Power-Law Poiseuille Channel", "examples.html#autotoc_md283", [
+          [ "Geometry and parameters", "examples.html#autotoc_md284", null ],
+          [ "Analytic solution", "examples.html#autotoc_md285", null ],
+          [ "How to run", "examples.html#autotoc_md286", null ],
+          [ "Validation results", "examples.html#autotoc_md287", null ],
+          [ "References", "examples.html#autotoc_md288", null ]
         ] ],
-        [ "3D Turbulent Mixing layer (3D)", "examples.html#autotoc_md277", [
-          [ "Liutex visualization at transitional state", "examples.html#autotoc_md278", null ]
+        [ "Lax shock tube problem (1D)", "examples.html#autotoc_md289", [
+          [ "Initial Condition", "examples.html#autotoc_md290", null ],
+          [ "Result", "examples.html#autotoc_md291", null ]
         ] ],
-        [ "Scaling and Performance test", "examples.html#autotoc_md279", [
-          [ "Weak Scaling", "examples.html#autotoc_md280", null ],
-          [ "Strong Scaling", "examples.html#autotoc_md281", null ],
-          [ "Example", "examples.html#autotoc_md282", null ]
+        [ "Gas Jet (2D)", "examples.html#autotoc_md292", [
+          [ "Final Condition", "examples.html#autotoc_md293", null ]
         ] ],
-        [ "2D IBM CFL dt (2D)", "examples.html#autotoc_md283", [
-          [ "Result", "examples.html#autotoc_md284", null ]
+        [ "2D Shear-Thinning Lid-Driven Cavity", "examples.html#autotoc_md294", [
+          [ "Regime and parameters", "examples.html#autotoc_md295", null ],
+          [ "Governing physics", "examples.html#autotoc_md296", null ],
+          [ "How to run", "examples.html#autotoc_md297", null ],
+          [ "References", "examples.html#autotoc_md298", null ]
         ] ],
-        [ "Kelvin-Helmholtz Instability (2D)", "examples.html#autotoc_md285", null ],
-        [ "Shock Droplet (2D)", "examples.html#autotoc_md288", [
-          [ "Initial Condition", "examples.html#autotoc_md289", null ],
-          [ "Result", "examples.html#autotoc_md290", null ]
+        [ "Rayleigh-Taylor Instability (2D)", "examples.html#autotoc_md299", [
+          [ "Final Condition and Linear Theory", "examples.html#autotoc_md300", null ]
         ] ],
-        [ "2D General Herschel-Bulkley Poiseuille Channel", "examples.html#autotoc_md291", [
-          [ "Regime and parameters", "examples.html#autotoc_md292", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md293", null ],
-          [ "How to run", "examples.html#autotoc_md294", null ],
-          [ "Validation result", "examples.html#autotoc_md295", null ],
-          [ "References", "examples.html#autotoc_md296", null ]
+        [ "IBM Bow Shock (3D)", "examples.html#autotoc_md301", [
+          [ "Final Condition", "examples.html#autotoc_md302", null ]
         ] ],
-        [ "Gas Jet (2D)", "examples.html#autotoc_md297", [
-          [ "Final Condition", "examples.html#autotoc_md298", null ]
+        [ "2D Hardcodied IC Example", "examples.html#autotoc_md303", [
+          [ "Initial Condition and Result", "examples.html#autotoc_md304", null ]
         ] ],
-        [ "Richtmyer-Meshkov Instability (2D)", "examples.html#autotoc_md299", null ],
-        [ "Shu-Osher problem (1D)", "examples.html#autotoc_md302", [
-          [ "Initial Condition", "examples.html#autotoc_md303", null ],
-          [ "Result", "examples.html#autotoc_md304", null ]
+        [ "Richtmyer-Meshkov Instability (2D)", "examples.html#autotoc_md305", null ],
+        [ "Taylor-Green Vortex (3D)", "examples.html#autotoc_md308", [
+          [ "Final Condition", "examples.html#autotoc_md309", null ]
         ] ],
-        [ "Forward Facing Step (2D)", "examples.html#autotoc_md305", [
-          [ "Final Condition (Density)", "examples.html#autotoc_md306", null ]
-        ] ],
-        [ "2D IBM-Walled Power-Law Poiseuille Channel", "examples.html#autotoc_md307", [
-          [ "Geometry and parameters", "examples.html#autotoc_md308", null ],
-          [ "Analytic solution", "examples.html#autotoc_md309", null ],
-          [ "How to run", "examples.html#autotoc_md310", null ],
-          [ "Validation results", "examples.html#autotoc_md311", null ],
-          [ "References", "examples.html#autotoc_md312", null ]
+        [ "Shock Droplet (2D)", "examples.html#autotoc_md310", [
+          [ "Initial Condition", "examples.html#autotoc_md311", null ],
+          [ "Result", "examples.html#autotoc_md312", null ]
         ] ]
       ] ]
     ] ],

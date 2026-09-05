@@ -30,7 +30,7 @@ var searchData=
   ['or_20hypoelasticity_27',['HLLD (&lt;span class=&quot;tt&quot;&gt;riemann_solver = 4&lt;/span&gt;, MHD or hypoelasticity)',['../equations.html#autotoc_md197',1,'']]],
   ['or_20silo_5fhdf5_20directory_20found_28',['&quot;No &apos;binary/&apos; or &apos;silo_hdf5/&apos; directory found&quot;',['../troubleshooting.html#autotoc_md594',1,'']]],
   ['ordering_29',['Ordering',['../case.html#autotoc_md40',1,'Conservative Variables Ordering'],['../case.html#autotoc_md41',1,'Primitive Variables Ordering']]],
-  ['osher_20problem_201d_30',['Shu-Osher problem (1D)',['../examples.html#autotoc_md302',1,'']]],
+  ['osher_20problem_201d_30',['Shu-Osher problem (1D)',['../examples.html#autotoc_md231',1,'']]],
   ['other_20commands_31',['Other Commands',['../cli-reference.html#autotoc_md75',1,'']]],
   ['other_20jobs_32',['Lint Gate (runs first, blocks all other jobs)',['../contributing.html#autotoc_md119',1,'']]],
   ['other_20model_20variants_33',['2.3 Other Model Variants',['../equations.html#autotoc_md148',1,'']]],

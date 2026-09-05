@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['backward_20facing_20step_202d_0',['Backward Facing Step (2D)',['../examples.html#autotoc_md218',1,'']]],
+  ['backward_20facing_20step_202d_0',['Backward Facing Step (2D)',['../examples.html#autotoc_md215',1,'']]],
   ['base_20images_1',['Base Images',['../docker.html#autotoc_md136',1,'']]],
   ['basic_20skeleton_2',['Basic Skeleton',['../case.html#autotoc_md16',1,'']]],
   ['basic_20usage_3',['Basic Usage',['../running.html#autotoc_md532',1,'']]],
@@ -23,7 +23,7 @@ var searchData=
   ['bf_5fz_20',['13. Body Forces (&lt;span class=&quot;tt&quot;&gt;bf_x&lt;/span&gt;, &lt;span class=&quot;tt&quot;&gt;bf_y&lt;/span&gt;, &lt;span class=&quot;tt&quot;&gt;bf_z&lt;/span&gt;)',['../equations.html#autotoc_md184',1,'']]],
   ['bibliography_21',['Bibliography',['../citelist.html',1,'']]],
   ['binary_20or_20silo_5fhdf5_20directory_20found_22',['&quot;No &apos;binary/&apos; or &apos;silo_hdf5/&apos; directory found&quot;',['../troubleshooting.html#autotoc_md594',1,'']]],
-  ['bingham_20yield_20stress_20poiseuille_20channel_23',['2D Bingham (Yield-Stress) Poiseuille Channel',['../examples.html#autotoc_md248',1,'']]],
+  ['bingham_20yield_20stress_20poiseuille_20channel_23',['2D Bingham (Yield-Stress) Poiseuille Channel',['../examples.html#autotoc_md277',1,'']]],
   ['block_20constructs_20are_20silently_20dropped_24',['Target regions inside Fortran BLOCK constructs are silently dropped',['../gpuParallelization.html#autotoc_md375',1,'']]],
   ['blocks_20all_20other_20jobs_25',['Lint Gate (runs first, blocks all other jobs)',['../contributing.html#autotoc_md119',1,'']]],
   ['body_20forces_26',['13. Body Forces',['../case.html#autotoc_md30',1,'']]],
@@ -37,7 +37,7 @@ var searchData=
   ['boundary_20patches_34',['4. Immersed Boundary Patches',['../case.html#sec-immersed-boundary-patches',1,'']]],
   ['bounds_35',['Domain Bounds',['../physics_constraints.html#autotoc_md463',1,'']]],
   ['bounds_20and_20indexing_36',['Array Bounds and Indexing',['../contributing.html#autotoc_md96',1,'']]],
-  ['bow_20shock_203d_37',['IBM Bow Shock (3D)',['../examples.html#autotoc_md231',1,'']]],
+  ['bow_20shock_203d_37',['IBM Bow Shock (3D)',['../examples.html#autotoc_md301',1,'']]],
   ['bryngelson20_38',['6.1.6 QBMM Moment Transport (&lt;span class=&quot;tt&quot;&gt;qbmm = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_bryngelson20&quot;&gt;[7]&lt;/a&gt;)',['../equations.html#autotoc_md165',1,'']]],
   ['bub_5fpp_39',['bub_pp',['../parameters.html#bub_pp',1,'']]],
   ['bubble_20case_40',['Example: Non-Dimensionalizing a Bubble Case',['../equations.html#sec-bubble-example',1,'']]],
@@ -70,7 +70,7 @@ var searchData=
   ['building_20mfc_67',['Building MFC',['../getting-started.html#autotoc_md337',1,'']]],
   ['building_20with_20gpu_20support_68',['Building with GPU Support',['../running.html#autotoc_md522',1,'']]],
   ['builds_69',['Debug Builds',['../troubleshooting.html#autotoc_md557',1,'']]],
-  ['bulkley_20poiseuille_20channel_70',['2D General Herschel-Bulkley Poiseuille Channel',['../examples.html#autotoc_md291',1,'']]],
+  ['bulkley_20poiseuille_20channel_70',['2D General Herschel-Bulkley Poiseuille Channel',['../examples.html#autotoc_md237',1,'']]],
   ['bulkley_20viscosity_71',['Bulkley Viscosity',['../case.html#sec-non-newtonian',1,'19. Non-Newtonian (Herschel-Bulkley) Viscosity'],['../physics_constraints.html#autotoc_md489',1,'Non-Newtonian (Herschel-Bulkley) Viscosity']]],
   ['burn_72',['Condensed-Phase Reactive Burn',['../physics_constraints.html#autotoc_md506',1,'']]]
 ];
