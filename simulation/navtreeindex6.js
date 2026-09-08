@@ -1,5 +1,7 @@
 var NAVTREEINDEX6 =
 {
+"namespacem__riemann__state.html#aded57f0debe2782350f8df5579a6946f":[1,0,52,34],
+"namespacem__riemann__state.html#ae9c52c6ffd531f1e42c2f314e2bd295d":[1,0,52,19],
 "namespacem__riemann__state.html#aeabea1342b71ceb194d547cc48de4327":[1,0,52,6],
 "namespacem__riemann__state.html#aec447bec43e7d39a55cd98722db22fc3":[1,0,52,7],
 "namespacem__riemann__state.html#afa0ae2a1960e64216f8176378056d6b7":[1,0,52,25],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "pages.html":[],
 "structm__derived__types_1_1acoustic__parameters.html":[1,0,20,39],
 "structm__derived__types_1_1acoustic__parameters.html":[2,0,0,39],
-"structm__derived__types_1_1acoustic__parameters.html#a0b6e3e454ada12a7e1059665e8b33d14":[1,0,20,39,12],
-"structm__derived__types_1_1acoustic__parameters.html#a0b6e3e454ada12a7e1059665e8b33d14":[2,0,0,39,12],
-"structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5":[1,0,20,39,22]
+"structm__derived__types_1_1acoustic__parameters.html#a0b6e3e454ada12a7e1059665e8b33d14":[1,0,20,39,12]
 };

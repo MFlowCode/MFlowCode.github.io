@@ -53,7 +53,8 @@ var searchData=
   ['stretch_5fx_50',['stretch_x',['../namespacem__global__parameters__common.html#ad8d98101656da40b2bcf95bae70f6c42',1,'m_global_parameters_common']]],
   ['stretch_5fy_51',['stretch_y',['../namespacem__global__parameters__common.html#a8d7755028d9895c67f72b455c3fc3d5c',1,'m_global_parameters_common']]],
   ['stretch_5fz_52',['stretch_z',['../namespacem__global__parameters__common.html#adf53dad38045b54f423711b3d9338c6a',1,'m_global_parameters_common']]],
-  ['support_53',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
-  ['surface_5ftension_54',['surface_tension',['../namespacem__global__parameters__common.html#a075c54267c968a7b78122aabf7631844',1,'m_global_parameters_common']]],
-  ['sys_5fsize_55',['sys_size',['../namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2',1,'m_global_parameters_common']]]
+  ['substeps_53',['substeps',['../structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63',1,'m_derived_types::reactive_burn_parameters']]],
+  ['support_54',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
+  ['surface_5ftension_55',['surface_tension',['../namespacem__global__parameters__common.html#a075c54267c968a7b78122aabf7631844',1,'m_global_parameters_common']]],
+  ['sys_5fsize_56',['sys_size',['../namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2',1,'m_global_parameters_common']]]
 ];

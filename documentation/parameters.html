@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md379"></a>
 Overview</h2>
-<p>MFC supports <b>3,792</b> case parameters organized into families.</p>
+<p>MFC supports <b>3,793</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md380"></a>
 Parameter Families</h2>
@@ -227,7 +227,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#chem_params" title="chem_params">chem_params</a>  </td><td class="markdownTableBodyNone">7  </td><td class="markdownTableBodyNone">Chemistry model parameters  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#rburn" title="rburn">rburn</a>  </td><td class="markdownTableBodyNone">5  </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#rburn" title="rburn">rburn</a>  </td><td class="markdownTableBodyNone">6  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#ib_airfoil" title="ib_airfoil">ib_airfoil</a>  </td><td class="markdownTableBodyNone">4  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
@@ -1125,7 +1125,7 @@ chem_params</h2>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="rburn"></a>
 rburn</h2>
-<p><b>5 parameters</b></p>
+<p><b>6 parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Constraints  </th></tr>
@@ -1138,6 +1138,8 @@ rburn</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">rburn%pref</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reactive-burn reference pressure for the pressure drive [Pa]  </td><td class="markdownTableBodyNone"><span class="tt">reactive_burn</span> requires <span class="tt">rburnpref</span> &gt; 0 (it normalizes the pressure drive and is used as a divisor)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">rburn%substeps</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Reactive-burn parameter: substeps  </td><td class="markdownTableBodyNone"><span class="tt">reactive_burn</span> requires <span class="tt">rburnsubsteps</span> &gt;= 0 (operator-split sub-steps per time step; 0 adds the source to the flow RHS)  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">rburn%ta</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Reactive-burn activation temperature [K] (0 = pure pressure-driven; &gt;0 adds a...  </td><td class="markdownTableBodyNone"><span class="tt">reactive_burn</span> requires <span class="tt">rburnta</span> &gt;= 0 (activation temperature [K]; 0 disables the Arrhenius factor); <span class="tt">reactive_burn</span> with <span class="tt">rburnta</span> &gt; 0 requires <span class="tt">fluid_pp(1)cv</span> &gt; 0 (the reactant temperature needs a physical heat capacity; cv = 0 silently disables the Arrhenius factor)  </td></tr>
 </table>
 <hr  />
@@ -1760,7 +1762,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-07</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-08</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -146,7 +146,9 @@ var NAVTREEINDEX5 =
 "namespacem__qbmm.html#ad9cdf4bbd8165d785faec51d38d14e82":[1,0,43,0],
 "namespacem__qbmm.html#aeefcb72401bfdb35dcdd81104e647a15":[1,0,43,3],
 "namespacem__reactive__burn.html":[1,0,44],
-"namespacem__reactive__burn.html#a037edf3a057e36a78c3613e56a47d591":[1,0,44,0],
+"namespacem__reactive__burn.html#a037edf3a057e36a78c3613e56a47d591":[1,0,44,1],
+"namespacem__reactive__burn.html#a0406a6b3ce7d4e6fdd1c70c8087f28fb":[1,0,44,0],
+"namespacem__reactive__burn.html#a312c0b3fde94b1b5cb872a0c0f73df6b":[1,0,44,2],
 "namespacem__rhs.html":[1,0,45],
 "namespacem__rhs.html#a06d951ada34ffd709203a701678437ef":[1,0,45,23],
 "namespacem__rhs.html#a0757066fe9419ea7b18009aa553918b4":[1,0,45,36],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "namespacem__riemann__state.html#ab58d02b4bf6948d0036dfa3dbf77b7f1":[1,0,52,20],
 "namespacem__riemann__state.html#abb40d68fb2e6a237bcbb5415b377ef89":[1,0,52,5],
 "namespacem__riemann__state.html#ac6fb6f558806d46dbec5b3e76ce12f81":[1,0,52,32],
-"namespacem__riemann__state.html#ad5d1bfd233543b5d68d9350bb47bdb19":[1,0,52,11],
-"namespacem__riemann__state.html#aded57f0debe2782350f8df5579a6946f":[1,0,52,34],
-"namespacem__riemann__state.html#ae9c52c6ffd531f1e42c2f314e2bd295d":[1,0,52,19]
+"namespacem__riemann__state.html#ad5d1bfd233543b5d68d9350bb47bdb19":[1,0,52,11]
 };

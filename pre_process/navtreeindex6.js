@@ -173,10 +173,12 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1qbmm__idx__info.html#adfb80a4f4432062391bd9caea975c0ef":[2,0,2,17,1],
 "structm__derived__types_1_1reactive__burn__parameters.html":[1,0,14,44],
 "structm__derived__types_1_1reactive__burn__parameters.html":[2,0,2,44],
-"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[1,0,14,44,4],
-"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[2,0,2,44,4],
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[1,0,14,44,5],
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[2,0,2,44,5],
 "structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4":[1,0,14,44,3],
 "structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4":[2,0,2,44,3],
+"structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63":[1,0,14,44,4],
+"structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63":[2,0,2,44,4],
 "structm__derived__types_1_1reactive__burn__parameters.html#a797a8e2cddd5bf0f70db4193b8bdd156":[1,0,14,44,0],
 "structm__derived__types_1_1reactive__burn__parameters.html#a797a8e2cddd5bf0f70db4193b8bdd156":[2,0,2,44,0],
 "structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f":[1,0,14,44,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX6 =
 "structm__derived__types_1_1species__parameters.html":[2,0,2,42],
 "structm__derived__types_1_1species__parameters.html#a056f8eb0cfc59c46e1b562c1b5f1482e":[1,0,14,42,0],
 "structm__derived__types_1_1species__parameters.html#a056f8eb0cfc59c46e1b562c1b5f1482e":[2,0,2,42,0],
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html":[1,0,14,36],
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html":[2,0,2,36],
-"structm__derived__types_1_1subgrid__bubble__physical__parameters.html#a0a0f144effc838e4e800d7dfb7904472":[1,0,14,36,16]
+"structm__derived__types_1_1subgrid__bubble__physical__parameters.html":[1,0,14,36]
 };

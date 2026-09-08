@@ -1227,7 +1227,9 @@ var namespaces_dup =
       [ "nterms", "namespacem__qbmm.html#a5b1f3128a74558c0c782697a7393b5b1", null ]
     ] ],
     [ "m_reactive_burn", "namespacem__reactive__burn.html", [
-      [ "s_compute_reactive_burn", "namespacem__reactive__burn.html#a037edf3a057e36a78c3613e56a47d591", null ]
+      [ "s_burn_rate", "namespacem__reactive__burn.html#a0406a6b3ce7d4e6fdd1c70c8087f28fb", null ],
+      [ "s_compute_reactive_burn", "namespacem__reactive__burn.html#a037edf3a057e36a78c3613e56a47d591", null ],
+      [ "s_reactive_burn_substep", "namespacem__reactive__burn.html#a312c0b3fde94b1b5cb872a0c0f73df6b", null ]
     ] ],
     [ "m_rhs", "namespacem__rhs.html", [
       [ "s_compute_additional_physics_rhs", "namespacem__rhs.html#a2df6b2a1323afaca022b5ef77dd4c0e0", null ],

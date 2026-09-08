@@ -46,7 +46,8 @@ var searchData=
   ['stl_5fmodels_43',['stl_models',['../namespacem__global__parameters__common.html#a0ec1d8acc40d557369b3c1affafaf5b0',1,'m_global_parameters_common']]],
   ['stp_44',['stp',['../namespacem__precision__select.html#acd6899441d0c646c22f322e87cfe2c23',1,'m_precision_select']]],
   ['stress_45',['stress',['../structm__derived__types_1_1eqn__idx__info.html#a34de6c19a6e9bc3b3b3a1053cb549751',1,'m_derived_types::eqn_idx_info']]],
-  ['support_46',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
-  ['surface_5ftension_47',['surface_tension',['../namespacem__global__parameters__common.html#a075c54267c968a7b78122aabf7631844',1,'m_global_parameters_common']]],
-  ['sys_5fsize_48',['sys_size',['../namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2',1,'m_global_parameters_common']]]
+  ['substeps_46',['substeps',['../structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63',1,'m_derived_types::reactive_burn_parameters']]],
+  ['support_47',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
+  ['surface_5ftension_48',['surface_tension',['../namespacem__global__parameters__common.html#a075c54267c968a7b78122aabf7631844',1,'m_global_parameters_common']]],
+  ['sys_5fsize_49',['sys_size',['../namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2',1,'m_global_parameters_common']]]
 ];
