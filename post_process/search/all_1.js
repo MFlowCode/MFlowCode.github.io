@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info']]],
+  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info::b'],['../structm__derived__types_1_1eos__coefficients.html#aa9157f28f60a47445ea1a7fbbab16dd6',1,'m_derived_types::eos_coefficients::b']]],
   ['bb_5fbandwidth_1',['bb_bandwidth',['../structm__derived__types_1_1acoustic__parameters.html#afb4e9d0ccb0dd5d027d8481a8b7435fa',1,'m_derived_types::acoustic_parameters']]],
   ['bb_5flowest_5ffreq_2',['bb_lowest_freq',['../structm__derived__types_1_1acoustic__parameters.html#ae5df21fb5eeea484118aac065b43f314',1,'m_derived_types::acoustic_parameters']]],
   ['bb_5fnum_5ffreq_3',['bb_num_freq',['../structm__derived__types_1_1acoustic__parameters.html#ace47df58ba83283853bce822632cf1e2',1,'m_derived_types::acoustic_parameters']]],

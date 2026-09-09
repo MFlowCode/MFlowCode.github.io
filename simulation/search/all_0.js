@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters']]],
+  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters::a'],['../structm__derived__types_1_1eos__coefficients.html#aef00fa9b28a1eab53a51b942fe28eefa',1,'m_derived_types::eos_coefficients::a']]],
   ['accel_5fbf_1',['accel_bf',['../namespacem__global__parameters.html#a4d953db2f36f05624766c42cc9851362',1,'m_global_parameters']]],
   ['accel_5fmag_2',['accel_mag',['../namespacem__derived__variables.html#a2ab3ca4fa9e4d44a3343ceaecdf71afd',1,'m_derived_variables']]],
   ['acoustic_3',['acoustic',['../namespacem__global__parameters__common.html#a835597025d19a2d9d8c120e1b428c23a',1,'m_global_parameters_common']]],
@@ -40,9 +40,10 @@ var searchData=
   ['angles_37',['angles',['../structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42',1,'m_derived_types::ib_patch_parameters']]],
   ['angular_5fvel_38',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
   ['any_5fnon_5fnewtonian_39',['any_non_newtonian',['../namespacem__global__parameters.html#a1fee640ebf29003637c05968e47e8bcf',1,'m_global_parameters']]],
-  ['aperture_40',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters::aperture'],['../namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc',1,'m_acoustic_src::aperture']]],
-  ['associated_5flegendre_41',['associated_legendre',['../namespacem__helper.html#a23f996aa705b54698b032bf924a1e854',1,'m_helper']]],
-  ['avg_5fstate_42',['avg_state',['../namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3',1,'m_global_parameters_common']]],
-  ['avg_5fstate_5farithmetic_43',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
-  ['avg_5fstate_5froe_44',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
+  ['any_5fstate_5fdependent_5feos_40',['any_state_dependent_eos',['../namespacem__global__parameters__common.html#acbcb07d6fbfc8aff81e0b916ab91ab8e',1,'m_global_parameters_common']]],
+  ['aperture_41',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters::aperture'],['../namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc',1,'m_acoustic_src::aperture']]],
+  ['associated_5flegendre_42',['associated_legendre',['../namespacem__helper.html#a23f996aa705b54698b032bf924a1e854',1,'m_helper']]],
+  ['avg_5fstate_43',['avg_state',['../namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3',1,'m_global_parameters_common']]],
+  ['avg_5fstate_5farithmetic_44',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
+  ['avg_5fstate_5froe_45',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
 ];

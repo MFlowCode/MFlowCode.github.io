@@ -5,7 +5,6 @@ var m__derived__variables_8fpp_8f90 =
     [ "m_derived_variables::s_derive_liutex", "namespacem__derived__variables.html#a3b62ebc7a990612b539c29a6b07667aa", null ],
     [ "m_derived_variables::s_derive_numerical_schlieren_function", "namespacem__derived__variables.html#ac3dc133ba9fba88ec6fbfa312760d018", null ],
     [ "m_derived_variables::s_derive_qm", "namespacem__derived__variables.html#ae0ac63f6066331314e3ff19a123deaa1", null ],
-    [ "m_derived_variables::s_derive_sound_speed", "namespacem__derived__variables.html#aa6406c58c9225548724d3f23ff4c8368", null ],
     [ "m_derived_variables::s_derive_specific_heat_ratio", "namespacem__derived__variables.html#a40c4c0bb139b56e00ea765579d13bfd6", null ],
     [ "m_derived_variables::s_derive_vorticity_component", "namespacem__derived__variables.html#aa038ec37a8a0c8fe8d7185b9ef6d54a9", null ],
     [ "m_derived_variables::s_finalize_derived_variables_module", "namespacem__derived__variables.html#ad5dfada9c933c6a4d3f9b41a8b7a98f9", null ],

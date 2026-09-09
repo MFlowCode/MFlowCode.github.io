@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info']]],
+  ['b_0',['b',['../structm__derived__types_1_1eqn__idx__info.html#a42dfa84a2a038e302b788242c263d854',1,'m_derived_types::eqn_idx_info::b'],['../structm__derived__types_1_1eos__coefficients.html#aa9157f28f60a47445ea1a7fbbab16dd6',1,'m_derived_types::eos_coefficients::b']]],
   ['batch_5fsize_1',['batch_size',['../namespacem__fftw.html#a565da54ad2fc806890cd3dc017ca9639',1,'m_fftw']]],
   ['bb_5fbandwidth_2',['bb_bandwidth',['../structm__derived__types_1_1acoustic__parameters.html#afb4e9d0ccb0dd5d027d8481a8b7435fa',1,'m_derived_types::acoustic_parameters::bb_bandwidth'],['../namespacem__acoustic__src.html#af2d136ef242278a53b52156f3f7d07ec',1,'m_acoustic_src::bb_bandwidth']]],
   ['bb_5flowest_5ffreq_3',['bb_lowest_freq',['../structm__derived__types_1_1acoustic__parameters.html#ae5df21fb5eeea484118aac065b43f314',1,'m_derived_types::acoustic_parameters::bb_lowest_freq'],['../namespacem__acoustic__src.html#a9e874bb4bca9aefaa7e1a7c7985c18c6',1,'m_acoustic_src::bb_lowest_freq']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters']]],
+  ['a_0',['a',['../structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51',1,'m_derived_types::ic_patch_parameters::a'],['../structm__derived__types_1_1eos__coefficients.html#aef00fa9b28a1eab53a51b942fe28eefa',1,'m_derived_types::eos_coefficients::a']]],
   ['acoustic_5fspatial_5fsupport_5fwidth_1',['acoustic_spatial_support_width',['../namespacem__constants.html#a92bc4d3446d8473183e165116932778f',1,'m_constants']]],
   ['adap_5fsubsteps_2',['adap_substeps',['../structm__derived__types_1_1chemistry__parameters.html#a0c7ceba5ade3212e03a699c1b36084c6',1,'m_derived_types::chemistry_parameters']]],
   ['adv_3',['adv',['../structm__derived__types_1_1eqn__idx__info.html#a9c8048f8cbd185a632861ad52a55ff52',1,'m_derived_types::eqn_idx_info::adv'],['../namespacem__global__parameters.html#a3f7c981447ad175eb71b35d47886ee5a',1,'m_global_parameters::adv']]],
@@ -21,8 +21,9 @@ var searchData=
   ['angle_18',['angle',['../structm__derived__types_1_1source__spatial__type.html#a39fd51f9d8b268bbbb1e202e482841d2',1,'m_derived_types::source_spatial_type']]],
   ['angles_19',['angles',['../structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42',1,'m_derived_types::ib_patch_parameters']]],
   ['angular_5fvel_20',['angular_vel',['../structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0',1,'m_derived_types::ib_patch_parameters']]],
-  ['aperture_21',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]],
-  ['avg_5fstate_22',['avg_state',['../namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3',1,'m_global_parameters_common']]],
-  ['avg_5fstate_5farithmetic_23',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
-  ['avg_5fstate_5froe_24',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
+  ['any_5fstate_5fdependent_5feos_21',['any_state_dependent_eos',['../namespacem__global__parameters__common.html#acbcb07d6fbfc8aff81e0b916ab91ab8e',1,'m_global_parameters_common']]],
+  ['aperture_22',['aperture',['../structm__derived__types_1_1acoustic__parameters.html#a6ed9fb62c973016d196bfa9666397f48',1,'m_derived_types::acoustic_parameters']]],
+  ['avg_5fstate_23',['avg_state',['../namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3',1,'m_global_parameters_common']]],
+  ['avg_5fstate_5farithmetic_24',['avg_state_arithmetic',['../namespacem__constants.html#aeaf15f622be7f53d39ed01fd396e2837',1,'m_constants']]],
+  ['avg_5fstate_5froe_25',['avg_state_roe',['../namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103',1,'m_constants']]]
 ];
