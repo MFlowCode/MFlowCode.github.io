@@ -1,5 +1,8 @@
 var NAVTREEINDEX6 =
 {
+"namespacem__riemann__state.html#a4f7ebb4b33ec4ac75f6dd39cb3b2d91a":[1,0,52,33],
+"namespacem__riemann__state.html#a4fdec5f95ec7676d349cf418805ee1f5":[1,0,52,24],
+"namespacem__riemann__state.html#a579b60e182e8fc49410c6bd525872526":[1,0,52,18],
 "namespacem__riemann__state.html#a5a2606d00e72a61ee46328e0a26e52b4":[1,0,52,2],
 "namespacem__riemann__state.html#a79c11408c7da3bd3f351beefbf93cf36":[1,0,52,12],
 "namespacem__riemann__state.html#a83283b0ea578ec1a6b865729021fe764":[1,0,52,29],
@@ -246,8 +249,5 @@ var NAVTREEINDEX6 =
 "namespacemembers_vars_e.html":[1,1,2,4],
 "namespacemembers_vars_f.html":[1,1,2,5],
 "namespacemembers_vars_g.html":[1,1,2,6],
-"namespacemembers_vars_h.html":[1,1,2,7],
-"namespacemembers_vars_i.html":[1,1,2,8],
-"namespacemembers_vars_j.html":[1,1,2,9],
-"namespacemembers_vars_k.html":[1,1,2,10]
+"namespacemembers_vars_h.html":[1,1,2,7]
 };

@@ -1,10 +1,13 @@
 var m__hypoelastic_8fpp_8f90 =
 [
-    [ "m_hypoelastic::s_compute_damage_state", "namespacem__hypoelastic.html#ac6eb281503f9bed7595215afd514549f", null ],
+    [ "m_hypoelastic::f_max_eig_sym2x2", "namespacem__hypoelastic.html#a21959d0b04bd6fcd876cc70671cb83aa", null ],
+    [ "m_hypoelastic::f_max_eig_sym3x3", "namespacem__hypoelastic.html#a8c7e5c12ff40e2f2958f290dd95c7be4", null ],
+    [ "m_hypoelastic::s_compute_damage_state", "namespacem__hypoelastic.html#a70bdbc89082ab3dbe8a43bfcfb27be82", null ],
     [ "m_hypoelastic::s_compute_hypoelastic_rhs_axisym_geom_dual_pass", "namespacem__hypoelastic.html#a9c200332a3d4e1f857947f659c1ae859", null ],
     [ "m_hypoelastic::s_compute_hypoelastic_rhs_axisym_geom_iface", "namespacem__hypoelastic.html#ae90478bd282079be365b3cd82e1bc51c", null ],
     [ "m_hypoelastic::s_compute_hypoelastic_rhs_finite_diff_per_sweep", "namespacem__hypoelastic.html#a8a3a2cae3796c8e403ef408bbca0978c", null ],
     [ "m_hypoelastic::s_compute_hypoelastic_rhs_iface", "namespacem__hypoelastic.html#a7f1fd697efc4c4ffcab9ab501bc67423", null ],
+    [ "m_hypoelastic::s_enforce_cont_damage_bounds", "namespacem__hypoelastic.html#aa677120747adfa628b4e516ea1dca8bf", null ],
     [ "m_hypoelastic::s_finalize_hypoelastic_module", "namespacem__hypoelastic.html#af55a4cd98f2c7efebc4d7d6730ca8aa5", null ],
     [ "m_hypoelastic::s_initialize_hypoelastic_module", "namespacem__hypoelastic.html#ae831b1e378765b92095b58285aa16315", null ],
     [ "m_hypoelastic::du_dx_hypo", "namespacem__hypoelastic.html#a89d6a4bd9da2dea05f4581893048ed55", null ],

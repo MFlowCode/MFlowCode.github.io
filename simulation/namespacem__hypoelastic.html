@@ -175,8 +175,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a9c200332a3d4e1f857947f659c1ae859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cylindrical completion for the dual-pass (anchored HLLD) hypoelastic path. The anchored augmented fluxes already carry every axial/radial derivative term of the stress law and the stress rows of flux_gsrc are zero, so the complete remaining cylindrical physics is the cell-local v/r family below: the advective metric -q_s*v/r plus the constitutive v/r terms (and +/-K*C for the volume fractions under alt_soundspeed). The discrete C = v/r averages the cell's own two anchored radial face traces (hat_L outer face, hat_R inner face) over y_cc, so no absolute axial velocity enters and uniform axial translation gives exactly zero. Called once after the two anchored partial RHS's are summed. Continuum damage needs no handling here: HLLD + cont_damage is prohibited (m_checker.fpp).  <br /></td></tr>
 <tr class="memitem:af55a4cd98f2c7efebc4d7d6730ca8aa5" id="r_af55a4cd98f2c7efebc4d7d6730ca8aa5"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#af55a4cd98f2c7efebc4d7d6730ca8aa5">s_finalize_hypoelastic_module</a> ()</td></tr>
 <tr class="memdesc:af55a4cd98f2c7efebc4d7d6730ca8aa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the hypoelastic module.  <br /></td></tr>
-<tr class="memitem:ac6eb281503f9bed7595215afd514549f" id="r_ac6eb281503f9bed7595215afd514549f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac6eb281503f9bed7595215afd514549f">s_compute_damage_state</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhs_vf)</td></tr>
-<tr class="memdesc:ac6eb281503f9bed7595215afd514549f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the continuum damage source term from the principal stress state.  <br /></td></tr>
+<tr class="memitem:a21959d0b04bd6fcd876cc70671cb83aa" id="r_a21959d0b04bd6fcd876cc70671cb83aa"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a21959d0b04bd6fcd876cc70671cb83aa">f_max_eig_sym2x2</a> (a, b, c)</td></tr>
+<tr class="memdesc:a21959d0b04bd6fcd876cc70671cb83aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum eigenvalue of the symmetric 2x2 matrix [[a, b], [b, c]].  <br /></td></tr>
+<tr class="memitem:a8c7e5c12ff40e2f2958f290dd95c7be4" id="r_a8c7e5c12ff40e2f2958f290dd95c7be4"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a8c7e5c12ff40e2f2958f290dd95c7be4">f_max_eig_sym3x3</a> (t_xx, t_xy, t_yy, t_xz, t_yz, t_zz)</td></tr>
+<tr class="memdesc:a8c7e5c12ff40e2f2958f290dd95c7be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum eigenvalue of a symmetric 3x3 matrix via the trigonometric closed form on its invariants; the acos argument is clamped and hydrostatic/repeated-eigenvalue states fall back to I1/3 to avoid 0/0.  <br /></td></tr>
+<tr class="memitem:a70bdbc89082ab3dbe8a43bfcfb27be82" id="r_a70bdbc89082ab3dbe8a43bfcfb27be82"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a70bdbc89082ab3dbe8a43bfcfb27be82">s_compute_damage_state</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, rhs_vf)</td></tr>
+<tr class="memdesc:a70bdbc89082ab3dbe8a43bfcfb27be82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate the continuum damage source: the overstress rate on the maximum principal Cauchy stress sigma = -p I + tau_e (full 3D principal set in every dimensionality), weighted by the damageable-solid partial mass.  <br /></td></tr>
+<tr class="memitem:aa677120747adfa628b4e516ea1dca8bf" id="r_aa677120747adfa628b4e516ea1dca8bf"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa677120747adfa628b4e516ea1dca8bf">s_enforce_cont_damage_bounds</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
+<tr class="memdesc:aa677120747adfa628b4e516ea1dca8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Project the conservative continuum-damage carrier onto 0 &lt;= U_D &lt;= m_s.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -199,8 +205,93 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computes hypoelastic stress-rate source terms and damage-state evolution. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="ac6eb281503f9bed7595215afd514549f" name="ac6eb281503f9bed7595215afd514549f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6eb281503f9bed7595215afd514549f">&#9670;&#160;</a></span>s_compute_damage_state()</h2>
+<a id="a21959d0b04bd6fcd876cc70671cb83aa" name="a21959d0b04bd6fcd876cc70671cb83aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21959d0b04bd6fcd876cc70671cb83aa">&#9670;&#160;</a></span>f_max_eig_sym2x2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_hypoelastic::f_max_eig_sym2x2 </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum eigenvalue of the symmetric 2x2 matrix [[a, b], [b, c]]. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02294">2294</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hypoelastic_a21959d0b04bd6fcd876cc70671cb83aa_icgraph.svg" width="422" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8c7e5c12ff40e2f2958f290dd95c7be4" name="a8c7e5c12ff40e2f2958f290dd95c7be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c7e5c12ff40e2f2958f290dd95c7be4">&#9670;&#160;</a></span>f_max_eig_sym3x3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_hypoelastic::f_max_eig_sym3x3 </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_xx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_xy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_yy</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_xz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_yz</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_zz</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum eigenvalue of a symmetric 3x3 matrix via the trigonometric closed form on its invariants; the acos argument is clamped and hydrostatic/repeated-eigenvalue states fall back to I1/3 to avoid 0/0. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02320">2320</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hypoelastic_a8c7e5c12ff40e2f2958f290dd95c7be4_icgraph.svg" width="422" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a70bdbc89082ab3dbe8a43bfcfb27be82" name="a70bdbc89082ab3dbe8a43bfcfb27be82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70bdbc89082ab3dbe8a43bfcfb27be82">&#9670;&#160;</a></span>s_compute_damage_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,14 +304,24 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the continuum damage source term from the principal stress state. </p>
+<p>Accumulate the continuum damage source: the overstress rate on the maximum principal Cauchy stress sigma = -p I + tau_e (full 3D principal set in every dimensionality), weighted by the damageable-solid partial mass. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02293">2293</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02359">2359</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hypoelastic_a70bdbc89082ab3dbe8a43bfcfb27be82_cgraph.svg" width="422" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -264,7 +365,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01929">1929</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01930">1930</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -308,7 +409,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01800">1800</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01801">1801</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -351,7 +452,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00784">784</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00785">785</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -389,12 +490,33 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01397">1397</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l01398">1398</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hypoelastic_a7f1fd697efc4c4ffcab9ab501bc67423_cgraph.svg" width="451" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="aa677120747adfa628b4e516ea1dca8bf" name="aa677120747adfa628b4e516ea1dca8bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa677120747adfa628b4e516ea1dca8bf">&#9670;&#160;</a></span>s_enforce_cont_damage_bounds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_hypoelastic::s_enforce_cont_damage_bounds </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Project the conservative continuum-damage carrier onto 0 &lt;= U_D &lt;= m_s. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02465">2465</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -412,7 +534,7 @@ Here is the call graph for this function:</div>
 
 <p>Finalize the hypoelastic module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02035">2035</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l02036">2036</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -430,7 +552,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the hypoelastic module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -447,7 +569,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -463,7 +585,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -479,7 +601,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00350">350</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -495,7 +617,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -511,7 +633,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -527,7 +649,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00351">351</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -543,7 +665,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -559,7 +681,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -575,7 +697,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00352">352</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00353">353</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -591,7 +713,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -607,7 +729,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00380">380</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -623,7 +745,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00380">380</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -639,7 +761,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -655,7 +777,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00337">337</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00338">338</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -671,7 +793,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00365">365</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hypoelastic_8fpp_8f90_source.html#l00366">366</a> of file <a class="el" href="m__hypoelastic_8fpp_8f90_source.html">m_hypoelastic.fpp.f90</a>.</p>
 
 </div>
 </div>

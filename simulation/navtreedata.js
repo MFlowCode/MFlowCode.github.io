@@ -61,12 +61,12 @@ var NAVTREEINDEX =
 "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9",
 "namespacem__fftw.html#af605e2137e55bfc3b5e95bbdad51803a",
 "namespacem__global__parameters__common.html#a6f1a7f755fcb3f1cbe7f940a82b1e848",
-"namespacem__model.html#a67f88868e4694fecf2151ffd5df4fc75",
-"namespacem__riemann__state.html#a5a2606d00e72a61ee46328e0a26e52b4",
-"namespacemembers_vars_l.html",
-"structm__derived__types_1_1fd__context.html#a4d4698b400885745689b33a456923e78",
-"structm__derived__types_1_1ic__patch__parameters.html#af41122642eb769c1ee86a22055e0b139",
-"structm__derived__types_1_1pres__field.html"
+"namespacem__model.html#a532686157e0170dfff866cafe2162e9b",
+"namespacem__riemann__state.html#a4f7ebb4b33ec4ac75f6dd39cb3b2d91a",
+"namespacemembers_vars_i.html",
+"structm__derived__types_1_1eqn__idx__info.html#ad1598964e74e3d9258282abf7803e99f",
+"structm__derived__types_1_1ic__patch__parameters.html#aeea0895f2f8542f5d74ca22f2b3fe807",
+"structm__derived__types_1_1physical__parameters.html#af9059f0ade74fccb18dde2f57655fe4e"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
