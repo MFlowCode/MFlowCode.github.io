@@ -59,7 +59,7 @@ var NAVTREEINDEX =
 "annotated.html",
 "namespacem__constants.html#a5c4bf41667b9de3aadb9f48071d37c7a",
 "namespacem__global__parameters__common.html#a108b3bc8945890ed9e734b14f0749e7e",
-"namespacem__mpi__proxy.html#a0f7cd4188db4d19ada06d7cb7334991d",
+"namespacem__mpi__proxy.html",
 "structm__derived__types_1_1acoustic__parameters.html#abe7c667095b7ebb933e1ec8e7879f2f1",
 "structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b",
 "structm__derived__types_1_1levelset__field.html",

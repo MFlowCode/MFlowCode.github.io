@@ -171,8 +171,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:af40a32d6d0e4db1d0dd7030d2639a915"><td class="mdescLeft">&#160;</td><td class="mdescRight">applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres)  <br /></td></tr>
 <tr class="memitem:a8dac6fb2b3da2ea0e6d3df93df7c9e94" id="r_a8dac6fb2b3da2ea0e6d3df93df7c9e94"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8dac6fb2b3da2ea0e6d3df93df7c9e94">s_detect_ib_collisions</a> (gps, ib_markers, num_gps, num_considered_collisions)</td></tr>
 <tr class="memdesc:a8dac6fb2b3da2ea0e6d3df93df7c9e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses ghost-point/image-point information to determine if it is possible if two IBs are colliding, effectively an optimized nearest neighbor search  <br /></td></tr>
-<tr class="memitem:a582bc12bbbdb4389578c76e37255a201" id="r_a582bc12bbbdb4389578c76e37255a201"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a582bc12bbbdb4389578c76e37255a201">s_detect_wall_collisions</a> ()</td></tr>
-<tr class="memdesc:a582bc12bbbdb4389578c76e37255a201"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses boundary conditions and particle locations to check for wall conditions  <br /></td></tr>
+<tr class="memitem:a9c5fd0d2e3e996b6ddea38af036c75d1" id="r_a9c5fd0d2e3e996b6ddea38af036c75d1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9c5fd0d2e3e996b6ddea38af036c75d1">s_detect_wall_collisions</a> (any_wall_collision)</td></tr>
+<tr class="memdesc:a9c5fd0d2e3e996b6ddea38af036c75d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses boundary conditions and particle locations to check for wall conditions  <br /></td></tr>
 <tr class="memitem:aa76f43bb77653a6b6e06a03c20b3ef08" id="r_aa76f43bb77653a6b6e06a03c20b3ef08"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#aa76f43bb77653a6b6e06a03c20b3ef08">f_local_rank_owns_location</a> (location)</td></tr>
 <tr class="memdesc:aa76f43bb77653a6b6e06a03c20b3ef08"><td class="mdescLeft">&#160;</td><td class="mdescRight">function checks if this local MPI processor owns this specific collision  <br /></td></tr>
 <tr class="memitem:a6f78efa6a42123b9b5122de43e21733a" id="r_a6f78efa6a42123b9b5122de43e21733a"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a6f78efa6a42123b9b5122de43e21733a">f_neighborhood_ranks_own_location</a> (location)</td></tr>
@@ -186,6 +186,8 @@ Variables</h2></td></tr>
 <tr class="memitem:abc7da7c3c4711ee302476d69deaeddd6" id="r_abc7da7c3c4711ee302476d69deaeddd6"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#abc7da7c3c4711ee302476d69deaeddd6">spring_stiffness</a></td></tr>
 <tr class="memitem:a131aeed17e5d88a0b7c72f7066e25f20" id="r_a131aeed17e5d88a0b7c72f7066e25f20"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a131aeed17e5d88a0b7c72f7066e25f20">damping_parameter</a></td></tr>
 <tr class="memitem:ae59d9c921f77996d71cf2049d5adee92" id="r_ae59d9c921f77996d71cf2049d5adee92"><td class="memItemLeft">integer, dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#ae59d9c921f77996d71cf2049d5adee92">ib_gbl_idx_lookup</a></td></tr>
+<tr class="memitem:a3ff9d9d82031eaeb094d320959d733ec" id="r_a3ff9d9d82031eaeb094d320959d733ec"><td class="memItemLeft">logical, public&#160;</td><td class="memItemRight"><a class="el" href="#a3ff9d9d82031eaeb094d320959d733ec">collisions_active</a></td></tr>
+<tr class="memdesc:a3ff9d9d82031eaeb094d320959d733ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">true when any IB-IB or IB-wall contact was detected on this rank since the last adaptive-dt computation  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients, and corrects the flow state. </p>
@@ -207,7 +209,7 @@ Variables</h2></td></tr>
 
 <p>function checks if this local MPI processor owns this specific collision </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01090">1090</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01108">1108</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -233,7 +235,7 @@ Here is the caller graph for this function:</div>
 
 <p>function checks if this local MPI processor owns this specific collision </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01165">1165</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01183">1183</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -276,7 +278,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00494">494</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00498">498</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -311,7 +313,7 @@ Here is the call graph for this function:</div>
 
 <p>applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -346,7 +348,7 @@ Here is the caller graph for this function:</div>
 
 <p>applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00681">681</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00689">689</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -391,7 +393,7 @@ Here is the caller graph for this function:</div>
 
 <p>uses ghost-point/image-point information to determine if it is possible if two IBs are colliding, effectively an optimized nearest neighbor search </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00806">806</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00814">814</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -400,25 +402,28 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a582bc12bbbdb4389578c76e37255a201" name="a582bc12bbbdb4389578c76e37255a201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a582bc12bbbdb4389578c76e37255a201">&#9670;&#160;</a></span>s_detect_wall_collisions()</h2>
+<a id="a9c5fd0d2e3e996b6ddea38af036c75d1" name="a9c5fd0d2e3e996b6ddea38af036c75d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c5fd0d2e3e996b6ddea38af036c75d1">&#9670;&#160;</a></span>s_detect_wall_collisions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine m_collisions::s_detect_wall_collisions</td>
+          <td class="memname">subroutine m_collisions::s_detect_wall_collisions </td>
+          <td>(</td>
+          <td class="paramtype">logical, intent(out)</td>          <td class="paramname"><span class="paramname"><em>any_wall_collision</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>uses boundary conditions and particle locations to check for wall conditions </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00972">972</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00980">980</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a582bc12bbbdb4389578c76e37255a201_icgraph.svg" width="387" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a9c5fd0d2e3e996b6ddea38af036c75d1_icgraph.svg" width="387" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -435,7 +440,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01235">1235</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01253">1253</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -451,7 +456,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -469,6 +474,24 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00341">341</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3ff9d9d82031eaeb094d320959d733ec" name="a3ff9d9d82031eaeb094d320959d733ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ff9d9d82031eaeb094d320959d733ec">&#9670;&#160;</a></span>collisions_active</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical, public m_collisions::collisions_active</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>true when any IB-IB or IB-wall contact was detected on this rank since the last adaptive-dt computation </p>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>

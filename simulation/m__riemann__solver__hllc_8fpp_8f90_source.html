@@ -1819,8 +1819,8 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l01681" name="l01681"></a><span class="lineno"> 1681</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_l, mw_l)</div>
 <div class="line"><a id="l01682" name="l01682"></a><span class="lineno"> 1682</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_r, mw_r)</div>
 <div class="line"><a id="l01683" name="l01683"></a><span class="lineno"> 1683</span> </div>
-<div class="line"><a id="l01684" name="l01684"></a><span class="lineno"> 1684</span>                                        xs_l(:) = ys_l(:)*mw_l/molecular_weights(:)</div>
-<div class="line"><a id="l01685" name="l01685"></a><span class="lineno"> 1685</span>                                        xs_r(:) = ys_r(:)*mw_r/molecular_weights(:)</div>
+<div class="line"><a id="l01684" name="l01684"></a><span class="lineno"> 1684</span>                                        xs_l(1:num_species) = ys_l(1:num_species)*mw_l/molecular_weights(:)</div>
+<div class="line"><a id="l01685" name="l01685"></a><span class="lineno"> 1685</span>                                        xs_r(1:num_species) = ys_r(1:num_species)*mw_r/molecular_weights(:)</div>
 <div class="line"><a id="l01686" name="l01686"></a><span class="lineno"> 1686</span> </div>
 <div class="line"><a id="l01687" name="l01687"></a><span class="lineno"> 1687</span>                                        r_gas_l = gas_constant/mw_l</div>
 <div class="line"><a id="l01688" name="l01688"></a><span class="lineno"> 1688</span>                                        r_gas_r = gas_constant/mw_r</div>
@@ -1833,11 +1833,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l01695" name="l01695"></a><span class="lineno"> 1695</span> </div>
 <div class="line"><a id="l01696" name="l01696"></a><span class="lineno"> 1696</span>                                        <span class="keywordflow">if</span> (chem_params%gamma_method == 1) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l01697" name="l01697"></a><span class="lineno"> 1697</span><span class="comment">                                            !&gt; gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</span></div>
-<div class="line"><a id="l01698" name="l01698"></a><span class="lineno"> 1698</span>                                            gamma_il = cp_il/(cp_il - 1.0_wp)</div>
-<div class="line"><a id="l01699" name="l01699"></a><span class="lineno"> 1699</span>                                            gamma_ir = cp_ir/(cp_ir - 1.0_wp)</div>
+<div class="line"><a id="l01698" name="l01698"></a><span class="lineno"> 1698</span>                                            gamma_il(1:num_species) = cp_il(1:num_species)/(cp_il(1:num_species) - 1.0_wp)</div>
+<div class="line"><a id="l01699" name="l01699"></a><span class="lineno"> 1699</span>                                            gamma_ir(1:num_species) = cp_ir(1:num_species)/(cp_ir(1:num_species) - 1.0_wp)</div>
 <div class="line"><a id="l01700" name="l01700"></a><span class="lineno"> 1700</span> </div>
-<div class="line"><a id="l01701" name="l01701"></a><span class="lineno"> 1701</span>                                            gamma_l = sum(xs_l(:)/(gamma_il(:) - 1.0_wp))</div>
-<div class="line"><a id="l01702" name="l01702"></a><span class="lineno"> 1702</span>                                            gamma_r = sum(xs_r(:)/(gamma_ir(:) - 1.0_wp))</div>
+<div class="line"><a id="l01701" name="l01701"></a><span class="lineno"> 1701</span>                                            gamma_l = sum(xs_l(1:num_species)/(gamma_il(1:num_species) - 1.0_wp))</div>
+<div class="line"><a id="l01702" name="l01702"></a><span class="lineno"> 1702</span>                                            gamma_r = sum(xs_r(1:num_species)/(gamma_ir(1:num_species) - 1.0_wp))</div>
 <div class="line"><a id="l01703" name="l01703"></a><span class="lineno"> 1703</span>                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (chem_params%gamma_method == 2) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l01704" name="l01704"></a><span class="lineno"> 1704</span><span class="comment">                                            !&gt; gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</span></div>
 <div class="line"><a id="l01705" name="l01705"></a><span class="lineno"> 1705</span>                                            <span class="keyword">call </span>get_mixture_specific_heat_cp_mass(t_l, ys_l, cp_l)</div>
@@ -1901,11 +1901,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l01763" name="l01763"></a><span class="lineno"> 1763</span>                                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce">s_compute_average_state</a>(rho_l, rho_r, vel_l, vel_r, h_l, h_r, gamma_l, gamma_r, &amp;</div>
 <div class="line"><a id="l01764" name="l01764"></a><span class="lineno"> 1764</span>                                                                     &amp; qv_l, qv_r, rho_avg, vel_avg_rms, h_avg, gamma_avg, qv_avg)</div>
 <div class="line"><a id="l01765" name="l01765"></a><span class="lineno"> 1765</span>                                        <span class="keywordflow">if</span> (chemistry .and. avg_state == <a class="code hl_variable" href="namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103">avg_state_roe</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01766" name="l01766"></a><span class="lineno"> 1766</span>                                            r_species = gas_constant/molecular_weights</div>
+<div class="line"><a id="l01766" name="l01766"></a><span class="lineno"> 1766</span>                                            r_species(1:num_species) = gas_constant/molecular_weights</div>
 <div class="line"><a id="l01767" name="l01767"></a><span class="lineno"> 1767</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_l, h_il)</div>
 <div class="line"><a id="l01768" name="l01768"></a><span class="lineno"> 1768</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_r, h_ir)</div>
-<div class="line"><a id="l01769" name="l01769"></a><span class="lineno"> 1769</span>                                            h_il = h_il*r_species*t_l</div>
-<div class="line"><a id="l01770" name="l01770"></a><span class="lineno"> 1770</span>                                            h_ir = h_ir*r_species*t_r</div>
+<div class="line"><a id="l01769" name="l01769"></a><span class="lineno"> 1769</span>                                            h_il(1:num_species) = h_il(1:num_species)*r_species(1:num_species)*t_l</div>
+<div class="line"><a id="l01770" name="l01770"></a><span class="lineno"> 1770</span>                                            h_ir(1:num_species) = h_ir(1:num_species)*r_species(1:num_species)*t_r</div>
 <div class="line"><a id="l01771" name="l01771"></a><span class="lineno"> 1771</span>                                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af">s_compute_chemistry_average_state</a>(rho_l, rho_r, t_l, t_r, ys_l, ys_r, r_species, &amp;</div>
 <div class="line"><a id="l01772" name="l01772"></a><span class="lineno"> 1772</span>                                                                                   &amp; h_il, h_ir, cp_il, cp_ir, vel_avg_rms, &amp;</div>
 <div class="line"><a id="l01773" name="l01773"></a><span class="lineno"> 1773</span>                                                                                   &amp; gamma_avg, c_sum_yi_phi)</div>
@@ -2671,8 +2671,8 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l02533" name="l02533"></a><span class="lineno"> 2533</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_l, mw_l)</div>
 <div class="line"><a id="l02534" name="l02534"></a><span class="lineno"> 2534</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_r, mw_r)</div>
 <div class="line"><a id="l02535" name="l02535"></a><span class="lineno"> 2535</span> </div>
-<div class="line"><a id="l02536" name="l02536"></a><span class="lineno"> 2536</span>                                        xs_l(:) = ys_l(:)*mw_l/molecular_weights(:)</div>
-<div class="line"><a id="l02537" name="l02537"></a><span class="lineno"> 2537</span>                                        xs_r(:) = ys_r(:)*mw_r/molecular_weights(:)</div>
+<div class="line"><a id="l02536" name="l02536"></a><span class="lineno"> 2536</span>                                        xs_l(1:num_species) = ys_l(1:num_species)*mw_l/molecular_weights(:)</div>
+<div class="line"><a id="l02537" name="l02537"></a><span class="lineno"> 2537</span>                                        xs_r(1:num_species) = ys_r(1:num_species)*mw_r/molecular_weights(:)</div>
 <div class="line"><a id="l02538" name="l02538"></a><span class="lineno"> 2538</span> </div>
 <div class="line"><a id="l02539" name="l02539"></a><span class="lineno"> 2539</span>                                        r_gas_l = gas_constant/mw_l</div>
 <div class="line"><a id="l02540" name="l02540"></a><span class="lineno"> 2540</span>                                        r_gas_r = gas_constant/mw_r</div>
@@ -2685,11 +2685,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l02547" name="l02547"></a><span class="lineno"> 2547</span> </div>
 <div class="line"><a id="l02548" name="l02548"></a><span class="lineno"> 2548</span>                                        <span class="keywordflow">if</span> (chem_params%gamma_method == 1) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l02549" name="l02549"></a><span class="lineno"> 2549</span><span class="comment">                                            !&gt; gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</span></div>
-<div class="line"><a id="l02550" name="l02550"></a><span class="lineno"> 2550</span>                                            gamma_il = cp_il/(cp_il - 1.0_wp)</div>
-<div class="line"><a id="l02551" name="l02551"></a><span class="lineno"> 2551</span>                                            gamma_ir = cp_ir/(cp_ir - 1.0_wp)</div>
+<div class="line"><a id="l02550" name="l02550"></a><span class="lineno"> 2550</span>                                            gamma_il(1:num_species) = cp_il(1:num_species)/(cp_il(1:num_species) - 1.0_wp)</div>
+<div class="line"><a id="l02551" name="l02551"></a><span class="lineno"> 2551</span>                                            gamma_ir(1:num_species) = cp_ir(1:num_species)/(cp_ir(1:num_species) - 1.0_wp)</div>
 <div class="line"><a id="l02552" name="l02552"></a><span class="lineno"> 2552</span> </div>
-<div class="line"><a id="l02553" name="l02553"></a><span class="lineno"> 2553</span>                                            gamma_l = sum(xs_l(:)/(gamma_il(:) - 1.0_wp))</div>
-<div class="line"><a id="l02554" name="l02554"></a><span class="lineno"> 2554</span>                                            gamma_r = sum(xs_r(:)/(gamma_ir(:) - 1.0_wp))</div>
+<div class="line"><a id="l02553" name="l02553"></a><span class="lineno"> 2553</span>                                            gamma_l = sum(xs_l(1:num_species)/(gamma_il(1:num_species) - 1.0_wp))</div>
+<div class="line"><a id="l02554" name="l02554"></a><span class="lineno"> 2554</span>                                            gamma_r = sum(xs_r(1:num_species)/(gamma_ir(1:num_species) - 1.0_wp))</div>
 <div class="line"><a id="l02555" name="l02555"></a><span class="lineno"> 2555</span>                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (chem_params%gamma_method == 2) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l02556" name="l02556"></a><span class="lineno"> 2556</span><span class="comment">                                            !&gt; gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</span></div>
 <div class="line"><a id="l02557" name="l02557"></a><span class="lineno"> 2557</span>                                            <span class="keyword">call </span>get_mixture_specific_heat_cp_mass(t_l, ys_l, cp_l)</div>
@@ -2727,11 +2727,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l02589" name="l02589"></a><span class="lineno"> 2589</span>                                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce">s_compute_average_state</a>(rho_l, rho_r, vel_l, vel_r, h_l, h_r, gamma_l, gamma_r, &amp;</div>
 <div class="line"><a id="l02590" name="l02590"></a><span class="lineno"> 2590</span>                                                                     &amp; qv_l, qv_r, rho_avg, vel_avg_rms, h_avg, gamma_avg, qv_avg)</div>
 <div class="line"><a id="l02591" name="l02591"></a><span class="lineno"> 2591</span>                                        <span class="keywordflow">if</span> (chemistry .and. avg_state == <a class="code hl_variable" href="namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103">avg_state_roe</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l02592" name="l02592"></a><span class="lineno"> 2592</span>                                            r_species = gas_constant/molecular_weights</div>
+<div class="line"><a id="l02592" name="l02592"></a><span class="lineno"> 2592</span>                                            r_species(1:num_species) = gas_constant/molecular_weights</div>
 <div class="line"><a id="l02593" name="l02593"></a><span class="lineno"> 2593</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_l, h_il)</div>
 <div class="line"><a id="l02594" name="l02594"></a><span class="lineno"> 2594</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_r, h_ir)</div>
-<div class="line"><a id="l02595" name="l02595"></a><span class="lineno"> 2595</span>                                            h_il = h_il*r_species*t_l</div>
-<div class="line"><a id="l02596" name="l02596"></a><span class="lineno"> 2596</span>                                            h_ir = h_ir*r_species*t_r</div>
+<div class="line"><a id="l02595" name="l02595"></a><span class="lineno"> 2595</span>                                            h_il(1:num_species) = h_il(1:num_species)*r_species(1:num_species)*t_l</div>
+<div class="line"><a id="l02596" name="l02596"></a><span class="lineno"> 2596</span>                                            h_ir(1:num_species) = h_ir(1:num_species)*r_species(1:num_species)*t_r</div>
 <div class="line"><a id="l02597" name="l02597"></a><span class="lineno"> 2597</span>                                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af">s_compute_chemistry_average_state</a>(rho_l, rho_r, t_l, t_r, ys_l, ys_r, r_species, &amp;</div>
 <div class="line"><a id="l02598" name="l02598"></a><span class="lineno"> 2598</span>                                                                                   &amp; h_il, h_ir, cp_il, cp_ir, vel_avg_rms, &amp;</div>
 <div class="line"><a id="l02599" name="l02599"></a><span class="lineno"> 2599</span>                                                                                   &amp; gamma_avg, c_sum_yi_phi)</div>
@@ -4268,8 +4268,8 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l04130" name="l04130"></a><span class="lineno"> 4130</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_l, mw_l)</div>
 <div class="line"><a id="l04131" name="l04131"></a><span class="lineno"> 4131</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_r, mw_r)</div>
 <div class="line"><a id="l04132" name="l04132"></a><span class="lineno"> 4132</span> </div>
-<div class="line"><a id="l04133" name="l04133"></a><span class="lineno"> 4133</span>                                        xs_l(:) = ys_l(:)*mw_l/molecular_weights(:)</div>
-<div class="line"><a id="l04134" name="l04134"></a><span class="lineno"> 4134</span>                                        xs_r(:) = ys_r(:)*mw_r/molecular_weights(:)</div>
+<div class="line"><a id="l04133" name="l04133"></a><span class="lineno"> 4133</span>                                        xs_l(1:num_species) = ys_l(1:num_species)*mw_l/molecular_weights(:)</div>
+<div class="line"><a id="l04134" name="l04134"></a><span class="lineno"> 4134</span>                                        xs_r(1:num_species) = ys_r(1:num_species)*mw_r/molecular_weights(:)</div>
 <div class="line"><a id="l04135" name="l04135"></a><span class="lineno"> 4135</span> </div>
 <div class="line"><a id="l04136" name="l04136"></a><span class="lineno"> 4136</span>                                        r_gas_l = gas_constant/mw_l</div>
 <div class="line"><a id="l04137" name="l04137"></a><span class="lineno"> 4137</span>                                        r_gas_r = gas_constant/mw_r</div>
@@ -4282,11 +4282,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l04144" name="l04144"></a><span class="lineno"> 4144</span> </div>
 <div class="line"><a id="l04145" name="l04145"></a><span class="lineno"> 4145</span>                                        <span class="keywordflow">if</span> (chem_params%gamma_method == 1) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l04146" name="l04146"></a><span class="lineno"> 4146</span><span class="comment">                                            !&gt; gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</span></div>
-<div class="line"><a id="l04147" name="l04147"></a><span class="lineno"> 4147</span>                                            gamma_il = cp_il/(cp_il - 1.0_wp)</div>
-<div class="line"><a id="l04148" name="l04148"></a><span class="lineno"> 4148</span>                                            gamma_ir = cp_ir/(cp_ir - 1.0_wp)</div>
+<div class="line"><a id="l04147" name="l04147"></a><span class="lineno"> 4147</span>                                            gamma_il(1:num_species) = cp_il(1:num_species)/(cp_il(1:num_species) - 1.0_wp)</div>
+<div class="line"><a id="l04148" name="l04148"></a><span class="lineno"> 4148</span>                                            gamma_ir(1:num_species) = cp_ir(1:num_species)/(cp_ir(1:num_species) - 1.0_wp)</div>
 <div class="line"><a id="l04149" name="l04149"></a><span class="lineno"> 4149</span> </div>
-<div class="line"><a id="l04150" name="l04150"></a><span class="lineno"> 4150</span>                                            gamma_l = sum(xs_l(:)/(gamma_il(:) - 1.0_wp))</div>
-<div class="line"><a id="l04151" name="l04151"></a><span class="lineno"> 4151</span>                                            gamma_r = sum(xs_r(:)/(gamma_ir(:) - 1.0_wp))</div>
+<div class="line"><a id="l04150" name="l04150"></a><span class="lineno"> 4150</span>                                            gamma_l = sum(xs_l(1:num_species)/(gamma_il(1:num_species) - 1.0_wp))</div>
+<div class="line"><a id="l04151" name="l04151"></a><span class="lineno"> 4151</span>                                            gamma_r = sum(xs_r(1:num_species)/(gamma_ir(1:num_species) - 1.0_wp))</div>
 <div class="line"><a id="l04152" name="l04152"></a><span class="lineno"> 4152</span>                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (chem_params%gamma_method == 2) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l04153" name="l04153"></a><span class="lineno"> 4153</span><span class="comment">                                            !&gt; gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</span></div>
 <div class="line"><a id="l04154" name="l04154"></a><span class="lineno"> 4154</span>                                            <span class="keyword">call </span>get_mixture_specific_heat_cp_mass(t_l, ys_l, cp_l)</div>
@@ -4350,11 +4350,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l04212" name="l04212"></a><span class="lineno"> 4212</span>                                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce">s_compute_average_state</a>(rho_l, rho_r, vel_l, vel_r, h_l, h_r, gamma_l, gamma_r, &amp;</div>
 <div class="line"><a id="l04213" name="l04213"></a><span class="lineno"> 4213</span>                                                                     &amp; qv_l, qv_r, rho_avg, vel_avg_rms, h_avg, gamma_avg, qv_avg)</div>
 <div class="line"><a id="l04214" name="l04214"></a><span class="lineno"> 4214</span>                                        <span class="keywordflow">if</span> (chemistry .and. avg_state == <a class="code hl_variable" href="namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103">avg_state_roe</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l04215" name="l04215"></a><span class="lineno"> 4215</span>                                            r_species = gas_constant/molecular_weights</div>
+<div class="line"><a id="l04215" name="l04215"></a><span class="lineno"> 4215</span>                                            r_species(1:num_species) = gas_constant/molecular_weights</div>
 <div class="line"><a id="l04216" name="l04216"></a><span class="lineno"> 4216</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_l, h_il)</div>
 <div class="line"><a id="l04217" name="l04217"></a><span class="lineno"> 4217</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_r, h_ir)</div>
-<div class="line"><a id="l04218" name="l04218"></a><span class="lineno"> 4218</span>                                            h_il = h_il*r_species*t_l</div>
-<div class="line"><a id="l04219" name="l04219"></a><span class="lineno"> 4219</span>                                            h_ir = h_ir*r_species*t_r</div>
+<div class="line"><a id="l04218" name="l04218"></a><span class="lineno"> 4218</span>                                            h_il(1:num_species) = h_il(1:num_species)*r_species(1:num_species)*t_l</div>
+<div class="line"><a id="l04219" name="l04219"></a><span class="lineno"> 4219</span>                                            h_ir(1:num_species) = h_ir(1:num_species)*r_species(1:num_species)*t_r</div>
 <div class="line"><a id="l04220" name="l04220"></a><span class="lineno"> 4220</span>                                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af">s_compute_chemistry_average_state</a>(rho_l, rho_r, t_l, t_r, ys_l, ys_r, r_species, &amp;</div>
 <div class="line"><a id="l04221" name="l04221"></a><span class="lineno"> 4221</span>                                                                                   &amp; h_il, h_ir, cp_il, cp_ir, vel_avg_rms, &amp;</div>
 <div class="line"><a id="l04222" name="l04222"></a><span class="lineno"> 4222</span>                                                                                   &amp; gamma_avg, c_sum_yi_phi)</div>
@@ -5165,8 +5165,8 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l05027" name="l05027"></a><span class="lineno"> 5027</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_l, mw_l)</div>
 <div class="line"><a id="l05028" name="l05028"></a><span class="lineno"> 5028</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_r, mw_r)</div>
 <div class="line"><a id="l05029" name="l05029"></a><span class="lineno"> 5029</span> </div>
-<div class="line"><a id="l05030" name="l05030"></a><span class="lineno"> 5030</span>                                        xs_l(:) = ys_l(:)*mw_l/molecular_weights(:)</div>
-<div class="line"><a id="l05031" name="l05031"></a><span class="lineno"> 5031</span>                                        xs_r(:) = ys_r(:)*mw_r/molecular_weights(:)</div>
+<div class="line"><a id="l05030" name="l05030"></a><span class="lineno"> 5030</span>                                        xs_l(1:num_species) = ys_l(1:num_species)*mw_l/molecular_weights(:)</div>
+<div class="line"><a id="l05031" name="l05031"></a><span class="lineno"> 5031</span>                                        xs_r(1:num_species) = ys_r(1:num_species)*mw_r/molecular_weights(:)</div>
 <div class="line"><a id="l05032" name="l05032"></a><span class="lineno"> 5032</span> </div>
 <div class="line"><a id="l05033" name="l05033"></a><span class="lineno"> 5033</span>                                        r_gas_l = gas_constant/mw_l</div>
 <div class="line"><a id="l05034" name="l05034"></a><span class="lineno"> 5034</span>                                        r_gas_r = gas_constant/mw_r</div>
@@ -5179,11 +5179,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l05041" name="l05041"></a><span class="lineno"> 5041</span> </div>
 <div class="line"><a id="l05042" name="l05042"></a><span class="lineno"> 5042</span>                                        <span class="keywordflow">if</span> (chem_params%gamma_method == 1) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l05043" name="l05043"></a><span class="lineno"> 5043</span><span class="comment">                                            !&gt; gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</span></div>
-<div class="line"><a id="l05044" name="l05044"></a><span class="lineno"> 5044</span>                                            gamma_il = cp_il/(cp_il - 1.0_wp)</div>
-<div class="line"><a id="l05045" name="l05045"></a><span class="lineno"> 5045</span>                                            gamma_ir = cp_ir/(cp_ir - 1.0_wp)</div>
+<div class="line"><a id="l05044" name="l05044"></a><span class="lineno"> 5044</span>                                            gamma_il(1:num_species) = cp_il(1:num_species)/(cp_il(1:num_species) - 1.0_wp)</div>
+<div class="line"><a id="l05045" name="l05045"></a><span class="lineno"> 5045</span>                                            gamma_ir(1:num_species) = cp_ir(1:num_species)/(cp_ir(1:num_species) - 1.0_wp)</div>
 <div class="line"><a id="l05046" name="l05046"></a><span class="lineno"> 5046</span> </div>
-<div class="line"><a id="l05047" name="l05047"></a><span class="lineno"> 5047</span>                                            gamma_l = sum(xs_l(:)/(gamma_il(:) - 1.0_wp))</div>
-<div class="line"><a id="l05048" name="l05048"></a><span class="lineno"> 5048</span>                                            gamma_r = sum(xs_r(:)/(gamma_ir(:) - 1.0_wp))</div>
+<div class="line"><a id="l05047" name="l05047"></a><span class="lineno"> 5047</span>                                            gamma_l = sum(xs_l(1:num_species)/(gamma_il(1:num_species) - 1.0_wp))</div>
+<div class="line"><a id="l05048" name="l05048"></a><span class="lineno"> 5048</span>                                            gamma_r = sum(xs_r(1:num_species)/(gamma_ir(1:num_species) - 1.0_wp))</div>
 <div class="line"><a id="l05049" name="l05049"></a><span class="lineno"> 5049</span>                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (chem_params%gamma_method == 2) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l05050" name="l05050"></a><span class="lineno"> 5050</span><span class="comment">                                            !&gt; gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</span></div>
 <div class="line"><a id="l05051" name="l05051"></a><span class="lineno"> 5051</span>                                            <span class="keyword">call </span>get_mixture_specific_heat_cp_mass(t_l, ys_l, cp_l)</div>
@@ -5221,11 +5221,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l05083" name="l05083"></a><span class="lineno"> 5083</span>                                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce">s_compute_average_state</a>(rho_l, rho_r, vel_l, vel_r, h_l, h_r, gamma_l, gamma_r, &amp;</div>
 <div class="line"><a id="l05084" name="l05084"></a><span class="lineno"> 5084</span>                                                                     &amp; qv_l, qv_r, rho_avg, vel_avg_rms, h_avg, gamma_avg, qv_avg)</div>
 <div class="line"><a id="l05085" name="l05085"></a><span class="lineno"> 5085</span>                                        <span class="keywordflow">if</span> (chemistry .and. avg_state == <a class="code hl_variable" href="namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103">avg_state_roe</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l05086" name="l05086"></a><span class="lineno"> 5086</span>                                            r_species = gas_constant/molecular_weights</div>
+<div class="line"><a id="l05086" name="l05086"></a><span class="lineno"> 5086</span>                                            r_species(1:num_species) = gas_constant/molecular_weights</div>
 <div class="line"><a id="l05087" name="l05087"></a><span class="lineno"> 5087</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_l, h_il)</div>
 <div class="line"><a id="l05088" name="l05088"></a><span class="lineno"> 5088</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_r, h_ir)</div>
-<div class="line"><a id="l05089" name="l05089"></a><span class="lineno"> 5089</span>                                            h_il = h_il*r_species*t_l</div>
-<div class="line"><a id="l05090" name="l05090"></a><span class="lineno"> 5090</span>                                            h_ir = h_ir*r_species*t_r</div>
+<div class="line"><a id="l05089" name="l05089"></a><span class="lineno"> 5089</span>                                            h_il(1:num_species) = h_il(1:num_species)*r_species(1:num_species)*t_l</div>
+<div class="line"><a id="l05090" name="l05090"></a><span class="lineno"> 5090</span>                                            h_ir(1:num_species) = h_ir(1:num_species)*r_species(1:num_species)*t_r</div>
 <div class="line"><a id="l05091" name="l05091"></a><span class="lineno"> 5091</span>                                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af">s_compute_chemistry_average_state</a>(rho_l, rho_r, t_l, t_r, ys_l, ys_r, r_species, &amp;</div>
 <div class="line"><a id="l05092" name="l05092"></a><span class="lineno"> 5092</span>                                                                                   &amp; h_il, h_ir, cp_il, cp_ir, vel_avg_rms, &amp;</div>
 <div class="line"><a id="l05093" name="l05093"></a><span class="lineno"> 5093</span>                                                                                   &amp; gamma_avg, c_sum_yi_phi)</div>
@@ -6758,8 +6758,8 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l06620" name="l06620"></a><span class="lineno"> 6620</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_l, mw_l)</div>
 <div class="line"><a id="l06621" name="l06621"></a><span class="lineno"> 6621</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_r, mw_r)</div>
 <div class="line"><a id="l06622" name="l06622"></a><span class="lineno"> 6622</span> </div>
-<div class="line"><a id="l06623" name="l06623"></a><span class="lineno"> 6623</span>                                        xs_l(:) = ys_l(:)*mw_l/molecular_weights(:)</div>
-<div class="line"><a id="l06624" name="l06624"></a><span class="lineno"> 6624</span>                                        xs_r(:) = ys_r(:)*mw_r/molecular_weights(:)</div>
+<div class="line"><a id="l06623" name="l06623"></a><span class="lineno"> 6623</span>                                        xs_l(1:num_species) = ys_l(1:num_species)*mw_l/molecular_weights(:)</div>
+<div class="line"><a id="l06624" name="l06624"></a><span class="lineno"> 6624</span>                                        xs_r(1:num_species) = ys_r(1:num_species)*mw_r/molecular_weights(:)</div>
 <div class="line"><a id="l06625" name="l06625"></a><span class="lineno"> 6625</span> </div>
 <div class="line"><a id="l06626" name="l06626"></a><span class="lineno"> 6626</span>                                        r_gas_l = gas_constant/mw_l</div>
 <div class="line"><a id="l06627" name="l06627"></a><span class="lineno"> 6627</span>                                        r_gas_r = gas_constant/mw_r</div>
@@ -6772,11 +6772,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l06634" name="l06634"></a><span class="lineno"> 6634</span> </div>
 <div class="line"><a id="l06635" name="l06635"></a><span class="lineno"> 6635</span>                                        <span class="keywordflow">if</span> (chem_params%gamma_method == 1) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l06636" name="l06636"></a><span class="lineno"> 6636</span><span class="comment">                                            !&gt; gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</span></div>
-<div class="line"><a id="l06637" name="l06637"></a><span class="lineno"> 6637</span>                                            gamma_il = cp_il/(cp_il - 1.0_wp)</div>
-<div class="line"><a id="l06638" name="l06638"></a><span class="lineno"> 6638</span>                                            gamma_ir = cp_ir/(cp_ir - 1.0_wp)</div>
+<div class="line"><a id="l06637" name="l06637"></a><span class="lineno"> 6637</span>                                            gamma_il(1:num_species) = cp_il(1:num_species)/(cp_il(1:num_species) - 1.0_wp)</div>
+<div class="line"><a id="l06638" name="l06638"></a><span class="lineno"> 6638</span>                                            gamma_ir(1:num_species) = cp_ir(1:num_species)/(cp_ir(1:num_species) - 1.0_wp)</div>
 <div class="line"><a id="l06639" name="l06639"></a><span class="lineno"> 6639</span> </div>
-<div class="line"><a id="l06640" name="l06640"></a><span class="lineno"> 6640</span>                                            gamma_l = sum(xs_l(:)/(gamma_il(:) - 1.0_wp))</div>
-<div class="line"><a id="l06641" name="l06641"></a><span class="lineno"> 6641</span>                                            gamma_r = sum(xs_r(:)/(gamma_ir(:) - 1.0_wp))</div>
+<div class="line"><a id="l06640" name="l06640"></a><span class="lineno"> 6640</span>                                            gamma_l = sum(xs_l(1:num_species)/(gamma_il(1:num_species) - 1.0_wp))</div>
+<div class="line"><a id="l06641" name="l06641"></a><span class="lineno"> 6641</span>                                            gamma_r = sum(xs_r(1:num_species)/(gamma_ir(1:num_species) - 1.0_wp))</div>
 <div class="line"><a id="l06642" name="l06642"></a><span class="lineno"> 6642</span>                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (chem_params%gamma_method == 2) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l06643" name="l06643"></a><span class="lineno"> 6643</span><span class="comment">                                            !&gt; gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</span></div>
 <div class="line"><a id="l06644" name="l06644"></a><span class="lineno"> 6644</span>                                            <span class="keyword">call </span>get_mixture_specific_heat_cp_mass(t_l, ys_l, cp_l)</div>
@@ -6840,11 +6840,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l06702" name="l06702"></a><span class="lineno"> 6702</span>                                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce">s_compute_average_state</a>(rho_l, rho_r, vel_l, vel_r, h_l, h_r, gamma_l, gamma_r, &amp;</div>
 <div class="line"><a id="l06703" name="l06703"></a><span class="lineno"> 6703</span>                                                                     &amp; qv_l, qv_r, rho_avg, vel_avg_rms, h_avg, gamma_avg, qv_avg)</div>
 <div class="line"><a id="l06704" name="l06704"></a><span class="lineno"> 6704</span>                                        <span class="keywordflow">if</span> (chemistry .and. avg_state == <a class="code hl_variable" href="namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103">avg_state_roe</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l06705" name="l06705"></a><span class="lineno"> 6705</span>                                            r_species = gas_constant/molecular_weights</div>
+<div class="line"><a id="l06705" name="l06705"></a><span class="lineno"> 6705</span>                                            r_species(1:num_species) = gas_constant/molecular_weights</div>
 <div class="line"><a id="l06706" name="l06706"></a><span class="lineno"> 6706</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_l, h_il)</div>
 <div class="line"><a id="l06707" name="l06707"></a><span class="lineno"> 6707</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_r, h_ir)</div>
-<div class="line"><a id="l06708" name="l06708"></a><span class="lineno"> 6708</span>                                            h_il = h_il*r_species*t_l</div>
-<div class="line"><a id="l06709" name="l06709"></a><span class="lineno"> 6709</span>                                            h_ir = h_ir*r_species*t_r</div>
+<div class="line"><a id="l06708" name="l06708"></a><span class="lineno"> 6708</span>                                            h_il(1:num_species) = h_il(1:num_species)*r_species(1:num_species)*t_l</div>
+<div class="line"><a id="l06709" name="l06709"></a><span class="lineno"> 6709</span>                                            h_ir(1:num_species) = h_ir(1:num_species)*r_species(1:num_species)*t_r</div>
 <div class="line"><a id="l06710" name="l06710"></a><span class="lineno"> 6710</span>                                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af">s_compute_chemistry_average_state</a>(rho_l, rho_r, t_l, t_r, ys_l, ys_r, r_species, &amp;</div>
 <div class="line"><a id="l06711" name="l06711"></a><span class="lineno"> 6711</span>                                                                                   &amp; h_il, h_ir, cp_il, cp_ir, vel_avg_rms, &amp;</div>
 <div class="line"><a id="l06712" name="l06712"></a><span class="lineno"> 6712</span>                                                                                   &amp; gamma_avg, c_sum_yi_phi)</div>
@@ -7634,8 +7634,8 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l07496" name="l07496"></a><span class="lineno"> 7496</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_l, mw_l)</div>
 <div class="line"><a id="l07497" name="l07497"></a><span class="lineno"> 7497</span>                                        <span class="keyword">call </span>get_mixture_molecular_weight(ys_r, mw_r)</div>
 <div class="line"><a id="l07498" name="l07498"></a><span class="lineno"> 7498</span> </div>
-<div class="line"><a id="l07499" name="l07499"></a><span class="lineno"> 7499</span>                                        xs_l(:) = ys_l(:)*mw_l/molecular_weights(:)</div>
-<div class="line"><a id="l07500" name="l07500"></a><span class="lineno"> 7500</span>                                        xs_r(:) = ys_r(:)*mw_r/molecular_weights(:)</div>
+<div class="line"><a id="l07499" name="l07499"></a><span class="lineno"> 7499</span>                                        xs_l(1:num_species) = ys_l(1:num_species)*mw_l/molecular_weights(:)</div>
+<div class="line"><a id="l07500" name="l07500"></a><span class="lineno"> 7500</span>                                        xs_r(1:num_species) = ys_r(1:num_species)*mw_r/molecular_weights(:)</div>
 <div class="line"><a id="l07501" name="l07501"></a><span class="lineno"> 7501</span> </div>
 <div class="line"><a id="l07502" name="l07502"></a><span class="lineno"> 7502</span>                                        r_gas_l = gas_constant/mw_l</div>
 <div class="line"><a id="l07503" name="l07503"></a><span class="lineno"> 7503</span>                                        r_gas_r = gas_constant/mw_r</div>
@@ -7648,11 +7648,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l07510" name="l07510"></a><span class="lineno"> 7510</span> </div>
 <div class="line"><a id="l07511" name="l07511"></a><span class="lineno"> 7511</span>                                        <span class="keywordflow">if</span> (chem_params%gamma_method == 1) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l07512" name="l07512"></a><span class="lineno"> 7512</span><span class="comment">                                            !&gt; gamma_method = 1: Ref. Section 2.3.1 Formulation of doi:10.7907/ZKW8-ES97.</span></div>
-<div class="line"><a id="l07513" name="l07513"></a><span class="lineno"> 7513</span>                                            gamma_il = cp_il/(cp_il - 1.0_wp)</div>
-<div class="line"><a id="l07514" name="l07514"></a><span class="lineno"> 7514</span>                                            gamma_ir = cp_ir/(cp_ir - 1.0_wp)</div>
+<div class="line"><a id="l07513" name="l07513"></a><span class="lineno"> 7513</span>                                            gamma_il(1:num_species) = cp_il(1:num_species)/(cp_il(1:num_species) - 1.0_wp)</div>
+<div class="line"><a id="l07514" name="l07514"></a><span class="lineno"> 7514</span>                                            gamma_ir(1:num_species) = cp_ir(1:num_species)/(cp_ir(1:num_species) - 1.0_wp)</div>
 <div class="line"><a id="l07515" name="l07515"></a><span class="lineno"> 7515</span> </div>
-<div class="line"><a id="l07516" name="l07516"></a><span class="lineno"> 7516</span>                                            gamma_l = sum(xs_l(:)/(gamma_il(:) - 1.0_wp))</div>
-<div class="line"><a id="l07517" name="l07517"></a><span class="lineno"> 7517</span>                                            gamma_r = sum(xs_r(:)/(gamma_ir(:) - 1.0_wp))</div>
+<div class="line"><a id="l07516" name="l07516"></a><span class="lineno"> 7516</span>                                            gamma_l = sum(xs_l(1:num_species)/(gamma_il(1:num_species) - 1.0_wp))</div>
+<div class="line"><a id="l07517" name="l07517"></a><span class="lineno"> 7517</span>                                            gamma_r = sum(xs_r(1:num_species)/(gamma_ir(1:num_species) - 1.0_wp))</div>
 <div class="line"><a id="l07518" name="l07518"></a><span class="lineno"> 7518</span>                                        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (chem_params%gamma_method == 2) <span class="keywordflow">then</span><span class="comment"></span></div>
 <div class="line"><a id="l07519" name="l07519"></a><span class="lineno"> 7519</span><span class="comment">                                            !&gt; gamma_method = 2: c_p / c_v where c_p, c_v are specific heats.</span></div>
 <div class="line"><a id="l07520" name="l07520"></a><span class="lineno"> 7520</span>                                            <span class="keyword">call </span>get_mixture_specific_heat_cp_mass(t_l, ys_l, cp_l)</div>
@@ -7690,11 +7690,11 @@ $(function(){initNavTree('m__riemann__solver__hllc_8fpp_8f90_source.html','','')
 <div class="line"><a id="l07552" name="l07552"></a><span class="lineno"> 7552</span>                                        <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce">s_compute_average_state</a>(rho_l, rho_r, vel_l, vel_r, h_l, h_r, gamma_l, gamma_r, &amp;</div>
 <div class="line"><a id="l07553" name="l07553"></a><span class="lineno"> 7553</span>                                                                     &amp; qv_l, qv_r, rho_avg, vel_avg_rms, h_avg, gamma_avg, qv_avg)</div>
 <div class="line"><a id="l07554" name="l07554"></a><span class="lineno"> 7554</span>                                        <span class="keywordflow">if</span> (chemistry .and. avg_state == <a class="code hl_variable" href="namespacem__constants.html#a182ac8dbad5469309c86202a8f0e8103">avg_state_roe</a>) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l07555" name="l07555"></a><span class="lineno"> 7555</span>                                            r_species = gas_constant/molecular_weights</div>
+<div class="line"><a id="l07555" name="l07555"></a><span class="lineno"> 7555</span>                                            r_species(1:num_species) = gas_constant/molecular_weights</div>
 <div class="line"><a id="l07556" name="l07556"></a><span class="lineno"> 7556</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_l, h_il)</div>
 <div class="line"><a id="l07557" name="l07557"></a><span class="lineno"> 7557</span>                                            <span class="keyword">call </span>get_species_enthalpies_rt(t_r, h_ir)</div>
-<div class="line"><a id="l07558" name="l07558"></a><span class="lineno"> 7558</span>                                            h_il = h_il*r_species*t_l</div>
-<div class="line"><a id="l07559" name="l07559"></a><span class="lineno"> 7559</span>                                            h_ir = h_ir*r_species*t_r</div>
+<div class="line"><a id="l07558" name="l07558"></a><span class="lineno"> 7558</span>                                            h_il(1:num_species) = h_il(1:num_species)*r_species(1:num_species)*t_l</div>
+<div class="line"><a id="l07559" name="l07559"></a><span class="lineno"> 7559</span>                                            h_ir(1:num_species) = h_ir(1:num_species)*r_species(1:num_species)*t_r</div>
 <div class="line"><a id="l07560" name="l07560"></a><span class="lineno"> 7560</span>                                            <span class="keyword">call </span><a class="code hl_function" href="namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af">s_compute_chemistry_average_state</a>(rho_l, rho_r, t_l, t_r, ys_l, ys_r, r_species, &amp;</div>
 <div class="line"><a id="l07561" name="l07561"></a><span class="lineno"> 7561</span>                                                                                   &amp; h_il, h_ir, cp_il, cp_ir, vel_avg_rms, &amp;</div>
 <div class="line"><a id="l07562" name="l07562"></a><span class="lineno"> 7562</span>                                                                                   &amp; gamma_avg, c_sum_yi_phi)</div>

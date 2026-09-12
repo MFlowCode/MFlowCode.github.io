@@ -11,6 +11,7 @@ var m__mpi__common_8fpp_8f90 =
     [ "m_mpi_common::s_mpi_allreduce_integer_sum", "namespacem__mpi__common.html#a750c773a9421c7837f197be9bdc4fb73", null ],
     [ "m_mpi_common::s_mpi_allreduce_max", "namespacem__mpi__common.html#a65728020613f88febe83c74836abb371", null ],
     [ "m_mpi_common::s_mpi_allreduce_min", "namespacem__mpi__common.html#a40f3c1242840a184d017acef92cce7d4", null ],
+    [ "m_mpi_common::s_mpi_allreduce_min_vec", "namespacem__mpi__common.html#a666ef6ca37d1c7cfa6d310edd1002be3", null ],
     [ "m_mpi_common::s_mpi_allreduce_sum", "namespacem__mpi__common.html#a3b287a39841538011798d6f5e59d41ac", null ],
     [ "m_mpi_common::s_mpi_allreduce_vectors_sum", "namespacem__mpi__common.html#a22620175f94237b04b08d371ae891467", null ],
     [ "m_mpi_common::s_mpi_barrier", "namespacem__mpi__common.html#a1073fc1fcb6f3b9394606d5c9285e9f0", null ],
