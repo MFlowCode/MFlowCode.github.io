@@ -321,6 +321,9 @@ Array Bounds and Indexing</h3>
 <ul>
 <li>MFC uses <b>non-unity lower bounds</b> (e.g., <span class="tt">idwbuff(1)%beg:idwbuff(1)%end</span> with negative ghost-cell indices). Always verify loop bounds match array declarations.</li>
 <li><b>Riemann solver indexing:</b> Left states at <span class="tt">j</span>, right states at <span class="tt">j+1</span>. Off-by-one here corrupts fluxes.</li>
+<li><b>Grid extents:</b> <span class="tt">m</span>, <span class="tt">n</span>, <span class="tt">p</span> are cell counts in x, y, z (1D sets <span class="tt">n = p = 0</span>, 2D sets <span class="tt">p = 0</span>). The interior is <span class="tt">0:m</span>, the ghost region <span class="tt">-buff_size:m+buff_size</span>, and cell boundaries run <span class="tt">x_cb(-1-buff_size:m+buff_size)</span>. Bounds are carried in <span class="tt">idwint(1:3)</span> (interior) and <span class="tt">idwbuff(1:3)</span> (with ghosts).</li>
+<li><b><span class="tt">buff_size</span> is not a single formula.</b> It is set per reconstruction scheme in <span class="tt">s_configure_coordinate_bounds</span> (<span class="tt">src/common/m_helper_basic.fpp</span>) and floored higher for Lagrange bubbles and immersed boundaries. Read that routine rather than assuming a value.</li>
+<li><b>Never hard-code an equation index.</b> They live in the <span class="tt">eqn_idx</span> struct (<span class="tt">eqn_idx_info</span> in <span class="tt">src/common/m_derived_types.fpp</span>, populated by <span class="tt">s_initialize_eqn_idx</span> in <span class="tt">src/common/m_global_parameters_common.fpp</span>): <span class="tt">%cont</span>, <span class="tt">%mom</span>, <span class="tt">%E</span>, <span class="tt">%adv</span>, plus the optional ranges <span class="tt">%bub</span>, <span class="tt">%stress</span>, <span class="tt">%species</span>, and <span class="tt">%B</span>. Index positions depend on <span class="tt">model_eqns</span> and on which features are enabled, so changing either moves every index.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md97"></a>
 Precision and Type Safety</h3>
@@ -364,13 +367,22 @@ Python Toolchain</h3>
 <li>Check subprocess calls for shell injection risks and missing error handling.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
+Parameter Plumbing</h3>
+<ul>
+<li><b>Derived-type parameters are not auto-broadcast.</b> <span class="tt">generated_bcast.fpp</span> covers namelist <em>scalars</em> only. Each derived type (<span class="tt">chem_params</span>, <span class="tt">lag_params</span>, <span class="tt">rburn</span>) needs a hand-written <span class="tt">_emit_&lt;name&gt;</span> in <span class="tt">toolchain/mfc/params/generators/fortran_gen.py</span> plus its call site in that generator's simulation branch, and, if it is read on device, an explicit <span class="tt">$:GPU_UPDATE(device='[name]')</span> in both the target's <span class="tt">m_global_parameters.fpp</span> and <span class="tt">src/simulation/m_start_up.fpp</span> — <span class="tt">GPU_DECLARE</span> alone does not make it device-resident. Regrouping existing scalars into a derived type silently drops their broadcast, leaving every non-root rank holding the <span class="tt">dflt_real</span> sentinel. Single-rank golden files cannot catch this, so pair such a change with a <span class="tt">ppn=2</span> test and confirm it fails without the emitter.</li>
+<li><b>A <span class="tt">patch_ib</span> member that immersed-boundary ghost-point code reads must also be set in <span class="tt">s_add_cloud_particle</span></b> (<span class="tt">src/simulation/m_particle_cloud.fpp</span>). <span class="tt">particle_cloud_ibs</span> is allocated without default initialization, and <span class="tt">s_reduce_ib_patch_array</span> copies the whole struct into <span class="tt">patch_ib</span>, overwriting the defaults assigned in <span class="tt">s_assign_default_values_to_user_inputs</span>. Anything left unset reaches the solver as uninitialized memory, and only where the allocation is not already zero-filled. A platform-only NaN is the signature of this class: a garbage <span class="tt">v_blow</span> once failed an AMD lane with <span class="tt">ICFL is NaN</span> while every NVIDIA lane and all local runs passed.</li>
+<li><b>Runtime checks go where they run.</b> Shared constraints belong in <span class="tt">src/common/m_checker_common.fpp</span>, simulation-only ones in <span class="tt">src/simulation/m_checker.fpp</span>, and pre- and post-process ones in their own <span class="tt">m_checker.fpp</span>. Those two <span class="tt">s_check_inputs</span> are currently empty; that is still the correct home for their checks, not <span class="tt">m_checker_common</span>.</li>
+<li><b>Analytic initial conditions are compiled into the binary</b> and their expressions are AST-validated at case load, so syntax errors and unknown variables surface immediately and by name. Each IC variable maps to an <span class="tt">eqn_idx</span> expression in <span class="tt">QPVF_IDX_VARS</span> (<span class="tt">toolchain/mfc/case.py</span>); adding a patch-settable conserved variable means updating that map and the Fortran <span class="tt">eqn_idx</span> builder together, because a mismatch is a silent wrong index.</li>
+<li><b>Under <span class="tt">--case-optimization</span> the baked-in constants are dropped from the namelist</b>, so changing one requires a rebuild rather than a case-file edit.</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md103"></a>
 Compiler Portability</h3>
 <ul>
 <li>Any compiler-specific code (<span class="tt">#ifdef __INTEL_COMPILER</span> etc.) must have fallbacks for all four supported compilers.</li>
 <li>Fypp macros must expand correctly for both GPU and CPU builds (macros are <span class="tt">#ifdef</span>'d out for non-GPU).</li>
 <li>No hardcoded GPU architectures without CMake detection.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md103"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md104"></a>
 Architecture Notes</h3>
 <ul>
 <li><b><span class="tt">src/common/</span> affects all three executables</b> (pre_process, simulation, post_process). Changes here have wide blast radius.</li>
@@ -378,7 +390,7 @@ Architecture Notes</h3>
 <li>Flag modifications to public subroutine signatures, parameter defaults, or output formats.</li>
 <li>Avoid unnecessary host/device transfers in hot loops, redundant allocations, and algorithmic inefficiency.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md104"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md105"></a>
 Fypp and GPU</h2>
 <p>MFC uses <a href="https://github.com/aradi/fypp">Fypp</a> macros (in <span class="tt">src/*/include/</span>) to generate accelerator-specific Fortran for OpenACC and OpenMP backends. Only <span class="tt">simulation</span> (plus its <span class="tt">common</span> dependencies) is GPU-accelerated.</p>
 <ul>
@@ -388,10 +400,10 @@ Fypp and GPU</h2>
 <li>Keep macros simple and readable.</li>
 </ul>
 <p>See <a class="el" href="gpuParallelization.html" title="GPU Parallelization">GPU Parallelization</a> for the full GPU macro API reference, including all parameters, restrictions, examples, and debugging tools.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md105"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
 How-To Guides</h2>
 <p>Step-by-step recipes for common development tasks.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md106"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md107"></a>
 How to Add a New Simulation Parameter</h3>
 <p>Adding a parameter touches both the Python toolchain and Fortran source. Follow these steps in order. See <a class="el" href="parameters.html" title="Case Parameters">Case Parameters</a> for the full list of existing parameters and <a class="el" href="case_constraints.html" title="Case Creator Guide">Case Creator Guide</a> for feature compatibility.</p>
 <p><b>Step 1: Register in Python</b> (<span class="tt">toolchain/mfc/params/definitions.py</span>)</p>
@@ -450,7 +462,7 @@ How to Add a New Simulation Parameter</h3>
 <p>Editing any existing file under <span class="tt">toolchain/mfc/params/</span> (tables or generators) triggers regeneration on the next build automatically. Only <em>adding a new file</em> there requires one reconfigure — the dependency list is globbed at configure time.</p>
 <p><b>Step 6: Use in Fortran code</b></p>
 <p>Reference <span class="tt">my_param</span> anywhere in the target's modules. It is available as a global after the namelist is read at startup.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md107"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
 How to Write a GPU Parallel Loop</h3>
 <p>All GPU loops use Fypp macros. See <a class="el" href="gpuParallelization.html" title="GPU Parallelization">GPU Parallelization</a> for the full API.</p>
 <p><b>Simple parallel loop</b> (3D with collapse):</p>
@@ -508,7 +520,7 @@ How to Write a GPU Parallel Loop</h3>
 <li>Declare all loop-local temporaries in <span class="tt">private='[...]'</span></li>
 <li>Never use <span class="tt">stop</span> or <span class="tt">error stop</span> inside a GPU loop</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md108"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md109"></a>
 How to Allocate and Manage GPU Arrays</h3>
 <p>The full lifecycle of a GPU-resident array:</p>
 <p><b>Step 1: Declare</b> with GPU directive for module-level variables:</p>
@@ -524,7 +536,7 @@ How to Allocate and Manage GPU Arrays</h3>
 <p><b>Step 4: Deallocate</b> in your finalization subroutine, mirroring every allocation:</p>
 <div class="fragment"><div class="line">@:<span class="keyword">DEALLOCATE</span>(my_array)</div>
 </div><!-- fragment --><p>If an array is allocated inside an <span class="tt">if</span> block, its deallocation must follow the same condition.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md109"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
 How to Add an Equation of State</h3>
 <p>Every stiffened-gas expression lives in <span class="tt">src/common/m_variables_conversion.fpp</span>. Adding a second EOS means supplying these, not grepping for <span class="tt">gammas</span>:</p>
 <table class="markdownTable">
@@ -547,7 +559,7 @@ How to Add an Equation of State</h3>
 </table>
 <p>The first six are <em>mechanical</em> - they need only \(p, \rho, e, c\). The last two are <em>caloric</em> and additionally need \(c_v\) and \(q&#39;_v\). An EOS that supplies only the mechanical set cannot support phase change (<span class="tt">m_phase_change</span> also needs entropy and enthalpy) or reactive burn, so those features must be prohibited for it in <span class="tt">case_validator.py</span>.</p>
 <p>The coefficients arrive in two parameterizations of the same EOS: <span class="tt">gammas</span>/<span class="tt">pi_infs</span> are the stored forms the user supplies (see <a class="el" href="equations.html#sec-stored-forms" title="Stored Parameter Conventions">Stored Parameter Conventions</a>), and <span class="tt">isentrope_n</span>/<span class="tt">isentrope_B</span> are the same EOS as \(p + B = \textrm{const}\,\rho^n\), derived once at start-up. Convert with the <span class="tt">f_isentrope_*</span> operators rather than open-coding either relation.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
 How to Add a Test Case</h3>
 <p><b>Step 1: Create a case file</b></p>
 <p>Test cases are Python scripts that print a JSON dict of parameters. See <span class="tt">examples/</span> for templates:</p>
@@ -592,7 +604,7 @@ How to Add a Test Case</h3>
 </div><!-- fragment --><p>Golden files are stored as binary snapshots in <span class="tt">tests/&lt;hash&gt;/</span>.</p>
 <p><b>Step 4: Run</b></p>
 <div class="fragment"><div class="line">./mfc.sh test -j $(nproc)</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
 How to Create a New Fortran Module</h3>
 <p><b>Step 1: Create the file</b></p>
 <p>Name it <span class="tt">src/&lt;target&gt;/m_&lt;feature&gt;.fpp</span>. CMake auto-discovers <span class="tt">.fpp</span> files — no build system changes needed.</p>
@@ -646,7 +658,7 @@ How to Create a New Fortran Module</h3>
 <li>Every <span class="tt">@:ALLOCATE</span> has a matching <span class="tt">@:DEALLOCATE</span></li>
 <li>Every argument has explicit <span class="tt">intent</span></li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
 Working with the Precision System</h3>
 <p>MFC supports double (default), single, and mixed precision. The types are defined in <span class="tt">src/common/m_precision_select.f90</span>:</p>
 <table class="markdownTable">
@@ -668,7 +680,7 @@ Working with the Precision System</h3>
 <li><b>Forbidden</b> double-precision intrinsics: <span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dlog</span>, <span class="tt">dble</span>, <span class="tt">dabs</span>, <span class="tt">real(8)</span>, <span class="tt">real(4)</span></li>
 <li>Conversions between <span class="tt">stp</span> and <span class="tt">wp</span> must be intentional, especially in MPI pack/unpack</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md113"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
 How to Extend MPI Halo Exchange</h3>
 <p>Halo exchange is in <span class="tt">src/simulation/m_mpi_proxy.fpp</span> (and <span class="tt">src/common/m_mpi_common.fpp</span> for buffer allocation).</p>
 <p>To add new data to the halo exchange:</p>
@@ -693,7 +705,7 @@ How to Extend MPI Halo Exchange</h3>
 <div class="line"><span class="keyword">call </span>mpi_sendrecv(buff_send, ..., buff_recv, ..., ierr)</div>
 <div class="line">$:gpu_update(device=<span class="stringliteral">&#39;[buff_recv]&#39;</span>)     ! cpu → gpu after receive</div>
 </div><!-- fragment --><p><b>Step 4: Add unpack loop</b> mirroring the pack loop with <span class="tt">unpack_offset</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
 How to Add a Post-Processing Output Variable</h3>
 <p>Post-processing derived variables live in <span class="tt">src/post_process/m_derived_variables.fpp</span>.</p>
 <p><b>Step 1: Allocate storage</b> in <span class="tt">s_initialize_derived_variables_module</span>:</p>
@@ -724,7 +736,7 @@ How to Add a Post-Processing Output Variable</h3>
 <div class="line">    <span class="keyword">call </span>s_derive_my_variable(q_prim_vf, q_sf)</div>
 <div class="line">    <span class="keyword">call </span>s_write_variable_to_formatted_database_file(q_sf, <span class="stringliteral">&#39;my_variable&#39;</span>, dbfile, dbroot)</div>
 <div class="line"><span class="keyword">end </span>if</div>
-</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 Modifying <span class="tt">src/common/</span></h3>
 <p>Code in <span class="tt">src/common/</span> is compiled into all three executables (pre_process, simulation, post_process). Changes here have wide blast radius.</p>
 <p>Checklist:</p><ul>
@@ -733,7 +745,7 @@ Modifying <span class="tt">src/common/</span></h3>
 <li>Check that new <span class="tt">use</span> statements don't create circular dependencies</li>
 <li>New modules need <span class="tt">implicit none</span> and explicit <span class="tt">intent</span> on all arguments</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
 Debugging</h3>
 <p>See <a class="el" href="troubleshooting.html" title="Troubleshooting Guide">Troubleshooting Guide</a> for debugging workflows, profiling tools, GPU diagnostic environment variables, common build/runtime errors, and fixes.</p>
 <h3 class="doxsection"><a class="anchor" id="how-to-document-physics-constraints"></a>
@@ -769,7 +781,7 @@ How to Document Physics Constraints</h3>
 <td class="markdownTableBodyNone"><span class="tt">exceptions</span>  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">List of cases where the constraint doesn't apply  </td></tr>
 </table>
 <p><b>Categories:</b> Thermodynamic Constraints, Mixture Constraints, Domain and Geometry, Velocity and Dimensional Consistency, Model Equations, Boundary Conditions, Bubble Physics, Feature Compatibility, Numerical Schemes, Acoustic Sources, Post-Processing.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md117"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
 Testing</h2>
 <p>MFC has 500+ regression tests. See <a class="el" href="testing.html" title="Testing">Testing</a> for the full guide.</p>
 <ul>
@@ -778,10 +790,10 @@ Testing</h2>
 <li>Keep tests fast: use small grids and short runtimes</li>
 <li>Test with <span class="tt">-a</span> to include post-processing validation</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
 CI Pipeline</h2>
 <p>Every push to a PR triggers CI. Understanding the pipeline helps you fix failures quickly.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md119"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
 Lint Gate (runs first, blocks all other jobs)</h3>
 <p>All five checks must pass before any builds start:</p>
 <ol type="1">
@@ -795,7 +807,7 @@ Lint Gate (runs first, blocks all other jobs)</h3>
 </li>
 <li><b>Doc references</b> — validates documentation cross-references</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
 Build and Test Matrix</h3>
 <p>After the lint gate passes:</p>
 <ul>
@@ -806,7 +818,7 @@ Build and Test Matrix</h3>
 <li><b>Retries:</b> Tests retry up to 3 times before failing</li>
 <li><b>Cleanliness check:</b> Compiler warnings are tracked — your PR cannot increase the warning count</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
 Common CI Failures</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -823,14 +835,14 @@ Common CI Failures</h3>
 <td class="markdownTableBodyNone">Warnings increased  </td><td class="markdownTableBodyNone">Fix the new compiler warnings before merging  </td></tr>
 </table>
 <p>See <a class="el" href="troubleshooting.html" title="Troubleshooting Guide">Troubleshooting Guide</a> for detailed debugging workflows.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
 Documentation</h2>
 <ul>
 <li>Add or update <b>Doxygen docstrings</b> in source files for new public routines</li>
 <li>Update <b>markdown docs</b> under <span class="tt">docs/</span> if user-facing behavior changes</li>
 <li>Provide a minimal <b>example case</b> in <span class="tt">examples/</span> for new features when practical</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
 Submitting a Pull Request</h2>
 <ol type="1">
 <li><b>PRs come from your fork.</b> Do not create branches on <span class="tt">MFlowCode/MFC</span> directly. Push to your fork and open a PR from there against <span class="tt">MFlowCode/MFC:master</span>.</li>
@@ -841,7 +853,7 @@ Submitting a Pull Request</h2>
 <li><b>Describe your testing</b>: what you ran, which compilers/platforms you used.</li>
 </ol>
 <p>If your change touches GPU code (<span class="tt">src/simulation/</span>), see the GPU checklist in the PR template.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md124"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
 Code Review and Merge</h2>
 <ul>
 <li>Respond to reviewer comments promptly</li>

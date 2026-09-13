@@ -157,13 +157,13 @@ $(function(){initNavTree('testing.html','',''); });
   <div class="headertitle"><div class="title">Testing </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2 class="doxsection"><a class="anchor" id="autotoc_md547"></a>
+<div class="textblock"><h2 class="doxsection"><a class="anchor" id="autotoc_md549"></a>
 Testing</h2>
 <p>To run MFC's test suite, run </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt;</div>
 </div><!-- fragment --><p>It will generate and run test cases, comparing their output to previous runs from versions of MFC considered accurate. <em>golden files</em>, stored in the <span class="tt">tests/</span> directory contain this data, aggregating <span class="tt">.dat</span> files generated when running MFC. A test is considered passing when our error tolerances are met in order to maintain a high level of stability and accuracy. <span class="tt">./mfc.sh test</span> has the following unique options:</p><ul>
 <li><span class="tt">-l</span> outputs the full list of tests</li>
 <li><span class="tt">--from</span> (<span class="tt">-f)</span> and <span class="tt">--to</span> (<span class="tt">t</span>) restrict testing to a range of contiguous slugs</li>
-<li><span class="tt">--only</span> (<span class="tt">-o</span>) restricts testing to a non-contiguous range of tests based on if their trace contains a certain feature</li>
+<li><span class="tt">--only</span> (<span class="tt">-o</span>) restricts testing to a non-contiguous range of tests whose trace contains a given whole trace element (see <a class="el" href="#selection-and-execution-pitfalls" title="Selection and Execution Pitfalls">Selection and Execution Pitfalls</a> for the exact matching rules)</li>
 <li><span class="tt">--test-all</span> (<span class="tt">a</span>) test post process and ensure the Silo database files are correct</li>
 <li><span class="tt">--percent</span> (<span class="tt">%</span>) to specify a percentage of the test suite to select at random and test</li>
 <li><span class="tt">--max-attempts</span> (<span class="tt">-m</span>) the maximum number of attempts to make on a test before considering it failed</li>
@@ -172,7 +172,7 @@ Testing</h2>
 </ul>
 <p>To specify a computer, pass the <span class="tt">-c</span> flag to <span class="tt">./mfc.sh run</span> like so: </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt; -- -c &lt;computer name&gt;</div>
 </div><!-- fragment --><p> where <span class="tt">&lt;computer name&gt;</span> could be <span class="tt">phoenix</span> or any of the others in the <a href="https://github.com/MFlowCode/MFC/tree/master/toolchain/templates">templates</a>). You can create new templates with the appropriate run commands or omit this option. The use of <span class="tt">--</span> in the above command passes options to the <span class="tt">./mfc.sh run</span> command underlying the <span class="tt">./mfc.sh test</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md548"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md550"></a>
 Creating Tests</h3>
 <p>Creating and updating test cases can be done with the following command line arguments:</p><ul>
 <li><span class="tt">--generate</span> to generate golden files for a new test case</li>
@@ -219,7 +219,21 @@ Creating Tests</h3>
 </ul>
 <p>If a trace is empty (that is, the empty string <span class="tt">""</span>), it will not appear in the final trace, but any case parameter variations associated with it will still be applied.</p>
 <p>Finally, the case is appended to the <span class="tt">cases</span> list, which will be returned by the <span class="tt">list_cases</span> function.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md549"></a>
+<h3 class="doxsection"><a class="anchor" id="selection-and-execution-pitfalls"></a>
+Selection and Execution Pitfalls</h3>
+<p>Each of these fails quietly rather than loudly.</p>
+<ul>
+<li><b><span class="tt">--only</span> matches whole trace elements, not substrings</b>, and it ANDs labels while ORing UUIDs (<span class="tt">_filter_only</span> in <span class="tt">toolchain/mfc/test/test.py</span>). <span class="tt">--only bubbles</span> matches nothing, because the trace element is <span class="tt">Bubbles</span>; <span class="tt">--only low_Mach=1 low_Mach=2</span> asks for cases carrying both labels at once and also matches nothing. An empty selection then exits <b>143</b>, which reads like an external kill rather than an empty filter. Pass UUIDs when you want the union of several groups.</li>
+<li><b>Sibling <span class="tt">define_case_d</span> calls at the same stack level are never combined.</b> Two switches that only matter together therefore get no effective coverage unless one is pushed onto the stack and the other defined beneath it — <span class="tt">avg_state=1</span>, for instance, is only read when <span class="tt">wave_speeds=2</span>. Check reachability before trusting that a flag is tested.</li>
+<li><b><span class="tt">--no-build</span> silently runs whatever binary is already on disk</b>, including one built for a different configuration. Chemistry has its own configuration that a plain <span class="tt">./mfc.sh
+  build</span> never produces, so a <span class="tt">--no-build</span> run can report failures from stale binaries and hide real compile breaks. Run chemistry-touching sets without it.</li>
+<li><b>Identify the newest binary by the binary's own mtime</b>, not by its install directory's: a stale configuration's directory can be newer than a fresh build's.</li>
+<li><b>The pre-commit hook lives in the main repository's <span class="tt">.git/hooks/</span></b>, and git exports <span class="tt">GIT_DIR</span> there during a commit, so from a worktree the toolchain lint enumerates the other checkout and fails. Run <span class="tt">./mfc.sh precheck</span> by hand and commit with <span class="tt">--no-verify</span>.</li>
+<li><b><span class="tt">/tmp</span> is node-local.</b> Scratch does not survive a compute-node change, and its absence is silence rather than an error. Keep patches and resource baselines on a shared filesystem.</li>
+<li><b>An unexplained golden-file difference is a bug report, not noise to be regenerated away.</b> Regenerate only the affected tests.</li>
+</ul>
+<p>Tests are generated programmatically in <span class="tt">toolchain/mfc/test/cases.py</span>; a test's UUID is the CRC32 of its trace string, and <span class="tt">./mfc.sh test -l</span> lists every one.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md551"></a>
 Testing Post Process</h3>
 <p>To test the post-processing code, append the <span class="tt">-a</span> or <span class="tt">--test-all</span> option: </p><div class="fragment"><div class="line">./mfc.sh test -a -j 8</div>
 </div><!-- fragment --><p>This argument will re-run the test stack with <span class="tt">parallel_io='T'</span>, which generates silo_hdf5 files. It will also turn most write parameters (<span class="tt">*_wrt</span>) on. Then, it searches through the silo files using <span class="tt">h5dump</span> to ensure that there are no <span class="tt">NaN</span>s or <span class="tt">Infinity</span>s. Although adding this option does not guarantee that accurate <span class="tt">.silo</span> files are generated, it does ensure that the post-process code does not fail or produce malformed data.</p>
