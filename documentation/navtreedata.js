@@ -551,37 +551,37 @@ var NAVTREE =
         [ "fluid_pp", "parameters.html#fluid_pp", [
           [ "Patterns", "parameters.html#autotoc_md391", null ]
         ] ],
-        [ "patch_bc", "parameters.html#patch_bc", [
+        [ "probe", "parameters.html#probe", [
           [ "Patterns", "parameters.html#autotoc_md393", null ]
         ] ],
-        [ "acoustic", "parameters.html#acoustic", [
+        [ "patch_bc", "parameters.html#patch_bc", [
           [ "Patterns", "parameters.html#autotoc_md395", null ]
         ] ],
-        [ "chem_wrt_Y", "parameters.html#chem_wrt_Y", [
+        [ "acoustic", "parameters.html#acoustic", [
           [ "Patterns", "parameters.html#autotoc_md397", null ]
         ] ],
-        [ "simplex_params", "parameters.html#simplex_params", [
+        [ "chem_wrt_Y", "parameters.html#chem_wrt_Y", [
           [ "Patterns", "parameters.html#autotoc_md399", null ]
         ] ],
-        [ "synth_amp_shell", "parameters.html#synth_amp_shell", [
+        [ "simplex_params", "parameters.html#simplex_params", [
           [ "Patterns", "parameters.html#autotoc_md401", null ]
         ] ],
-        [ "synth_k_shell", "parameters.html#synth_k_shell", [
+        [ "synth_amp_shell", "parameters.html#synth_amp_shell", [
           [ "Patterns", "parameters.html#autotoc_md403", null ]
         ] ],
-        [ "synth_n_waves_per_shell", "parameters.html#synth_n_waves_per_shell", [
+        [ "synth_k_shell", "parameters.html#synth_k_shell", [
           [ "Patterns", "parameters.html#autotoc_md405", null ]
         ] ],
-        [ "bc_x", "parameters.html#bc_x", [
+        [ "synth_n_waves_per_shell", "parameters.html#synth_n_waves_per_shell", [
           [ "Patterns", "parameters.html#autotoc_md407", null ]
         ] ],
-        [ "bc_y", "parameters.html#bc_y", [
+        [ "bc_x", "parameters.html#bc_x", [
           [ "Patterns", "parameters.html#autotoc_md409", null ]
         ] ],
-        [ "bc_z", "parameters.html#bc_z", [
+        [ "bc_y", "parameters.html#bc_y", [
           [ "Patterns", "parameters.html#autotoc_md411", null ]
         ] ],
-        [ "probe", "parameters.html#probe", [
+        [ "bc_z", "parameters.html#bc_z", [
           [ "Patterns", "parameters.html#autotoc_md413", null ]
         ] ],
         [ "synth_L", "parameters.html#synth_L", [
