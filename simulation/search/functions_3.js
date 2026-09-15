@@ -75,7 +75,8 @@ var searchData=
   ['f_5fsg_5fthermal_72',['f_sg_thermal',['../namespacem__variables__conversion.html#a79978839333dff97c5faa778b70a71fa',1,'m_variables_conversion']]],
   ['f_5fthinc_5fintegral_5f1d_73',['f_thinc_integral_1d',['../namespacem__thinc.html#a0345c418baa32c7c79e6f68be5d32e49',1,'m_thinc']]],
   ['f_5funit_5fvector_74',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
-  ['f_5fxor_75',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['f_5fxorshift_76',['f_xorshift',['../namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc',1,'m_particle_cloud']]],
-  ['factorial_77',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5fvel_5framp_75',['f_vel_ramp',['../namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19',1,'m_boundary_primitives']]],
+  ['f_5fxor_76',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['f_5fxorshift_77',['f_xorshift',['../namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc',1,'m_particle_cloud']]],
+  ['factorial_78',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];

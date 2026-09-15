@@ -33,6 +33,7 @@ var searchData=
   ['f_5frelativistic_5fenthalpy_30',['f_relativistic_enthalpy',['../namespacem__variables__conversion.html#a7efd1978a45cc045b1915b0bfd379992',1,'m_variables_conversion']]],
   ['f_5fsg_5fthermal_31',['f_sg_thermal',['../namespacem__variables__conversion.html#a79978839333dff97c5faa778b70a71fa',1,'m_variables_conversion']]],
   ['f_5funit_5fvector_32',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
-  ['f_5fxor_33',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['factorial_34',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5fvel_5framp_33',['f_vel_ramp',['../namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19',1,'m_boundary_primitives']]],
+  ['f_5fxor_34',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['factorial_35',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];

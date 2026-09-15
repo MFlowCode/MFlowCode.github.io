@@ -1,14 +1,11 @@
 var m__data__output_8fpp_8f90 =
 [
-    [ "m_data_output::s_close_com_files", "namespacem__data__output.html#ac19d0dbc33765e1f78a4e1e2e943c780", null ],
     [ "m_data_output::s_close_probe_files", "namespacem__data__output.html#abeb42ab4ffa4110da8e14af7ee30cc87", null ],
     [ "m_data_output::s_close_run_time_information_file", "namespacem__data__output.html#a897ce85a3bae7848132ce991a9389df1", null ],
     [ "m_data_output::s_finalize_data_output_module", "namespacem__data__output.html#a81d3138233e0f1a797c930dbf9543d71", null ],
     [ "m_data_output::s_initialize_data_output_module", "namespacem__data__output.html#a795efa6dc563a04a903c13a960089a58", null ],
-    [ "m_data_output::s_open_com_files", "namespacem__data__output.html#af540d4f9ab19dc261e7342dd75564f21", null ],
     [ "m_data_output::s_open_probe_files", "namespacem__data__output.html#a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31", null ],
     [ "m_data_output::s_open_run_time_information_file", "namespacem__data__output.html#ac525e4309582580c5aa3773e03245ed6", null ],
-    [ "m_data_output::s_write_com_files", "namespacem__data__output.html#a70e92efb50b956fd5ceeedfccac1faeb", null ],
     [ "m_data_output::s_write_data_files", "namespacem__data__output.html#a9eea8de093f055adb3b786bff3cab2d8", null ],
     [ "m_data_output::s_write_ib_data_file", "namespacem__data__output.html#afea5c151b85111d7df711e1ccb50813f", null ],
     [ "m_data_output::s_write_ib_state_file", "namespacem__data__output.html#ad7b2f63ea430ad1518152658c5488dcf", null ],
@@ -20,7 +17,6 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::s_write_serial_data_files", "namespacem__data__output.html#aa24a29afef33c331f912d6d57dbbc5fd", null ],
     [ "m_data_output::s_write_serial_ib_data", "namespacem__data__output.html#a88654d382efaa311752d6d3119f22fa4", null ],
     [ "m_data_output::s_write_serial_ib_state", "namespacem__data__output.html#a865687c6a3188efbd71b29b439302ec1", null ],
-    [ "m_data_output::c_mass", "namespacem__data__output.html#a0cd0c37d029d7ab70cd1ef42c8716100", null ],
     [ "m_data_output::ccfl_max", "namespacem__data__output.html#affec31bf6f467e3f0013442abdf65aeb", null ],
     [ "m_data_output::icfl_max", "namespacem__data__output.html#acdf5ad3cda28e64c928597b8796c057c", null ],
     [ "m_data_output::q_cons_temp_ds", "namespacem__data__output.html#addfc053fb62d4bc8d27a1576330991b4", null ],

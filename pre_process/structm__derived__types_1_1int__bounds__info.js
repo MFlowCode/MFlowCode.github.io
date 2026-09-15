@@ -20,5 +20,8 @@ var structm__derived__types_1_1int__bounds__info =
     [ "ve2", "structm__derived__types_1_1int__bounds__info.html#a28ab6c67f4184eaa7ec02f14fde5d169", null ],
     [ "ve3", "structm__derived__types_1_1int__bounds__info.html#a2f7bff2b19ae5b866d64480a1b8cfb2a", null ],
     [ "vel_in", "structm__derived__types_1_1int__bounds__info.html#a605e1e77b7e92b13861ed1c97c2de515", null ],
+    [ "vel_in_frac0", "structm__derived__types_1_1int__bounds__info.html#ab54d00643d6c3799bf9297672e2d9e4f", null ],
+    [ "vel_in_ramp", "structm__derived__types_1_1int__bounds__info.html#af7f29d5d245e74f875c0758f471888b8", null ],
+    [ "vel_in_t0", "structm__derived__types_1_1int__bounds__info.html#ae94533bdd8f596d61350dbf52c5f886a", null ],
     [ "vel_out", "structm__derived__types_1_1int__bounds__info.html#af343b628e182ad5917268d34db727ead", null ]
 ];

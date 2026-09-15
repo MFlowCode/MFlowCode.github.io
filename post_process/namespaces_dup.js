@@ -27,6 +27,7 @@ var namespaces_dup =
       [ "mpi_bc_type_type", "namespacem__boundary__io.html#a08a01f94849046589e0337b0068adec0", null ]
     ] ],
     [ "m_boundary_primitives", "namespacem__boundary__primitives.html", [
+      [ "f_vel_ramp", "namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19", null ],
       [ "s_axis", "namespacem__boundary__primitives.html#a882379d572d555c1b5f73fd360cb1d79", null ],
       [ "s_beta_extrapolation", "namespacem__boundary__primitives.html#ab4cccbeaf9ef7a2173ad5ce7d98ff5f7", null ],
       [ "s_beta_periodic", "namespacem__boundary__primitives.html#a236eb952c19c103a13abd6fa558d35af", null ],

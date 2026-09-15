@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"namespacem__icpp__patches.html#ad378f9e7501eda427635fb9f488a9310":[1,0,21,36],
 "namespacem__icpp__patches.html#ad6dfc7826591d093ce5bfdb96be4efc6":[1,0,21,31],
 "namespacem__icpp__patches.html#ad871cdbd8745010cb8cb46f13addb1ae":[1,0,21,30],
 "namespacem__icpp__patches.html#ad909bf199ecd995b464bc9676f93e345":[1,0,21,35],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_vars_d.html":[1,1,2,3],
 "namespacemembers_vars_e.html":[1,1,2,4],
 "namespacemembers_vars_f.html":[1,1,2,5],
-"namespacemembers_vars_g.html":[1,1,2,6],
-"namespacemembers_vars_h.html":[1,1,2,7]
+"namespacemembers_vars_g.html":[1,1,2,6]
 };

@@ -37,6 +37,7 @@ var searchData=
   ['f_5fsimplex2d_34',['f_simplex2d',['../namespacem__simplex__noise.html#a570c7aecc2e4af4362d24a2c15c92b3b',1,'m_simplex_noise']]],
   ['f_5fsimplex3d_35',['f_simplex3d',['../namespacem__simplex__noise.html#acfab8f28b5f8ed34aba0607717a04ef8',1,'m_simplex_noise']]],
   ['f_5funit_5fvector_36',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
-  ['f_5fxor_37',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['factorial_38',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5fvel_5framp_37',['f_vel_ramp',['../namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19',1,'m_boundary_primitives']]],
+  ['f_5fxor_38',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['factorial_39',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];

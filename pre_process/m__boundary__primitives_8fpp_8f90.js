@@ -1,5 +1,6 @@
 var m__boundary__primitives_8fpp_8f90 =
 [
+    [ "m_boundary_primitives::f_vel_ramp", "namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19", null ],
     [ "m_boundary_primitives::s_axis", "namespacem__boundary__primitives.html#a882379d572d555c1b5f73fd360cb1d79", null ],
     [ "m_boundary_primitives::s_beta_extrapolation", "namespacem__boundary__primitives.html#ab4cccbeaf9ef7a2173ad5ce7d98ff5f7", null ],
     [ "m_boundary_primitives::s_beta_periodic", "namespacem__boundary__primitives.html#a236eb952c19c103a13abd6fa558d35af", null ],

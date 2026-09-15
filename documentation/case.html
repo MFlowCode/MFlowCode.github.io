@@ -1597,17 +1597,24 @@ Generalized Characteristic Boundary conditions</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow velocities in x, y and z directions  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_in_ramp</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Duration of a smooth start-up of the inflow velocity (0 = none)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_in_t0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Time at which that ramp begins  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_in_frac0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Fraction of the final inflow velocity held before the ramp  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%vel_out</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Outflow velocities in x, y and z directions  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%pres_in</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Inflow pressure  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%pres_out</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Outflow pressure  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%alpha_rho_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow density  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%pres_out</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Outflow pressure  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%alpha_rho_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow density  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%alpha_in</span>  </td><td class="markdownTableBodyCenter">Real Array  </td><td class="markdownTableBodyLeft">Inflow void fraction  </td></tr>
 </table>
 <p>This boundary condition can be used for subsonic inflow (<span class="tt">bc_[x,y,z]%[beg,end]</span> = -7) and subsonic outflow (<span class="tt">bc_[x,y,z]%[beg,end]</span> = -8) characteristic boundary conditions. These are based on Pirozzoli and Colonius <a class="el" href="citelist.html#CITEREF_pirozzoli13">[39]</a>. This enables to provide inflow and outflow conditions outside the computational domain.</p>
+<p><span class="tt">bc_[x,y,z]%vel_in_ramp</span> starts the inflow smoothly instead of holding it constant, which is what a jet or a tunnel accelerating from rest requires: the start-up is the event of interest, not a transient to be discarded. The inflow velocity is scaled by \(f(t) = f_0 + (1 - f_0)\left[1 + \tanh\left(6 (t - t_0)/\tau - 3\right)\right]/2\), with \(\tau\) = <span class="tt">vel_in_ramp</span>, \(t_0\) = <span class="tt">vel_in_t0</span> and \(f_0\) = <span class="tt">vel_in_frac0</span>, so it leaves \(f_0\) of the final velocity at \(t_0\) and is within half a percent of it at \(t_0 + \tau\). A boundary with <span class="tt">vel_in_ramp = 0</span> is held constant, as before.</p>
 <h3 class="doxsection"><a class="anchor" id="patch-types"></a>
 Patch types</h3>
 <table class="markdownTable">
