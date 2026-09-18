@@ -13,5 +13,17 @@ var searchData=
   ['kahan_5fcomp_10',['kahan_comp',['../namespacem__bubbles__el.html#ad73f29bf191453f719914c3b95fda5c0',1,'m_bubbles_el']]],
   ['kahan_5fsummation_11',['kahan_summation',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a08e927579cc8af10da9a0b1b241a7633',1,'m_derived_types::bubbles_lagrange_parameters']]],
   ['keep_5fbubble_12',['keep_bubble',['../namespacem__bubbles__el.html#a80f1497a3f0d298f579b0284c2609bbc',1,'m_bubbles_el']]],
-  ['kterm_13',['kterm',['../namespacem__rhs.html#a0757066fe9419ea7b18009aa553918b4',1,'m_rhs']]]
+  ['kin_5ffreq_13',['kin_freq',['../structm__derived__types_1_1ib__patch__parameters.html#a359f1ecb386bef4493dd2f343d9b0b35',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5fhinge_14',['kin_hinge',['../structm__derived__types_1_1ib__patch__parameters.html#a275af4651fa481eff5ba3c9698b26bb9',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5fmodel_15',['kin_model',['../structm__derived__types_1_1ib__patch__parameters.html#a389e5070eb634b6968e9b63deb6d8a86',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5foffset_16',['kin_offset',['../structm__derived__types_1_1ib__patch__parameters.html#a420720fd093b726ac3772a306983b382',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5fphase_17',['kin_phase',['../structm__derived__types_1_1ib__patch__parameters.html#a657153087c79e7cffb6739e0892dd481',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5fphi0_18',['kin_phi0',['../structm__derived__types_1_1ib__patch__parameters.html#a95abfc18bedebbfbbe497296d0767c93',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5fpitch_5frate_19',['kin_pitch_rate',['../structm__derived__types_1_1ib__patch__parameters.html#a096aee39f31fac4e5bf89e71856d0c92',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5framp_20',['kin_ramp',['../structm__derived__types_1_1ib__patch__parameters.html#ac4407d37b1e5cc48e6509443f462489b',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5fsmooth_21',['kin_smooth',['../structm__derived__types_1_1ib__patch__parameters.html#a6e4155cf678183d61c762d5cc4a332e0',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5ft0_22',['kin_t0',['../structm__derived__types_1_1ib__patch__parameters.html#a1466f61d27280c940a3e9c292130293a',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5ftheta0_23',['kin_theta0',['../structm__derived__types_1_1ib__patch__parameters.html#a3b6e0979d72bb53a06554ea9ba6c3d71',1,'m_derived_types::ib_patch_parameters']]],
+  ['kin_5ftheta_5fmean_24',['kin_theta_mean',['../structm__derived__types_1_1ib__patch__parameters.html#ad22f39237df06e297bf6ab22aad3d775',1,'m_derived_types::ib_patch_parameters']]],
+  ['kterm_25',['kterm',['../namespacem__rhs.html#a0757066fe9419ea7b18009aa553918b4',1,'m_rhs']]]
 ];

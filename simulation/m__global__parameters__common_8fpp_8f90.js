@@ -65,6 +65,8 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::ib", "namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1", null ],
     [ "m_global_parameters_common::ib_airfoil", "namespacem__global__parameters__common.html#abae2557c74197a9071c2b51972068acd", null ],
     [ "m_global_parameters_common::ib_coefficient_of_friction", "namespacem__global__parameters__common.html#ae27765e826eebd4bb531113fe67a883d", null ],
+    [ "m_global_parameters_common::ib_force_stride", "namespacem__global__parameters__common.html#a4ba903f793706af8debe8e2caa8df05f", null ],
+    [ "m_global_parameters_common::ib_force_wrt", "namespacem__global__parameters__common.html#add28e056ca103be4479f6d7fb754d30a", null ],
     [ "m_global_parameters_common::ib_neighborhood_radius", "namespacem__global__parameters__common.html#ab9ccaa096249cba26380149a7ceac372", null ],
     [ "m_global_parameters_common::ib_state_wrt", "namespacem__global__parameters__common.html#a12c9eea2b592ab77bf8763b43814a78a", null ],
     [ "m_global_parameters_common::ic_beta", "namespacem__global__parameters__common.html#a29f9cb020a1e626e9122f5b61b8989af", null ],

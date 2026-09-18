@@ -185,6 +185,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a53a556dc3fa26f1f97eb2044e8391997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the IB state information out to file.  <br /></td></tr>
 <tr class="memitem:a865687c6a3188efbd71b29b439302ec1" id="r_a865687c6a3188efbd71b29b439302ec1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a865687c6a3188efbd71b29b439302ec1">s_write_serial_ib_state</a> (t_step)</td></tr>
 <tr class="memdesc:a865687c6a3188efbd71b29b439302ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write IB state data to a per-timestep serial (unformatted) file.  <br /></td></tr>
+<tr class="memitem:a8d73bad55102d0442abeeb057c4d6aef" id="r_a8d73bad55102d0442abeeb057c4d6aef"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8d73bad55102d0442abeeb057c4d6aef">s_write_ib_force_history</a> (t_step)</td></tr>
+<tr class="memdesc:a8d73bad55102d0442abeeb057c4d6aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record every immersed body's force, torque and kinematics for this step.  <br /></td></tr>
+<tr class="memitem:a679ff0f5511ae7481f474db8a51d34bb" id="r_a679ff0f5511ae7481f474db8a51d34bb"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a679ff0f5511ae7481f474db8a51d34bb">s_open_ib_force_history</a></td></tr>
+<tr class="memdesc:a679ff0f5511ae7481f474db8a51d34bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the shared history file. Done once for the run.  <br /></td></tr>
+<tr class="memitem:a8515ed6a92779575d4c1878f53113ff4" id="r_a8515ed6a92779575d4c1878f53113ff4"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8515ed6a92779575d4c1878f53113ff4">s_close_ib_force_history</a></td></tr>
+<tr class="memdesc:a8515ed6a92779575d4c1878f53113ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the history file. Nothing is buffered, so there is nothing to flush first.  <br /></td></tr>
 <tr class="memitem:ad7b2f63ea430ad1518152658c5488dcf" id="r_ad7b2f63ea430ad1518152658c5488dcf"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad7b2f63ea430ad1518152658c5488dcf">s_write_ib_state_file</a> (time_step)</td></tr>
 <tr class="memdesc:ad7b2f63ea430ad1518152658c5488dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0.  <br /></td></tr>
 <tr class="memitem:a52814dea8c93b2edeaab7f76eb9a89e5" id="r_a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a52814dea8c93b2edeaab7f76eb9a89e5">s_write_probe_files</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, accel_mag)</td></tr>
@@ -201,6 +207,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:addfc053fb62d4bc8d27a1576330991b4" id="r_addfc053fb62d4bc8d27a1576330991b4"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#addfc053fb62d4bc8d27a1576330991b4">q_cons_temp_ds</a></td></tr>
+<tr class="memitem:abe27e5415e853b185e95ba5463f73b40" id="r_abe27e5415e853b185e95ba5463f73b40"><td class="memItemLeft">character(len= *), <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a>&#160;</td><td class="memItemRight"><a class="el" href="#abe27e5415e853b185e95ba5463f73b40">ib_rec_fmt</a> = '(I10,19(1X,ES17.9E3))'</td></tr>
+<tr class="memdesc:abe27e5415e853b185e95ba5463f73b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">One fixed-width text record per immersed body per recorded step, in D/ib_forces.dat.  <br /></td></tr>
+<tr class="memitem:aa381db3b44573b9c9f24b6e58ab8a4c4" id="r_aa381db3b44573b9c9f24b6e58ab8a4c4"><td class="memItemLeft">integer, <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa381db3b44573b9c9f24b6e58ab8a4c4">ib_rec_body</a> = 10 + 19*18</td></tr>
+<tr class="memdesc:aa381db3b44573b9c9f24b6e58ab8a4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">characters the format emits  <br /></td></tr>
+<tr class="memitem:a9f36d3cf833bb1ffe506c0270127af08" id="r_a9f36d3cf833bb1ffe506c0270127af08"><td class="memItemLeft">integer, <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9f36d3cf833bb1ffe506c0270127af08">ib_rec_len</a> = IB_REC_BODY + 1</td></tr>
+<tr class="memdesc:a9f36d3cf833bb1ffe506c0270127af08"><td class="mdescLeft">&#160;</td><td class="mdescRight">plus the newline  <br /></td></tr>
+<tr class="memitem:ac5f92d0384c353f333ed05b2b102bf8b" id="r_ac5f92d0384c353f333ed05b2b102bf8b"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ac5f92d0384c353f333ed05b2b102bf8b">ib_hist_file</a> = -1</td></tr>
+<tr class="memdesc:ac5f92d0384c353f333ed05b2b102bf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">held open for the run; -1 until first write  <br /></td></tr>
 <tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">ICFL, VCFL, CCFL, and Rc stability criteria extrema over all the time-steps</div></td></tr>
 <tr class="memitem:acdf5ad3cda28e64c928597b8796c057c" id="r_acdf5ad3cda28e64c928597b8796c057c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#acdf5ad3cda28e64c928597b8796c057c">icfl_max</a></td></tr>
 <tr class="memdesc:acdf5ad3cda28e64c928597b8796c057c"><td class="mdescLeft">&#160;</td><td class="mdescRight">ICFL criterion maximum.  <br /></td></tr>
@@ -214,6 +228,24 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Writes solution data, run-time stability diagnostics (ICFL, VCFL, CCFL, Rc), and probe/center-of-mass files. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a8515ed6a92779575d4c1878f53113ff4" name="a8515ed6a92779575d4c1878f53113ff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8515ed6a92779575d4c1878f53113ff4">&#9670;&#160;</a></span>s_close_ib_force_history()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_data_output::s_close_ib_force_history</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Close the history file. Nothing is buffered, so there is nothing to flush first. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01647">1647</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="abeb42ab4ffa4110da8e14af7ee30cc87" name="abeb42ab4ffa4110da8e14af7ee30cc87"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abeb42ab4ffa4110da8e14af7ee30cc87">&#9670;&#160;</a></span>s_close_probe_files()</h2>
 
@@ -228,7 +260,7 @@ Variables</h2></td></tr>
 
 <p>Closes probe files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02065">2065</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02234">2234</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -246,7 +278,7 @@ Variables</h2></td></tr>
 
 <p>Write footer with stability criteria extrema and run-time to the information file, then close it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02043">2043</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02212">2212</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -264,7 +296,7 @@ Variables</h2></td></tr>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02105">2105</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02274">2274</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -282,11 +314,42 @@ Variables</h2></td></tr>
 
 <p>Initialize the data output module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02076">2076</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02245">2245</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a795efa6dc563a04a903c13a960089a58_icgraph.svg" width="550" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a679ff0f5511ae7481f474db8a51d34bb" name="a679ff0f5511ae7481f474db8a51d34bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a679ff0f5511ae7481f474db8a51d34bb">&#9670;&#160;</a></span>s_open_ib_force_history()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_data_output::s_open_ib_force_history</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open the shared history file. Done once for the run. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01596">1596</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a679ff0f5511ae7481f474db8a51d34bb_icgraph.svg" width="408" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -305,7 +368,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open flow probe data files for writing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00446">446</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -323,7 +386,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open the run-time information file and write the stability criteria table header. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -368,7 +431,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write data files. Dispatch subroutine that replaces procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -399,11 +462,40 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch immersed boundary data output to the serial or parallel writer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01330">1330</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01342">1342</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_afea5c151b85111d7df711e1ccb50813f_cgraph.svg" width="623" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8d73bad55102d0442abeeb057c4d6aef" name="a8d73bad55102d0442abeeb057c4d6aef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d73bad55102d0442abeeb057c4d6aef">&#9670;&#160;</a></span>s_write_ib_force_history()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_data_output::s_write_ib_force_history </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Record every immersed body's force, torque and kinematics for this step. </p>
+<p>One shared text file, D/ib_forces.dat, opened once for the run. Each rank writes only the bodies it owns, at a byte offset computed from the step and the global body id, so the file is byte-identical however the domain is decomposed and needs no merge step. Writing a file per body instead costs an inquire, open and close per body per rank per step, which is 3e5 filesystem metadata operations per step at 1000 ranks holding 100 bodies each.</p>
+<p>Layout: row r holds all num_gbl_ibs bodies in global id order, so body g occupies bytes ((r*num_gbl_ibs) + g - 1)*IB_REC_LEN. The file carries no header line, which would shift every offset after it; the columns are listed in docs/documentation/case.md.</p>
+<p>Rows are numbered from the first step this run records, not from t_step, so that row 0 is always written. Nothing pre-fills the file &ndash; both open paths create it empty and every write lands at a computed offset &ndash; so a row no rank ever writes stays a hole, and a hole reads back as NUL bytes rather than blanks. Counting from t_step would leave exactly such a hole wherever the run starts: the skip below means step t_step_start is never written, and on a restart every row beneath it would be missing as well. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01524">1524</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a8d73bad55102d0442abeeb057c4d6aef_cgraph.svg" width="408" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -425,7 +517,7 @@ Here is the call graph for this function:</div>
 
 <p>Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01495">1495</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01664">1664</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -475,7 +567,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write grid and conservative variable data files in parallel via MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01029">1029</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01041">1041</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -514,7 +606,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write immersed boundary marker data in parallel using MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01260">1260</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01272">1272</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -553,7 +645,7 @@ Here is the caller graph for this function:</div>
 
 <p>Writes the IB state information out to file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01355">1355</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01367">1367</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -593,7 +685,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write flow probe data at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01520">1520</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01689">1689</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -623,7 +715,7 @@ Here is the call graph for this function:</div>
 
 <p>Write stability criteria extrema to the run-time information file at the given time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00468">468</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00480">480</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -673,7 +765,7 @@ Here is the call graph for this function:</div>
 
 <p>Write grid and conservative variable data files in serial format. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00667">667</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00679">679</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -712,7 +804,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write immersed boundary marker data to a serial (per-processor) unformatted file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01232">1232</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01244">1244</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -746,7 +838,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write IB state data to a per-timestep serial (unformatted) file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01459">1459</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01471">1471</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -784,6 +876,111 @@ Here is the caller graph for this function:</div>
 <p>CCFL criterion maximum. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac5f92d0384c353f333ed05b2b102bf8b" name="ac5f92d0384c353f333ed05b2b102bf8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f92d0384c353f333ed05b2b102bf8b">&#9670;&#160;</a></span>ib_hist_file</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_data_output::ib_hist_file = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>held open for the run; -1 until first write </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa381db3b44573b9c9f24b6e58ab8a4c4" name="aa381db3b44573b9c9f24b6e58ab8a4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa381db3b44573b9c9f24b6e58ab8a4c4">&#9670;&#160;</a></span>ib_rec_body</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a> m_data_output::ib_rec_body = 10 + 19*18</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>characters the format emits </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="abe27e5415e853b185e95ba5463f73b40" name="abe27e5415e853b185e95ba5463f73b40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe27e5415e853b185e95ba5463f73b40">&#9670;&#160;</a></span>ib_rec_fmt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=*), <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a> m_data_output::ib_rec_fmt = '(I10,19(1X,ES17.9E3))'</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>One fixed-width text record per immersed body per recorded step, in D/ib_forces.dat. </p>
+<p>IB_REC_FMT is fixed width by construction: every ES descriptor right-justifies in its field, including for negatives, three-digit exponents, NaN and Inf, so a record is always IB_REC_BODY characters. That is what lets a rank compute a byte offset for (step, body) and write there directly, giving one shared text file with no gather and no per-rank shards. The two must be edited together: widening the format without IB_REC_LEN shears the file. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a9f36d3cf833bb1ffe506c0270127af08" name="a9f36d3cf833bb1ffe506c0270127af08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f36d3cf833bb1ffe506c0270127af08">&#9670;&#160;</a></span>ib_rec_len</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a> m_data_output::ib_rec_len = IB_REC_BODY + 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>plus the newline </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>

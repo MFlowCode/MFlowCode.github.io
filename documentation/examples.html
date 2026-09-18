@@ -588,14 +588,43 @@ Initial Condition</h3>
 Result</h3>
 <p><img src="result-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md298"></a>
-Gas Jet (2D)</h2>
+Boundary-condition patch geometry has to match the dimensionality</h2>
+<p><span class="tt">s_apply_boundary_patches</span> (<span class="tt">src/pre_process/m_boundary_conditions.fpp</span>) dispatches by dimensionality:</p>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span> (p &gt; 0) <span class="keywordflow">then</span>                                  <span class="comment">! 3D</span></div>
+<div class="line">    <span class="keywordflow">if</span>      (patch_bc(i)%geometry == 2) <span class="keyword">call </span>s_circle_bc(i, bc_type)</div>
+<div class="line">    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (patch_bc(i)%geometry == 3) <span class="keyword">call </span>s_rectangle_bc(i, bc_type)</div>
+<div class="line"><span class="keywordflow">else</span> <span class="keywordflow">if</span> (n &gt; 0) <span class="keywordflow">then</span>                             <span class="comment">! 2D</span></div>
+<div class="line">    <span class="keywordflow">if</span>      (patch_bc(i)%geometry == 1) <span class="keyword">call </span>s_line_segment_bc(i, bc_type)</div>
+</div><!-- fragment --><p>There is no <span class="tt">else</span>. A geometry belonging to the other dimensionality falls straight through: <b>the patch is never applied, nothing is printed, and the face silently keeps whatever <span class="tt">bc_[xyz]</span> gave it.</b></p>
+<p>That is quiet in the worst way. A nozzle cut into a no-slip wall with a 3D geometry in a 2D case simply stays a solid wall — the run completes, writes output, and the jet has a velocity of exactly zero for all time with no indication anything was ignored.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md299"></a>
+Running it</h3>
+<div class="fragment"><div class="line">./mfc.sh validate examples/2D_bc_patch_geometry/case.py                  # geometry 1, valid in 2D</div>
+<div class="line">GEOMETRY=3 ./mfc.sh validate examples/2D_bc_patch_geometry/case.py       # a 3D geometry in a 2D case</div>
+</div><!-- fragment --><table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone">before  </th><th class="markdownTableHeadNone">after  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">GEOMETRY=1</span>  </td><td class="markdownTableBodyNone">passes  </td><td class="markdownTableBodyNone">passes  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">GEOMETRY=3</span>  </td><td class="markdownTableBodyNone"><b>passes, then does nothing at run time</b>  </td><td class="markdownTableBodyNone"><span class="tt">patch_bc(1)geometry must be 1 (line segment) in 2D; geometry 3 is never applied</span>  </td></tr>
+</table>
+<p>The 3D direction is symmetric: geometry 1 in a 3D case is equally ignored, and is now equally refused.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
+A second trap in the same corner</h3>
+<p>The case carries a second initial-condition patch a few cells thick at the inlet, and it is load-bearing: the Dirichlet buffer is filled by pre_process from the <b>initial condition at the boundary face</b>. A domain initialised at rest stores rest in that buffer, and the "inflow" then delivers zero for all time — again with no warning. This is not what the validator change addresses; it is noted here because the two failures look identical from the outside, and knowing that saves working out which one is in play.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
+Scope</h3>
+<p>Validator only; no source change and no golden files. All 182 example cases still validate.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
+Gas Jet (2D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
 Final Condition</h3>
 <p><img src="final_condition-2D_jet-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md300"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
 2D Shear-Thinning Lid-Driven Cavity</h2>
 <p>Qualitative demonstration of MFC's Herschel-Bulkley non-Newtonian viscosity in a recirculating flow. A shear-thinning fluid fills a unit square cavity driven by a moving top lid. Unlike the Poiseuille examples, <b>this case has no closed-form analytic solution</b> — it is a qualitative demonstration of the expected shear-thinning trend (a primary vortex center shifted toward the moving lid, with stronger near-wall velocity gradients relative to the Newtonian case).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md301"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
 Regime and parameters</h3>
 <p>Two identical Papanastasiou-regularized Herschel-Bulkley fluids (a two-fluid setup sharing one rheology), pure power law (<span class="tt">tau0 = 0</span>):</p>
 <table class="markdownTable">
@@ -614,66 +643,66 @@ Regime and parameters</h3>
 </table>
 <p>Unit square <span class="tt">[0,1]^2</span>, <span class="tt">m = n = 99</span> (coarse smoke-run grid), all walls no-slip with the top lid moving at <span class="tt">bc_yve1 = 0.5</span>. Effective Reynolds number <span class="tt">Re_eff = 1/K = 100</span> at unit shear rate; the conventional lid-based Reynolds number <span class="tt">rho*U*L/mu(1) = 0.5/1e-2 = 50</span> with <span class="tt">U = 0.5</span> and <span class="tt">mu(1) = K</span>.</p>
 <p>The auto-registered CI test of this example is truncated to 50 time steps and serves as smoke coverage only, not a physics anchor.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
 Governing physics</h3>
 <p>Incompressible recirculating cavity flow with the shear-dependent power-law viscosity <span class="tt">mu = K*gamma_dot^(n-1)</span>. With <span class="tt">n &lt; 1</span> the fluid thins under the strong shear beneath the lid and in the corner boundary layers, while the slow cavity core stays comparatively viscous.</p>
 <p><b>What to look for</b> (qualitative, no analytic match): a primary recirculating vortex whose center, relative to a Newtonian cavity at the same Reynolds number, is shifted toward the moving lid, with stronger near-wall velocity gradients — the expected shear-thinning trend. Do not expect a quantitative error; the committed grid (<span class="tt">m = n = 99</span>) is intentionally coarse. For quantitative comparison use <span class="tt">m = n = 499</span> or finer with a longer <span class="tt">t_step_stop</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_lid_driven_cavity_nn/case.py -n 2
 </pre><p>Post-process and inspect the velocity / vorticity (<span class="tt">omega_wrt(3)</span>) fields; there is no <span class="tt">compare_analytic.py</span> for this qualitative case.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
 Rayleigh-Taylor Instability (2D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
 Final Condition and Linear Theory</h3>
 <p><img src="result-2D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
 IBM Bow Shock (3D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
 Final Condition</h3>
 <p><img src="result-3D_ibm_bowshock-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
 2D Hardcodied IC Example</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
 Initial Condition and Result</h3>
 <p><img src="initial-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/> <img src="result-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
 Richtmyer-Meshkov Instability (2D)</h2>
 <p>Reference: See Example 4.18. </p><blockquote class="doxtable">
 <p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
 </blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
 Initial State</h4>
 <p><img src="figure0-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
 Evolved State</h4>
 <p><img src="figure1-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md318"></a>
 Taylor-Green Vortex (3D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Hillewaert, K. (2013). TestCase C3.5 - DNS of the transition of the Taylor-Green vortex, Re=1600 - Introduction and result summary. 2nd International Workshop on high-order methods for CFD. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
 Final Condition</h3>
 <p>This figure shows the isosurface with zero q-criterion.</p>
 <p><img src="result-3D_TaylorGreenVortex-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md320"></a>
 Shock Droplet (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023) </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
 Initial Condition</h3>
 <p><img src="initial-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md318"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md322"></a>
 Result</h3>
 <p><img src="result-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-17</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-18</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

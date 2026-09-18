@@ -55,6 +55,7 @@ var NAVTREEINDEX0 =
 "case.html#sec-computational-domain":[3,0,3,1],
 "case.html#sec-fluid-materials":[3,0,3,4],
 "case.html#sec-formatted-output":[3,0,3,6],
+"case.html#sec-ib-force-history":[3,0,3,6,0],
 "case.html#sec-immersed-boundary-patches":[3,0,3,3],
 "case.html#sec-non-newtonian":[3,0,3,18],
 "case.html#sec-patches":[3,0,3,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "equations.html#sec-reference-scales":[8,0,1,1,1],
 "equations.html#sec-stored-forms":[8,0,1,0,1],
 "equations.html#sec-two-viscosities":[8,0,1,1,4],
-"equations.html#sec-unit-consistency":[8,0,1,0,3],
-"equations.html#sec-units-dimensions":[8,0,1]
+"equations.html#sec-unit-consistency":[8,0,1,0,3]
 };

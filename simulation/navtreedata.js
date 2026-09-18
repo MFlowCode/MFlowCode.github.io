@@ -59,14 +59,14 @@ var NAVTREEINDEX =
 "annotated.html",
 "namespacem__body__forces.html#a026fd8e0887596c17a5245b7def63305",
 "namespacem__chemistry.html#a55a54a1b3fd9a34cc80b7a38c747dbfb",
-"namespacem__finite__differences.html",
-"namespacem__global__parameters__common.html#a7237607b2e27acd8632c738a98d4a1bf",
-"namespacem__model.html#a5e2fb8ad9e2851353959396474a42945",
-"namespacem__riemann__state.html#a4f7ebb4b33ec4ac75f6dd39cb3b2d91a",
-"namespacemembers_vars_g.html",
-"structm__derived__types_1_1eqn__idx__info.html#acba2c129c7185bdb42956206e744aca8",
-"structm__derived__types_1_1ic__patch__parameters.html#ad1673e83e0a7767f27992aa32ab9b6e0",
-"structm__derived__types_1_1physical__parameters.html#aebdbd80bd35d0b54786bd37d81f34ddd"
+"namespacem__fftw.html#ae218a57224a455f5d06b3804cff5bb08",
+"namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91",
+"namespacem__igr.html#aac7ff7f1bc2f2256cf520cc14381b47d",
+"namespacem__riemann__state.html#a0d3789c7ee1ade852bfe386bd26ddafe",
+"namespacemembers_s.html",
+"structm__derived__types_1_1eqn__idx__info.html#a9c8048f8cbd185a632861ad52a55ff52",
+"structm__derived__types_1_1ic__patch__parameters.html#a65ef1568a2e85603c4c6566831714b74",
+"structm__derived__types_1_1physical__parameters.html#a6f46458426d45e0683c7dc7cc9865dff"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

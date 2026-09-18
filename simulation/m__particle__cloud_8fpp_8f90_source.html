@@ -879,173 +879,175 @@ $(function(){initNavTree('m__particle__cloud_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>        particle_cloud_ibs(ib_idx)%inj_species = 0</div>
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>        particle_cloud_ibs(ib_idx)%burn_rate_exp = 0._wp</div>
 <div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span>        particle_cloud_ibs(ib_idx)%burn_rate_pref = 0._wp</div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span> </div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>        <span class="comment">! Selector for the prescribed-kinematics block; zero leaves the eleven kin_* reals unread.</span></div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>        particle_cloud_ibs(ib_idx)%kin_model = 0</div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span> </div>
 </div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a4b179b0701b9813eb9d7d2feea5ed1c5">s_add_cloud_particle</a></div>
-<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span><span class="comment"></span> </div>
-<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span><span class="comment">    !&gt; Convert a candidate particle centre to spatial-hash bin coordinates.</span></div>
-<div class="foldopen" id="foldopen00740" data-start="" data-end="">
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">  740</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">s_get_cloud_bin</a>(px, py, pz, min_dist, periodic_pack, xmin, ymin, zmin, nx_bins, ny_bins, nz_bins, bx, by, bz)</div>
-<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span> </div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span> :: px, py, pz, min_dist</div>
-<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>  :: periodic_pack</div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span> :: xmin, ymin, zmin</div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>  :: nx_bins, ny_bins, nz_bins</div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: bx, by, bz</div>
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>        <span class="keywordflow">if</span> (periodic_pack) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>            bx = modulo(int(floor((px - xmin)/min_dist)), nx_bins)</div>
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>            by = modulo(int(floor((py - ymin)/min_dist)), ny_bins)</div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>            <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>                bz = 0</div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>                bz = modulo(int(floor((pz - zmin)/min_dist)), nz_bins)</div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>            bx = int(floor(px/min_dist))</div>
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>            by = int(floor(py/min_dist))</div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>            <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>                bz = 0</div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>            <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>                bz = int(floor(pz/min_dist))</div>
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span> </div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a4b179b0701b9813eb9d7d2feea5ed1c5">s_add_cloud_particle</a></div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span><span class="comment"></span> </div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span><span class="comment">    !&gt; Convert a candidate particle centre to spatial-hash bin coordinates.</span></div>
+<div class="foldopen" id="foldopen00742" data-start="" data-end="">
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">  742</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">s_get_cloud_bin</a>(px, py, pz, min_dist, periodic_pack, xmin, ymin, zmin, nx_bins, ny_bins, nz_bins, bx, by, bz)</div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span> </div>
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span> :: px, py, pz, min_dist</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>  :: periodic_pack</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span> :: xmin, ymin, zmin</div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>  :: nx_bins, ny_bins, nz_bins</div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span> :: bx, by, bz</div>
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span> </div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>        <span class="keywordflow">if</span> (periodic_pack) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>            bx = modulo(int(floor((px - xmin)/min_dist)), nx_bins)</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>            by = modulo(int(floor((py - ymin)/min_dist)), ny_bins)</div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>            <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>                bz = 0</div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>                bz = modulo(int(floor((pz - zmin)/min_dist)), nz_bins)</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>            bx = int(floor(px/min_dist))</div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>            by = int(floor(py/min_dist))</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>            <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>                bz = 0</div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>                bz = int(floor(pz/min_dist))</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span> </div>
 </div>
-<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">s_get_cloud_bin</a></div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span><span class="comment"></span> </div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span><span class="comment">    !&gt; Check whether a candidate particle centre overlaps any already-placed particle in neighbouring spatial-hash bins. Scans the</span></div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span><span class="comment">    !! 3x3(x3) bin neighborhood - O(1) average via hash lookup - and also hands back the candidate&#39;s own bin so the caller can</span></div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span><span class="comment">    !! insert it without recomputing.</span></div>
-<div class="foldopen" id="foldopen00771" data-start="" data-end="">
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">  771</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">s_check_cloud_particle_overlap</a>(px, py, pz, placed, hash_head, chain_next, hash_size, min_dist, periodic_pack, &amp;</div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>        &amp; xmin, ymin, zmin, length_x, length_y, length_z, nx_bins, ny_bins, nz_bins, overlaps, bx, by, bz)</div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span> </div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>                 :: px, py, pz, min_dist</div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: placed</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:)</span>    :: hash_head, chain_next</div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                  :: hash_size</div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                  :: periodic_pack</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>                 :: xmin, ymin, zmin, length_x, length_y, length_z</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                  :: nx_bins, ny_bins, nz_bins</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span>                 :: overlaps</div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>                 :: bx, by, bz</div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        <span class="keywordtype">integer</span>                              :: nbx, nby, nbz, slot</div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        <span class="keywordtype">integer</span>                              :: dx_b, dy_b, dz_b, dz_lo, dz_hi, j</div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span><span class="keywordtype">        real</span>(wp)                             :: dist_sq, min_dist_sq, dx, dy, dz</div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span> </div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>        <span class="keyword">call </span><a class="code hl_function" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">s_get_cloud_bin</a>(px, py, pz, min_dist, periodic_pack, xmin, ymin, zmin, nx_bins, ny_bins, nz_bins, bx, by, bz)</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">s_get_cloud_bin</a></div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span><span class="comment"></span> </div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span><span class="comment">    !&gt; Check whether a candidate particle centre overlaps any already-placed particle in neighbouring spatial-hash bins. Scans the</span></div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span><span class="comment">    !! 3x3(x3) bin neighborhood - O(1) average via hash lookup - and also hands back the candidate&#39;s own bin so the caller can</span></div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span><span class="comment">    !! insert it without recomputing.</span></div>
+<div class="foldopen" id="foldopen00773" data-start="" data-end="">
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">  773</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">s_check_cloud_particle_overlap</a>(px, py, pz, placed, hash_head, chain_next, hash_size, min_dist, periodic_pack, &amp;</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>        &amp; xmin, ymin, zmin, length_x, length_y, length_z, nx_bins, ny_bins, nz_bins, overlaps, bx, by, bz)</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span> </div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>                 :: px, py, pz, min_dist</div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:,:)</span> :: placed</div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>, <span class="keywordtype">dimension(:)</span>    :: hash_head, chain_next</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                  :: hash_size</div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(in)</span>                  :: periodic_pack</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">intent(in)</span>                 :: xmin, ymin, zmin, length_x, length_y, length_z</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                  :: nx_bins, ny_bins, nz_bins</div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        <span class="keywordtype">logical</span>, <span class="keywordtype">intent(out)</span>                 :: overlaps</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(out)</span>                 :: bx, by, bz</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>        <span class="keywordtype">integer</span>                              :: nbx, nby, nbz, slot</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>        <span class="keywordtype">integer</span>                              :: dx_b, dy_b, dz_b, dz_lo, dz_hi, j</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span><span class="keywordtype">        real</span>(wp)                             :: dist_sq, min_dist_sq, dx, dy, dz</div>
 <div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span> </div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        dz_lo = -1</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>        dz_hi = 1</div>
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>        <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>            dz_lo = 0</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>            dz_hi = 0</div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span> </div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>        min_dist_sq = min_dist**2</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>        overlaps = .false.</div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span> </div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>        <span class="keywordflow">do</span> dx_b = -1, 1</div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>            <span class="keywordflow">do</span> dy_b = -1, 1</div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>                <span class="keywordflow">do</span> dz_b = dz_lo, dz_hi</div>
-<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>                    nbx = bx + dx_b</div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>                    nby = by + dy_b</div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>                    nbz = bz + dz_b</div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>                    <span class="keywordflow">if</span> (periodic_pack) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>                        nbx = modulo(nbx, nx_bins)</div>
-<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>                        nby = modulo(nby, ny_bins)</div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>                        <span class="keywordflow">if</span> (num_dims == 3) nbz = modulo(nbz, nz_bins)</div>
-<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span><span class="keywordflow">                    end if</span></div>
-<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>                    slot = <a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a>(nbx, nby, nbz, hash_size)</div>
-<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>                    j = hash_head(slot)</div>
-<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>                    <span class="keywordflow">do</span> <span class="keywordflow">while</span> (j &gt; 0)</div>
-<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>                        dx = abs(px - placed(1, j))</div>
-<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>                        dy = abs(py - placed(2, j))</div>
-<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>                        <span class="keywordflow">if</span> (periodic_pack) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>                            dx = min(dx, length_x - dx)</div>
-<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>                            dy = min(dy, length_y - dy)</div>
-<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span><span class="keywordflow">                        end if</span></div>
-<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>                        <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>                            dist_sq = dx**2 + dy**2</div>
-<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>                        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>                            dz = abs(pz - placed(3, j))</div>
-<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>                            <span class="keywordflow">if</span> (periodic_pack) dz = min(dz, length_z - dz)</div>
-<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>                            dist_sq = dx**2 + dy**2 + dz**2</div>
-<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span><span class="keywordflow">                        end if</span></div>
-<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>                        <span class="keywordflow">if</span> (dist_sq &lt; min_dist_sq) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>                            overlaps = .true.</div>
-<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>                            <span class="keywordflow">return</span></div>
-<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span><span class="keywordflow">                        end if</span></div>
-<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>                        j = chain_next(j)</div>
-<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span><span class="keywordflow">                    end do</span></div>
-<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span><span class="keywordflow">                end do</span></div>
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span><span class="keywordflow">        end do</span></div>
-<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span> </div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>        <span class="keyword">call </span><a class="code hl_function" href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">s_get_cloud_bin</a>(px, py, pz, min_dist, periodic_pack, xmin, ymin, zmin, nx_bins, ny_bins, nz_bins, bx, by, bz)</div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span> </div>
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>        dz_lo = -1</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>        dz_hi = 1</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>        <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>            dz_lo = 0</div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>            dz_hi = 0</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span> </div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>        min_dist_sq = min_dist**2</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>        overlaps = .false.</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span> </div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>        <span class="keywordflow">do</span> dx_b = -1, 1</div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>            <span class="keywordflow">do</span> dy_b = -1, 1</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>                <span class="keywordflow">do</span> dz_b = dz_lo, dz_hi</div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>                    nbx = bx + dx_b</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>                    nby = by + dy_b</div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>                    nbz = bz + dz_b</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>                    <span class="keywordflow">if</span> (periodic_pack) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>                        nbx = modulo(nbx, nx_bins)</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>                        nby = modulo(nby, ny_bins)</div>
+<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>                        <span class="keywordflow">if</span> (num_dims == 3) nbz = modulo(nbz, nz_bins)</div>
+<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span><span class="keywordflow">                    end if</span></div>
+<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>                    slot = <a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a>(nbx, nby, nbz, hash_size)</div>
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>                    j = hash_head(slot)</div>
+<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>                    <span class="keywordflow">do</span> <span class="keywordflow">while</span> (j &gt; 0)</div>
+<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>                        dx = abs(px - placed(1, j))</div>
+<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>                        dy = abs(py - placed(2, j))</div>
+<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>                        <span class="keywordflow">if</span> (periodic_pack) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>                            dx = min(dx, length_x - dx)</div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>                            dy = min(dy, length_y - dy)</div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span><span class="keywordflow">                        end if</span></div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>                        <span class="keywordflow">if</span> (num_dims &lt; 3) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>                            dist_sq = dx**2 + dy**2</div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>                        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>                            dz = abs(pz - placed(3, j))</div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>                            <span class="keywordflow">if</span> (periodic_pack) dz = min(dz, length_z - dz)</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span>                            dist_sq = dx**2 + dy**2 + dz**2</div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span><span class="keywordflow">                        end if</span></div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>                        <span class="keywordflow">if</span> (dist_sq &lt; min_dist_sq) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>                            overlaps = .true.</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>                            <span class="keywordflow">return</span></div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span><span class="keywordflow">                        end if</span></div>
+<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>                        j = chain_next(j)</div>
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span><span class="keywordflow">                    end do</span></div>
+<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span><span class="keywordflow">                end do</span></div>
+<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span><span class="keywordflow">        end do</span></div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span> </div>
 </div>
-<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">s_check_cloud_particle_overlap</a></div>
-<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span><span class="comment"></span> </div>
-<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span><span class="comment">    !&gt; Compacts cloud_ibs(1:num_ibs) in place, discarding entries outside this rank&#39;s IB neighborhood (get_neighbor_bounds() must</span></div>
-<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span><span class="comment">    !! already have run) and updating num_ibs to the retained count. Used by rejection packing, which cannot filter as it places</span></div>
-<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span><span class="comment">    !! particles (see s_particle_cloud_rejection_pack), to pare its full, unfiltered placement down to this rank&#39;s neighborhood.</span></div>
-<div class="foldopen" id="foldopen00841" data-start="" data-end="">
-<div class="line"><a id="l00841" name="l00841"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">  841</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">s_reduce_particle_cloud_ibs</a>(cloud_ibs, num_cloud_ibs)</div>
-<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span> </div>
-<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>        <span class="keywordtype">type</span>(ib_patch_parameters), <span class="keywordtype">intent(inout)</span>, <span class="keywordtype">dimension(:)</span> :: cloud_ibs</div>
-<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span>                                 :: num_cloud_ibs</div>
-<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>        <span class="keywordtype">integer</span>                                                :: i, write_idx</div>
-<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(3)</span>                                 :: centroid</div>
-<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span> </div>
-<div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span>        write_idx = 0</div>
-<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span>        <span class="keywordflow">do</span> i = 1, num_cloud_ibs</div>
-<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span>            centroid = [cloud_ibs(i)%x_centroid, cloud_ibs(i)%y_centroid, 0._wp]</div>
-<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>            <span class="keywordflow">if</span> (num_dims == 3) centroid(3) = cloud_ibs(i)%z_centroid</div>
-<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a">f_neighborhood_ranks_own_location</a>(centroid)) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>                write_idx = write_idx + 1</div>
-<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>                <span class="keywordflow">if</span> (write_idx /= i) cloud_ibs(write_idx) = cloud_ibs(i)</div>
-<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span><span class="keywordflow">            end if</span></div>
-<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span><span class="keywordflow">        end do</span></div>
-<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>        num_cloud_ibs = write_idx</div>
-<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span> </div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">s_check_cloud_particle_overlap</a></div>
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span><span class="comment"></span> </div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span><span class="comment">    !&gt; Compacts cloud_ibs(1:num_ibs) in place, discarding entries outside this rank&#39;s IB neighborhood (get_neighbor_bounds() must</span></div>
+<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span><span class="comment">    !! already have run) and updating num_ibs to the retained count. Used by rejection packing, which cannot filter as it places</span></div>
+<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span><span class="comment">    !! particles (see s_particle_cloud_rejection_pack), to pare its full, unfiltered placement down to this rank&#39;s neighborhood.</span></div>
+<div class="foldopen" id="foldopen00843" data-start="" data-end="">
+<div class="line"><a id="l00843" name="l00843"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">  843</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">s_reduce_particle_cloud_ibs</a>(cloud_ibs, num_cloud_ibs)</div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span> </div>
+<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>        <span class="keywordtype">type</span>(ib_patch_parameters), <span class="keywordtype">intent(inout)</span>, <span class="keywordtype">dimension(:)</span> :: cloud_ibs</div>
+<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span>                                 :: num_cloud_ibs</div>
+<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>        <span class="keywordtype">integer</span>                                                :: i, write_idx</div>
+<div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(3)</span>                                 :: centroid</div>
+<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span> </div>
+<div class="line"><a id="l00850" name="l00850"></a><span class="lineno">  850</span>        write_idx = 0</div>
+<div class="line"><a id="l00851" name="l00851"></a><span class="lineno">  851</span>        <span class="keywordflow">do</span> i = 1, num_cloud_ibs</div>
+<div class="line"><a id="l00852" name="l00852"></a><span class="lineno">  852</span>            centroid = [cloud_ibs(i)%x_centroid, cloud_ibs(i)%y_centroid, 0._wp]</div>
+<div class="line"><a id="l00853" name="l00853"></a><span class="lineno">  853</span>            <span class="keywordflow">if</span> (num_dims == 3) centroid(3) = cloud_ibs(i)%z_centroid</div>
+<div class="line"><a id="l00854" name="l00854"></a><span class="lineno">  854</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a">f_neighborhood_ranks_own_location</a>(centroid)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00855" name="l00855"></a><span class="lineno">  855</span>                write_idx = write_idx + 1</div>
+<div class="line"><a id="l00856" name="l00856"></a><span class="lineno">  856</span>                <span class="keywordflow">if</span> (write_idx /= i) cloud_ibs(write_idx) = cloud_ibs(i)</div>
+<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span><span class="keywordflow">            end if</span></div>
+<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span><span class="keywordflow">        end do</span></div>
+<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>        num_cloud_ibs = write_idx</div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span> </div>
 </div>
-<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">s_reduce_particle_cloud_ibs</a></div>
-<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span><span class="comment"></span> </div>
-<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span><span class="comment">    !&gt; Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</span></div>
-<div class="foldopen" id="foldopen00862" data-start="" data-end="">
-<div class="line"><a id="l00862" name="l00862"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">  862</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a>(seed) <span class="keyword">result</span>(rval)</div>
-<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span> </div>
-<div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span> :: seed</div>
-<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span><span class="keywordtype">        real</span>(wp)               :: rval</div>
-<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span> </div>
-<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>        seed = ieor(seed, ishft(seed, 13))</div>
-<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span>        seed = ieor(seed, ishft(seed, -17))</div>
-<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span>        seed = ieor(seed, ishft(seed, 5))</div>
-<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span> </div>
-<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>        <span class="comment">! Mask off the sign bit rather than abs(): at seed = -huge-1, abs() overflows and returns the value</span></div>
-<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span>        <span class="comment">! unchanged, yielding rval = -1 and, in the shell sampler, a NaN centre that then passes every overlap</span></div>
-<div class="line"><a id="l00873" name="l00873"></a><span class="lineno">  873</span>        <span class="comment">! comparison (all comparisons against NaN are false) and gets placed.</span></div>
-<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>        rval = real(iand(seed, huge(seed)), wp)/real(huge(seed), wp)</div>
-<div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span> </div>
+<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">s_reduce_particle_cloud_ibs</a></div>
+<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span><span class="comment"></span> </div>
+<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span><span class="comment">    !&gt; Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</span></div>
+<div class="foldopen" id="foldopen00864" data-start="" data-end="">
+<div class="line"><a id="l00864" name="l00864"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">  864</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a>(seed) <span class="keyword">result</span>(rval)</div>
+<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span> </div>
+<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(inout)</span> :: seed</div>
+<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span><span class="keywordtype">        real</span>(wp)               :: rval</div>
+<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span> </div>
+<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span>        seed = ieor(seed, ishft(seed, 13))</div>
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>        seed = ieor(seed, ishft(seed, -17))</div>
+<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>        seed = ieor(seed, ishft(seed, 5))</div>
+<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span> </div>
+<div class="line"><a id="l00873" name="l00873"></a><span class="lineno">  873</span>        <span class="comment">! Mask off the sign bit rather than abs(): at seed = -huge-1, abs() overflows and returns the value</span></div>
+<div class="line"><a id="l00874" name="l00874"></a><span class="lineno">  874</span>        <span class="comment">! unchanged, yielding rval = -1 and, in the shell sampler, a NaN centre that then passes every overlap</span></div>
+<div class="line"><a id="l00875" name="l00875"></a><span class="lineno">  875</span>        <span class="comment">! comparison (all comparisons against NaN are false) and gets placed.</span></div>
+<div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span>        rval = real(iand(seed, huge(seed)), wp)/real(huge(seed), wp)</div>
+<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span> </div>
 </div>
-<div class="line"><a id="l00876" name="l00876"></a><span class="lineno">  876</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a></div>
-<div class="line"><a id="l00877" name="l00877"></a><span class="lineno">  877</span><span class="comment"></span> </div>
-<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span><span class="comment">    !&gt; Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bins across buckets. Hash</span></div>
-<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span><span class="comment">    !! collisions are benign: the distance check catches false neighbours.</span></div>
-<div class="foldopen" id="foldopen00880" data-start="" data-end="">
-<div class="line"><a id="l00880" name="l00880"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">  880</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a>(bx, by, bz, hash_size) <span class="keyword">result</span>(slot)</div>
-<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span> </div>
-<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: bx, by, bz, hash_size</div>
-<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>        <span class="keywordtype">integer</span>             :: slot</div>
-<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>        <span class="keywordtype">integer(8)</span>          :: key</div>
-<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span> </div>
-<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>        key = ieor(ieor(int(bx, 8)*73856093_8, int(by, 8)*19349663_8), int(bz, 8)*83492791_8)</div>
-<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span>        slot = int(mod(abs(key), int(hash_size, 8))) + 1</div>
-<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span> </div>
-</div>
-<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a></div>
+<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">f_xorshift</a></div>
+<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span><span class="comment"></span> </div>
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span><span class="comment">    !&gt; Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bins across buckets. Hash</span></div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span><span class="comment">    !! collisions are benign: the distance check catches false neighbours.</span></div>
+<div class="foldopen" id="foldopen00882" data-start="" data-end="">
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno"><a class="line" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">  882</a></span>    <span class="keyword">function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a>(bx, by, bz, hash_size) <span class="keyword">result</span>(slot)</div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span> </div>
+<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span> :: bx, by, bz, hash_size</div>
+<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>        <span class="keywordtype">integer</span>             :: slot</div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>        <span class="keywordtype">integer(8)</span>          :: key</div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span> </div>
+<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>        key = ieor(ieor(int(bx, 8)*73856093_8, int(by, 8)*19349663_8), int(bz, 8)*83492791_8)</div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>        slot = int(mod(abs(key), int(hash_size, 8))) + 1</div>
 <div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span> </div>
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__particle__cloud.html">m_particle_cloud</a></div>
+</div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span>    <span class="keyword">end function </span><a class="code hl_function" href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">f_bin_hash</a></div>
+<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span> </div>
+<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__particle__cloud.html">m_particle_cloud</a></div>
 <div class="ttc" id="anamespacem__collisions_html"><div class="ttname"><a href="namespacem__collisions.html">m_collisions</a></div><div class="ttdoc">Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...</div><div class="ttdef"><b>Definition</b> <a href="m__collisions_8fpp_8f90_source.html#l00336">m_collisions.fpp.f90:336</a></div></div>
 <div class="ttc" id="anamespacem__collisions_html_a6f78efa6a42123b9b5122de43e21733a"><div class="ttname"><a href="namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a">m_collisions::f_neighborhood_ranks_own_location</a></div><div class="ttdeci">logical function, public f_neighborhood_ranks_own_location(location)</div><div class="ttdoc">function checks if this local MPI processor owns this specific collision</div><div class="ttdef"><b>Definition</b> <a href="m__collisions_8fpp_8f90_source.html#l01195">m_collisions.fpp.f90:1196</a></div></div>
 <div class="ttc" id="anamespacem__constants_html"><div class="ttname"><a href="namespacem__constants.html">m_constants</a></div><div class="ttdoc">Compile-time constant parameters: default values, tolerances, and physical constants.</div><div class="ttdef"><b>Definition</b> <a href="m__constants_8fpp_8f90_source.html#l00007">m_constants.fpp.f90:7</a></div></div>
@@ -1059,13 +1061,13 @@ $(function(){initNavTree('m__particle__cloud_8fpp_8f90_source.html','',''); });
 <div class="ttc" id="anamespacem__mpi__common_html_a4d03f5fc95657b6bec1f89221295b0cc"><div class="ttname"><a href="namespacem__mpi__common.html#a4d03f5fc95657b6bec1f89221295b0cc">m_mpi_common::s_prohibit_abort</a></div><div class="ttdeci">impure subroutine s_prohibit_abort(condition, message)</div><div class="ttdoc">Print a case file error with the prohibited condition and message, then abort execution.</div><div class="ttdef"><b>Definition</b> <a href="m__mpi__common_8fpp_8f90_source.html#l00748">m_mpi_common.fpp.f90:749</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html"><div class="ttname"><a href="namespacem__particle__cloud.html">m_particle_cloud</a></div><div class="ttdoc">Generates particle beds by converting particle_cloud patch specifications into individual immersed bo...</div><div class="ttdef"><b>Definition</b> <a href="#l00337">m_particle_cloud.fpp.f90:337</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_a4b179b0701b9813eb9d7d2feea5ed1c5"><div class="ttname"><a href="namespacem__particle__cloud.html#a4b179b0701b9813eb9d7d2feea5ed1c5">m_particle_cloud::s_add_cloud_particle</a></div><div class="ttdeci">subroutine s_add_cloud_particle(cloud_idx, ib_idx, glbl_idx, geom, px, py, pz, particle_cloud_ibs)</div><div class="ttdoc">Writes a single placed particle into particle_cloud_ibs at the next free slot, advancing ib_idx....</div><div class="ttdef"><b>Definition</b> <a href="#l00683">m_particle_cloud.fpp.f90:684</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_a56e47151d0fc9b578c8f9ee0589ed7ad"><div class="ttname"><a href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">m_particle_cloud::s_reduce_particle_cloud_ibs</a></div><div class="ttdeci">subroutine s_reduce_particle_cloud_ibs(cloud_ibs, num_cloud_ibs)</div><div class="ttdoc">Compacts cloud_ibs(1:num_ibs) in place, discarding entries outside this rank&#39;s IB neighborhood (get_n...</div><div class="ttdef"><b>Definition</b> <a href="#l00841">m_particle_cloud.fpp.f90:842</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_a733f14183bef377187ce1f2df3bf77bc"><div class="ttname"><a href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">m_particle_cloud::f_xorshift</a></div><div class="ttdeci">real(wp) function f_xorshift(seed)</div><div class="ttdoc">Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</div><div class="ttdef"><b>Definition</b> <a href="#l00862">m_particle_cloud.fpp.f90:863</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_a843a321f20b41f63e2b64dc52ca86577"><div class="ttname"><a href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">m_particle_cloud::s_check_cloud_particle_overlap</a></div><div class="ttdeci">subroutine s_check_cloud_particle_overlap(px, py, pz, placed, hash_head, chain_next, hash_size, min_dist, periodic_pack, xmin, ymin, zmin, length_x, length_y, length_z, nx_bins, ny_bins, nz_bins, overlaps, bx, by, bz)</div><div class="ttdoc">Check whether a candidate particle centre overlaps any already-placed particle in neighbouring spatia...</div><div class="ttdef"><b>Definition</b> <a href="#l00771">m_particle_cloud.fpp.f90:773</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_aa2803b020159e1a466b23af39ea4b7be"><div class="ttname"><a href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">m_particle_cloud::f_bin_hash</a></div><div class="ttdeci">integer function f_bin_hash(bx, by, bz, hash_size)</div><div class="ttdoc">Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bi...</div><div class="ttdef"><b>Definition</b> <a href="#l00880">m_particle_cloud.fpp.f90:881</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_a56e47151d0fc9b578c8f9ee0589ed7ad"><div class="ttname"><a href="namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad">m_particle_cloud::s_reduce_particle_cloud_ibs</a></div><div class="ttdeci">subroutine s_reduce_particle_cloud_ibs(cloud_ibs, num_cloud_ibs)</div><div class="ttdoc">Compacts cloud_ibs(1:num_ibs) in place, discarding entries outside this rank&#39;s IB neighborhood (get_n...</div><div class="ttdef"><b>Definition</b> <a href="#l00843">m_particle_cloud.fpp.f90:844</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_a733f14183bef377187ce1f2df3bf77bc"><div class="ttname"><a href="namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc">m_particle_cloud::f_xorshift</a></div><div class="ttdeci">real(wp) function f_xorshift(seed)</div><div class="ttdoc">Xorshift PRNG. Advances seed in-place and returns a value in [0, 1).</div><div class="ttdef"><b>Definition</b> <a href="#l00864">m_particle_cloud.fpp.f90:865</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_a843a321f20b41f63e2b64dc52ca86577"><div class="ttname"><a href="namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577">m_particle_cloud::s_check_cloud_particle_overlap</a></div><div class="ttdeci">subroutine s_check_cloud_particle_overlap(px, py, pz, placed, hash_head, chain_next, hash_size, min_dist, periodic_pack, xmin, ymin, zmin, length_x, length_y, length_z, nx_bins, ny_bins, nz_bins, overlaps, bx, by, bz)</div><div class="ttdoc">Check whether a candidate particle centre overlaps any already-placed particle in neighbouring spatia...</div><div class="ttdef"><b>Definition</b> <a href="#l00773">m_particle_cloud.fpp.f90:775</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_aa2803b020159e1a466b23af39ea4b7be"><div class="ttname"><a href="namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be">m_particle_cloud::f_bin_hash</a></div><div class="ttdeci">integer function f_bin_hash(bx, by, bz, hash_size)</div><div class="ttdoc">Hash bin coordinates to a 1-indexed slot in [1, hash_size]. Uses large prime multipliers to spread bi...</div><div class="ttdef"><b>Definition</b> <a href="#l00882">m_particle_cloud.fpp.f90:883</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_aa5f460970e7d842ed4079588c709632f"><div class="ttname"><a href="namespacem__particle__cloud.html#aa5f460970e7d842ed4079588c709632f">m_particle_cloud::s_generate_particle_clouds</a></div><div class="ttdeci">impure subroutine, public s_generate_particle_clouds(particle_cloud_ibs, num_particle_cloud_ibs)</div><div class="ttdoc">Generate all particle beds and fill particle_cloud_ibs. Called on all ranks before s_reduce_ib_patch_...</div><div class="ttdef"><b>Definition</b> <a href="#l00357">m_particle_cloud.fpp.f90:358</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_acedaa7ab4782dc03d33cf3456692bfdb"><div class="ttname"><a href="namespacem__particle__cloud.html#acedaa7ab4782dc03d33cf3456692bfdb">m_particle_cloud::s_particle_cloud_lattice</a></div><div class="ttdeci">subroutine s_particle_cloud_lattice(cloud_idx, glbl_idx, cloud_ibs, num_cloud_ibs)</div><div class="ttdoc">Places particles on the optimally dense lattice for the cloud region: a triangular lattice in 2D,...</div><div class="ttdef"><b>Definition</b> <a href="#l00580">m_particle_cloud.fpp.f90:581</a></div></div>
-<div class="ttc" id="anamespacem__particle__cloud_html_ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc"><div class="ttname"><a href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">m_particle_cloud::s_get_cloud_bin</a></div><div class="ttdeci">subroutine s_get_cloud_bin(px, py, pz, min_dist, periodic_pack, xmin, ymin, zmin, nx_bins, ny_bins, nz_bins, bx, by, bz)</div><div class="ttdoc">Convert a candidate particle centre to spatial-hash bin coordinates.</div><div class="ttdef"><b>Definition</b> <a href="#l00740">m_particle_cloud.fpp.f90:741</a></div></div>
+<div class="ttc" id="anamespacem__particle__cloud_html_ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc"><div class="ttname"><a href="namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc">m_particle_cloud::s_get_cloud_bin</a></div><div class="ttdeci">subroutine s_get_cloud_bin(px, py, pz, min_dist, periodic_pack, xmin, ymin, zmin, nx_bins, ny_bins, nz_bins, bx, by, bz)</div><div class="ttdoc">Convert a candidate particle centre to spatial-hash bin coordinates.</div><div class="ttdef"><b>Definition</b> <a href="#l00742">m_particle_cloud.fpp.f90:743</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_ae3c24295683ec9db3db5d1f03495364f"><div class="ttname"><a href="namespacem__particle__cloud.html#ae3c24295683ec9db3db5d1f03495364f">m_particle_cloud::s_particle_cloud_rejection_pack</a></div><div class="ttdeci">subroutine s_particle_cloud_rejection_pack(cloud_idx, glbl_idx, cloud_ibs, num_cloud_ibs)</div><div class="ttdoc">Rejection-samples particle centres into a box or hemisphere-shell region with a minimum centre-to-cen...</div><div class="ttdef"><b>Definition</b> <a href="#l00418">m_particle_cloud.fpp.f90:419</a></div></div>
 <div class="ttc" id="anamespacem__particle__cloud_html_af5453c5d4afe49a5954513c29c90a8d2"><div class="ttname"><a href="namespacem__particle__cloud.html#af5453c5d4afe49a5954513c29c90a8d2">m_particle_cloud::s_sample_cloud_candidate</a></div><div class="ttdeci">subroutine s_sample_cloud_candidate(cloud_idx, seed, rx, ry, rz, reject)</div><div class="ttdoc">Draws one rejection-sampling candidate centre (rx, ry, rz) for cloud_idx, advancing seed in place....</div><div class="ttdef"><b>Definition</b> <a href="#l00518">m_particle_cloud.fpp.f90:519</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

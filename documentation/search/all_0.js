@@ -58,16 +58,16 @@ var searchData=
   ['16_203_20immersed_20boundary_20method_20ib_20true_20tseng03_20mittal05_20wilfong26_20sec_204_201_201_55',['16.3 Immersed Boundary Method (&lt;span class=&quot;tt&quot;&gt;ib = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_tseng03&quot;&gt;[58]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_mittal05&quot;&gt;[36]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[60]&lt;/a&gt; Sec. 4.1.1)',['../equations.html#autotoc_md211',1,'']]],
   ['16_20boundary_20conditions_56',['16. Boundary Conditions',['../equations.html#autotoc_md208',1,'']]],
   ['16_20cylindrical_20coordinates_57',['16. Cylindrical Coordinates',['../case.html#autotoc_md33',1,'']]],
-  ['16m_20grid_20points_58',['16M Grid Points',['../expectedPerformance.html#autotoc_md336',1,'']]],
+  ['16m_20grid_20points_58',['16M Grid Points',['../expectedPerformance.html#autotoc_md340',1,'']]],
   ['17_20chemistry_59',['17. Chemistry',['../case.html#autotoc_md34',1,'']]],
   ['17_20low_20mach_20number_20corrections_20wilfong26_20sec_204_202_204_60',['17. Low Mach Number Corrections (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[60]&lt;/a&gt; Sec. 4.2.4)',['../equations.html#autotoc_md213',1,'']]],
   ['18_20chemistry_20specific_20boundary_20conditions_61',['18. Chemistry-Specific Boundary Conditions',['../case.html#autotoc_md35',1,'']]],
   ['18_20flux_20limiting_62',['18. Flux Limiting',['../equations.html#autotoc_md215',1,'']]],
   ['19_20non_20newtonian_20herschel_20bulkley_20viscosity_63',['19. Non-Newtonian (Herschel-Bulkley) Viscosity',['../case.html#sec-non-newtonian',1,'']]],
-  ['1_3a_20setting_20up_20your_20environment_64',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md630',1,'']]],
+  ['1_3a_20setting_20up_20your_20environment_64',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md634',1,'']]],
   ['1b_20units_20dimensions_20and_20non_20dimensionalization_65',['1b. Units, Dimensions, and Non-Dimensionalization',['../equations.html#sec-units-dimensions',1,'']]],
   ['1d_66',['1D',['../examples.html#autotoc_md295',1,'Lax shock tube problem (1D)'],['../examples.html#autotoc_md237',1,'Shu-Osher problem (1D)'],['../examples.html#autotoc_md254',1,'Titarev-Toro problem (1D)']]],
   ['1d_20multi_20component_20inert_20shock_20tube_67',['1D Multi-Component Inert Shock Tube',['../examples.html#autotoc_md219',1,'']]],
   ['1d_20multi_20component_20reactive_20shock_20tube_68',['1D Multi-Component Reactive Shock Tube',['../examples.html#autotoc_md222',1,'']]],
-  ['1d_20rendering_69',['Tiled 1D rendering',['../visualization.html#autotoc_md618',1,'']]]
+  ['1d_20rendering_69',['Tiled 1D rendering',['../visualization.html#autotoc_md622',1,'']]]
 ];

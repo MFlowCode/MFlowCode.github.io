@@ -469,14 +469,36 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">angular_vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial angular velocity of the moving IB in the i-th direction.  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">kin_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Prescribed kinematics (requires <span class="tt">moving_ibm = 1</span>, 3D): [0] off; [1] hinged flapping (roll + pitch); [2] smoothed pitch ramp and hold.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">kin_hinge(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Hinge point, i-th component.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">kin_offset(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Body-frame vector from the hinge to the patch centroid, i-th component.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">kin_phi0</span>, <span class="tt">kin_theta0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Roll and pitch amplitudes (rad).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">kin_theta_mean</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Mean pitch angle (rad), held before onset and superposed after.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">kin_freq</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Flapping frequency (cycles per unit time).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">kin_phase</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Pitch phase lead relative to roll (rad); <span class="tt">pi/2</span> makes pitch lead by a quarter cycle.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">kin_t0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Onset time of flapping.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">kin_ramp</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Duration of the raised-cosine amplitude ramp after onset (0 = instantaneous).  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">kin_pitch_rate</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft"><span class="tt">kin_model = 2</span>: nominal pitch rate \(\Omega\) (rad per unit time); the pitch time is <span class="tt">kin_theta0</span>/ \(\Omega\).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">kin_smooth</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft"><span class="tt">kin_model = 2</span>: smoothing parameter \(a\) of the Eldredge log-cosh ramp (11 in the AIAA canonical cases).  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">coefficient_of_restitution</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">A number 0 to 1 describing how elastic IB collisions are  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">collision_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Integer to select the collision model being used for IB collisions.  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">collision_temporal_resolution</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Minimum number of adaptive time steps used to resolve each collision  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">collision_temporal_resolution</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Minimum number of adaptive time steps used to resolve each collision  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_coefficient_of_friction</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coefficient of friction used in IB collisions  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">patch_ib(j)%</span> where $j$ is the patch index.</p>
@@ -507,8 +529,10 @@ Parameter Descriptions</h4>
 <li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon its own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces.</li>
 <li><span class="tt">vel(i)</span> is the initial linear velocity of the IB in the x, y, z direction for i=1, 2, 3. When <span class="tt">moving_ibm</span> equals 2, this velocity is just the starting speed of the object, which will then accelerate due to external forces. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>
 <li><p class="startli"><span class="tt">angular_vel(i)</span> is the initial angular velocity of the IB about the x, y, z axes for i=1, 2, 3 in radians per second. When <span class="tt">moving_ibm</span> equals 2, this rotation rate is just the starting rate of the object, which will then change due to external torques. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</p>
-<p class="startli">Moving-IB analytic expressions use the same Python syntax and error-reporting as IC patch expressions (see the "Analytical Definition of Primitive Variables" section above). Available variables: <span class="tt">x</span> (<span class="tt">x_cc(i)</span>), <span class="tt">y</span> (<span class="tt">y_cc(j)</span>), <span class="tt">z</span> (<span class="tt">z_cc(k)</span>), <span class="tt">t</span> (current simulation time), and <span class="tt">r</span> (the IB patch radius). The same intrinsic functions and <span class="tt">pi</span> constant apply; bare <span class="tt">e</span> is not available.</p>
+<p class="startli">Moving-IB analytic expressions use the same Python syntax and error-reporting as IC patch expressions (see the "Analytical Definition of Primitive Variables" section above).</p>
 </li>
+<li><span class="tt">kin_model = 1</span> prescribes hinged flapping kinematics at run time (no analytic expressions, so the binary is shared across parameter values): roll \(\phi\) about the lab \(x\) axis through <span class="tt">kin_hinge</span> and pitch \(\theta\) about the body spanwise ( \(y\)) axis through the hinge, composed as \(R = R_x(\phi) R_y(\theta)\). With \(\tau = t - t_0\) and amplitude envelope \(A(\tau)\) (0 before onset, raised cosine over <span class="tt">kin_ramp</span>, then 1): \(\phi = A \phi_0 \sin(2\pi f \tau)\), \(\theta = \theta_m + A \theta_0 \sin(2\pi f \tau + \psi)\). The centroid follows \(x_c = x_h + R\,\mathbf{r}_\mathrm{off}\) and the ghost-cell velocities use the lab-frame angular velocity \(\dot\phi \mathbf{e}_x + \dot\theta R_x(\phi)\mathbf{e}_y\). Set the initial <span class="tt">x[y,z]_centroid</span> and <span class="tt">angles</span> consistently with \(t = 0\) so pre-process marks the body in the right place.</li>
+<li><span class="tt">kin_model = 2</span> is the smoothed linear pitch-ramp-and-hold of the AIAA low-Reynolds-number canonical cases (Eldredge et al. 2009, Ol et al. 2010) about the hinge, with no roll: \(\theta(t) = \theta_m + \frac{\theta_0}{2}\left[1 + \frac{1}{a t_p}\log\frac{\cosh(a\tau)}{\cosh(a(\tau - t_p))}\right]\), \(\tau = t - t_0\), \(t_p = \theta_0/\Omega\), so the angle rises from <span class="tt">kin_theta_mean</span> by <span class="tt">kin_theta0</span> at nominal rate <span class="tt">kin_pitch_rate</span> starting at <span class="tt">kin_t0</span>, smoothed by <span class="tt">kin_smooth</span>. The same hinge, offset and centroid conventions as <span class="tt">kin_model = 1</span> apply. Available variables: <span class="tt">x</span> (<span class="tt">x_cc(i)</span>), <span class="tt">y</span> (<span class="tt">y_cc(j)</span>), <span class="tt">z</span> (<span class="tt">z_cc(k)</span>), <span class="tt">t</span> (current simulation time), and <span class="tt">r</span> (the IB patch radius). The same intrinsic functions and <span class="tt">pi</span> constant apply; bare <span class="tt">e</span> is not available.</li>
 <li><span class="tt">coefficient_of_restitution</span> is a number from 0 (exclusive) to 1 (inclusive) describing how elastic IB collisions are. 0 is for perfectly inelastic collisions while 1 is for perfectly elastic collisions.</li>
 <li><span class="tt">collision_model</span> is an integer to select the collision model being used for IB collisions. Using 0 disables collisions and collision checking. 1 enables the soft-sphere collision model, where all IBs must be circles or sphere and those IBs can collide with each other as well as walls.</li>
 <li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring constant used to apply collision forces.</li>
@@ -872,6 +896,10 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">heat_ratio_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the specific heat ratio to the database  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">ib_force_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Record the immersed-boundary force history to <span class="tt">D/ib_forces.dat</span> (default off)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">ib_force_stride</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Stride, in time steps, of the per-step immersed-boundary force record (default 1)  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parameter to handle writing IB state on saves and outputting the state as a point mesh to SILO files.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">pi_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database  </td></tr>
@@ -964,6 +992,37 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">fd_order</span> specifies the order of the finite difference scheme used to compute the vorticity from the velocity field and the numerical schlieren from the density field using an integer of 1, 2, and 4. <span class="tt">fd_order = 1</span>, <span class="tt">2</span>, and <span class="tt">4</span> correspond to the first, second, and fourth-order finite difference schemes.</li>
 <li><span class="tt">probe_wrt</span> activates the output of state variables at coordinates specified by <span class="tt">probe(i)%[x;y,z]</span>.</li>
 <li><span class="tt">ib_state_wrt</span> is used to trigger post-processing of the IB state to be written out as a point mesh in the SILO files. When no IBs are moving, it also triggers force and torque calculation so that those values may be written to the output state files.</li>
+<li><span class="tt">ib_force_wrt</span> records the force, torque and kinematics of every immersed boundary in a single shared text file, <span class="tt">D/ib_forces.dat</span>, described below. It is off by default: the history is written every step, which at large rank counts is a cost a run should opt into rather than inherit. <span class="tt">ib_force_stride</span> writes only every N-th step, for runs long enough that the history itself becomes large.</li>
+</ul>
+<h4 class="doxsection"><a class="anchor" id="sec-ib-force-history"></a>
+Immersed-boundary force history</h4>
+<p><span class="tt">D/ib_forces.dat</span> holds one fixed-width record per body per written step. Its twenty columns are</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Columns  </th><th class="markdownTableHeadLeft">Quantity  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">1  </td><td class="markdownTableBodyLeft">body id (the global <span class="tt">patch_ib</span> index)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">2  </td><td class="markdownTableBodyLeft">time  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">3–5  </td><td class="markdownTableBodyLeft">force, x/y/z  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">6–8  </td><td class="markdownTableBodyLeft">torque, x/y/z  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">9–11  </td><td class="markdownTableBodyLeft">velocity, x/y/z  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">12–14  </td><td class="markdownTableBodyLeft">angular velocity, x/y/z  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">15–17  </td><td class="markdownTableBodyLeft">angles about x/y/z  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">18–20  </td><td class="markdownTableBodyLeft">centroid, x/y/z  </td></tr>
+</table>
+<p>The file carries no header line, because every record sits at a computed byte offset and a header would shift them all. Each record is exactly 353 bytes including its newline (<span class="tt">I10</span> followed by nineteen <span class="tt">1X,ES17.9E3</span> fields), so the whole file loads with <span class="tt">numpy.loadtxt</span> and a single body or step can be read without scanning it:</p>
+<div class="fragment"><div class="line">row    = t_step / ib_force_stride - t_step_start / ib_force_stride - 1</div>
+<div class="line">offset = (row * num_ibs + ib_id - 1) * 353</div>
+</div><!-- fragment --><p>Rows count from the first step the run records, not from <span class="tt">t_step</span>, so row 0 is the first row of the file whether the run starts at step 0 or resumes from a restart. The first recorded step is the first multiple of <span class="tt">ib_force_stride</span> after <span class="tt">t_step_start</span>; <span class="tt">t_step_start</span> itself is skipped, because at that point the force is still the one from before the run began.</p>
+<p>Rows are written in global body-id order, so the file is byte-identical however the domain is decomposed, and no merge step is needed after a parallel run.</p>
+<ul>
 <li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_output%beg</span> and <span class="tt">[x,y,z]_output%end</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="sec-acoustic-source"></a>
