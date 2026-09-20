@@ -1,6 +1,5 @@
 var m__collisions_8fpp_8f90 =
 [
-    [ "m_collisions::f_local_rank_owns_location", "namespacem__collisions.html#aa76f43bb77653a6b6e06a03c20b3ef08", null ],
     [ "m_collisions::f_neighborhood_ranks_own_location", "namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a", null ],
     [ "m_collisions::s_apply_collision_forces", "namespacem__collisions.html#ae2dd53a11be648ef6360131ed58b37f7", null ],
     [ "m_collisions::s_apply_ib_collision_forces_soft_sphere", "namespacem__collisions.html#ab9608ec22b9d2f89741faa0a9582dc7a", null ],

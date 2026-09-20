@@ -747,13 +747,12 @@ Geometry</h3>
 <li>When enabled, requires: <span class="tt">cantera_file</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
-<li>Isothermal In (bc_xisothermal_in) requires both chemistry='T' and chem_paramsdiffusion='T' to calculate heat conduction.</li>
-<li>Isothermal Out (bc_xisothermal_out) requires both chemistry='T' and chem_paramsdiffusion='T' to calculate heat conduction.</li>
-<li>Isothermal In (bc_yisothermal_in) requires both chemistry='T' and chem_paramsdiffusion='T' to calculate heat conduction.</li>
+<li>chem_paramsadap_substeps requires reaction_substeps &gt;= 1 (the operator-split floor)</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD hypoelasticity does not support chemistry</li>
 <li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
+<li>heat conduction is not supported with chemistry: the reacting path already carries mixture-averaged conduction through chem_paramsdiffusion</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>chem_paramsreaction_substeps must be &gt;= 0 (0 = reaction source in the flow RHS; &gt; 0 = operator-split sub-stepping)</li>
@@ -1617,7 +1616,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-19</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-20</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

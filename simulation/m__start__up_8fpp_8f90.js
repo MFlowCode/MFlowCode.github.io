@@ -1,5 +1,7 @@
 var m__start__up_8fpp_8f90 =
 [
+    [ "m_start_up::s_assign_particle_cloud_ib_defaults", "namespacem__start__up.html#a308ac65752ef1268769cdff4bf9bc408", null ],
+    [ "m_start_up::s_build_ib_neighborhood", "namespacem__start__up.html#ad9b45bd874a5d2a97704203606aebbb9", null ],
     [ "m_start_up::s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
     [ "m_start_up::s_compute_ib_neighbor_ranks", "namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a", null ],
     [ "m_start_up::s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
@@ -14,7 +16,6 @@ var m__start__up_8fpp_8f90 =
     [ "m_start_up::s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
     [ "m_start_up::s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
     [ "m_start_up::s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
-    [ "m_start_up::s_reduce_ib_patch_array", "namespacem__start__up.html#aa8d8bb7ccfccd073646ffb816baacd72", null ],
     [ "m_start_up::s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
     [ "m_start_up::s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
     [ "m_start_up::dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],

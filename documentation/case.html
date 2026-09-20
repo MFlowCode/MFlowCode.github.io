@@ -598,14 +598,16 @@ Particle Clouds</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">Re(2)</span> *  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Volume viscosity of fluid.  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">k_therm</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Thermal conductivity of fluid (Fourier heat conduction).  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">cv</span> **  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Sffened-gas parameter $c_v$ of fluid.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">qv</span> **  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Stiffened-gas parameter $q$ of fluid.  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">qvp</span> **  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Stiffened-gas parameter $q'$ of fluid.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">sigma</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Surface tension coefficient  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">qvp</span> **  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Stiffened-gas parameter $q'$ of fluid.  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">sigma</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Surface tension coefficient  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">G</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Shear modulus of solid.  </td></tr>
 </table>
 <p>Fluid material's parameters. All parameters except for sigma should be prepended with <span class="tt">fluid_pp(i)</span> where $i$ is the fluid index.</p>
@@ -618,6 +620,7 @@ Particle Clouds</h4>
 </ul>
 <p>When these parameters are undefined, fluids are treated as inviscid. Details of implementation of viscosity in MFC can be found in Coralic <a class="el" href="citelist.html#CITEREF_coralic15">[14]</a>.</p>
 <ul>
+<li><span class="tt">fluid_pp(i)%k_therm</span> sets the thermal conductivity of the $i$-th fluid, in units consistent with the rest of the (non-dimensional) case. A positive value on any fluid activates Fourier heat conduction, which adds \(\nabla\cdot(k\nabla T)\) to the energy equation using the thermal-equilibrium mixture temperature and \(k = \sum_i \alpha_i k_i\) (see <a class="el" href="equations.html" title="Equations">Equations</a>). It requires <span class="tt">fluid_pp(i)%cv</span> to be positive on every fluid that sets it (the mixture temperature is undefined without \(c_v\)), <span class="tt">model_eqns = 2</span> or <span class="tt">model_eqns = 3</span> (the mixture conductivity is weighted by volume fractions that <span class="tt">model_eqns = 1</span> does not carry), and <span class="tt">fluid_pp(i)%eos</span> to be the stiffened-gas or ideal-gas equation of state. Heat conduction is independent of <span class="tt">viscous</span>: it can be enabled in an otherwise inviscid run. It is not supported with <span class="tt">igr</span>, nor with <span class="tt">chemistry</span> (which already carries its own mixture-averaged conduction through <span class="tt">chem_params%diffusion</span>).</li>
 <li><span class="tt">fluid_pp(i)%cv</span>, <span class="tt">fluid_pp(i)%qv</span>, and <span class="tt">fluid_pp(i)%qvp</span> define $c_v$, $q$, and $q'$ as parameters of $i$-th fluid that are used in stiffened gas equation of state.</li>
 <li><span class="tt">fluid_pp(i)%G</span> is required for <span class="tt">hypoelasticity</span>.</li>
 </ul>
@@ -1507,7 +1510,7 @@ Immersed-boundary force history</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">bc_[x,y,z]%Twall_out</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Temperature [K] of the exit isothermal wall.  </td></tr>
 </table>
-<p>This boundary condition can be used for fixed-temperature (isothermal) walls at the domain extremities. It is exclusively available for reacting flows and requires chemistry to be enabled. It properly evaluates heat and species fluxes at the interface when <span class="tt">chemistry = 'T'</span>, <span class="tt">chem_params%diffusion = 'T'</span>, and the corresponding domain boundary is set to a slip wall (<span class="tt">bc_[x,y,z]%%[beg,end]</span> = -15) or a no-slip wall (<span class="tt">bc_[x,y,z]%%[beg,end]</span> = -16).</p>
+<p>This boundary condition can be used for fixed-temperature (isothermal) walls at the domain extremities. It requires a heat-conduction path so the wall flux can be evaluated: either a reacting flow with <span class="tt">chemistry = 'T'</span> and <span class="tt">chem_params%diffusion = 'T'</span>, or Fourier conduction with <span class="tt">fluid_pp(i)%k_therm</span> &gt; 0. The corresponding domain boundary must be set to a slip wall (<span class="tt">bc_[x,y,z]%%[beg,end]</span> = -15) or a no-slip wall (<span class="tt">bc_[x,y,z]%%[beg,end]</span> = -16). With chemistry it evaluates both heat and species fluxes; with Fourier conduction it evaluates the heat flux.</p>
 <h3 class="doxsection"><a class="anchor" id="sec-non-newtonian"></a>
 19. Non-Newtonian (Herschel-Bulkley) Viscosity</h3>
 <table class="markdownTable">

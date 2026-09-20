@@ -174,6 +174,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aca5460fc186e7b82ea78484ae98c74a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the configuration file pre_process.inp, in order to populate the parameters in module m_global_parameters.f90 with the user provided inputs.  <br /></td></tr>
 <tr class="memitem:ad26e747c87bb6bcf4c9d6baa21d044c1" id="r_ad26e747c87bb6bcf4c9d6baa21d044c1"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad26e747c87bb6bcf4c9d6baa21d044c1">s_check_input_file</a></td></tr>
 <tr class="memdesc:ad26e747c87bb6bcf4c9d6baa21d044c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checking that the user inputs make sense, i.e. that the individual choices are compatible with the code's options and that the combination of these choices results into a valid configuration for the pre-process.  <br /></td></tr>
+<tr class="memitem:a4def90412ad22ef8b1686d962c8a52de" id="r_a4def90412ad22ef8b1686d962c8a52de"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4def90412ad22ef8b1686d962c8a52de">s_write_ib_state_0</a> ()</td></tr>
+<tr class="memdesc:a4def90412ad22ef8b1686d962c8a52de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the particle-cloud beds (if any) and writes the initial IB state file that simulation reads back at startup (src/simulation/m_start_up.fpp:s_read_ib_restart_data). Must run after the domain is decomposed (s_initialize_mpi_domain) and the grid is populated (s_read_grid). Under file_per_process every rank computes the same deterministic placement and keeps only the IBs f_local_rank_owns_location says are its own; otherwise rank 0 alone generates and writes every IB.  <br /></td></tr>
 <tr class="memitem:a6a43c0e78ce8e3a0c1b636affd6ee2a0" id="r_a6a43c0e78ce8e3a0c1b636affd6ee2a0"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6a43c0e78ce8e3a0c1b636affd6ee2a0">s_read_serial_grid_data_files</a></td></tr>
 <tr class="memdesc:a6a43c0e78ce8e3a0c1b636affd6ee2a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to read in any preexisting grid data as well as based on the imported grid, complete the necessary global computational domain parameters.  <br /></td></tr>
 <tr class="memitem:a819c050417eb742466f0fab477c62e38" id="r_a819c050417eb742466f0fab477c62e38"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a819c050417eb742466f0fab477c62e38">s_check_grid_data_files</a></td></tr>
@@ -230,7 +232,7 @@ Variables</h2></td></tr>
 
 <p>Generate or read the initial condition, apply relaxation if needed, and write output data files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00867">867</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00890">890</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -258,7 +260,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cell-boundary data are checked for consistency by looking at the (non-)uniform cell-width distributions for all the active coordinate directions and making sure that all of the cell-widths are positively valued. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00573">573</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -286,7 +288,7 @@ Here is the caller graph for this function:</div>
 
 <p>Checking that the user inputs make sense, i.e. that the individual choices are compatible with the code's options and that the combination of these choices results into a valid configuration for the pre-process. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00455">455</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -314,7 +316,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize all pre-process modules, deallocate resources, and shut down MPI. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00992">992</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01021">1021</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -342,7 +344,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize all pre-process modules, allocate data structures, and set I/O procedure pointers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00814">814</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00837">837</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -370,7 +372,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize MPI, read and validate user inputs on rank 0, and decompose the computational domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00956">956</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00979">979</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -398,7 +400,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read an existing grid from data files or generate a new grid from user inputs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00848">848</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00871">871</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -426,7 +428,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reads the configuration file pre_process.inp, in order to populate the parameters in module m_global_parameters.f90 with the user provided inputs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -454,7 +456,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cell-boundary data are checked for consistency by looking at the (non-)uniform cell-width distributions for all the active coordinate directions and making sure that all of the cell-widths are positively valued. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00661">661</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00684">684</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -485,7 +487,7 @@ Here is the caller graph for this function:</div>
 
 <p>The goal of this subroutine is to read in any preexisting initial condition data files so that they may be used by the pre-process as a starting point in the creation of an all new initial condition. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00742">742</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00765">765</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -513,7 +515,7 @@ Here is the caller graph for this function:</div>
 
 <p>The goal of this subroutine is to read in any preexisting grid data as well as based on the imported grid, complete the necessary global computational domain parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00483">483</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00506">506</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -544,7 +546,7 @@ Here is the caller graph for this function:</div>
 
 <p>The goal of this subroutine is to read in any preexisting initial condition data files so that they may be used by the pre-process as a starting point in the creation of an all new initial condition. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00618">618</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -589,7 +591,7 @@ Here is the caller graph for this function:</div>
 
 <p>Gather processor timing data and write elapsed wall-clock time to a summary file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00920">920</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00943">943</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -599,6 +601,34 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a2a5bdd175d6ddb8c024887e4e18bbdd8_icgraph.svg" width="314" height="36"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4def90412ad22ef8b1686d962c8a52de" name="a4def90412ad22ef8b1686d962c8a52de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4def90412ad22ef8b1686d962c8a52de">&#9670;&#160;</a></span>s_write_ib_state_0()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_start_up::s_write_ib_state_0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates the particle-cloud beds (if any) and writes the initial IB state file that simulation reads back at startup (src/simulation/m_start_up.fpp:s_read_ib_restart_data). Must run after the domain is decomposed (s_initialize_mpi_domain) and the grid is populated (s_read_grid). Under file_per_process every rank computes the same deterministic placement and keeps only the IBs f_local_rank_owns_location says are its own; otherwise rank 0 alone generates and writes every IB. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00487">487</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a4def90412ad22ef8b1686d962c8a52de_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a4def90412ad22ef8b1686d962c8a52de_icgraph.svg" width="280" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -626,7 +656,7 @@ Here is the caller graph for this function:</div>
 
 <p>Location of the folder associated with the rank of the local processor. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -642,7 +672,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -658,7 +688,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -684,7 +714,7 @@ Here is the caller graph for this function:</div>
 
 <p>Path to preexisting time-step folder for restart. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>

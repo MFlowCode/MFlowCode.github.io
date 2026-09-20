@@ -13,6 +13,7 @@ var structm__derived__types_1_1physical__parameters =
     [ "jwl_rho0", "structm__derived__types_1_1physical__parameters.html#adffa332271b70345ebafe2562edaca13", null ],
     [ "jwl_t0", "structm__derived__types_1_1physical__parameters.html#a68add3194cd8153b541a093a395fb30d", null ],
     [ "k", "structm__derived__types_1_1physical__parameters.html#aab8add776ce2ded6ee1744644820010f", null ],
+    [ "k_therm", "structm__derived__types_1_1physical__parameters.html#a0c3971e93e42bee243c4f799614ccbc0", null ],
     [ "mg_c0", "structm__derived__types_1_1physical__parameters.html#ac86d888bc12de090e9f3700db2e9ce01", null ],
     [ "mg_gruneisen", "structm__derived__types_1_1physical__parameters.html#ab87a8303a7ffffe600630f5bfbd4acd9", null ],
     [ "mg_gruneisen_a", "structm__derived__types_1_1physical__parameters.html#a6f46458426d45e0683c7dc7cc9865dff", null ],

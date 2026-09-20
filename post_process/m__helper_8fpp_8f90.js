@@ -8,6 +8,7 @@ var m__helper_8fpp_8f90 =
     [ "m_helper::f_cut_off", "namespacem__helper.html#aa9ba2d3fb1ef5e4a67288444a2d371c5", null ],
     [ "m_helper::f_cut_on", "namespacem__helper.html#a413a13fad04174ecec58d6f51395d44c", null ],
     [ "m_helper::f_gx", "namespacem__helper.html#a5f8d74b3cd3f39b69d285906e65eb0e9", null ],
+    [ "m_helper::f_local_rank_owns_location", "namespacem__helper.html#a3dc5744fc3c3549677332d36a6935600", null ],
     [ "m_helper::f_logical_to_int", "namespacem__helper.html#af7ebba2c1388bcbe54e7b330c4dfc611", null ],
     [ "m_helper::f_unit_vector", "namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1", null ],
     [ "m_helper::f_xor", "namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c", null ],

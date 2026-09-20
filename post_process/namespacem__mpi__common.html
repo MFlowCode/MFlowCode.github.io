@@ -177,8 +177,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a98b6d5f758850a2ba16fb7553c055827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather per-rank time step wall-clock times onto rank 0 for performance reporting.  <br /></td></tr>
 <tr class="memitem:a4d03f5fc95657b6bec1f89221295b0cc" id="r_a4d03f5fc95657b6bec1f89221295b0cc"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4d03f5fc95657b6bec1f89221295b0cc">s_prohibit_abort</a> (condition, message)</td></tr>
 <tr class="memdesc:a4d03f5fc95657b6bec1f89221295b0cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print a case file error with the prohibited condition and message, then abort execution.  <br /></td></tr>
-<tr class="memitem:a26b5a422ec788eeb67379768775bac48" id="r_a26b5a422ec788eeb67379768775bac48"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a26b5a422ec788eeb67379768775bac48">s_mpi_reduce_stability_criteria_extrema</a> (icfl_max_loc, vcfl_max_loc, rc_min_loc, bubs_loc, icfl_max_glb, vcfl_max_glb, rc_min_glb, bubs_glb, ccfl_max_loc, ccfl_max_glb)</td></tr>
-<tr class="memdesc:a26b5a422ec788eeb67379768775bac48"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkeept on the rank 0 processor.  <br /></td></tr>
+<tr class="memitem:aafa6e190520f561711618e47db335187" id="r_aafa6e190520f561711618e47db335187"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aafa6e190520f561711618e47db335187">s_mpi_reduce_stability_criteria_extrema</a> (max_loc, min_loc, bubs_loc, max_glb, min_glb, bubs_glb)</td></tr>
+<tr class="memdesc:aafa6e190520f561711618e47db335187"><td class="mdescLeft">&#160;</td><td class="mdescRight">The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkept on the rank 0 processor. <span class="tt">max_loc</span>/<span class="tt">max_glb</span> hold the max-reduced criteria (ICFL, VCFL, CCFL, TCFL) and <span class="tt">min_loc</span>/<span class="tt">min_glb</span> hold the min-reduced criteria (Rc).  <br /></td></tr>
 <tr class="memitem:a4372ad204e9190d55c0cc6f35a4b9acd" id="r_a4372ad204e9190d55c0cc6f35a4b9acd"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4372ad204e9190d55c0cc6f35a4b9acd">s_mpi_reduce_int_sum</a> (var_loc, sum)</td></tr>
 <tr class="memdesc:a4372ad204e9190d55c0cc6f35a4b9acd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local integer value to its global sum across all MPI ranks.  <br /></td></tr>
 <tr class="memitem:a3b287a39841538011798d6f5e59d41ac" id="r_a3b287a39841538011798d6f5e59d41ac"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3b287a39841538011798d6f5e59d41ac">s_mpi_allreduce_sum</a> (var_loc, var_glb)</td></tr>
@@ -320,7 +320,7 @@ Variables</h2></td></tr>
 
 <p>Apply executable-configured output and local-domain policies after the shared Cartesian decomposition. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03308">3308</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03296">3296</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -410,7 +410,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate the local cell-boundary, cell-center, and cell-width arrays in one direction directly from the global cell-boundary array. This guarantees that every rank sees bitwise-identical values at any shared physical cell or boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03427">3427</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03415">3415</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -433,7 +433,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03505">3505</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03493">3493</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -583,7 +583,7 @@ Here is the caller graph for this function:</div>
 
 <p>The subroutine terminates the MPI execution environment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00972">972</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00959">959</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -613,7 +613,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local integer value to its global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00876">876</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00863">863</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -638,7 +638,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global maximum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00922">922</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00909">909</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -663,7 +663,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global minimum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00892">892</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00879">879</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -688,7 +688,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real vector to its elementwise global minimum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00906">906</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00893">893</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -713,7 +713,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00841">841</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00828">828</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -748,7 +748,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce an array of vectors to their global sums across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00855">855</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00842">842</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -766,7 +766,7 @@ Here is the caller graph for this function:</div>
 
 <p>Halts all processes until all have reached barrier. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01003">1003</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00990">990</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -807,7 +807,7 @@ Here is the caller graph for this function:</div>
 <p>The purpose of this procedure is to optimally decompose the computational domain among the available processors. This is performed by attempting to award each processor, in each of the coordinate directions, approximately the same number of cells, and then recomputing the affected global parameters. </p>
 <p>Non-optimal number of processors in the x-, y- and z-directions</p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02914">2914</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02902">2902</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -830,7 +830,7 @@ Here is the call graph for this function:</div>
 
 <p>The subroutine finalizes the MPI execution environment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01014">1014</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01001">1001</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -940,7 +940,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02374">2374</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02362">2362</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -965,7 +965,7 @@ Here is the call graph for this function:</div>
 
 <p>Reduce a local integer value to its global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00825">825</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00812">812</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -986,7 +986,7 @@ Here is the call graph for this function:</div>
 
 <p>Reduce a 2-element variable to its global maximum value with the owning processor rank (MPI_MAXLOC). Reduce a local value to its global maximum with location (rank) across all ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00955">955</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00942">942</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1007,12 +1007,12 @@ Here is the call graph for this function:</div>
 
 <p>Reduce a local real value to its global minimum across all ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00936">936</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00923">923</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a26b5a422ec788eeb67379768775bac48" name="a26b5a422ec788eeb67379768775bac48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26b5a422ec788eeb67379768775bac48">&#9670;&#160;</a></span>s_mpi_reduce_stability_criteria_extrema()</h2>
+<a id="aafa6e190520f561711618e47db335187" name="aafa6e190520f561711618e47db335187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa6e190520f561711618e47db335187">&#9670;&#160;</a></span>s_mpi_reduce_stability_criteria_extrema()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1020,17 +1020,12 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">impure subroutine m_mpi_common::s_mpi_reduce_stability_criteria_extrema </td>
           <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>icfl_max_loc</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>max_loc</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vcfl_max_loc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rc_min_loc</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>min_loc</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1040,39 +1035,24 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>icfl_max_glb</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>max_glb</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vcfl_max_glb</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>min_glb</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rc_min_glb</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>bubs_glb</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ccfl_max_loc</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>ccfl_max_glb</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>bubs_glb</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkeept on the rank 0 processor. </p>
+<p>The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkept on the rank 0 processor. <span class="tt">max_loc</span>/<span class="tt">max_glb</span> hold the max-reduced criteria (ICFL, VCFL, CCFL, TCFL) and <span class="tt">min_loc</span>/<span class="tt">min_glb</span> hold the min-reduced criteria (Rc). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00767">767</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00768">768</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1102,7 @@ Here is the call graph for this function:</div>
 
 <p>The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03372">3372</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03360">3360</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1152,7 @@ Here is the call graph for this function:</div>
 
 <p>The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01026">1026</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01013">1013</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

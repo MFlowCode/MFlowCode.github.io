@@ -174,6 +174,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a95b7eb31bf0e8277ed1e32416b720e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes grid and initial condition data files in parallel to the "0" time-step directory in the local processor rank folder.  <br /></td></tr>
 <tr class="memitem:a795efa6dc563a04a903c13a960089a58" id="r_a795efa6dc563a04a903c13a960089a58"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a795efa6dc563a04a903c13a960089a58">s_initialize_data_output_module</a></td></tr>
 <tr class="memdesc:a795efa6dc563a04a903c13a960089a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module.  <br /></td></tr>
+<tr class="memitem:a1c703cf8b5f93a5326e90732f8c4b55f" id="r_a1c703cf8b5f93a5326e90732f8c4b55f"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1c703cf8b5f93a5326e90732f8c4b55f">s_write_ib_state_0_file</a> (glb_bounds, particle_cloud_ibs, num_particle_cloud_ibs)</td></tr>
+<tr class="memdesc:a1c703cf8b5f93a5326e90732f8c4b55f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the initial IB layout (namelist patch_ib entries, then generated particle-cloud beds) that simulation reads back at startup (s_read_ib_restart_data, src/simulation/m_start_up.fpp), in the layouts simulation's own IB state writers use. Under file_per_process each rank writes only the IBs it owns to restart_data/lustre_0/ib_state_0_&lt;rank&gt;.dat; otherwise only rank 0 calls this and writes every IB, in global-id order, to restart_data/ib_state_0.dat.  <br /></td></tr>
 <tr class="memitem:a81d3138233e0f1a797c930dbf9543d71" id="r_a81d3138233e0f1a797c930dbf9543d71"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a81d3138233e0f1a797c930dbf9543d71">s_finalize_data_output_module</a></td></tr>
 <tr class="memdesc:a81d3138233e0f1a797c930dbf9543d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets s_write_data_files pointer.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -203,7 +205,7 @@ Variables</h2></td></tr>
 
 <p>Resets s_write_data_files pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00738">738</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00807">807</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -236,6 +238,46 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a795efa6dc563a04a903c13a960089a58_icgraph.svg" width="550" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1c703cf8b5f93a5326e90732f8c4b55f" name="a1c703cf8b5f93a5326e90732f8c4b55f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c703cf8b5f93a5326e90732f8c4b55f">&#9670;&#160;</a></span>s_write_ib_state_0_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_data_output::s_write_ib_state_0_file </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1bounds__info.html">bounds_info</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>glb_bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>particle_cloud_ibs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_particle_cloud_ibs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes the initial IB layout (namelist patch_ib entries, then generated particle-cloud beds) that simulation reads back at startup (s_read_ib_restart_data, src/simulation/m_start_up.fpp), in the layouts simulation's own IB state writers use. Under file_per_process each rank writes only the IBs it owns to restart_data/lustre_0/ib_state_0_&lt;rank&gt;.dat; otherwise only rank 0 calls this and writes every IB, in global-id order, to restart_data/ib_state_0.dat. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00741">741</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a1c703cf8b5f93a5326e90732f8c4b55f_cgraph.svg" width="410" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a1c703cf8b5f93a5326e90732f8c4b55f_icgraph.svg" width="503" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

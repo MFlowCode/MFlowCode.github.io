@@ -3,6 +3,8 @@ var m__ibm_8fpp_8f90 =
     [ "m_ibm::f_log_cosh", "namespacem__ibm.html#a819f92e3bf0202d31eafbdc589ff025b", null ],
     [ "m_ibm::s_communicate_ib_forces", "namespacem__ibm.html#a20b12f9883611b3360b2d469a1870e66", null ],
     [ "m_ibm::s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
+    [ "m_ibm::s_compute_ghost_point_pressure", "namespacem__ibm.html#aee6bcfa35160493b9c38c203460b6fc4", null ],
+    [ "m_ibm::s_compute_ghost_point_velocity", "namespacem__ibm.html#a65e086391dadfdc6e838ef7ff0cec6c9", null ],
     [ "m_ibm::s_compute_ib_forces", "namespacem__ibm.html#a127d40085cc8ab5bdcde0f7cf894e92f", null ],
     [ "m_ibm::s_compute_image_points", "namespacem__ibm.html#ae9c18401f891392312ed68285d035d9c", null ],
     [ "m_ibm::s_compute_interpolation_coeffs", "namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e", null ],

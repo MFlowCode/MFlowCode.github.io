@@ -173,8 +173,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a5e194557c7d28a9ee7962f2eb9032710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes one sweep direction's contribution to the RHS: the Riemann solve on the reconstructed cell-boundary states followed by the advection source term. For dual-pass HLLD the fused solve computes BOTH anchored flux sets in one call; this routine assembles the hat_L (is_hat_L=.true.) partial RHS, and the caller finalizes + assembles the hat_R set afterwards. is_hat_L selects which one-sided flux difference the advection source applies into rhs_vf.  <br /></td></tr>
 <tr class="memitem:a736d8e38a47a66f839078dc3cfd63075" id="r_a736d8e38a47a66f839078dc3cfd63075"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a736d8e38a47a66f839078dc3cfd63075">s_compute_advection_source_term</a> (idir, rhs_vf, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf, flux_src_n_vf, is_hat_l)</td></tr>
 <tr class="memdesc:a736d8e38a47a66f839078dc3cfd63075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate advection source contributions from a given coordinate direction into the RHS.  <br /></td></tr>
-<tr class="memitem:a2df6b2a1323afaca022b5ef77dd4c0e0" id="r_a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2df6b2a1323afaca022b5ef77dd4c0e0">s_compute_additional_physics_rhs</a> (idir, q_prim_vf, rhs_vf, flux_src_n_in, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf)</td></tr>
-<tr class="memdesc:a2df6b2a1323afaca022b5ef77dd4c0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add viscous, surface-tension, and species-diffusion source flux contributions to the RHS for a given direction.  <br /></td></tr>
+<tr class="memitem:af28a0a14e8ba54caee398fdfce799a3a" id="r_af28a0a14e8ba54caee398fdfce799a3a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af28a0a14e8ba54caee398fdfce799a3a">s_compute_additional_physics_rhs</a> (idir, q_prim_vf, q_t_sf, rhs_vf, flux_src_n_in, dq_prim_dx_vf, dq_prim_dy_vf, dq_prim_dz_vf)</td></tr>
+<tr class="memdesc:af28a0a14e8ba54caee398fdfce799a3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add viscous, surface-tension, species-diffusion, and heat-conduction source flux contributions to the RHS for a direction.  <br /></td></tr>
 <tr class="memitem:a306d7ba75fae114389274c00e5982588" id="r_a306d7ba75fae114389274c00e5982588"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a306d7ba75fae114389274c00e5982588">s_reconstruct_cell_boundary_values</a> (v_vf, vl_x, vr_x, norm_dir)</td></tr>
 <tr class="memdesc:a306d7ba75fae114389274c00e5982588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct left and right cell-boundary values from cell-averaged variables.  <br /></td></tr>
 <tr class="memitem:acad656f0645129138d4a85729f65fa34" id="r_acad656f0645129138d4a85729f65fa34"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acad656f0645129138d4a85729f65fa34">s_reconstruct_cell_boundary_values_first_order</a> (v_vf, vl_x, vr_x, norm_dir)</td></tr>
@@ -243,8 +243,8 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Assemble the right-hand side of the governing equations using finite-volume flux differencing, Riemann solvers, and physical source terms. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a2df6b2a1323afaca022b5ef77dd4c0e0" name="a2df6b2a1323afaca022b5ef77dd4c0e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2df6b2a1323afaca022b5ef77dd4c0e0">&#9670;&#160;</a></span>s_compute_additional_physics_rhs()</h2>
+<a id="af28a0a14e8ba54caee398fdfce799a3a" name="af28a0a14e8ba54caee398fdfce799a3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af28a0a14e8ba54caee398fdfce799a3a">&#9670;&#160;</a></span>s_compute_additional_physics_rhs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -258,6 +258,11 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -287,13 +292,13 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Add viscous, surface-tension, and species-diffusion source flux contributions to the RHS for a given direction. </p>
+<p>Add viscous, surface-tension, species-diffusion, and heat-conduction source flux contributions to the RHS for a direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l10490">10490</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l10502">10502</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a2df6b2a1323afaca022b5ef77dd4c0e0_icgraph.svg" width="440" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_af28a0a14e8ba54caee398fdfce799a3a_icgraph.svg" width="440" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -339,7 +344,7 @@ Here is the caller graph for this function:</div>
 
 <p>Accumulate advection source contributions from a given coordinate direction into the RHS. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08641">8641</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08653">8653</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -379,7 +384,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes one sweep direction's contribution to the RHS: the Riemann solve on the reconstructed cell-boundary states followed by the advection source term. For dual-pass HLLD the fused solve computes BOTH anchored flux sets in one call; this routine assembles the hat_L (is_hat_L=.true.) partial RHS, and the caller finalizes + assembles the hat_R set afterwards. is_hat_L selects which one-sided flux difference the advection source applies into rhs_vf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08605">8605</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08617">8617</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -459,7 +464,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the right-hand side of the semi-discrete governing equations for a single time stage. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l07855">7855</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l07860">7860</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -482,7 +487,7 @@ Here is the call graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11470">11470</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11484">11484</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -500,7 +505,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the RHS module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00666">666</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00667">667</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -540,7 +545,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstruct left and right cell-boundary values from cell-averaged variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11214">11214</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11228">11228</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -580,7 +585,7 @@ Here is the caller graph for this function:</div>
 
 <p>Perform first-order (piecewise constant) reconstruction of left and right cell-boundary values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11268">11268</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11282">11282</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -606,7 +611,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstructs the left/right Riemann states (cell-boundary values) for one sweep direction into the module face buffers (qL/qR_rs*_vf and, for WENO-reconstructed viscous fluxes, dqL/dqR_rs*_vf). Depends only on q_prim_qp, so it runs once per sweep direction; both anchored passes of the fused dual-pass HLLD solve in that direction reuse these buffers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08420">8420</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08432">8432</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -633,7 +638,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00583">583</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -649,7 +654,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -665,7 +670,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -681,7 +686,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -697,7 +702,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -713,7 +718,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -729,7 +734,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -745,7 +750,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -761,7 +766,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00429">429</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -777,7 +782,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00429">429</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -793,7 +798,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00429">429</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -809,7 +814,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -825,7 +830,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -841,7 +846,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -857,7 +862,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -873,7 +878,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -889,7 +894,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -905,7 +910,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00473">473</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -921,7 +926,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -937,7 +942,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00634">634</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00635">635</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -953,7 +958,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00554">554</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00555">555</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -969,7 +974,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00554">554</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00555">555</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -985,7 +990,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00554">554</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00555">555</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1006,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00567">567</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00568">568</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1017,7 +1022,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00567">567</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00568">568</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1033,7 +1038,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00567">567</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00568">568</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1051,7 +1056,7 @@ Here is the caller graph for this function:</div>
 
 <p>Vector field indical bounds. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00539">539</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00540">540</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1067,7 +1072,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1085,7 +1090,7 @@ Here is the caller graph for this function:</div>
 
 <p>hat_R-pass interface velocities for fused dual-pass HLLD: the axisymmetric geometric source consumes both passes' face velocities after the direction loop, so the hat_R values need their own field set (hat_L uses nc_iface_vel_n). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00509">509</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00510">510</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1101,7 +1106,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00492">492</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00493">493</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1119,7 +1124,7 @@ Here is the caller graph for this function:</div>
 
 <p>WENO-reconstructed cell-average conservative variables at quadrature points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1137,7 +1142,7 @@ Here is the caller graph for this function:</div>
 
 <p>Primitive variables at cell-interior quadrature points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1153,7 +1158,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1169,7 +1174,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1185,7 +1190,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1201,7 +1206,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1217,7 +1222,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00649">649</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00650">650</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1233,7 +1238,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00649">649</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00650">650</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1249,7 +1254,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>

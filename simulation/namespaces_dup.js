@@ -97,7 +97,7 @@ var namespaces_dup =
     ] ],
     [ "m_boundary_primitives", "namespacem__boundary__primitives.html", [
       [ "f_vel_ramp", "namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19", null ],
-      [ "s_axis", "namespacem__boundary__primitives.html#a882379d572d555c1b5f73fd360cb1d79", null ],
+      [ "s_axis", "namespacem__boundary__primitives.html#a6f72b5e5016c535a721179aed6733cc1", null ],
       [ "s_beta_extrapolation", "namespacem__boundary__primitives.html#ab4cccbeaf9ef7a2173ad5ce7d98ff5f7", null ],
       [ "s_beta_periodic", "namespacem__boundary__primitives.html#a236eb952c19c103a13abd6fa558d35af", null ],
       [ "s_beta_reflective", "namespacem__boundary__primitives.html#aa9ec6aa478cf93ee3837f332341c10a0", null ],
@@ -315,7 +315,6 @@ var namespaces_dup =
       [ "offsets", "namespacem__chemistry.html#ab7f799f6d59cfeaf7b0d0c1219bc12f3", null ]
     ] ],
     [ "m_collisions", "namespacem__collisions.html", [
-      [ "f_local_rank_owns_location", "namespacem__collisions.html#aa76f43bb77653a6b6e06a03c20b3ef08", null ],
       [ "f_neighborhood_ranks_own_location", "namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a", null ],
       [ "s_apply_collision_forces", "namespacem__collisions.html#ae2dd53a11be648ef6360131ed58b37f7", null ],
       [ "s_apply_ib_collision_forces_soft_sphere", "namespacem__collisions.html#ab9608ec22b9d2f89741faa0a9582dc7a", null ],
@@ -365,6 +364,14 @@ var namespaces_dup =
       [ "s_model_levelset", "namespacem__compute__levelset.html#adadad13569efd08e6caa0cb5b7157942", null ],
       [ "s_rectangle_levelset", "namespacem__compute__levelset.html#abb0e0b701082d92ef471ab50bea5e772", null ],
       [ "s_sphere_levelset", "namespacem__compute__levelset.html#a54445fc4a04b39ca1342ce7a14025db4", null ]
+    ] ],
+    [ "m_conduction", "namespacem__conduction.html", [
+      [ "s_compute_conduction_axis_source", "namespacem__conduction.html#acb93b93b87065f797628c64b2982c08d", null ],
+      [ "s_compute_conduction_source_flux", "namespacem__conduction.html#ae9002f54944002ee0cf112b206f67547", null ],
+      [ "isc1", "namespacem__conduction.html#aca94ff09f714a3566f9f5422629ee9d3", null ],
+      [ "isc2", "namespacem__conduction.html#a39abd8d391192e192039860da1786925", null ],
+      [ "isc3", "namespacem__conduction.html#a149cd87fb4afe90e998a95549d99cda6", null ],
+      [ "offsets_c", "namespacem__conduction.html#a557f7dae050ca6e1339dd4652a64efff", null ]
     ] ],
     [ "m_constants", "namespacem__constants.html", [
       [ "acoustic_spatial_support_width", "namespacem__constants.html#a92bc4d3446d8473183e165116932778f", null ],
@@ -521,6 +528,7 @@ var namespaces_dup =
       [ "icfl_max", "namespacem__data__output.html#acdf5ad3cda28e64c928597b8796c057c", null ],
       [ "q_cons_temp_ds", "namespacem__data__output.html#addfc053fb62d4bc8d27a1576330991b4", null ],
       [ "rc_min", "namespacem__data__output.html#a420dff0ba83cd92dc6fb32ee5b26e139", null ],
+      [ "tcfl_max", "namespacem__data__output.html#a4bcfd157c5abd538c73b83cc65965c4e", null ],
       [ "vcfl_max", "namespacem__data__output.html#a4566bfca1a62d6dc4a2ae2e390b8be45", null ]
     ] ],
     [ "m_delay_file_access", "namespacem__delay__file__access.html", [
@@ -781,11 +789,13 @@ var namespaces_dup =
       [ "fd_order", "namespacem__global__parameters__common.html#a0dc39d3d1b9f34d3bfed57401515c079", null ],
       [ "fft_wrt", "namespacem__global__parameters__common.html#a72af482d4d3a3e787ebae5fd3cf21eb4", null ],
       [ "file_per_process", "namespacem__global__parameters__common.html#a182dbf6694fb1d8ed0af60fb45fddb5a", null ],
+      [ "fluid_k_therm", "namespacem__global__parameters__common.html#a93edb278aedbd20fc8af7b15bbd4630a", null ],
       [ "fluid_pp", "namespacem__global__parameters__common.html#a4cffac1ed73ae4fee589c4e8003f207f", null ],
       [ "g_x", "namespacem__global__parameters__common.html#a8f616e5161a2aa837c4061c753b2fc7d", null ],
       [ "g_y", "namespacem__global__parameters__common.html#ae7985e06d85c4e58081e692f7117d1eb", null ],
       [ "g_z", "namespacem__global__parameters__common.html#ae48c5043ff814b99964b87e647646c03", null ],
       [ "gammas", "namespacem__global__parameters__common.html#a2289b961bfaf04f76e6e16a431afd135", null ],
+      [ "heat_conduction", "namespacem__global__parameters__common.html#a6d8182866181287faaa46cfdbeda0335", null ],
       [ "hll_u_interface", "namespacem__global__parameters__common.html#a3cede6867964fd4b6cae64c2ac941828", null ],
       [ "hyper_cleaning", "namespacem__global__parameters__common.html#a4724699cb454e5156bb55fa9a40c2855", null ],
       [ "hyper_cleaning_speed", "namespacem__global__parameters__common.html#a5a69c3996f0a3ebdbbd4e6fa775c402c", null ],
@@ -943,6 +953,7 @@ var namespaces_dup =
       [ "f_cut_off", "namespacem__helper.html#aa9ba2d3fb1ef5e4a67288444a2d371c5", null ],
       [ "f_cut_on", "namespacem__helper.html#a413a13fad04174ecec58d6f51395d44c", null ],
       [ "f_gx", "namespacem__helper.html#a5f8d74b3cd3f39b69d285906e65eb0e9", null ],
+      [ "f_local_rank_owns_location", "namespacem__helper.html#a3dc5744fc3c3549677332d36a6935600", null ],
       [ "f_logical_to_int", "namespacem__helper.html#af7ebba2c1388bcbe54e7b330c4dfc611", null ],
       [ "f_unit_vector", "namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1", null ],
       [ "f_xor", "namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c", null ],
@@ -1021,6 +1032,8 @@ var namespaces_dup =
       [ "f_log_cosh", "namespacem__ibm.html#a819f92e3bf0202d31eafbdc589ff025b", null ],
       [ "s_communicate_ib_forces", "namespacem__ibm.html#a20b12f9883611b3360b2d469a1870e66", null ],
       [ "s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
+      [ "s_compute_ghost_point_pressure", "namespacem__ibm.html#aee6bcfa35160493b9c38c203460b6fc4", null ],
+      [ "s_compute_ghost_point_velocity", "namespacem__ibm.html#a65e086391dadfdc6e838ef7ff0cec6c9", null ],
       [ "s_compute_ib_forces", "namespacem__ibm.html#a127d40085cc8ab5bdcde0f7cf894e92f", null ],
       [ "s_compute_image_points", "namespacem__ibm.html#ae9c18401f891392312ed68285d035d9c", null ],
       [ "s_compute_interpolation_coeffs", "namespacem__ibm.html#a2f678e57ffbd9f2e83e9d6eeb0be871e", null ],
@@ -1128,7 +1141,7 @@ var namespaces_dup =
       [ "s_mpi_reduce_int_sum", "namespacem__mpi__common.html#a4372ad204e9190d55c0cc6f35a4b9acd", null ],
       [ "s_mpi_reduce_maxloc", "namespacem__mpi__common.html#a2e3bdaffd98ab167782c6f43f182f89e", null ],
       [ "s_mpi_reduce_min", "namespacem__mpi__common.html#a9e8820cd853294229c309298cb44ad2b", null ],
-      [ "s_mpi_reduce_stability_criteria_extrema", "namespacem__mpi__common.html#a26b5a422ec788eeb67379768775bac48", null ],
+      [ "s_mpi_reduce_stability_criteria_extrema", "namespacem__mpi__common.html#aafa6e190520f561711618e47db335187", null ],
       [ "s_mpi_sendrecv_grid_variable_buffer", "namespacem__mpi__common.html#a88264e48b3d5813c227232621026acb0", null ],
       [ "s_mpi_sendrecv_variables_buffers", "namespacem__mpi__common.html#a8c037ba2780709c25f5f904e47641479", null ],
       [ "s_prohibit_abort", "namespacem__mpi__common.html#a4d03f5fc95657b6bec1f89221295b0cc", null ],
@@ -1180,18 +1193,6 @@ var namespaces_dup =
       [ "v_size", "namespacem__muscl.html#acd707c4794936367f42d86af56de7d7a", null ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", "namespacem__nvtx" ],
-    [ "m_particle_cloud", "namespacem__particle__cloud.html", [
-      [ "f_bin_hash", "namespacem__particle__cloud.html#aa2803b020159e1a466b23af39ea4b7be", null ],
-      [ "f_xorshift", "namespacem__particle__cloud.html#a733f14183bef377187ce1f2df3bf77bc", null ],
-      [ "s_add_cloud_particle", "namespacem__particle__cloud.html#a4b179b0701b9813eb9d7d2feea5ed1c5", null ],
-      [ "s_check_cloud_particle_overlap", "namespacem__particle__cloud.html#a843a321f20b41f63e2b64dc52ca86577", null ],
-      [ "s_generate_particle_clouds", "namespacem__particle__cloud.html#aa5f460970e7d842ed4079588c709632f", null ],
-      [ "s_get_cloud_bin", "namespacem__particle__cloud.html#ad8f5d91cffbe9e7e3fdca5f7a5cdc4cc", null ],
-      [ "s_particle_cloud_lattice", "namespacem__particle__cloud.html#acedaa7ab4782dc03d33cf3456692bfdb", null ],
-      [ "s_particle_cloud_rejection_pack", "namespacem__particle__cloud.html#ae3c24295683ec9db3db5d1f03495364f", null ],
-      [ "s_reduce_particle_cloud_ibs", "namespacem__particle__cloud.html#a56e47151d0fc9b578c8f9ee0589ed7ad", null ],
-      [ "s_sample_cloud_candidate", "namespacem__particle__cloud.html#af5453c5d4afe49a5954513c29c90a8d2", null ]
-    ] ],
     [ "m_patch_geometries", "namespacem__patch__geometries.html", [
       [ "f_is_inside_airfoil", "namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe", null ],
       [ "f_is_inside_cuboid", "namespacem__patch__geometries.html#a488e8317d848547d5652b53bafabd1fa", null ],
@@ -1258,7 +1259,7 @@ var namespaces_dup =
       [ "s_reactive_burn_substep", "namespacem__reactive__burn.html#a312c0b3fde94b1b5cb872a0c0f73df6b", null ]
     ] ],
     [ "m_rhs", "namespacem__rhs.html", [
-      [ "s_compute_additional_physics_rhs", "namespacem__rhs.html#a2df6b2a1323afaca022b5ef77dd4c0e0", null ],
+      [ "s_compute_additional_physics_rhs", "namespacem__rhs.html#af28a0a14e8ba54caee398fdfce799a3a", null ],
       [ "s_compute_advection_source_term", "namespacem__rhs.html#a736d8e38a47a66f839078dc3cfd63075", null ],
       [ "s_compute_directional_rhs", "namespacem__rhs.html#a5e194557c7d28a9ee7962f2eb9032710", null ],
       [ "s_compute_rhs", "namespacem__rhs.html#a37d36d411217c838e6a9fbef27ccc70e", null ],
@@ -1374,12 +1375,14 @@ var namespaces_dup =
     [ "m_sim_helpers", "namespacem__sim__helpers.html", [
       [ "f_compute_filtered_dtheta", "namespacem__sim__helpers.html#aa641aecbabcfd37456c476ac6d8549a8", null ],
       [ "s_compute_cell_state", "namespacem__sim__helpers.html#a287f4e373bb1a0881dd583b31651dc37", null ],
-      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a3d187753f4e292887a3030707059b421", null ],
-      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a4d9544afc8bb29583e9448d133880e5a", null ],
+      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a397cf276fdf6878ade5222940b70b888", null ],
+      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a26041c29b2b8590a289c06b6a50a152a", null ],
       [ "dt_limiter", "namespacem__sim__helpers.html#a7d921036c4f5ee6f7ece0753ba3be98a", null ],
-      [ "dt_limiter_names", "namespacem__sim__helpers.html#a441365a9510ce3419450c2b5f88ccf51", null ]
+      [ "dt_limiter_names", "namespacem__sim__helpers.html#a9fde3ca1369a53f4b2f95ac6b60680c3", null ]
     ] ],
     [ "m_start_up", "namespacem__start__up.html", [
+      [ "s_assign_particle_cloud_ib_defaults", "namespacem__start__up.html#a308ac65752ef1268769cdff4bf9bc408", null ],
+      [ "s_build_ib_neighborhood", "namespacem__start__up.html#ad9b45bd874a5d2a97704203606aebbb9", null ],
       [ "s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
       [ "s_compute_ib_neighbor_ranks", "namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a", null ],
       [ "s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
@@ -1394,7 +1397,6 @@ var namespaces_dup =
       [ "s_read_input_file", "namespacem__start__up.html#aca5460fc186e7b82ea78484ae98c74a4", null ],
       [ "s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
       [ "s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
-      [ "s_reduce_ib_patch_array", "namespacem__start__up.html#aa8d8bb7ccfccd073646ffb816baacd72", null ],
       [ "s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
       [ "s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
       [ "dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],
@@ -1471,6 +1473,7 @@ var namespaces_dup =
       [ "f_is_state_dependent", "namespacem__variables__conversion.html#ac4b85da18f47b1f9299ac47f1cff2ee1", null ],
       [ "f_isentrope_exponent", "namespacem__variables__conversion.html#aa67f0053c00464ae92227c3d1f1e27a0", null ],
       [ "f_isentrope_pressure", "namespacem__variables__conversion.html#ab4cc28ea1e231e3d1efe5d29894f35b6", null ],
+      [ "f_mixture_temperature", "namespacem__variables__conversion.html#abd29f26c25e0939db8ff73b3029b8e86", null ],
       [ "f_pressure", "namespacem__variables__conversion.html#ae34515ed090883f8b25cead816bdbb6c", null ],
       [ "f_relativistic_enthalpy", "namespacem__variables__conversion.html#a7efd1978a45cc045b1915b0bfd379992", null ],
       [ "f_sg_thermal", "namespacem__variables__conversion.html#a79978839333dff97c5faa778b70a71fa", null ],

@@ -23,7 +23,7 @@ var m__mpi__common_8fpp_8f90 =
     [ "m_mpi_common::s_mpi_reduce_int_sum", "namespacem__mpi__common.html#a4372ad204e9190d55c0cc6f35a4b9acd", null ],
     [ "m_mpi_common::s_mpi_reduce_maxloc", "namespacem__mpi__common.html#a2e3bdaffd98ab167782c6f43f182f89e", null ],
     [ "m_mpi_common::s_mpi_reduce_min", "namespacem__mpi__common.html#a9e8820cd853294229c309298cb44ad2b", null ],
-    [ "m_mpi_common::s_mpi_reduce_stability_criteria_extrema", "namespacem__mpi__common.html#a26b5a422ec788eeb67379768775bac48", null ],
+    [ "m_mpi_common::s_mpi_reduce_stability_criteria_extrema", "namespacem__mpi__common.html#aafa6e190520f561711618e47db335187", null ],
     [ "m_mpi_common::s_mpi_sendrecv_grid_variable_buffer", "namespacem__mpi__common.html#a88264e48b3d5813c227232621026acb0", null ],
     [ "m_mpi_common::s_mpi_sendrecv_variables_buffers", "namespacem__mpi__common.html#a8c037ba2780709c25f5f904e47641479", null ],
     [ "m_mpi_common::s_prohibit_abort", "namespacem__mpi__common.html#a4d03f5fc95657b6bec1f89221295b0cc", null ],

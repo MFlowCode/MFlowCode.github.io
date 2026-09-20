@@ -58,12 +58,12 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "namespacem__constants.html#a597087e79428fce5213b69cef3744219",
-"namespacem__global__parameters__common.html#a0ec1d8acc40d557369b3c1affafaf5b0",
-"namespacem__mpi__common.html#af0f1fec8c6c9fe2f7c4cd8d5b8594a69",
-"structm__derived__types_1_1acoustic__parameters.html#aa4ba699fa87f54cb9ea63cf7a3f5a6c9",
-"structm__derived__types_1_1ib__patch__parameters.html#a0326a19a0aa2eed8c6f22efc656b5169",
-"structm__derived__types_1_1int__bounds__info.html#a7c96b77e26fa09098ff573b3d744dcbd",
-"structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f"
+"namespacem__global__parameters__common.html#a080df1ef3e16258755c16f090ed44650",
+"namespacem__mpi__common.html#ab9e557649b1fca986ee793073abae4d4",
+"structm__derived__types_1_1acoustic__parameters.html#a7c1bc17e6471b4ba5421714bf29cabc2",
+"structm__derived__types_1_1ib__airfoil__parameters.html#a6cd1dd2020ead945a30e7f273162892d",
+"structm__derived__types_1_1int__bounds__info.html#a626d2ef8bcc5fc9c7033cdc21060378c",
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
