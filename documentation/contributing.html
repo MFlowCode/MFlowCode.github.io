@@ -236,9 +236,9 @@ How the Build Fits Together</h3>
 <div class="fragment"><div class="line">mfc.sh (env bootstrap, venv, module loading, lock)</div>
 <div class="line">  └─ toolchain/mfc/build.py (config slugs, cmake invocation)</div>
 <div class="line">       └─ CMakeLists.txt + cmake/{GPU,Fypp,ParamsCodegen,MFCTargets}.cmake</div>
-<div class="line">            └─ toolchain/mfc/params/generators/cmake_gen.py (writes 15 generated .fpp includes)</div>
+<div class="line">            └─ toolchain/mfc/params/generators/cmake_gen.py (writes 18 generated .fpp includes)</div>
 </div><!-- fragment --><p><b><span class="tt">mfc.sh</span> → <span class="tt">build.py</span>.</b> <span class="tt">mfc.sh</span> is a thin shell wrapper that activates the Python virtual environment, loads HPC modules, and delegates to <span class="tt">build.py</span>. <span class="tt">build.py</span> calls <span class="tt">get_slug</span> to compute a human-readable variant identifier (<span class="tt">&lt;prefix&gt;-&lt;10-hex&gt;</span>, e.g. <span class="tt">gpu-acc-chem-f93aa400b9</span>) that encodes every build-affecting flag: GPU backend, precision mode, debug, chemistry, MPI. Staging and install trees are namespaced by slug under <span class="tt">build/staging/</span> and <span class="tt">build/install/</span>, so multiple variants coexist without interfering.</p>
-<p><b>CMake layer.</b> <span class="tt">cmake/Fypp.cmake</span> defines <span class="tt">HANDLE_SOURCES</span>, which sets up one <span class="tt">add_custom_command</span> per <span class="tt">.fpp</span> file to run Fypp at build time. <span class="tt">cmake/ParamsCodegen.cmake</span> registers a single ninja-tracked <span class="tt">add_custom_command</span> (DEPENDS all <span class="tt">params/*.py</span>) that invokes <span class="tt">cmake_gen.py</span> and writes the 15 generated includes under <span class="tt">build/include/&lt;target&gt;/</span>. There is no configure-time generation: all 15 files are build outputs, so changing any <span class="tt">params/*.py</span> triggers only a targeted rebuild, not a full reconfigure.</p>
+<p><b>CMake layer.</b> <span class="tt">cmake/Fypp.cmake</span> defines <span class="tt">HANDLE_SOURCES</span>, which sets up one <span class="tt">add_custom_command</span> per <span class="tt">.fpp</span> file to run Fypp at build time. <span class="tt">cmake/ParamsCodegen.cmake</span> registers a single ninja-tracked <span class="tt">add_custom_command</span> (DEPENDS all <span class="tt">params/*.py</span>) that invokes <span class="tt">cmake_gen.py</span> and writes the 18 generated includes under <span class="tt">build/include/&lt;target&gt;/</span>. There is no configure-time generation: all 18 files are build outputs, so changing any <span class="tt">params/*.py</span> triggers only a targeted rebuild, not a full reconfigure.</p>
 <p><b>Fypp and per-target stubs.</b> Fypp resolves <span class="tt">#:include</span> at parse time, so every <span class="tt">.fpp</span> file sees exactly the include path for the target being compiled. <span class="tt">src/common/</span> is compiled once per executable with the <span class="tt">MFC_&lt;TARGET&gt;</span> preprocessor define (<span class="tt">MFC_PRE_PROCESS</span>, <span class="tt">MFC_SIMULATION</span>, or <span class="tt">MFC_POST_PROCESS</span>) — this is intentional. It is what lets common modules include per-target generated files and gate simulation-only code with <span class="tt">#ifdef MFC_SIMULATION</span> without duplication.</p>
 <p>For which of the 15 files is manual vs. generated and what each contains, see the "How to Add a New Simulation Parameter" section below.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md90"></a>
@@ -538,27 +538,39 @@ How to Allocate and Manage GPU Arrays</h3>
 </div><!-- fragment --><p>If an array is allocated inside an <span class="tt">if</span> block, its deallocation must follow the same condition.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md110"></a>
 How to Add an Equation of State</h3>
-<p>Every stiffened-gas expression lives in <span class="tt">src/common/m_variables_conversion.fpp</span>. Adding a second EOS means supplying these, not grepping for <span class="tt">gammas</span>:</p>
+<p>The equation-of-state operators live in <span class="tt">src/common/m_eos.fpp</span>, together with the mixture closure rules that combine them (<span class="tt">s_compute_mixture_coefficients</span>, <span class="tt">s_compute_speed_of_sound</span> and their <span class="tt">_dt</span>/<span class="tt">_avg</span> variants). The closure rules are not themselves equations of state, but they must stay in the same file as the phase chain they call: on NVHPC that call only inlines within one file, and separating them costs about a quarter of the grind time with no effect on the other backends. See the module-boundary section of <a class="el" href="gpuParallelization.html" title="GPU Parallelization">GPU Parallelization</a> before moving anything out of <span class="tt">m_eos.fpp</span>. Adding a second EOS means supplying these, not grepping for <span class="tt">gammas</span>:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Operator  </th><th class="markdownTableHeadNone">Gives  </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">s_reference_curve</span>  </td><td class="markdownTableBodyNone">the reference curve \(p_{ref}, e_{ref}\) and \(\Gamma_G\) of a state-dependent family - one <span class="tt">case</span> per family, and nothing else  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">s_compute_mixture_coefficients</span> / <span class="tt">_dt</span>  </td><td class="markdownTableBodyNone">mixture \(\Gamma, \Pi_\infty, q_v\) from the phase fractions, and their time derivative  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">f_pressure</span> / <span class="tt">s_compute_energy</span>  </td><td class="markdownTableBodyNone">\(p(e)\) and \(E(p)\)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">f_bulk_modulus</span>  </td><td class="markdownTableBodyNone">\(K(p)\) - every sound speed in MFC is \(K/\rho\), differing only in how phases are mixed  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">s_compute_speed_of_sound</span> / <span class="tt">_avg</span>  </td><td class="markdownTableBodyNone">that mixing: Wood's law, 6-equation, bubble-diluted  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">s_phase_internal_energy</span>  </td><td class="markdownTableBodyNone">per-phase internal energy (6-equation model)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">f_isentrope_exponent</span> / <span class="tt">f_isentrope_pressure</span>  </td><td class="markdownTableBodyNone">the isentrope \(p + B = \textrm{const}\,\rho^n\)  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">s_phase_internal_energy</span>  </td><td class="markdownTableBodyNone">per-phase internal energy (6-equation model)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">f_isentrope_exponent</span> / <span class="tt">f_isentrope_pressure</span>  </td><td class="markdownTableBodyNone">the isentrope \(p + B = \textrm{const}\,\rho^n\)  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">f_sg_thermal</span>  </td><td class="markdownTableBodyNone">the thermal law \(p + B = (n-1)c_v\rho T\)  </td></tr>
 </table>
 <p>The first six are <em>mechanical</em> - they need only \(p, \rho, e, c\). The last two are <em>caloric</em> and additionally need \(c_v\) and \(q&#39;_v\). An EOS that supplies only the mechanical set cannot support phase change (<span class="tt">m_phase_change</span> also needs entropy and enthalpy) or reactive burn, so those features must be prohibited for it in <span class="tt">case_validator.py</span>.</p>
 <p>The coefficients arrive in two parameterizations of the same EOS: <span class="tt">gammas</span>/<span class="tt">pi_infs</span> are the stored forms the user supplies (see <a class="el" href="equations.html#sec-stored-forms" title="Stored Parameter Conventions">Stored Parameter Conventions</a>), and <span class="tt">isentrope_n</span>/<span class="tt">isentrope_B</span> are the same EOS as \(p + B = \textrm{const}\,\rho^n\), derived once at start-up. Convert with the <span class="tt">f_isentrope_*</span> operators rather than open-coding either relation.</p>
+<p>Both are resolved once in <span class="tt">s_initialize_eos_module</span>. A state-dependent family skips this and computes its coefficients per cell from <span class="tt">s_reference_curve</span> instead.</p>
+<p><b>Adding a family</b> - a new state-dependent parameter set alongside Mie-Gruneisen, JWL and Vinet - starts at <span class="tt">toolchain/mfc/params/eos_families.py</span>: one <span class="tt">EosFamily</span> entry.</p>
+<p>From that entry, these are generated and need no hand edit: the Fortran <span class="tt">eos_*</span> constants, the <span class="tt">physical_parameters</span> parameter registration in <span class="tt">definitions.py</span>, the validator's per-family required/optional parameter sets and its initial-state coefficient call, both the <span class="tt">f_is_state_dependent</span> and <span class="tt">f_has_isentropic_reference</span> family tests, both layers of <span class="tt">s_initialize_eos_module</span>, and the <span class="tt">any_state_dependent_eos</span> case-optimization flag.</p>
+<p>Three things stay hand-written alongside the entry, each checked against the registry by a test that fails on disagreement: the <span class="tt">case</span> body in <span class="tt">s_reference_curve</span> (the per-family mathematics), the mirror function in <span class="tt">toolchain/mfc/eos.py</span>, and the family's fields on <span class="tt">physical_parameters</span> in <span class="tt">src/common/m_derived_types.fpp</span>. Those four edits are the whole job in the normal case.</p>
+<p>Two further edits are possible and are guarded by the compiler rather than by a test - they fail loudly at build with a clear error, not silently at runtime:</p>
+<ul>
+<li><span class="tt">m_eos.fpp</span>'s <span class="tt">use m_constants, only: ...</span> list must name the new <span class="tt">eos_&lt;suffix&gt;</span> constant. The generated family predicates reference it, so omitting it fails to compile.</li>
+<li>the <span class="tt">eos_coefficients</span> type in <span class="tt">src/common/m_derived_types.fpp</span> needs a new field only if the family stores a coefficient the existing ones do not provide. The generated assignment in <span class="tt">s_initialize_eos_module</span> fails to compile if the field is missing.</li>
+</ul>
+<p>One caveat: <span class="tt">f_has_isentropic_reference</span>'s <span class="tt">gruneisen_a == 0._wp</span> conjunct is a runtime test, not a family property, and stays hand-written in <span class="tt">m_eos.fpp</span>.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
 How to Add a Test Case</h3>
 <p><b>Step 1: Create a case file</b></p>

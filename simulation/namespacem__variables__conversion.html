@@ -189,64 +189,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a21906a4c29bbb1187212feb969c00502"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute partial densities and volume fractions.  <br /></td></tr>
 <tr class="memitem:a4e5737d07ee26f0d8547418aa8e79326" id="r_a4e5737d07ee26f0d8547418aa8e79326"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4e5737d07ee26f0d8547418aa8e79326">s_finalize_variables_conversion_module</a> ()</td></tr>
 <tr class="memdesc:a4e5737d07ee26f0d8547418aa8e79326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate fluid property arrays and post-processing fields allocated during module initialization.  <br /></td></tr>
-<tr class="memitem:a4f2b4d1845afc9f1fb8008832b039940" id="r_a4f2b4d1845afc9f1fb8008832b039940"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4f2b4d1845afc9f1fb8008832b039940">s_compute_mixture_coefficients</a> (alpha_rho_k, alpha_k, rho_k, gamma_k, pi_inf_k, qv_k)</td></tr>
-<tr class="memdesc:a4f2b4d1845afc9f1fb8008832b039940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixture coefficients of one state. Under bubbles_euler with num_fluids == 1 the sole advection slot aliases the void fraction (eqn_idxalf == eqn_idxadvend), so alpha is not a composition there and the coefficients are the liquid's. Clipping stays with callers; it differs between solvers and cannot coincide with that case, as mpp_lim requires num_fluids &gt; 1.  <br /></td></tr>
-<tr class="memitem:a9c6d4ea3754976f390ce4811b2bb2c29" id="r_a9c6d4ea3754976f390ce4811b2bb2c29"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a9c6d4ea3754976f390ce4811b2bb2c29">s_compute_mixture_coefficients_dt</a> (dalpha_rho_dt, dadv_dt, alpha_rho, adv, drho_dt, dgamma_dt, dpi_inf_dt, dqv_dt)</td></tr>
-<tr class="memdesc:a9c6d4ea3754976f390ce4811b2bb2c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time derivative of the mixture coefficients, mirroring s_compute_mixture_coefficients.  <br /></td></tr>
 <tr class="memitem:a94d4c83c80c0e5eb55a27addc9b849c3" id="r_a94d4c83c80c0e5eb55a27addc9b849c3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a94d4c83c80c0e5eb55a27addc9b849c3">s_compute_energy</a> (pres, alpha_rho_k, alpha_k, vel_sum, e)</td></tr>
 <tr class="memdesc:a94d4c83c80c0e5eb55a27addc9b849c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total energy per unit volume, thermodynamic terms only. Callers add magnetic and elastic energy, which are not equation-of-state terms. The chemistry and relativistic branches use a different relation and stay open-coded.  <br /></td></tr>
-<tr class="memitem:a28e5b6edaf2e9fe118fbed227b4117d1" id="r_a28e5b6edaf2e9fe118fbed227b4117d1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a28e5b6edaf2e9fe118fbed227b4117d1">s_reference_curve</a> (rho, i, p_ref, e_ref, dp_drho, de_drho, g0, dg0)</td></tr>
-<tr class="memdesc:a28e5b6edaf2e9fe118fbed227b4117d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reference curve of a state-dependent EOS at rho: p_ref, e_ref, their d/drho, and Gamma_G with its d/drho. A new family adds one case here and nothing else.  <br /></td></tr>
-<tr class="memitem:ac4b85da18f47b1f9299ac47f1cff2ee1" id="r_ac4b85da18f47b1f9299ac47f1cff2ee1"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#ac4b85da18f47b1f9299ac47f1cff2ee1">f_is_state_dependent</a> (i)</td></tr>
-<tr class="memdesc:ac4b85da18f47b1f9299ac47f1cff2ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the EOS of fluid i is a family whose coefficients vary with density.  <br /></td></tr>
-<tr class="memitem:a9181ee8be5b3c98c1ef9b0545bb26e6d" id="r_a9181ee8be5b3c98c1ef9b0545bb26e6d"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a9181ee8be5b3c98c1ef9b0545bb26e6d">f_has_isentropic_reference</a> (i)</td></tr>
-<tr class="memdesc:a9181ee8be5b3c98c1ef9b0545bb26e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when fluid i's reference curve is itself an isentrope (de_ref = -p_ref d(1/rho), which holds for JWL and Vinet but not for the Mie-Gruneisen Hugoniot) and its Gruneisen coefficient is constant. Those two together make the isentrope through any state closed-form, so it never has to be integrated.  <br /></td></tr>
-<tr class="memitem:aab8bf5663dd2f2bfbf7833727a251156" id="r_aab8bf5663dd2f2bfbf7833727a251156"><td class="memItemLeft">impure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#aab8bf5663dd2f2bfbf7833727a251156">f_hugoniot_compression_limit</a> (c0, s, s2, s3)</td></tr>
-<tr class="memdesc:aab8bf5663dd2f2bfbf7833727a251156"><td class="mdescLeft">&#160;</td><td class="mdescRight">The largest compression a cubic Hugoniot fit can represent. mu(u_p) = u_p/(u_s - u_p) rises, peaks where c0 = s2 u_p^2 + 2 s3 u_p^3, and falls after; only the rising branch is a physical shock. Returns a huge value for the linear fit, which never turns over. Host-side: called once per fluid at initialization.  <br /></td></tr>
-<tr class="memitem:adb17b17a25255b928a2bdff6afc313d3" id="r_adb17b17a25255b928a2bdff6afc313d3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adb17b17a25255b928a2bdff6afc313d3">s_eos_coefficients</a> (rho, i, gamma, pi_inf, dpi, dgamma)</td></tr>
-<tr class="memdesc:adb17b17a25255b928a2bdff6afc313d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gamma, Pi, dPi/drho and dGamma/drho of fluid i at density rho, the coefficients of rho e = Gamma p + Pi(rho). Stiffened and ideal gas keep the constants resolved at init, bit for bit.  <br /></td></tr>
-<tr class="memitem:aa67f0053c00464ae92227c3d1f1e27a0" id="r_aa67f0053c00464ae92227c3d1f1e27a0"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#aa67f0053c00464ae92227c3d1f1e27a0">f_isentrope_exponent</a> (gamma)</td></tr>
-<tr class="memdesc:aa67f0053c00464ae92227c3d1f1e27a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exponent of the stiffened-gas isentrope p + B = const rho**n. Precomputed per fluid as isentrope_n.  <br /></td></tr>
-<tr class="memitem:ab4cc28ea1e231e3d1efe5d29894f35b6" id="r_ab4cc28ea1e231e3d1efe5d29894f35b6"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#ab4cc28ea1e231e3d1efe5d29894f35b6">f_isentrope_pressure</a> (pi_inf, gamma)</td></tr>
-<tr class="memdesc:ab4cc28ea1e231e3d1efe5d29894f35b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference pressure of that isentrope. Precomputed per fluid as isentrope_B.  <br /></td></tr>
-<tr class="memitem:a79978839333dff97c5faa778b70a71fa" id="r_a79978839333dff97c5faa778b70a71fa"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a79978839333dff97c5faa778b70a71fa">f_sg_thermal</a> (pres, rho_or_t, <a class="el" href="namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2">n</a>, b, cv)</td></tr>
-<tr class="memdesc:a79978839333dff97c5faa778b70a71fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stiffened-gas thermal law p + B = (n - 1)*cv*rho*T. Pass rho to get T, or T to get rho.  <br /></td></tr>
-<tr class="memitem:abd29f26c25e0939db8ff73b3029b8e86" id="r_abd29f26c25e0939db8ff73b3029b8e86"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#abd29f26c25e0939db8ff73b3029b8e86">f_mixture_temperature</a> (alpha_rho_k, pres, gamma_k, pi_inf_k)</td></tr>
-<tr class="memdesc:abd29f26c25e0939db8ff73b3029b8e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thermal-equilibrium mixture temperature for stiffened gas, from primitives. Algebraically identical to the conservative form in <a class="el" href="namespacem__phase__change.html" title="Phase transition relaxation solvers for liquid-vapor flows with cavitation and boiling.">m_phase_change</a>'s s_infinite_pt_relaxation_k, T = (rho*e + p - sum(alpha_rho_i*qv_i)) / sum(alpha_rho_i*cv_i*n_i), because rho*e = gamma_mix*p + pi_inf_mix + sum(alpha_rho_i*qv_i) in MFC's stored variables.  <br /></td></tr>
-<tr class="memitem:aeb252ef47fac6ea9cda53620b577fae6" id="r_aeb252ef47fac6ea9cda53620b577fae6"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aeb252ef47fac6ea9cda53620b577fae6">s_phase_coefficients</a> (alpha_rho, alpha, i, rho, gamma, pi_inf, dpi, dgamma)</td></tr>
-<tr class="memdesc:aeb252ef47fac6ea9cda53620b577fae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficients of phase i at its own density alpha_rho/alpha: the per-cell dispatch when some fluid's EOS is state dependent, the constants resolved at init otherwise (bit for bit).  <br /></td></tr>
-<tr class="memitem:ace27fdee15875bf01d929c1bc146139b" id="r_ace27fdee15875bf01d929c1bc146139b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#ace27fdee15875bf01d929c1bc146139b">f_c2_from_coefficients</a> (rho, pres, gamma, pi_inf, dpi, dgamma)</td></tr>
-<tr class="memdesc:ace27fdee15875bf01d929c1bc146139b"><td class="mdescLeft">&#160;</td><td class="mdescRight">c^2 = [((Gamma + 1) p + Pi)/rho - dPi/drho - p dGamma/drho]/Gamma, the frozen speed of one phase.  <br /></td></tr>
-<tr class="memitem:a7b77526a1d58897a8a2491e631af6e49" id="r_a7b77526a1d58897a8a2491e631af6e49"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a7b77526a1d58897a8a2491e631af6e49">s_phase_c2</a> (rho, pres, i, c2)</td></tr>
-<tr class="memdesc:a7b77526a1d58897a8a2491e631af6e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frozen sound speed squared of one phase at (rho, p) from its own coefficients. These helpers are subroutines, not functions: a device function that calls a device subroutine is a pattern no other backend-tested code in MFC uses.  <br /></td></tr>
-<tr class="memitem:a77ce19c721cc426810e80aec91cbe03b" id="r_a77ce19c721cc426810e80aec91cbe03b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a77ce19c721cc426810e80aec91cbe03b">s_ode_slope</a> (kind, i, x, y, dydx)</td></tr>
-<tr class="memdesc:a77ce19c721cc426810e80aec91cbe03b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slope of the ODE <span class="tt">kind</span> for fluid i: dp/drho = c^2 along an isentrope (x = rho, y = p), or the reference temperature dT/dV = (de_ref/dV + p_ref)/c_v - Gamma_G T/V (x = V, y = T), the Maxwell relation applied to e = e_ref + c_v (T - T_ref).  <br /></td></tr>
-<tr class="memitem:abe5529139fd5d180511dcc6dfa5f0fe3" id="r_abe5529139fd5d180511dcc6dfa5f0fe3"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#abe5529139fd5d180511dcc6dfa5f0fe3">s_rk4</a> (kind, i, x0, y0, x1, y)</td></tr>
-<tr class="memdesc:abe5529139fd5d180511dcc6dfa5f0fe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed-step classical RK4 for the ODE <span class="tt">kind</span> from (x0, y0) to x1.  <br /></td></tr>
-<tr class="memitem:ae0572a7086df7450d6647e92799624a1" id="r_ae0572a7086df7450d6647e92799624a1"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae0572a7086df7450d6647e92799624a1">s_phase_pressure_on_isentrope</a> (pres, rho, xi, i, p_isen)</td></tr>
-<tr class="memdesc:ae0572a7086df7450d6647e92799624a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure of phase i after the isentropic density change rho -&gt; xi rho: closed form for the constant-coefficient families, integrated for a state-dependent EOS (the star states it serves are close to rho).  <br /></td></tr>
-<tr class="memitem:a13d186e1224584813015d6248acf0c04" id="r_a13d186e1224584813015d6248acf0c04"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a13d186e1224584813015d6248acf0c04">s_phase_temperature</a> (rho, pres, i, t)</td></tr>
-<tr class="memdesc:a13d186e1224584813015d6248acf0c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature of phase i at (rho, p): the stiffened-gas relation, or T_ref(rho) + (e - e_ref)/c_v.  <br /></td></tr>
-<tr class="memitem:aa87795b16c8360787362f90449bff85e" id="r_aa87795b16c8360787362f90449bff85e"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa87795b16c8360787362f90449bff85e">s_phase_density_on_isentrope</a> (i, rho_from, p_from, p_to, rho_to, c2_to)</td></tr>
-<tr class="memdesc:aa87795b16c8360787362f90449bff85e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density of phase i on the isentrope through (rho_from, p_from) at p_to, and c^2 there: Newton on the pressure integrator, whose slope is c^2. The relaxation's own Newton wraps this, so a few steps suffice.  <br /></td></tr>
-<tr class="memitem:a2947dbbfb28a30d68805cf5aa70d7723" id="r_a2947dbbfb28a30d68805cf5aa70d7723"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2947dbbfb28a30d68805cf5aa70d7723">s_phase_internal_energy</a> (pres, alpha, alpha_rho, i, e_phase)</td></tr>
-<tr class="memdesc:a2947dbbfb28a30d68805cf5aa70d7723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal energy per unit volume of phase i at pressure pres: alpha (Gamma p + Pi) + alpha_rho qv, with the coefficients at the phase's own density.  <br /></td></tr>
-<tr class="memitem:a96c1591e35617353f1b7f3d2b68b3aaa" id="r_a96c1591e35617353f1b7f3d2b68b3aaa"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a96c1591e35617353f1b7f3d2b68b3aaa">s_phase_bulk_modulus</a> (pres, alpha, alpha_rho, i, blkmod)</td></tr>
-<tr class="memdesc:a96c1591e35617353f1b7f3d2b68b3aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bulk modulus rho c^2 of phase i at pressure pres: f_bulk_modulus for a constant-coefficient fluid, bit for bit, minus the reference-curve terms rho (dPi/drho + p dGamma/drho)/Gamma otherwise.  <br /></td></tr>
 <tr class="memitem:a118badeed66ce02f17b580efc2b5b835" id="r_a118badeed66ce02f17b580efc2b5b835"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a118badeed66ce02f17b580efc2b5b835">f_elastic_energy</a> (tau, g, is_shear)</td></tr>
 <tr class="memdesc:a118badeed66ce02f17b580efc2b5b835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elastic strain energy of one stress component, doubled for a shear component: the tensor stores it once, the energy counts both off-diagonal entries. Zero without a shear modulus.  <br /></td></tr>
 <tr class="memitem:a5176752dcf27dd6f0bf1005d6cd9d808" id="r_a5176752dcf27dd6f0bf1005d6cd9d808"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a5176752dcf27dd6f0bf1005d6cd9d808">f_hypoelastic_energy</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, rho, g)</td></tr>
 <tr class="memdesc:a5176752dcf27dd6f0bf1005d6cd9d808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hypoelastic strain energy at one cell, summed over the stress components.  <br /></td></tr>
-<tr class="memitem:ae34515ed090883f8b25cead816bdbb6c" id="r_ae34515ed090883f8b25cead816bdbb6c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#ae34515ed090883f8b25cead816bdbb6c">f_pressure</a> (e_int, gamma, pi_inf, qv)</td></tr>
-<tr class="memdesc:ae34515ed090883f8b25cead816bdbb6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure of a stiffened gas from its internal energy density - the inverse of s_compute_energy. Callers subtract the kinetic, magnetic and elastic energy first; none of those are equation-of-state terms.  <br /></td></tr>
-<tr class="memitem:a024c07b63b9bf9991aac6bccd35ff28e" id="r_a024c07b63b9bf9991aac6bccd35ff28e"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a024c07b63b9bf9991aac6bccd35ff28e">f_bulk_modulus</a> (pres, gamma, pi_inf)</td></tr>
-<tr class="memdesc:a024c07b63b9bf9991aac6bccd35ff28e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Isentropic bulk modulus. Takes coefficients rather than a fluid index, so a mixture - whose effective gamma and pi_inf come from s_compute_mixture_coefficients - is the same call as a single fluid. Elastic callers add their own shear term.  <br /></td></tr>
-<tr class="memitem:a7efd1978a45cc045b1915b0bfd379992" id="r_a7efd1978a45cc045b1915b0bfd379992"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a7efd1978a45cc045b1915b0bfd379992">f_relativistic_enthalpy</a> (pres, rho, gamma)</td></tr>
-<tr class="memdesc:a7efd1978a45cc045b1915b0bfd379992"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relativistic specific enthalpy, h = 1 + (Gamma + 1)p/rho. Ideal gas only: the stiffness does not appear, so a fluid with a nonzero pi_inf is not represented here (the validator refuses that combination).  <br /></td></tr>
-<tr class="memitem:a9ccabfb859d62748696e2f39302ab520" id="r_a9ccabfb859d62748696e2f39302ab520"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a9ccabfb859d62748696e2f39302ab520">s_compute_speed_of_sound</a> (pres, rho, gamma, pi_inf, adv, c, alpha_rho)</td></tr>
-<tr class="memdesc:a9ccabfb859d62748696e2f39302ab520"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of sound of a thermodynamic state. Enthalpy is not an argument: for a real state H, |u|^2 and qv all cancel out of c^2 = ((Gamma + 1)p + Pi)/(Gamma rho). Averaged states, whose enthalpy is a free input, use the _avg variant.  <br /></td></tr>
-<tr class="memitem:a0f8ef54026ac1a0624f71333718f59ea" id="r_a0f8ef54026ac1a0624f71333718f59ea"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0f8ef54026ac1a0624f71333718f59ea">s_compute_speed_of_sound_avg</a> (pres, rho, gamma, pi_inf, qv, vel_sum, h, c_c, adv, c, alpha_rho)</td></tr>
-<tr class="memdesc:a0f8ef54026ac1a0624f71333718f59ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed of sound of an interface-averaged state. An average of two states is not a state - its enthalpy is not the one its pressure and density imply - so the caller supplies H, |u|^2 and qv. Only the enthalpy-reading branches differ from s_compute_speed_of_sound; keep the condition below in step with the branch list there.  <br /></td></tr>
 <tr class="memitem:aa1a6ec147af9288501df5c16adf2c833" id="r_aa1a6ec147af9288501df5c16adf2c833"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa1a6ec147af9288501df5c16adf2c833">s_compute_fast_magnetosonic_speed</a> (rho, c, b, norm, c_fast, h)</td></tr>
 <tr class="memdesc:aa1a6ec147af9288501df5c16adf2c833"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the fast magnetosonic wave speed from the sound speed, density, and magnetic field components.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -274,99 +222,6 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
-<a id="a024c07b63b9bf9991aac6bccd35ff28e" name="a024c07b63b9bf9991aac6bccd35ff28e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a024c07b63b9bf9991aac6bccd35ff28e">&#9670;&#160;</a></span>f_bulk_modulus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_bulk_modulus </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Isentropic bulk modulus. Takes coefficients rather than a fluid index, so a mixture - whose effective gamma and pi_inf come from s_compute_mixture_coefficients - is the same call as a single fluid. Elastic callers add their own shear term. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03928">3928</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a024c07b63b9bf9991aac6bccd35ff28e_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ace27fdee15875bf01d929c1bc146139b" name="ace27fdee15875bf01d929c1bc146139b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace27fdee15875bf01d929c1bc146139b">&#9670;&#160;</a></span>f_c2_from_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_variables_conversion::f_c2_from_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dgamma</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>c^2 = [((Gamma + 1) p + Pi)/rho - dPi/drho - p dGamma/drho]/Gamma, the frozen speed of one phase. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03430">3430</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ace27fdee15875bf01d929c1bc146139b_icgraph.svg" width="100%" height="491"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="a118badeed66ce02f17b580efc2b5b835" name="a118badeed66ce02f17b580efc2b5b835"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a118badeed66ce02f17b580efc2b5b835">&#9670;&#160;</a></span>f_elastic_energy()</h2>
 
@@ -393,93 +248,11 @@ Here is the caller graph for this function:</div>
 
 <p>Elastic strain energy of one stress component, doubled for a shear component: the tensor stores it once, the energy counts both off-diagonal entries. Zero without a shear modulus. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03813">3813</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02400">2400</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a118badeed66ce02f17b580efc2b5b835_icgraph.svg" width="100%" height="457"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a9181ee8be5b3c98c1ef9b0545bb26e6d" name="a9181ee8be5b3c98c1ef9b0545bb26e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9181ee8be5b3c98c1ef9b0545bb26e6d">&#9670;&#160;</a></span>f_has_isentropic_reference()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function m_variables_conversion::f_has_isentropic_reference </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>True when fluid i's reference curve is itself an isentrope (de_ref = -p_ref d(1/rho), which holds for JWL and Vinet but not for the Mie-Gruneisen Hugoniot) and its Gruneisen coefficient is constant. Those two together make the isentrope through any state closed-form, so it never has to be integrated. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03054">3054</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a9181ee8be5b3c98c1ef9b0545bb26e6d_icgraph.svg" width="100%" height="392"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aab8bf5663dd2f2bfbf7833727a251156" name="aab8bf5663dd2f2bfbf7833727a251156"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab8bf5663dd2f2bfbf7833727a251156">&#9670;&#160;</a></span>f_hugoniot_compression_limit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">impure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_variables_conversion::f_hugoniot_compression_limit </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s3</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The largest compression a cubic Hugoniot fit can represent. mu(u_p) = u_p/(u_s - u_p) rises, peaks where c0 = s2 u_p^2 + 2 s3 u_p^3, and falls after; only the rising branch is a physical shock. Returns a huge value for the linear fit, which never turns over. Host-side: called once per fluid at initialization. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03102">3102</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aab8bf5663dd2f2bfbf7833727a251156_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -525,7 +298,7 @@ Here is the caller graph for this function:</div>
 
 <p>Hypoelastic strain energy at one cell, summed over the stress components. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03864">3864</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02451">2451</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -535,248 +308,6 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a5176752dcf27dd6f0bf1005d6cd9d808_icgraph.svg" width="414" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac4b85da18f47b1f9299ac47f1cff2ee1" name="ac4b85da18f47b1f9299ac47f1cff2ee1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4b85da18f47b1f9299ac47f1cff2ee1">&#9670;&#160;</a></span>f_is_state_dependent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">logical function, public m_variables_conversion::f_is_state_dependent </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Whether the EOS of fluid i is a family whose coefficients vary with density. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03006">3006</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ac4b85da18f47b1f9299ac47f1cff2ee1_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aa67f0053c00464ae92227c3d1f1e27a0" name="aa67f0053c00464ae92227c3d1f1e27a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa67f0053c00464ae92227c3d1f1e27a0">&#9670;&#160;</a></span>f_isentrope_exponent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_isentrope_exponent </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Exponent of the stiffened-gas isentrope p + B = const rho**n. Precomputed per fluid as isentrope_n. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03167">3167</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa67f0053c00464ae92227c3d1f1e27a0_icgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ab4cc28ea1e231e3d1efe5d29894f35b6" name="ab4cc28ea1e231e3d1efe5d29894f35b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4cc28ea1e231e3d1efe5d29894f35b6">&#9670;&#160;</a></span>f_isentrope_pressure()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_isentrope_pressure </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reference pressure of that isentrope. Precomputed per fluid as isentrope_B. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03213">3213</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ab4cc28ea1e231e3d1efe5d29894f35b6_icgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="abd29f26c25e0939db8ff73b3029b8e86" name="abd29f26c25e0939db8ff73b3029b8e86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd29f26c25e0939db8ff73b3029b8e86">&#9670;&#160;</a></span>f_mixture_temperature()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_mixture_temperature </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf_k</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Thermal-equilibrium mixture temperature for stiffened gas, from primitives. Algebraically identical to the conservative form in <a class="el" href="namespacem__phase__change.html" title="Phase transition relaxation solvers for liquid-vapor flows with cavitation and boiling.">m_phase_change</a>'s s_infinite_pt_relaxation_k, T = (rho*e + p - sum(alpha_rho_i*qv_i)) / sum(alpha_rho_i*cv_i*n_i), because rho*e = gamma_mix*p + pi_inf_mix + sum(alpha_rho_i*qv_i) in MFC's stored variables. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03307">3307</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_abd29f26c25e0939db8ff73b3029b8e86_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ae34515ed090883f8b25cead816bdbb6c" name="ae34515ed090883f8b25cead816bdbb6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae34515ed090883f8b25cead816bdbb6c">&#9670;&#160;</a></span>f_pressure()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_pressure </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>e_int</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qv</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pressure of a stiffened gas from its internal energy density - the inverse of s_compute_energy. Callers subtract the kinetic, magnetic and elastic energy first; none of those are equation-of-state terms. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03881">3881</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ae34515ed090883f8b25cead816bdbb6c_icgraph.svg" width="100%" height="554"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a7efd1978a45cc045b1915b0bfd379992" name="a7efd1978a45cc045b1915b0bfd379992"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7efd1978a45cc045b1915b0bfd379992">&#9670;&#160;</a></span>f_relativistic_enthalpy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_relativistic_enthalpy </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Relativistic specific enthalpy, h = 1 + (Gamma + 1)p/rho. Ideal gas only: the stiffness does not appear, so a fluid with a nonzero pi_inf is not represented here (the validator refuses that combination). </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03975">3975</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7efd1978a45cc045b1915b0bfd379992_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a79978839333dff97c5faa778b70a71fa" name="a79978839333dff97c5faa778b70a71fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79978839333dff97c5faa778b70a71fa">&#9670;&#160;</a></span>f_sg_thermal()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_variables_conversion::f_sg_thermal </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_or_t</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>cv</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Stiffened-gas thermal law p + B = (n - 1)*cv*rho*T. Pass rho to get T, or T to get rho. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03259">3259</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a79978839333dff97c5faa778b70a71fa_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -817,12 +348,7 @@ Here is the caller graph for this function:</div>
 
 <p>Total energy per unit volume, thermodynamic terms only. Callers add magnetic and elastic energy, which are not equation-of-state terms. The chemistry and relativistic branches use a different relation and stay open-coded. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02851">2851</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a94d4c83c80c0e5eb55a27addc9b849c3_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02343">2343</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -878,126 +404,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l04200">4200</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02467">2467</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa1a6ec147af9288501df5c16adf2c833_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a4f2b4d1845afc9f1fb8008832b039940" name="a4f2b4d1845afc9f1fb8008832b039940"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f2b4d1845afc9f1fb8008832b039940">&#9670;&#160;</a></span>s_compute_mixture_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_compute_mixture_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>gamma_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>pi_inf_k</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>qv_k</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Mixture coefficients of one state. Under bubbles_euler with num_fluids == 1 the sole advection slot aliases the void fraction (eqn_idxalf == eqn_idxadvend), so alpha is not a composition there and the coefficients are the liquid's. Clipping stays with callers; it differs between solvers and cannot coincide with that case, as mpp_lim requires num_fluids &gt; 1. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02682">2682</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a4f2b4d1845afc9f1fb8008832b039940_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a4f2b4d1845afc9f1fb8008832b039940_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a9c6d4ea3754976f390ce4811b2bb2c29" name="a9c6d4ea3754976f390ce4811b2bb2c29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c6d4ea3754976f390ce4811b2bb2c29">&#9670;&#160;</a></span>s_compute_mixture_coefficients_dt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_compute_mixture_coefficients_dt </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dalpha_rho_dt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dadv_dt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>adv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>drho_dt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dgamma_dt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dpi_inf_dt</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dqv_dt</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Time derivative of the mixture coefficients, mirroring s_compute_mixture_coefficients. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02769">2769</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a9c6d4ea3754976f390ce4811b2bb2c29_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1073,11 +484,11 @@ Here is the call graph for this function:</div>
 
 <p>Compute the pressure from the appropriate equation of state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00441">441</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00439">439</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a8647994d1a1fe32636ef4a3b843eadce_cgraph.svg" width="419" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a8647994d1a1fe32636ef4a3b843eadce_cgraph.svg" width="380" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1128,151 +539,11 @@ Here is the caller graph for this function:</div>
 
 <p>Compute partial densities and volume fractions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02492">2492</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02154">2154</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a21906a4c29bbb1187212feb969c00502_icgraph.svg" width="100%" height="537"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a9ccabfb859d62748696e2f39302ab520" name="a9ccabfb859d62748696e2f39302ab520"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ccabfb859d62748696e2f39302ab520">&#9670;&#160;</a></span>s_compute_speed_of_sound()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_compute_speed_of_sound </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>adv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Speed of sound of a thermodynamic state. Enthalpy is not an argument: for a real state H, |u|^2 and qv all cancel out of c^2 = ((Gamma + 1)p + Pi)/(Gamma rho). Averaged states, whose enthalpy is a free input, use the _avg variant. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l04022">4022</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a9ccabfb859d62748696e2f39302ab520_cgraph.svg" width="100%" height="431"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a9ccabfb859d62748696e2f39302ab520_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a0f8ef54026ac1a0624f71333718f59ea" name="a0f8ef54026ac1a0624f71333718f59ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f8ef54026ac1a0624f71333718f59ea">&#9670;&#160;</a></span>s_compute_speed_of_sound_avg()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_compute_speed_of_sound_avg </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>qv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_sum</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>h</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c_c</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>adv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Speed of sound of an interface-averaged state. An average of two states is not a state - its enthalpy is not the one its pressure and density imply - so the caller supplies H, |u|^2 and qv. Only the enthalpy-reading branches differ from s_compute_speed_of_sound; keep the condition below in step with the branch list there. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l04149">4149</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a0f8ef54026ac1a0624f71333718f59ea_cgraph.svg" width="100%" height="431"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a0f8ef54026ac1a0624f71333718f59ea_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1308,11 +579,11 @@ Here is the caller graph for this function:</div>
 
 <p>Convert conserved variables (rho*alpha, rho*u, E, alpha) to primitives (rho, u, p, alpha). Conversion depends on model_eqns: each model has different variable sets and EOS. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01352">1352</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01014">1014</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7d567315b057c0da0cb37f89ef298031_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7d567315b057c0da0cb37f89ef298031_cgraph.svg" width="100%" height="559"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1373,7 +644,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert mixture variables to density, gamma, pi_inf, and qv for the gamma/pi_inf model. Given conservative or primitive variables, transfers the density, specific heat ratio function and the liquid stiffness function from q_vf to rho, gamma and pi_inf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00517">517</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1403,11 +674,11 @@ Here is the caller graph for this function:</div>
 
 <p>Convert primitives (rho, u, p, alpha) to conserved variables (rho*alpha, rho*u, E, alpha). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01889">1889</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01551">1551</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a6948eb28c04a325dc94f777d20558a1e_cgraph.svg" width="100%" height="452"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a6948eb28c04a325dc94f777d20558a1e_cgraph.svg" width="100%" height="451"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1484,11 +755,11 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02132">2132</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01794">1794</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa198f649115ef044b285170f886094ac_cgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa198f649115ef044b285170f886094ac_cgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1559,11 +830,11 @@ Here is the call graph for this function:</div>
 
 <p>Convert species volume fractions and partial densities to mixture density, gamma, pi_inf, and qv. Given conservative or primitive variables, computes the density, the specific heat ratio function and the liquid stiffness function from q_vf and stores the results into rho, gamma and pi_inf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00545">545</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7f3bffa0ba13432f79f095a78fcf6e5a_cgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7f3bffa0ba13432f79f095a78fcf6e5a_cgraph.svg" width="100%" height="413"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1629,11 +900,11 @@ Here is the caller graph for this function:</div>
 
 <p>Host- and device-callable conversion kernel for species and mixture variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00576">576</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ac00dd41bc1a03bc4ee830cfa4fc7f2e6_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ac00dd41bc1a03bc4ee830cfa4fc7f2e6_cgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1709,71 +980,16 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch to the s_convert_mixture_to_mixture_variables and s_convert_species_to_mixture_variables subroutines. Replaces a procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ad79dc943a9108e838d80bb2b264fba8e_cgraph.svg" width="100%" height="454"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ad79dc943a9108e838d80bb2b264fba8e_cgraph.svg" width="100%" height="451"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ad79dc943a9108e838d80bb2b264fba8e_icgraph.svg" width="100%" height="505"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="adb17b17a25255b928a2bdff6afc313d3" name="adb17b17a25255b928a2bdff6afc313d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb17b17a25255b928a2bdff6afc313d3">&#9670;&#160;</a></span>s_eos_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_eos_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dgamma</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gamma, Pi, dPi/drho and dGamma/drho of fluid i at density rho, the coefficients of rho e = Gamma p + Pi(rho). Stiffened and ideal gas keep the constants resolved at init, bit for bit. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03128">3128</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_adb17b17a25255b928a2bdff6afc313d3_cgraph.svg" width="419" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_adb17b17a25255b928a2bdff6afc313d3_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1792,7 +1008,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate fluid property arrays and post-processing fields allocated during module initialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02575">2575</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02237">2237</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1817,7 +1033,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble mass-vapor values at quadrature nodes from the conserved moment statistics. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01267">1267</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00929">929</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1847,7 +1063,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble internal pressures at quadrature nodes using isothermal relations from the Preston model. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01306">1306</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00968">968</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1882,573 +1098,11 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the variables conversion module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00671">671</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aaad21817e69bab852d3bcb46ddbb0caa_cgraph.svg" width="466" height="243"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00669">669</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aaad21817e69bab852d3bcb46ddbb0caa_icgraph.svg" width="531" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a77ce19c721cc426810e80aec91cbe03b" name="a77ce19c721cc426810e80aec91cbe03b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77ce19c721cc426810e80aec91cbe03b">&#9670;&#160;</a></span>s_ode_slope()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_variables_conversion::s_ode_slope </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>kind</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dydx</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Slope of the ODE <span class="tt">kind</span> for fluid i: dp/drho = c^2 along an isentrope (x = rho, y = p), or the reference temperature dT/dV = (de_ref/dV + p_ref)/c_v - Gamma_G T/V (x = V, y = T), the Maxwell relation applied to e = e_ref + c_v (T - T_ref). </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03507">3507</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a77ce19c721cc426810e80aec91cbe03b_cgraph.svg" width="100%" height="429"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a77ce19c721cc426810e80aec91cbe03b_icgraph.svg" width="100%" height="485"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a96c1591e35617353f1b7f3d2b68b3aaa" name="a96c1591e35617353f1b7f3d2b68b3aaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96c1591e35617353f1b7f3d2b68b3aaa">&#9670;&#160;</a></span>s_phase_bulk_modulus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_phase_bulk_modulus </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>blkmod</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Bulk modulus rho c^2 of phase i at pressure pres: f_bulk_modulus for a constant-coefficient fluid, bit for bit, minus the reference-curve terms rho (dPi/drho + p dGamma/drho)/Gamma otherwise. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03763">3763</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a96c1591e35617353f1b7f3d2b68b3aaa_cgraph.svg" width="100%" height="410"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a96c1591e35617353f1b7f3d2b68b3aaa_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a7b77526a1d58897a8a2491e631af6e49" name="a7b77526a1d58897a8a2491e631af6e49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b77526a1d58897a8a2491e631af6e49">&#9670;&#160;</a></span>s_phase_c2()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_variables_conversion::s_phase_c2 </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c2</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Frozen sound speed squared of one phase at (rho, p) from its own coefficients. These helpers are subroutines, not functions: a device function that calls a device subroutine is a pattern no other backend-tested code in MFC uses. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03477">3477</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7b77526a1d58897a8a2491e631af6e49_cgraph.svg" width="647" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a7b77526a1d58897a8a2491e631af6e49_icgraph.svg" width="100%" height="491"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aeb252ef47fac6ea9cda53620b577fae6" name="aeb252ef47fac6ea9cda53620b577fae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb252ef47fac6ea9cda53620b577fae6">&#9670;&#160;</a></span>s_phase_coefficients()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_phase_coefficients </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>gamma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>pi_inf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dpi</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dgamma</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Coefficients of phase i at its own density alpha_rho/alpha: the per-cell dispatch when some fluid's EOS is state dependent, the constants resolved at init otherwise (bit for bit). </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03375">3375</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aeb252ef47fac6ea9cda53620b577fae6_cgraph.svg" width="647" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aeb252ef47fac6ea9cda53620b577fae6_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aa87795b16c8360787362f90449bff85e" name="aa87795b16c8360787362f90449bff85e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa87795b16c8360787362f90449bff85e">&#9670;&#160;</a></span>s_phase_density_on_isentrope()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_phase_density_on_isentrope </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho_from</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>p_from</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>p_to</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho_to</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>c2_to</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Density of phase i on the isentrope through (rho_from, p_from) at p_to, and c^2 there: Newton on the pressure integrator, whose slope is c^2. The relaxation's own Newton wraps this, so a few steps suffice. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03666">3666</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa87795b16c8360787362f90449bff85e_cgraph.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_aa87795b16c8360787362f90449bff85e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a2947dbbfb28a30d68805cf5aa70d7723" name="a2947dbbfb28a30d68805cf5aa70d7723"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2947dbbfb28a30d68805cf5aa70d7723">&#9670;&#160;</a></span>s_phase_internal_energy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_phase_internal_energy </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>e_phase</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Internal energy per unit volume of phase i at pressure pres: alpha (Gamma p + Pi) + alpha_rho qv, with the coefficients at the phase's own density. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03713">3713</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a2947dbbfb28a30d68805cf5aa70d7723_cgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a2947dbbfb28a30d68805cf5aa70d7723_icgraph.svg" width="100%" height="505"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ae0572a7086df7450d6647e92799624a1" name="ae0572a7086df7450d6647e92799624a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0572a7086df7450d6647e92799624a1">&#9670;&#160;</a></span>s_phase_pressure_on_isentrope()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_phase_pressure_on_isentrope </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>xi</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>p_isen</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pressure of phase i after the isentropic density change rho -&gt; xi rho: closed form for the constant-coefficient families, integrated for a state-dependent EOS (the star states it serves are close to rho). </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03591">3591</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ae0572a7086df7450d6647e92799624a1_cgraph.svg" width="100%" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_ae0572a7086df7450d6647e92799624a1_icgraph.svg" width="100%" height="392"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="a13d186e1224584813015d6248acf0c04" name="a13d186e1224584813015d6248acf0c04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13d186e1224584813015d6248acf0c04">&#9670;&#160;</a></span>s_phase_temperature()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine, public m_variables_conversion::s_phase_temperature </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Temperature of phase i at (rho, p): the stiffened-gas relation, or T_ref(rho) + (e - e_ref)/c_v. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03630">3630</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a13d186e1224584813015d6248acf0c04_cgraph.svg" width="100%" height="480"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a13d186e1224584813015d6248acf0c04_icgraph.svg" width="616" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a28e5b6edaf2e9fe118fbed227b4117d1" name="a28e5b6edaf2e9fe118fbed227b4117d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28e5b6edaf2e9fe118fbed227b4117d1">&#9670;&#160;</a></span>s_reference_curve()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_variables_conversion::s_reference_curve </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>p_ref</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>e_ref</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dp_drho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>de_drho</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>g0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dg0</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>The reference curve of a state-dependent EOS at rho: p_ref, e_ref, their d/drho, and Gamma_G with its d/drho. A new family adds one case here and nothing else. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02908">2908</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_a28e5b6edaf2e9fe118fbed227b4117d1_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="abe5529139fd5d180511dcc6dfa5f0fe3" name="abe5529139fd5d180511dcc6dfa5f0fe3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe5529139fd5d180511dcc6dfa5f0fe3">&#9670;&#160;</a></span>s_rk4()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_variables_conversion::s_rk4 </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>kind</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fixed-step classical RK4 for the ODE <span class="tt">kind</span> from (x0, y0) to x1. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l03540">3540</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_abe5529139fd5d180511dcc6dfa5f0fe3_cgraph.svg" width="100%" height="429"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__variables__conversion_abe5529139fd5d180511dcc6dfa5f0fe3_icgraph.svg" width="100%" height="485"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -2474,7 +1128,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00373">373</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00371">371</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2498,7 +1152,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2516,7 +1170,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar sp. heat ratio function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00416">416</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2540,7 +1194,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00370">370</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2564,7 +1218,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2588,7 +1242,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2612,7 +1266,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2636,7 +1290,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2660,7 +1314,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2684,7 +1338,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2708,7 +1362,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2726,7 +1380,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar liquid stiffness function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00415">415</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2750,7 +1404,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2774,7 +1428,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00374">374</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2792,7 +1446,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar density function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00415">415</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00413">413</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -10,6 +10,7 @@ var files_dup =
     [ "m_data_output.fpp.f90", "m__data__output_8fpp_8f90.html", "m__data__output_8fpp_8f90" ],
     [ "m_derived_types.fpp.f90", "m__derived__types_8fpp_8f90.html", "m__derived__types_8fpp_8f90" ],
     [ "m_derived_variables.fpp.f90", "m__derived__variables_8fpp_8f90.html", "m__derived__variables_8fpp_8f90" ],
+    [ "m_eos.fpp.f90", "m__eos_8fpp_8f90.html", "m__eos_8fpp_8f90" ],
     [ "m_finite_differences.fpp.f90", "m__finite__differences_8fpp_8f90.html", "m__finite__differences_8fpp_8f90" ],
     [ "m_global_parameters.fpp.f90", "m__global__parameters_8fpp_8f90.html", "m__global__parameters_8fpp_8f90" ],
     [ "m_global_parameters_common.fpp.f90", "m__global__parameters__common_8fpp_8f90.html", "m__global__parameters__common_8fpp_8f90" ],
