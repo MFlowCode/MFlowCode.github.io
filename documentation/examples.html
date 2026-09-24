@@ -199,7 +199,7 @@ Numerical Schlieren at Final Time</h3>
 <p><img src="final-2D_triple_point-example.png" alt="" height="400" class="inline"/></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md229"></a>
 3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)</h2>
-<p>A temporally-evolving supersonic reacting shear layer between a hot air stream and an N2-diluted hydrogen stream. The base state comes from a 1-D flamelet solve (Cantera + Pyrometheus + JAX) extruded into 3D by <span class="tt">hcid=371</span>. This is the supersonic counterpart to <span class="tt">examples/2D_reacting_mixing_layer</span>, which runs the same flamelet machinery at <span class="tt">Mc = 0.3</span>.</p>
+<p>A temporally-evolving supersonic reacting shear layer between a hot air stream and an N2-diluted hydrogen stream. The base state comes from Cantera-only stream mixing (or a counterflow flame with <span class="tt">--hot</span>) extruded into 3D by <span class="tt">hcid=371</span>. This is the supersonic counterpart to <span class="tt">examples/2D_reacting_mixing_layer</span>, which runs the same flamelet machinery at <span class="tt">Mc = 0.3</span>.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md230"></a>
 Configuration</h3>
 <table class="markdownTable">
@@ -238,7 +238,7 @@ Initial condition</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md232"></a>
 Running</h3>
 <pre class="fragment">./mfc.sh run examples/3D_reacting_mixing_layer/case.py -n 8
-</pre><p><span class="tt">--scale</span> shrinks the grid for cheap runs; <span class="tt">--scale 0.05</span> gives 32^3, which is what the <span class="tt">3D -&gt; Chemistry -&gt; Reacting Mixing Layer</span> regression test uses. <span class="tt">--hot</span> runs the full flamelet Newton/BDF solve instead of the default cold mollified profile.</p>
+</pre><p><span class="tt">--scale</span> shrinks the grid for cheap runs; <span class="tt">--scale 0.05</span> gives 32^3, which is what the <span class="tt">3D -&gt; Chemistry -&gt; Reacting Mixing Layer</span> regression test uses. <span class="tt">--hot</span> runs the full Cantera counterflow flame solve instead of the default cold mollified profile. <span class="tt">flame_strain_rate</span> in <span class="tt">case.py</span> sets the nominal inlet strain rate (default 100/s). The hot profile is mapped by mixture fraction onto the prescribed shear layer; it replaces the former scalar-dissipation-matched flamelet initialization. See <a class="el" href="thermochemistry.html" title="Thermochemistry implementation">Thermochemistry implementation</a> for the model and validation details.</p>
 <p>The mechanism ships alongside the case as <span class="tt">sandiego.yaml</span> (UC San Diego Combustion Research Group, <a href="https://web.eng.ucsd.edu/mae/groups/combustion/mechanism.html">https://web.eng.ucsd.edu/mae/groups/combustion/mechanism.html</a>).</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md233"></a>
 Azimuthal Fourier conduction convergence (3D cylindrical)</h2>
@@ -974,7 +974,7 @@ Observed convergence</h3>
 </table>
 <p>Second order through NX=400. The drop at NX=800 is the <span class="tt">O(dt)</span> time-splitting floor, which by then is comparable to the spatial error; refining <span class="tt">dt</span> restores second order.</p>
 <p>The result is unchanged on 2 ranks (<span class="tt">-n 2</span>), which exercises the MPI temperature halo exchange.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-24</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

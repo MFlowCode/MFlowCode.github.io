@@ -65,11 +65,11 @@ var searchData=
   ['18_20flux_20limiting_62',['18. Flux Limiting',['../equations.html#autotoc_md217',1,'']]],
   ['1849_63',['Immersed-boundary force on a thin plate (issue #1849)',['../examples.html#autotoc_md239',1,'']]],
   ['19_20non_20newtonian_20herschel_20bulkley_20viscosity_64',['19. Non-Newtonian (Herschel-Bulkley) Viscosity',['../case.html#sec-non-newtonian',1,'']]],
-  ['1_3a_20setting_20up_20your_20environment_65',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md665',1,'']]],
+  ['1_3a_20setting_20up_20your_20environment_65',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md668',1,'']]],
   ['1b_20units_20dimensions_20and_20non_20dimensionalization_66',['1b. Units, Dimensions, and Non-Dimensionalization',['../equations.html#sec-units-dimensions',1,'']]],
   ['1d_67',['1D',['../examples.html#autotoc_md315',1,'Lax shock tube problem (1D)'],['../examples.html#autotoc_md248',1,'Shu-Osher problem (1D)'],['../examples.html#autotoc_md265',1,'Titarev-Toro problem (1D)']]],
   ['1d_20fourier_20conduction_20convergence_68',['1D Fourier conduction convergence',['../examples.html#autotoc_md348',1,'']]],
   ['1d_20multi_20component_20inert_20shock_20tube_69',['1D Multi-Component Inert Shock Tube',['../examples.html#autotoc_md221',1,'']]],
   ['1d_20multi_20component_20reactive_20shock_20tube_70',['1D Multi-Component Reactive Shock Tube',['../examples.html#autotoc_md224',1,'']]],
-  ['1d_20rendering_71',['Tiled 1D rendering',['../visualization.html#autotoc_md653',1,'']]]
+  ['1d_20rendering_71',['Tiled 1D rendering',['../visualization.html#autotoc_md656',1,'']]]
 ];

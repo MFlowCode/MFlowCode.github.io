@@ -816,7 +816,7 @@ Example: Non-Dimensionalizing a Bubble Case</h4>
 <p class="formulaDsp">
 \[q_\text{diff} = \lambda\,\frac{\partial T}{\partial x} + \sum_k h_k\,\dot{m}_k\]
 </p>
-<p>Reaction mechanisms are code-generated via Pyrometheus (Cisneros-Garibay et al. <a class="el" href="citelist.html#CITEREF_cisneros26">[12]</a>), which provides symbolic abstractions for thermochemistry that enable portable GPU computation and automatic differentiation of chemical source terms.</p>
+<p>Reaction mechanisms are compiled into Fortran by MFC's own thermochemistry generator, using Cantera to load mechanism and transport data. The generator derives from the Fortran path of Pyrometheus (Cisneros-Garibay et al. <a class="el" href="citelist.html#CITEREF_cisneros26">[12]</a>), with its MIT attribution retained. The generated routines support CPU, OpenACC, and OpenMP execution; MFC does not require Pyrometheus, JAX, or automatic differentiation. See <a class="el" href="thermochemistry.html" title="Thermochemistry implementation">Thermochemistry implementation</a>.</p>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="autotoc_md180"></a>
 10. Surface Tension (<span class="tt">surface_tension = .true.</span>) (Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer17">[46]</a>; Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a> Sec. 4.1.8)</h2>

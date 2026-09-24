@@ -1496,6 +1496,7 @@ Immersed-boundary force history</h4>
 <li><span class="tt">chem_params%adap_substeps</span> (default <span class="tt">F</span>) makes each rank choose its α-QSS sub-step count per flow step from the largest chemical stiffness among its own cells: the count sits at <span class="tt">reaction_substeps</span> (the floor) in inert or burned gas and rises toward <span class="tt">reaction_substeps_max</span> (the ceiling) only across the reaction front. It uses no MPI collectives. When enabled, <span class="tt">reaction_substeps &gt;= 1</span> and <span class="tt">reaction_substeps_max &gt;= reaction_substeps</span> are required</li>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 </ul>
+<p>MFC generates and compiles the mechanism's Fortran routines itself. Supported mechanism features and the Cantera-only mixing-layer initialization are described in <a class="el" href="thermochemistry.html" title="Thermochemistry implementation">Thermochemistry implementation</a>.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 18. Chemistry-Specific Boundary Conditions</h3>
 <table class="markdownTable">
