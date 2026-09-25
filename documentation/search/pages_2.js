@@ -13,9 +13,9 @@ var searchData=
   ['3_20rayleigh17_20plesset49_10',['6.1.2 Rayleigh-Plesset (&lt;span class=&quot;tt&quot;&gt;bubble_model = 3&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_rayleigh17&quot;&gt;[29]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_plesset49&quot;&gt;[40]&lt;/a&gt;)',['../equations.html#autotoc_md164',1,'']]],
   ['3_20time_20integration_11',['15.3 Time Integration',['../equations.html#autotoc_md203',1,'']]],
   ['3_3a_20running_20pace_20paraview_20server_12',['Step 3: Running pace-paraview-server',['../visualization.html#autotoc_md670',1,'']]],
-  ['3d_13',['3D',['../examples.html#autotoc_md293',1,'3D Turbulent Mixing layer (3D)'],['../examples.html#autotoc_md331',1,'IBM Bow Shock (3D)'],['../examples.html#autotoc_md280',1,'Rayleigh-Taylor Instability (3D)'],['../examples.html#autotoc_md343',1,'Taylor-Green Vortex (3D)']]],
-  ['3d_20cylindrical_14',['Azimuthal Fourier conduction convergence (3D cylindrical)',['../examples.html#autotoc_md233',1,'']]],
+  ['3d_13',['3D',['../examples.html#autotoc_md265',1,'3D Turbulent Mixing layer (3D)'],['../examples.html#autotoc_md315',1,'IBM Bow Shock (3D)'],['../examples.html#autotoc_md301',1,'Rayleigh-Taylor Instability (3D)'],['../examples.html#autotoc_md267',1,'Taylor-Green Vortex (3D)']]],
+  ['3d_20cylindrical_14',['Azimuthal Fourier conduction convergence (3D cylindrical)',['../examples.html#autotoc_md322',1,'']]],
   ['3d_20slicing_15',['3D slicing',['../visualization.html#autotoc_md654',1,'']]],
-  ['3d_20temporal_20reacting_20mixing_20layer_20h2_20n2_20air_20mc_201_205_16',['3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)',['../examples.html#autotoc_md229',1,'']]],
-  ['3d_20turbulent_20mixing_20layer_203d_17',['3D Turbulent Mixing layer (3D)',['../examples.html#autotoc_md293',1,'']]]
+  ['3d_20temporal_20reacting_20mixing_20layer_20h2_20n2_20air_20mc_201_205_16',['3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)',['../examples.html#autotoc_md272',1,'']]],
+  ['3d_20turbulent_20mixing_20layer_203d_17',['3D Turbulent Mixing layer (3D)',['../examples.html#autotoc_md265',1,'']]]
 ];
