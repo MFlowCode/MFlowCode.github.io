@@ -12,6 +12,7 @@ var structm__derived__types_1_1particle__cloud__parameters =
     [ "periodic", "structm__derived__types_1_1particle__cloud__parameters.html#a028fe74470d23551637470d095a7e8bb", null ],
     [ "radius", "structm__derived__types_1_1particle__cloud__parameters.html#ab88eb3688f4306aabab07e2ec67e384a", null ],
     [ "seed", "structm__derived__types_1_1particle__cloud__parameters.html#ac0b36240832092fc6a7f67ba0368efa1", null ],
+    [ "shell_axis", "structm__derived__types_1_1particle__cloud__parameters.html#a08ab3b1af7d46cd666bf46794c78be72", null ],
     [ "shell_inner_radius", "structm__derived__types_1_1particle__cloud__parameters.html#ab927e10f885005cb9bae5b1aa107c0ab", null ],
     [ "shell_outer_radius", "structm__derived__types_1_1particle__cloud__parameters.html#ae8f1b385bc7bfd39e89cbfb2b8a686b3", null ],
     [ "x_centroid", "structm__derived__types_1_1particle__cloud__parameters.html#acc9f78ecfc242099095202261b3c23b7", null ],
