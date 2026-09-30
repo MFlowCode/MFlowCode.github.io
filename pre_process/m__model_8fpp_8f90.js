@@ -4,7 +4,7 @@ var m__model_8fpp_8f90 =
     [ "m_model::f_model_read", "namespacem__model.html#a8df07f3e9d228d00fef27cae7484d81e", null ],
     [ "m_model::f_read_line", "namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc", null ],
     [ "m_model::s_check_boundary", "namespacem__model.html#a99bc48b7dc635603f113a22a2fbae8ff", null ],
-    [ "m_model::s_distance_normals_2d", "namespacem__model.html#a4c634c7b56e87edd338ad44a3fc64525", null ],
+    [ "m_model::s_distance_normals_2d", "namespacem__model.html#afbc1a4238527efdb23b937cda3103819", null ],
     [ "m_model::s_distance_normals_3d", "namespacem__model.html#a9ef02f127d22bff7b732906927151c32", null ],
     [ "m_model::s_instantiate_stl_models", "namespacem__model.html#ad9f8c664e4672afe1a2ea1d0f92accd9", null ],
     [ "m_model::s_model_free", "namespacem__model.html#a6705bb2281063959f7b82a5718646624", null ],

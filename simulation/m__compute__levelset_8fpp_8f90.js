@@ -1,6 +1,7 @@
 var m__compute__levelset_8fpp_8f90 =
 [
     [ "m_compute_levelset::s_3d_airfoil_levelset", "namespacem__compute__levelset.html#a95613d71a22ce8f5dbabd10091129177", null ],
+    [ "m_compute_levelset::s_airfoil_distance_normals", "namespacem__compute__levelset.html#a5f3b10b578bbd5c92649cdbcc43ee195", null ],
     [ "m_compute_levelset::s_airfoil_levelset", "namespacem__compute__levelset.html#a529fdd339b896d1bf009d98e84aeef15", null ],
     [ "m_compute_levelset::s_apply_levelset", "namespacem__compute__levelset.html#a0e6b4900aa4a5fb7b36c59907f76bf54", null ],
     [ "m_compute_levelset::s_circle_levelset", "namespacem__compute__levelset.html#a61b7c8634628af91ec451ab8678abb63", null ],

@@ -171,6 +171,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a529fdd339b896d1bf009d98e84aeef15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the signed distance and outward normal from a ghost point to a 2D NACA airfoil surface.  <br /></td></tr>
 <tr class="memitem:a95613d71a22ce8f5dbabd10091129177" id="r_a95613d71a22ce8f5dbabd10091129177"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a95613d71a22ce8f5dbabd10091129177">s_3d_airfoil_levelset</a> (gp)</td></tr>
 <tr class="memdesc:a95613d71a22ce8f5dbabd10091129177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the signed distance and outward normal from a ghost point to a 3D extruded airfoil surface.  <br /></td></tr>
+<tr class="memitem:a5f3b10b578bbd5c92649cdbcc43ee195" id="r_a5f3b10b578bbd5c92649cdbcc43ee195"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5f3b10b578bbd5c92649cdbcc43ee195">s_airfoil_distance_normals</a> (airfoil_id, point, normals, distance)</td></tr>
+<tr class="memdesc:a5f3b10b578bbd5c92649cdbcc43ee195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance and outward normal from a point in the airfoil frame to the surface on its side of the chord.  <br /></td></tr>
 <tr class="memitem:abb0e0b701082d92ef471ab50bea5e772" id="r_abb0e0b701082d92ef471ab50bea5e772"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#abb0e0b701082d92ef471ab50bea5e772">s_rectangle_levelset</a> (gp)</td></tr>
 <tr class="memdesc:abb0e0b701082d92ef471ab50bea5e772"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the signed distance and outward normal from a ghost point to a 2D rectangle.  <br /></td></tr>
 <tr class="memitem:a6b31a6070ac185f759641c395e6b4172" id="r_a6b31a6070ac185f759641c395e6b4172"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6b31a6070ac185f759641c395e6b4172">s_ellipse_levelset</a> (gp)</td></tr>
@@ -204,16 +206,61 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Compute the signed distance and outward normal from a ghost point to a 3D extruded airfoil surface. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00611">611</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00563">563</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a95613d71a22ce8f5dbabd10091129177_cgraph.svg" width="412" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a95613d71a22ce8f5dbabd10091129177_cgraph.svg" width="620" height="131"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a95613d71a22ce8f5dbabd10091129177_icgraph.svg" width="382" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5f3b10b578bbd5c92649cdbcc43ee195" name="a5f3b10b578bbd5c92649cdbcc43ee195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f3b10b578bbd5c92649cdbcc43ee195">&#9670;&#160;</a></span>s_airfoil_distance_normals()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_compute_levelset::s_airfoil_distance_normals </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>airfoil_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>point</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(1:3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>normals</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>distance</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distance and outward normal from a point in the airfoil frame to the surface on its side of the chord. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00632">632</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a5f3b10b578bbd5c92649cdbcc43ee195_cgraph.svg" width="378" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a5f3b10b578bbd5c92649cdbcc43ee195_icgraph.svg" width="588" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -239,7 +286,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a529fdd339b896d1bf009d98e84aeef15_cgraph.svg" width="407" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__compute__levelset_a529fdd339b896d1bf009d98e84aeef15_cgraph.svg" width="584" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -327,7 +374,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the signed distance and outward normal from a ghost point to a cuboid immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00870">870</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00811">811</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -358,7 +405,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the signed distance and outward normal from a ghost point to a cylindrical immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l01021">1021</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00962">962</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -389,7 +436,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the signed distance and outward normal from a ghost point to an elliptical immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00807">807</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00748">748</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -415,7 +462,7 @@ Here is the caller graph for this function:</div>
 
 <p>The STL patch is a 2/3D geometry that is imported from an STL file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l01109">1109</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l01050">1050</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -446,7 +493,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the signed distance and outward normal from a ghost point to a 2D rectangle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00725">725</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00666">666</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -477,7 +524,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the signed distance and outward normal from a ghost point to a spherical immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00971">971</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__compute__levelset_8fpp_8f90_source.html#l00912">912</a> of file <a class="el" href="m__compute__levelset_8fpp_8f90_source.html">m_compute_levelset.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

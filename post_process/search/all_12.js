@@ -66,7 +66,7 @@ var searchData=
   ['s_5fderive_5fspecific_5fheat_5fratio_63',['s_derive_specific_heat_ratio',['../namespacem__derived__variables.html#a40c4c0bb139b56e00ea765579d13bfd6',1,'m_derived_variables']]],
   ['s_5fderive_5fvorticity_5fcomponent_64',['s_derive_vorticity_component',['../namespacem__derived__variables.html#aa038ec37a8a0c8fe8d7185b9ef6d54a9',1,'m_derived_variables']]],
   ['s_5fdirichlet_65',['s_dirichlet',['../namespacem__boundary__primitives.html#aff77027a69840a149990776fe2432c7a',1,'m_boundary_primitives']]],
-  ['s_5fdistance_5fnormals_5f2d_66',['s_distance_normals_2d',['../namespacem__model.html#a4c634c7b56e87edd338ad44a3fc64525',1,'m_model']]],
+  ['s_5fdistance_5fnormals_5f2d_66',['s_distance_normals_2d',['../namespacem__model.html#afbc1a4238527efdb23b937cda3103819',1,'m_model']]],
   ['s_5fdistance_5fnormals_5f3d_67',['s_distance_normals_3d',['../namespacem__model.html#a9ef02f127d22bff7b732906927151c32',1,'m_model']]],
   ['s_5fdownsample_5fdata_68',['s_downsample_data',['../namespacem__helper.html#adf827c606652ea511bd0befcc9164c03',1,'m_helper']]],
   ['s_5feos_5fcoefficients_69',['s_eos_coefficients',['../namespacem__eos.html#a830442f3aea423d7d72ee1b24c9bf6da',1,'m_eos']]],

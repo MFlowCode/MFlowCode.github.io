@@ -193,8 +193,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a6d8bb3637862799d333742f8535707e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append the edge end vertices to a temporary buffer.  <br /></td></tr>
 <tr class="memitem:a9ef02f127d22bff7b732906927151c32" id="r_a9ef02f127d22bff7b732906927151c32"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a9ef02f127d22bff7b732906927151c32">s_distance_normals_3d</a> (ntrs, pid, point, normals, distance)</td></tr>
 <tr class="memdesc:a9ef02f127d22bff7b732906927151c32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the levelset distance and normals of 3D models by computing the exact closest point via projection onto triangle surfaces.  <br /></td></tr>
-<tr class="memitem:a4c634c7b56e87edd338ad44a3fc64525" id="r_a4c634c7b56e87edd338ad44a3fc64525"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4c634c7b56e87edd338ad44a3fc64525">s_distance_normals_2d</a> (pid, boundary_edge_count, point, normals, distance)</td></tr>
-<tr class="memdesc:a4c634c7b56e87edd338ad44a3fc64525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the levelset distance and normals of 2D models by computing the exact closest point via projection onto boundary edges.  <br /></td></tr>
+<tr class="memitem:afbc1a4238527efdb23b937cda3103819" id="r_afbc1a4238527efdb23b937cda3103819"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afbc1a4238527efdb23b937cda3103819">s_distance_normals_2d</a> (boundary_v, boundary_edge_count, point, normals, distance)</td></tr>
+<tr class="memdesc:afbc1a4238527efdb23b937cda3103819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the levelset distance and normals of 2D models by computing the exact closest point via projection onto boundary edges.  <br /></td></tr>
 <tr class="memitem:ad9f8c664e4672afe1a2ea1d0f92accd9" id="r_ad9f8c664e4672afe1a2ea1d0f92accd9"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad9f8c664e4672afe1a2ea1d0f92accd9">s_instantiate_stl_models</a> ()</td></tr>
 <tr class="memdesc:ad9f8c664e4672afe1a2ea1d0f92accd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load, transform, and register STL/OBJ immersed-boundary models onto the simulation grid.  <br /></td></tr>
 <tr class="memitem:addf2ca5db66e75946ec19b8460303a4c" id="r_addf2ca5db66e75946ec19b8460303a4c"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#addf2ca5db66e75946ec19b8460303a4c">s_pack_model_for_gpu</a> (ma)</td></tr>
@@ -367,8 +367,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4c634c7b56e87edd338ad44a3fc64525" name="a4c634c7b56e87edd338ad44a3fc64525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c634c7b56e87edd338ad44a3fc64525">&#9670;&#160;</a></span>s_distance_normals_2d()</h2>
+<a id="afbc1a4238527efdb23b937cda3103819" name="afbc1a4238527efdb23b937cda3103819"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbc1a4238527efdb23b937cda3103819">&#9670;&#160;</a></span>s_distance_normals_2d()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -376,7 +376,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public m_model::s_distance_normals_2d </td>
           <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>pid</em></span>, </td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>boundary_v</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -402,6 +402,12 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Determine the levelset distance and normals of 2D models by computing the exact closest point via projection onto boundary edges. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">boundary_v</td><td>edges (edge, vertex 1/vertex 2/normal, x/y) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="m__model_8fpp_8f90_source.html#l01192">1192</a> of file <a class="el" href="m__model_8fpp_8f90_source.html">m_model.fpp.f90</a>.</p>
 

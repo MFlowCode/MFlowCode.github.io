@@ -94,7 +94,7 @@ var searchData=
   ['s_5fdelete_5fdirectory_91',['s_delete_directory',['../namespacem__compile__specific.html#a60af946dc5a6e9ece1327c7cb756c4a2',1,'m_compile_specific']]],
   ['s_5fdelete_5ffile_92',['s_delete_file',['../namespacem__compile__specific.html#a0adef25da3c26cee8c65b6d625615c82',1,'m_compile_specific']]],
   ['s_5fdirichlet_93',['s_dirichlet',['../namespacem__boundary__primitives.html#aff77027a69840a149990776fe2432c7a',1,'m_boundary_primitives']]],
-  ['s_5fdistance_5fnormals_5f2d_94',['s_distance_normals_2d',['../namespacem__model.html#a4c634c7b56e87edd338ad44a3fc64525',1,'m_model']]],
+  ['s_5fdistance_5fnormals_5f2d_94',['s_distance_normals_2d',['../namespacem__model.html#afbc1a4238527efdb23b937cda3103819',1,'m_model']]],
   ['s_5fdistance_5fnormals_5f3d_95',['s_distance_normals_3d',['../namespacem__model.html#a9ef02f127d22bff7b732906927151c32',1,'m_model']]],
   ['s_5fdownsample_5fdata_96',['s_downsample_data',['../namespacem__helper.html#adf827c606652ea511bd0befcc9164c03',1,'m_helper']]],
   ['s_5felliptic_5fsmoothing_97',['s_elliptic_smoothing',['../namespacem__perturbation.html#a9a4020ba748540965324f6c18ae71e7b',1,'m_perturbation']]],

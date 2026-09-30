@@ -355,6 +355,7 @@ var namespaces_dup =
     ] ],
     [ "m_compute_levelset", "namespacem__compute__levelset.html", [
       [ "s_3d_airfoil_levelset", "namespacem__compute__levelset.html#a95613d71a22ce8f5dbabd10091129177", null ],
+      [ "s_airfoil_distance_normals", "namespacem__compute__levelset.html#a5f3b10b578bbd5c92649cdbcc43ee195", null ],
       [ "s_airfoil_levelset", "namespacem__compute__levelset.html#a529fdd339b896d1bf009d98e84aeef15", null ],
       [ "s_apply_levelset", "namespacem__compute__levelset.html#a0e6b4900aa4a5fb7b36c59907f76bf54", null ],
       [ "s_circle_levelset", "namespacem__compute__levelset.html#a61b7c8634628af91ec451ab8678abb63", null ],
@@ -1127,7 +1128,7 @@ var namespaces_dup =
       [ "f_model_read", "namespacem__model.html#a8df07f3e9d228d00fef27cae7484d81e", null ],
       [ "f_read_line", "namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc", null ],
       [ "s_check_boundary", "namespacem__model.html#a99bc48b7dc635603f113a22a2fbae8ff", null ],
-      [ "s_distance_normals_2d", "namespacem__model.html#a4c634c7b56e87edd338ad44a3fc64525", null ],
+      [ "s_distance_normals_2d", "namespacem__model.html#afbc1a4238527efdb23b937cda3103819", null ],
       [ "s_distance_normals_3d", "namespacem__model.html#a9ef02f127d22bff7b732906927151c32", null ],
       [ "s_instantiate_stl_models", "namespacem__model.html#ad9f8c664e4672afe1a2ea1d0f92accd9", null ],
       [ "s_model_free", "namespacem__model.html#a6705bb2281063959f7b82a5718646624", null ],
