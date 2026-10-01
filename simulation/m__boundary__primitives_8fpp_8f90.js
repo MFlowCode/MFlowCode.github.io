@@ -1,5 +1,6 @@
 var m__boundary__primitives_8fpp_8f90 =
 [
+    [ "m_boundary_primitives::f_dir_vel", "namespacem__boundary__primitives.html#a3e5f49cde5d0774da4c67bc8eb91f847", null ],
     [ "m_boundary_primitives::f_vel_ramp", "namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19", null ],
     [ "m_boundary_primitives::s_axis", "namespacem__boundary__primitives.html#a6f72b5e5016c535a721179aed6733cc1", null ],
     [ "m_boundary_primitives::s_beta_extrapolation", "namespacem__boundary__primitives.html#ab4cccbeaf9ef7a2173ad5ce7d98ff5f7", null ],
@@ -19,5 +20,6 @@ var m__boundary__primitives_8fpp_8f90 =
     [ "m_boundary_primitives::s_slip_wall", "namespacem__boundary__primitives.html#a05ca273856b144071a18d55dc2e31ed1", null ],
     [ "m_boundary_primitives::s_symmetry", "namespacem__boundary__primitives.html#af5f3a62e2d024e5e307ba669dcbfeb49", null ],
     [ "m_boundary_primitives::bc_buffers", "namespacem__boundary__primitives.html#a5a16ad022cc238854bb910adc2a65351", null ],
+    [ "m_boundary_primitives::bc_vel_ramp", "namespacem__boundary__primitives.html#a0eb42fcb3d8506588ac125a2cb2becca", null ],
     [ "m_boundary_primitives::dirichlet_from_buffers", "namespacem__boundary__primitives.html#a2f2f9bfcf2aa3cdcebe112fa902c9ac1", null ]
 ];

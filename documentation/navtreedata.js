@@ -710,7 +710,7 @@ var NAVTREE =
           [ "Model Equation Selection", "physics_constraints.html#autotoc_md514", null ]
         ] ],
         [ "Boundary Conditions", "physics_constraints.html#autotoc_md516", [
-          [ "GRCBC Inflow Ramp", "physics_constraints.html#autotoc_md517", null ],
+          [ "Inflow Ramp", "physics_constraints.html#autotoc_md517", null ],
           [ "Boundary Condition Compatibility", "physics_constraints.html#autotoc_md518", null ]
         ] ],
         [ "Bubble Physics", "physics_constraints.html#autotoc_md520", [

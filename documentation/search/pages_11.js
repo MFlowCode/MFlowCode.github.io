@@ -35,7 +35,7 @@ var searchData=
   ['inactive_20dimensions_32',['Velocity Components in Inactive Dimensions',['../physics_constraints.html#autotoc_md511',1,'']]],
   ['indexing_33',['Array Bounds and Indexing',['../contributing.html#autotoc_md96',1,'']]],
   ['inert_20shock_20tube_34',['1D Multi-Component Inert Shock Tube',['../examples.html#autotoc_md276',1,'']]],
-  ['inflow_20ramp_35',['GRCBC Inflow Ramp',['../physics_constraints.html#autotoc_md517',1,'']]],
+  ['inflow_20ramp_35',['Inflow Ramp',['../physics_constraints.html#autotoc_md517',1,'']]],
   ['information_20geometric_20regularization_20igr_20true_20wilfong25a_36',['12. Information Geometric Regularization (&lt;span class=&quot;tt&quot;&gt;igr = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong25a&quot;&gt;[59]&lt;/a&gt;)',['../equations.html#autotoc_md186',1,'']]],
   ['infrastructure_37',['Infrastructure',['../architecture.html#autotoc_md10',1,'']]],
   ['initial_20and_20final_20conditions_38',['Density Initial and Final Conditions',['../examples.html#autotoc_md252',1,'']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ramp_0',['GRCBC Inflow Ramp',['../physics_constraints.html#autotoc_md517',1,'']]],
+  ['ramp_0',['Inflow Ramp',['../physics_constraints.html#autotoc_md517',1,'']]],
   ['ranks_1',['Running with Fewer Ranks',['../troubleshooting.html#autotoc_md613',1,'']]],
   ['ranks_20are_20not_20cubes_2',['Automatic &lt;span class=&quot;tt&quot;&gt;ib_neighborhood_radius&lt;/span&gt; when ranks are not cubes',['../examples.html#autotoc_md337',1,'']]],
   ['rayleigh_20plesset_20bubble_5fmodel_203_20rayleigh17_20plesset49_3',['6.1.2 Rayleigh-Plesset (&lt;span class=&quot;tt&quot;&gt;bubble_model = 3&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_rayleigh17&quot;&gt;[29]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_plesset49&quot;&gt;[40]&lt;/a&gt;)',['../equations.html#autotoc_md164',1,'']]],

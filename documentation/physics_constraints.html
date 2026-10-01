@@ -391,16 +391,16 @@ Model Equation Selection</h3>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md516"></a>
 Boundary Conditions</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md517"></a>
-GRCBC Inflow Ramp</h3>
+Inflow Ramp</h3>
 <p class="formulaDsp">
 \[f(t) = f_0 + (1 - f_0)\left[1 + \tanh\left(6 (t - t_0)/\tau - 3\right)\right]/2\]
 </p>
-<p>A ramped inflow scales the inflow velocity from a fraction f_0 of its final value to that value over a duration tau. It requires grcbc_in to act on, a non-negative duration, and f_0 in [0, 1].</p>
+<p>A ramped inflow scales the inflow velocity from a fraction f_0 of its final value to that value over a duration tau. It requires an inflow to act on (grcbc_in, or a Dirichlet boundary or patch), a non-negative duration, and f_0 in [0, 1].</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
 <li><code class="f90l">bc_d%</code><code class="f90r">vel_in_ramp</code> must be &gt;= 0</li>
-<li><code class="f90l">bc_d%</code><code class="f90r">vel_in_ramp</code> requires <code class="f90l">bc_d%</code><code class="f90r">grcbc_in</code></li>
+<li><code class="f90l">bc_d%</code><code class="f90r">vel_in_ramp</code> requires <code class="f90l">bc_d%</code><code class="f90r">grcbc_in</code> or a Dirichlet (-17) boundary or patch normal to d</li>
 <li><code class="f90l">bc_d%</code><code class="f90r">vel_in_frac0</code> must lie in [0, 1]</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md518"></a>
@@ -819,7 +819,7 @@ IC Extrusion File Parameters</h3>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">hcid</code>=hcid requires <span class="tt">files_dir</span> to be set</li>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">hcid</code>=hcid requires <span class="tt">file_extension</span> to be set</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-09-30</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-01</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

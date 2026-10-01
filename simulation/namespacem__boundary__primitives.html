@@ -179,6 +179,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a6d251d3646237eeb340d1aa13b9ec5ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply no-slip wall boundary conditions by reflecting and negating all velocity components at the wall.  <br /></td></tr>
 <tr class="memitem:aff77027a69840a149990776fe2432c7a" id="r_aff77027a69840a149990776fe2432c7a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aff77027a69840a149990776fe2432c7a">s_dirichlet</a> (q_prim_vf, bc_dir, bc_loc, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, q_t_sf)</td></tr>
 <tr class="memdesc:aff77027a69840a149990776fe2432c7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply Dirichlet boundary conditions by prescribing ghost cell values from stored boundary buffers.  <br /></td></tr>
+<tr class="memitem:a3e5f49cde5d0774da4c67bc8eb91f847" id="r_a3e5f49cde5d0774da4c67bc8eb91f847"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a3e5f49cde5d0774da4c67bc8eb91f847">f_dir_vel</a> (i, dir)</td></tr>
+<tr class="memdesc:a3e5f49cde5d0774da4c67bc8eb91f847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ramp factor for variable i of a Dirichlet ghost cell on a dir-normal face: <a class="el" href="#a0eb42fcb3d8506588ac125a2cb2becca" title="f_vel_ramp per direction, applied to Dirichlet ghost velocities; set by the time stepper when a ramp ...">bc_vel_ramp(dir)</a> for velocities, else 1.  <br /></td></tr>
 <tr class="memitem:a977f09bf86f219050a313e91f50631a7" id="r_a977f09bf86f219050a313e91f50631a7"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a977f09bf86f219050a313e91f50631a7">s_qbmm_extrapolation</a> (bc_dir, bc_loc, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, pb_in, mv_in)</td></tr>
 <tr class="memdesc:a977f09bf86f219050a313e91f50631a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extrapolate QBMM bubble pressure and mass-vapor variables into ghost cells by copying boundary values.  <br /></td></tr>
 <tr class="memitem:a55342895e5e8de409f6c701463f97b01" id="r_a55342895e5e8de409f6c701463f97b01"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a55342895e5e8de409f6c701463f97b01">s_color_function_periodic</a> (c_divs, bc_dir, bc_loc, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
@@ -201,10 +203,42 @@ Functions/Subroutines</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a5a16ad022cc238854bb910adc2a65351" id="r_a5a16ad022cc238854bb910adc2a65351"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a5a16ad022cc238854bb910adc2a65351">bc_buffers</a></td></tr>
 <tr class="memitem:a2f2f9bfcf2aa3cdcebe112fa902c9ac1" id="r_a2f2f9bfcf2aa3cdcebe112fa902c9ac1"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a2f2f9bfcf2aa3cdcebe112fa902c9ac1">dirichlet_from_buffers</a> = .false.</td></tr>
+<tr class="memitem:a0eb42fcb3d8506588ac125a2cb2becca" id="r_a0eb42fcb3d8506588ac125a2cb2becca"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), public&#160;</td><td class="memItemRight"><a class="el" href="#a0eb42fcb3d8506588ac125a2cb2becca">bc_vel_ramp</a> = 1._wp</td></tr>
+<tr class="memdesc:a0eb42fcb3d8506588ac125a2cb2becca"><td class="mdescLeft">&#160;</td><td class="mdescRight">f_vel_ramp per direction, applied to Dirichlet ghost velocities; set by the time stepper when a ramp is active  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Per-cell noncharacteristic boundary condition primitives applied in the ghost cells. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a3e5f49cde5d0774da4c67bc8eb91f847" name="a3e5f49cde5d0774da4c67bc8eb91f847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5f49cde5d0774da4c67bc8eb91f847">&#9670;&#160;</a></span>f_dir_vel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_boundary_primitives::f_dir_vel </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ramp factor for variable i of a Dirichlet ghost cell on a dir-normal face: <a class="el" href="#a0eb42fcb3d8506588ac125a2cb2becca" title="f_vel_ramp per direction, applied to Dirichlet ghost velocities; set by the time stepper when a ramp ...">bc_vel_ramp(dir)</a> for velocities, else 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01564">1564</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__primitives_a3e5f49cde5d0774da4c67bc8eb91f847_icgraph.svg" width="411" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a36c64487b2689a7dbbb493c7e4572b19" name="a36c64487b2689a7dbbb493c7e4572b19"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a36c64487b2689a7dbbb493c7e4572b19">&#9670;&#160;</a></span>f_vel_ramp()</h2>
 
@@ -236,7 +270,7 @@ Variables</h2></td></tr>
 
 <p>Velocity scaling for a GRCBC inflow that is ramping up: unity unless <span class="tt">bc_[x,y,z]vel_in_ramp</span> is set, so an unramped case is untouched. Takes the time as an argument so the caller can evaluate it on the device from <span class="tt"><a class="el" href="namespacem__global__parameters.html#a036a4df162120c03d50b97daced3ec4c" title="Current simulation time.">mytime</a></span>, which the time stepper already places there, rather than computing it on the host and copying the result every Runge-Kutta stage. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -281,7 +315,7 @@ Variables</h2></td></tr>
 
 <p>Apply axis boundary conditions for cylindrical coordinates by reflecting values across the axis with azimuthal phase shift. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00949">949</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00963">963</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -324,7 +358,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02266">2266</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02305">2305</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -372,7 +406,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02158">2158</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02197">2197</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -420,7 +454,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02355">2355</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02394">2394</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -460,7 +494,7 @@ Variables</h2></td></tr>
 
 <p>Extrapolate the color function and its divergence into ghost cells by copying boundary values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01839">1839</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01878">1878</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -500,7 +534,7 @@ Variables</h2></td></tr>
 
 <p>Apply periodic boundary conditions to the color function and its divergence fields. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01637">1637</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01676">1676</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -540,7 +574,7 @@ Variables</h2></td></tr>
 
 <p>Apply reflective boundary conditions to the color function and its divergence fields. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01726">1726</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01765">1765</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -598,11 +632,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01421">1421</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01435">1435</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__primitives_aff77027a69840a149990776fe2432c7a_cgraph.svg" width="439" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__primitives_aff77027a69840a149990776fe2432c7a_cgraph.svg" width="439" height="115"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -643,7 +677,7 @@ Here is the call graph for this function:</div>
 
 <p>Extrapolate the IGR Jacobian field into ghost cells by copying boundary values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02082">2082</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02121">2121</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -683,7 +717,7 @@ Here is the call graph for this function:</div>
 
 <p>Apply periodic boundary conditions to the IGR Jacobian field by copying values from the opposite domain boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01928">1928</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01967">1967</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -723,7 +757,7 @@ Here is the call graph for this function:</div>
 
 <p>Apply reflective boundary conditions to the IGR Jacobian field by mirroring values across the boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02005">2005</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l02044">2044</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -781,7 +815,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -845,7 +879,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01214">1214</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01228">1228</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -914,7 +948,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00776">776</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00790">790</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -959,7 +993,7 @@ Here is the caller graph for this function:</div>
 
 <p>Extrapolate QBMM bubble pressure and mass-vapor variables into ghost cells by copying boundary values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01550">1550</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01589">1589</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1018,7 +1052,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01028">1028</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l01042">1042</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1121,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00538">538</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00552">552</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1105,6 +1139,24 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00355">355</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a0eb42fcb3d8506588ac125a2cb2becca" name="a0eb42fcb3d8506588ac125a2cb2becca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb42fcb3d8506588ac125a2cb2becca">&#9670;&#160;</a></span>bc_vel_ramp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), public m_boundary_primitives::bc_vel_ramp = 1._wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>f_vel_ramp per direction, applied to Dirichlet ghost velocities; set by the time stepper when a ramp is active </p>
+
+<p class="definition">Definition at line <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__boundary__primitives_8fpp_8f90_source.html">m_boundary_primitives.fpp.f90</a>.</p>
 
 </div>
 </div>

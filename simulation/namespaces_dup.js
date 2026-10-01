@@ -96,6 +96,7 @@ var namespaces_dup =
       [ "mpi_bc_type_type", "namespacem__boundary__io.html#a08a01f94849046589e0337b0068adec0", null ]
     ] ],
     [ "m_boundary_primitives", "namespacem__boundary__primitives.html", [
+      [ "f_dir_vel", "namespacem__boundary__primitives.html#a3e5f49cde5d0774da4c67bc8eb91f847", null ],
       [ "f_vel_ramp", "namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19", null ],
       [ "s_axis", "namespacem__boundary__primitives.html#a6f72b5e5016c535a721179aed6733cc1", null ],
       [ "s_beta_extrapolation", "namespacem__boundary__primitives.html#ab4cccbeaf9ef7a2173ad5ce7d98ff5f7", null ],
@@ -115,6 +116,7 @@ var namespaces_dup =
       [ "s_slip_wall", "namespacem__boundary__primitives.html#a05ca273856b144071a18d55dc2e31ed1", null ],
       [ "s_symmetry", "namespacem__boundary__primitives.html#af5f3a62e2d024e5e307ba669dcbfeb49", null ],
       [ "bc_buffers", "namespacem__boundary__primitives.html#a5a16ad022cc238854bb910adc2a65351", null ],
+      [ "bc_vel_ramp", "namespacem__boundary__primitives.html#a0eb42fcb3d8506588ac125a2cb2becca", null ],
       [ "dirichlet_from_buffers", "namespacem__boundary__primitives.html#a2f2f9bfcf2aa3cdcebe112fa902c9ac1", null ]
     ] ],
     [ "m_bubbles", "namespacem__bubbles.html", [
@@ -1062,6 +1064,7 @@ var namespaces_dup =
     ] ],
     [ "m_ibm", "namespacem__ibm.html", [
       [ "f_log_cosh", "namespacem__ibm.html#a819f92e3bf0202d31eafbdc589ff025b", null ],
+      [ "s_check_every_patch_marked", "namespacem__ibm.html#aa8c5c58a17fb68233dac27d5f1262ffb", null ],
       [ "s_communicate_ib_forces", "namespacem__ibm.html#a20b12f9883611b3360b2d469a1870e66", null ],
       [ "s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
       [ "s_compute_ghost_point_pressure", "namespacem__ibm.html#ad36a1e81d1b8773e7c8e8ac32527a267", null ],
@@ -1154,6 +1157,7 @@ var namespaces_dup =
       [ "mpi_bcast_time_step_values", "namespacem__mpi__common.html#a98b6d5f758850a2ba16fb7553c055827", null ],
       [ "s_apply_decomposition_policies", "namespacem__mpi__common.html#af0f1fec8c6c9fe2f7c4cd8d5b8594a69", null ],
       [ "s_apply_grid_from_global_dim", "namespacem__mpi__common.html#a60205c097faf19c0240af2eb40b28fee", null ],
+      [ "s_check_mpi_file_open", "namespacem__mpi__common.html#a43b25b98517883b9eb717081e80a068e", null ],
       [ "s_finalize_mpi_common_module", "namespacem__mpi__common.html#ab9e557649b1fca986ee793073abae4d4", null ],
       [ "s_initialize_mpi_common_module", "namespacem__mpi__common.html#af755989980c8ba9f33603898bd6bfcca", null ],
       [ "s_initialize_mpi_data", "namespacem__mpi__common.html#a83b21be0eb35c42744a1fe721197bdaa", null ],

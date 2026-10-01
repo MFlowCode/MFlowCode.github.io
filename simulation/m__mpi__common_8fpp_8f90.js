@@ -3,6 +3,7 @@ var m__mpi__common_8fpp_8f90 =
     [ "m_mpi_common::mpi_bcast_time_step_values", "namespacem__mpi__common.html#a98b6d5f758850a2ba16fb7553c055827", null ],
     [ "m_mpi_common::s_apply_decomposition_policies", "namespacem__mpi__common.html#af0f1fec8c6c9fe2f7c4cd8d5b8594a69", null ],
     [ "m_mpi_common::s_apply_grid_from_global_dim", "namespacem__mpi__common.html#a60205c097faf19c0240af2eb40b28fee", null ],
+    [ "m_mpi_common::s_check_mpi_file_open", "namespacem__mpi__common.html#a43b25b98517883b9eb717081e80a068e", null ],
     [ "m_mpi_common::s_finalize_mpi_common_module", "namespacem__mpi__common.html#ab9e557649b1fca986ee793073abae4d4", null ],
     [ "m_mpi_common::s_initialize_mpi_common_module", "namespacem__mpi__common.html#af755989980c8ba9f33603898bd6bfcca", null ],
     [ "m_mpi_common::s_initialize_mpi_data", "namespacem__mpi__common.html#a83b21be0eb35c42744a1fe721197bdaa", null ],
