@@ -9,6 +9,7 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::s_open_probe_files", "namespacem__data__output.html#a1ea9c0d7d8d1bdc50ec4e2ac5f6dde31", null ],
     [ "m_data_output::s_open_run_time_information_file", "namespacem__data__output.html#ac525e4309582580c5aa3773e03245ed6", null ],
     [ "m_data_output::s_report_icfl_violation", "namespacem__data__output.html#a22ac1c0655844e610fa82a9339252c00", null ],
+    [ "m_data_output::s_write_centroid_offsets", "namespacem__data__output.html#a26732099fe08301c8b312ae35ac4b535", null ],
     [ "m_data_output::s_write_data_files", "namespacem__data__output.html#a9eea8de093f055adb3b786bff3cab2d8", null ],
     [ "m_data_output::s_write_ib_data_file", "namespacem__data__output.html#afea5c151b85111d7df711e1ccb50813f", null ],
     [ "m_data_output::s_write_ib_force_history", "namespacem__data__output.html#a8d73bad55102d0442abeeb057c4d6aef", null ],

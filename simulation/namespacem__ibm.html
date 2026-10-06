@@ -190,8 +190,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a960829655e7f6f16e6e7ec29f649cb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prescribed kinematics for patch i at time t: hinged flapping (kin_model = 1) or the Eldredge pitch ramp (kin_model = 2). Flapping rolls phi about the lab x axis through the hinge and pitches theta about the body spanwise (y) axis through it; the ramp holds phi at zero and drives theta alone. Both compose as R = Rx(phi) Ry(theta) (MFC's angle convention) and set the angles, centroid, velocity and lab-frame angular velocity; nothing is integrated, so restarts are exact.  <br /></td></tr>
 <tr class="memitem:a127d40085cc8ab5bdcde0f7cf894e92f" id="r_a127d40085cc8ab5bdcde0f7cf894e92f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a127d40085cc8ab5bdcde0f7cf894e92f">s_compute_ib_forces</a> (q_prim_vf, <a class="el" href="namespacem__global__parameters__common.html#a4cffac1ed73ae4fee589c4e8003f207f">fluid_pp</a>)</td></tr>
 <tr class="memdesc:a127d40085cc8ab5bdcde0f7cf894e92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute pressure and viscous forces and torques on immersed bodies via volume integration.  <br /></td></tr>
-<tr class="memitem:a95803cab792b57cbc7f1cf8232f1b2fd" id="r_a95803cab792b57cbc7f1cf8232f1b2fd"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a95803cab792b57cbc7f1cf8232f1b2fd">s_compute_centroid_offset</a> (ib_marker)</td></tr>
-<tr class="memdesc:a95803cab792b57cbc7f1cf8232f1b2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models.  <br /></td></tr>
+<tr class="memitem:a0c297ad593faad508e7d3032b7480723" id="r_a0c297ad593faad508e7d3032b7480723"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0c297ad593faad508e7d3032b7480723">s_compute_centroid_offset</a> (gid, ib_marker)</td></tr>
+<tr class="memdesc:a0c297ad593faad508e7d3032b7480723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models Move a moving airfoil/STL patch's centroid to its centre of mass, keeping the difference in centroid_offset. Collective: every rank calls it for every global id, contributing zeros for patches it does not hold.  <br /></td></tr>
+<tr class="memitem:ac040a05c887bdf3753ae10ff2dd608b0" id="r_ac040a05c887bdf3753ae10ff2dd608b0"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#ac040a05c887bdf3753ae10ff2dd608b0">f_needs_centroid_offset</a> (patch)</td></tr>
+<tr class="memdesc:ac040a05c887bdf3753ae10ff2dd608b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">A moving airfoil or STL (geometries 4, 5, 11, 12) moves its centroid to the centre of mass and keeps a centroid_offset.  <br /></td></tr>
+<tr class="memitem:ac2ecc9299d30a307055d165219059f5e" id="r_ac2ecc9299d30a307055d165219059f5e"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac2ecc9299d30a307055d165219059f5e">s_restore_centroid_offsets</a> (t_init)</td></tr>
+<tr class="memdesc:ac2ecc9299d30a307055d165219059f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">On restart, replace the re-measured centroid offsets with the ones the run was using (restart_data/ib_offset_&lt;step&gt;.dat, written with each checkpoint), and re-place kinematics-driven bodies about them. No file: the measured offsets stand.  <br /></td></tr>
 <tr class="memitem:a5678780d539884f4df29dba2768b19ea" id="r_a5678780d539884f4df29dba2768b19ea"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5678780d539884f4df29dba2768b19ea">s_compute_moment_of_inertia</a> (patch, axis, moment)</td></tr>
 <tr class="memdesc:a5678780d539884f4df29dba2768b19ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the moment of inertia for an immersed boundary.  <br /></td></tr>
 <tr class="memitem:ac922ef4566b7018082b062fabf82b9c9" id="r_ac922ef4566b7018082b062fabf82b9c9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac922ef4566b7018082b062fabf82b9c9">s_wrap_periodic_ibs</a> ()</td></tr>
@@ -201,7 +205,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a3016250d878364a5167e1c350ebba540" id="r_a3016250d878364a5167e1c350ebba540"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3016250d878364a5167e1c350ebba540">s_handoff_ib_ownership</a> ()</td></tr>
 <tr class="memitem:a79c10dd1225a0f5cd73c8e26ca754016" id="r_a79c10dd1225a0f5cd73c8e26ca754016"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a79c10dd1225a0f5cd73c8e26ca754016">s_get_neighborhood_idx</a> (gbl_idx, neighborhood_idx)</td></tr>
 <tr class="memitem:aa8c5c58a17fb68233dac27d5f1262ffb" id="r_aa8c5c58a17fb68233dac27d5f1262ffb"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa8c5c58a17fb68233dac27d5f1262ffb">s_check_every_patch_marked</a> ()</td></tr>
-<tr class="memdesc:aa8c5c58a17fb68233dac27d5f1262ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abort if any immersed boundary marked no cell anywhere in the domain.  <br /></td></tr>
+<tr class="memdesc:aa8c5c58a17fb68233dac27d5f1262ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abort if any immersed boundary marks no cell anywhere. The owning rank is chosen by the patch centroid, so an STL placed with model_translate while its centroid is left elsewhere is handed to ranks that do not hold it, and it vanishes silently. One pass over the cells and one reduction, whatever the number of patches.  <br /></td></tr>
 <tr class="memitem:a1f7d09eb6dba3c194e7bfe8a76c5885f" id="r_a1f7d09eb6dba3c194e7bfe8a76c5885f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1f7d09eb6dba3c194e7bfe8a76c5885f">s_update_ib_lookup</a> ()</td></tr>
 <tr class="memitem:a344f449cb9696fae6e6bc532085913f2" id="r_a344f449cb9696fae6e6bc532085913f2"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a344f449cb9696fae6e6bc532085913f2">s_finalize_ibm_module</a> ()</td></tr>
 <tr class="memdesc:a344f449cb9696fae6e6bc532085913f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the IBM module.  <br /></td></tr>
@@ -215,6 +219,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a400f745947320ac23a80e33e28faff80" id="r_a400f745947320ac23a80e33e28faff80"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a400f745947320ac23a80e33e28faff80">num_gps</a></td></tr>
 <tr class="memdesc:a400f745947320ac23a80e33e28faff80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ghost points.  <br /></td></tr>
 <tr class="memitem:a5860a1336c8a996ed364b71b3d1c9530" id="r_a5860a1336c8a996ed364b71b3d1c9530"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a5860a1336c8a996ed364b71b3d1c9530">moving_immersed_boundary_flag</a></td></tr>
+<tr class="memitem:ad6734dd19682cc3dcfb322e1bddd3311" id="r_ad6734dd19682cc3dcfb322e1bddd3311"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#ad6734dd19682cc3dcfb322e1bddd3311">centroid_offsets_active</a> = .false.</td></tr>
+<tr class="memdesc:ad6734dd19682cc3dcfb322e1bddd3311"><td class="mdescLeft">&#160;</td><td class="mdescRight">some patch is a moving airfoil or STL, which carries a centroid_offset  <br /></td></tr>
 <tr class="memitem:ae22ba9816e8ed2c198a6bf58f040af2a" id="r_ae22ba9816e8ed2c198a6bf58f040af2a"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ae22ba9816e8ed2c198a6bf58f040af2a">send_ids</a></td></tr>
 <tr class="memitem:ab75ccb8defeb334e64497b12196c97cb" id="r_ab75ccb8defeb334e64497b12196c97cb"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ab75ccb8defeb334e64497b12196c97cb">recv_ids</a></td></tr>
 <tr class="memitem:a07625e52c398c7a7121dd74198983245" id="r_a07625e52c398c7a7121dd74198983245"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a07625e52c398c7a7121dd74198983245">send_ft</a></td></tr>
@@ -242,11 +248,42 @@ Variables</h2></td></tr>
 
 <p>log(cosh(x)) without overflow for large |x| </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02555">2555</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02567">2567</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a819f92e3bf0202d31eafbdc589ff025b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac040a05c887bdf3753ae10ff2dd608b0" name="ac040a05c887bdf3753ae10ff2dd608b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac040a05c887bdf3753ae10ff2dd608b0">&#9670;&#160;</a></span>f_needs_centroid_offset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure logical function m_ibm::f_needs_centroid_offset </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ib__patch__parameters.html">ib_patch_parameters</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>patch</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A moving airfoil or STL (geometries 4, 5, 11, 12) moves its centroid to the centre of mass and keeps a centroid_offset. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02985">2985</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_ac040a05c887bdf3753ae10ff2dd608b0_cgraph.svg" width="198" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_ac040a05c887bdf3753ae10ff2dd608b0_icgraph.svg" width="100%" height="424"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -263,12 +300,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Abort if any immersed boundary marked no cell anywhere in the domain. </p>
-<p>A rank is given a patch when the patch CENTROID falls in its share of the domain, but for an STL the centroid and the geometry are independent: the body is placed by model_translate, and a case may legitimately leave the centroid at the origin. Ownership is then decided at a point the body does not occupy, and the owning rank marks only whatever of the geometry its own subdomain happens to reach. That shrinks as the decomposition is refined, so a body can erode and finally vanish &ndash; contributing no markers, no ghost points, and a force of exactly zero every step &ndash; with nothing reported. Marker generation is a pure function of geometry and grid, so a result that depends on the rank count is always wrong.</p>
-<p>Measured on a two-body case, identical deck, only the rank count changed, with a patch at the origin as a control: the control held 30191 cells at 64, 128 and 512 ranks, while a patch eight chords away went 19115 -&gt; 12667 -&gt; 0.</p>
-<p>One reduction per patch at setup. It cannot see partial erosion &ndash; that needs the marked volume, which is not available here &ndash; but it turns the total loss into an immediate, specific error. </p>
+<p>Abort if any immersed boundary marks no cell anywhere. The owning rank is chosen by the patch centroid, so an STL placed with model_translate while its centroid is left elsewhere is handed to ranks that do not hold it, and it vanishes silently. One pass over the cells and one reduction, whatever the number of patches. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04263">4263</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04309">4309</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -298,7 +332,7 @@ Here is the caller graph for this function:</div>
 
 <p>Swaps ownership of IBs and passes ownership of IBs to neighbor processors Reduces forces and torques across the local neighborhood without a global allreduce. Accumulation phase: 2 passes per dimension receiving from the low-index (-X) neighbor. Pass 1: add received values; save what was received as recv_snap. Pass 2: send current (post-pass-1) values; add received; subtract recv_snap to remove double-counting of the direct contribution already added in pass 1. Back-propagation phase: 2 passes per dimension receiving from the high-index (+X) neighbor, each overwriting local forces with the neighbor's accumulated total. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03150">3150</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03210">3210</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -312,8 +346,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a95803cab792b57cbc7f1cf8232f1b2fd" name="a95803cab792b57cbc7f1cf8232f1b2fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95803cab792b57cbc7f1cf8232f1b2fd">&#9670;&#160;</a></span>s_compute_centroid_offset()</h2>
+<a id="a0c297ad593faad508e7d3032b7480723" name="a0c297ad593faad508e7d3032b7480723"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c297ad593faad508e7d3032b7480723">&#9670;&#160;</a></span>s_compute_centroid_offset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -321,19 +355,35 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_ibm::s_compute_centroid_offset </td>
           <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marker</em></span></td><td>)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>gid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marker</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models. </p>
+<p>Computes the center of mass for IB patch types where we are unable to determine their center of mass analytically. These patches include things like NACA airfoils and STL models Move a moving airfoil/STL patch's centroid to its centre of mass, keeping the difference in centroid_offset. Collective: every rank calls it for every global id, contributing zeros for patches it does not hold. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gid</td><td>global patch id </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ib_marker</td><td>local index on this rank; &lt;= 0 if not held </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02905">2905</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02920">2920</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a0c297ad593faad508e7d3032b7480723_cgraph.svg" width="452" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a95803cab792b57cbc7f1cf8232f1b2fd_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a0c297ad593faad508e7d3032b7480723_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -382,7 +432,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pressure correction for a moving IB, accounting for the acceleration of the boundary surface. Clamped both ways: the linearization it comes from holds only while the correction is order one, and an unbounded one drives the ghost state to vacuum. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01034">1034</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01046">1046</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -438,7 +488,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01063">1063</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01075">1075</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -468,7 +518,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute pressure and viscous forces and torques on immersed bodies via volume integration. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02665">2665</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02678">2678</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -499,7 +549,7 @@ Here is the call graph for this function:</div>
 
 <p>Compute the image points for each ghost point. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01706">1706</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01718">1718</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -530,7 +580,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the interpolation coefficients for image points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02086">2086</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02098">2098</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -565,7 +615,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the moment of inertia for an immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02965">2965</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03025">3025</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -588,7 +638,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the IBM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04359">4359</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04406">4406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -614,7 +664,7 @@ Here is the caller graph for this function:</div>
 
 <p>Locate all ghost points in the domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01936">1936</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01948">1948</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -653,7 +703,7 @@ Here is the caller graph for this function:</div>
 
 <p>Count the number of ghost points for memory allocation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01849">1849</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01861">1861</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -681,11 +731,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04220">4220</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04280">4280</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a79c10dd1225a0f5cd73c8e26ca754016_icgraph.svg" width="100%" height="520"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a79c10dd1225a0f5cd73c8e26ca754016_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -702,7 +752,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04025">4025</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04085">4085</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -749,7 +799,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01138">1138</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01150">1150</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -772,7 +822,7 @@ Here is the call graph for this function:</div>
 
 <p>Initializes the values of various IBM variables, such as ghost points and image points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00724">724</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00725">725</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -800,7 +850,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocates memory for the variables in the IBM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00459">459</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -920,7 +970,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02216">2216</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02228">2228</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -950,7 +1000,7 @@ Here is the caller graph for this function:</div>
 
 <p>Prescribed kinematics for patch i at time t: hinged flapping (kin_model = 1) or the Eldredge pitch ramp (kin_model = 2). Flapping rolls phi about the lab x axis through the hinge and pitches theta about the body spanwise (y) axis through it; the ramp holds phi at zero and drives theta alone. Both compose as R = Rx(phi) Ry(theta) (MFC's angle convention) and set the angles, centroid, velocity and lab-frame angular velocity; nothing is integrated, so restarts are exact. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02582">2582</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02594">2594</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -960,6 +1010,37 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_a960829655e7f6f16e6e7ec29f649cb9c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac2ecc9299d30a307055d165219059f5e" name="ac2ecc9299d30a307055d165219059f5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ecc9299d30a307055d165219059f5e">&#9670;&#160;</a></span>s_restore_centroid_offsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_ibm::s_restore_centroid_offsets </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_init</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>On restart, replace the re-measured centroid offsets with the ones the run was using (restart_data/ib_offset_&lt;step&gt;.dat, written with each checkpoint), and re-place kinematics-driven bodies about them. No file: the measured offsets stand. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02995">2995</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_ac2ecc9299d30a307055d165219059f5e_cgraph.svg" width="100%" height="376"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ibm_ac2ecc9299d30a307055d165219059f5e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -976,7 +1057,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04291">4291</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04338">4338</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1002,7 +1083,7 @@ Here is the caller graph for this function:</div>
 
 <p>Resets the current indexes of immersed boundaries and replaces them after updating the position of each moving immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02426">2426</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02438">2438</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1025,11 +1106,29 @@ Here is the call graph for this function:</div>
 
 <p>Wrap immersed boundary positions across periodic domain boundaries. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03053">3053</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03113">3113</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ad6734dd19682cc3dcfb322e1bddd3311" name="ad6734dd19682cc3dcfb322e1bddd3311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6734dd19682cc3dcfb322e1bddd3311">&#9670;&#160;</a></span>centroid_offsets_active</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical m_ibm::centroid_offsets_active = .false.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>some patch is a moving airfoil or STL, which carries a centroid_offset </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00449">449</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a299a5d360ab9aa37c2d986968465f941" name="a299a5d360ab9aa37c2d986968465f941"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a299a5d360ab9aa37c2d986968465f941">&#9670;&#160;</a></span>corrected_gps</h2>
 
@@ -1126,7 +1225,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1142,7 +1241,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1257,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1273,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1190,7 +1289,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1206,7 +1305,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>

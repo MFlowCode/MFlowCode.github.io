@@ -1282,31 +1282,33 @@ $(function(){initNavTree('m__compute__levelset_8fpp_8f90_source.html','',''); })
 <div class="line"><a id="l01124" name="l01124"></a><span class="lineno"> 1124</span>            xyz_local(3) = <a class="code hl_variable" href="namespacem__global__parameters.html#a9544f569916da49084e78b52371ad9e6">z_cc</a>(k) - center(3)</div>
 <div class="line"><a id="l01125" name="l01125"></a><span class="lineno"> 1125</span><span class="keywordflow">        end if</span></div>
 <div class="line"><a id="l01126" name="l01126"></a><span class="lineno"> 1126</span>        xyz_local = matmul(inverse_rotation, xyz_local)</div>
-<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span> </div>
-<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>        <span class="comment">! 3D models</span></div>
-<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span>        <span class="keywordflow">if</span> (p &gt; 0) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span>            <span class="comment">! Get the boundary normals and shortest distance between the cell center and the model boundary</span></div>
-<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span>            <span class="keyword">call </span><a class="code hl_function" href="namespacem__model.html#a9ef02f127d22bff7b732906927151c32">s_distance_normals_3d</a>(<a class="code hl_variable" href="namespacem__model.html#a67f88868e4694fecf2151ffd5df4fc75">gpu_ntrs</a>(patch_ib(patch_id)%model_id), patch_ib(patch_id)%model_id, xyz_local, normals, &amp;</div>
-<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>                                       &amp; distance)</div>
-<div class="line"><a id="l01133" name="l01133"></a><span class="lineno"> 1133</span> </div>
-<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>            <span class="comment">! Get the shortest distance between the cell center and the model boundary</span></div>
-<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span>            gp%levelset = distance</div>
-<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>            gp%levelset = -abs(gp%levelset)</div>
-<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span> </div>
-<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>            <span class="comment">! Assign the levelset_norm</span></div>
-<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span>            gp%levelset_norm = matmul(rotation, normals(1:3))</div>
-<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span>            <span class="comment">! 2D models</span></div>
-<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span>            <span class="keyword">call </span><a class="code hl_function" href="namespacem__model.html#afbc1a4238527efdb23b937cda3103819">s_distance_normals_2d</a>(<a class="code hl_variable" href="namespacem__model.html#a6cc95c530c0e622698e1b854d4deee55">gpu_boundary_v</a>(:,:,:,patch_ib(patch_id)%model_id), boundary_edge_count, xyz_local, &amp;</div>
-<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span>                                       &amp; normals, distance)</div>
-<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span>            gp%levelset = -abs(distance)</div>
-<div class="line"><a id="l01145" name="l01145"></a><span class="lineno"> 1145</span>            gp%levelset_norm = matmul(rotation, normals(1:3))</div>
-<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span> </div>
-</div>
-<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__compute__levelset.html#adadad13569efd08e6caa0cb5b7157942">s_model_levelset</a></div>
+<div class="line"><a id="l01127" name="l01127"></a><span class="lineno"> 1127</span>        <span class="comment">! match the marker test in s_apply_ib_patches, which subtracts the offset too</span></div>
+<div class="line"><a id="l01128" name="l01128"></a><span class="lineno"> 1128</span>        xyz_local = xyz_local - patch_ib(patch_id)%centroid_offset</div>
+<div class="line"><a id="l01129" name="l01129"></a><span class="lineno"> 1129</span> </div>
+<div class="line"><a id="l01130" name="l01130"></a><span class="lineno"> 1130</span>        <span class="comment">! 3D models</span></div>
+<div class="line"><a id="l01131" name="l01131"></a><span class="lineno"> 1131</span>        <span class="keywordflow">if</span> (p &gt; 0) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l01132" name="l01132"></a><span class="lineno"> 1132</span>            <span class="comment">! Get the boundary normals and shortest distance between the cell center and the model boundary</span></div>
+<div class="line"><a id="l01133" name="l01133"></a><span class="lineno"> 1133</span>            <span class="keyword">call </span><a class="code hl_function" href="namespacem__model.html#a9ef02f127d22bff7b732906927151c32">s_distance_normals_3d</a>(<a class="code hl_variable" href="namespacem__model.html#a67f88868e4694fecf2151ffd5df4fc75">gpu_ntrs</a>(patch_ib(patch_id)%model_id), patch_ib(patch_id)%model_id, xyz_local, normals, &amp;</div>
+<div class="line"><a id="l01134" name="l01134"></a><span class="lineno"> 1134</span>                                       &amp; distance)</div>
+<div class="line"><a id="l01135" name="l01135"></a><span class="lineno"> 1135</span> </div>
+<div class="line"><a id="l01136" name="l01136"></a><span class="lineno"> 1136</span>            <span class="comment">! Get the shortest distance between the cell center and the model boundary</span></div>
+<div class="line"><a id="l01137" name="l01137"></a><span class="lineno"> 1137</span>            gp%levelset = distance</div>
+<div class="line"><a id="l01138" name="l01138"></a><span class="lineno"> 1138</span>            gp%levelset = -abs(gp%levelset)</div>
+<div class="line"><a id="l01139" name="l01139"></a><span class="lineno"> 1139</span> </div>
+<div class="line"><a id="l01140" name="l01140"></a><span class="lineno"> 1140</span>            <span class="comment">! Assign the levelset_norm</span></div>
+<div class="line"><a id="l01141" name="l01141"></a><span class="lineno"> 1141</span>            gp%levelset_norm = matmul(rotation, normals(1:3))</div>
+<div class="line"><a id="l01142" name="l01142"></a><span class="lineno"> 1142</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l01143" name="l01143"></a><span class="lineno"> 1143</span>            <span class="comment">! 2D models</span></div>
+<div class="line"><a id="l01144" name="l01144"></a><span class="lineno"> 1144</span>            <span class="keyword">call </span><a class="code hl_function" href="namespacem__model.html#afbc1a4238527efdb23b937cda3103819">s_distance_normals_2d</a>(<a class="code hl_variable" href="namespacem__model.html#a6cc95c530c0e622698e1b854d4deee55">gpu_boundary_v</a>(:,:,:,patch_ib(patch_id)%model_id), boundary_edge_count, xyz_local, &amp;</div>
+<div class="line"><a id="l01145" name="l01145"></a><span class="lineno"> 1145</span>                                       &amp; normals, distance)</div>
+<div class="line"><a id="l01146" name="l01146"></a><span class="lineno"> 1146</span>            gp%levelset = -abs(distance)</div>
+<div class="line"><a id="l01147" name="l01147"></a><span class="lineno"> 1147</span>            gp%levelset_norm = matmul(rotation, normals(1:3))</div>
+<div class="line"><a id="l01148" name="l01148"></a><span class="lineno"> 1148</span><span class="keywordflow">        end if</span></div>
 <div class="line"><a id="l01149" name="l01149"></a><span class="lineno"> 1149</span> </div>
-<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__compute__levelset.html">m_compute_levelset</a></div>
+</div>
+<div class="line"><a id="l01150" name="l01150"></a><span class="lineno"> 1150</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__compute__levelset.html#adadad13569efd08e6caa0cb5b7157942">s_model_levelset</a></div>
+<div class="line"><a id="l01151" name="l01151"></a><span class="lineno"> 1151</span> </div>
+<div class="line"><a id="l01152" name="l01152"></a><span class="lineno"> 1152</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__compute__levelset.html">m_compute_levelset</a></div>
 <div class="ttc" id="anamespacem__compute__levelset_html"><div class="ttname"><a href="namespacem__compute__levelset.html">m_compute_levelset</a></div><div class="ttdoc">Computes signed-distance level-set fields and surface normals for immersed-boundary patch geometries.</div><div class="ttdef"><b>Definition</b> <a href="#l00356">m_compute_levelset.fpp.f90:356</a></div></div>
 <div class="ttc" id="anamespacem__compute__levelset_html_a0e6b4900aa4a5fb7b36c59907f76bf54"><div class="ttname"><a href="namespacem__compute__levelset.html#a0e6b4900aa4a5fb7b36c59907f76bf54">m_compute_levelset::s_apply_levelset</a></div><div class="ttdeci">impure subroutine, public s_apply_levelset(gps, num_gps)</div><div class="ttdoc">Dispatch level-set distance and normal computations for all ghost points based on patch geometry type...</div><div class="ttdef"><b>Definition</b> <a href="#l00372">m_compute_levelset.fpp.f90:373</a></div></div>
 <div class="ttc" id="anamespacem__compute__levelset_html_a529fdd339b896d1bf009d98e84aeef15"><div class="ttname"><a href="namespacem__compute__levelset.html#a529fdd339b896d1bf009d98e84aeef15">m_compute_levelset::s_airfoil_levelset</a></div><div class="ttdeci">subroutine s_airfoil_levelset(gp)</div><div class="ttdoc">Compute the signed distance and outward normal from a ghost point to a 2D NACA airfoil surface.</div><div class="ttdef"><b>Definition</b> <a href="#l00540">m_compute_levelset.fpp.f90:541</a></div></div>

@@ -168,6 +168,8 @@ Testing</h2>
 <li><span class="tt">--percent</span> (<span class="tt">%</span>) to specify a percentage of the test suite to select at random and test</li>
 <li><span class="tt">--max-attempts</span> (<span class="tt">-m</span>) the maximum number of attempts to make on a test before considering it failed</li>
 <li><span class="tt">--no-examples</span> skips the testing of cases in the examples folder</li>
+<li><span class="tt">--no-chemistry</span> skips every case that uses chemistry (<span class="tt">chemistry = 'T'</span>), including reacting example cases</li>
+<li><span class="tt">--no-build</span> runs against existing binaries without rebuilding. Some cases (chemistry, analytic initial conditions) need their own build, which <span class="tt">./mfc.sh build</span> does not produce; build everything the suite needs with <span class="tt">./mfc.sh test --dry-run &lt;options&gt;</span>. If any required binary is missing, <span class="tt">--no-build</span> stops before running any case and lists what is missing.</li>
 <li><span class="tt">--rdma-mpi</span> runs additional tests where RDMA MPI is enabled.</li>
 </ul>
 <p>To specify a computer, pass the <span class="tt">-c</span> flag to <span class="tt">./mfc.sh run</span> like so: </p><div class="fragment"><div class="line">./mfc.sh test -j &lt;thread count&gt; -- -c &lt;computer name&gt;</div>

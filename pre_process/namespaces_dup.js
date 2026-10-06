@@ -673,6 +673,7 @@ var namespaces_dup =
       [ "s_initialize_mpi_data_ds", "namespacem__mpi__common.html#ac5f668590f96ae130c6d2107ca3fb620", null ],
       [ "s_mpi_abort", "namespacem__mpi__common.html#a04cfc0bdb377a0ce2f9fd478e4bb3807", null ],
       [ "s_mpi_allreduce_integer_sum", "namespacem__mpi__common.html#a750c773a9421c7837f197be9bdc4fb73", null ],
+      [ "s_mpi_allreduce_integer_sum_vec", "namespacem__mpi__common.html#acd08948df9c82e4b1112e377e91fadda", null ],
       [ "s_mpi_allreduce_max", "namespacem__mpi__common.html#a65728020613f88febe83c74836abb371", null ],
       [ "s_mpi_allreduce_min", "namespacem__mpi__common.html#a40f3c1242840a184d017acef92cce7d4", null ],
       [ "s_mpi_allreduce_min_vec", "namespacem__mpi__common.html#a666ef6ca37d1c7cfa6d310edd1002be3", null ],

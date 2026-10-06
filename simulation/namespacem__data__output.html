@@ -194,7 +194,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a8515ed6a92779575d4c1878f53113ff4" id="r_a8515ed6a92779575d4c1878f53113ff4"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8515ed6a92779575d4c1878f53113ff4">s_close_ib_force_history</a></td></tr>
 <tr class="memdesc:a8515ed6a92779575d4c1878f53113ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the history file. Nothing is buffered, so there is nothing to flush first.  <br /></td></tr>
 <tr class="memitem:ad7b2f63ea430ad1518152658c5488dcf" id="r_ad7b2f63ea430ad1518152658c5488dcf"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad7b2f63ea430ad1518152658c5488dcf">s_write_ib_state_file</a> (time_step)</td></tr>
-<tr class="memdesc:ad7b2f63ea430ad1518152658c5488dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0.  <br /></td></tr>
+<tr class="memdesc:ad7b2f63ea430ad1518152658c5488dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes IB state records to restart_data/ib_state.dat. Called on every rank.  <br /></td></tr>
+<tr class="memitem:a26732099fe08301c8b312ae35ac4b535" id="r_a26732099fe08301c8b312ae35ac4b535"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a26732099fe08301c8b312ae35ac4b535">s_write_centroid_offsets</a> (step)</td></tr>
+<tr class="memdesc:a26732099fe08301c8b312ae35ac4b535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write each global patch's centroid_offset to restart_data/ib_offset_&lt;step&gt;.dat, so a restart continues about the same centre of mass instead of re-measuring it from the body voxelised at the restart attitude. Collective.  <br /></td></tr>
 <tr class="memitem:a52814dea8c93b2edeaab7f76eb9a89e5" id="r_a52814dea8c93b2edeaab7f76eb9a89e5"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a52814dea8c93b2edeaab7f76eb9a89e5">s_write_probe_files</a> (t_step, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, accel_mag)</td></tr>
 <tr class="memdesc:a52814dea8c93b2edeaab7f76eb9a89e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write flow probe data at the current time step.  <br /></td></tr>
 <tr class="memitem:a897ce85a3bae7848132ce991a9389df1" id="r_a897ce85a3bae7848132ce991a9389df1"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a897ce85a3bae7848132ce991a9389df1">s_close_run_time_information_file</a></td></tr>
@@ -264,7 +266,7 @@ Variables</h2></td></tr>
 
 <p>Closes probe files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02465">2465</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02500">2500</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -282,7 +284,7 @@ Variables</h2></td></tr>
 
 <p>Write footer with stability criteria extrema and run-time to the information file, then close it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02442">2442</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02477">2477</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -300,7 +302,7 @@ Variables</h2></td></tr>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02508">2508</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02543">2543</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -318,7 +320,7 @@ Variables</h2></td></tr>
 
 <p>Initialize the data output module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02476">2476</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02511">2511</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -429,6 +431,45 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a22ac1c0655844e610fa82a9339252c00_icgraph.svg" width="415" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a26732099fe08301c8b312ae35ac4b535" name="a26732099fe08301c8b312ae35ac4b535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26732099fe08301c8b312ae35ac4b535">&#9670;&#160;</a></span>s_write_centroid_offsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_data_output::s_write_centroid_offsets </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write each global patch's centroid_offset to restart_data/ib_offset_&lt;step&gt;.dat, so a restart continues about the same centre of mass instead of re-measuring it from the body voxelised at the restart attitude. Collective. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01921">1921</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a26732099fe08301c8b312ae35ac4b535_cgraph.svg" width="420" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a26732099fe08301c8b312ae35ac4b535_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -563,13 +604,13 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Writes IB state records to restart_data/ib_state.dat. Must be called only on rank 0. </p>
+<p>Writes IB state records to restart_data/ib_state.dat. Called on every rank. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01894">1894</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_ad7b2f63ea430ad1518152658c5488dcf_cgraph.svg" width="623" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_ad7b2f63ea430ad1518152658c5488dcf_cgraph.svg" width="643" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -733,7 +774,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write flow probe data at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01919">1919</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01954">1954</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

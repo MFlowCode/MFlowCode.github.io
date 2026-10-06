@@ -1,9 +1,10 @@
 var m__ibm_8fpp_8f90 =
 [
     [ "m_ibm::f_log_cosh", "namespacem__ibm.html#a819f92e3bf0202d31eafbdc589ff025b", null ],
+    [ "m_ibm::f_needs_centroid_offset", "namespacem__ibm.html#ac040a05c887bdf3753ae10ff2dd608b0", null ],
     [ "m_ibm::s_check_every_patch_marked", "namespacem__ibm.html#aa8c5c58a17fb68233dac27d5f1262ffb", null ],
     [ "m_ibm::s_communicate_ib_forces", "namespacem__ibm.html#a20b12f9883611b3360b2d469a1870e66", null ],
-    [ "m_ibm::s_compute_centroid_offset", "namespacem__ibm.html#a95803cab792b57cbc7f1cf8232f1b2fd", null ],
+    [ "m_ibm::s_compute_centroid_offset", "namespacem__ibm.html#a0c297ad593faad508e7d3032b7480723", null ],
     [ "m_ibm::s_compute_ghost_point_pressure", "namespacem__ibm.html#ad36a1e81d1b8773e7c8e8ac32527a267", null ],
     [ "m_ibm::s_compute_ghost_point_velocity", "namespacem__ibm.html#a65e086391dadfdc6e838ef7ff0cec6c9", null ],
     [ "m_ibm::s_compute_ib_forces", "namespacem__ibm.html#a127d40085cc8ab5bdcde0f7cf894e92f", null ],
@@ -20,9 +21,11 @@ var m__ibm_8fpp_8f90 =
     [ "m_ibm::s_initialize_ibm_module", "namespacem__ibm.html#ab7c53e6e972a356b5fb74efaf876f426", null ],
     [ "m_ibm::s_interpolate_image_point", "namespacem__ibm.html#a115e213a2be87a5e60e9f756394e8323", null ],
     [ "m_ibm::s_prescribed_kinematics", "namespacem__ibm.html#a960829655e7f6f16e6e7ec29f649cb9c", null ],
+    [ "m_ibm::s_restore_centroid_offsets", "namespacem__ibm.html#ac2ecc9299d30a307055d165219059f5e", null ],
     [ "m_ibm::s_update_ib_lookup", "namespacem__ibm.html#a1f7d09eb6dba3c194e7bfe8a76c5885f", null ],
     [ "m_ibm::s_update_mib", "namespacem__ibm.html#a02fbdb1ad4d0ed7ccc43767cb06e08ff", null ],
     [ "m_ibm::s_wrap_periodic_ibs", "namespacem__ibm.html#ac922ef4566b7018082b062fabf82b9c9", null ],
+    [ "m_ibm::centroid_offsets_active", "namespacem__ibm.html#ad6734dd19682cc3dcfb322e1bddd3311", null ],
     [ "m_ibm::corrected_gps", "namespacem__ibm.html#a299a5d360ab9aa37c2d986968465f941", null ],
     [ "m_ibm::ghost_points", "namespacem__ibm.html#a3d7e47c58127b8a61046b4251160f535", null ],
     [ "m_ibm::ib_markers", "namespacem__ibm.html#a9cdfa4b47a00b8b5ef00feb84aa97aef", null ],
