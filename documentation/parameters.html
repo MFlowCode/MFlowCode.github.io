@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md420"></a>
 Overview</h2>
-<p>MFC supports <b>4,206</b> case parameters organized into families.</p>
+<p>MFC supports <b>4,211</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md421"></a>
 Parameter Families</h2>
@@ -199,7 +199,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#bc_z" title="bc_z">bc_z</a>  </td><td class="markdownTableBodyNone">46  </td><td class="markdownTableBodyNone">Z-direction boundary conditions  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#patch_ib" title="patch_ib">patch_ib</a>  </td><td class="markdownTableBodyNone">42  </td><td class="markdownTableBodyNone">Immersed boundary patch parameters  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#patch_ib" title="patch_ib">patch_ib</a>  </td><td class="markdownTableBodyNone">45  </td><td class="markdownTableBodyNone">Immersed boundary patch parameters  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#synth_L" title="synth_L">synth_L</a>  </td><td class="markdownTableBodyNone">30  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
@@ -251,7 +251,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#z_output" title="z_output">z_output</a>  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">Z-direction output region  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">230  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">232  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="patch_icpp"></a>
@@ -843,75 +843,81 @@ Patterns</h3>
 <h2 class="doxsection"><a class="anchor" id="patch_ib"></a>
 patch_ib</h2>
 <p><em>Immersed boundary patch parameters</em></p>
-<p><b>42 parameters</b></p>
+<p><b>45 parameters</b></p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md449"></a>
 Patterns</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Pattern  </th><th class="markdownTableHeadNone">Example  </th><th class="markdownTableHeadNone">Description  </th></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%Twall</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%Twall</span>  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%airfoil_id</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%airfoil_id</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%angles(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%angles(1)</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%angular_vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%angular_vel(1)</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%burn_rate_exp</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%burn_rate_exp</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%burn_rate_pref</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%burn_rate_pref</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%geometry</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%geometry</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%inj_species</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%inj_species</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_freq</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_freq</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_hinge(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_hinge(1)</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_model</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_model</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_offset(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_offset(1)</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_phase</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_phase</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_phi0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_phi0</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_pitch_rate</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_pitch_rate</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_ramp</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_ramp</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_smooth</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_smooth</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_t0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_t0</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_theta0</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_theta0</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%kin_theta_mean</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%kin_theta_mean</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_x</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_x</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_y</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_y</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%length_z</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%length_z</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%mass</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%mass</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%model_id</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%model_id</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%moving_ibm</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%moving_ibm</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%radius</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%radius</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%slip</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%slip</span>  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%surface_reaction</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%surface_reaction</span>  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%thermal_bc</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%thermal_bc</span>  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%v_blow</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%v_blow</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%vel(M)</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%vel(1)</span>  </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%x_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%x_centroid</span>  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%y_centroid</span>  </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%x_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%x_centroid</span>  </td><td class="markdownTableBodyNone"></td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%y_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%y_centroid</span>  </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">patch_ib(N)%z_centroid</span>  </td><td class="markdownTableBodyNone"><span class="tt">patch_ib(1)%z_centroid</span>  </td><td class="markdownTableBodyNone"></td></tr>
 </table>
 <hr  />
@@ -1380,7 +1386,7 @@ z_output</h2>
 <h2 class="doxsection"><a class="anchor" id="general"></a>
 general</h2>
 <p><em>Core simulation parameters (grid, time, model, etc.)</em></p>
-<p><b>230 parameters</b></p>
+<p><b>232 parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Symbol  </th><th class="markdownTableHeadNone">Constraints  </th></tr>
@@ -1459,7 +1465,7 @@ general</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">chem_wrt_T</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write temperature field for chemistry  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Chemistry output flag  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">chemistry</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable chemical reactions  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">chem_paramsadap_substeps</span> requires <span class="tt">reaction_substeps</span> &gt;= 1 (the operator-split floor); heat conduction is not supported with <span class="tt">chemistry</span>: the reacting path already carries mixture-averaged conduction through <span class="tt">chem_paramsdiffusion</span>; operator-split reaction sub-stepping (<span class="tt">reaction_substeps</span> &gt; 0) is not supported with <span class="tt">igr</span>: the reactor reads the post-flow (rho, e, T) state, which the IGR update path does not guarantee  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">chemistry</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable chemical reactions  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">patch_ib(i)thermal_bc</span> /= 0 requires <span class="tt">chemistry</span> = T; <span class="tt">patch_ib(i)surface_reaction</span> = 1 requires <span class="tt">chemistry</span> = T; <span class="tt">chem_paramsadap_substeps</span> requires <span class="tt">reaction_substeps</span> &gt;= 1 (the operator-split floor)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">coefficient_of_restitution</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Real number describing the elasticity of collisions from 0 (perfectly ineleas...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Immersed boundary parameter  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1777,6 +1783,10 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">stretch_z</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable grid stretching in the z-direction  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">a_z</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_a</span> must be set with <span class="tt">stretch_z</span> enabled; <span class="tt">z_b</span> must be set with <span class="tt">stretch_z</span> enabled  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">surface_cantera_file</span>  </td><td class="markdownTableBodyNone">String  </td><td class="markdownTableBodyNone">Cantera mechanism file for heterogeneous surface chemistry  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">patch_ib(i)surface_reaction</span> = 1 requires <span class="tt">surface_cantera_file</span> and <span class="tt">surface_phase</span>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">surface_phase</span>  </td><td class="markdownTableBodyNone">String  </td><td class="markdownTableBodyNone">Cantera interface phase name for heterogeneous surface chemistry  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">patch_ib(i)surface_reaction</span> = 1 requires <span class="tt">surface_cantera_file</span> and <span class="tt">surface_phase</span>  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">surface_tension</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable surface tension effects  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">sigma</span> must be set if <span class="tt">surface_tension</span> is enabled; The surface tension model requires <span class="tt">model_eqns</span> = 2 or <span class="tt">model_eqns</span> = 3; The surface tension model requires <span class="tt">num_fluids</span> = 2  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">synth_U_inf</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Advection velocity for synthetic turbulence field  </td><td class="markdownTableBodyNone">\(U_\infty\)  </td><td class="markdownTableBodyNone"></td></tr>
@@ -1860,7 +1870,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-08</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-09</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

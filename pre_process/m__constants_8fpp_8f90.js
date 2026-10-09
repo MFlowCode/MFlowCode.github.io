@@ -114,6 +114,8 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::small_alf", "namespacem__constants.html#ad9e8b92a99c0cefe3ac9fd476d9ff413", null ],
     [ "m_constants::small_guess", "namespacem__constants.html#ac9fe125128bab253ec102f300888b06c", null ],
     [ "m_constants::small_radius", "namespacem__constants.html#a0ee4961588488ac8a1caae857059ca4f", null ],
+    [ "m_constants::t_surface_max", "namespacem__constants.html#a8b3400794ce614ac5dff83be9229525d", null ],
+    [ "m_constants::t_surface_min", "namespacem__constants.html#a537523819d3e2ed4ceef2f88122fc4df", null ],
     [ "m_constants::threshold_edge_zero", "namespacem__constants.html#a914f27dc4d08c231280a1cf0b66e0dad", null ],
     [ "m_constants::threshold_first_guess", "namespacem__constants.html#ad6a16fddedb72d1e8a561901042ccd4a", null ],
     [ "m_constants::threshold_second_guess", "namespacem__constants.html#aa03b80d8ec31c8a1edf63511b1948ec7", null ],

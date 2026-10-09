@@ -779,93 +779,94 @@ var NAVTREE =
     [ "Testing", "testing.html", null ],
     [ "Thermochemistry implementation", "thermochemistry.html", [
       [ "Mechanism generation", "thermochemistry.html#autotoc_md588", null ],
-      [ "Mixing-layer initial conditions", "thermochemistry.html#autotoc_md589", null ],
-      [ "Validation", "thermochemistry.html#autotoc_md590", null ]
+      [ "Surface chemistry", "thermochemistry.html#autotoc_md589", null ],
+      [ "Mixing-layer initial conditions", "thermochemistry.html#autotoc_md590", null ],
+      [ "Validation", "thermochemistry.html#autotoc_md591", null ]
     ] ],
     [ "Troubleshooting Guide", "troubleshooting.html", [
-      [ "Troubleshooting Guide", "troubleshooting.html#autotoc_md591", [
-        [ "Quick Reference", "troubleshooting.html#autotoc_md592", [
-          [ "Debugging Flags", "troubleshooting.html#autotoc_md593", null ],
-          [ "Profiling Flags", "troubleshooting.html#autotoc_md594", null ],
-          [ "Useful Commands", "troubleshooting.html#autotoc_md595", null ]
+      [ "Troubleshooting Guide", "troubleshooting.html#autotoc_md592", [
+        [ "Quick Reference", "troubleshooting.html#autotoc_md593", [
+          [ "Debugging Flags", "troubleshooting.html#autotoc_md594", null ],
+          [ "Profiling Flags", "troubleshooting.html#autotoc_md595", null ],
+          [ "Useful Commands", "troubleshooting.html#autotoc_md596", null ]
         ] ],
-        [ "Debugging Workflow", "troubleshooting.html#autotoc_md597", [
-          [ "Build Fails?", "troubleshooting.html#autotoc_md598", null ],
-          [ "Run Fails?", "troubleshooting.html#autotoc_md599", null ],
-          [ "Test Fails?", "troubleshooting.html#autotoc_md600", null ]
+        [ "Debugging Workflow", "troubleshooting.html#autotoc_md598", [
+          [ "Build Fails?", "troubleshooting.html#autotoc_md599", null ],
+          [ "Run Fails?", "troubleshooting.html#autotoc_md600", null ],
+          [ "Test Fails?", "troubleshooting.html#autotoc_md601", null ]
         ] ],
-        [ "Build Debugging", "troubleshooting.html#autotoc_md602", [
-          [ "Verbosity Levels", "troubleshooting.html#autotoc_md603", null ],
-          [ "Debug Builds", "troubleshooting.html#autotoc_md604", null ],
-          [ "Code Coverage", "troubleshooting.html#autotoc_md605", null ],
-          [ "Isolating Issues", "troubleshooting.html#autotoc_md606", null ],
-          [ "Clean Rebuild", "troubleshooting.html#autotoc_md607", null ]
+        [ "Build Debugging", "troubleshooting.html#autotoc_md603", [
+          [ "Verbosity Levels", "troubleshooting.html#autotoc_md604", null ],
+          [ "Debug Builds", "troubleshooting.html#autotoc_md605", null ],
+          [ "Code Coverage", "troubleshooting.html#autotoc_md606", null ],
+          [ "Isolating Issues", "troubleshooting.html#autotoc_md607", null ],
+          [ "Clean Rebuild", "troubleshooting.html#autotoc_md608", null ]
         ] ],
-        [ "Runtime Debugging", "troubleshooting.html#autotoc_md609", [
-          [ "Case Validation", "troubleshooting.html#autotoc_md610", null ],
-          [ "Verbose Runs", "troubleshooting.html#autotoc_md611", null ],
-          [ "Debug Log", "troubleshooting.html#autotoc_md612", null ],
-          [ "Running with Fewer Ranks", "troubleshooting.html#autotoc_md613", null ]
+        [ "Runtime Debugging", "troubleshooting.html#autotoc_md610", [
+          [ "Case Validation", "troubleshooting.html#autotoc_md611", null ],
+          [ "Verbose Runs", "troubleshooting.html#autotoc_md612", null ],
+          [ "Debug Log", "troubleshooting.html#autotoc_md613", null ],
+          [ "Running with Fewer Ranks", "troubleshooting.html#autotoc_md614", null ]
         ] ],
-        [ "Test Debugging", "troubleshooting.html#autotoc_md615", [
-          [ "Running Specific Tests", "troubleshooting.html#autotoc_md616", null ],
-          [ "Serial Test Execution", "troubleshooting.html#autotoc_md617", null ],
-          [ "Test Output Location", "troubleshooting.html#autotoc_md618", null ],
-          [ "Regenerating Golden Files", "troubleshooting.html#autotoc_md619", null ],
-          [ "Understanding Test Failures", "troubleshooting.html#autotoc_md620", null ]
+        [ "Test Debugging", "troubleshooting.html#autotoc_md616", [
+          [ "Running Specific Tests", "troubleshooting.html#autotoc_md617", null ],
+          [ "Serial Test Execution", "troubleshooting.html#autotoc_md618", null ],
+          [ "Test Output Location", "troubleshooting.html#autotoc_md619", null ],
+          [ "Regenerating Golden Files", "troubleshooting.html#autotoc_md620", null ],
+          [ "Understanding Test Failures", "troubleshooting.html#autotoc_md621", null ]
         ] ],
-        [ "Performance Profiling", "troubleshooting.html#autotoc_md622", [
-          [ "NVIDIA GPU Profiling", "troubleshooting.html#autotoc_md623", null ],
-          [ "AMD GPU Profiling", "troubleshooting.html#autotoc_md624", null ],
-          [ "Performance vs Correctness", "troubleshooting.html#autotoc_md625", null ]
+        [ "Performance Profiling", "troubleshooting.html#autotoc_md623", [
+          [ "NVIDIA GPU Profiling", "troubleshooting.html#autotoc_md624", null ],
+          [ "AMD GPU Profiling", "troubleshooting.html#autotoc_md625", null ],
+          [ "Performance vs Correctness", "troubleshooting.html#autotoc_md626", null ]
         ] ],
-        [ "Common Build Errors", "troubleshooting.html#autotoc_md627", [
-          [ "\"CMake could not find MPI\"", "troubleshooting.html#autotoc_md628", null ],
-          [ "\"CMake could not find a Fortran compiler\"", "troubleshooting.html#autotoc_md629", null ],
-          [ "\"Fypp preprocessing failed\"", "troubleshooting.html#autotoc_md630", null ],
-          [ "Build fails with GPU/OpenACC errors", "troubleshooting.html#autotoc_md631", null ],
-          [ "\"Module not found\" on HPC", "troubleshooting.html#autotoc_md632", null ]
+        [ "Common Build Errors", "troubleshooting.html#autotoc_md628", [
+          [ "\"CMake could not find MPI\"", "troubleshooting.html#autotoc_md629", null ],
+          [ "\"CMake could not find a Fortran compiler\"", "troubleshooting.html#autotoc_md630", null ],
+          [ "\"Fypp preprocessing failed\"", "troubleshooting.html#autotoc_md631", null ],
+          [ "Build fails with GPU/OpenACC errors", "troubleshooting.html#autotoc_md632", null ],
+          [ "\"Module not found\" on HPC", "troubleshooting.html#autotoc_md633", null ]
         ] ],
-        [ "Common Runtime Errors", "troubleshooting.html#autotoc_md634", [
-          [ "\"Case parameter constraint violations\"", "troubleshooting.html#autotoc_md635", null ],
-          [ "\"NaN detected\"", "troubleshooting.html#autotoc_md636", null ],
-          [ "GPU not detected", "troubleshooting.html#autotoc_md637", null ],
-          [ "MPI errors or hangs", "troubleshooting.html#autotoc_md638", null ]
+        [ "Common Runtime Errors", "troubleshooting.html#autotoc_md635", [
+          [ "\"Case parameter constraint violations\"", "troubleshooting.html#autotoc_md636", null ],
+          [ "\"NaN detected\"", "troubleshooting.html#autotoc_md637", null ],
+          [ "GPU not detected", "troubleshooting.html#autotoc_md638", null ],
+          [ "MPI errors or hangs", "troubleshooting.html#autotoc_md639", null ]
         ] ],
-        [ "Visualization Issues", "troubleshooting.html#autotoc_md640", [
-          [ "\"No 'binary/' or 'silo_hdf5/' directory found\"", "troubleshooting.html#autotoc_md641", null ],
-          [ "\"Variable 'X' not found\"", "troubleshooting.html#autotoc_md642", null ],
-          [ "\"h5py is required to read Silo-HDF5 files\"", "troubleshooting.html#autotoc_md643", null ],
-          [ "Visualization looks wrong or has artifacts", "troubleshooting.html#autotoc_md644", null ]
+        [ "Visualization Issues", "troubleshooting.html#autotoc_md641", [
+          [ "\"No 'binary/' or 'silo_hdf5/' directory found\"", "troubleshooting.html#autotoc_md642", null ],
+          [ "\"Variable 'X' not found\"", "troubleshooting.html#autotoc_md643", null ],
+          [ "\"h5py is required to read Silo-HDF5 files\"", "troubleshooting.html#autotoc_md644", null ],
+          [ "Visualization looks wrong or has artifacts", "troubleshooting.html#autotoc_md645", null ]
         ] ],
-        [ "Getting Help", "troubleshooting.html#autotoc_md646", null ]
+        [ "Getting Help", "troubleshooting.html#autotoc_md647", null ]
       ] ]
     ] ],
     [ "Flow visualization", "visualization.html", [
-      [ "Flow visualization", "visualization.html#autotoc_md647", [
-        [ "Quick visualization with <span class=\"tt\">./mfc.sh viz</span>", "visualization.html#autotoc_md649", [
-          [ "Basic usage", "visualization.html#autotoc_md650", null ],
-          [ "Exploring available data", "visualization.html#autotoc_md651", null ],
-          [ "Timestep selection", "visualization.html#autotoc_md652", null ],
-          [ "Rendering options", "visualization.html#autotoc_md653", null ],
-          [ "3D slicing", "visualization.html#autotoc_md654", null ],
-          [ "Video generation", "visualization.html#autotoc_md655", null ],
-          [ "Tiled 1D rendering", "visualization.html#autotoc_md656", null ],
-          [ "Interactive mode", "visualization.html#autotoc_md657", null ],
-          [ "Terminal UI (TUI)", "visualization.html#autotoc_md658", null ],
-          [ "Plot styling", "visualization.html#autotoc_md659", null ],
-          [ "Format selection", "visualization.html#autotoc_md660", null ],
-          [ "Complete option reference", "visualization.html#autotoc_md661", null ]
+      [ "Flow visualization", "visualization.html#autotoc_md648", [
+        [ "Quick visualization with <span class=\"tt\">./mfc.sh viz</span>", "visualization.html#autotoc_md650", [
+          [ "Basic usage", "visualization.html#autotoc_md651", null ],
+          [ "Exploring available data", "visualization.html#autotoc_md652", null ],
+          [ "Timestep selection", "visualization.html#autotoc_md653", null ],
+          [ "Rendering options", "visualization.html#autotoc_md654", null ],
+          [ "3D slicing", "visualization.html#autotoc_md655", null ],
+          [ "Video generation", "visualization.html#autotoc_md656", null ],
+          [ "Tiled 1D rendering", "visualization.html#autotoc_md657", null ],
+          [ "Interactive mode", "visualization.html#autotoc_md658", null ],
+          [ "Terminal UI (TUI)", "visualization.html#autotoc_md659", null ],
+          [ "Plot styling", "visualization.html#autotoc_md660", null ],
+          [ "Format selection", "visualization.html#autotoc_md661", null ],
+          [ "Complete option reference", "visualization.html#autotoc_md662", null ]
         ] ],
-        [ "Visualizing with ParaView", "visualization.html#autotoc_md663", [
-          [ "Visualizing data in cylindrical coordinates", "visualization.html#autotoc_md664", null ]
+        [ "Visualizing with ParaView", "visualization.html#autotoc_md664", [
+          [ "Visualizing data in cylindrical coordinates", "visualization.html#autotoc_md665", null ]
         ] ],
-        [ "Visualizing with VisIt", "visualization.html#autotoc_md665", null ],
-        [ "Serial data output", "visualization.html#autotoc_md666", null ],
-        [ "Remote Visualization on PACE Phoenix", "visualization.html#autotoc_md667", [
-          [ "Step 1: Setting up your Environment", "visualization.html#autotoc_md668", null ],
-          [ "Step 2: Customizing the script", "visualization.html#autotoc_md669", null ],
-          [ "Step 3: Running pace-paraview-server", "visualization.html#autotoc_md670", null ]
+        [ "Visualizing with VisIt", "visualization.html#autotoc_md666", null ],
+        [ "Serial data output", "visualization.html#autotoc_md667", null ],
+        [ "Remote Visualization on PACE Phoenix", "visualization.html#autotoc_md668", [
+          [ "Step 1: Setting up your Environment", "visualization.html#autotoc_md669", null ],
+          [ "Step 2: Customizing the script", "visualization.html#autotoc_md670", null ],
+          [ "Step 3: Running pace-paraview-server", "visualization.html#autotoc_md671", null ]
         ] ]
       ] ]
     ] ],

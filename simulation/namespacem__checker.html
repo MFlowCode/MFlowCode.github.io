@@ -174,7 +174,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aceda94ae9a006496d062f1e764db5b67" id="r_aceda94ae9a006496d062f1e764db5b67"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aceda94ae9a006496d062f1e764db5b67">s_check_inputs_nvidia_uvm</a></td></tr>
 <tr class="memdesc:aceda94ae9a006496d062f1e764db5b67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validate NVIDIA unified virtual memory configuration parameters.  <br /></td></tr>
 <tr class="memitem:a59e363db1dcb8b8a12e361590766a81a" id="r_a59e363db1dcb8b8a12e361590766a81a"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a59e363db1dcb8b8a12e361590766a81a">s_check_inputs_ib_injection</a></td></tr>
-<tr class="memdesc:a59e363db1dcb8b8a12e361590766a81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates that each burning immersed-boundary patch injects a species index within the mechanism. inj_species indexes the image-point mass-fraction array Ys_IP(1:num_species) in <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>; an out-of-range value is an out-of-bounds write (silent corruption). Only reachable with chemistry.  <br /></td></tr>
+<tr class="memdesc:a59e363db1dcb8b8a12e361590766a81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates immersed-boundary injection, thermal, and heterogeneous surface-reaction parameters. Validates the one immersed-boundary surface parameter that cannot be checked from the case file alone.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Validates simulation input parameters for consistency and supported configurations. </p>
@@ -242,9 +242,10 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Validates that each burning immersed-boundary patch injects a species index within the mechanism. inj_species indexes the image-point mass-fraction array Ys_IP(1:num_species) in <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>; an out-of-range value is an out-of-bounds write (silent corruption). Only reachable with chemistry. </p>
+<p>Validates immersed-boundary injection, thermal, and heterogeneous surface-reaction parameters. Validates the one immersed-boundary surface parameter that cannot be checked from the case file alone. </p>
+<p>Every other relation between these parameters &ndash; the ranges, the chemistry and inj_species combinations, the Twall window &ndash; is between case-file values and lives in case_validator.py, where it runs before any binary starts and is unit tested. num_species is populated by Cantera at run time, so this bound has to be here. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__checker_8fpp_8f90_source.html#l00498">498</a> of file <a class="el" href="m__checker_8fpp_8f90_source.html">m_checker.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__checker_8fpp_8f90_source.html#l00502">502</a> of file <a class="el" href="m__checker_8fpp_8f90_source.html">m_checker.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

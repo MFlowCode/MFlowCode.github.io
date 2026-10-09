@@ -59,6 +59,7 @@ var searchData=
   ['stretch_5fz_56',['stretch_z',['../namespacem__global__parameters__common.html#adf53dad38045b54f423711b3d9338c6a',1,'m_global_parameters_common']]],
   ['substeps_57',['substeps',['../structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63',1,'m_derived_types::reactive_burn_parameters']]],
   ['support_58',['support',['../structm__derived__types_1_1acoustic__parameters.html#a11971a4761b5fa3482a6c37d1efec4b5',1,'m_derived_types::acoustic_parameters']]],
-  ['surface_5ftension_59',['surface_tension',['../namespacem__global__parameters__common.html#a075c54267c968a7b78122aabf7631844',1,'m_global_parameters_common']]],
-  ['sys_5fsize_60',['sys_size',['../namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2',1,'m_global_parameters_common']]]
+  ['surface_5freaction_59',['surface_reaction',['../structm__derived__types_1_1ib__patch__parameters.html#a693beca108bda3e82d5fdbe7db9c1e80',1,'m_derived_types::ib_patch_parameters']]],
+  ['surface_5ftension_60',['surface_tension',['../namespacem__global__parameters__common.html#a075c54267c968a7b78122aabf7631844',1,'m_global_parameters_common']]],
+  ['sys_5fsize_61',['sys_size',['../namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2',1,'m_global_parameters_common']]]
 ];

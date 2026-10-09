@@ -1,5 +1,15 @@
 var NAVTREEINDEX8 =
 {
+"structm__derived__types_1_1t__triangle.html#ac16f232389b96d3c939e78cddb1634f6":[2,0,2,25,1],
+"structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85":[1,0,14,25,0],
+"structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85":[2,0,2,25,0],
+"structm__derived__types_1_1vec3__dt.html":[1,0,14,11],
+"structm__derived__types_1_1vec3__dt.html":[2,0,2,11],
+"structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3":[1,0,14,11,0],
+"structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3":[2,0,2,11,0],
+"structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e":[1,0,14,11,1],
+"structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e":[2,0,2,11,1],
+"structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4":[1,0,14,11,2],
 "structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4":[2,0,2,11,2],
 "structm__derived__types_1_1vector__field.html":[1,0,14,10],
 "structm__derived__types_1_1vector__field.html":[2,0,2,10],

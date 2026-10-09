@@ -207,6 +207,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a795efa6dc563a04a903c13a960089a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the data output module.  <br /></td></tr>
 <tr class="memitem:a81d3138233e0f1a797c930dbf9543d71" id="r_a81d3138233e0f1a797c930dbf9543d71"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a81d3138233e0f1a797c930dbf9543d71">s_finalize_data_output_module</a></td></tr>
 <tr class="memdesc:a81d3138233e0f1a797c930dbf9543d71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
+<tr class="memitem:aae6986c1b14092266156ff66ec2653f4" id="r_aae6986c1b14092266156ff66ec2653f4"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#aae6986c1b14092266156ff66ec2653f4">f_probe_owned</a> (v, lo, hi, dir)</td></tr>
+<tr class="memdesc:aae6986c1b14092266156ff66ec2653f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Half-open ownership lo &lt; v &lt;= hi, so a probe on a rank face is sampled once, by the rank holding the cell the serial code samples (left of the face); the first rank in a direction also owns its lower face.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -234,6 +236,59 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Writes solution data, run-time stability diagnostics (ICFL, VCFL, CCFL, Rc), and probe/center-of-mass files. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="aae6986c1b14092266156ff66ec2653f4" name="aae6986c1b14092266156ff66ec2653f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6986c1b14092266156ff66ec2653f4">&#9670;&#160;</a></span>f_probe_owned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function m_data_output::f_probe_owned </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>hi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Half-open ownership lo &lt; v &lt;= hi, so a probe on a rank face is sampled once, by the rank holding the cell the serial code samples (left of the face); the first rank in a direction also owns its lower face. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02614">2614</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_aae6986c1b14092266156ff66ec2653f4_cgraph.svg" width="188" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_aae6986c1b14092266156ff66ec2653f4_icgraph.svg" width="411" height="75"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a8515ed6a92779575d4c1878f53113ff4" name="a8515ed6a92779575d4c1878f53113ff4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8515ed6a92779575d4c1878f53113ff4">&#9670;&#160;</a></span>s_close_ib_force_history()</h2>
 
@@ -778,7 +833,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a52814dea8c93b2edeaab7f76eb9a89e5_cgraph.svg" width="100%" height="544"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a52814dea8c93b2edeaab7f76eb9a89e5_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
