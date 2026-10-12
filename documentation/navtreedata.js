@@ -213,7 +213,7 @@ var NAVTREE =
         ] ],
         [ "Testing", "contributing.html#autotoc_md118", null ],
         [ "CI Pipeline", "contributing.html#autotoc_md119", [
-          [ "Lint Gate (runs first, blocks all other jobs)", "contributing.html#autotoc_md120", null ],
+          [ "Lint Gate (runs first, blocks the build and test jobs)", "contributing.html#autotoc_md120", null ],
           [ "Build and Test Matrix", "contributing.html#autotoc_md121", null ],
           [ "Common CI Failures", "contributing.html#autotoc_md122", null ]
         ] ],
@@ -825,48 +825,49 @@ var NAVTREE =
           [ "\"CMake could not find a Fortran compiler\"", "troubleshooting.html#autotoc_md630", null ],
           [ "\"Fypp preprocessing failed\"", "troubleshooting.html#autotoc_md631", null ],
           [ "Build fails with GPU/OpenACC errors", "troubleshooting.html#autotoc_md632", null ],
-          [ "\"Module not found\" on HPC", "troubleshooting.html#autotoc_md633", null ]
+          [ "NVHPC GPU link fails with \"multiple definition\" errors", "troubleshooting.html#autotoc_md633", null ],
+          [ "\"Module not found\" on HPC", "troubleshooting.html#autotoc_md634", null ]
         ] ],
-        [ "Common Runtime Errors", "troubleshooting.html#autotoc_md635", [
-          [ "\"Case parameter constraint violations\"", "troubleshooting.html#autotoc_md636", null ],
-          [ "\"NaN detected\"", "troubleshooting.html#autotoc_md637", null ],
-          [ "GPU not detected", "troubleshooting.html#autotoc_md638", null ],
-          [ "MPI errors or hangs", "troubleshooting.html#autotoc_md639", null ]
+        [ "Common Runtime Errors", "troubleshooting.html#autotoc_md636", [
+          [ "\"Case parameter constraint violations\"", "troubleshooting.html#autotoc_md637", null ],
+          [ "\"NaN detected\"", "troubleshooting.html#autotoc_md638", null ],
+          [ "GPU not detected", "troubleshooting.html#autotoc_md639", null ],
+          [ "MPI errors or hangs", "troubleshooting.html#autotoc_md640", null ]
         ] ],
-        [ "Visualization Issues", "troubleshooting.html#autotoc_md641", [
-          [ "\"No 'binary/' or 'silo_hdf5/' directory found\"", "troubleshooting.html#autotoc_md642", null ],
-          [ "\"Variable 'X' not found\"", "troubleshooting.html#autotoc_md643", null ],
-          [ "\"h5py is required to read Silo-HDF5 files\"", "troubleshooting.html#autotoc_md644", null ],
-          [ "Visualization looks wrong or has artifacts", "troubleshooting.html#autotoc_md645", null ]
+        [ "Visualization Issues", "troubleshooting.html#autotoc_md642", [
+          [ "\"No 'binary/' or 'silo_hdf5/' directory found\"", "troubleshooting.html#autotoc_md643", null ],
+          [ "\"Variable 'X' not found\"", "troubleshooting.html#autotoc_md644", null ],
+          [ "\"h5py is required to read Silo-HDF5 files\"", "troubleshooting.html#autotoc_md645", null ],
+          [ "Visualization looks wrong or has artifacts", "troubleshooting.html#autotoc_md646", null ]
         ] ],
-        [ "Getting Help", "troubleshooting.html#autotoc_md647", null ]
+        [ "Getting Help", "troubleshooting.html#autotoc_md648", null ]
       ] ]
     ] ],
     [ "Flow visualization", "visualization.html", [
-      [ "Flow visualization", "visualization.html#autotoc_md648", [
-        [ "Quick visualization with <span class=\"tt\">./mfc.sh viz</span>", "visualization.html#autotoc_md650", [
-          [ "Basic usage", "visualization.html#autotoc_md651", null ],
-          [ "Exploring available data", "visualization.html#autotoc_md652", null ],
-          [ "Timestep selection", "visualization.html#autotoc_md653", null ],
-          [ "Rendering options", "visualization.html#autotoc_md654", null ],
-          [ "3D slicing", "visualization.html#autotoc_md655", null ],
-          [ "Video generation", "visualization.html#autotoc_md656", null ],
-          [ "Tiled 1D rendering", "visualization.html#autotoc_md657", null ],
-          [ "Interactive mode", "visualization.html#autotoc_md658", null ],
-          [ "Terminal UI (TUI)", "visualization.html#autotoc_md659", null ],
-          [ "Plot styling", "visualization.html#autotoc_md660", null ],
-          [ "Format selection", "visualization.html#autotoc_md661", null ],
-          [ "Complete option reference", "visualization.html#autotoc_md662", null ]
+      [ "Flow visualization", "visualization.html#autotoc_md649", [
+        [ "Quick visualization with <span class=\"tt\">./mfc.sh viz</span>", "visualization.html#autotoc_md651", [
+          [ "Basic usage", "visualization.html#autotoc_md652", null ],
+          [ "Exploring available data", "visualization.html#autotoc_md653", null ],
+          [ "Timestep selection", "visualization.html#autotoc_md654", null ],
+          [ "Rendering options", "visualization.html#autotoc_md655", null ],
+          [ "3D slicing", "visualization.html#autotoc_md656", null ],
+          [ "Video generation", "visualization.html#autotoc_md657", null ],
+          [ "Tiled 1D rendering", "visualization.html#autotoc_md658", null ],
+          [ "Interactive mode", "visualization.html#autotoc_md659", null ],
+          [ "Terminal UI (TUI)", "visualization.html#autotoc_md660", null ],
+          [ "Plot styling", "visualization.html#autotoc_md661", null ],
+          [ "Format selection", "visualization.html#autotoc_md662", null ],
+          [ "Complete option reference", "visualization.html#autotoc_md663", null ]
         ] ],
-        [ "Visualizing with ParaView", "visualization.html#autotoc_md664", [
-          [ "Visualizing data in cylindrical coordinates", "visualization.html#autotoc_md665", null ]
+        [ "Visualizing with ParaView", "visualization.html#autotoc_md665", [
+          [ "Visualizing data in cylindrical coordinates", "visualization.html#autotoc_md666", null ]
         ] ],
-        [ "Visualizing with VisIt", "visualization.html#autotoc_md666", null ],
-        [ "Serial data output", "visualization.html#autotoc_md667", null ],
-        [ "Remote Visualization on PACE Phoenix", "visualization.html#autotoc_md668", [
-          [ "Step 1: Setting up your Environment", "visualization.html#autotoc_md669", null ],
-          [ "Step 2: Customizing the script", "visualization.html#autotoc_md670", null ],
-          [ "Step 3: Running pace-paraview-server", "visualization.html#autotoc_md671", null ]
+        [ "Visualizing with VisIt", "visualization.html#autotoc_md667", null ],
+        [ "Serial data output", "visualization.html#autotoc_md668", null ],
+        [ "Remote Visualization on PACE Phoenix", "visualization.html#autotoc_md669", [
+          [ "Step 1: Setting up your Environment", "visualization.html#autotoc_md670", null ],
+          [ "Step 2: Customizing the script", "visualization.html#autotoc_md671", null ],
+          [ "Step 3: Running pace-paraview-server", "visualization.html#autotoc_md672", null ]
         ] ]
       ] ]
     ] ],

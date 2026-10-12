@@ -181,7 +181,7 @@ Three-Phase Pipeline</h3>
 <ol type="1">
 <li><b>pre_process</b> — Reads case parameters, generates initial conditions (patch geometries, flow states), writes binary grid and flow data to disk.</li>
 <li><b>simulation</b> — Reads the initial state, advances the solution in time via TVD Runge-Kutta integration, writes solution snapshots at specified intervals.</li>
-<li><b>post_process</b> — Reads simulation snapshots, computes derived quantities (vorticity, Schlieren, sound speed, etc.), writes Silo/HDF5 output for visualization.</li>
+<li><b>post_process</b> — Reads simulation snapshots, computes derived quantities (vorticity, Schlieren, sound speed, etc.), writes Silo (HDF5-backed) or binary output for visualization.</li>
 </ol>
 <p>All three share code in <span class="tt">src/common/</span>. Only <span class="tt">simulation</span> is GPU-accelerated.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md86"></a>
@@ -211,7 +211,8 @@ Simulation Data Flow</h3>
 <p>Each time step, <span class="tt">simulation</span> computes the right-hand side through this pipeline:</p>
 <div class="fragment"><div class="line">q_cons_vf (conservative variables: density, momentum, energy, volume fractions)</div>
 <div class="line">    → convert to primitive (density, velocity, pressure)</div>
-<div class="line">    → WENO reconstruction (left/right states at cell faces)</div>
+<div class="line">    → fill halo/ghost cells (MPI exchange + boundary conditions)</div>
+<div class="line">    → WENO or MUSCL reconstruction (left/right states at cell faces)</div>
 <div class="line">    → Riemann solve (numerical fluxes)</div>
 <div class="line">    → flux divergence + source terms (viscous, surface tension, body forces)</div>
 <div class="line">    → RHS assembly</div>
@@ -229,18 +230,18 @@ Build Toolchain</h3>
 <li><b>Fypp</b> preprocesses <span class="tt">.fpp</span> files into <span class="tt">.f90</span> (expands GPU macros, code generation)</li>
 <li><b>Fortran compiler</b> builds three executables from the generated <span class="tt">.f90</span> files</li>
 </ol>
-<p>See <a class="el" href="parameters.html" title="Case Parameters">Case Parameters</a> for the full list of ~3,400 simulation parameters. See <a class="el" href="case_constraints.html" title="Case Creator Guide">Case Creator Guide</a> for feature compatibility and example configurations.</p>
+<p>See <a class="el" href="parameters.html" title="Case Parameters">Case Parameters</a> for the full list of simulation parameters. See <a class="el" href="case_constraints.html" title="Case Creator Guide">Case Creator Guide</a> for feature compatibility and example configurations.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md89"></a>
 How the Build Fits Together</h3>
 <p>The build pipeline has four layers. Each layer has a single responsibility; the handoff between them is narrow.</p>
-<div class="fragment"><div class="line">mfc.sh (env bootstrap, venv, module loading, lock)</div>
-<div class="line">  └─ toolchain/mfc/build.py (config slugs, cmake invocation)</div>
+<div class="fragment"><div class="line">mfc.sh (env bootstrap: CMake, Python venv)</div>
+<div class="line">  └─ toolchain/main.py → toolchain/mfc/build.py (config slugs, case.fpp, cmake invocation)</div>
 <div class="line">       └─ CMakeLists.txt + cmake/{GPU,Fypp,ParamsCodegen,MFCTargets}.cmake</div>
 <div class="line">            └─ toolchain/mfc/params/generators/cmake_gen.py (writes 18 generated .fpp includes)</div>
-</div><!-- fragment --><p><b><span class="tt">mfc.sh</span> → <span class="tt">build.py</span>.</b> <span class="tt">mfc.sh</span> is a thin shell wrapper that activates the Python virtual environment, loads HPC modules, and delegates to <span class="tt">build.py</span>. <span class="tt">build.py</span> calls <span class="tt">get_slug</span> to compute a human-readable variant identifier (<span class="tt">&lt;prefix&gt;-&lt;10-hex&gt;</span>, e.g. <span class="tt">gpu-acc-chem-f93aa400b9</span>) that encodes every build-affecting flag: GPU backend, precision mode, debug, chemistry, MPI. Staging and install trees are namespaced by slug under <span class="tt">build/staging/</span> and <span class="tt">build/install/</span>, so multiple variants coexist without interfering.</p>
-<p><b>CMake layer.</b> <span class="tt">cmake/Fypp.cmake</span> defines <span class="tt">HANDLE_SOURCES</span>, which sets up one <span class="tt">add_custom_command</span> per <span class="tt">.fpp</span> file to run Fypp at build time. <span class="tt">cmake/ParamsCodegen.cmake</span> registers a single ninja-tracked <span class="tt">add_custom_command</span> (DEPENDS all <span class="tt">params/*.py</span>) that invokes <span class="tt">cmake_gen.py</span> and writes the 18 generated includes under <span class="tt">build/include/&lt;target&gt;/</span>. There is no configure-time generation: all 18 files are build outputs, so changing any <span class="tt">params/*.py</span> triggers only a targeted rebuild, not a full reconfigure.</p>
-<p><b>Fypp and per-target stubs.</b> Fypp resolves <span class="tt">#:include</span> at parse time, so every <span class="tt">.fpp</span> file sees exactly the include path for the target being compiled. <span class="tt">src/common/</span> is compiled once per executable with the <span class="tt">MFC_&lt;TARGET&gt;</span> preprocessor define (<span class="tt">MFC_PRE_PROCESS</span>, <span class="tt">MFC_SIMULATION</span>, or <span class="tt">MFC_POST_PROCESS</span>) — this is intentional. It is what lets common modules include per-target generated files and gate simulation-only code with <span class="tt">#ifdef MFC_SIMULATION</span> without duplication.</p>
-<p>For which of the 15 files is manual vs. generated and what each contains, see the "How to Add a New Simulation Parameter" section below.</p>
+</div><!-- fragment --><p><b><span class="tt">mfc.sh</span> → <span class="tt">build.py</span>.</b> <span class="tt">mfc.sh</span> is a thin shell wrapper that bootstraps CMake and the Python virtual environment, then runs <span class="tt">toolchain/main.py</span>, which dispatches to <span class="tt">build.py</span> (HPC modules are loaded separately, via <span class="tt">source ./mfc.sh load</span>). <span class="tt">build.py</span> calls <span class="tt">get_slug</span> to compute a variant identifier (<span class="tt">&lt;prefix&gt;-&lt;10-hex&gt;</span>, e.g. <span class="tt">gpu-acc-chem-f93aa400b9</span>). The prefix names the build flags (GPU backend, precision, debug, MPI, chemistry, ...); the hash covers the full configuration plus the case's generated <span class="tt">case.fpp</span>, so <span class="tt">--case-optimization</span> builds get per-case slugs. Staging and install trees are namespaced by slug under <span class="tt">build/staging/</span> and <span class="tt">build/install/</span>, so multiple variants coexist without interfering. Before configuring, <span class="tt">build.py</span> writes the case-specific <span class="tt">case.fpp</span> and <span class="tt">thermochem.fpp</span> (and the Cantera <span class="tt">m_thermochem.fpp</span>) into the staging tree.</p>
+<p><b>CMake layer.</b> <span class="tt">cmake/Fypp.cmake</span> defines <span class="tt">HANDLE_SOURCES</span>, which sets up one <span class="tt">add_custom_command</span> per <span class="tt">.fpp</span> file to run Fypp at build time. <span class="tt">cmake/ParamsCodegen.cmake</span> registers a single ninja-tracked <span class="tt">add_custom_command</span> (DEPENDS all <span class="tt">params/*.py</span>) that invokes <span class="tt">cmake_gen.py</span> and writes the 18 generated includes under <span class="tt">build/staging/&lt;slug&gt;/include/&lt;target&gt;/</span>. There is no configure-time generation: all 18 files are build outputs, so changing any <span class="tt">params/*.py</span> triggers only a targeted rebuild, not a full reconfigure.</p>
+<p><b>Fypp and per-target stubs.</b> Fypp resolves <span class="tt">#:include</span> at parse time, so every <span class="tt">.fpp</span> file sees exactly the include path for the target being compiled. <span class="tt">src/common/</span> is compiled once per executable — this is intentional. The per-target include path is what lets common modules include per-target generated files without duplication.</p>
+<p>For which files are manual vs. generated and what each contains, see the "How to Add a New Simulation Parameter" section below.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md90"></a>
 Development Workflow</h2>
 <table class="markdownTable">
@@ -278,9 +279,9 @@ Hard Rules</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Element  </th><th class="markdownTableHeadNone">Rule  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Formatting  </td><td class="markdownTableBodyNone">Enforced automatically by pre-commit hook (<span class="tt">./mfc.sh format</span> and <span class="tt">./mfc.sh lint</span>)  </td></tr>
+<td class="markdownTableBodyNone">Formatting  </td><td class="markdownTableBodyNone">Run <span class="tt">./mfc.sh format</span>; the pre-commit hook (<span class="tt">./mfc.sh precheck</span>) and CI reject unformatted code  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">Indentation  </td><td class="markdownTableBodyNone">2 spaces; continuation lines align beneath <span class="tt">&amp;</span>  </td></tr>
+<td class="markdownTableBodyNone">Indentation  </td><td class="markdownTableBodyNone">4 spaces; continuation lines begin with <span class="tt">&amp;</span>, one level deeper  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Case  </td><td class="markdownTableBodyNone">Lowercase keywords and intrinsics (<span class="tt">do</span>, <span class="tt">end subroutine</span>, ...)  </td></tr>
 <tr class="markdownTableRowEven">
@@ -298,7 +299,7 @@ Hard Rules</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">GPU macros  </td><td class="markdownTableBodyNone">Do not use raw OpenACC/OpenMP pragmas. Use the project's Fypp GPU macros (see below)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Compiler support  </td><td class="markdownTableBodyNone">Code must compile with GNU gfortran, NVIDIA nvfortran, Cray ftn, and Intel ifx  </td></tr>
+<td class="markdownTableBodyNone">Compiler support  </td><td class="markdownTableBodyNone">Code must compile with GNU gfortran, NVIDIA nvfortran, Cray ftn, Intel ifx, and AMD flang  </td></tr>
 </table>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md94"></a>
 Soft Guidelines</h3>
@@ -315,7 +316,7 @@ Soft Guidelines</h3>
 </table>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md95"></a>
 Common Pitfalls</h2>
-<p>This section documents domain-specific issues that frequently appear in MFC contributions. Both human reviewers and AI code reviewers reference this section.</p>
+<p>This section documents domain-specific issues that frequently appear in MFC contributions. Reviewers check contributions against this section.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md96"></a>
 Array Bounds and Indexing</h3>
 <ul>
@@ -329,7 +330,7 @@ Array Bounds and Indexing</h3>
 Precision and Type Safety</h3>
 <ul>
 <li><b><span class="tt">stp</span> vs <span class="tt">wp</span> mixing:</b> In mixed-precision mode, <span class="tt">stp</span> (storage) may be half-precision while <span class="tt">wp</span> (working) is double. Conversions between them must be intentional, especially in MPI pack/unpack and RHS accumulation.</li>
-<li><b>No double-precision intrinsics:</b> <span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dlog</span>, <span class="tt">dble</span>, <span class="tt">dabs</span>, <span class="tt">real(8)</span>, <span class="tt">real(4)</span> are forbidden. Use generic intrinsics with <span class="tt">wp</span> kind.</li>
+<li><b>No double-precision intrinsics:</b> <span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dlog</span>, <span class="tt">dble</span>, <span class="tt">dabs</span>, <span class="tt">real(8)</span>, <span class="tt">real(4)</span>, <span class="tt">double precision</span>, and <span class="tt">d</span>-exponent literals (<span class="tt">1.d0</span>) are forbidden. Use generic intrinsics with <span class="tt">wp</span> kind.</li>
 <li><b>MPI type matching:</b> <span class="tt">mpi_p</span> must match <span class="tt">wp</span>; <span class="tt">mpi_io_p</span> must match <span class="tt">stp</span>. Mismatches corrupt communicated data.</li>
 <li><b>Scalars into device routines that loop:</b> a <span class="tt">GPU_ROUTINE</span> containing any <span class="tt">GPU_LOOP</span> (itself or through what it calls) must be called with scalars, never an array element (<span class="tt">q%sf(j,k,l)</span>, <span class="tt">alpha(i)</span>). Copy the element to a local first and receive results into a local. Cray OpenACC 19 to 21 miscompiles the pair silently at every routine level, OpenMP offload does not (<a href="https://github.com/MFlowCode/MFC/issues/1815">#1815</a>); the linter enforces it inside kernels and device routines.</li>
 </ul>
@@ -348,6 +349,7 @@ MPI Correctness</h3>
 <li><b>GPU data coherence:</b> Non-RDMA MPI requires <span class="tt">GPU_UPDATE(host=...)</span> before send and <span class="tt">GPU_UPDATE(device=...)</span> after receive. Missing these causes stale data.</li>
 <li><b>Buffer sizing:</b> <span class="tt">halo_size</span> depends on dimensionality and QBMM state. <span class="tt">v_size</span> must account for extra bubble variables when QBMM is active.</li>
 <li><b>Deadlocks:</b> Mismatched send/recv counts or tags across MPI ranks.</li>
+<li><b>All sweep directions:</b> A change to pack/unpack logic in one direction usually needs the same change in the others.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md100"></a>
 Physics and Model Consistency</h3>
@@ -369,16 +371,16 @@ Python Toolchain</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md102"></a>
 Parameter Plumbing</h3>
 <ul>
-<li><b>Derived-type parameters are not auto-broadcast.</b> <span class="tt">generated_bcast.fpp</span> covers namelist <em>scalars</em> only. Each derived type (<span class="tt">chem_params</span>, <span class="tt">lag_params</span>, <span class="tt">rburn</span>) needs a hand-written <span class="tt">_emit_&lt;name&gt;</span> in <span class="tt">toolchain/mfc/params/generators/fortran_gen.py</span> plus its call site in that generator's simulation branch, and, if it is read on device, an explicit <span class="tt">$:GPU_UPDATE(device='[name]')</span> in both the target's <span class="tt">m_global_parameters.fpp</span> and <span class="tt">src/simulation/m_start_up.fpp</span> — <span class="tt">GPU_DECLARE</span> alone does not make it device-resident. Regrouping existing scalars into a derived type silently drops their broadcast, leaving every non-root rank holding the <span class="tt">dflt_real</span> sentinel. Single-rank golden files cannot catch this, so pair such a change with a <span class="tt">ppn=2</span> test and confirm it fails without the emitter.</li>
+<li><b>A new derived-type parameter is not auto-broadcast.</b> <span class="tt">generated_bcast.fpp</span> covers registered scalars, <span class="tt">FORTRAN_ARRAY_DIMS</span> arrays, and the derived types that have a hand-written <span class="tt">_emit_&lt;name&gt;</span> in <span class="tt">toolchain/mfc/params/generators/fortran_gen.py</span> (<span class="tt">fluid_pp</span>, <span class="tt">bub_pp</span>, <span class="tt">lag_params</span>, <span class="tt">chem_params</span>, <span class="tt">rburn</span>). A new one needs its own emitter plus a call site in each target branch that reads it, and, if it is read on device, an explicit <span class="tt">$:GPU_UPDATE(device='[name]')</span> in both the target's <span class="tt">m_global_parameters.fpp</span> and <span class="tt">src/simulation/m_start_up.fpp</span> — <span class="tt">GPU_DECLARE</span> alone does not make it device-resident. Regrouping existing scalars into a derived type silently drops their broadcast, leaving every non-root rank holding the <span class="tt">dflt_real</span> sentinel. Single-rank golden files cannot catch this, so pair such a change with a <span class="tt">ppn=2</span> test and confirm it fails without the emitter. Conversely, never hand-write an <span class="tt">MPI_BCAST</span> of a registry scalar in <span class="tt">m_mpi_proxy.fpp</span>; the source lint rejects it.</li>
 <li><b>A <span class="tt">patch_ib</span> member that immersed-boundary ghost-point code reads must also be set for particle-cloud IBs in <span class="tt">s_assign_particle_cloud_ib_defaults</span></b> (<span class="tt">src/simulation/m_start_up.fpp</span>). Pre-process writes only position, kinematics and radius to the IB state file; simulation builds every other property there, writing into a reused <span class="tt">patch_ib</span> slot. Anything it leaves unset keeps whatever that slot held, which may be a namelist patch's value or uninitialized memory, and shows up only where that memory is not already zero-filled. A platform-only NaN is the signature of this class: a garbage <span class="tt">v_blow</span> once failed an AMD lane with <span class="tt">ICFL is NaN</span> while every NVIDIA lane and all local runs passed.</li>
-<li><b>Runtime checks go where they run.</b> Shared constraints belong in <span class="tt">src/common/m_checker_common.fpp</span>, simulation-only ones in <span class="tt">src/simulation/m_checker.fpp</span>, and pre- and post-process ones in their own <span class="tt">m_checker.fpp</span>. Those two <span class="tt">s_check_inputs</span> are currently empty; that is still the correct home for their checks, not <span class="tt">m_checker_common</span>.</li>
-<li><b>Analytic initial conditions are compiled into the binary</b> and their expressions are AST-validated at case load, so syntax errors and unknown variables surface immediately and by name. Each IC variable maps to an <span class="tt">eqn_idx</span> expression in <span class="tt">QPVF_IDX_VARS</span> (<span class="tt">toolchain/mfc/case.py</span>); adding a patch-settable conserved variable means updating that map and the Fortran <span class="tt">eqn_idx</span> builder together, because a mismatch is a silent wrong index.</li>
+<li><b>Runtime checks go where they run.</b> Shared constraints belong in <span class="tt">src/common/m_checker_common.fpp</span>, simulation-only ones in <span class="tt">src/simulation/m_checker.fpp</span>, and pre- and post-process ones in their own <span class="tt">m_checker.fpp</span>. Those two <span class="tt">s_check_inputs</span> are currently empty; that is still the correct home for their checks, not <span class="tt">m_checker_common</span>. Fortran checkers hold only checks that need runtime state (compiler, MPI decomposition, Cantera); a <span class="tt">@:PROHIBIT</span> comparing only input parameters belongs in <span class="tt">toolchain/mfc/case_validator.py</span>. The source lint rejects any <span class="tt">@:PROHIBIT</span> in <span class="tt">m_checker*.fpp</span> unless its subroutine is in <span class="tt">RUNTIME_CHECKER_SUBROUTINES</span> (<span class="tt">lint_source.py</span>) or it is preceded by <span class="tt">! lint: runtime-check &lt;reason&gt;</span>.</li>
+<li><b>Analytic initial conditions are compiled into the binary</b> and their expressions are AST-validated when the case's Fypp include is generated, before compilation, so syntax errors and unknown variables surface immediately and by name. Each IC variable maps to an <span class="tt">eqn_idx</span> expression in <span class="tt">QPVF_IDX_VARS</span> (<span class="tt">toolchain/mfc/case.py</span>); adding a patch-settable conserved variable means updating that map and the Fortran <span class="tt">eqn_idx</span> builder together, because a mismatch is a silent wrong index.</li>
 <li><b>Under <span class="tt">--case-optimization</span> the baked-in constants are dropped from the namelist</b>, so changing one requires a rebuild rather than a case-file edit.</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md103"></a>
 Compiler Portability</h3>
 <ul>
-<li>Any compiler-specific code (<span class="tt">#ifdef __INTEL_COMPILER</span> etc.) must have fallbacks for all four supported compilers.</li>
+<li>Any compiler-specific code (<span class="tt">#ifdef __INTEL_COMPILER</span> etc.) must have fallbacks for all supported compilers. CI tests GPU offload with nvfortran and Cray ftn (OpenACC and OpenMP) and AMD flang (OpenMP).</li>
 <li>Fypp macros must expand correctly for both GPU and CPU builds (macros are <span class="tt">#ifdef</span>'d out for non-GPU).</li>
 <li>No hardcoded GPU architectures without CMake detection.</li>
 </ul>
@@ -392,10 +394,10 @@ Architecture Notes</h3>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md105"></a>
 Fypp and GPU</h2>
-<p>MFC uses <a href="https://github.com/aradi/fypp">Fypp</a> macros (in <span class="tt">src/*/include/</span>) to generate accelerator-specific Fortran for OpenACC and OpenMP backends. Only <span class="tt">simulation</span> (plus its <span class="tt">common</span> dependencies) is GPU-accelerated.</p>
+<p>MFC uses <a href="https://github.com/aradi/fypp">Fypp</a> macros (in <span class="tt">src/common/include/</span>) to generate accelerator-specific Fortran for OpenACC and OpenMP backends. Only <span class="tt">simulation</span> (plus its <span class="tt">common</span> dependencies) is GPU-accelerated.</p>
 <ul>
 <li><b>Raw OpenACC/OpenMP pragmas are not allowed.</b> Use the project's Fypp GPU macros instead.</li>
-<li>Add <span class="tt">collapse(n)</span> when safe, declare loop-local variables with <span class="tt">private(...)</span>.</li>
+<li>Add <span class="tt">collapse=n</span> when safe, declare loop-local variables with <span class="tt">private='[...]'</span>.</li>
 <li>Avoid <span class="tt">stop</span>/<span class="tt">error stop</span> inside device code.</li>
 <li>Keep macros simple and readable.</li>
 </ul>
@@ -415,7 +417,7 @@ How to Add a New Simulation Parameter</h3>
 <li><b>name</b>: parameter name (must match the Fortran namelist variable)</li>
 <li><b>type</b>: <span class="tt">INT</span>, <span class="tt">REAL</span>, <span class="tt">LOG</span>, <span class="tt">STR</span>, or <span class="tt">A_REAL</span> (analytic expression)</li>
 <li><b>tags</b>: set of feature tags for grouping (e.g. <span class="tt">{"bubbles"}</span>, <span class="tt">{"mhd"}</span>)</li>
-<li><b>desc</b>: human-readable description (optional; auto-generated from <span class="tt">_SIMPLE_DESCS</span> or <span class="tt">_ATTR_DESCS</span> if omitted)</li>
+<li><b>desc</b>: human-readable description (optional; otherwise looked up in <span class="tt">DESCRIPTIONS</span>/<span class="tt">PATTERNS</span> in <span class="tt">toolchain/mfc/params/descriptions.py</span>)</li>
 <li><b>math</b>: LaTeX math symbol in Doxygen format (optional; shown in the Symbol column of <a class="el" href="parameters.html" title="Case Parameters">Case Parameters</a>)</li>
 </ul>
 <p>For indexed families like <span class="tt">fluid_pp</span>, put the symbol next to its attribute name using tuples:</p>
@@ -424,7 +426,10 @@ How to Add a New Simulation Parameter</h3>
 <div class="line">    <span class="keywordflow">for</span> a, sym <span class="keywordflow">in</span> [(<span class="stringliteral">&quot;gamma&quot;</span>, <span class="stringliteral">r&quot;\f$\gamma_k\f$&quot;</span>),</div>
 <div class="line">                   (<span class="stringliteral">&quot;my_attr&quot;</span>, <span class="stringliteral">r&quot;\f$\xi_k\f$&quot;</span>)]:  <span class="comment"># &lt;-- add here</span></div>
 <div class="line">        _r(f<span class="stringliteral">&quot;{px}{a}&quot;</span>, REAL, math=sym)</div>
-</div><!-- fragment --><p><b>Step 2: Add constraints</b> (same file, <span class="tt">CONSTRAINTS</span> dict)</p>
+</div><!-- fragment --><p><span class="tt">_r()</span> only registers the name. To declare, read, and broadcast it in Fortran, also list it in an <span class="tt">_nv()</span> call with the targets that read it (<span class="tt">_SIM</span>, <span class="tt">_PRE_SIM</span>, <span class="tt">_ALL</span>, ...):</p>
+<div class="fragment"><div class="line">_nv(_SIM, <span class="stringliteral">&quot;my_param&quot;</span>)</div>
+</div><!-- fragment --><p>Use <span class="tt">_decl()</span> instead for a variable declared in a target without being read from its namelist.</p>
+<p><b>Step 2: Add constraints</b> (same file, <span class="tt">CONSTRAINTS</span> dict)</p>
 <p>If the parameter has valid ranges or choices:</p>
 <div class="fragment"><div class="line">CONSTRAINTS = {</div>
 <div class="line">    <span class="comment"># ...</span></div>
@@ -446,11 +451,12 @@ How to Add a New Simulation Parameter</h3>
 <p><b>Step 4: Add physics validation</b> (<span class="tt">toolchain/mfc/case_validator.py</span>)</p>
 <p>If the parameter has cross-parameter constraints that go beyond simple min/max:</p>
 <div class="fragment"><div class="line"><span class="keyword">def </span>check_my_feature(self):</div>
-<div class="line">    <span class="keywordflow">if</span> self.params[<span class="stringliteral">&quot;my_param&quot;</span>] &gt; 0 <span class="keywordflow">and</span> <span class="keywordflow">not</span> self.params[<span class="stringliteral">&quot;other_param&quot;</span>]:</div>
-<div class="line">        self.errors.append(<span class="stringliteral">&quot;my_param requires other_param to be set&quot;</span>)</div>
-</div><!-- fragment --><p>If your check enforces a physics constraint, also add a <span class="tt">PHYSICS_DOCS</span> entry (see <a class="el" href="#how-to-document-physics-constraints" title="How to Document Physics Constraints">How to Document Physics Constraints</a> below).</p>
+<div class="line">    self.prohibit(self.get(<span class="stringliteral">&quot;my_param&quot;</span>, 0) &gt; 0 <span class="keywordflow">and</span> self.get(<span class="stringliteral">&quot;other_param&quot;</span>, <span class="stringliteral">&quot;F&quot;</span>) != <span class="stringliteral">&quot;T&quot;</span>,</div>
+<div class="line">                  <span class="stringliteral">&quot;my_param requires other_param = T&quot;</span>)</div>
+</div><!-- fragment --><p>Call it from the matching <span class="tt">validate_*</span> method (<span class="tt">validate_common</span>, <span class="tt">validate_simulation</span>, ...); an uncalled check never runs.</p>
+<p>If your check enforces a physics constraint, also add a <span class="tt">PHYSICS_DOCS</span> entry (see <a class="el" href="#how-to-document-physics-constraints" title="How to Document Physics Constraints">How to Document Physics Constraints</a> below).</p>
 <p><b>Step 5: Fortran declaration and namelist binding (auto-generated)</b></p>
-<p>Scalar declarations, GPU declare lines, Doxygen descriptions, and namelist bindings are auto-generated at build time (ninja-tracked custom command) from the <span class="tt">TYPED_DECLS</span> and <span class="tt">FORTRAN_ARRAY_DIMS</span> tables in <span class="tt">toolchain/mfc/params/definitions.py</span>. For a plain scalar registered with <span class="tt">_r()</span> / <span class="tt">_nv()</span> above, no manual Fortran edit is needed — the next build regenerates the include in <span class="tt">m_global_parameters_common.fpp</span> (compiled per target) automatically: the generation command is ninja-tracked against every file under <span class="tt">toolchain/mfc/params/</span>.</p>
+<p>Scalar declarations, GPU declare lines, Doxygen descriptions, and namelist bindings are auto-generated at build time (ninja-tracked custom command) from the registry and the <span class="tt">_nv()</span>/<span class="tt">_decl()</span> target sets in <span class="tt">toolchain/mfc/params/definitions.py</span> (arrays and structs via <span class="tt">FORTRAN_ARRAY_DIMS</span> and <span class="tt">TYPED_DECLS</span>). For a plain scalar registered with <span class="tt">_r()</span> / <span class="tt">_nv()</span> above, no manual Fortran edit is needed — the next build regenerates the include in <span class="tt">m_global_parameters_common.fpp</span> (compiled per target) automatically: the generation command is ninja-tracked against every file under <span class="tt">toolchain/mfc/params/</span>.</p>
 <p>Still manual (not auto-generated):</p>
 <ul>
 <li><span class="tt">TYPE</span> member definitions inside derived types in <span class="tt">src/common/m_derived_types.fpp</span></li>
@@ -516,7 +522,7 @@ How to Write a GPU Parallel Loop</h3>
 <div class="line">$:end_gpu_parallel_loop()</div>
 </div><!-- fragment --><p>Key rules:</p><ul>
 <li>Always pair <span class="tt">$:GPU_PARALLEL_LOOP(...)</span> with <span class="tt">$:END_GPU_PARALLEL_LOOP()</span></li>
-<li>Use <span class="tt">collapse(n)</span> to fuse nested loops when the loop bounds are independent</li>
+<li>Use <span class="tt">collapse=n</span> to fuse nested loops when the loop bounds are independent</li>
 <li>Declare all loop-local temporaries in <span class="tt">private='[...]'</span></li>
 <li>Never use <span class="tt">stop</span> or <span class="tt">error stop</span> inside a GPU loop</li>
 </ul>
@@ -547,7 +553,7 @@ How to Add an Equation of State</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">s_compute_mixture_coefficients</span> / <span class="tt">_dt</span>  </td><td class="markdownTableBodyNone">mixture \(\Gamma, \Pi_\infty, q_v\) from the phase fractions, and their time derivative  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">f_pressure</span> / <span class="tt">s_compute_energy</span>  </td><td class="markdownTableBodyNone">\(p(e)\) and \(E(p)\)  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">f_pressure</span> / <span class="tt">s_compute_energy</span>  </td><td class="markdownTableBodyNone">\(p(e)\) and \(E(p)\) (<span class="tt">s_compute_energy</span> is in <span class="tt">m_variables_conversion.fpp</span>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">f_bulk_modulus</span>  </td><td class="markdownTableBodyNone">\(K(p)\) - every sound speed in MFC is \(K/\rho\), differing only in how phases are mixed  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -573,48 +579,20 @@ How to Add an Equation of State</h3>
 <p>One caveat: <span class="tt">f_has_isentropic_reference</span>'s <span class="tt">gruneisen_a == 0._wp</span> conjunct is a runtime test, not a family property, and stays hand-written in <span class="tt">m_eos.fpp</span>.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md111"></a>
 How to Add a Test Case</h3>
-<p><b>Step 1: Create a case file</b></p>
-<p>Test cases are Python scripts that print a JSON dict of parameters. See <span class="tt">examples/</span> for templates:</p>
-<div class="fragment"><div class="line"><span class="comment">#!/usr/bin/env python3</span></div>
-<div class="line"><span class="keyword">import</span> json</div>
-<div class="line"> </div>
-<div class="line">print(json.dumps({</div>
-<div class="line">    <span class="stringliteral">&quot;run_time_info&quot;</span>: <span class="stringliteral">&quot;F&quot;</span>,</div>
-<div class="line">    <span class="stringliteral">&quot;x_domain%beg&quot;</span>: 0.0,</div>
-<div class="line">    <span class="stringliteral">&quot;x_domain%end&quot;</span>: 1.0,</div>
-<div class="line">    <span class="stringliteral">&quot;m&quot;</span>: 49,</div>
-<div class="line">    <span class="stringliteral">&quot;n&quot;</span>: 0,</div>
-<div class="line">    <span class="stringliteral">&quot;p&quot;</span>: 0,</div>
-<div class="line">    <span class="stringliteral">&quot;dt&quot;</span>: 1e-6,</div>
-<div class="line">    <span class="stringliteral">&quot;t_step_start&quot;</span>: 0,</div>
-<div class="line">    <span class="stringliteral">&quot;t_step_stop&quot;</span>: 100,</div>
-<div class="line">    <span class="stringliteral">&quot;t_step_save&quot;</span>: 100,</div>
-<div class="line">    <span class="stringliteral">&quot;num_patches&quot;</span>: 1,</div>
-<div class="line">    <span class="stringliteral">&quot;model_eqns&quot;</span>: 2,</div>
-<div class="line">    <span class="stringliteral">&quot;num_fluids&quot;</span>: 1,</div>
-<div class="line">    <span class="stringliteral">&quot;time_stepper&quot;</span>: 3,</div>
-<div class="line">    <span class="stringliteral">&quot;weno_order&quot;</span>: 5,</div>
-<div class="line">    <span class="stringliteral">&quot;riemann_solver&quot;</span>: 1,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%geometry&quot;</span>: 1,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%x_centroid&quot;</span>: 0.5,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%length_x&quot;</span>: 1.0,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%vel(1)&quot;</span>: 0.0,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%pres&quot;</span>: 1.0,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%alpha_rho(1)&quot;</span>: 1.0,</div>
-<div class="line">    <span class="stringliteral">&quot;patch_icpp(1)%alpha(1)&quot;</span>: 1.0,</div>
-<div class="line">    <span class="stringliteral">&quot;fluid_pp(1)%gamma&quot;</span>: 0.4,</div>
-<div class="line">    <span class="stringliteral">&quot;fluid_pp(1)%pi_inf&quot;</span>: 0.0,</div>
-<div class="line">}))</div>
-</div><!-- fragment --><p>Keep grids small and runtimes short.</p>
-<p><b>Step 2: Register as a regression test</b> (<span class="tt">toolchain/mfc/test/cases.py</span>)</p>
-<p>Add your case using the <span class="tt">Case</span> dataclass and the stack pattern for parameterized variations:</p>
+<p><b>Step 1: Choose how to define it</b></p>
+<ul>
+<li><b>A new example:</b> every <span class="tt">examples/&lt;name&gt;/case.py</span> becomes a test automatically (<span class="tt">foreach_example</span> in <span class="tt">toolchain/mfc/test/cases.py</span>) unless listed in its <span class="tt">casesToSkip</span>. Start from a working case such as <span class="tt">examples/1D_sodshocktube/case.py</span>.</li>
+<li><b>A variation:</b> inside an <span class="tt">alter_*</span> function called from <span class="tt">list_cases()</span> in <span class="tt">toolchain/mfc/test/cases.py</span>, layer parameters on the stack. <span class="tt">define_case_d</span> builds the case from <span class="tt">BASE_CFG</span> plus every pushed mod:</li>
+</ul>
 <div class="fragment"><div class="line">stack.push(<span class="stringliteral">&quot;my_feature&quot;</span>, {<span class="stringliteral">&quot;my_param&quot;</span>: value})</div>
 <div class="line">cases.append(define_case_d(stack, <span class="stringliteral">&#39;&#39;</span>, {}))</div>
 <div class="line">stack.pop()</div>
-</div><!-- fragment --><p><b>Step 3: Generate golden files</b></p>
+</div><!-- fragment --><p>To run an existing case file with overrides, use <span class="tt">define_case_f(trace, "examples/&lt;name&gt;/case.py", mods={...})</span>.</p>
+<p>Keep grids small and runtimes short.</p>
+<p><b>Step 2: Generate golden files</b></p>
 <div class="fragment"><div class="line">./mfc.sh test --generate -o &lt;test_id&gt;</div>
-</div><!-- fragment --><p>Golden files are stored as binary snapshots in <span class="tt">tests/&lt;hash&gt;/</span>.</p>
-<p><b>Step 4: Run</b></p>
+</div><!-- fragment --><p>Golden files are text, stored as <span class="tt">tests/&lt;UUID&gt;/golden.txt</span> with <span class="tt">golden-metadata.txt</span>.</p>
+<p><b>Step 3: Run</b></p>
 <div class="fragment"><div class="line">./mfc.sh test -j $(nproc)</div>
 </div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md112"></a>
 How to Create a New Fortran Module</h3>
@@ -689,24 +667,25 @@ Working with the Precision System</h3>
 <li>Use <span class="tt">real(wp)</span> for all computational variables</li>
 <li>Literal constants need the <span class="tt">_wp</span> suffix: <span class="tt">1.0_wp</span>, <span class="tt">3.14159_wp</span>, <span class="tt">1e-6_wp</span></li>
 <li>Use <b>generic</b> intrinsics only: <span class="tt">sqrt</span>, <span class="tt">abs</span>, <span class="tt">sin</span>, <span class="tt">exp</span>, <span class="tt">log</span>, <span class="tt">max</span>, <span class="tt">min</span></li>
-<li><b>Forbidden</b> double-precision intrinsics: <span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dlog</span>, <span class="tt">dble</span>, <span class="tt">dabs</span>, <span class="tt">real(8)</span>, <span class="tt">real(4)</span></li>
+<li><b>Forbidden</b> double-precision intrinsics: <span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dlog</span>, <span class="tt">dble</span>, <span class="tt">dabs</span>, <span class="tt">real(8)</span>, <span class="tt">real(4)</span>, <span class="tt">double precision</span>, <span class="tt">1.d0</span>-style literals</li>
 <li>Conversions between <span class="tt">stp</span> and <span class="tt">wp</span> must be intentional, especially in MPI pack/unpack</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md114"></a>
 How to Extend MPI Halo Exchange</h3>
-<p>Halo exchange is in <span class="tt">src/simulation/m_mpi_proxy.fpp</span> (and <span class="tt">src/common/m_mpi_common.fpp</span> for buffer allocation).</p>
+<p>Halo exchange is <span class="tt">s_mpi_sendrecv_variables_buffers</span> in <span class="tt">src/common/m_mpi_common.fpp</span>.</p>
 <p>To add new data to the halo exchange:</p>
 <p><b>Step 1: Update buffer sizing</b> (<span class="tt">src/common/m_mpi_common.fpp</span>)</p>
-<p><span class="tt">v_size</span> determines how many variables are packed per cell. If your new data adds fields per cell, increase <span class="tt">v_size</span>:</p>
-<div class="fragment"><div class="line">v_size = sys_size + my_extra_fields</div>
-</div><!-- fragment --><p><b>Step 2: Add pack loop</b> (<span class="tt">src/simulation/m_mpi_proxy.fpp</span>)</p>
-<p>Pack your data into the send buffer using a linear index:</p>
-<div class="fragment"><div class="line">$:gpu_parallel_loop(collapse=3, <span class="keywordtype">private</span>=<span class="stringliteral">&#39;[j,k,l,r]&#39;</span>)</div>
+<p><span class="tt">v_size</span> determines how many variables are packed per cell. It is set in two places that must agree: once at initialization (sizes <span class="tt">halo_size</span> and the buffers) and per call in <span class="tt">s_mpi_sendrecv_variables_buffers</span>, together with <span class="tt">buffer_counts</span>. Add a branch to both:</p>
+<div class="fragment"><div class="line">v_size = sys_size + my_extra_fields   <span class="comment">! init</span></div>
+<div class="line">v_size = nvar + my_extra_fields       ! per call, <span class="keywordflow">then</span> recompute buffer_counts</div>
+</div><!-- fragment --><p><b>Step 2: Add pack loop</b> (same subroutine)</p>
+<p>Pack each cell's variables contiguously; extra fields go after the <span class="tt">nVar</span> state variables (x-direction shown):</p>
+<div class="fragment"><div class="line">$:gpu_parallel_loop(collapse=3, <span class="keywordtype">private</span>=<span class="stringliteral">&#39;[r]&#39;</span>)</div>
 <div class="line"><span class="keywordflow">do</span> l = 0, p</div>
 <div class="line">    <span class="keywordflow">do</span> k = 0, n</div>
 <div class="line">        <span class="keywordflow">do</span> j = 0, buff_size - 1</div>
-<div class="line">            r = j + buff_size*(k + (n + 1)*l)</div>
-<div class="line">            buff_send(r) = my_data%sf(j + pack_offset, k, l)</div>
+<div class="line">            r = nvar + v_size*(j + buff_size*(k + (n + 1)*l))</div>
+<div class="line">            buff_send(r) = real(my_data%sf(j + pack_offset, k, l), kind=wp)</div>
 <div class="line"><span class="keywordflow">        end do</span></div>
 <div class="line"><span class="keywordflow">    end do</span></div>
 <div class="line"><span class="keywordflow">end do</span></div>
@@ -720,13 +699,10 @@ How to Extend MPI Halo Exchange</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md115"></a>
 How to Add a Post-Processing Output Variable</h3>
 <p>Post-processing derived variables live in <span class="tt">src/post_process/m_derived_variables.fpp</span>.</p>
-<p><b>Step 1: Allocate storage</b> in <span class="tt">s_initialize_derived_variables_module</span>:</p>
-<div class="fragment"><div class="line"><span class="keywordflow">if</span> (my_var_wrt) <span class="keywordflow">then</span></div>
-<div class="line">    <span class="keyword">allocate</span>(my_var_sf(-offset_x%beg:m + offset_x%end, &amp;</div>
-<div class="line">                       -offset_y%beg:n + offset_y%end, &amp;</div>
-<div class="line">                       -offset_z%beg:p + offset_z%end))</div>
-<div class="line"><span class="keyword">end </span>if</div>
-</div><!-- fragment --><p><b>Step 2: Create derivation subroutine:</b></p>
+<p><b>Step 1: Register the switch.</b> Add a <span class="tt">my_var_wrt</span> logical for post_process in <span class="tt">definitions.py</span> (<span class="tt">_r</span> plus <span class="tt">_nv(_POST, ...)</span>; see the parameter guide above), and count it in <span class="tt">s_initialize_data_output_module</span> (<span class="tt">m_data_output.fpp</span>) so the database holds the right number of variables:</p>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span> (my_var_wrt) out%dbvars = out%dbvars + 1</div>
+</div><!-- fragment --><p>Derived variables are written through the shared <span class="tt">out%q_sf</span> buffer, so no per-variable allocation is needed.</p>
+<p><b>Step 2: Create derivation subroutine:</b></p>
 <div class="fragment"><div class="line"><span class="keyword">subroutine </span>s_derive_my_variable(q_prim_vf, q_sf)</div>
 <div class="line">    <span class="keywordtype">type</span>(scalar_field), <span class="keywordtype">dimension(sys_size)</span>, <span class="keywordtype">intent(in)</span> :: q_prim_vf</div>
 <div class="line"><span class="keywordtype">    real</span>(wp), <span class="keywordtype">dimension(-offset_x%beg:m + offset_x%end, &amp;
@@ -743,17 +719,18 @@ How to Add a Post-Processing Output Variable</h3>
 <div class="line"><span class="keywordflow">        end do</span></div>
 <div class="line"><span class="keywordflow">    end do</span></div>
 <div class="line"><span class="keyword">end subroutine </span>s_derive_my_variable</div>
-</div><!-- fragment --><p><b>Step 3: Call from output</b> in <span class="tt">m_data_output.fpp</span>:</p>
+</div><!-- fragment --><p><b>Step 3: Call from output</b> in <span class="tt">s_save_data</span> (<span class="tt">src/post_process/m_start_up.fpp</span>):</p>
 <div class="fragment"><div class="line"><span class="keywordflow">if</span> (my_var_wrt) <span class="keywordflow">then</span></div>
-<div class="line">    <span class="keyword">call </span>s_derive_my_variable(q_prim_vf, q_sf)</div>
-<div class="line">    <span class="keyword">call </span>s_write_variable_to_formatted_database_file(q_sf, <span class="stringliteral">&#39;my_variable&#39;</span>, dbfile, dbroot)</div>
+<div class="line">    <span class="keyword">call </span>s_derive_my_variable(q_prim_vf, out%q_sf)</div>
+<div class="line">    <span class="keyword">write</span> (varname, <span class="stringliteral">&#39;(A)&#39;</span>) <span class="stringliteral">&#39;my_variable&#39;</span></div>
+<div class="line">    <span class="keyword">call </span>s_write_field(varname, t_step)</div>
 <div class="line"><span class="keyword">end </span>if</div>
 </div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="autotoc_md116"></a>
 Modifying <span class="tt">src/common/</span></h3>
 <p>Code in <span class="tt">src/common/</span> is compiled into all three executables (pre_process, simulation, post_process). Changes here have wide blast radius.</p>
 <p>Checklist:</p><ul>
-<li>Test all three targets: <span class="tt">./mfc.sh test</span> covers this</li>
-<li>If adding GPU code, remember that only <span class="tt">simulation</span> is GPU-accelerated. Guard GPU macros with <span class="tt">#:if MFC_SIMULATION</span></li>
+<li>Test all three targets: <span class="tt">./mfc.sh test -a</span> (post_process runs only with <span class="tt">-a</span>)</li>
+<li>GPU macros in common code need no guard: only <span class="tt">simulation</span> is built with offload flags</li>
 <li>Check that new <span class="tt">use</span> statements don't create circular dependencies</li>
 <li>New modules need <span class="tt">implicit none</span> and explicit <span class="tt">intent</span> on all arguments</li>
 </ul>
@@ -792,7 +769,7 @@ How to Document Physics Constraints</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">exceptions</span>  </td><td class="markdownTableBodyNone">No  </td><td class="markdownTableBodyNone">List of cases where the constraint doesn't apply  </td></tr>
 </table>
-<p><b>Categories:</b> Thermodynamic Constraints, Mixture Constraints, Domain and Geometry, Velocity and Dimensional Consistency, Model Equations, Boundary Conditions, Bubble Physics, Feature Compatibility, Numerical Schemes, Acoustic Sources, Post-Processing.</p>
+<p><b>Categories</b> in use (a new one is allowed): Thermodynamic Constraints, Mixture Constraints, Domain and Geometry, Velocity and Dimensional Consistency, Model Equations, Boundary Conditions, Bubble Physics, Feature Compatibility, Numerical Schemes, Acoustic Sources, Post-Processing, Combustion, IC Extrusion.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md118"></a>
 Testing</h2>
 <p>MFC has 500+ regression tests. See <a class="el" href="testing.html" title="Testing">Testing</a> for the full guide.</p>
@@ -806,29 +783,29 @@ Testing</h2>
 CI Pipeline</h2>
 <p>Every push to a PR triggers CI. Understanding the pipeline helps you fix failures quickly.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md120"></a>
-Lint Gate (runs first, blocks all other jobs)</h3>
-<p>All five checks must pass before any builds start:</p>
+Lint Gate (runs first, blocks the build and test jobs)</h3>
+<p>All six checks must pass before any builds start. <span class="tt">./mfc.sh precheck</span> runs them locally, plus example-case validation, but skips the slow rendering and Fortran-compile unit tests in the toolchain lint:</p>
 <ol type="1">
-<li><b>Formatting</b> — <span class="tt">./mfc.sh format</span> (auto-handled by pre-commit hook)</li>
+<li><b>Formatting</b> — <span class="tt">./mfc.sh format</span> must leave no diff</li>
 <li><b>Spelling</b> — <span class="tt">./mfc.sh spelling</span></li>
 <li><b>Toolchain lint</b> — <span class="tt">./mfc.sh lint</span> (ruff + Python unit tests)</li>
-<li><b>Source lint</b> — checks for:<ul>
+<li><b>Source lint</b> — <span class="tt">toolchain/mfc/lint_source.py</span>, including:<ul>
 <li>Raw <span class="tt">!$acc</span> or <span class="tt">!$omp</span> directives (must use Fypp GPU macros)</li>
 <li>Double-precision intrinsics (<span class="tt">dsqrt</span>, <span class="tt">dexp</span>, <span class="tt">dble</span>, etc.)</li>
 </ul>
 </li>
 <li><b>Doc references</b> — validates documentation cross-references</li>
+<li><b>Parameter docs</b> — <span class="tt">toolchain/mfc/lint_param_docs.py</span></li>
 </ol>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md121"></a>
 Build and Test Matrix</h3>
 <p>After the lint gate passes:</p>
 <ul>
-<li><b>Platforms:</b> Ubuntu and macOS</li>
-<li><b>Compilers:</b> GNU (both), Intel OneAPI (Ubuntu only)</li>
-<li><b>Modes:</b> debug + release, MPI + no-MPI, double + single precision</li>
-<li><b>HPC runners:</b> Phoenix (NVIDIA/nvfortran), Frontier (AMD/Cray ftn) — both OpenACC and OpenMP backends</li>
-<li><b>Retries:</b> Tests retry up to 3 times before failing</li>
-<li><b>Cleanliness check:</b> Compiler warnings are tracked — your PR cannot increase the warning count</li>
+<li><b>GitHub-hosted:</b> Ubuntu and macOS, GNU and Intel (Ubuntu only), MPI, <span class="tt">reldebug</span> and no-debug, plus one single-precision lane</li>
+<li><b>NVHPC containers:</b> every release from 23.11 to current; CPU build and test, GPU build only</li>
+<li><b>HPC runners:</b> Phoenix (NVHPC GPU with OpenACC and OpenMP, GNU CPU) and Frontier (Cray ftn OpenACC/OpenMP/CPU, AMD flang OpenMP/CPU). Frontier is non-blocking. HPC and case-optimization jobs skip draft PRs</li>
+<li><b>Retries:</b> Tests get up to 3 attempts before failing</li>
+<li><b>Cleanliness check:</b> Compiler warnings are compared against master and reported, not enforced</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md122"></a>
 Common CI Failures</h3>
@@ -836,15 +813,13 @@ Common CI Failures</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Failure  </th><th class="markdownTableHeadNone">Fix  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Formatting check  </td><td class="markdownTableBodyNone">Pre-commit hook handles this; if you bypassed it, run <span class="tt">./mfc.sh format</span>  </td></tr>
+<td class="markdownTableBodyNone">Formatting check  </td><td class="markdownTableBodyNone">Run <span class="tt">./mfc.sh format</span> and commit the result  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Raw pragma detected  </td><td class="markdownTableBodyNone">Replace <span class="tt">!$acc</span>/<span class="tt">!$omp</span> with Fypp GPU macros (see <a class="el" href="gpuParallelization.html" title="GPU Parallelization">GPU Parallelization</a>)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">Double-precision intrinsic  </td><td class="markdownTableBodyNone">Use generic intrinsic with <span class="tt">wp</span> kind (e.g., <span class="tt">sqrt</span> not <span class="tt">dsqrt</span>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Golden file mismatch  </td><td class="markdownTableBodyNone">If intentional: <span class="tt">./mfc.sh test --generate --only &lt;UUID&gt;</span>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Warnings increased  </td><td class="markdownTableBodyNone">Fix the new compiler warnings before merging  </td></tr>
 </table>
 <p>See <a class="el" href="troubleshooting.html" title="Troubleshooting Guide">Troubleshooting Guide</a> for detailed debugging workflows.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md123"></a>
@@ -859,12 +834,11 @@ Submitting a Pull Request</h2>
 <ol type="1">
 <li><b>PRs come from your fork.</b> Do not create branches on <span class="tt">MFlowCode/MFC</span> directly. Push to your fork and open a PR from there against <span class="tt">MFlowCode/MFC:master</span>.</li>
 <li><b>One PR = one logical change.</b> Split large changes into focused PRs.</li>
-<li><b>Fill out the PR template.</b> Remove checklist items that don't apply.</li>
+<li><b>Fill out the PR template.</b></li>
 <li><b>Link issues</b> with <span class="tt">Fixes #&lt;id&gt;</span> or <span class="tt">Part of #&lt;id&gt;</span>.</li>
-<li><b>Ensure CI passes</b> before requesting review. Run <span class="tt">./mfc.sh test</span> locally first. Formatting and linting are handled automatically by the pre-commit hook.</li>
+<li><b>Ensure CI passes</b> before requesting review. Run <span class="tt">./mfc.sh test</span> locally first. Run <span class="tt">./mfc.sh format</span>; the pre-commit hook runs <span class="tt">./mfc.sh precheck</span> and blocks the commit if a check fails.</li>
 <li><b>Describe your testing</b>: what you ran, which compilers/platforms you used.</li>
 </ol>
-<p>If your change touches GPU code (<span class="tt">src/simulation/</span>), see the GPU checklist in the PR template.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md125"></a>
 Code Review and Merge</h2>
 <ul>
@@ -873,7 +847,7 @@ Code Review and Merge</h2>
 <li>A maintainer will merge your PR once all reviews are approved and CI is green</li>
 </ul>
 <p>If your PR is large or architectural, consider opening an issue first to discuss the approach.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-02-15</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

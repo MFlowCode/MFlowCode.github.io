@@ -459,6 +459,10 @@ Build fails with GPU/OpenACC errors</h3>
 <li>Try building without GPU first: <span class="tt">./mfc.sh build --no-gpu</span></li>
 </ol>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md633"></a>
+NVHPC GPU link fails with "multiple definition" errors</h3>
+<p><b>Cause:</b> NVHPC names each object's device-code symbol (in <span class="tt">.nvFatBinSegment</span>) after its full build path, truncated. In a deep directory the truncated names of different objects collide, and the link stops with <span class="tt">multiple definition of</span> errors naming such symbols.</p>
+<p><b>Fix:</b> Build from a checkout with a shorter path.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md634"></a>
 "Module not found" on HPC</h3>
 <p><b>Cause:</b> Required modules not loaded.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -468,9 +472,9 @@ Build fails with GPU/OpenACC errors</h3>
 </div><!-- fragment --></li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md635"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md636"></a>
 Common Runtime Errors</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md636"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md637"></a>
 "Case parameter constraint violations"</h3>
 <p><b>Cause:</b> Invalid combination of simulation parameters.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -483,7 +487,7 @@ Common Runtime Errors</h2>
 <li><span class="tt">weno_order</span> too high for grid size</li>
 <li>Boundary conditions not matching domain setup</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md637"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md638"></a>
 "NaN detected"</h3>
 <p><b>Cause:</b> Numerical instability.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -493,7 +497,7 @@ Common Runtime Errors</h2>
 <li>Try a more diffusive scheme initially</li>
 <li>Check CFL condition</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md638"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md639"></a>
 GPU not detected</h3>
 <p><b>Cause:</b> GPU drivers or runtime not configured.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -506,7 +510,7 @@ GPU not detected</h3>
 <li>Ensure correct modules are loaded</li>
 <li>Set <span class="tt">OMP_TARGET_OFFLOAD=MANDATORY</span> to force GPU (fails fast if unavailable)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md639"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md640"></a>
 MPI errors or hangs</h3>
 <p><b>Cause:</b> MPI configuration issues or deadlocks.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -516,9 +520,9 @@ MPI errors or hangs</h3>
 <li>On clusters, ensure you're using the correct MPI for the interconnect</li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md641"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md642"></a>
 Visualization Issues</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md642"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md643"></a>
 "No 'binary/' or 'silo_hdf5/' directory found"</h3>
 <p><b>Cause:</b> Post-processing has not been run, or the case directory path is wrong.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -526,7 +530,7 @@ Visualization Issues</h2>
 </div><!-- fragment --></li>
 <li>Verify the path points to the case directory (containing <span class="tt">binary/</span> or <span class="tt">silo_hdf5/</span>)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md643"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md644"></a>
 "Variable 'X' not found"</h3>
 <p><b>Cause:</b> The requested variable was not written during post-processing.</p>
 <p><b>Fix:</b></p><ol type="1">
@@ -534,14 +538,14 @@ Visualization Issues</h2>
 </div><!-- fragment --></li>
 <li>Ensure your case file enables the desired output (e.g., <span class="tt">prim_vars_wrt = 'T'</span>, <span class="tt">cons_vars_wrt = 'T'</span>)</li>
 </ol>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md644"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md645"></a>
 "h5py is required to read Silo-HDF5 files"</h3>
 <p><b>Cause:</b> The case was post-processed with <span class="tt">format=1</span> (Silo-HDF5) but <span class="tt">h5py</span> is not installed.</p>
 <p><b>Fix:</b></p><ul>
 <li>Install h5py: <span class="tt">pip install h5py</span></li>
 <li>Or re-run post_process with <span class="tt">format=2</span> in your case file to produce binary output</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md645"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md646"></a>
 Visualization looks wrong or has artifacts</h3>
 <p><b>Possible causes and fixes:</b></p><ol type="1">
 <li><b>Color range:</b> Try setting explicit <span class="tt">--vmin</span> and <span class="tt">--vmax</span> values</li>
@@ -549,7 +553,7 @@ Visualization looks wrong or has artifacts</h3>
 <li><b>3D slice position:</b> Adjust <span class="tt">--slice-axis</span> and <span class="tt">--slice-value</span> to view the correct plane</li>
 </ol>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md647"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md648"></a>
 Getting Help</h2>
 <p>If you can't resolve an issue:</p>
 <ol type="1">
@@ -567,7 +571,7 @@ Getting Help</h2>
 <div class="line">./mfc.sh &lt;command&gt; -h</div>
 </div><!-- fragment --></li>
 </ol>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-02-04</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-11</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
