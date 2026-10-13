@@ -8,5 +8,6 @@ var searchData=
   ['omegan_5',['omegan',['../namespacem__global__parameters.html#addf7564fc01940adad44defd2c6b65ba',1,'m_global_parameters']]],
   ['optlist_6',['optlist',['../structm__derived__types_1_1output__context.html#a01675c7bbfb00859b902b8a6f17d36d0',1,'m_derived_types::output_context']]],
   ['ostride_7',['ostride',['../namespacem__fftw.html#a551ef2137c5df64f7451ede82b497dfa',1,'m_fftw']]],
-  ['output_5fcontext_8',['output_context',['../structm__derived__types_1_1output__context.html',1,'m_derived_types']]]
+  ['output_5fcontext_8',['output_context',['../structm__derived__types_1_1output__context.html',1,'m_derived_types']]],
+  ['owner_5frank_9',['owner_rank',['../structm__derived__types_1_1ib__patch__parameters.html#aa43906593f74b060d531f56056519a59',1,'m_derived_types::ib_patch_parameters']]]
 ];

@@ -29,6 +29,7 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "model_id", "structm__derived__types_1_1ib__patch__parameters.html#a0ce38ab4b006bf64acd9a490616dd33a", null ],
     [ "moment", "structm__derived__types_1_1ib__patch__parameters.html#a85c7d297590c1e312f711958c4485b1b", null ],
     [ "moving_ibm", "structm__derived__types_1_1ib__patch__parameters.html#abb8e097e5c073a19db8bced8d50b08c8", null ],
+    [ "owner_rank", "structm__derived__types_1_1ib__patch__parameters.html#aa43906593f74b060d531f56056519a59", null ],
     [ "radius", "structm__derived__types_1_1ib__patch__parameters.html#a8d4bed578b10e00c1b528310be67dcca", null ],
     [ "rotation_matrix", "structm__derived__types_1_1ib__patch__parameters.html#a9daf3cca6082c6e343c4621e96718419", null ],
     [ "rotation_matrix_inverse", "structm__derived__types_1_1ib__patch__parameters.html#aa69e095e0d26d0ff22f62356312347fd", null ],

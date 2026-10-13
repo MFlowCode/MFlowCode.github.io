@@ -10,5 +10,6 @@ var searchData=
   ['omegan_7',['omegan',['../namespacem__global__parameters.html#addf7564fc01940adad44defd2c6b65ba',1,'m_global_parameters']]],
   ['optlist_8',['optlist',['../structm__derived__types_1_1output__context.html#a01675c7bbfb00859b902b8a6f17d36d0',1,'m_derived_types::output_context']]],
   ['out_9',['out',['../namespacem__data__output.html#acdeb8b0cf51decddadad9b90af33e18a',1,'m_data_output']]],
-  ['output_5fpartial_5fdomain_10',['output_partial_domain',['../namespacem__global__parameters__common.html#a2bdfa89776de5ac3be02e4514931a04c',1,'m_global_parameters_common']]]
+  ['output_5fpartial_5fdomain_10',['output_partial_domain',['../namespacem__global__parameters__common.html#a2bdfa89776de5ac3be02e4514931a04c',1,'m_global_parameters_common']]],
+  ['owner_5frank_11',['owner_rank',['../structm__derived__types_1_1ib__patch__parameters.html#aa43906593f74b060d531f56056519a59',1,'m_derived_types::ib_patch_parameters']]]
 ];

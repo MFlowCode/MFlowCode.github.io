@@ -7,5 +7,6 @@ var searchData=
   ['old_5fic_4',['old_ic',['../namespacem__global__parameters__common.html#a2cd9c97a057bded3488e8038a3fa7902',1,'m_global_parameters_common']]],
   ['omegan_5',['omegan',['../namespacem__global__parameters.html#addf7564fc01940adad44defd2c6b65ba',1,'m_global_parameters']]],
   ['optlist_6',['optlist',['../structm__derived__types_1_1output__context.html#a01675c7bbfb00859b902b8a6f17d36d0',1,'m_derived_types::output_context']]],
-  ['output_5fcontext_7',['output_context',['../structm__derived__types_1_1output__context.html',1,'m_derived_types']]]
+  ['output_5fcontext_7',['output_context',['../structm__derived__types_1_1output__context.html',1,'m_derived_types']]],
+  ['owner_5frank_8',['owner_rank',['../structm__derived__types_1_1ib__patch__parameters.html#aa43906593f74b060d531f56056519a59',1,'m_derived_types::ib_patch_parameters']]]
 ];

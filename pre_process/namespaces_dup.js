@@ -578,6 +578,7 @@ var namespaces_dup =
       [ "s_prng", "namespacem__helper.html#ac7e4e8792a668882d4145a218e26ad32", null ],
       [ "s_prng_splitmix32", "namespacem__helper.html#ab0842575e53fb0e123cd4a34cc14ffd9", null ],
       [ "s_simpson", "namespacem__helper.html#a67fb0dea37f746739e38f0fc900a9455", null ],
+      [ "s_sort_int_key_value", "namespacem__helper.html#aecbc09f75a05e777b407d4437148d8fc", null ],
       [ "s_swap", "namespacem__helper.html#aff3801894362c1c076e96c919b1212d6", null ],
       [ "s_transcoeff", "namespacem__helper.html#ac1336e267ccea00e591824e9974f6188", null ],
       [ "s_transform_model", "namespacem__helper.html#a4bc5e685baea10c9a06b2c4d750842e5", null ],

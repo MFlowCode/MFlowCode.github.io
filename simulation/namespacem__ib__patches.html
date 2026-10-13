@@ -178,10 +178,27 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aefc22ad9a7d433709711d12c2095cd21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode the patch ID with a unique offset containing periodicity information.  <br /></td></tr>
 <tr class="memitem:ae15ced43c5c59a33663282947a6d11d2" id="r_ae15ced43c5c59a33663282947a6d11d2"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae15ced43c5c59a33663282947a6d11d2">s_decode_patch_periodicity</a> (encoded_patch_id, patch_id, x_periodicity, y_periodicity, z_periodicity)</td></tr>
 <tr class="memdesc:ae15ced43c5c59a33663282947a6d11d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode the encoded ID to recover the original patch ID and periodicity.  <br /></td></tr>
+<tr class="memitem:a1fe3204ba624ed93b87b79285ab85def" id="r_a1fe3204ba624ed93b87b79285ab85def"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1fe3204ba624ed93b87b79285ab85def">s_get_neighborhood_idx</a> (gbl_idx, neighborhood_idx, num_entries)</td></tr>
+<tr class="memdesc:a1fe3204ba624ed93b87b79285ab85def"><td class="mdescLeft">&#160;</td><td class="mdescRight">binary search to retrieve the local IB patch index using the global index  <br /></td></tr>
+<tr class="memitem:ac3623f3164caee229d90f6c8318aa0ab" id="r_ac3623f3164caee229d90f6c8318aa0ab"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac3623f3164caee229d90f6c8318aa0ab">s_update_ib_lookup</a> ()</td></tr>
+<tr class="memdesc:ac3623f3164caee229d90f6c8318aa0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completely rebuilds the ib lookup map, used at startup.  <br /></td></tr>
+<tr class="memitem:af1969c6422636255d99e3138502e4f88" id="r_af1969c6422636255d99e3138502e4f88"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#af1969c6422636255d99e3138502e4f88">s_compact_ib_lookup</a> (old_to_new, num_ibs_old)</td></tr>
+<tr class="memdesc:af1969c6422636255d99e3138502e4f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drop the entries whose patches left the neighborhood and renumber the survivors onto the patch_ib slots they were compacted into. Keys are never reordered, so the map stays sorted for free and only the values move: O(num_ibs_old) against re-sorting the whole map.  <br /></td></tr>
+<tr class="memitem:a2c208eaa07423c3a019f09e2bfc6dc27" id="r_a2c208eaa07423c3a019f09e2bfc6dc27"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2c208eaa07423c3a019f09e2bfc6dc27">s_merge_ib_lookup</a> (num_ibs_pre)</td></tr>
+<tr class="memdesc:a2c208eaa07423c3a019f09e2bfc6dc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fold patch_ib(num_ibs_pre+1:num_ibs) into the map: sort just the arrivals, then merge the two sorted runs downward from the top. O(num_ibs) plus the sort of the few arrivals. They are copied out first because the runs share this array and merging in place would overwrite entries still to be read.  <br /></td></tr>
 <tr class="memitem:acbcf356203316a9b92241180755ae03f" id="r_acbcf356203316a9b92241180755ae03f"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#acbcf356203316a9b92241180755ae03f">s_get_periodicities</a> (xp_lower, xp_upper, yp_lower, yp_upper, zp_lower, zp_upper)</td></tr>
 <tr class="memdesc:acbcf356203316a9b92241180755ae03f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine the periodic wrapping bounds in each direction.  <br /></td></tr>
 <tr class="memitem:af5ec2b3362739e6cdd95f35f3c402564" id="r_af5ec2b3362739e6cdd95f35f3c402564"><td class="memItemLeft">pure elemental real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#af5ec2b3362739e6cdd95f35f3c402564">f_r</a> (myth, offset, a)</td></tr>
 <tr class="memdesc:af5ec2b3362739e6cdd95f35f3c402564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Archimedes spiral function.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac34ae5b88185fbb06f7819dfc20b7c0f" id="r_ac34ae5b88185fbb06f7819dfc20b7c0f"><td class="memItemLeft">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ac34ae5b88185fbb06f7819dfc20b7c0f">ib_lookup_keys</a></td></tr>
+<tr class="memdesc:ac34ae5b88185fbb06f7819dfc20b7c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">lookup arrays for converting global IB indices to local indices  <br /></td></tr>
+<tr class="memitem:a3fac0670be32c86ef2c65393e8477083" id="r_a3fac0670be32c86ef2c65393e8477083"><td class="memItemLeft">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a3fac0670be32c86ef2c65393e8477083">ib_lookup_vals</a></td></tr>
+<tr class="memitem:a22ca12269bae8d96c377e87dae6d5c90" id="r_a22ca12269bae8d96c377e87dae6d5c90"><td class="memItemLeft">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a22ca12269bae8d96c377e87dae6d5c90">ib_new_keys</a></td></tr>
+<tr class="memdesc:a22ca12269bae8d96c377e87dae6d5c90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds each step's arrivals while they are sorted and merged in. Host only.  <br /></td></tr>
+<tr class="memitem:a2568d2af0a921c1735a653a22bfa0d03" id="r_a2568d2af0a921c1735a653a22bfa0d03"><td class="memItemLeft">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a2568d2af0a921c1735a653a22bfa0d03">ib_new_vals</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Allocate memory and read initial condition data for IC extrusion. </p>
@@ -245,7 +262,7 @@ Directory path is set via the <span class="tt">files_dir</span> parameter </dd><
 
 <p>Archimedes spiral function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01643">1643</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01833">1833</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -293,7 +310,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01451">1451</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01471">1471</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -319,7 +336,7 @@ Here is the caller graph for this function:</div>
 
 <p>Apply all immersed boundary patch geometries to mark interior cells in the IB marker array. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00444">444</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -343,7 +360,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -372,7 +389,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00685">685</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00705">705</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -383,6 +400,37 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a5eb95c7b234b83782c65a50d308c0989_icgraph.svg" width="428" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="af1969c6422636255d99e3138502e4f88" name="af1969c6422636255d99e3138502e4f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1969c6422636255d99e3138502e4f88">&#9670;&#160;</a></span>s_compact_ib_lookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_ib_patches::s_compact_ib_lookup </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>old_to_new</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_ibs_old</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Drop the entries whose patches left the neighborhood and renumber the survivors onto the patch_ib slots they were compacted into. Keys are never reordered, so the map stays sorted for free and only the values move: O(num_ibs_old) against re-sorting the whole map. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">old_to_new</td><td>old patch_ib slot -&gt; new slot, -1 if dropped </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01686">1686</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -422,7 +470,7 @@ Here is the caller graph for this function:</div>
 
 <p>Decode the encoded ID to recover the original patch ID and periodicity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01543">1543</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01563">1563</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -462,7 +510,7 @@ Here is the caller graph for this function:</div>
 
 <p>Encode the patch ID with a unique offset containing periodicity information. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01508">1508</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01528">1528</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -520,7 +568,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01342">1342</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01362">1362</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -553,12 +601,42 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01280">1280</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01300">1300</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_a22773266b33691fb98deeeec33a6c7ea_icgraph.svg" width="100%" height="398"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="a1fe3204ba624ed93b87b79285ab85def" name="a1fe3204ba624ed93b87b79285ab85def"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fe3204ba624ed93b87b79285ab85def">&#9670;&#160;</a></span>s_get_neighborhood_idx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_ib_patches::s_get_neighborhood_idx </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>gbl_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>neighborhood_idx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>num_entries</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>binary search to retrieve the local IB patch index using the global index </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01607">1607</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -603,7 +681,7 @@ Here is the caller graph for this function:</div>
 
 <p>Determine the periodic wrapping bounds in each direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01587">1587</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01777">1777</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -626,7 +704,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the NACA surface grids for all airfoil IB patches. Must be called after the grid is established (so dx is valid) and before s_apply_ib_patches or s_apply_levelset. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01037">1037</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01057">1057</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -637,6 +715,45 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__ib__patches_ae9c1d0dfb93f8fd329061b059be276a6_icgraph.svg" width="542" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a2c208eaa07423c3a019f09e2bfc6dc27" name="a2c208eaa07423c3a019f09e2bfc6dc27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c208eaa07423c3a019f09e2bfc6dc27">&#9670;&#160;</a></span>s_merge_ib_lookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_ib_patches::s_merge_ib_lookup </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_ibs_pre</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Fold patch_ib(num_ibs_pre+1:num_ibs) into the map: sort just the arrivals, then merge the two sorted runs downward from the top. O(num_ibs) plus the sort of the few arrivals. They are copied out first because the runs share this array and merging in place would overwrite entries still to be read. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01726">1726</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac3623f3164caee229d90f6c8318aa0ab" name="ac3623f3164caee229d90f6c8318aa0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3623f3164caee229d90f6c8318aa0ab">&#9670;&#160;</a></span>s_update_ib_lookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_ib_patches::s_update_ib_lookup</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Completely rebuilds the ib lookup map, used at startup. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01651">1651</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -657,7 +774,76 @@ Here is the caller graph for this function:</div>
 
 <p>Compute a rotation matrix for converting to the rotating frame of the boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01219">1219</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l01239">1239</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ac34ae5b88185fbb06f7819dfc20b7c0f" name="ac34ae5b88185fbb06f7819dfc20b7c0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac34ae5b88185fbb06f7819dfc20b7c0f">&#9670;&#160;</a></span>ib_lookup_keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>) m_ib_patches::ib_lookup_keys</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>lookup arrays for converting global IB indices to local indices </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00444">444</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3fac0670be32c86ef2c65393e8477083" name="a3fac0670be32c86ef2c65393e8477083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fac0670be32c86ef2c65393e8477083">&#9670;&#160;</a></span>ib_lookup_vals</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>) m_ib_patches::ib_lookup_vals</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00444">444</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a22ca12269bae8d96c377e87dae6d5c90" name="a22ca12269bae8d96c377e87dae6d5c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ca12269bae8d96c377e87dae6d5c90">&#9670;&#160;</a></span>ib_new_keys</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>) m_ib_patches::ib_new_keys</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Holds each step's arrivals while they are sorted and merged in. Host only. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00459">459</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2568d2af0a921c1735a653a22bfa0d03" name="a2568d2af0a921c1735a653a22bfa0d03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2568d2af0a921c1735a653a22bfa0d03">&#9670;&#160;</a></span>ib_new_vals</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(<a class="el" href="namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b">num_ib_patches_max_namelist</a>) m_ib_patches::ib_new_vals</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__ib__patches_8fpp_8f90_source.html#l00459">459</a> of file <a class="el" href="m__ib__patches_8fpp_8f90_source.html">m_ib_patches.fpp.f90</a>.</p>
 
 </div>
 </div>

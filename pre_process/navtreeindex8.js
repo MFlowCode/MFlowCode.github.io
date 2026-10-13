@@ -1,5 +1,8 @@
 var NAVTREEINDEX8 =
 {
+"structm__derived__types_1_1t__triangle.html":[1,0,14,25],
+"structm__derived__types_1_1t__triangle.html":[2,0,2,25],
+"structm__derived__types_1_1t__triangle.html#ac16f232389b96d3c939e78cddb1634f6":[1,0,14,25,1],
 "structm__derived__types_1_1t__triangle.html#ac16f232389b96d3c939e78cddb1634f6":[2,0,2,25,1],
 "structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85":[1,0,14,25,0],
 "structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85":[2,0,2,25,0],

@@ -11,7 +11,6 @@ var m__collisions_8fpp_8f90 =
     [ "m_collisions::collision_lookup", "namespacem__collisions.html#af14b8f561916852b4111d4bf5a0656e8", null ],
     [ "m_collisions::collisions_active", "namespacem__collisions.html#a3ff9d9d82031eaeb094d320959d733ec", null ],
     [ "m_collisions::damping_parameter", "namespacem__collisions.html#a131aeed17e5d88a0b7c72f7066e25f20", null ],
-    [ "m_collisions::ib_gbl_idx_lookup", "namespacem__collisions.html#ae59d9c921f77996d71cf2049d5adee92", null ],
     [ "m_collisions::spring_stiffness", "namespacem__collisions.html#abc7da7c3c4711ee302476d69deaeddd6", null ],
     [ "m_collisions::wall_overlap_distances", "namespacem__collisions.html#a33e203cad81386ebb2f2d698cbcd9134", null ]
 ];

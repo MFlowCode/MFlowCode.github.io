@@ -16,7 +16,7 @@ var NAVTREEINDEX2 =
 "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f":[1,0,12,5],
 "namespacem__collisions.html":[1,0,13],
 "namespacem__collisions.html#a131aeed17e5d88a0b7c72f7066e25f20":[1,0,13,10],
-"namespacem__collisions.html#a33e203cad81386ebb2f2d698cbcd9134":[1,0,13,13],
+"namespacem__collisions.html#a33e203cad81386ebb2f2d698cbcd9134":[1,0,13,12],
 "namespacem__collisions.html#a3ff9d9d82031eaeb094d320959d733ec":[1,0,13,9],
 "namespacem__collisions.html#a6da9569c8e2a07f8609c8a706bbf1849":[1,0,13,6],
 "namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a":[1,0,13,0],
@@ -24,9 +24,8 @@ var NAVTREEINDEX2 =
 "namespacem__collisions.html#a9c5fd0d2e3e996b6ddea38af036c75d1":[1,0,13,5],
 "namespacem__collisions.html#ab75b5d1e5a69e4f989675e0ba2c868ed":[1,0,13,7],
 "namespacem__collisions.html#ab9608ec22b9d2f89741faa0a9582dc7a":[1,0,13,2],
-"namespacem__collisions.html#abc7da7c3c4711ee302476d69deaeddd6":[1,0,13,12],
+"namespacem__collisions.html#abc7da7c3c4711ee302476d69deaeddd6":[1,0,13,11],
 "namespacem__collisions.html#ae2dd53a11be648ef6360131ed58b37f7":[1,0,13,1],
-"namespacem__collisions.html#ae59d9c921f77996d71cf2049d5adee92":[1,0,13,11],
 "namespacem__collisions.html#af14b8f561916852b4111d4bf5a0656e8":[1,0,13,8],
 "namespacem__collisions.html#af40a32d6d0e4db1d0dd7030d2639a915":[1,0,13,3],
 "namespacem__compile__specific.html":[1,0,14],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "namespacem__eos.html#a0253d588e4715ef903fcc238e21b314f":[1,0,23,16],
 "namespacem__eos.html#a093af00fc14927a1c3c0749e2e34462f":[1,0,23,3],
 "namespacem__eos.html#a15f503de267bd44e1f964bd6f259f8d3":[1,0,23,22],
-"namespacem__eos.html#a26840125ff292a0f9dfc9b51b7238200":[1,0,23,9]
+"namespacem__eos.html#a26840125ff292a0f9dfc9b51b7238200":[1,0,23,9],
+"namespacem__eos.html#a2d96823e278e783419d013e9f0ec5d87":[1,0,23,19]
 };
