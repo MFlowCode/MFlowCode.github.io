@@ -3,6 +3,7 @@ var m__start__up_8fpp_8f90 =
     [ "m_start_up::s_assign_particle_cloud_ib_defaults", "namespacem__start__up.html#a308ac65752ef1268769cdff4bf9bc408", null ],
     [ "m_start_up::s_build_ib_neighborhood", "namespacem__start__up.html#ad9b45bd874a5d2a97704203606aebbb9", null ],
     [ "m_start_up::s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
+    [ "m_start_up::s_check_restart_file_size", "namespacem__start__up.html#aa8aa9dd68cc08ea034f131dec0f7ec0d", null ],
     [ "m_start_up::s_compute_ib_neighbor_ranks", "namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a", null ],
     [ "m_start_up::s_finalize_modules", "namespacem__start__up.html#aca13f477717fbe9c77304a91bc9d8cc9", null ],
     [ "m_start_up::s_get_neighbor_bounds", "namespacem__start__up.html#a563ba13f878984d4aa0b5b35fb707e0b", null ],

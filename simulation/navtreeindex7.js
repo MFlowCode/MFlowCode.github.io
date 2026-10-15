@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"namespacem__weno.html#a5219ec6e7fbad624d3a7e5d045950bc9":[1,0,61,6],
+"namespacem__weno.html#a574560689ff772b81f24bea116fc3a04":[1,0,61,8],
 "namespacem__weno.html#a590111f305b3b28ebf16caf71e20e61b":[1,0,61,12],
 "namespacem__weno.html#a672fac57c31b11be155ee0d5188d6b4e":[1,0,61,14],
 "namespacem__weno.html#a71d6d25931725ad5c6b67f4c690881a2":[1,0,61,24],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "structm__derived__types_1_1eos__coefficients.html":[2,0,0,45],
 "structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[1,0,21,45,13],
 "structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[2,0,0,45,13],
-"structm__derived__types_1_1eos__coefficients.html#a1dac558b8377de7d6aad005397b02f75":[1,0,21,45,12],
-"structm__derived__types_1_1eos__coefficients.html#a1dac558b8377de7d6aad005397b02f75":[2,0,0,45,12],
-"structm__derived__types_1_1eos__coefficients.html#a201de5eb83e3efa2364d04041a12901a":[1,0,21,45,11]
+"structm__derived__types_1_1eos__coefficients.html#a1dac558b8377de7d6aad005397b02f75":[1,0,21,45,12]
 };

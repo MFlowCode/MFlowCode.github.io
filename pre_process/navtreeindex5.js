@@ -1,5 +1,6 @@
 var NAVTREEINDEX5 =
 {
+"structm__derived__types_1_1eos__coefficients.html#ac37eca941e0b6a519bd0c788d9c25813":[2,0,2,45,5],
 "structm__derived__types_1_1eos__coefficients.html#aebdd9583ba4f6039f68436044ef14e43":[1,0,14,45,7],
 "structm__derived__types_1_1eos__coefficients.html#aebdd9583ba4f6039f68436044ef14e43":[2,0,2,45,7],
 "structm__derived__types_1_1eos__coefficients.html#aef00fa9b28a1eab53a51b942fe28eefa":[1,0,14,45,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX5 =
 "structm__derived__types_1_1ic__patch__parameters.html#a18d3fb00e6b277410a5d3957bdf1ac51":[2,0,2,29,0],
 "structm__derived__types_1_1ic__patch__parameters.html#a1e1bb0d754aa7f3eaf43204794f18e05":[1,0,14,29,36],
 "structm__derived__types_1_1ic__patch__parameters.html#a1e1bb0d754aa7f3eaf43204794f18e05":[2,0,2,29,36],
-"structm__derived__types_1_1ic__patch__parameters.html#a2c713897a2aaaa72122138366f5142be":[1,0,14,29,45],
-"structm__derived__types_1_1ic__patch__parameters.html#a2c713897a2aaaa72122138366f5142be":[2,0,2,29,45]
+"structm__derived__types_1_1ic__patch__parameters.html#a2c713897a2aaaa72122138366f5142be":[1,0,14,29,45]
 };
