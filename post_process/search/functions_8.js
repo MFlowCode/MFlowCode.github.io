@@ -88,7 +88,7 @@ var searchData=
   ['s_5fget_5fcwd_85',['s_get_cwd',['../namespacem__compile__specific.html#a73c98d7d55ae5bdadd796d953752c50b',1,'m_compile_specific']]],
   ['s_5fghost_5fcell_5fextrapolation_86',['s_ghost_cell_extrapolation',['../namespacem__boundary__primitives.html#ad26198443f21dd0000bd07e68168e697',1,'m_boundary_primitives']]],
   ['s_5finfinite_5fpt_5frelaxation_5fk_87',['s_infinite_pt_relaxation_k',['../namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7',1,'m_phase_change']]],
-  ['s_5finfinite_5fptg_5frelaxation_5fk_88',['s_infinite_ptg_relaxation_k',['../namespacem__phase__change.html#ae70f1a751d2980cf7b0739f1e290b0a6',1,'m_phase_change']]],
+  ['s_5finfinite_5fptg_5frelaxation_5fk_88',['s_infinite_ptg_relaxation_k',['../namespacem__phase__change.html#a12729a2eee1498ac58eb6595f4dd6ceb',1,'m_phase_change']]],
   ['s_5finfinite_5frelaxation_5fk_89',['s_infinite_relaxation_k',['../namespacem__phase__change.html#a19a8a866830bfc285d631672287a851f',1,'m_phase_change']]],
   ['s_5finitialize_5fboundary_5fcommon_5fmodule_90',['s_initialize_boundary_common_module',['../namespacem__boundary__common.html#aed8aa67fa1841280e058e1cbe3860c8f',1,'m_boundary_common']]],
   ['s_5finitialize_5fbubble_5fvars_91',['s_initialize_bubble_vars',['../namespacem__helper.html#a6ff0892396e5406dc3b8015a64231a0f',1,'m_helper']]],

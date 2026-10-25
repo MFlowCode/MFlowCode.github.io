@@ -173,8 +173,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a40fc0021e6742e8e4bd066690af9cfc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply pT-equilibrium relaxation for N fluids.  <br /></td></tr>
 <tr class="memitem:a9259d42615856a835e1b10ab12e81b41" id="r_a9259d42615856a835e1b10ab12e81b41"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9259d42615856a835e1b10ab12e81b41">s_compute_ptg_residual</a> (ml, mt, ps, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, rhoe, r2d, ts, mcp, mq, mcvgp, mcvgp2, mcpd)</td></tr>
 <tr class="memdesc:a9259d42615856a835e1b10ab12e81b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate the pTg-equilibrium residual R2D and temperature TS at a trial state (ml, pS) WITHOUT mutating q_cons_vf, so the Newton driver can line-search. The total reacting mass mT is conserved, so the reacting masses are (ml, mT - ml) and only the inert fluids are read from q_cons_vf. Also returns the mixture sums the Jacobian and the final temperature need.  <br /></td></tr>
-<tr class="memitem:ae70f1a751d2980cf7b0739f1e290b0a6" id="r_ae70f1a751d2980cf7b0739f1e290b0a6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae70f1a751d2980cf7b0739f1e290b0a6">s_infinite_ptg_relaxation_k</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, ps, rhoe, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ts)</td></tr>
-<tr class="memdesc:ae70f1a751d2980cf7b0739f1e290b0a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply pTg-equilibrium relaxation: a damped (backtracking line search) Newton solve for the reacting liquid mass ml and pressure pS enforcing Gibbs equality and energy conservation, converging on the residual norm (absolute ptgalpha_eps, or the rhoe-relative branch). Every step is projected onto the physical bounds 0 &lt;= ml &lt;= mT, pS &gt; pmin. This converges in a handful of iterations with a bounded, uniform count (no GPU warp divergence), unlike the former fixed 1e-3 underrelaxation that stalled far from the root.  <br /></td></tr>
+<tr class="memitem:a12729a2eee1498ac58eb6595f4dd6ceb" id="r_a12729a2eee1498ac58eb6595f4dd6ceb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a12729a2eee1498ac58eb6595f4dd6ceb">s_infinite_ptg_relaxation_k</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, ps, rhoe, <a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, ts, ptg_conv)</td></tr>
+<tr class="memdesc:a12729a2eee1498ac58eb6595f4dd6ceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply pTg-equilibrium relaxation: a damped (backtracking line search) Newton solve for the reacting liquid mass ml and pressure pS enforcing Gibbs equality and energy conservation, converging on the residual norm (absolute ptgalpha_eps, or the rhoe-relative branch). Every step is projected onto the physical bounds 0 &lt;= ml &lt;= mT, pS &gt; pmin. This converges in a handful of iterations with a bounded, uniform count (no GPU warp divergence), unlike the former fixed 1e-3 underrelaxation that stalled far from the root.  <br /></td></tr>
 <tr id="func-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader"></div></td></tr>
 <tr class="memitem:a14dd0bb1de0c3205491af730be9405f9" id="r_a14dd0bb1de0c3205491af730be9405f9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a14dd0bb1de0c3205491af730be9405f9">s_finalize_relaxation_solver_module</a></td></tr>
 <tr class="memdesc:a14dd0bb1de0c3205491af730be9405f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the phase change module.  <br /></td></tr>
@@ -294,7 +294,7 @@ Variables</h2></td></tr>
 
 <p>Evaluate the pTg-equilibrium residual R2D and temperature TS at a trial state (ml, pS) WITHOUT mutating q_cons_vf, so the Newton driver can line-search. The total reacting mass mT is conserved, so the reacting masses are (ml, mT - ml) and only the inert fluids are read from q_cons_vf. Also returns the mixture sums the Jacobian and the final temperature need. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l00787">787</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l00791">791</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -317,7 +317,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the phase change module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l01073">1073</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l01079">1079</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -396,7 +396,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l00626">626</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -405,8 +405,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ae70f1a751d2980cf7b0739f1e290b0a6" name="ae70f1a751d2980cf7b0739f1e290b0a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae70f1a751d2980cf7b0739f1e290b0a6">&#9670;&#160;</a></span>s_infinite_ptg_relaxation_k()</h2>
+<a id="a12729a2eee1498ac58eb6595f4dd6ceb" name="a12729a2eee1498ac58eb6595f4dd6ceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12729a2eee1498ac58eb6595f4dd6ceb">&#9670;&#160;</a></span>s_infinite_ptg_relaxation_k()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +447,12 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ts</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ts</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ptg_conv</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -459,16 +464,16 @@ Here is the caller graph for this function:</div>
 
 <p>Apply pTg-equilibrium relaxation: a damped (backtracking line search) Newton solve for the reacting liquid mass ml and pressure pS enforcing Gibbs equality and energy conservation, converging on the residual norm (absolute ptgalpha_eps, or the rhoe-relative branch). Every step is projected onto the physical bounds 0 &lt;= ml &lt;= mT, pS &gt; pmin. This converges in a handful of iterations with a bounded, uniform count (no GPU warp divergence), unlike the former fixed 1e-3 underrelaxation that stalled far from the root. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l00862">862</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__change_8fpp_8f90_source.html#l00866">866</a> of file <a class="el" href="m__phase__change_8fpp_8f90_source.html">m_phase_change.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__change_ae70f1a751d2980cf7b0739f1e290b0a6_cgraph.svg" width="476" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__change_a12729a2eee1498ac58eb6595f4dd6ceb_cgraph.svg" width="476" height="51"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__change_ae70f1a751d2980cf7b0739f1e290b0a6_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__change_a12729a2eee1498ac58eb6595f4dd6ceb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

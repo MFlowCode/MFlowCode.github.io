@@ -3,7 +3,7 @@ var m__phase__change_8fpp_8f90 =
     [ "m_phase_change::s_compute_ptg_residual", "namespacem__phase__change.html#a9259d42615856a835e1b10ab12e81b41", null ],
     [ "m_phase_change::s_finalize_relaxation_solver_module", "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9", null ],
     [ "m_phase_change::s_infinite_pt_relaxation_k", "namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7", null ],
-    [ "m_phase_change::s_infinite_ptg_relaxation_k", "namespacem__phase__change.html#ae70f1a751d2980cf7b0739f1e290b0a6", null ],
+    [ "m_phase_change::s_infinite_ptg_relaxation_k", "namespacem__phase__change.html#a12729a2eee1498ac58eb6595f4dd6ceb", null ],
     [ "m_phase_change::s_infinite_relaxation_k", "namespacem__phase__change.html#a19a8a866830bfc285d631672287a851f", null ],
     [ "m_phase_change::s_initialize_phasechange_module", "namespacem__phase__change.html#aaf3ff364516e48c204960deda92789db", null ],
     [ "m_phase_change::s_relaxation_solver", "namespacem__phase__change.html#a6a72e1b7f15cf87887ef362e7d837744", null ],

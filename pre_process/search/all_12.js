@@ -151,7 +151,7 @@ var searchData=
   ['s_5ficpp_5fsweep_5fplane_148',['s_icpp_sweep_plane',['../namespacem__icpp__patches.html#a498a6ea03b8e45c0ae423471a3eecd93',1,'m_icpp_patches']]],
   ['s_5ficpp_5fvarcircle_149',['s_icpp_varcircle',['../namespacem__icpp__patches.html#a2867d59aa26df1bc028d4fd19843e46f',1,'m_icpp_patches']]],
   ['s_5finfinite_5fpt_5frelaxation_5fk_150',['s_infinite_pt_relaxation_k',['../namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7',1,'m_phase_change']]],
-  ['s_5finfinite_5fptg_5frelaxation_5fk_151',['s_infinite_ptg_relaxation_k',['../namespacem__phase__change.html#ae70f1a751d2980cf7b0739f1e290b0a6',1,'m_phase_change']]],
+  ['s_5finfinite_5fptg_5frelaxation_5fk_151',['s_infinite_ptg_relaxation_k',['../namespacem__phase__change.html#a12729a2eee1498ac58eb6595f4dd6ceb',1,'m_phase_change']]],
   ['s_5finfinite_5frelaxation_5fk_152',['s_infinite_relaxation_k',['../namespacem__phase__change.html#a19a8a866830bfc285d631672287a851f',1,'m_phase_change']]],
   ['s_5finitialize_5fassign_5fvariables_5fmodule_153',['s_initialize_assign_variables_module',['../namespacem__assign__variables.html#a9dc8f30f45346a219c4bf2a856498f82',1,'m_assign_variables']]],
   ['s_5finitialize_5fboundary_5fcommon_5fmodule_154',['s_initialize_boundary_common_module',['../namespacem__boundary__common.html#aed8aa67fa1841280e058e1cbe3860c8f',1,'m_boundary_common']]],

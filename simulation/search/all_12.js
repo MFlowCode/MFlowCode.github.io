@@ -266,7 +266,7 @@ var searchData=
   ['s_5figr_5friemann_5fsolver_263',['s_igr_riemann_solver',['../namespacem__igr.html#aac7ff7f1bc2f2256cf520cc14381b47d',1,'m_igr']]],
   ['s_5figr_5fsigma_5fx_264',['s_igr_sigma_x',['../namespacem__igr.html#a688b2e9fc2cd4b68f6934b78d7812d7f',1,'m_igr']]],
   ['s_5finfinite_5fpt_5frelaxation_5fk_265',['s_infinite_pt_relaxation_k',['../namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7',1,'m_phase_change']]],
-  ['s_5finfinite_5fptg_5frelaxation_5fk_266',['s_infinite_ptg_relaxation_k',['../namespacem__phase__change.html#ae70f1a751d2980cf7b0739f1e290b0a6',1,'m_phase_change']]],
+  ['s_5finfinite_5fptg_5frelaxation_5fk_266',['s_infinite_ptg_relaxation_k',['../namespacem__phase__change.html#a12729a2eee1498ac58eb6595f4dd6ceb',1,'m_phase_change']]],
   ['s_5finfinite_5frelaxation_5fk_267',['s_infinite_relaxation_k',['../namespacem__phase__change.html#a19a8a866830bfc285d631672287a851f',1,'m_phase_change']]],
   ['s_5finitial_5fsubstep_5fh_268',['s_initial_substep_h',['../namespacem__bubbles.html#a4b48725a84a60c73af7e378ffc3d3438',1,'m_bubbles']]],
   ['s_5finitialize_5facoustic_5fsrc_269',['s_initialize_acoustic_src',['../namespacem__acoustic__src.html#ab35bc877e24a62748ab7df0548ebd08d',1,'m_acoustic_src']]],
