@@ -637,13 +637,13 @@ $(function(){initNavTree('m__data__output_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>                <span class="keywordflow">do</span> i = 1, sys_size</div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span>                    var_mok = int(i, mpi_offset_kind)</div>
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span> </div>
-<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>                    <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf, data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>                    <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf(:,:,:), data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
 <div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span><span class="keywordflow">                end do</span></div>
 <div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>                <span class="keywordflow">if</span> (qbmm .and. .not. polytropic) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l00501" name="l00501"></a><span class="lineno">  501</span>                    <span class="keywordflow">do</span> i = sys_size + 1, sys_size + 2*nb*nnode</div>
 <div class="line"><a id="l00502" name="l00502"></a><span class="lineno">  502</span>                        var_mok = int(i, mpi_offset_kind)</div>
 <div class="line"><a id="l00503" name="l00503"></a><span class="lineno">  503</span> </div>
-<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>                        <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf, data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
+<div class="line"><a id="l00504" name="l00504"></a><span class="lineno">  504</span>                        <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf(:,:,:), data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
 <div class="line"><a id="l00505" name="l00505"></a><span class="lineno">  505</span><span class="keywordflow">                    end do</span></div>
 <div class="line"><a id="l00506" name="l00506"></a><span class="lineno">  506</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00507" name="l00507"></a><span class="lineno">  507</span>            <span class="keywordflow">else</span></div>
@@ -657,7 +657,7 @@ $(function(){initNavTree('m__data__output_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>                    <span class="keywordflow">do</span> i = 1, sys_size</div>
 <div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>                        var_mok = int(i, mpi_offset_kind)</div>
 <div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span> </div>
-<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>                        <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf, data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
+<div class="line"><a id="l00518" name="l00518"></a><span class="lineno">  518</span>                        <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf(:,:,:), data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
 <div class="line"><a id="l00519" name="l00519"></a><span class="lineno">  519</span><span class="keywordflow">                    end do</span></div>
 <div class="line"><a id="l00520" name="l00520"></a><span class="lineno">  520</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00521" name="l00521"></a><span class="lineno">  521</span><span class="keywordflow">            end if</span></div>
@@ -714,7 +714,7 @@ $(function(){initNavTree('m__data__output_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span>                    disp = m_mok*max(mok, n_mok)*max(mok, p_mok)*wp_mok*(var_mok - 1)</div>
 <div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span> </div>
 <div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>                    <span class="keyword">call </span>mpi_file_set_view(ifile, disp, mpi_io_p, mpi_io_data%view(i), <span class="stringliteral">&#39;native&#39;</span>, mpi_info_int, ierr)</div>
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>                    <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf, data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>                    <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf(:,:,:), data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
 <div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span><span class="keywordflow">                end do</span></div>
 <div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>                <span class="keywordflow">if</span> (qbmm .and. .not. polytropic) <span class="keywordflow">then</span></div>
 <div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>                    <span class="keywordflow">do</span> i = sys_size + 1, sys_size + 2*nb*nnode</div>
@@ -723,7 +723,7 @@ $(function(){initNavTree('m__data__output_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>                        disp = m_mok*max(mok, n_mok)*max(mok, p_mok)*wp_mok*(var_mok - 1)</div>
 <div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span> </div>
 <div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span>                        <span class="keyword">call </span>mpi_file_set_view(ifile, disp, mpi_io_p, mpi_io_data%view(i), <span class="stringliteral">&#39;native&#39;</span>, mpi_info_int, ierr)</div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>                        <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf, data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
+<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>                        <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf(:,:,:), data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
 <div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span><span class="keywordflow">                    end do</span></div>
 <div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span><span class="keywordflow">                end if</span></div>
 <div class="line"><a id="l00587" name="l00587"></a><span class="lineno">  587</span>            <span class="keywordflow">else</span></div>
@@ -733,7 +733,7 @@ $(function(){initNavTree('m__data__output_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00591" name="l00591"></a><span class="lineno">  591</span>                    disp = m_mok*max(mok, n_mok)*max(mok, p_mok)*wp_mok*(var_mok - 1)</div>
 <div class="line"><a id="l00592" name="l00592"></a><span class="lineno">  592</span> </div>
 <div class="line"><a id="l00593" name="l00593"></a><span class="lineno">  593</span>                    <span class="keyword">call </span>mpi_file_set_view(ifile, disp, mpi_io_p, mpi_io_data%view(i), <span class="stringliteral">&#39;native&#39;</span>, mpi_info_int, ierr)</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>                    <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf, data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
+<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>                    <span class="keyword">call </span>mpi_file_write_all(ifile, mpi_io_data%var(i)%sf(:,:,:), data_size*mpi_io_type, mpi_io_p, status, ierr)</div>
 <div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span><span class="keywordflow">                end do</span></div>
 <div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span><span class="keywordflow">            end if</span></div>
 <div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span> </div>
