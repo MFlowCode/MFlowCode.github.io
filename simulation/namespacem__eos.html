@@ -199,6 +199,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a329d9e1ced57f1ceb8650422b630791d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pressure of phase i after the isentropic density change rho -&gt; xi rho: closed form for the constant-coefficient families, integrated for a state-dependent EOS (the star states it serves are close to rho).  <br /></td></tr>
 <tr class="memitem:a54f9a6cbd744b112c24b6a9a03a4fb21" id="r_a54f9a6cbd744b112c24b6a9a03a4fb21"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a54f9a6cbd744b112c24b6a9a03a4fb21">s_phase_temperature</a> (rho, pres, i, t)</td></tr>
 <tr class="memdesc:a54f9a6cbd744b112c24b6a9a03a4fb21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature of phase i at (rho, p): the stiffened-gas relation, or T_ref(rho) + (e - e_ref)/c_v.  <br /></td></tr>
+<tr class="memitem:a6b500f8e9ecd66d959832fa94d61b528" id="r_a6b500f8e9ecd66d959832fa94d61b528"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6b500f8e9ecd66d959832fa94d61b528">s_phase_density</a> (pres, t, i, rho)</td></tr>
+<tr class="memdesc:a6b500f8e9ecd66d959832fa94d61b528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density of phase i at (p, T), the inverse of s_phase_temperature (constant-coefficient EOS only).  <br /></td></tr>
 <tr class="memitem:a15f503de267bd44e1f964bd6f259f8d3" id="r_a15f503de267bd44e1f964bd6f259f8d3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a15f503de267bd44e1f964bd6f259f8d3">s_phase_density_on_isentrope</a> (i, rho_from, p_from, p_to, rho_to, c2_to)</td></tr>
 <tr class="memdesc:a15f503de267bd44e1f964bd6f259f8d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density of phase i on the isentrope through (rho_from, p_from) at p_to, and c^2 there: Newton on the pressure integrator, whose slope is c^2. The relaxation's own Newton wraps this, so a few steps suffice.  <br /></td></tr>
 <tr class="memitem:aac17fcc6570dc921e08bcd5f9b75b7c7" id="r_aac17fcc6570dc921e08bcd5f9b75b7c7"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aac17fcc6570dc921e08bcd5f9b75b7c7">s_phase_internal_energy</a> (pres, alpha, alpha_rho, i, e_phase)</td></tr>
@@ -252,7 +254,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Isentropic bulk modulus. Takes coefficients rather than a fluid index, so a mixture - whose effective gamma and pi_inf come from s_compute_mixture_coefficients - is the same call as a single fluid. Elastic callers add their own shear term. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01882">1882</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01930">1930</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -549,7 +551,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pressure of a stiffened gas from its internal energy density - the inverse of s_compute_energy. Callers subtract the kinetic, magnetic and elastic energy first; none of those are equation-of-state terms. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01834">1834</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01882">1882</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -584,7 +586,7 @@ Here is the caller graph for this function:</div>
 
 <p>Relativistic specific enthalpy, h = 1 + (Gamma + 1)p/rho. Ideal gas only: the stiffness does not appear, so a fluid with a nonzero pi_inf is not represented here (the validator refuses that combination). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01930">1930</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01978">1978</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -679,7 +681,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mixture coefficients of one state. Under bubbles_euler with num_fluids == 1 the sole advection slot aliases the void fraction (eqn_idxalf == eqn_idxadvend), so alpha is not a composition there and the coefficients are the liquid's. Clipping stays with callers; it differs between solvers and cannot coincide with that case, as mpp_lim requires num_fluids &gt; 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01979">1979</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02027">2027</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -744,7 +746,7 @@ Here is the caller graph for this function:</div>
 
 <p>Time derivative of the mixture coefficients, mirroring s_compute_mixture_coefficients. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02068">2068</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02116">2116</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -799,7 +801,7 @@ Here is the call graph for this function:</div>
 
 <p>Speed of sound of a thermodynamic state. Enthalpy is not an argument: for a real state H, |u|^2 and qv all cancel out of c^2 = ((Gamma + 1)p + Pi)/(Gamma rho). Averaged states, whose enthalpy is a free input, use the _avg variant. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02152">2152</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02200">2200</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -879,7 +881,7 @@ Here is the caller graph for this function:</div>
 
 <p>Speed of sound of an interface-averaged state. An average of two states is not a state - its enthalpy is not the one its pressure and density imply - so the caller supplies H, |u|^2 and qv. Only the enthalpy-reading branches differ from s_compute_speed_of_sound; keep the condition below in step with the branch list there. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02283">2283</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l02331">2331</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1096,7 +1098,7 @@ Here is the caller graph for this function:</div>
 
 <p>Bulk modulus rho c^2 of phase i at pressure pres: f_bulk_modulus for a constant-coefficient fluid, bit for bit, minus the reference-curve terms rho (dPi/drho + p dGamma/drho)/Gamma otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01783">1783</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01831">1831</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1228,6 +1230,41 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a6b500f8e9ecd66d959832fa94d61b528" name="a6b500f8e9ecd66d959832fa94d61b528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b500f8e9ecd66d959832fa94d61b528">&#9670;&#160;</a></span>s_phase_density()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_eos::s_phase_density </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pres</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Density of phase i at (p, T), the inverse of s_phase_temperature (constant-coefficient EOS only). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01682">1682</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a15f503de267bd44e1f964bd6f259f8d3" name="a15f503de267bd44e1f964bd6f259f8d3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a15f503de267bd44e1f964bd6f259f8d3">&#9670;&#160;</a></span>s_phase_density_on_isentrope()</h2>
 
@@ -1269,7 +1306,7 @@ Here is the caller graph for this function:</div>
 
 <p>Density of phase i on the isentrope through (rho_from, p_from) at p_to, and c^2 there: Newton on the pressure integrator, whose slope is c^2. The relaxation's own Newton wraps this, so a few steps suffice. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01683">1683</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01731">1731</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1319,7 +1356,7 @@ Here is the caller graph for this function:</div>
 
 <p>Internal energy per unit volume of phase i at pressure pres: alpha (Gamma p + Pi) + alpha_rho qv, with the coefficients at the phase's own density. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01732">1732</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__eos_8fpp_8f90_source.html#l01780">1780</a> of file <a class="el" href="m__eos_8fpp_8f90_source.html">m_eos.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

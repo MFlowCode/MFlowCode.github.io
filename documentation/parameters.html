@@ -1465,7 +1465,7 @@ general</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">chem_wrt_T</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write temperature field for chemistry  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Chemistry output flag  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">chemistry</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable chemical reactions  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">patch_ib(i)thermal_bc</span> /= 0 requires <span class="tt">chemistry</span> = T; <span class="tt">patch_ib(i)surface_reaction</span> = 1 requires <span class="tt">chemistry</span> = T; <span class="tt">chem_paramsadap_substeps</span> requires <span class="tt">reaction_substeps</span> &gt;= 1 (the operator-split floor)  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">chemistry</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Enable chemical reactions  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">patch_ib(i)thermal_bc</span> = <span class="tt">thermal_bc</span> requires <span class="tt">chemistry</span> = T; <span class="tt">patch_ib(i)surface_reaction</span> = 1 requires <span class="tt">chemistry</span> = T; <span class="tt">chem_paramsadap_substeps</span> requires <span class="tt">reaction_substeps</span> &gt;= 1 (the operator-split floor)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">coefficient_of_restitution</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Real number describing the elasticity of collisions from 0 (perfectly ineleas...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Immersed boundary parameter  </td></tr>
 <tr class="markdownTableRowEven">
@@ -1659,7 +1659,7 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_bc_patches</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of boundary condition patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">num_bc_patches</span> must be &lt;= <span class="tt">num_bc_patches_max</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">num_fluids</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of fluid components  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1, Max: 10; <span class="tt">num_fluids</span> must be positive  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">num_fluids</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of fluid components  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 1, Max: 10; <span class="tt">patch_ib(i)thermal_bc</span> = 1 without <span class="tt">chemistry</span> requires <span class="tt">num_fluids</span> = 1; <span class="tt">num_fluids</span> must be positive  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">num_ibs</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Number of immersed boundary patches  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0; <span class="tt">num_ibs</span> must be &gt;= 1 when <span class="tt">ib</span> is enabled (or specify at least one <span class="tt">particle_cloud</span> with <span class="tt">num_particles</span> &gt; 0); <span class="tt">num_ibs</span> must be &lt;= <span class="tt">num_ib_patches_max</span> (<span class="tt">num_ib_patches_max_namelist</span> in <span class="tt">m_constants</span>.fpp); <span class="tt">num_ibs</span> is set, but <span class="tt">ib</span> is not enabled  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1870,7 +1870,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-27</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-28</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

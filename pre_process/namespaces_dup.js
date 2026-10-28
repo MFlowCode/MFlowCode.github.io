@@ -293,6 +293,7 @@ var namespaces_dup =
       [ "s_phase_bulk_modulus", "namespacem__eos.html#a2d96823e278e783419d013e9f0ec5d87", null ],
       [ "s_phase_c2", "namespacem__eos.html#a62af0ed16a0014e1f2af776d7af4f9e8", null ],
       [ "s_phase_coefficients", "namespacem__eos.html#a4c55300199ee4b80bfeb5446427c64ee", null ],
+      [ "s_phase_density", "namespacem__eos.html#a6b500f8e9ecd66d959832fa94d61b528", null ],
       [ "s_phase_density_on_isentrope", "namespacem__eos.html#a15f503de267bd44e1f964bd6f259f8d3", null ],
       [ "s_phase_internal_energy", "namespacem__eos.html#aac17fcc6570dc921e08bcd5f9b75b7c7", null ],
       [ "s_phase_pressure_on_isentrope", "namespacem__eos.html#a329d9e1ced57f1ceb8650422b630791d", null ],

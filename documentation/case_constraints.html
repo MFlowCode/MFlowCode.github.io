@@ -747,9 +747,9 @@ Geometry</h3>
 <li>When enabled, requires: <span class="tt">cantera_file</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
-<li>patch_ib(i)thermal_bc /= 0 requires chemistry = T</li>
-<li>patch_ib(i)surface_reaction = 1 requires chemistry = T</li>
-<li>chem_paramsdiffusion requires chemistry = T</li>
+<li>patch_ib(i)thermal_bc = thermal_bc requires chemistry = T</li>
+<li>patch_ib(i)thermal_bc = 1 requires chemistry = T or fluid_pp(1)k_therm &gt; 0</li>
+<li>patch_ib(i)thermal_bc = 1 without chemistry requires num_fluids = 1</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD hypoelasticity does not support chemistry</li>
@@ -757,8 +757,8 @@ Geometry</h3>
 <li>heat conduction is not supported with chemistry: the reacting path already carries mixture-averaged conduction through chem_paramsdiffusion</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
+<li>patch_ib(i)Twall must be positive when thermal_bc = 1</li>
 <li>chem_paramsreaction_substeps must be &gt;= 0 (0 = reaction source in the flow RHS; &gt; 0 = operator-split sub-stepping)</li>
-<li>chem_paramsreaction_substeps_max must be &gt;= reaction_substeps when adap_substeps = T</li>
 </ul>
 <p></p>
 </details>
@@ -1618,7 +1618,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-27</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-28</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

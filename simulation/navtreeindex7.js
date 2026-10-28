@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"namespacem__weno.html#a460ab8e85252045e6f4d66797e1fa18f":[1,0,61,3],
+"namespacem__weno.html#a47b1e66777ded5e951ae78f7eaef75b2":[1,0,61,13],
 "namespacem__weno.html#a5219ec6e7fbad624d3a7e5d045950bc9":[1,0,61,6],
 "namespacem__weno.html#a574560689ff772b81f24bea116fc3a04":[1,0,61,8],
 "namespacem__weno.html#a590111f305b3b28ebf16caf71e20e61b":[1,0,61,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX7 =
 "structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[2,0,0,43,7],
 "structm__derived__types_1_1eos__coefficients.html":[1,0,21,45],
 "structm__derived__types_1_1eos__coefficients.html":[2,0,0,45],
-"structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[1,0,21,45,13],
-"structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[2,0,0,45,13],
-"structm__derived__types_1_1eos__coefficients.html#a1dac558b8377de7d6aad005397b02f75":[1,0,21,45,12]
+"structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[1,0,21,45,13]
 };
