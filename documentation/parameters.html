@@ -165,7 +165,7 @@ Case Parameters</h1>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md420"></a>
 Overview</h2>
-<p>MFC supports <b>4,211</b> case parameters organized into families.</p>
+<p>MFC supports <b>4,213</b> case parameters organized into families.</p>
 <p><b>Quick search:</b> Use <span class="tt">./mfc.sh params &lt;query&gt;</span> to search parameters from the command line.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md421"></a>
 Parameter Families</h2>
@@ -251,7 +251,7 @@ Parameter Families</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="#z_output" title="z_output">z_output</a>  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">Z-direction output region  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">232  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="#general" title="general">general</a>  </td><td class="markdownTableBodyNone">234  </td><td class="markdownTableBodyNone">Core simulation parameters (grid, time, model, etc.)  </td></tr>
 </table>
 <hr  />
 <h2 class="doxsection"><a class="anchor" id="patch_icpp"></a>
@@ -1386,7 +1386,7 @@ z_output</h2>
 <h2 class="doxsection"><a class="anchor" id="general"></a>
 general</h2>
 <p><em>Core simulation parameters (grid, time, model, etc.)</em></p>
-<p><b>232 parameters</b></p>
+<p><b>234 parameters</b></p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter  </th><th class="markdownTableHeadNone">Type  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Symbol  </th><th class="markdownTableHeadNone">Constraints  </th></tr>
@@ -1539,7 +1539,11 @@ general</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ib_force_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Record the immersed-boundary force history to D/ib_forces.dat (default off)  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">ib_force_wrt</span> requires <span class="tt">ib</span> to be enabled  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ib_ip_min_dist</span>  </td><td class="markdownTableBodyNone">Real  </td><td class="markdownTableBodyNone">Minimum boundary-to-image-point distance in local cell widths for ib_second_o...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">ib_ip_min_dist</span> requires <span class="tt">ib_second_order_vel</span> to be enabled; <span class="tt">ib_ip_min_dist</span> must be &gt;= 0  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ib_neighborhood_radius</span>  </td><td class="markdownTableBodyNone">Integer  </td><td class="markdownTableBodyNone">Neighborhood radius in ranks for IB awareness  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone">Min: 0  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">ib_second_order_vel</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Extrapolate IB ghost-point velocity linearly through the boundary intercept (...  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">ib_second_order_vel</span> requires <span class="tt">ib</span> to be enabled  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyNone">Logical (T/F)  </td><td class="markdownTableBodyNone">Write IB state and loads data  </td><td class="markdownTableBodyNone"></td><td class="markdownTableBodyNone"><span class="tt">ib_state_wrt</span> requires <span class="tt">ib</span> to be enabled  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1870,7 +1874,7 @@ CLI Reference</h2>
 <div class="line"> </div>
 <div class="line"># Filter by type</div>
 <div class="line">./mfc.sh params -t real weno</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-28</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-29</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

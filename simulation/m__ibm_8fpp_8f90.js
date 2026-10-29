@@ -22,6 +22,7 @@ var m__ibm_8fpp_8f90 =
     [ "m_ibm::s_ibm_setup", "namespacem__ibm.html#a14f4b0cb1d4933c3e8e0a30f301da3ad", null ],
     [ "m_ibm::s_initialize_ibm_module", "namespacem__ibm.html#ab7c53e6e972a356b5fb74efaf876f426", null ],
     [ "m_ibm::s_interpolate_image_point", "namespacem__ibm.html#a115e213a2be87a5e60e9f756394e8323", null ],
+    [ "m_ibm::s_interpolation_weights", "namespacem__ibm.html#a77117a18125d8a13280497f26bcd3f4b", null ],
     [ "m_ibm::s_pick_bath_species", "namespacem__ibm.html#a27e247e4eee46654b18ec6eb0b32b019", null ],
     [ "m_ibm::s_prescribed_kinematics", "namespacem__ibm.html#a960829655e7f6f16e6e7ec29f649cb9c", null ],
     [ "m_ibm::s_report_ibm_surface", "namespacem__ibm.html#a38bedb88f36884441be8960faf436db4", null ],

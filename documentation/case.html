@@ -449,6 +449,10 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">many_ib_patch_parallelism</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parallelize over IB patches instead of grid cells (better for many small patches).  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">ib_second_order_vel</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Extrapolate the ghost-point velocity linearly through the boundary intercept.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">ib_ip_min_dist</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Minimum boundary-to-image-point distance, in local cell widths, for <span class="tt">ib_second_order_vel</span>.  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
@@ -548,6 +552,8 @@ Parameter Descriptions</h4>
 <li><span class="tt">collision_time</span> is approximately the amount of simulation time used to resolve collisions. This is handled by modifying the spring constant used to apply collision forces.</li>
 <li><span class="tt">collision_temporal_resolution</span> restricts the adaptive time step (<span class="tt">cfl_adap_dt</span>) to at most <span class="tt">collision_time / collision_temporal_resolution</span> while any collision is occurring, so that each collision is resolved with at least that many time steps. Pairing it with <span class="tt">ramp_ratio</span> limits how quickly the time step grows back once the collision ends.</li>
 <li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
+<li><span class="tt">ib_second_order_vel</span> replaces the default ghost-point velocity, which imposes the wall velocity at the ghost point, with the linear extrapolation of Mittal et al. (2008) through the boundary intercept and replaces the interpolation scheme with a bilinear weight interpolation.</li>
+<li><span class="tt">ib_ip_min_dist</span> sets \(d_{IP} = \max(d_{GP}, \text{ib\_ip\_min\_dist}\,\Delta)\), with \(\Delta\) the smallest local cell width, so image points of near-wall ghost points interpolate from fluid cells. The default 0 is the pure mirror ( \(d_{IP} = d_{GP}\)). About \(\sqrt{2}\) in 2D ( \(\sqrt{3}\) in 3D) keeps the stencil off a locally planar wall.</li>
 <li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. A value of $r$ indicates that any given rank is aware of IBs up to $r$ ranks away. This value defaults to 0, which leaves the radius unset so that it is selected automatically. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
@@ -1871,7 +1877,7 @@ Primitive Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-27</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-10-28</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
