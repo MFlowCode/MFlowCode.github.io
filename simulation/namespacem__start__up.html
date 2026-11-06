@@ -189,6 +189,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ab64542f13c680e17ce8879c77c65c0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set up the MPI execution environment, bind GPUs, and decompose the computational domain.  <br /></td></tr>
 <tr class="memitem:a855eb78d2fa11b5bfc5f570069e6f2f8" id="r_a855eb78d2fa11b5bfc5f570069e6f2f8"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a855eb78d2fa11b5bfc5f570069e6f2f8">s_initialize_gpu_vars</a></td></tr>
 <tr class="memdesc:a855eb78d2fa11b5bfc5f570069e6f2f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer initial conservative variable and model parameter data to the GPU device.  <br /></td></tr>
+<tr class="memitem:aee524af56ac931833f5a791284d5e8b2" id="r_aee524af56ac931833f5a791284d5e8b2"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aee524af56ac931833f5a791284d5e8b2">s_read_lag_entities</a> (save_count, rows, ids, n_loc)</td></tr>
+<tr class="memdesc:aee524af56ac931833f5a791284d5e8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the Lagrangian bubbles or particles this rank starts with: the input-file rows (and their global IDs) on a fresh start, otherwise the restart-file rows, which also reset mytime and dt.  <br /></td></tr>
+<tr class="memitem:a6722d5f6a0eeb4860715d51d4381efd3" id="r_a6722d5f6a0eeb4860715d51d4381efd3"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6722d5f6a0eeb4860715d51d4381efd3">s_read_lag_input</a> (path, ncols, <a class="el" href="namespacem__global__parameters.html#adab11dab474410541d4c37725bea01e1">n_glb</a>, rows, ids, n_loc, n_read)</td></tr>
+<tr class="memdesc:a6722d5f6a0eeb4860715d51d4381efd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the initial Lagrangian entities from path, one per line with ncols values, and return those in this rank's physical domain: rows(1:n_loc, :) and their global IDs ids(1:n_loc), which are the line numbers among the n_read lines read.  <br /></td></tr>
+<tr class="memitem:a4b97bd743beb307ebaa1df25c774f940" id="r_a4b97bd743beb307ebaa1df25c774f940"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4b97bd743beb307ebaa1df25c774f940">s_read_lag_restart</a> (lag_kind, save_count, io_data, n_loc)</td></tr>
+<tr class="memdesc:a4b97bd743beb307ebaa1df25c774f940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read restart_data/lag_&lt;lag_kind&gt;_&lt;save_count&gt;.dat written by s_write_lag_restart: set mytime and dt from the header and return this rank's n_loc rows in io_data(1:n_loc, 1:lag_io_vars). Each rank reads what the same rank wrote, so the run must use the same number of ranks as the one that wrote the file.  <br /></td></tr>
 <tr class="memitem:aca13f477717fbe9c77304a91bc9d8cc9" id="r_aca13f477717fbe9c77304a91bc9d8cc9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aca13f477717fbe9c77304a91bc9d8cc9">s_finalize_modules</a></td></tr>
 <tr class="memdesc:aca13f477717fbe9c77304a91bc9d8cc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize and deallocate all simulation sub-modules in reverse initialization order.  <br /></td></tr>
 <tr class="memitem:a308ac65752ef1268769cdff4bf9bc408" id="r_a308ac65752ef1268769cdff4bf9bc408"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a308ac65752ef1268769cdff4bf9bc408">s_assign_particle_cloud_ib_defaults</a> (cloud_ib_idx, ib_patch)</td></tr>
@@ -230,7 +236,7 @@ Variables</h2></td></tr>
 
 <p>Fills the properties of a generated particle-cloud IB that the IB state file does not carry (geometry, mass, moving_ibm, inert surface, identity rotation matrix, zeroed step state). This is the only place they are set - pre_process (s_add_cloud_particle) generates only position, kinematics and radius. cloud_ib_idx is the global patch id minus the number of namelist patches; pre_process numbers particles cloud by cloud. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02083">2083</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02261">2261</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -253,7 +259,7 @@ Here is the caller graph for this function:</div>
 
 <p>Completes this rank's IB neighborhood once s_read_ib_restart_data has loaded only the IBs it owns: every rank sends its own IBs to, and receives the owned IBs of, each distinct rank in ib_neighbor_ranks, appending them to patch_ib after its own. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02213">2213</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02391">2391</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -281,7 +287,7 @@ Here is the caller graph for this function:</div>
 
 <p>Validate that all user-provided inputs form a consistent simulation configuration. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -321,7 +327,7 @@ Here is the caller graph for this function:</div>
 
 <p>Abort if an open restart file holds fewer bytes than are about to be read from it, as a job killed while writing it leaves. MPI reads past the end return short without an error, so the missing tail would come back as garbage. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00915">915</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00917">917</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -349,7 +355,7 @@ Here is the caller graph for this function:</div>
 
 <p>Build ib_neighbor_ranks(-1:1,-1:1,-1:1): MPI ranks of all neighbor domains. Uses two rounds of MPI_SENDRECV cascades - face neighbors are known from bc_*, edge neighbors are obtained in round 1, and (3D) corner neighbors in round 2. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02283">2283</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02461">2461</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -372,7 +378,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize and deallocate all simulation sub-modules in reverse initialization order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02034">2034</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02211">2211</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -393,7 +399,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02494">2494</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02672">2672</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -416,7 +422,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transfer initial conservative variable and model parameter data to the GPU device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01609">1609</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01586">1586</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -442,7 +448,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize internal-energy equations from phase mass, mixture momentum, and total energy. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00936">936</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00938">938</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -470,7 +476,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize all simulation sub-modules in the required dependency order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01379">1379</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01343">1343</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -498,7 +504,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up the MPI execution environment, bind GPUs, and decompose the computational domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01534">1534</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01511">1511</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -533,7 +539,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance the simulation by one time step, handling CFL-based dt and time-stepper dispatch. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00996">996</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00998">998</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -564,7 +570,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read data files. Dispatch subroutine that replaces procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -595,7 +601,7 @@ Here is the caller graph for this function:</div>
 
 <p>Loads the IBs this rank owns from the IB state file for t_step into <a class="el" href="namespacem__global__parameters__common.html#aa27d21412f4af9b8ed6dfe8dfd2be35e" title="Immersed boundary patch parameters.">patch_ib(1:num_ibs)</a>, all of which are local. Under file_per_process the rank reads only its own restart_data/lustre_&lt;t_step&gt;/ib_state_&lt;t_step&gt;_&lt;rank&gt;.dat, which holds exactly its IBs; otherwise every rank reads every record of restart_data/ib_state_&lt;t_step&gt;.dat and keeps the ones f_local_rank_owns_location assigns it. Records carry kinematics, position and radius; every other property comes from the namelist patch (global id &lt;= num_ibs) or the particle cloud the IB was generated from. Written by pre_process at t_step = 0 (src/pre_process/m_data_output.fpp:s_write_ib_state_0_file) and by s_write_ib_state_file on later steps. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02134">2134</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02312">2312</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -623,7 +629,7 @@ Here is the caller graph for this function:</div>
 
 <p>Verify the input file exists and read it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00449">449</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -633,6 +639,146 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_aca5460fc186e7b82ea78484ae98c74a4_icgraph.svg" width="494" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aee524af56ac931833f5a791284d5e8b2" name="aee524af56ac931833f5a791284d5e8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee524af56ac931833f5a791284d5e8b2">&#9670;&#160;</a></span>s_read_lag_entities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_start_up::s_read_lag_entities </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>save_count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>ids</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>n_loc</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the Lagrangian bubbles or particles this rank starts with: the input-file rows (and their global IDs) on a fresh start, otherwise the restart-file rows, which also reset mytime and dt. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02012">2012</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_aee524af56ac931833f5a791284d5e8b2_cgraph.svg" width="350" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_aee524af56ac931833f5a791284d5e8b2_icgraph.svg" width="494" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6722d5f6a0eeb4860715d51d4381efd3" name="a6722d5f6a0eeb4860715d51d4381efd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6722d5f6a0eeb4860715d51d4381efd3">&#9670;&#160;</a></span>s_read_lag_input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_start_up::s_read_lag_input </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)</td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ncols</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>n_glb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>ids</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>n_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>n_read</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the initial Lagrangian entities from path, one per line with ncols values, and return those in this rank's physical domain: rows(1:n_loc, :) and their global IDs ids(1:n_loc), which are the line numbers among the n_read lines read. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02045">2045</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a6722d5f6a0eeb4860715d51d4381efd3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a4b97bd743beb307ebaa1df25c774f940" name="a4b97bd743beb307ebaa1df25c774f940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b97bd743beb307ebaa1df25c774f940">&#9670;&#160;</a></span>s_read_lag_restart()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_start_up::s_read_lag_restart </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)</td>          <td class="paramname"><span class="paramname"><em>lag_kind</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>save_count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(out), allocatable</td>          <td class="paramname"><span class="paramname"><em>io_data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>n_loc</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read restart_data/lag_&lt;lag_kind&gt;_&lt;save_count&gt;.dat written by s_write_lag_restart: set mytime and dt from the header and return this rank's n_loc rows in io_data(1:n_loc, 1:lag_io_vars). Each rank reads what the same rank wrote, so the run must use the same number of ranks as the one that wrote the file. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l02091">2091</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__start__up_a4b97bd743beb307ebaa1df25c774f940_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -654,7 +800,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read parallel initial condition and grid data files via MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00661">661</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00663">663</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -685,7 +831,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read serial initial condition and grid data files and compute cell-width distributions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00544">544</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00546">546</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -735,7 +881,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save conservative variable data to disk at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01185">1185</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01187">1187</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -795,7 +941,7 @@ Here is the caller graph for this function:</div>
 
 <p>Collect per-process wall-clock times and write aggregate performance metrics to file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01123">1123</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l01125">1125</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -822,7 +968,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00433">433</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -838,7 +984,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__start__up_8fpp_8f90_source.html#l00432">432</a> of file <a class="el" href="m__start__up_8fpp_8f90_source.html">m_start_up.fpp.f90</a>.</p>
 
 </div>
 </div>

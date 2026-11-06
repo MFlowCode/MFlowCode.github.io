@@ -177,6 +177,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a15979aa7789736321146104abdb129ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns default values to the user inputs before reading them in. This enables for an easier consistency check of these parameters once they are read from the input file.  <br /></td></tr>
 <tr class="memitem:a7d78db66d7d2bd3001d7a7ef981b0d87" id="r_a7d78db66d7d2bd3001d7a7ef981b0d87"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a7d78db66d7d2bd3001d7a7ef981b0d87">m_global_parameters::s_initialize_global_parameters_module</a></td></tr>
 <tr class="memdesc:a7d78db66d7d2bd3001d7a7ef981b0d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the global parameters module.  <br /></td></tr>
+<tr class="memitem:abcfa64ea4cac040b2782d661d4b7ec89" id="r_abcfa64ea4cac040b2782d661d4b7ec89"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#abcfa64ea4cac040b2782d661d4b7ec89">m_global_parameters::s_initialize_bubble_idx</a></td></tr>
+<tr class="memdesc:abcfa64ea4cac040b2782d661d4b7ec89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Lagrangian bubble projected-field indices (bub_q_idx).  <br /></td></tr>
+<tr class="memitem:a4a0b98eb7f15845be5123535bfe2bc8d" id="r_a4a0b98eb7f15845be5123535bfe2bc8d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a4a0b98eb7f15845be5123535bfe2bc8d">m_global_parameters::s_initialize_particle_idx</a></td></tr>
+<tr class="memdesc:a4a0b98eb7f15845be5123535bfe2bc8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Lagrangian particle field indices (part_q_idx and part_field_idx), each vector spanning num_dims. Only the fields the enabled models use get an index: absent vectors are empty ranges, absent scalars are 0.  <br /></td></tr>
+<tr class="memitem:a0597bee4c04e43a6d13a4b8ae5bbf171" id="r_a0597bee4c04e43a6d13a4b8ae5bbf171"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0597bee4c04e43a6d13a4b8ae5bbf171">s_next_idx_range</a> (bounds, used, len, num)</td></tr>
+<tr class="memdesc:a0597bee4c04e43a6d13a4b8ae5bbf171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Next len indices after num when used, else the empty range after num; advances num.  <br /></td></tr>
 <tr class="memitem:adb0039acd9b4ff4643a13b87d7b727e7" id="r_adb0039acd9b4ff4643a13b87d7b727e7"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#adb0039acd9b4ff4643a13b87d7b727e7">m_global_parameters::s_initialize_parallel_io</a></td></tr>
 <tr class="memdesc:adb0039acd9b4ff4643a13b87d7b727e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes parallel infrastructure.  <br /></td></tr>
 <tr class="memitem:a16ad4c64940e4b092652f3c1c6df76c7" id="r_a16ad4c64940e4b092652f3c1c6df76c7"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a16ad4c64940e4b092652f3c1c6df76c7">m_global_parameters::s_finalize_global_parameters_module</a></td></tr>
@@ -240,7 +246,6 @@ Variables</h2></td></tr>
 <tr class="memitem:aca06e91ef5252884025e5b0a2cf38acd" id="r_aca06e91ef5252884025e5b0a2cf38acd"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1mpi__io__airfoil__ib__var.html">mpi_io_airfoil_ib_var</a>), public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#aca06e91ef5252884025e5b0a2cf38acd">m_global_parameters::mpi_io_airfoil_ib_data</a></td></tr>
 <tr class="memitem:a637c6a85e6862557c7d7ad75c7b1ebea" id="r_a637c6a85e6862557c7d7ad75c7b1ebea"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1mpi__io__levelset__var.html">mpi_io_levelset_var</a>), public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a637c6a85e6862557c7d7ad75c7b1ebea">m_global_parameters::mpi_io_levelset_data</a></td></tr>
 <tr class="memitem:a088b6f9c52bdd38ace95a8545d1c8ae2" id="r_a088b6f9c52bdd38ace95a8545d1c8ae2"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1mpi__io__levelset__norm__var.html">mpi_io_levelset_norm_var</a>), public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a088b6f9c52bdd38ace95a8545d1c8ae2">m_global_parameters::mpi_io_levelsetnorm_data</a></td></tr>
-<tr class="memitem:ac559ce714a8b9ed4c6269b23d9770075" id="r_ac559ce714a8b9ed4c6269b23d9770075"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#ac559ce714a8b9ed4c6269b23d9770075">m_global_parameters::mpi_io_data_lag_bubbles</a></td></tr>
 <tr class="memitem:a32abf25abe0194ee18b40123f06cbab0" id="r_a32abf25abe0194ee18b40123f06cbab0"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1qbmm__idx__info.html">qbmm_idx_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a32abf25abe0194ee18b40123f06cbab0">m_global_parameters::qbmm_idx</a></td></tr>
 <tr class="memdesc:a32abf25abe0194ee18b40123f06cbab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">QBMM moment index mappings (allocatable; GPU-managed separately).  <br /></td></tr>
 <tr class="memitem:a1cbfce601c016d37f80ccb1bc67247c8" id="r_a1cbfce601c016d37f80ccb1bc67247c8"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(1:3)&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a1cbfce601c016d37f80ccb1bc67247c8">m_global_parameters::idwint</a></td></tr>
@@ -249,6 +254,13 @@ Variables</h2></td></tr>
 <tr class="memdesc:a6e342ae3eb66f89e0eeb94e11aa42d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ghost cells for boundary condition storage.  <br /></td></tr>
 <tr class="memitem:a60d7ab72fdab2b005144a5a45aa572de" id="r_a60d7ab72fdab2b005144a5a45aa572de"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a60d7ab72fdab2b005144a5a45aa572de">m_global_parameters::fd_number</a></td></tr>
 <tr class="memdesc:a60d7ab72fdab2b005144a5a45aa572de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finite-difference half-stencil size: MAX(1, fd_order/2).  <br /></td></tr>
+<tr class="memitem:a3dfe8bc5790705a9e75fe77ac764505d" id="r_a3dfe8bc5790705a9e75fe77ac764505d"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a3dfe8bc5790705a9e75fe77ac764505d">m_global_parameters::n_el_particles_loc</a></td></tr>
+<tr class="memitem:a4ec20472f99bd8a7afed9f01cc18345d" id="r_a4ec20472f99bd8a7afed9f01cc18345d"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a4ec20472f99bd8a7afed9f01cc18345d">m_global_parameters::n_el_particles_glb</a></td></tr>
+<tr class="memdesc:a4ec20472f99bd8a7afed9f01cc18345d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of Lagrangian solid particles (local and global).  <br /></td></tr>
+<tr class="memitem:a0d79a4ccbd5da1ac2705dcbd15e4b8cd" id="r_a0d79a4ccbd5da1ac2705dcbd15e4b8cd"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1part__q__idx__info.html">part_q_idx_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a0d79a4ccbd5da1ac2705dcbd15e4b8cd">m_global_parameters::part_q_idx</a></td></tr>
+<tr class="memdesc:a0d79a4ccbd5da1ac2705dcbd15e4b8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lagrangian particle projected-field indices.  <br /></td></tr>
+<tr class="memitem:ac142e21d0d71d6f708cce209e7521628" id="r_ac142e21d0d71d6f708cce209e7521628"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1part__field__idx__info.html">part_field_idx_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#ac142e21d0d71d6f708cce209e7521628">m_global_parameters::part_field_idx</a></td></tr>
+<tr class="memdesc:ac142e21d0d71d6f708cce209e7521628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lagrangian particle cell-field indices.  <br /></td></tr>
 <tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Max and min number of cells in a direction of each combination of x-,y-, and z-</div></td></tr>
 <tr class="memitem:ac88969e65ea0f64b4bd736df5b06eee9" id="r_ac88969e65ea0f64b4bd736df5b06eee9"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1cell__num__bounds.html">cell_num_bounds</a>)&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#ac88969e65ea0f64b4bd736df5b06eee9">m_global_parameters::cells_bounds</a></td></tr>
 <tr id="var-members-1" class="groupHeader"><td colspan="2"><div class="groupHeader">Global number of cells in each direction</div></td></tr>
@@ -396,12 +408,63 @@ Variables</h2></td></tr>
 <tr class="memitem:a5d2dabf1d217acbd5bf0c3809725fa78" id="r_a5d2dabf1d217acbd5bf0c3809725fa78"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a5d2dabf1d217acbd5bf0c3809725fa78">m_global_parameters::lag_gravity_force</a></td></tr>
 <tr class="memitem:a3a91a5534bbaa47d798c516c2f62f0a4" id="r_a3a91a5534bbaa47d798c516c2f62f0a4"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a3a91a5534bbaa47d798c516c2f62f0a4">m_global_parameters::lag_vel_model</a></td></tr>
 <tr class="memitem:a66d61ffb5f2eaeb1986849df3163975a" id="r_a66d61ffb5f2eaeb1986849df3163975a"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a66d61ffb5f2eaeb1986849df3163975a">m_global_parameters::lag_drag_model</a></td></tr>
+<tr class="memitem:a7874d2ec01ed4a4a5f26f05edd9a1f5a" id="r_a7874d2ec01ed4a4a5f26f05edd9a1f5a"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1bub__q__idx__info.html">bub_q_idx_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="namespacem__global__parameters.html#a7874d2ec01ed4a4a5f26f05edd9a1f5a">m_global_parameters::bub_q_idx</a></td></tr>
+<tr class="memdesc:a7874d2ec01ed4a4a5f26f05edd9a1f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lagrangian bubble projected-field indices.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contains module <a class="el" href="namespacem__global__parameters.html" title="Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...">m_global_parameters</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
-</div></div><!-- contents -->
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a0597bee4c04e43a6d13a4b8ae5bbf171" name="a0597bee4c04e43a6d13a4b8ae5bbf171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0597bee4c04e43a6d13a4b8ae5bbf171">&#9670;&#160;</a></span>s_next_idx_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine s_initialize_particle_idx::s_next_idx_range </td>
+          <td>(</td>
+          <td class="paramtype">type(idx_bounds_info), intent(out)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>used</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>len</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>num</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Next len indices after num when used, else the empty range after num; advances num. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03694">3694</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__global__parameters_8fpp_8f90_a0597bee4c04e43a6d13a4b8ae5bbf171_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

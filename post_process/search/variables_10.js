@@ -11,8 +11,10 @@ var searchData=
   ['qbmm_8',['qbmm',['../namespacem__global__parameters__common.html#a1d75c2964eb0a5b6577a7ffdfd3dc51b',1,'m_global_parameters_common']]],
   ['qbmm_5fidx_9',['qbmm_idx',['../namespacem__global__parameters.html#a32abf25abe0194ee18b40123f06cbab0',1,'m_global_parameters']]],
   ['qm_5fwrt_10',['qm_wrt',['../namespacem__global__parameters__common.html#ab225b9ee86f774de808fb781da1725da',1,'m_global_parameters_common']]],
-  ['qv_11',['qv',['../structm__derived__types_1_1ic__patch__parameters.html#a38f421671dcc42916a0752d4f2a7288f',1,'m_derived_types::ic_patch_parameters::qv'],['../structm__derived__types_1_1physical__parameters.html#a76b5cb2203aa641482afb2f3aa74f9f1',1,'m_derived_types::physical_parameters::qv']]],
-  ['qvp_12',['qvp',['../structm__derived__types_1_1ic__patch__parameters.html#a639f4cb99b4c009f33ca9287eb30454c',1,'m_derived_types::ic_patch_parameters::qvp'],['../structm__derived__types_1_1physical__parameters.html#a0a0f768ffe9bf687034ae75163a36b7e',1,'m_derived_types::physical_parameters::qvp']]],
-  ['qvps_13',['qvps',['../namespacem__global__parameters__common.html#aac1b14351ac4a10fab7c368088d34e53',1,'m_global_parameters_common']]],
-  ['qvs_14',['qvs',['../namespacem__global__parameters__common.html#a1ee0b401a6be6e4fe322f6170f31c85a',1,'m_global_parameters_common']]]
+  ['qs_5ffluct_5fforce_11',['qs_fluct_force',['../structm__derived__types_1_1particle__lagrange__parameters.html#aefbe713bed78418732e100e2ab4e768d',1,'m_derived_types::particle_lagrange_parameters']]],
+  ['qs_5fforce_12',['qs_force',['../structm__derived__types_1_1particle__lagrange__parameters.html#af493d7e0a73b90a1dd793e1eb7117f61',1,'m_derived_types::particle_lagrange_parameters']]],
+  ['qv_13',['qv',['../structm__derived__types_1_1ic__patch__parameters.html#a38f421671dcc42916a0752d4f2a7288f',1,'m_derived_types::ic_patch_parameters::qv'],['../structm__derived__types_1_1physical__parameters.html#a76b5cb2203aa641482afb2f3aa74f9f1',1,'m_derived_types::physical_parameters::qv']]],
+  ['qvp_14',['qvp',['../structm__derived__types_1_1ic__patch__parameters.html#a639f4cb99b4c009f33ca9287eb30454c',1,'m_derived_types::ic_patch_parameters::qvp'],['../structm__derived__types_1_1physical__parameters.html#a0a0f768ffe9bf687034ae75163a36b7e',1,'m_derived_types::physical_parameters::qvp']]],
+  ['qvps_15',['qvps',['../namespacem__global__parameters__common.html#aac1b14351ac4a10fab7c368088d34e53',1,'m_global_parameters_common']]],
+  ['qvs_16',['qvs',['../namespacem__global__parameters__common.html#a1ee0b401a6be6e4fe322f6170f31c85a',1,'m_global_parameters_common']]]
 ];

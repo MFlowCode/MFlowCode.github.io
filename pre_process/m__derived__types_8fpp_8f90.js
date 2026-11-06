@@ -19,6 +19,9 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::bc_xyz_info", "structm__derived__types_1_1bc__xyz__info.html", "structm__derived__types_1_1bc__xyz__info" ],
     [ "m_derived_types::qbmm_idx_info", "structm__derived__types_1_1qbmm__idx__info.html", "structm__derived__types_1_1qbmm__idx__info" ],
     [ "m_derived_types::eqn_idx_info", "structm__derived__types_1_1eqn__idx__info.html", "structm__derived__types_1_1eqn__idx__info" ],
+    [ "m_derived_types::part_q_idx_info", "structm__derived__types_1_1part__q__idx__info.html", "structm__derived__types_1_1part__q__idx__info" ],
+    [ "m_derived_types::bub_q_idx_info", "structm__derived__types_1_1bub__q__idx__info.html", "structm__derived__types_1_1bub__q__idx__info" ],
+    [ "m_derived_types::part_field_idx_info", "structm__derived__types_1_1part__field__idx__info.html", "structm__derived__types_1_1part__field__idx__info" ],
     [ "m_derived_types::ic_context", "structm__derived__types_1_1ic__context.html", "structm__derived__types_1_1ic__context" ],
     [ "m_derived_types::fd_context", "structm__derived__types_1_1fd__context.html", "structm__derived__types_1_1fd__context" ],
     [ "m_derived_types::output_context", "structm__derived__types_1_1output__context.html", "structm__derived__types_1_1output__context" ],
@@ -37,6 +40,7 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::particle_cloud_parameters", "structm__derived__types_1_1particle__cloud__parameters.html", "structm__derived__types_1_1particle__cloud__parameters" ],
     [ "m_derived_types::physical_parameters", "structm__derived__types_1_1physical__parameters.html", "structm__derived__types_1_1physical__parameters" ],
     [ "m_derived_types::subgrid_bubble_physical_parameters", "structm__derived__types_1_1subgrid__bubble__physical__parameters.html", "structm__derived__types_1_1subgrid__bubble__physical__parameters" ],
+    [ "m_derived_types::subgrid_particle_physical_parameters", "structm__derived__types_1_1subgrid__particle__physical__parameters.html", "structm__derived__types_1_1subgrid__particle__physical__parameters" ],
     [ "m_derived_types::mpi_io_airfoil_ib_var", "structm__derived__types_1_1mpi__io__airfoil__ib__var.html", "structm__derived__types_1_1mpi__io__airfoil__ib__var" ],
     [ "m_derived_types::spbf_parameters", "structm__derived__types_1_1spbf__parameters.html", "structm__derived__types_1_1spbf__parameters" ],
     [ "m_derived_types::acoustic_parameters", "structm__derived__types_1_1acoustic__parameters.html", "structm__derived__types_1_1acoustic__parameters" ],
@@ -47,6 +51,7 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::reactive_burn_parameters", "structm__derived__types_1_1reactive__burn__parameters.html", "structm__derived__types_1_1reactive__burn__parameters" ],
     [ "m_derived_types::eos_coefficients", "structm__derived__types_1_1eos__coefficients.html", "structm__derived__types_1_1eos__coefficients" ],
     [ "m_derived_types::bubbles_lagrange_parameters", "structm__derived__types_1_1bubbles__lagrange__parameters.html", "structm__derived__types_1_1bubbles__lagrange__parameters" ],
+    [ "m_derived_types::particle_lagrange_parameters", "structm__derived__types_1_1particle__lagrange__parameters.html", "structm__derived__types_1_1particle__lagrange__parameters" ],
     [ "m_derived_types::cell_num_bounds", "structm__derived__types_1_1cell__num__bounds.html", "structm__derived__types_1_1cell__num__bounds" ],
     [ "m_derived_types::simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ]
 ];

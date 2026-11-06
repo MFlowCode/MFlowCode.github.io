@@ -7,7 +7,7 @@ var searchData=
   ['v_5frs_5fws_5fmuscl_4',['v_rs_ws_muscl',['../namespacem__muscl.html#a34d6af12be15e4b819b82c47b956cd8b',1,'m_muscl']]],
   ['v_5fsize_5',['v_size',['../namespacem__muscl.html#acd707c4794936367f42d86af56de7d7a',1,'m_muscl::v_size'],['../namespacem__weno.html#a91b7a29671368f77d62ab0d3fd9ecff0',1,'m_weno::v_size'],['../namespacem__mpi__common.html#a8f9044f9e60879f65ae11de6de95c213',1,'m_mpi_common::v_size']]],
   ['val_6',['val',['../structm__derived__types_1_1source__spatial__type.html#ad3a1c89bbdc56191cdb5c9ef008eab68',1,'m_derived_types::source_spatial_type']]],
-  ['valmaxvoid_7',['valmaxvoid',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a587e6fa031e86f87be87dfc840a851e5',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['valmaxvoid_7',['valmaxvoid',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a587e6fa031e86f87be87dfc840a851e5',1,'m_derived_types::bubbles_lagrange_parameters::valmaxvoid'],['../structm__derived__types_1_1particle__lagrange__parameters.html#a441667f7156d4b0d8c1a42c187bd01f2',1,'m_derived_types::particle_lagrange_parameters::valmaxvoid']]],
   ['var_8',['var',['../structm__derived__types_1_1mpi__io__var.html#a41c471a62a6f28ebeeee8e51327d59f7',1,'m_derived_types::mpi_io_var::var'],['../structm__derived__types_1_1mpi__io__ib__var.html#a23e5c76450bd4277fff4a1f41943ce4e',1,'m_derived_types::mpi_io_ib_var::var'],['../structm__derived__types_1_1mpi__io__levelset__var.html#ab978b1dd1620d659fd48f1bd80a4bdf9',1,'m_derived_types::mpi_io_levelset_var::var'],['../structm__derived__types_1_1mpi__io__levelset__norm__var.html#ac3b3d281b82d091f39f7d0b7ed4e9ced',1,'m_derived_types::mpi_io_levelset_norm_var::var'],['../structm__derived__types_1_1mpi__io__airfoil__ib__var.html#a3a3fc494e55a042620cdaca5faba9091',1,'m_derived_types::mpi_io_airfoil_ib_var::var']]],
   ['vb1_9',['vb1',['../structm__derived__types_1_1int__bounds__info.html#a6fa4d0ad7fc1d2dead73acf328662cbb',1,'m_derived_types::int_bounds_info']]],
   ['vb2_10',['vb2',['../structm__derived__types_1_1int__bounds__info.html#a7c96b77e26fa09098ff573b3d744dcbd',1,'m_derived_types::int_bounds_info']]],
@@ -25,7 +25,7 @@ var searchData=
   ['vel_5fin_5ffrac0_22',['vel_in_frac0',['../structm__derived__types_1_1int__bounds__info.html#ab54d00643d6c3799bf9297672e2d9e4f',1,'m_derived_types::int_bounds_info']]],
   ['vel_5fin_5framp_23',['vel_in_ramp',['../structm__derived__types_1_1int__bounds__info.html#af7f29d5d245e74f875c0758f471888b8',1,'m_derived_types::int_bounds_info']]],
   ['vel_5fin_5ft0_24',['vel_in_t0',['../structm__derived__types_1_1int__bounds__info.html#ae94533bdd8f596d61350dbf52c5f886a',1,'m_derived_types::int_bounds_info']]],
-  ['vel_5fmodel_25',['vel_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a198e7c9fc18bba8078cd86f0c5102e60',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['vel_5fmodel_25',['vel_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a198e7c9fc18bba8078cd86f0c5102e60',1,'m_derived_types::bubbles_lagrange_parameters::vel_model'],['../structm__derived__types_1_1particle__lagrange__parameters.html#a946a37e9c8a840140448ec3d4bffb216',1,'m_derived_types::particle_lagrange_parameters::vel_model']]],
   ['vel_5fout_26',['vel_out',['../structm__derived__types_1_1int__bounds__info.html#af343b628e182ad5917268d34db727ead',1,'m_derived_types::int_bounds_info::vel_out'],['../namespacem__cbc.html#a0ed11d392b2f8281a0b339e99ef07295',1,'m_cbc::vel_out']]],
   ['vel_5fsrc_5frsx_5fvf_27',['vel_src_rsx_vf',['../namespacem__riemann__state.html#a96301d5e4c55bb8cac6cc19949697dc6',1,'m_riemann_state']]],
   ['version_28',['version',['../structm__nvtx_1_1nvtxeventattributes.html#abea96c114d8adfd0734147f2a385fcea',1,'m_nvtx::nvtxeventattributes']]],
@@ -41,6 +41,7 @@ var searchData=
   ['vinet_5frho0_38',['vinet_rho0',['../structm__derived__types_1_1physical__parameters.html#a28d0a7acae7a9a7ffb667a55bb22a180',1,'m_derived_types::physical_parameters']]],
   ['vinet_5ft0_39',['vinet_t0',['../structm__derived__types_1_1physical__parameters.html#a669ddd0d3539fd372f9759a03f0e49d9',1,'m_derived_types::physical_parameters']]],
   ['viscous_40',['viscous',['../namespacem__global__parameters__common.html#a0c9281e484bb906ba492e82b894a912b',1,'m_global_parameters_common']]],
-  ['vp_41',['vp',['../namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837',1,'m_phase_change']]],
-  ['vs_42',['vs',['../structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72',1,'m_derived_types::qbmm_idx_info::vs'],['../namespacem__bubbles__ee.html#a99b9ad92af283dc0de03dd7e283abb76',1,'m_bubbles_ee::vs']]]
+  ['void_5fstat_5fmin_41',['void_stat_min',['../namespacem__data__output.html#a754c5d577e342e50ebcbc55774b32f41',1,'m_data_output::void_stat_min'],['../namespacem__euler__lagrange.html#aad56408566263930a3ec3cca1fc05e93',1,'m_euler_lagrange::void_stat_min']]],
+  ['vp_42',['vp',['../namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837',1,'m_phase_change']]],
+  ['vs_43',['vs',['../structm__derived__types_1_1qbmm__idx__info.html#adb586eaad9d9498bbe43d0f091f7ce72',1,'m_derived_types::qbmm_idx_info::vs'],['../namespacem__bubbles__ee.html#a99b9ad92af283dc0de03dd7e283abb76',1,'m_bubbles_ee::vs']]]
 ];

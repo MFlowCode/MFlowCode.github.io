@@ -24,5 +24,6 @@ var searchData=
   ['eqn_5fidx_5finfo_21',['eqn_idx_info',['../structm__derived__types_1_1eqn__idx__info.html',1,'m_derived_types']]],
   ['eta_22',['eta',['../namespacem__icpp__patches.html#a9912585d5233ceb0bd47a02a255a30a1',1,'m_icpp_patches']]],
   ['eu_23',['eu',['../namespacem__global__parameters.html#afae3ee499776f2b3712201dec49664b2',1,'m_global_parameters']]],
-  ['exchange_5fall_5fchemistry_5ftemperatures_24',['exchange_all_chemistry_temperatures',['../namespacem__mpi__common.html#aebb5dd2f13edc5147e1dd9e2aa43b530',1,'m_mpi_common']]]
+  ['euler_5flagrange_24',['euler_lagrange',['../namespacem__global__parameters__common.html#a411a00e73ce92e4a2e47bffe66f2e38b',1,'m_global_parameters_common']]],
+  ['exchange_5fall_5fchemistry_5ftemperatures_25',['exchange_all_chemistry_temperatures',['../namespacem__mpi__common.html#aebb5dd2f13edc5147e1dd9e2aa43b530',1,'m_mpi_common']]]
 ];

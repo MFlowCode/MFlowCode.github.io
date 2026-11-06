@@ -260,6 +260,22 @@ Variables</h2></td></tr>
 <tr class="memdesc:a80147c26022bec4383d74045e804ac0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Universal gas constant - J/kmol/K.  <br /></td></tr>
 <tr class="memitem:a0499081f62c30c5f4ef40b9564c9d73f" id="r_a0499081f62c30c5f4ef40b9564c9d73f"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a0499081f62c30c5f4ef40b9564c9d73f">lag_io_vars</a> = 21</td></tr>
 <tr class="memdesc:a0499081f62c30c5f4ef40b9564c9d73f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of variables per particle for MPI_IO.  <br /></td></tr>
+<tr class="memitem:a5977204ca05f8658b8e0e6641c19fef8" id="r_a5977204ca05f8658b8e0e6641c19fef8"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a5977204ca05f8658b8e0e6641c19fef8">ncells_proj</a> = 3</td></tr>
+<tr class="memdesc:a5977204ca05f8658b8e0e6641c19fef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cells per direction the Gaussian kernel projects onto.  <br /></td></tr>
+<tr class="memitem:aba7ce7481b6f9d35db6bb8437cc202bf" id="r_aba7ce7481b6f9d35db6bb8437cc202bf"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#aba7ce7481b6f9d35db6bb8437cc202bf">mapcells_loc</a> = (Ncells_proj - 1)/2</td></tr>
+<tr class="memdesc:aba7ce7481b6f9d35db6bb8437cc202bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian kernel half-width M.  <br /></td></tr>
+<tr class="memitem:a79212f446c43b2109e73c33f34c82ac1" id="r_a79212f446c43b2109e73c33f34c82ac1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a79212f446c43b2109e73c33f34c82ac1">kernel_alpha</a> = 4._wp*log(10._wp)/real(mapCells_loc + 1, <a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)**2</td></tr>
+<tr class="memdesc:a79212f446c43b2109e73c33f34c82ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gaussian kernel decay rate, so the kernel falls to 1e-4 at M + 1 cells.  <br /></td></tr>
+<tr class="memitem:a8635352dbd311073280de80b997673ae" id="r_a8635352dbd311073280de80b997673ae"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a8635352dbd311073280de80b997673ae">seed_kind</a> = selected_int_kind(18)</td></tr>
+<tr class="memdesc:a8635352dbd311073280de80b997673ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">64-bit state of s_prng_splitmix32  <br /></td></tr>
+<tr class="memitem:ab38a42a5c95f7a1076e7182334c6ebb1" id="r_ab38a42a5c95f7a1076e7182334c6ebb1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#ab38a42a5c95f7a1076e7182334c6ebb1">tiny_positive</a> = 1.e-30_wp</td></tr>
+<tr class="memdesc:ab38a42a5c95f7a1076e7182334c6ebb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps divisions and log() finite for vanishing arguments.  <br /></td></tr>
+<tr class="memitem:a1c3df7d00df8a34114deda7c7e77c45d" id="r_a1c3df7d00df8a34114deda7c7e77c45d"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a1c3df7d00df8a34114deda7c7e77c45d">node_coincidence_tol</a> = 1.e-10_wp</td></tr>
+<tr class="memdesc:a1c3df7d00df8a34114deda7c7e77c45d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance, in cell widths, at which a particle sits on a node.  <br /></td></tr>
+<tr class="memitem:a662d08ea4100a86c992ad319b0df6af2" id="r_a662d08ea4100a86c992ad319b0df6af2"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a662d08ea4100a86c992ad319b0df6af2">phi_chi_max</a> = 0.64_wp</td></tr>
+<tr class="memdesc:a662d08ea4100a86c992ad319b0df6af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Volume-fraction cap in the radial distribution, below its singularity at 0.64356.  <br /></td></tr>
+<tr class="memitem:a87bfafd2cf4db808ade264212a1f7821" id="r_a87bfafd2cf4db808ade264212a1f7821"><td class="memItemLeft">character(len= *), dimension(4), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a87bfafd2cf4db808ade264212a1f7821">force_term_names</a> = [character(len=24)::'quasi-steady drag','pressure gradient', 'added mass', 'drag fluctuation']</td></tr>
+<tr class="memdesc:a87bfafd2cf4db808ade264212a1f7821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Force terms reported when a particle force is not finite, indexed by the force_status of s_get_particle_force.  <br /></td></tr>
 <tr class="memitem:a75d5411a4b261c3d2ace983fa082f41f" id="r_a75d5411a4b261c3d2ace983fa082f41f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a75d5411a4b261c3d2ace983fa082f41f">dflt_adap_dt_tol</a> = 1.e-4_wp</td></tr>
 <tr class="memdesc:a75d5411a4b261c3d2ace983fa082f41f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default tolerance for adaptive step size.  <br /></td></tr>
 <tr class="memitem:ab4e2edff4a650d9f7610dfc9c2f01132" id="r_ab4e2edff4a650d9f7610dfc9c2f01132"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#ab4e2edff4a650d9f7610dfc9c2f01132">dflt_adap_dt_max_iters</a> = 100</td></tr>
@@ -330,6 +346,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a76fb05a5c480427dc40c742213488095" id="r_a76fb05a5c480427dc40c742213488095"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a76fb05a5c480427dc40c742213488095">int_comp_off</a> = 0</td></tr>
 <tr class="memitem:ae69edaabc88d5ae8fffcd63137180cf4" id="r_ae69edaabc88d5ae8fffcd63137180cf4"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#ae69edaabc88d5ae8fffcd63137180cf4">int_comp_thinc</a> = 1</td></tr>
 <tr class="memitem:a1248229d4a76e7503ef202a4a20eb00c" id="r_a1248229d4a76e7503ef202a4a20eb00c"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a1248229d4a76e7503ef202a4a20eb00c">int_comp_mthinc</a> = 2</td></tr>
+<tr class="memitem:ae9a26e1577411b6d42e6af05a134da50" id="r_ae9a26e1577411b6d42e6af05a134da50"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#ae9a26e1577411b6d42e6af05a134da50">coupling_one_way</a> = 1</td></tr>
+<tr class="memitem:a3f3dc95c8b61870b075bf81b79171703" id="r_a3f3dc95c8b61870b075bf81b79171703"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a3f3dc95c8b61870b075bf81b79171703">coupling_two_way</a> = 2</td></tr>
 <tr class="memitem:af3d9f24c521411945147a5283112a10f" id="r_af3d9f24c521411945147a5283112a10f"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#af3d9f24c521411945147a5283112a10f">model_eqns_gamma_law</a> = 1</td></tr>
 <tr class="memitem:a087291be019c2c597afadb979fff51bc" id="r_a087291be019c2c597afadb979fff51bc"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a087291be019c2c597afadb979fff51bc">model_eqns_5eq</a> = 2</td></tr>
 <tr class="memitem:aebabd2fb9ed006bca8fefcc295b1547d" id="r_aebabd2fb9ed006bca8fefcc295b1547d"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#aebabd2fb9ed006bca8fefcc295b1547d">model_eqns_6eq</a> = 3</td></tr>
@@ -390,7 +408,7 @@ Variables</h2></td></tr>
 
 <p>PRNG amplifier for mixing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00098">98</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00112">112</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -406,7 +424,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00139">139</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00153">153</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -422,7 +440,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00138">138</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00152">152</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -438,7 +456,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00119">119</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00133">133</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -454,7 +472,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00115">115</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00129">129</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -470,7 +488,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00114">114</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00128">128</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -486,7 +504,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00111">111</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00125">125</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -502,7 +520,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00112">112</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00126">126</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -518,7 +536,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00113">113</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00127">127</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -534,7 +552,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00110">110</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00124">124</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -550,7 +568,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00116">116</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00130">130</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -566,7 +584,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00117">117</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00131">131</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -582,7 +600,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00122">122</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00136">136</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -598,7 +616,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00108">108</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00122">122</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -614,7 +632,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00121">121</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00135">135</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -630,7 +648,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00118">118</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00132">132</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -646,7 +664,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00106">106</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00120">120</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -662,7 +680,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00107">107</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00121">121</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -678,7 +696,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00109">109</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00123">123</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -694,7 +712,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00120">120</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00134">134</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -746,7 +764,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00141">141</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00155">155</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -762,7 +780,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00142">142</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00156">156</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -778,7 +796,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00140">140</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00154">154</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -794,7 +812,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00143">143</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00157">157</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -830,7 +848,7 @@ Variables</h2></td></tr>
 
 <p>Exit code for case file validation errors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00102">102</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00116">116</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -852,6 +870,38 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ae9a26e1577411b6d42e6af05a134da50" name="ae9a26e1577411b6d42e6af05a134da50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9a26e1577411b6d42e6af05a134da50">&#9670;&#160;</a></span>coupling_one_way</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_constants::coupling_one_way = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00168">168</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3f3dc95c8b61870b075bf81b79171703" name="a3f3dc95c8b61870b075bf81b79171703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f3dc95c8b61870b075bf81b79171703">&#9670;&#160;</a></span>coupling_two_way</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_constants::coupling_two_way = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00169">169</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a661e16fd10454ba78431f0053c08bd32" name="a661e16fd10454ba78431f0053c08bd32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a661e16fd10454ba78431f0053c08bd32">&#9670;&#160;</a></span>decimal_trim</h2>
 
@@ -866,7 +916,7 @@ Variables</h2></td></tr>
 
 <p>PRNG decimal truncation factor. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00099">99</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00113">113</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -884,7 +934,7 @@ Variables</h2></td></tr>
 
 <p>Default max iteration for adaptive step size. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00081">81</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00095">95</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -902,7 +952,7 @@ Variables</h2></td></tr>
 
 <p>Default tolerance for adaptive step size. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00080">80</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00094">94</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1098,7 +1148,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00145">145</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00159">159</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1114,7 +1164,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00147">147</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00161">161</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1180,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00146">146</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00160">160</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1149,7 +1199,7 @@ Variables</h2></td></tr>
 <p>Equation of state per fluid (eos_stiffened_gas, eos_ideal_gas, eos_mie_gruneisen, eos_jwl, eos_vinet) is generated from EOS_FAMILIES in toolchain/mfc/params/eos_families.py; see generated_constants.fpp below. </p>
 <p>fixed-step RK4 along a phasic isentrope or a reference temperature </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00126">126</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00140">140</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1165,7 +1215,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00144">144</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00158">158</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1181,7 +1231,25 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00148">148</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00162">162</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a87bfafd2cf4db808ade264212a1f7821" name="a87bfafd2cf4db808ade264212a1f7821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87bfafd2cf4db808ade264212a1f7821">&#9670;&#160;</a></span>force_term_names</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=*), dimension(4), parameter m_constants::force_term_names = [character(len=24)::'quasi-steady drag','pressure gradient', 'added mass', 'drag fluctuation']</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Force terms reported when a particle force is not finite, indexed by the force_status of s_get_particle_force. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00090">90</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1265,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00150">150</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00164">164</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1213,7 +1281,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00149">149</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00163">163</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1267,7 +1335,7 @@ Variables</h2></td></tr>
 
 <p>PRNG increment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00097">97</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00111">111</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1301,7 +1369,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00153">153</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00167">167</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1317,7 +1385,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00151">151</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00165">165</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1333,7 +1401,25 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00152">152</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00166">166</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a79212f446c43b2109e73c33f34c82ac1" name="a79212f446c43b2109e73c33f34c82ac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79212f446c43b2109e73c33f34c82ac1">&#9670;&#160;</a></span>kernel_alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter m_constants::kernel_alpha = 4._wp*log(10._wp)/real(mapCells_loc + 1, <a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)**2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gaussian kernel decay rate, so the kernel falls to 1e-4 at M + 1 cells. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00083">83</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1370,6 +1456,24 @@ Variables</h2></td></tr>
 <p>Number of cells around the bubble where the smoothening function will have effect. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00075">75</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aba7ce7481b6f9d35db6bb8437cc202bf" name="aba7ce7481b6f9d35db6bb8437cc202bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba7ce7481b6f9d35db6bb8437cc202bf">&#9670;&#160;</a></span>mapcells_loc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_constants::mapcells_loc = (Ncells_proj - 1)/2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gaussian kernel half-width M. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00081">81</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1525,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00155">155</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00171">171</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1437,7 +1541,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00156">156</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00172">172</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1453,7 +1557,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00154">154</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00170">170</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1471,7 +1575,7 @@ Variables</h2></td></tr>
 
 <p>PRNG modulus. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00095">95</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00109">109</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1525,7 +1629,7 @@ Variables</h2></td></tr>
 
 <p>PRNG multiplier. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00096">96</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00110">110</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1645,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00159">159</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00175">175</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1557,7 +1661,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00158">158</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00174">174</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1573,7 +1677,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00162">162</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00178">178</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1589,7 +1693,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00157">157</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00173">173</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1605,7 +1709,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00160">160</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00176">176</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1621,7 +1725,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00161">161</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00177">177</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1637,7 +1741,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00163">163</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00179">179</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1653,7 +1757,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00164">164</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00180">180</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1675,6 +1779,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a5977204ca05f8658b8e0e6641c19fef8" name="a5977204ca05f8658b8e0e6641c19fef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5977204ca05f8658b8e0e6641c19fef8">&#9670;&#160;</a></span>ncells_proj</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_constants::ncells_proj = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cells per direction the Gaussian kernel projects onto. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00080">80</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="aa66c5f6942d6776bdc0152bbb26177fd" name="aa66c5f6942d6776bdc0152bbb26177fd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa66c5f6942d6776bdc0152bbb26177fd">&#9670;&#160;</a></span>nnode</h2>
 
@@ -1690,6 +1812,24 @@ Variables</h2></td></tr>
 <p>Number of QBMM nodes. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00046">46</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1c3df7d00df8a34114deda7c7e77c45d" name="a1c3df7d00df8a34114deda7c7e77c45d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3df7d00df8a34114deda7c7e77c45d">&#9670;&#160;</a></span>node_coincidence_tol</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter m_constants::node_coincidence_tol = 1.e-10_wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Distance, in cell widths, at which a particle sits on a node. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00086">86</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1902,7 +2042,7 @@ Variables</h2></td></tr>
 
 <p>Max energy shells for synthetic turbulence. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00130">130</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00144">144</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1920,7 +2060,7 @@ Variables</h2></td></tr>
 
 <p>Max Gaussian forcing zones for synthetic turbulence. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00131">131</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00145">145</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1936,7 +2076,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00127">127</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00141">141</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1954,7 +2094,7 @@ Variables</h2></td></tr>
 
 <p>the two ODEs s_rk4 integrates </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00127">127</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00141">141</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1994,6 +2134,24 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a662d08ea4100a86c992ad319b0df6af2" name="a662d08ea4100a86c992ad319b0df6af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a662d08ea4100a86c992ad319b0df6af2">&#9670;&#160;</a></span>phi_chi_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter m_constants::phi_chi_max = 0.64_wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Volume-fraction cap in the radial distribution, below its singularity at 0.64356. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00088">88</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="ab7da26d9dc45c51080b93fcfa82696cb" name="ab7da26d9dc45c51080b93fcfa82696cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab7da26d9dc45c51080b93fcfa82696cb">&#9670;&#160;</a></span>pi</h2>
 
@@ -2024,7 +2182,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00166">166</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00182">182</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2040,7 +2198,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00165">165</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00181">181</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2092,7 +2250,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00168">168</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00184">184</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2108,7 +2266,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00167">167</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00183">183</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2126,7 +2284,7 @@ Variables</h2></td></tr>
 
 <p>Max Newton-Raphson iterations for relativistic primitive recovery. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00092">92</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00106">106</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2142,7 +2300,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00169">169</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00185">185</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2158,7 +2316,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00170">170</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00186">186</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2174,7 +2332,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00171">171</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00187">187</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2190,7 +2348,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00172">172</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00188">188</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2208,7 +2366,7 @@ Variables</h2></td></tr>
 
 <p>Scale factor for initial step size. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00086">86</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00100">100</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2226,7 +2384,25 @@ Variables</h2></td></tr>
 
 <p>Scale factor for step size adjustment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00087">87</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00101">101</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a8635352dbd311073280de80b997673ae" name="a8635352dbd311073280de80b997673ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8635352dbd311073280de80b997673ae">&#9670;&#160;</a></span>seed_kind</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_constants::seed_kind = selected_int_kind(18)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>64-bit state of s_prng_splitmix32 </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00084">84</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2280,7 +2456,7 @@ Variables</h2></td></tr>
 
 <p>Minimum initial step size. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00088">88</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00102">102</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2368,7 +2544,7 @@ Variables</h2></td></tr>
 
 <p>Threshold for initial step size estimate. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00084">84</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00098">98</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2386,7 +2562,7 @@ Variables</h2></td></tr>
 
 <p>Threshold for refined step size estimate. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00085">85</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00099">99</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2420,7 +2596,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00173">173</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00189">189</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2436,7 +2612,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00174">174</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00190">190</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2452,7 +2628,25 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00175">175</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00191">191</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab38a42a5c95f7a1076e7182334c6ebb1" name="ab38a42a5c95f7a1076e7182334c6ebb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab38a42a5c95f7a1076e7182334c6ebb1">&#9670;&#160;</a></span>tiny_positive</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter m_constants::tiny_positive = 1.e-30_wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Keeps divisions and log() finite for vanishing arguments. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00085">85</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2486,7 +2680,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00176">176</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00192">192</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2502,7 +2696,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00177">177</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__constants_8fpp_8f90_source.html#l00193">193</a> of file <a class="el" href="m__constants_8fpp_8f90_source.html">m_constants.fpp.f90</a>.</p>
 
 </div>
 </div>

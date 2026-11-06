@@ -173,8 +173,12 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a2a51671bfbfddf6ecabbc9593be49e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if ALL elements of a real(wp) array are of default value.  <br /></td></tr>
 <tr class="memitem:a2c677da1905f9b1c52e69ae431bfb70d" id="r_a2c677da1905f9b1c52e69ae431bfb70d"><td class="memItemLeft">logical elemental function, public&#160;</td><td class="memItemRight"><a class="el" href="#a2c677da1905f9b1c52e69ae431bfb70d">f_is_integer</a> (var)</td></tr>
 <tr class="memdesc:a2c677da1905f9b1c52e69ae431bfb70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a real(wp) variable is an integer.  <br /></td></tr>
-<tr class="memitem:a17ba8b6d1171e941aad7a4f2735f1f69" id="r_a17ba8b6d1171e941aad7a4f2735f1f69"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a17ba8b6d1171e941aad7a4f2735f1f69">s_configure_coordinate_bounds</a> (recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, bubbles_lagrange, m, n, p, num_dims, igr, ib, fd_number)</td></tr>
-<tr class="memdesc:a17ba8b6d1171e941aad7a4f2735f1f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.  <br /></td></tr>
+<tr class="memitem:aca848e4b699c913e2e59d31cd1479b92" id="r_aca848e4b699c913e2e59d31cd1479b92"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#aca848e4b699c913e2e59d31cd1479b92">f_is_finite_gpu</a> (val)</td></tr>
+<tr class="memdesc:aca848e4b699c913e2e59d31cd1479b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when val is neither NaN nor infinite, without ieee_arithmetic so it is callable on the device.  <br /></td></tr>
+<tr class="memitem:a3c1aec484d3a42e286175589f263bf6a" id="r_a3c1aec484d3a42e286175589f263bf6a"><td class="memItemLeft">pure integer function, public&#160;</td><td class="memItemRight"><a class="el" href="#a3c1aec484d3a42e286175589f263bf6a">f_save_index</a> (t_step, cfl_mode, t_step_save)</td></tr>
+<tr class="memdesc:a3c1aec484d3a42e286175589f263bf6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the save written at t_step: t_step itself under CFL-based stepping (the caller passes the save count), else t_step/t_step_save.  <br /></td></tr>
+<tr class="memitem:a52d428e094b06923296886952382a20e" id="r_a52d428e094b06923296886952382a20e"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a52d428e094b06923296886952382a20e">s_configure_coordinate_bounds</a> (recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, euler_lagrange, m, n, p, num_dims, igr, ib, fd_number)</td></tr>
+<tr class="memdesc:a52d428e094b06923296886952382a20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.  <br /></td></tr>
 <tr class="memitem:a44b315932234aba936169db4c58e6ce6" id="r_a44b315932234aba936169db4c58e6ce6"><td class="memItemLeft">elemental subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a> (bounds, m, n, p)</td></tr>
 <tr class="memdesc:a44b315932234aba936169db4c58e6ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the min and max number of cells in each set of axes.  <br /></td></tr>
 </table>
@@ -325,6 +329,27 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="aca848e4b699c913e2e59d31cd1479b92" name="aca848e4b699c913e2e59d31cd1479b92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca848e4b699c913e2e59d31cd1479b92">&#9670;&#160;</a></span>f_is_finite_gpu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function, public m_helper_basic::f_is_finite_gpu </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>val</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True when val is neither NaN nor infinite, without ieee_arithmetic so it is callable on the device. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00521">521</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a2c677da1905f9b1c52e69ae431bfb70d" name="a2c677da1905f9b1c52e69ae431bfb70d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2c677da1905f9b1c52e69ae431bfb70d">&#9670;&#160;</a></span>f_is_integer()</h2>
 
@@ -351,8 +376,38 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a17ba8b6d1171e941aad7a4f2735f1f69" name="a17ba8b6d1171e941aad7a4f2735f1f69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17ba8b6d1171e941aad7a4f2735f1f69">&#9670;&#160;</a></span>s_configure_coordinate_bounds()</h2>
+<a id="a3c1aec484d3a42e286175589f263bf6a" name="a3c1aec484d3a42e286175589f263bf6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1aec484d3a42e286175589f263bf6a">&#9670;&#160;</a></span>f_save_index()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure integer function, public m_helper_basic::f_save_index </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cfl_mode</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step_save</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Index of the save written at t_step: t_step itself under CFL-based stepping (the caller passes the save count), else t_step/t_step_save. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00568">568</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a52d428e094b06923296886952382a20e" name="a52d428e094b06923296886952382a20e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d428e094b06923296886952382a20e">&#9670;&#160;</a></span>s_configure_coordinate_bounds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,7 +455,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>bubbles_lagrange</em></span>, </td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>euler_lagrange</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -442,11 +497,11 @@ Here is the call graph for this function:</div>
 
 <p>Compute ghost-cell buffer size and set interior/buffered coordinate index bounds. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00521">521</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00578">578</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__helper__basic_a17ba8b6d1171e941aad7a4f2735f1f69_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__helper__basic_a52d428e094b06923296886952382a20e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -488,7 +543,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00571">571</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00628">628</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

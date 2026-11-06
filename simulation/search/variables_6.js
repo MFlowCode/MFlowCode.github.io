@@ -16,8 +16,8 @@ var searchData=
   ['gammas_13',['gammas',['../namespacem__global__parameters__common.html#a2289b961bfaf04f76e6e16a431afd135',1,'m_global_parameters_common']]],
   ['gas_5fbetac_14',['gas_betac',['../namespacem__bubbles__el.html#ac5d8d516af82e87746d674aca77568a9',1,'m_bubbles_el']]],
   ['gas_5fbetat_15',['gas_betat',['../namespacem__bubbles__el.html#a0aeba6aef548e693665b87aa3f523559',1,'m_bubbles_el']]],
-  ['gas_5fdmvdt_16',['gas_dmvdt',['../namespacem__bubbles__el.html#a740417e744a56c4460f38ddc62852cb0',1,'m_bubbles_el']]],
-  ['gas_5fdpdt_17',['gas_dpdt',['../namespacem__bubbles__el.html#a267c0066e39a90d6734e2025436c5eef',1,'m_bubbles_el']]],
+  ['gas_5fdmvdt_16',['gas_dmvdt',['../namespacem__bubbles__el.html#ab1f36dacfff59c66cc116b8d32edd52d',1,'m_bubbles_el']]],
+  ['gas_5fdpdt_17',['gas_dpdt',['../namespacem__bubbles__el.html#a47a9f7a2f4604e31d5cc4fcdc8a7197a',1,'m_bubbles_el']]],
   ['gas_5fmg_18',['gas_mg',['../namespacem__bubbles__el.html#a27233b20af3d8d83f1e61eea443f4efa',1,'m_bubbles_el']]],
   ['gas_5fmv_19',['gas_mv',['../namespacem__bubbles__el.html#a530f9c35aae5257659d2acc046a12800',1,'m_bubbles_el']]],
   ['gas_5fp_20',['gas_p',['../namespacem__bubbles__el.html#ad6870f58e1dd730f575997b058727a27',1,'m_bubbles_el']]],
@@ -51,5 +51,6 @@ var searchData=
   ['gruneisen_5fa_48',['gruneisen_a',['../structm__derived__types_1_1eos__coefficients.html#af9d5dd2a5084643089cf7a4e78ae8c23',1,'m_derived_types::eos_coefficients']]],
   ['gs_5fhypo_49',['gs_hypo',['../namespacem__hypoelastic.html#a0b609359bab5eda290ed1467b1162420',1,'m_hypoelastic']]],
   ['gs_5frs_50',['gs_rs',['../namespacem__riemann__state.html#a4fdec5f95ec7676d349cf418805ee1f5',1,'m_riemann_state']]],
-  ['gs_5fvc_51',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]]
+  ['gs_5fvc_51',['gs_vc',['../namespacem__variables__conversion.html#abdd1fbcaa7d9bb36fbe1f4b4fed80d49',1,'m_variables_conversion']]],
+  ['gsum_52',['gsum',['../namespacem__particles__el.html#a0b0f3d04c4618a700e993c9e40cf83ac',1,'m_particles_el']]]
 ];

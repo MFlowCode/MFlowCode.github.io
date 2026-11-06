@@ -170,8 +170,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac5b0e91c15b69b26098a4310a0c5a54a" id="r_ac5b0e91c15b69b26098a4310a0c5a54a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac5b0e91c15b69b26098a4310a0c5a54a">s_compute_capillary_source_flux</a> (vsrc_rsx_vf, flux_src_vf, id, isx, isy, isz)</td></tr>
 <tr class="memitem:a57a8d87ff4910eadaabd1b65ced7d8d7" id="r_a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a57a8d87ff4910eadaabd1b65ced7d8d7">s_get_capillary</a> (q_prim_vf, bc_type)</td></tr>
 <tr class="memdesc:a57a8d87ff4910eadaabd1b65ced7d8d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute color-function gradients and reconstruct them at cell boundaries.  <br /></td></tr>
-<tr class="memitem:a891c834b47c89b5da009b510f0987e4f" id="r_a891c834b47c89b5da009b510f0987e4f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a891c834b47c89b5da009b510f0987e4f">s_reconstruct_cell_boundary_values_capillary</a> (v_vf, vl_x, vr_x, norm_dir)</td></tr>
-<tr class="memdesc:a891c834b47c89b5da009b510f0987e4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct left and right cell-boundary values of capillary variables.  <br /></td></tr>
+<tr class="memitem:a0fdb093eeefef0576b95ea3b9b9b6f4c" id="r_a0fdb093eeefef0576b95ea3b9b9b6f4c"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0fdb093eeefef0576b95ea3b9b9b6f4c">s_reconstruct_cell_boundary_values_capillary</a> (v_vf, vl_x, vr_x)</td></tr>
+<tr class="memdesc:a0fdb093eeefef0576b95ea3b9b9b6f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct left and right cell-boundary values of capillary variables.  <br /></td></tr>
 <tr class="memitem:acfee64be67c2ca10b9e1ed0e759ed517" id="r_acfee64be67c2ca10b9e1ed0e759ed517"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#acfee64be67c2ca10b9e1ed0e759ed517">s_finalize_surface_tension_module</a></td></tr>
 <tr class="memdesc:acfee64be67c2ca10b9e1ed0e759ed517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the surface tension module.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -307,7 +307,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the surface tension module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01238">1238</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01231">1231</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -364,8 +364,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a891c834b47c89b5da009b510f0987e4f" name="a891c834b47c89b5da009b510f0987e4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a891c834b47c89b5da009b510f0987e4f">&#9670;&#160;</a></span>s_reconstruct_cell_boundary_values_capillary()</h2>
+<a id="a0fdb093eeefef0576b95ea3b9b9b6f4c" name="a0fdb093eeefef0576b95ea3b9b9b6f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fdb093eeefef0576b95ea3b9b9b6f4c">&#9670;&#160;</a></span>s_reconstruct_cell_boundary_values_capillary()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -383,23 +383,18 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>norm_dir</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,<a class="el" href="#aed209dbc658354dfee2539024db688fb">iv</a>%beg:), intent(out)</td>          <td class="paramname"><span class="paramname"><em>vr_x</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Reconstruct left and right cell-boundary values of capillary variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01169">1169</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__surface__tension_8fpp_8f90_source.html#l01163">1163</a> of file <a class="el" href="m__surface__tension_8fpp_8f90_source.html">m_surface_tension.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__surface__tension_a891c834b47c89b5da009b510f0987e4f_icgraph.svg" width="418" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__surface__tension_a0fdb093eeefef0576b95ea3b9b9b6f4c_icgraph.svg" width="418" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

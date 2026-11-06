@@ -157,7 +157,7 @@ $(function(){initNavTree('physics_constraints.html','',''); });
   <div class="headertitle"><div class="title">Physics Constraints </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md491"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md499"></a>
 Physics Constraints Reference</h1>
 <blockquote class="doxtable">
 <p>Auto-generated from <span class="tt">PHYSICS_DOCS</span> in <span class="tt">case_validator.py</span> and AST-extracted validation rules. Do not edit by hand. </p>
@@ -165,9 +165,9 @@ Physics Constraints Reference</h1>
 <p>This document catalogs the physics constraints enforced by MFC's case parameter validator. Constraints are organized by physical category with mathematical justifications.</p>
 <p>For parameter syntax and allowed values, see <a class="el" href="case.html" title="Case Files">Case Files</a> and the <a class="el" href="parameters.html" title="Case Parameters">Case Parameters</a> reference. For feature compatibility and working examples, see <a class="el" href="case_constraints.html" title="Case Creator Guide">Case Creator Guide</a>.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md493"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md501"></a>
 Thermodynamic Constraints</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md494"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md502"></a>
 Stiffened EOS Positivity</h3>
 <p class="formulaDsp">
 \[\Gamma &gt; 0, \quad \Pi_\infty \geq 0, \quad c_v \geq 0\]
@@ -182,8 +182,8 @@ Stiffened EOS Positivity</h3>
 <li><span class="tt">model_eqns</span> = 1 does not support <code class="f90l">fluid_pp(i)%</code><code class="f90r">gamma</code></li>
 <li><span class="tt">model_eqns</span> = 1 does not support <code class="f90l">fluid_pp(i)%</code><code class="f90r">pi_inf</code></li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md495"></a>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[68]</a></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md503"></a>
 Initial States Inside a State-Dependent Equation of State</h3>
 <p class="formulaDsp">
 \[\rho e = \Gamma p + \Pi(\rho) &gt; 0, \quad \Gamma c^2 = \frac{(\Gamma + 1) p + \Pi}{\rho} - \Pi&#39; - p\,\Gamma&#39; &gt; 0\]
@@ -196,7 +196,7 @@ Initial States Inside a State-Dependent Equation of State</h3>
 <li><span class="tt">patch_icpp(j)</span> starts fluid i outside its equation of state: rho = ar / a, <span class="tt">p</span> = <span class="tt">p</span> gives rho e = <span class="tt">rho_e</span> and Gamma c^2 = c2; both must be positive</li>
 </ul>
 <p><b>References:</b></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md496"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md504"></a>
 Equation of State Selector</h3>
 <p class="formulaDsp">
 \[\rho e = \Gamma\,p + \Pi(\rho), \quad \Gamma = 1/\Gamma_G, \quad \Pi(\rho) = \rho\, e_{\mathrm{ref}}(\rho) - p_{\mathrm{ref}}(\rho)/\Gamma_G\]
@@ -224,8 +224,8 @@ Equation of State Selector</h3>
 <li><code class="f90l">patch_icpp(j)%</code><code class="f90r">hcid</code> = 202/203 read <code class="f90l">fluid_pp(1)%</code><code class="f90r">gamma</code>, which a state-dependent eos does not set</li>
 <li>a state-dependent eos (<span class="tt">state_dependent_names</span>) is not supported with flag = T</li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md497"></a>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[68]</a></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md505"></a>
 EOS Parameter Sanity (Transformed Gamma)</h3>
 <p class="formulaDsp">
 \[\Gamma = \frac{1}{\gamma - 1}\]
@@ -237,8 +237,8 @@ EOS Parameter Sanity (Transformed Gamma)</h3>
 <li>\(\triangle\) <code class="f90l">fluid_pp(i)%</code><code class="f90r">gamma</code> implies physical gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1)</li>
 <li>\(\triangle\) <code class="f90l">fluid_pp(i)%</code><code class="f90r">gamma</code> implies physical gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?</li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md498"></a>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[68]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md506"></a>
 Patch Initial Condition Constraints</h3>
 <p class="formulaDsp">
 \[p &gt; 0, \quad \alpha_i \rho_i \geq 0, \quad 0 \leq \alpha_i \leq 1\]
@@ -258,9 +258,9 @@ Patch Initial Condition Constraints</h3>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">r0</code> must be positive</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md500"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md508"></a>
 Mixture Constraints</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md501"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md509"></a>
 Volume Fraction Sum</h3>
 <p class="formulaDsp">
 \[\sum_{i=1}^{N_f} \alpha_i = 1\]
@@ -279,7 +279,7 @@ Volume Fraction Sum</h3>
 <li>Alter patches and hard-coded IC patches (values computed at runtime)</li>
 <li>Analytical expressions (cannot validate statically)</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md502"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md510"></a>
 Alpha-Rho Consistency</h3>
 <p class="formulaDsp">
 \[\alpha_j = 0 \Rightarrow \alpha_j \rho_j = 0, \quad \alpha_j &gt; 0 \Rightarrow \alpha_j \rho_j &gt; 0\]
@@ -292,9 +292,9 @@ Alpha-Rho Consistency</h3>
 <li>\(\triangle\) <span class="tt">patch_icpp(i)</span>: <span class="tt">alpha(j)</span> = <span class="tt">alpha</span> but <span class="tt">alpha_rho(j)</span> = 0 (present phase has zero density)</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md504"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md512"></a>
 Domain and Geometry</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md505"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md513"></a>
 Domain Bounds</h3>
 <p class="formulaDsp">
 \[x_{\mathrm{end}} &gt; x_{\mathrm{beg}}, \quad y_{\mathrm{end}} &gt; y_{\mathrm{beg}}, \quad z_{\mathrm{end}} &gt; z_{\mathrm{beg}}\]
@@ -307,7 +307,7 @@ Domain Bounds</h3>
 <li><code class="f90l">y_domain%</code><code class="f90r">end</code> (<span class="tt">y_end</span>) must be greater than <code class="f90l">y_domain%</code><code class="f90r">beg</code> (<span class="tt">y_beg</span>)</li>
 <li><code class="f90l">z_domain%</code><code class="f90r">end</code> (<span class="tt">z_end</span>) must be greater than <code class="f90l">z_domain%</code><code class="f90r">beg</code> (<span class="tt">z_beg</span>)</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md506"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md514"></a>
 Dimensionality</h3>
 <p class="formulaDsp">
 \[m &gt; 0, \quad n \geq 0, \quad p \geq 0\]
@@ -323,7 +323,7 @@ Dimensionality</h3>
 <li><span class="tt">p</span> must be odd for cylindrical coordinates</li>
 <li><span class="tt">p</span> must be 0 if <span class="tt">n</span> = 0</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md507"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md515"></a>
 Domain Extents Specified</h3>
 <p class="formulaDsp">
 \[m &gt; 0 \Rightarrow x_{\mathrm{beg}}, x_{\mathrm{end}} \ \mathrm{set}\]
@@ -339,7 +339,7 @@ Domain Extents Specified</h3>
 <li><code class="f90l">z_domain%</code><code class="f90r">beg</code> must be set when <span class="tt">p</span> &gt; 0</li>
 <li><code class="f90l">z_domain%</code><code class="f90r">end</code> must be set when <span class="tt">p</span> &gt; 0</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md508"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md516"></a>
 Patch Within Domain</h3>
 <p>For patches with centroid + length geometry, the bounding box must not be entirely outside the computational domain. Skipped when grid stretching is active.</p>
 <p><b>Stage:</b> pre_process | <b>Severity:</b> error</p>
@@ -350,9 +350,9 @@ Patch Within Domain</h3>
 <li><span class="tt">patch_icpp(i)</span>: z-extent [<span class="tt">patch_z_lo</span>, <span class="tt">patch_z_hi</span>] is entirely outside domain [<span class="tt">z_beg</span>, <span class="tt">z_end</span>]</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md510"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md518"></a>
 Velocity and Dimensional Consistency</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md511"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md519"></a>
 Velocity Components in Inactive Dimensions</h3>
 <p class="formulaDsp">
 \[n = 0 \Rightarrow v_2 = 0, \quad p = 0 \Rightarrow v_3 = 0\]
@@ -369,9 +369,9 @@ Velocity Components in Inactive Dimensions</h3>
 <li>MHD simulations (transverse velocity couples to magnetic field in 1D)</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md513"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md521"></a>
 Model Equations</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md514"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md522"></a>
 Model Equation Selection</h3>
 <p>Model 1: gamma-law single-fluid. Model 2: five-equation (Allaire). Model 3: six-equation (Saurel). Model 4: four-equation (single-component with bubbles).</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -386,11 +386,11 @@ Model Equation Selection</h3>
 <li><span class="tt">num_fluids</span> = 1 does not support <span class="tt">mpp_lim</span></li>
 <li>6-equation model (<span class="tt">model_eqns</span> = 3) does not support cylindrical coordinates (<span class="tt">cyl_coord</span> = T and <span class="tt">p</span> != 0)</li>
 </ul>
-<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[60]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>, Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[45]</a></p>
+<p><b>References:</b> Wilfong et al. <a class="el" href="citelist.html#CITEREF_wilfong26">[68]</a>, Allaire et al. <a class="el" href="citelist.html#CITEREF_allaire02">[1]</a>, Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel09">[53]</a></p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md516"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md524"></a>
 Boundary Conditions</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md517"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md525"></a>
 Inflow Ramp</h3>
 <p class="formulaDsp">
 \[f(t) = f_0 + (1 - f_0)\left[1 + \tanh\left(6 (t - t_0)/\tau - 3\right)\right]/2\]
@@ -403,7 +403,7 @@ Inflow Ramp</h3>
 <li><code class="f90l">bc_d%</code><code class="f90r">vel_in_ramp</code> requires <code class="f90l">bc_d%</code><code class="f90r">grcbc_in</code> or a Dirichlet (-17) boundary or patch normal to d</li>
 <li><code class="f90l">bc_d%</code><code class="f90r">vel_in_frac0</code> must lie in [0, 1]</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md518"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md526"></a>
 Boundary Condition Compatibility</h3>
 <p>Periodicity must match on both ends. Valid BC values range from -1 to -17. Cylindrical coordinates have specific BC requirements at the axis.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -424,9 +424,9 @@ Boundary Condition Compatibility</h3>
 <li><code class="f90l">bc_z%</code><code class="f90r">end</code> must be -1 (periodic) or -2 (reflective) for 3D cylindrical coordinates</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md520"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md528"></a>
 Bubble Physics</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md521"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md529"></a>
 Euler-Euler Bubble Model</h3>
 <p class="formulaDsp">
 \[\Gamma_l\,p_l = \frac{1}{1-\alpha}\left(E - \tfrac{1}{2}\rho|\mathbf{u}|^2\right) - \Pi_{\infty,l}\]
@@ -454,7 +454,7 @@ Euler-Euler Bubble Model</h3>
 <li><code class="f90l">bub_pp%</code><code class="f90r">ss</code> (surface tension) must be non-negative</li>
 </ul>
 <p><b>References:</b> Bryngelson et al. <a class="el" href="citelist.html#CITEREF_bryngelson21">[8]</a></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md522"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md530"></a>
 Bubble Simulation Constraints</h3>
 <p>Requires HLLC Riemann solver and arithmetic average. Five-equation model does not support Gilmore bubble_model.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
@@ -465,9 +465,9 @@ Bubble Simulation Constraints</h3>
 <li>Bubble modeling requires arithmetic average (<span class="tt">avg_state</span> = 2)</li>
 <li>The 5-equation bubbly flow model does not support <span class="tt">bubble_model</span> = 1 (Gilmore)</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md523"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md531"></a>
 Euler-Lagrange Bubble Model</h3>
-<p>2D/3D only. Requires polytropic = F and thermal = 3. Not compatible with model_eqns = 3. Kahan summation not compatible with &ndash;mixed precision.</p>
+<p>2D/3D only. Requires polytropic = F and thermal = 3. Not compatible with model_eqns = 3. cluster_type = 1 requires fd_order = 2 or 4. coupling in {one_way, two_way}. Kahan summation not compatible with &ndash;mixed precision.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
@@ -477,17 +477,20 @@ Euler-Lagrange Bubble Model</h3>
 <li><span class="tt">bubbles_lagrange</span> requires <span class="tt">polytropic</span> = F</li>
 <li><span class="tt">bubbles_lagrange</span> requires <span class="tt">thermal</span> = 3</li>
 <li><span class="tt">cluster_type</span> &gt;= 2 requires <span class="tt">smooth_type</span> = 1</li>
+<li><code class="f90l">lag_params%</code><code class="f90r">cluster_type</code> = 1 requires <span class="tt">fd_order</span> = 2 or 4 (the cell-pressure interpolation)</li>
+<li><code class="f90l">lag_params%</code><code class="f90r">coupling</code> must be <span class="tt">one_way</span> or <span class="tt">two_way</span></li>
 <li><code class="f90l">lag_params%</code><code class="f90r">vel_model</code> must be 0, 1, or 2</li>
 <li><code class="f90l">lag_params%</code><code class="f90r">drag_model</code> must be 0, 1, 2, or 3</li>
 <li><code class="f90l">lag_params%</code><code class="f90r">charNz</code> must be positive for 2D <span class="tt">bubbles_lagrange</span></li>
 <li><code class="f90l">lag_params%</code><code class="f90r">charwidth</code> must be positive for 2D <span class="tt">bubbles_lagrange</span></li>
 <li>Non-zero <code class="f90l">lag_params%</code><code class="f90r">vel_model</code> requires <span class="tt">fd_order</span> to be set</li>
 <li><code class="f90l">lag_params%</code><code class="f90r">kahan_summation</code> = T is not compatible with &ndash;mixed precision</li>
+<li><span class="tt">bubbles_lagrange</span> restarts require <span class="tt">parallel_io</span> = T</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md525"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md533"></a>
 Feature Compatibility</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md526"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md534"></a>
 Magnetohydrodynamics (MHD)</h3>
 <p>Requires model_eqns = 2, num_fluids = 1, HLL or HLLD Riemann solver. No relativity with HLLD. The relativistic enthalpy h = 1 + (Gamma + 1)p/rho carries no stiffness, so relativity requires pi_inf = 0.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -501,7 +504,7 @@ Magnetohydrodynamics (MHD)</h3>
 <li><span class="tt">Bx0</span> must be set in 1D MHD simulations</li>
 <li><span class="tt">Bx0</span> must not be set in 2D/3D MHD simulations</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md527"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md535"></a>
 Surface Tension</h3>
 <p>Requires model_eqns 2 or 3, num_fluids = 2.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -513,7 +516,7 @@ Surface Tension</h3>
 <li>The surface tension model requires <span class="tt">model_eqns</span> = 2 or <span class="tt">model_eqns</span> = 3</li>
 <li>The surface tension model requires <span class="tt">num_fluids</span> = 2</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md528"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md536"></a>
 Hypoelasticity</h3>
 <p>Requires model_eqns = 2, HLL/HLLC/HLLD Riemann solver.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -542,7 +545,7 @@ Hypoelasticity</h3>
 <li>ADC_kappa must be positive</li>
 <li>Automatic CFL time stepping uses the acoustic sound speed only and does not bound the elastic characteristic speed; set <span class="tt">dt</span> explicitly for hypoelastic runs</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md529"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md537"></a>
 Phase Change</h3>
 <p>Model 2: relax_model 5 or 6. Model 3: relax_model 1, 4, 5, or 6.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -555,7 +558,7 @@ Phase Change</h3>
 <li><span class="tt">ptgalpha_eps</span> must be positive</li>
 <li><span class="tt">ptgalpha_eps</span> must be less than 1</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md530"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md538"></a>
 Alternative Sound Speed</h3>
 <p>Requires model_eqns = 2, exactly two fluid components, HLL/HLLC/HLLD solver. Incompatible with bubbles.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
@@ -570,7 +573,7 @@ Alternative Sound Speed</h3>
 <li><span class="tt">alt_soundspeed</span> with HLL is not currently supported for 3D cylindrical geometry</li>
 <li><span class="tt">alt_soundspeed</span> with HLLD requires <span class="tt">hypoelasticity</span> = T</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md531"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md539"></a>
 Iterative Generalized Riemann (IGR)</h3>
 <p>Requires model_eqns = 2. Incompatible with characteristic BCs, bubbles, MHD, and elastic models.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -580,7 +583,7 @@ Iterative Generalized Riemann (IGR)</h3>
 <li><span class="tt">igr</span> does not support <code class="f90l">fluid_pp(i)%</code><code class="f90r">qv</code> (heat of formation); it is discarded</li>
 <li><span class="tt">igr_order</span> must be 3 or 5</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md532"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md540"></a>
 Non-Newtonian (Herschel-Bulkley) Viscosity</h3>
 <p class="formulaDsp">
 \[\tau = (\tau_0 + K \dot{\gamma}^n) \hat{e}, \quad \mu_{\rm eff} \in [\mu_{\min}, \mu_{\max}]\]
@@ -608,8 +611,8 @@ Non-Newtonian (Herschel-Bulkley) Viscosity</h3>
 <li><code class="f90l">fluid_pp(i)%</code><code class="f90r">mu_bulk</code> (non-Newtonian bulk viscosity) is not yet supported</li>
 <li><code class="f90l">fluid_pp(i)%</code><code class="f90r">Re(2)</code> (bulk viscosity) is not supported for non-Newtonian fluids</li>
 </ul>
-<p><b>References:</b> C. <a class="el" href="citelist.html#CITEREF_papanastasiou87">[38]</a></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md533"></a>
+<p><b>References:</b> C. <a class="el" href="citelist.html#CITEREF_papanastasiou87">[44]</a></p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md541"></a>
 Synthetic Turbulence Forcing</h3>
 <p>num_turbulent_sources must be &gt; 0 and &lt;= num_turb_sources_max. Each active forcing zone i needs turb_pos(i,d) set and synth_L(i,d) &gt; 0 for every active dimension d (d = 1..num_dims); components beyond num_dims are unused and not required.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
@@ -621,9 +624,9 @@ Synthetic Turbulence Forcing</h3>
 <li><span class="tt">synth_L(i,d)</span> must be positive for all <span class="tt">num_dims</span> when <span class="tt">synthetic_turbulence</span> is enabled</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md535"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md543"></a>
 Numerical Schemes</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md536"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md544"></a>
 WENO Reconstruction</h3>
 <p>weno_order must be 1, 3, 5, or 7. Grid must have enough cells. Only one of mapped_weno, wenoz, teno can be active.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -633,7 +636,7 @@ WENO Reconstruction</h3>
 <li><span class="tt">recon_type</span> = 1 (WENO) is not compatible with <span class="tt">muscl_lim</span></li>
 <li><span class="tt">weno_order</span> must be 1, 3, 5, or 7</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md537"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md545"></a>
 MUSCL Reconstruction</h3>
 <p>muscl_order must be 1 or 2. Second order requires muscl_lim in {0,1,2,3,4,5}.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -652,7 +655,7 @@ MUSCL Reconstruction</h3>
 <li><span class="tt">recon_type</span> = 2 (MUSCL) requires <span class="tt">weno_order</span> unset or 0, but got <span class="tt">weno_order</span></li>
 <li><span class="tt">muscl_order</span> must be 1 or 2</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md538"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md546"></a>
 Time Stepping</h3>
 <p>time_stepper in {1,2,3}. Fixed dt must be positive. CFL-based modes require cfl_target in (0,1].</p>
 <p><b>Stage:</b> simulation, post_process | <b>Severity:</b> error</p>
@@ -672,7 +675,7 @@ Time Stepping</h3>
 <li><span class="tt">t_step_save</span> must be &lt;= (<span class="tt">t_step_stop</span> - <span class="tt">t_step_start</span>)</li>
 <li><span class="tt">dt</span> must be set when using fixed time stepping (<span class="tt">t_step_start</span>/<span class="tt">t_step_stop</span>)</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md539"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md547"></a>
 Viscosity</h3>
 <p class="formulaDsp">
 \[\mathrm{Re}_1 &gt; 0, \quad \mathrm{Re}_2 &gt; 0\]
@@ -688,7 +691,7 @@ Viscosity</h3>
 <li><span class="tt">viscous</span> is set to true, but <code class="f90l">fluid_pp(i)%</code><code class="f90r">Re(1)</code> is not specified</li>
 <li><span class="tt">weno_Re_flux</span> requires <span class="tt">viscous</span> to be enabled</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md540"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md548"></a>
 Fourier Heat Conduction</h3>
 <p class="formulaDsp">
 \[k_i \geq 0, \quad k = \sum_i \alpha_i k_i\]
@@ -705,9 +708,9 @@ Fourier Heat Conduction</h3>
 <li>heat conduction is not supported with chemistry: the reacting path already carries mixture-averaged conduction through <code class="f90l">chem_params%</code><code class="f90r">diffusion</code></li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md542"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md550"></a>
 Acoustic Sources</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md543"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md551"></a>
 Acoustic Sources</h3>
 <p>Dimension-specific support types. Pulse type in {1,2,3,4}. Non-planar sources require foc_length and aperture.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
@@ -762,9 +765,9 @@ Acoustic Sources</h3>
 <li><code class="f90l">acoustic(j)%</code><code class="f90r">element_polygon_ratio</code> must be positive for support = 11</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md545"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md553"></a>
 Post-Processing</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md546"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md554"></a>
 Vorticity Output</h3>
 <p>omega_wrt requires at least 2D (n &gt; 0). 3D components require p &gt; 0. Requires fd_order.</p>
 <p><b>Stage:</b> post_process | <b>Severity:</b> error</p>
@@ -774,7 +777,7 @@ Vorticity Output</h3>
 <li><span class="tt">omega_wrt(1)</span> and <span class="tt">omega_wrt(2)</span> require <span class="tt">p</span> &gt; 0 (3D)</li>
 <li><span class="tt">fd_order</span> must be set for <span class="tt">omega_wrt</span></li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md547"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md555"></a>
 FFT Output</h3>
 <p>Requires 3D with all periodic boundaries. Global dimensions must be even. Incompatible with cylindrical coordinates.</p>
 <p><b>Stage:</b> post_process | <b>Severity:</b> error</p>
@@ -786,9 +789,9 @@ FFT Output</h3>
 <li>FFT WRT requires global dimensions divisible by 2</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md549"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md557"></a>
 Combustion</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md550"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md558"></a>
 Condensed-Phase Reactive Burn</h3>
 <p>Programmed pressure-driven burn converting a reactant fluid to a product fluid on the multi-fluid model. Requires model_eqns = 2 or 3 and num_fluids = 2 (reactant, product) sharing the stiffened-gas EOS (equal gamma, pi_inf) with qv_reactant &gt; qv_product. rburnk (&gt; 0), rburnpign, rburnpref (&gt; 0), and rburnn (&gt;= 0) must all be set. rburnta (activation temperature [K]) is optional and must be &gt;= 0; &gt;0 adds an Arrhenius exp(-rburnta/T) factor and requires fluid_pp(1)cv &gt; 0.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
@@ -808,9 +811,9 @@ Condensed-Phase Reactive Burn</h3>
 <li><span class="tt">reactive_burn</span> with <code class="f90l">rburn%</code><code class="f90r">ta</code> &gt; 0 requires <code class="f90l">fluid_pp(1)%</code><code class="f90r">cv</code> &gt; 0 (the reactant temperature needs a physical heat capacity; cv = 0 silently disables the Arrhenius factor)</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md552"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md560"></a>
 IC Extrusion</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md553"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md561"></a>
 IC Extrusion File Parameters</h3>
 <p>Extrusion hcids (170, 270, 271, 272, 370, 371) read initial condition data from files. Both files_dir and file_extension must be set.</p>
 <p><b>Stage:</b> pre_process | <b>Severity:</b> error</p>
@@ -819,7 +822,46 @@ IC Extrusion File Parameters</h3>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">hcid</code>=hcid requires <span class="tt">files_dir</span> to be set</li>
 <li><code class="f90l">patch_icpp(i)%</code><code class="f90r">hcid</code>=hcid requires <span class="tt">file_extension</span> to be set</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-05</div> </div></div><!-- contents -->
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="autotoc_md563"></a>
+Particle Physics</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md564"></a>
+Euler-Lagrange Particle Model</h3>
+<p>2D/3D only, 5-equation model, stiffened-gas EOS; not with bubbles_lagrange, bubbles_euler, ib, igr, cyl_coord, body forces, bubble-only lag_*_wrt outputs, or periodic/reflective boundaries (not yet supported). two_way coupling needs pressure_gradient_force = T; added_mass_force needs coupling = two_way; qs_fluct_force needs qs_force &gt; 0; lag_voidfrac_wrt needs particles_lagrange; rho0ref_particle &gt; 0. lag_db_wrt needs parallel_io = T. coupling in {one_way, two_way}, qs_force in {0..3}, added_mass_force in {0, 1}, even interpolation_order &gt; 0, fd_order = 2 or 4 (centered gradient stencil and halo width), interpolation_order/2 &lt;= 4 (&lt;= 2 + fd_order/2 with the pressure-gradient or added-mass force), charwidth &gt; 0 in 2D, 0 &lt; valmaxvoid &lt; 1. Inviscid, non-chemistry QS drag needs mu_ref(l) &gt; 0 per fluid; suth(l) is optional but positive if given.</p>
+<p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
+<p><b>Enforced checks:</b></p>
+<ul>
+<li><span class="tt">lag_voidfrac_wrt</span> requires <span class="tt">particles_lagrange</span> (it writes the particle volume fraction)</li>
+<li><span class="tt">particles_lagrange</span> and <span class="tt">bubbles_lagrange</span> cannot both be enabled</li>
+<li><span class="tt">particles_lagrange</span> requires at least 2D (<span class="tt">n</span> &gt; 0)</li>
+<li><span class="tt">particles_lagrange</span> is not compatible with <span class="tt">igr</span></li>
+<li><span class="tt">particles_lagrange</span> does not support <span class="tt">cyl_coord</span> yet: the axisymmetric projection and source terms are not implemented</li>
+<li><span class="tt">ppadded_mass_force</span> requires coupling = <span class="tt">two_way</span>: the fluid acceleration it uses is only computed with two-way coupling</li>
+<li><span class="tt">ppqs_fluct_force</span> requires <span class="tt">qs_force</span> &gt; 0: the fluctuations are built on the quasi-steady drag</li>
+<li>ppcoupling = <span class="tt">two_way</span> requires <span class="tt">pppressure_gradient_force</span> = T: the gas momentum source carries the full -grad <span class="tt">p</span>, so without the force on the particles the gas also takes the particles' share</li>
+<li><span class="tt">particles_lagrange</span> is not supported with flag = T</li>
+<li><span class="tt">particles_lagrange</span> does not support body forces (<span class="tt">bf_x</span>/y/z): the particles get no gravity, and the added-mass force would read g as a fluid acceleration</li>
+<li><span class="tt">lag_flag_wrt</span> is a bubble output and is not supported with <span class="tt">particles_lagrange</span></li>
+<li><code class="f90l">particle_pp%</code><code class="f90r">rho0ref_particle</code> must be positive</li>
+<li><span class="tt">particles_lagrange</span> requires <span class="tt">model_eqns</span> = 2 (5-equation model)</li>
+<li><span class="tt">particles_lagrange</span> with <span class="tt">lag_db_wrt</span> requires <span class="tt">parallel_io</span> = T</li>
+<li>ppcoupling must be <span class="tt">one_way</span> (<span class="tt">one_way</span>) or <span class="tt">two_way</span> (<span class="tt">two_way</span>)</li>
+<li><span class="tt">ppqs_force</span> must be 0 (off), 1 (Gidaspow), 2 (Parmar), or 3 (Osnes)</li>
+<li><span class="tt">ppvel_model</span> must be 0 (fixed), 1 (tracer), or 2 (Newton's second law)</li>
+<li><span class="tt">ppvel_model</span> = 1 (tracer) follows the fluid velocity: it requires coupling = <span class="tt">one_way</span> and no particle forces</li>
+<li><span class="tt">ppadded_mass_force</span> must be 0 (off) or 1</li>
+<li><span class="tt">ppnparticles_glb</span> must be positive</li>
+<li><span class="tt">ppinterpolation_order</span> must be a positive even integer</li>
+<li><span class="tt">particles_lagrange</span> requires <span class="tt">fd_order</span> = 2 or 4: the particle gradients use a centered stencil of <span class="tt">fd_order</span> + 1 points, and <span class="tt">fd_order</span> sets the particle halo width</li>
+<li><span class="tt">ppinterpolation_order</span> = <span class="tt">interp_order</span> reaches <span class="tt">interp_order</span> // 2 cells past a rank edge, but only <span class="tt">max_half</span> ghost layers hold valid data (reason); use <span class="tt">interpolation_order</span> &lt;= 2 * <span class="tt">max_half</span></li>
+<li>ppcharwidth must be positive for 2D <span class="tt">particles_lagrange</span></li>
+<li><code class="f90l">bc_d%</code><code class="f90r">loc</code> = bc: periodic and reflective boundaries are not yet supported with <span class="tt">particles_lagrange</span></li>
+<li>ppvalmaxvoid must be in (0, 1)</li>
+<li><span class="tt">ppmu_ref(fluid)</span> must be positive for QS drag in an inviscid case</li>
+<li>ppsuth(fluid) must be positive if given</li>
+<li>ppsuth(fluid) needs <code class="f90l">fluid_pp(fluid)%</code><code class="f90r">cv</code> &gt; 0: Sutherland's law uses the temperature <span class="tt">p</span>/(rho cv (gamma - 1)) in K</li>
+</ul>
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-06</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

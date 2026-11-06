@@ -183,8 +183,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a172afbc666d73bf565d7d4f4178b7783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate cell-boundary, cell-center, and cell-width buffers for one coordinate direction.  <br /></td></tr>
 <tr class="memitem:a69dbc2d02c7be259c30ea62e603f9f4b" id="r_a69dbc2d02c7be259c30ea62e603f9f4b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a69dbc2d02c7be259c30ea62e603f9f4b">s_finalize_boundary_common_module</a> ()</td></tr>
 <tr class="memdesc:a69dbc2d02c7be259c30ea62e603f9f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate boundary condition buffer arrays allocated during module initialization.  <br /></td></tr>
-<tr class="memitem:ae7806a27c1ae0de40695f63fe66887f8" id="r_ae7806a27c1ae0de40695f63fe66887f8"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae7806a27c1ae0de40695f63fe66887f8">s_populate_beta_buffers</a> (q_beta, kahan_comp, bc_type, nvar)</td></tr>
-<tr class="memdesc:ae7806a27c1ae0de40695f63fe66887f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers of the Lagrangian-bubble beta (void fraction) variables based on the boundary conditions.  <br /></td></tr>
+<tr class="memitem:a4a97f5b41f720036ac757c0699f3057d" id="r_a4a97f5b41f720036ac757c0699f3057d"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4a97f5b41f720036ac757c0699f3057d">s_populate_beta_buffers</a> (q_beta, kahan_comp, bc_type, nvar, vars)</td></tr>
+<tr class="memdesc:a4a97f5b41f720036ac757c0699f3057d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate ghost cell buffers of the Lagrangian beta (smeared bubble/particle) variables based on the boundary conditions.  <br /></td></tr>
 <tr class="memitem:a3ff6536d3b88213b0e72542f1b8ff7a4" id="r_a3ff6536d3b88213b0e72542f1b8ff7a4"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3ff6536d3b88213b0e72542f1b8ff7a4">s_populate_beta_bc_direction</a> (bc_dir, bc_loc, bc_bounds, bc_type_edge, q_beta, kahan_comp, nvar)</td></tr>
 <tr class="memdesc:a3ff6536d3b88213b0e72542f1b8ff7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate beta variable buffers for one direction and location, by dispatching the per-cell beta BC routines over the boundary face and performing the paired MPI reduction for processor boundaries.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -346,7 +346,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate beta variable buffers for one direction and location, by dispatching the per-cell beta BC routines over the boundary face and performing the paired MPI reduction for processor boundaries. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01511">1511</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01528">1528</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -355,8 +355,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ae7806a27c1ae0de40695f63fe66887f8" name="ae7806a27c1ae0de40695f63fe66887f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7806a27c1ae0de40695f63fe66887f8">&#9670;&#160;</a></span>s_populate_beta_buffers()</h2>
+<a id="a4a97f5b41f720036ac757c0699f3057d" name="a4a97f5b41f720036ac757c0699f3057d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a97f5b41f720036ac757c0699f3057d">&#9670;&#160;</a></span>s_populate_beta_buffers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -379,18 +379,29 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nvar</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nvar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vars</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Populate ghost cell buffers of the Lagrangian-bubble beta (void fraction) variables based on the boundary conditions. </p>
+<p>Populate ghost cell buffers of the Lagrangian beta (smeared bubble/particle) variables based on the boundary conditions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vars</td><td>q_beta indices to exchange </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01484">1484</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__common_8fpp_8f90_source.html#l01485">1485</a> of file <a class="el" href="m__boundary__common_8fpp_8f90_source.html">m_boundary_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_ae7806a27c1ae0de40695f63fe66887f8_cgraph.svg" width="454" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__common_a4a97f5b41f720036ac757c0699f3057d_cgraph.svg" width="454" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

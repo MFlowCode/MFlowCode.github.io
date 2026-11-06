@@ -185,14 +185,16 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aded4fe6025b2194ba0b5cc5a264af9ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross product of two vectors.  <br /></td></tr>
 <tr class="memitem:a319cbbe9abfd19b942d61587a60038f1" id="r_a319cbbe9abfd19b942d61587a60038f1"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, dimension(3), public&#160;</td><td class="memItemRight"><a class="el" href="#a319cbbe9abfd19b942d61587a60038f1">f_unit_vector</a> (theta, eta)</td></tr>
 <tr class="memdesc:a319cbbe9abfd19b942d61587a60038f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a unit vector uniformly distributed on the sphere from two random parameters.  <br /></td></tr>
+<tr class="memitem:a2e83409b504cdd6ff7d97a32c7afd05c" id="r_a2e83409b504cdd6ff7d97a32c7afd05c"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a2e83409b504cdd6ff7d97a32c7afd05c">f_finite_vec</a> (v)</td></tr>
+<tr class="memdesc:a2e83409b504cdd6ff7d97a32c7afd05c"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when the first num_dims components of v are finite.  <br /></td></tr>
 <tr class="memitem:ac7e4e8792a668882d4145a218e26ad32" id="r_ac7e4e8792a668882d4145a218e26ad32"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac7e4e8792a668882d4145a218e26ad32">s_prng</a> (var, seed)</td></tr>
 <tr class="memdesc:ac7e4e8792a668882d4145a218e26ad32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a pseudo-random number between 0 and 1 using a linear congruential generator.  <br /></td></tr>
 <tr class="memitem:a14ba8abf702963f7506b3127fcaf98b5" id="r_a14ba8abf702963f7506b3127fcaf98b5"><td class="memItemLeft">integer function, public&#160;</td><td class="memItemRight"><a class="el" href="#a14ba8abf702963f7506b3127fcaf98b5">modmul</a> (a)</td></tr>
 <tr class="memdesc:a14ba8abf702963f7506b3127fcaf98b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a modular multiplication step for the linear congruential pseudo-random number generator.  <br /></td></tr>
 <tr class="memitem:ab0842575e53fb0e123cd4a34cc14ffd9" id="r_ab0842575e53fb0e123cd4a34cc14ffd9"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ab0842575e53fb0e123cd4a34cc14ffd9">s_prng_splitmix32</a> (var, state)</td></tr>
 <tr class="memdesc:ab0842575e53fb0e123cd4a34cc14ffd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uniform draw in [0, 1) (1 only via single-precision rounding) from a 32-bit SplitMix-style generator (Weyl sequence hashed by the MurmurHash3 finalizer). Exact integer arithmetic, so the stream is compiler-independent; period 2^32, and different seeds give unrelated streams.  <br /></td></tr>
-<tr class="memitem:a897afb1d7ea92005c96938111086b5f8" id="r_a897afb1d7ea92005c96938111086b5f8"><td class="memItemLeft">pure integer(kind=int64_kind) function&#160;</td><td class="memItemRight"><a class="el" href="#a897afb1d7ea92005c96938111086b5f8">f_mulmod32</a> (a, b)</td></tr>
-<tr class="memdesc:a897afb1d7ea92005c96938111086b5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">a*b mod 2^32 for a, b in [0, 2^32), split into 16-bit halves of b so no intermediate exceeds 2^49  <br /></td></tr>
+<tr class="memitem:a6f17cbf56bbfc4c1066f0d073dc3ae11" id="r_a6f17cbf56bbfc4c1066f0d073dc3ae11"><td class="memItemLeft">pure integer(kind=<a class="el" href="namespacem__constants.html#a8635352dbd311073280de80b997673ae">seed_kind</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a6f17cbf56bbfc4c1066f0d073dc3ae11">f_mulmod32</a> (a, b)</td></tr>
+<tr class="memdesc:a6f17cbf56bbfc4c1066f0d073dc3ae11"><td class="mdescLeft">&#160;</td><td class="mdescRight">a*b mod 2^32 for a, b in [0, 2^32), split into 16-bit halves of b so no intermediate exceeds 2^49  <br /></td></tr>
 <tr class="memitem:a1385ba5172103dd55e2b129e0ef58a65" id="r_a1385ba5172103dd55e2b129e0ef58a65"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1385ba5172103dd55e2b129e0ef58a65">s_cross_product</a> (a, b, c)</td></tr>
 <tr class="memdesc:a1385ba5172103dd55e2b129e0ef58a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cross product c = a x b of two 3D vectors.  <br /></td></tr>
 <tr class="memitem:aff3801894362c1c076e96c919b1212d6" id="r_aff3801894362c1c076e96c919b1212d6"><td class="memItemLeft">elemental subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aff3801894362c1c076e96c919b1212d6">s_swap</a> (lhs, rhs)</td></tr>
@@ -273,7 +275,7 @@ polynomials" (P_l^l and P_l^{l-1} identities). Recurrence: (l-m)P_l^m = (2l-1)x 
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01193">1193</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01277">1277</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -304,7 +306,7 @@ Here is the caller graph for this function:</div>
 
 <p>Calculate the double factorial of an integer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01228">1228</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01312">1312</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -330,7 +332,7 @@ Here is the caller graph for this function:</div>
 
 <p>Create a bounding box for a model. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01113">1113</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01197">1197</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -355,7 +357,7 @@ Here is the caller graph for this function:</div>
 
 <p>Create a transformation matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01035">1035</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01119">1119</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -380,7 +382,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the cross product of two vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00827">827</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00828">828</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -410,7 +412,7 @@ Here is the caller graph for this function:</div>
 
 <p>Calculate a smooth cut-off function that is one for x values smaller than zero and goes to zero, for generating smooth initial conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01264">1264</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01348">1348</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -440,12 +442,33 @@ Here is the call graph for this function:</div>
 
 <p>Calculate a smooth cut-on function that is zero for x values smaller than zero and goes to one, for generating smooth initial conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01253">1253</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01337">1337</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__helper_a413a13fad04174ecec58d6f51395d44c_cgraph.svg" width="323" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a2e83409b504cdd6ff7d97a32c7afd05c" name="a2e83409b504cdd6ff7d97a32c7afd05c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e83409b504cdd6ff7d97a32c7afd05c">&#9670;&#160;</a></span>f_finite_vec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function, public m_helper::f_finite_vec </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True when the first num_dims components of v are finite. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00888">888</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -474,7 +497,7 @@ Here is the call graph for this function:</div>
 
 <p>Helper function for f_cut_on and f_cut_off. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01274">1274</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01358">1358</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -504,7 +527,7 @@ Here is the caller graph for this function:</div>
 
 <p>True if <span class="tt">location</span> falls within this rank's own subdomain (a strict partition - each location is owned by exactly one rank, unlike an overlapping multi-rank ghost-stencil neighborhood). Used by both pre_process (to decide which generated/namelist IBs a rank writes to its own restart_data/ib_state_0.dat chunk) and simulation (to decide which IBs a rank owns for its own periodic IB-state writes) so the two stay consistent. glb_bounds_in is the global domain extent, used only to project a location that falls just outside the domain (floating-point edge case) onto the domain so some rank still claims it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01375">1375</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01459">1459</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -530,12 +553,12 @@ Here is the caller graph for this function:</div>
 
 <p>Convert a logical to 1 or 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01148">1148</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01232">1232</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a897afb1d7ea92005c96938111086b5f8" name="a897afb1d7ea92005c96938111086b5f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a897afb1d7ea92005c96938111086b5f8">&#9670;&#160;</a></span>f_mulmod32()</h2>
+<a id="a6f17cbf56bbfc4c1066f0d073dc3ae11" name="a6f17cbf56bbfc4c1066f0d073dc3ae11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f17cbf56bbfc4c1066f0d073dc3ae11">&#9670;&#160;</a></span>f_mulmod32()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -544,14 +567,14 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pure integer(kind=int64_kind) function m_helper::f_mulmod32 </td>
+          <td class="memname">pure integer(kind=<a class="el" href="namespacem__constants.html#a8635352dbd311073280de80b997673ae">seed_kind</a>) function m_helper::f_mulmod32 </td>
           <td>(</td>
-          <td class="paramtype">integer(kind=int64_kind), intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+          <td class="paramtype">integer(kind=<a class="el" href="namespacem__constants.html#a8635352dbd311073280de80b997673ae">seed_kind</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer(kind=int64_kind), intent(in)</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+          <td class="paramtype">integer(kind=<a class="el" href="namespacem__constants.html#a8635352dbd311073280de80b997673ae">seed_kind</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -563,11 +586,11 @@ Here is the caller graph for this function:</div>
 
 <p>a*b mod 2^32 for a, b in [0, 2^32), split into 16-bit halves of b so no intermediate exceeds 2^49 </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00961">961</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01029">1029</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__helper_a897afb1d7ea92005c96938111086b5f8_icgraph.svg" width="440" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__helper_a6f17cbf56bbfc4c1066f0d073dc3ae11_icgraph.svg" width="440" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -593,7 +616,7 @@ Here is the caller graph for this function:</div>
 
 <p>Generate a unit vector uniformly distributed on the sphere from two random parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00856">856</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00857">857</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -623,7 +646,7 @@ Here is the caller graph for this function:</div>
 
 <p>Perform XOR on lhs and rhs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01138">1138</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01222">1222</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -644,7 +667,7 @@ Here is the caller graph for this function:</div>
 
 <p>Calculate the factorial of an integer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01240">1240</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -670,7 +693,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute a modular multiplication step for the linear congruential pseudo-random number generator. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00914">914</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00946">946</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -710,7 +733,7 @@ Here is the caller graph for this function:</div>
 
 <p>Real spherical harmonic Y_lm(theta, phi). theta = polar angle from +z (acos(z/r)), phi = atan2(y,x). Uses associated Legendre P_l^|m|(cos theta). Standard normalisation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01163">1163</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01247">1247</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -750,7 +773,7 @@ Here is the call graph for this function:</div>
 
 <p>Compute the bubble number density from the conservative void fraction and weighted bubble radii. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00416">416</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -790,7 +813,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the bubble number density n from the primitive variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -820,7 +843,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the cross product c = a x b of two 3D vectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00972">972</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01056">1056</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -875,7 +898,7 @@ Here is the caller graph for this function:</div>
 
 <p>Downsample conservative variable fields by a factor of 3 in each direction using volume averaging. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01288">1288</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01372">1372</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -901,7 +924,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set bubble physical parameters and nondimensional numbers from the input configuration. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00656">656</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00657">657</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -929,7 +952,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble model arrays for Euler or Lagrangian bubbles with polytropic or non-polytropic gas. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00477">477</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -957,7 +980,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initializes non-polydisperse bubble modeling. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00709">709</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00710">710</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -992,7 +1015,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert an integer to its trimmed string representation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00776">776</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00777">777</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1022,7 +1045,7 @@ Here is the caller graph for this function:</div>
 
 <p>Print a 2D real array to standard output, optionally dividing each element by a given scalar. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00446">446</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00447">447</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1047,7 +1070,7 @@ Here is the caller graph for this function:</div>
 
 <p>Generate a pseudo-random number between 0 and 1 using a linear congruential generator. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00887">887</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00919">919</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1075,7 +1098,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer(kind=int64_kind), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+          <td class="paramtype">integer(kind=<a class="el" href="namespacem__constants.html#a8635352dbd311073280de80b997673ae">seed_kind</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1088,7 +1111,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00945">945</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00977">977</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1118,7 +1141,7 @@ Here is the call graph for this function:</div>
 
 <p>Compute the Simpson weights for quadrature. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00787">787</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00788">788</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1153,7 +1176,7 @@ Here is the caller graph for this function:</div>
 
 <p>Sort the key-value pair by the key. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01012">1012</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01096">1096</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1178,7 +1201,7 @@ Here is the caller graph for this function:</div>
 
 <p>Swap two real numbers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01000">1000</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01084">1084</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1213,7 +1236,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the transfer coefficient for the non-polytropic bubble compression process. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00757">757</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l00758">758</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1248,7 +1271,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transform a model by a matrix, one triangle at a time. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01100">1100</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01184">1184</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1283,7 +1306,7 @@ Here is the call graph for this function:</div>
 
 <p>Transform a triangle by a matrix, one vertex at a time. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01085">1085</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01169">1169</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1318,7 +1341,7 @@ Here is the caller graph for this function:</div>
 
 <p>Transform a vector by a matrix. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01073">1073</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01157">1157</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1348,7 +1371,7 @@ Here is the caller graph for this function:</div>
 
 <p>Upsample conservative variable fields from a coarsened grid back to the original resolution using interpolation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01330">1330</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper_8fpp_8f90_source.html#l01414">1414</a> of file <a class="el" href="m__helper_8fpp_8f90_source.html">m_helper.fpp.f90</a>.</p>
 
 </div>
 </div>

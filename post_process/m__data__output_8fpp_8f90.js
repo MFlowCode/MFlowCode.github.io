@@ -1,5 +1,6 @@
 var m__data__output_8fpp_8f90 =
 [
+    [ "m_data_output::s_close_binary_database_file", "namespacem__data__output.html#a9f993a6d11fee784f4e0216fc94f2630", null ],
     [ "m_data_output::s_close_energy_data_file", "namespacem__data__output.html#a6f03e6b2d7c7f4a6a21adebf719c33f8", null ],
     [ "m_data_output::s_close_formatted_database_file", "namespacem__data__output.html#a72ce8acc00510d108b27c805b97ea073", null ],
     [ "m_data_output::s_close_intf_data_file", "namespacem__data__output.html#a853ee3a948f471a121cc7b0ebd825061", null ],
@@ -20,5 +21,6 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::s_write_lag_variable_to_formatted_database_file", "namespacem__data__output.html#ade07913434048799e610ebd64584658d", null ],
     [ "m_data_output::s_write_variable_to_formatted_database_file", "namespacem__data__output.html#a342bb45ac15ca3a5da40fc6e2c8434bd", null ],
     [ "m_data_output::err", "namespacem__data__output.html#a9200025029de298307a47699927a60fa", null ],
+    [ "m_data_output::lag_name", "namespacem__data__output.html#aea209641c75a4086efecb5a659631ffa", null ],
     [ "m_data_output::out", "namespacem__data__output.html#acdeb8b0cf51decddadad9b90af33e18a", null ]
 ];
