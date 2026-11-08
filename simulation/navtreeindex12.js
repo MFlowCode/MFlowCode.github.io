@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4":[1,0,21,11,2],
 "structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4":[2,0,0,11,2],
 "structm__derived__types_1_1vector__field.html":[1,0,21,10],
 "structm__derived__types_1_1vector__field.html":[2,0,0,10],

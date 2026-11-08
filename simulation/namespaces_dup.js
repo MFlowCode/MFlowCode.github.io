@@ -92,7 +92,7 @@ var namespaces_dup =
       [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__io.html#a913e50a8381702d2886b419f225a78b9", null ],
       [ "s_read_serial_boundary_condition_files", "namespacem__boundary__io.html#a6bd453bc00436c7cbb2d823169f9dd10", null ],
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__io.html#a1b6a5f4b89c0cc5313f8f448ce1a9b2c", null ],
-      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#af7a9587cc23f69c87bb9d34be4a6fec5", null ],
+      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#adf427aecbc4ff3f63146fab16a8a71e2", null ],
       [ "mpi_bc_buffer_type", "namespacem__boundary__io.html#a358f0f61cd25c20cda6384220f38214b", null ],
       [ "mpi_bc_type_type", "namespacem__boundary__io.html#a08a01f94849046589e0337b0068adec0", null ]
     ] ],
@@ -293,8 +293,7 @@ var namespaces_dup =
       [ "s_compute_t_from_primitives", "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f", null ],
       [ "isc1", "namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d", null ],
       [ "isc2", "namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f", null ],
-      [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ],
-      [ "offsets", "namespacem__chemistry.html#ab7f799f6d59cfeaf7b0d0c1219bc12f3", null ]
+      [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ]
     ] ],
     [ "m_collisions", "namespacem__collisions.html", [
       [ "f_neighborhood_ranks_own_location", "namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a", null ],
@@ -511,7 +510,7 @@ var namespaces_dup =
       [ "s_open_void_evol", "namespacem__data__output.html#a9c5d43e3595457e25722d9a6c0ff62e0", null ],
       [ "s_report_icfl_violation", "namespacem__data__output.html#a22ac1c0655844e610fa82a9339252c00", null ],
       [ "s_write_centroid_offsets", "namespacem__data__output.html#a26732099fe08301c8b312ae35ac4b535", null ],
-      [ "s_write_data_files", "namespacem__data__output.html#acbfda5552d101aa75a809185c6c3edfe", null ],
+      [ "s_write_data_files", "namespacem__data__output.html#a9eea8de093f055adb3b786bff3cab2d8", null ],
       [ "s_write_ib_data_file", "namespacem__data__output.html#afea5c151b85111d7df711e1ccb50813f", null ],
       [ "s_write_ib_force_history", "namespacem__data__output.html#a8d73bad55102d0442abeeb057c4d6aef", null ],
       [ "s_write_ib_state_file", "namespacem__data__output.html#ad7b2f63ea430ad1518152658c5488dcf", null ],
@@ -529,7 +528,7 @@ var namespaces_dup =
       [ "s_write_restart_lag_bubbles", "namespacem__data__output.html#af6ac53d836ed3bd38d1b589da344111f", null ],
       [ "s_write_restart_lag_particles", "namespacem__data__output.html#a077a69afafcf264cb92553793b7e039b", null ],
       [ "s_write_run_time_information", "namespacem__data__output.html#ac4254f90208d2808b6b214e857e79d9a", null ],
-      [ "s_write_serial_data_files", "namespacem__data__output.html#a41f6f226c6bb3ab0a1c1d1dfb9ff1b92", null ],
+      [ "s_write_serial_data_files", "namespacem__data__output.html#aa24a29afef33c331f912d6d57dbbc5fd", null ],
       [ "s_write_serial_ib_data", "namespacem__data__output.html#a88654d382efaa311752d6d3119f22fa4", null ],
       [ "s_write_serial_ib_state", "namespacem__data__output.html#a865687c6a3188efbd71b29b439302ec1", null ],
       [ "s_write_void_evol", "namespacem__data__output.html#a144f20ea1b5000f0d313d274d6537a2b", null ],

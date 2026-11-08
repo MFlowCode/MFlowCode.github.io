@@ -165,8 +165,8 @@ $(function(){initNavTree('namespacem__boundary__io.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a74922617e3b2c7a414056d32bc6aa14d" id="r_a74922617e3b2c7a414056d32bc6aa14d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a74922617e3b2c7a414056d32bc6aa14d">s_create_mpi_types</a> (bc_type)</td></tr>
 <tr class="memdesc:a74922617e3b2c7a414056d32bc6aa14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create MPI derived datatypes for boundary condition type arrays and buffer arrays used in parallel I/O.  <br /></td></tr>
-<tr class="memitem:af7a9587cc23f69c87bb9d34be4a6fec5" id="r_af7a9587cc23f69c87bb9d34be4a6fec5"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af7a9587cc23f69c87bb9d34be4a6fec5">s_write_serial_boundary_condition_files</a> (q_prim_vf, bc_type, step_dirpath, old_grid_in, q_t_sf)</td></tr>
-<tr class="memdesc:af7a9587cc23f69c87bb9d34be4a6fec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write boundary condition type and buffer data to serial (unformatted) restart files.  <br /></td></tr>
+<tr class="memitem:adf427aecbc4ff3f63146fab16a8a71e2" id="r_adf427aecbc4ff3f63146fab16a8a71e2"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#adf427aecbc4ff3f63146fab16a8a71e2">s_write_serial_boundary_condition_files</a> (bc_type, step_dirpath, old_grid_in)</td></tr>
+<tr class="memdesc:adf427aecbc4ff3f63146fab16a8a71e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bc type and bc_buffers to serial restart files (pre_process packs them first; simulation writes the startup values).  <br /></td></tr>
 <tr class="memitem:a1b6a5f4b89c0cc5313f8f448ce1a9b2c" id="r_a1b6a5f4b89c0cc5313f8f448ce1a9b2c"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1b6a5f4b89c0cc5313f8f448ce1a9b2c">s_write_parallel_boundary_condition_files</a> (q_prim_vf, bc_type, q_t_sf)</td></tr>
 <tr class="memdesc:a1b6a5f4b89c0cc5313f8f448ce1a9b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write boundary condition type and buffer data to per-rank parallel files using MPI I/O.  <br /></td></tr>
 <tr class="memitem:a6bd453bc00436c7cbb2d823169f9dd10" id="r_a6bd453bc00436c7cbb2d823169f9dd10"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6bd453bc00436c7cbb2d823169f9dd10">s_read_serial_boundary_condition_files</a> (step_dirpath, bc_type)</td></tr>
@@ -205,7 +205,7 @@ Variables</h2></td></tr>
 
 <p>Initialize the per-cell boundary condition type arrays with the global default BC values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00793">793</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00789">789</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -230,7 +230,7 @@ Variables</h2></td></tr>
 
 <p>Check that the per-rank boundary files in file_loc were written for this run's decomposition: abort if strict, else warn. They are read by rank index, so on another decomposition each rank would silently read another rank's boundary slab. Files written before decomposition.dat existed are not checked. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00687">687</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00683">683</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -286,7 +286,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pack primitive variable boundary slices into bc_buffers arrays for serialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00731">731</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00727">727</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -322,7 +322,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00592">592</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -352,7 +352,7 @@ Here is the call graph for this function:</div>
 
 <p>Read boundary condition type and buffer data from serial (unformatted) restart files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00530">530</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00526">526</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -382,7 +382,7 @@ Here is the call graph for this function:</div>
 
 <p>Write boundary condition type and buffer data to per-rank parallel files using MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00462">462</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -391,8 +391,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="af7a9587cc23f69c87bb9d34be4a6fec5" name="af7a9587cc23f69c87bb9d34be4a6fec5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7a9587cc23f69c87bb9d34be4a6fec5">&#9670;&#160;</a></span>s_write_serial_boundary_condition_files()</h2>
+<a id="adf427aecbc4ff3f63146fab16a8a71e2" name="adf427aecbc4ff3f63146fab16a8a71e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf427aecbc4ff3f63146fab16a8a71e2">&#9670;&#160;</a></span>s_write_serial_boundary_condition_files()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -400,11 +400,6 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">subroutine m_boundary_io::s_write_serial_boundary_condition_files </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91">num_dims</a>,1:2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bc_type</em></span>, </td>
         </tr>
         <tr>
@@ -415,28 +410,18 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>old_grid_in</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>&#160;)</td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>old_grid_in</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Write boundary condition type and buffer data to serial (unformatted) restart files. </p>
+<p>Write bc type and bc_buffers to serial restart files (pre_process packs them first; simulation writes the startup values). </p>
 
 <p class="definition">Definition at line <a class="el" href="m__boundary__io_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__boundary__io_8fpp_8f90_source.html">m_boundary_io.fpp.f90</a>.</p>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__io_af7a9587cc23f69c87bb9d34be4a6fec5_cgraph.svg" width="500" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__io_af7a9587cc23f69c87bb9d34be4a6fec5_icgraph.svg" width="100%" height="365"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__boundary__io_adf427aecbc4ff3f63146fab16a8a71e2_icgraph.svg" width="100%" height="365"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

@@ -498,6 +498,7 @@ Magnetohydrodynamics (MHD)</h3>
 <ul>
 <li>MHD is only available for single-component flows (<span class="tt">num_fluids</span> = 1)</li>
 <li>MHD is only available for the 5-equation model (<span class="tt">model_eqns</span> = 2)</li>
+<li>MHD is not available with <span class="tt">bubbles_euler</span> (the HLLD mixture coefficients are single-fluid stiffened gas)</li>
 <li><span class="tt">relativity</span> requires <span class="tt">mhd</span> to be enabled</li>
 <li><span class="tt">relativity</span> assumes an ideal gas; <code class="f90l">fluid_pp(1)%</code><code class="f90r">pi_inf</code> must be 0</li>
 <li><span class="tt">Bx0</span> must not be set if MHD is not enabled</li>
@@ -793,7 +794,7 @@ FFT Output</h3>
 Combustion</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md558"></a>
 Condensed-Phase Reactive Burn</h3>
-<p>Programmed pressure-driven burn converting a reactant fluid to a product fluid on the multi-fluid model. Requires model_eqns = 2 or 3 and num_fluids = 2 (reactant, product) sharing the stiffened-gas EOS (equal gamma, pi_inf) with qv_reactant &gt; qv_product. rburnk (&gt; 0), rburnpign, rburnpref (&gt; 0), and rburnn (&gt;= 0) must all be set. rburnta (activation temperature [K]) is optional and must be &gt;= 0; &gt;0 adds an Arrhenius exp(-rburnta/T) factor and requires fluid_pp(1)cv &gt; 0.</p>
+<p>Programmed pressure-driven burn converting a reactant fluid to a product fluid on the multi-fluid model. Requires model_eqns = 2 or 3 and num_fluids = 2 (reactant, product) sharing the stiffened-gas EOS (equal gamma, pi_inf) with qv_reactant &gt; qv_product. rburnk (&gt; 0), rburnpign (&gt; 0), rburnpref (&gt; 0), and rburnn (&gt;= 0) must all be set. rburnta (activation temperature [K]) is optional and must be &gt;= 0; &gt;0 adds an Arrhenius exp(-rburnta/T) factor and requires fluid_pp(1)cv &gt; 0.</p>
 <p><b>Stage:</b> common, pre_process, simulation, post_process | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
@@ -803,7 +804,7 @@ Condensed-Phase Reactive Burn</h3>
 <li><span class="tt">reactive_burn</span> requires <code class="f90l">fluid_pp(1)%</code><code class="f90r">prop</code> == <code class="f90l">fluid_pp(2)%</code><code class="f90r">prop</code> (reactant and product share the EOS)</li>
 <li><span class="tt">reactive_burn</span> requires <code class="f90l">fluid_pp(1)%</code><code class="f90r">qv</code> &gt; <code class="f90l">fluid_pp(2)%</code><code class="f90r">qv</code> (reactant releases energy on conversion to product)</li>
 <li><span class="tt">reactive_burn</span> requires <code class="f90l">rburn%</code><code class="f90r">k</code> &gt; 0 (rate coefficient [1/s])</li>
-<li><span class="tt">reactive_burn</span> requires <code class="f90l">rburn%</code><code class="f90r">pign</code> to be set (ignition pressure threshold [Pa])</li>
+<li><span class="tt">reactive_burn</span> requires <code class="f90l">rburn%</code><code class="f90r">pign</code> &gt; 0 (ignition pressure threshold [Pa]); unset, or any non-positive value, ignites the reactant everywhere from t = 0</li>
 <li><span class="tt">reactive_burn</span> requires <code class="f90l">rburn%</code><code class="f90r">pref</code> &gt; 0 (it normalizes the pressure drive and is used as a divisor)</li>
 <li><span class="tt">reactive_burn</span> requires <code class="f90l">rburn%</code><code class="f90r">n</code> &gt;= 0 (pressure-drive exponent)</li>
 <li><span class="tt">reactive_burn</span> requires <code class="f90l">rburn%</code><code class="f90r">ta</code> &gt;= 0 (activation temperature [K]; 0 disables the Arrhenius factor)</li>
@@ -861,7 +862,7 @@ Euler-Lagrange Particle Model</h3>
 <li>ppsuth(fluid) must be positive if given</li>
 <li>ppsuth(fluid) needs <code class="f90l">fluid_pp(fluid)%</code><code class="f90r">cv</code> &gt; 0: Sutherland's law uses the temperature <span class="tt">p</span>/(rho cv (gamma - 1)) in K</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-07</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-08</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

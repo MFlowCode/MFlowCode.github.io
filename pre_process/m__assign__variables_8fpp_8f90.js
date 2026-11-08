@@ -6,6 +6,6 @@ var m__assign__variables_8fpp_8f90 =
     [ "m_assign_variables::s_finalize_assign_variables_module", "namespacem__assign__variables.html#aa9c8aba5d1e49f2b453f8050c0d46b43", null ],
     [ "m_assign_variables::s_initialize_assign_variables_module", "namespacem__assign__variables.html#a9dc8f30f45346a219c4bf2a856498f82", null ],
     [ "m_assign_variables::s_perturb_primitive", "namespacem__assign__variables.html#adfa73df32d8651fa69de79ec3426a6f1", null ],
-    [ "m_assign_variables::alf_sum", "namespacem__assign__variables.html#aefb6bed3e785cd14cbf7d632880839a9", null ],
+    [ "m_assign_variables::s_scale_volume_fractions_to_void", "namespacem__assign__variables.html#a44cb3c667eb96dfa0156337a29671c1f", null ],
     [ "m_assign_variables::s_assign_patch_primitive_variables", "namespacem__assign__variables.html#a0133600238019599a3700db098df648a", null ]
 ];

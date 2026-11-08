@@ -40,7 +40,7 @@ var namespaces_dup =
       [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__io.html#a913e50a8381702d2886b419f225a78b9", null ],
       [ "s_read_serial_boundary_condition_files", "namespacem__boundary__io.html#a6bd453bc00436c7cbb2d823169f9dd10", null ],
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__io.html#a1b6a5f4b89c0cc5313f8f448ce1a9b2c", null ],
-      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#af7a9587cc23f69c87bb9d34be4a6fec5", null ],
+      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#adf427aecbc4ff3f63146fab16a8a71e2", null ],
       [ "mpi_bc_buffer_type", "namespacem__boundary__io.html#a358f0f61cd25c20cda6384220f38214b", null ],
       [ "mpi_bc_type_type", "namespacem__boundary__io.html#a08a01f94849046589e0337b0068adec0", null ]
     ] ],
@@ -128,8 +128,7 @@ var namespaces_dup =
       [ "s_compute_t_from_primitives", "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f", null ],
       [ "isc1", "namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d", null ],
       [ "isc2", "namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f", null ],
-      [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ],
-      [ "offsets", "namespacem__chemistry.html#ab7f799f6d59cfeaf7b0d0c1219bc12f3", null ]
+      [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ]
     ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d", null ],
