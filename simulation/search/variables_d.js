@@ -90,6 +90,7 @@ var searchData=
   ['nv_5fuvm_5figr_5ftemps_5fon_5fgpu_87',['nv_uvm_igr_temps_on_gpu',['../namespacem__global__parameters__common.html#a1579aa1503d5a1b4d86f6bf8cc00f54a',1,'m_global_parameters_common']]],
   ['nv_5fuvm_5fout_5fof_5fcore_88',['nv_uvm_out_of_core',['../namespacem__global__parameters__common.html#a7237607b2e27acd8632c738a98d4a1bf',1,'m_global_parameters_common']]],
   ['nv_5fuvm_5fpref_5fgpu_89',['nv_uvm_pref_gpu',['../namespacem__global__parameters__common.html#a390cf9138126e17f8e05ac9dc489f781',1,'m_global_parameters_common']]],
-  ['nweights_5fgrad_90',['nweights_grad',['../namespacem__euler__lagrange.html#a1993255ccf04a073b85f1a9903b361e4',1,'m_euler_lagrange']]],
-  ['nweights_5finterp_91',['nweights_interp',['../namespacem__particles__el.html#a37c6b1700bc537019a716c77150010dd',1,'m_particles_el']]]
+  ['nvhpc_5fomp_5fstate_5fdependent_5feos_90',['nvhpc_omp_state_dependent_eos',['../namespacem__global__parameters__common.html#ab8dd0d551bd925608521292c2c8b5313',1,'m_global_parameters_common']]],
+  ['nweights_5fgrad_91',['nweights_grad',['../namespacem__euler__lagrange.html#a1993255ccf04a073b85f1a9903b361e4',1,'m_euler_lagrange']]],
+  ['nweights_5finterp_92',['nweights_interp',['../namespacem__particles__el.html#a37c6b1700bc537019a716c77150010dd',1,'m_particles_el']]]
 ];

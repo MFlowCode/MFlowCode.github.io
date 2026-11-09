@@ -42,6 +42,7 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "step_z_centroid", "structm__derived__types_1_1ib__patch__parameters.html#a65fd8284fb98b908833e32ccfe18e6c1", null ],
     [ "surface_reaction", "structm__derived__types_1_1ib__patch__parameters.html#a693beca108bda3e82d5fdbe7db9c1e80", null ],
     [ "thermal_bc", "structm__derived__types_1_1ib__patch__parameters.html#a5412f5f30c7e5386ae29343b7e6c38d4", null ],
+    [ "thermal_layer", "structm__derived__types_1_1ib__patch__parameters.html#aaa7edcc652232620a2ede52360d4c5ad", null ],
     [ "torque", "structm__derived__types_1_1ib__patch__parameters.html#a96078b76676fc79d97fb4ad01664b127", null ],
     [ "twall", "structm__derived__types_1_1ib__patch__parameters.html#a2fe404254a3378ee87b7dc533a174b7c", null ],
     [ "v_blow", "structm__derived__types_1_1ib__patch__parameters.html#a5d26b4909f9d64c66eb77d5efbf3d068", null ],

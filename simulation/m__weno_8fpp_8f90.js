@@ -5,7 +5,7 @@ var m__weno_8fpp_8f90 =
     [ "m_weno::s_initialize_weno_module", "namespacem__weno.html#a2f1175686e7f94102ca32c92e653fa23", null ],
     [ "m_weno::s_pack_weno_input_arr", "namespacem__weno.html#a460ab8e85252045e6f4d66797e1fa18f", null ],
     [ "m_weno::s_preserve_monotonicity", "namespacem__weno.html#a0c2bd1d07653ab8baf9f296dacee49df", null ],
-    [ "m_weno::s_weno", "namespacem__weno.html#ac2a1cfe35eae738663c833a9fc2f3f70", null ],
+    [ "m_weno::s_weno", "namespacem__weno.html#ab90c2c4e1b3ace5e3c82a7ca37c9f47a", null ],
     [ "m_weno::beta_coef_x", "namespacem__weno.html#a5219ec6e7fbad624d3a7e5d045950bc9", null ],
     [ "m_weno::beta_coef_y", "namespacem__weno.html#a44bdae63f975e9a8dacbb00a88dcd7ae", null ],
     [ "m_weno::beta_coef_z", "namespacem__weno.html#a574560689ff772b81f24bea116fc3a04", null ],

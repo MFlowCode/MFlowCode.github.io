@@ -91,13 +91,14 @@ var searchData=
   ['nv_5fuvm_5figr_5ftemps_5fon_5fgpu_88',['nv_uvm_igr_temps_on_gpu',['../namespacem__global__parameters__common.html#a1579aa1503d5a1b4d86f6bf8cc00f54a',1,'m_global_parameters_common']]],
   ['nv_5fuvm_5fout_5fof_5fcore_89',['nv_uvm_out_of_core',['../namespacem__global__parameters__common.html#a7237607b2e27acd8632c738a98d4a1bf',1,'m_global_parameters_common']]],
   ['nv_5fuvm_5fpref_5fgpu_90',['nv_uvm_pref_gpu',['../namespacem__global__parameters__common.html#a390cf9138126e17f8e05ac9dc489f781',1,'m_global_parameters_common']]],
-  ['nvtxendrange_91',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
-  ['nvtxeventattributes_92',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
-  ['nvtxrangepop_93',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx::nvtxrangepop'],['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop::nvtxrangepop()']]],
-  ['nvtxrangepush_94',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]],
-  ['nvtxrangepusha_95',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxrangepushex_96',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
-  ['nvtxstartrange_97',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]],
-  ['nweights_5fgrad_98',['nweights_grad',['../namespacem__euler__lagrange.html#a1993255ccf04a073b85f1a9903b361e4',1,'m_euler_lagrange']]],
-  ['nweights_5finterp_99',['nweights_interp',['../namespacem__particles__el.html#a37c6b1700bc537019a716c77150010dd',1,'m_particles_el']]]
+  ['nvhpc_5fomp_5fstate_5fdependent_5feos_91',['nvhpc_omp_state_dependent_eos',['../namespacem__global__parameters__common.html#ab8dd0d551bd925608521292c2c8b5313',1,'m_global_parameters_common']]],
+  ['nvtxendrange_92',['nvtxendrange',['../namespacem__nvtx.html#acb0ad47c439f074b02a3cfc88817b9c7',1,'m_nvtx']]],
+  ['nvtxeventattributes_93',['nvtxeventattributes',['../structm__nvtx_1_1nvtxeventattributes.html',1,'m_nvtx']]],
+  ['nvtxrangepop_94',['nvtxrangepop',['../interfacem__nvtx_1_1nvtxrangepop.html',1,'m_nvtx::nvtxrangepop'],['../interfacem__nvtx_1_1nvtxrangepop.html#a1197b2459e69e4aa104688844cf7a44f',1,'m_nvtx::nvtxrangepop::nvtxrangepop()']]],
+  ['nvtxrangepush_95',['nvtxrangepush',['../interfacem__nvtx_1_1nvtxrangepush.html',1,'m_nvtx']]],
+  ['nvtxrangepusha_96',['nvtxrangepusha',['../interfacem__nvtx_1_1nvtxrangepush.html#adb134459b6428ced50fdeedd7725690b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxrangepushex_97',['nvtxrangepushex',['../interfacem__nvtx_1_1nvtxrangepush.html#ad81d253606a614fcacd51566e4865a0b',1,'m_nvtx::nvtxrangepush']]],
+  ['nvtxstartrange_98',['nvtxstartrange',['../namespacem__nvtx.html#a9b922c5d5c93c41e0abcd4cf8c382861',1,'m_nvtx']]],
+  ['nweights_5fgrad_99',['nweights_grad',['../namespacem__euler__lagrange.html#a1993255ccf04a073b85f1a9903b361e4',1,'m_euler_lagrange']]],
+  ['nweights_5finterp_100',['nweights_interp',['../namespacem__particles__el.html#a37c6b1700bc537019a716c77150010dd',1,'m_particles_el']]]
 ];

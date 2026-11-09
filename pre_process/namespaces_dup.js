@@ -122,7 +122,7 @@ var namespaces_dup =
     [ "m_chemistry", "namespacem__chemistry.html", [
       [ "compute_viscosity_and_inversion", "namespacem__chemistry.html#adcf7ea4e71da08b937a94689dc134882", null ],
       [ "s_chemistry_reaction_substep", "namespacem__chemistry.html#ac8e41fe81d743b1fb307fe95ffdc0c1b", null ],
-      [ "s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#a55a54a1b3fd9a34cc80b7a38c747dbfb", null ],
+      [ "s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#aa46bc89032c53af80b5f7be732dbfb9f", null ],
       [ "s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6", null ],
       [ "s_compute_q_t_sf", "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9", null ],
       [ "s_compute_t_from_primitives", "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f", null ],
@@ -422,7 +422,7 @@ var namespaces_dup =
       [ "a_z", "namespacem__global__parameters__common.html#a08ebb9d211c4ced4e7195f89e74f5997", null ],
       [ "adv_n", "namespacem__global__parameters__common.html#abd8385fa406337311dd37ea801da3321", null ],
       [ "alt_soundspeed", "namespacem__global__parameters__common.html#a8639a9fccbe089056a2a64d2ef72fb41", null ],
-      [ "any_state_dependent_eos", "namespacem__global__parameters__common.html#acbcb07d6fbfc8aff81e0b916ab91ab8e", null ],
+      [ "any_state_dependent_eos", "namespacem__global__parameters__common.html#aaa444a960761cc93e73732d001e840c2", null ],
       [ "avg_state", "namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3", null ],
       [ "bub_pp", "namespacem__global__parameters__common.html#a16b84823f195186bb591af3056cac4ad", null ],
       [ "bubbles_euler", "namespacem__global__parameters__common.html#a2451bef8e98b2435853ca5abeba13a37", null ],
@@ -496,6 +496,7 @@ var namespaces_dup =
       [ "num_procs_z", "namespacem__global__parameters__common.html#a83e5d0948853d981c6e1f20634c0376f", null ],
       [ "num_stl_models", "namespacem__global__parameters__common.html#a00d1315559ab4d5ecbf6f0238901eced", null ],
       [ "num_vels", "namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801", null ],
+      [ "nvhpc_omp_state_dependent_eos", "namespacem__global__parameters__common.html#ab8dd0d551bd925608521292c2c8b5313", null ],
       [ "old_grid", "namespacem__global__parameters__common.html#ab56f7bfb02f11cdbb8b1b3a893cceb09", null ],
       [ "old_ic", "namespacem__global__parameters__common.html#a2cd9c97a057bded3488e8038a3fa7902", null ],
       [ "p", "namespacem__global__parameters__common.html#a44889aede88d9b10f7dab1da61dcb0bf", null ],
@@ -611,6 +612,7 @@ var namespaces_dup =
       [ "f_is_default", "namespacem__helper__basic.html#af1b06a05daa43f724ac3b0ff2f97db14", null ],
       [ "f_is_finite_gpu", "namespacem__helper__basic.html#aca848e4b699c913e2e59d31cd1479b92", null ],
       [ "f_is_integer", "namespacem__helper__basic.html#a2c677da1905f9b1c52e69ae431bfb70d", null ],
+      [ "f_optional_true", "namespacem__helper__basic.html#ae471b9ef006f8d7b9a5decde38dcc9f3", null ],
       [ "f_save_index", "namespacem__helper__basic.html#a3c1aec484d3a42e286175589f263bf6a", null ],
       [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a52d428e094b06923296886952382a20e", null ],
       [ "s_update_cell_bounds", "namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6", null ]
@@ -655,6 +657,7 @@ var namespaces_dup =
       [ "z_centroid", "namespacem__icpp__patches.html#ad378f9e7501eda427635fb9f488a9310", null ]
     ] ],
     [ "m_initial_condition", "namespacem__initial__condition.html", [
+      [ "s_apply_ib_thermal_layers", "namespacem__initial__condition.html#aec0cecc7b073b3029ad9c6fe33e11cd8", null ],
       [ "s_finalize_initial_condition_module", "namespacem__initial__condition.html#a88ee83e53b4663f4597318f7ee336587", null ],
       [ "s_generate_initial_condition", "namespacem__initial__condition.html#ae5ca036f43a2eebe1e2cc84fc9c61d28", null ],
       [ "s_initialize_initial_condition_module", "namespacem__initial__condition.html#a753b5ee72ef0bb90facec6efbbaf23fa", null ],

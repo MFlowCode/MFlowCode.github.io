@@ -63,7 +63,7 @@ var namespaces_dup =
     [ "m_chemistry", "namespacem__chemistry.html", [
       [ "compute_viscosity_and_inversion", "namespacem__chemistry.html#adcf7ea4e71da08b937a94689dc134882", null ],
       [ "s_chemistry_reaction_substep", "namespacem__chemistry.html#ac8e41fe81d743b1fb307fe95ffdc0c1b", null ],
-      [ "s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#a55a54a1b3fd9a34cc80b7a38c747dbfb", null ],
+      [ "s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#aa46bc89032c53af80b5f7be732dbfb9f", null ],
       [ "s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6", null ],
       [ "s_compute_q_t_sf", "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9", null ],
       [ "s_compute_t_from_primitives", "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f", null ],
@@ -414,7 +414,7 @@ var namespaces_dup =
       [ "alpha_rho_wrt", "namespacem__global__parameters__common.html#a712ee76d210faa531e628570279ce7b9", null ],
       [ "alpha_wrt", "namespacem__global__parameters__common.html#a4758b2b07114b4c029eb9f8617ce50fa", null ],
       [ "alt_soundspeed", "namespacem__global__parameters__common.html#a8639a9fccbe089056a2a64d2ef72fb41", null ],
-      [ "any_state_dependent_eos", "namespacem__global__parameters__common.html#acbcb07d6fbfc8aff81e0b916ab91ab8e", null ],
+      [ "any_state_dependent_eos", "namespacem__global__parameters__common.html#aaa444a960761cc93e73732d001e840c2", null ],
       [ "avg_state", "namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3", null ],
       [ "bub_pp", "namespacem__global__parameters__common.html#a16b84823f195186bb591af3056cac4ad", null ],
       [ "bubbles_euler", "namespacem__global__parameters__common.html#a2451bef8e98b2435853ca5abeba13a37", null ],
@@ -508,6 +508,7 @@ var namespaces_dup =
       [ "num_procs_z", "namespacem__global__parameters__common.html#a83e5d0948853d981c6e1f20634c0376f", null ],
       [ "num_stl_models", "namespacem__global__parameters__common.html#a00d1315559ab4d5ecbf6f0238901eced", null ],
       [ "num_vels", "namespacem__global__parameters__common.html#a79f161d4e6a43af26d89187f69dc9801", null ],
+      [ "nvhpc_omp_state_dependent_eos", "namespacem__global__parameters__common.html#ab8dd0d551bd925608521292c2c8b5313", null ],
       [ "omega_wrt", "namespacem__global__parameters__common.html#a3498ce8e844a2b5ec842120f9faa04cb", null ],
       [ "output_partial_domain", "namespacem__global__parameters__common.html#a2bdfa89776de5ac3be02e4514931a04c", null ],
       [ "p", "namespacem__global__parameters__common.html#a44889aede88d9b10f7dab1da61dcb0bf", null ],
@@ -614,6 +615,7 @@ var namespaces_dup =
       [ "f_is_default", "namespacem__helper__basic.html#af1b06a05daa43f724ac3b0ff2f97db14", null ],
       [ "f_is_finite_gpu", "namespacem__helper__basic.html#aca848e4b699c913e2e59d31cd1479b92", null ],
       [ "f_is_integer", "namespacem__helper__basic.html#a2c677da1905f9b1c52e69ae431bfb70d", null ],
+      [ "f_optional_true", "namespacem__helper__basic.html#ae471b9ef006f8d7b9a5decde38dcc9f3", null ],
       [ "f_save_index", "namespacem__helper__basic.html#a3c1aec484d3a42e286175589f263bf6a", null ],
       [ "s_configure_coordinate_bounds", "namespacem__helper__basic.html#a52d428e094b06923296886952382a20e", null ],
       [ "s_update_cell_bounds", "namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6", null ]
@@ -738,6 +740,7 @@ var namespaces_dup =
     ] ],
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_check_input_file", "namespacem__start__up.html#a045a171a9b44005a0e190f9a99784853", null ],
+      [ "s_exchange_ib_markers_halo", "namespacem__start__up.html#a21930f3312678b7bd49b26c940eea53d", null ],
       [ "s_finalize_modules", "namespacem__start__up.html#ae111201384f9418a3df33075f448a3cb", null ],
       [ "s_initialize_modules", "namespacem__start__up.html#aea20fb8945d467b344a487cfe8213d99", null ],
       [ "s_initialize_mpi_domain", "namespacem__start__up.html#a43f2e386d1bd2f0f6212f31a97542b96", null ],

@@ -86,6 +86,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::mom_3d", "namespacem__global__parameters.html#a03359dd44b1b9090b34787e1b5e0bec1", null ],
     [ "m_global_parameters::mom_sp", "namespacem__global__parameters.html#ac87df50039004a39306d938d5ff481dd", null ],
     [ "m_global_parameters::moving_lag_bubbles", "namespacem__global__parameters.html#a432cae6619acc506e53b7b1f73b0d7a9", null ],
+    [ "m_global_parameters::mpg_force", "namespacem__global__parameters.html#a0f087c0cf6bc3b8308cc9dbb7f2847b5", null ],
     [ "m_global_parameters::mpi_io_airfoil_ib_data", "namespacem__global__parameters.html#aca06e91ef5252884025e5b0a2cf38acd", null ],
     [ "m_global_parameters::mpi_io_data", "namespacem__global__parameters.html#ad80f68aac31aa898ab2d7729f60e375f", null ],
     [ "m_global_parameters::mpi_io_ib_data", "namespacem__global__parameters.html#a46a3e8a6405a0008a7f34bcfc648b20f", null ],

@@ -34,13 +34,14 @@ var searchData=
   ['f_5fmodel_5fis_5finside_31',['f_model_is_inside',['../namespacem__model.html#aa90c25197d99b77858e50c3f284dd6c9',1,'m_model']]],
   ['f_5fmodel_5fread_32',['f_model_read',['../namespacem__model.html#a8df07f3e9d228d00fef27cae7484d81e',1,'m_model']]],
   ['f_5fmulmod32_33',['f_mulmod32',['../namespacem__helper.html#a6f17cbf56bbfc4c1066f0d073dc3ae11',1,'m_helper']]],
-  ['f_5fpressure_34',['f_pressure',['../namespacem__eos.html#ad65fa3d10d69e6413356682c8f356e71',1,'m_eos']]],
-  ['f_5fread_5fline_35',['f_read_line',['../namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc',1,'m_model']]],
-  ['f_5frelativistic_5fenthalpy_36',['f_relativistic_enthalpy',['../namespacem__eos.html#a26840125ff292a0f9dfc9b51b7238200',1,'m_eos']]],
-  ['f_5fsave_5findex_37',['f_save_index',['../namespacem__helper__basic.html#a3c1aec484d3a42e286175589f263bf6a',1,'m_helper_basic']]],
-  ['f_5fsg_5fthermal_38',['f_sg_thermal',['../namespacem__eos.html#a43b3095bf1b8fbd0df978586ff384a01',1,'m_eos']]],
-  ['f_5funit_5fvector_39',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
-  ['f_5fvel_5framp_40',['f_vel_ramp',['../namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19',1,'m_boundary_primitives']]],
-  ['f_5fxor_41',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
-  ['factorial_42',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
+  ['f_5foptional_5ftrue_34',['f_optional_true',['../namespacem__helper__basic.html#ae471b9ef006f8d7b9a5decde38dcc9f3',1,'m_helper_basic']]],
+  ['f_5fpressure_35',['f_pressure',['../namespacem__eos.html#ad65fa3d10d69e6413356682c8f356e71',1,'m_eos']]],
+  ['f_5fread_5fline_36',['f_read_line',['../namespacem__model.html#a263c93e249409db2235bbc8e0458e4dc',1,'m_model']]],
+  ['f_5frelativistic_5fenthalpy_37',['f_relativistic_enthalpy',['../namespacem__eos.html#a26840125ff292a0f9dfc9b51b7238200',1,'m_eos']]],
+  ['f_5fsave_5findex_38',['f_save_index',['../namespacem__helper__basic.html#a3c1aec484d3a42e286175589f263bf6a',1,'m_helper_basic']]],
+  ['f_5fsg_5fthermal_39',['f_sg_thermal',['../namespacem__eos.html#a43b3095bf1b8fbd0df978586ff384a01',1,'m_eos']]],
+  ['f_5funit_5fvector_40',['f_unit_vector',['../namespacem__helper.html#a319cbbe9abfd19b942d61587a60038f1',1,'m_helper']]],
+  ['f_5fvel_5framp_41',['f_vel_ramp',['../namespacem__boundary__primitives.html#a36c64487b2689a7dbbb493c7e4572b19',1,'m_boundary_primitives']]],
+  ['f_5fxor_42',['f_xor',['../namespacem__helper.html#ae9be1f907b302bd18216f57bdab5561c',1,'m_helper']]],
+  ['factorial_43',['factorial',['../namespacem__helper.html#a72337fe25140d429f4e1cd5a410276b9',1,'m_helper']]]
 ];

@@ -165,8 +165,8 @@ $(function(){initNavTree('namespacem__muscl.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ac5b10d0fec9a929300cfccc8c2eca843" id="r_ac5b10d0fec9a929300cfccc8c2eca843"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac5b10d0fec9a929300cfccc8c2eca843">s_initialize_muscl_module</a> ()</td></tr>
 <tr class="memdesc:ac5b10d0fec9a929300cfccc8c2eca843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate and initialize MUSCL reconstruction working arrays.  <br /></td></tr>
-<tr class="memitem:a7795860a86f956ecfac34721936732cd" id="r_a7795860a86f956ecfac34721936732cd"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7795860a86f956ecfac34721936732cd">s_muscl</a> (v_vf, vl_rs_vf_x, vr_rs_vf_x, muscl_dir, is1_muscl_d, is2_muscl_d, is3_muscl_d)</td></tr>
-<tr class="memdesc:a7795860a86f956ecfac34721936732cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform MUSCL reconstruction of left and right cell-boundary values from cell-averaged variables.  <br /></td></tr>
+<tr class="memitem:a2c3e813b207f45a0cbe5e2673b32932b" id="r_a2c3e813b207f45a0cbe5e2673b32932b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2c3e813b207f45a0cbe5e2673b32932b">s_muscl</a> (v_vf, vl_rs_vf_x, vr_rs_vf_x, muscl_dir, is1_muscl_d, is2_muscl_d, is3_muscl_d, packed)</td></tr>
+<tr class="memdesc:a2c3e813b207f45a0cbe5e2673b32932b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform MUSCL reconstruction of left and right cell-boundary values from cell-averaged variables.  <br /></td></tr>
 <tr class="memitem:ae540ebf51b87d1fa181162a9c053d1c1" id="r_ae540ebf51b87d1fa181162a9c053d1c1"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae540ebf51b87d1fa181162a9c053d1c1">s_finalize_muscl_module</a> ()</td></tr>
 <tr class="memdesc:ae540ebf51b87d1fa181162a9c053d1c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the MUSCL module.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -196,7 +196,7 @@ Variables</h2></td></tr>
 
 <p>Finalize the MUSCL module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l01040">1040</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l01045">1045</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -214,7 +214,7 @@ Variables</h2></td></tr>
 
 <p>Allocate and initialize MUSCL reconstruction working arrays. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00426">426</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -223,8 +223,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a7795860a86f956ecfac34721936732cd" name="a7795860a86f956ecfac34721936732cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7795860a86f956ecfac34721936732cd">&#9670;&#160;</a></span>s_muscl()</h2>
+<a id="a2c3e813b207f45a0cbe5e2673b32932b" name="a2c3e813b207f45a0cbe5e2673b32932b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3e813b207f45a0cbe5e2673b32932b">&#9670;&#160;</a></span>s_muscl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -262,14 +262,25 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is3_muscl_d</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>is3_muscl_d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>packed</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Perform MUSCL reconstruction of left and right cell-boundary values from cell-averaged variables. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">packed</td><td>v_rs_ws_muscl holds v_vf </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00501">501</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00505">505</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -286,7 +297,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -302,7 +313,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -318,7 +329,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -334,7 +345,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -350,7 +361,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00374">374</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__muscl_8fpp_8f90_source.html#l00378">378</a> of file <a class="el" href="m__muscl_8fpp_8f90_source.html">m_muscl.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -10,5 +10,6 @@ var m__compute__levelset_8fpp_8f90 =
     [ "m_compute_levelset::s_ellipse_levelset", "namespacem__compute__levelset.html#a6b31a6070ac185f759641c395e6b4172", null ],
     [ "m_compute_levelset::s_model_levelset", "namespacem__compute__levelset.html#adadad13569efd08e6caa0cb5b7157942", null ],
     [ "m_compute_levelset::s_rectangle_levelset", "namespacem__compute__levelset.html#abb0e0b701082d92ef471ab50bea5e772", null ],
-    [ "m_compute_levelset::s_sphere_levelset", "namespacem__compute__levelset.html#a54445fc4a04b39ca1342ce7a14025db4", null ]
+    [ "m_compute_levelset::s_sphere_levelset", "namespacem__compute__levelset.html#a54445fc4a04b39ca1342ce7a14025db4", null ],
+    [ "m_compute_levelset::s_store_rotated_normal", "namespacem__compute__levelset.html#ab908c92801029b3b954b52ce99ab6716", null ]
 ];

@@ -167,8 +167,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a802ddd8c13f4153ce4600e7934e95ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Papanastasiou-regularized Herschel-Bulkley viscosity.  <br /></td></tr>
 <tr class="memitem:a22055fe935f86d8cdd024dc56d132d49" id="r_a22055fe935f86d8cdd024dc56d132d49"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#a22055fe935f86d8cdd024dc56d132d49">f_compute_shear_rate_from_components</a> (d_xx, d_yy, d_zz, d_xy, d_xz, d_yz)</td></tr>
 <tr class="memdesc:a22055fe935f86d8cdd024dc56d132d49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shear rate gamma_dot = sqrt(2 D_ij D_ij). Absent dims pass 0.  <br /></td></tr>
-<tr class="memitem:a1a133944770e30a8be41c77d13b2f932" id="r_a1a133944770e30a8be41c77d13b2f932"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1a133944770e30a8be41c77d13b2f932">s_compute_mixture_inv_re</a> (alpha, shear_rate, res, re_out)</td></tr>
-<tr class="memdesc:a1a133944770e30a8be41c77d13b2f932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixture inverse Reynolds (= 1/mu_mix) per direction (1=shear, 2=bulk) at one state. Newtonian fluids accumulate the legacy per-fluid alpha/Res term. For non-Newtonian fluids only the shear direction (i==1) uses the Herschel-Bulkley viscosity at the given shear rate; the bulk direction (i==2) contributes zero, since non-Newtonian bulk viscosity is not supported.  <br /></td></tr>
+<tr class="memitem:a0ab67789b017b700c711e5cd7aeac8ad" id="r_a0ab67789b017b700c711e5cd7aeac8ad"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0ab67789b017b700c711e5cd7aeac8ad">s_compute_mixture_inv_re</a> (alpha, shear_rate, res, re_out, re_size_loc1, re_size_loc2)</td></tr>
+<tr class="memdesc:a0ab67789b017b700c711e5cd7aeac8ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mixture inverse Reynolds (= 1/mu_mix) per direction (1=shear, 2=bulk) at one state. Newtonian fluids accumulate the legacy per-fluid alpha/Res term. For non-Newtonian fluids only the shear direction (i==1) uses the Herschel-Bulkley viscosity at the given shear rate; the bulk direction (i==2) contributes zero, since non-Newtonian bulk viscosity is not supported.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Herschel-Bulkley non-Newtonian viscosity: formula, shear rate, and mixture inverse-Re. </p>
@@ -219,7 +219,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Papanastasiou-regularized Herschel-Bulkley viscosity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hb__function_8fpp_8f90_source.html#l00369">369</a> of file <a class="el" href="m__hb__function_8fpp_8f90_source.html">m_hb_function.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hb__function_8fpp_8f90_source.html#l00372">372</a> of file <a class="el" href="m__hb__function_8fpp_8f90_source.html">m_hb_function.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -269,7 +269,7 @@ Here is the caller graph for this function:</div>
 
 <p>Shear rate gamma_dot = sqrt(2 D_ij D_ij). Absent dims pass 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hb__function_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__hb__function_8fpp_8f90_source.html">m_hb_function.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hb__function_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__hb__function_8fpp_8f90_source.html">m_hb_function.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -278,8 +278,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a1a133944770e30a8be41c77d13b2f932" name="a1a133944770e30a8be41c77d13b2f932"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a133944770e30a8be41c77d13b2f932">&#9670;&#160;</a></span>s_compute_mixture_inv_re()</h2>
+<a id="a0ab67789b017b700c711e5cd7aeac8ad" name="a0ab67789b017b700c711e5cd7aeac8ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ab67789b017b700c711e5cd7aeac8ad">&#9670;&#160;</a></span>s_compute_mixture_inv_re()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -302,23 +302,33 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_out</em></span>&#160;)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(out)</td>          <td class="paramname"><span class="paramname"><em>re_out</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_size_loc1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_size_loc2</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Mixture inverse Reynolds (= 1/mu_mix) per direction (1=shear, 2=bulk) at one state. Newtonian fluids accumulate the legacy per-fluid alpha/Res term. For non-Newtonian fluids only the shear direction (i==1) uses the Herschel-Bulkley viscosity at the given shear rate; the bulk direction (i==2) contributes zero, since non-Newtonian bulk viscosity is not supported. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__hb__function_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__hb__function_8fpp_8f90_source.html">m_hb_function.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__hb__function_8fpp_8f90_source.html#l00441">441</a> of file <a class="el" href="m__hb__function_8fpp_8f90_source.html">m_hb_function.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hb__function_a1a133944770e30a8be41c77d13b2f932_cgraph.svg" width="450" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hb__function_a0ab67789b017b700c711e5cd7aeac8ad_cgraph.svg" width="450" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hb__function_a1a133944770e30a8be41c77d13b2f932_icgraph.svg" width="100%" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__hb__function_a0ab67789b017b700c711e5cd7aeac8ad_icgraph.svg" width="100%" height="418"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

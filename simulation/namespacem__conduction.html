@@ -163,8 +163,8 @@ $(function(){initNavTree('namespacem__conduction.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
-<tr class="memitem:ae9002f54944002ee0cf112b206f67547" id="r_ae9002f54944002ee0cf112b206f67547"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae9002f54944002ee0cf112b206f67547">s_compute_conduction_source_flux</a> (idir, q_prim_qp, q_t_sf, flux_src_vf, irx, iry, irz)</td></tr>
-<tr class="memdesc:ae9002f54944002ee0cf112b206f67547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate -k*dT/dx_idir into the energy source flux at each idir-normal face.  <br /></td></tr>
+<tr class="memitem:ae4dc57a415a71cc0cfea16ee7f06967e" id="r_ae4dc57a415a71cc0cfea16ee7f06967e"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae4dc57a415a71cc0cfea16ee7f06967e">s_compute_conduction_source_flux</a> (idir, q_prim_qp, q_t_sf, irx, iry, irz)</td></tr>
+<tr class="memdesc:ae4dc57a415a71cc0cfea16ee7f06967e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulate -k*dT/dx_idir into the energy source flux at each idir-normal face.  <br /></td></tr>
 <tr class="memitem:acb93b93b87065f797628c64b2982c08d" id="r_acb93b93b87065f797628c64b2982c08d"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#acb93b93b87065f797628c64b2982c08d">s_compute_conduction_axis_source</a> (q_prim_vf, q_t_sf, tau_re_vf, ix, iy, iz)</td></tr>
 <tr class="memdesc:acb93b93b87065f797628c64b2982c08d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell-centered -k*dT/dr for the axis cell of a cylindrical grid. The generic geometric source in <a class="el" href="namespacem__rhs.html" title="Assemble the right-hand side of the governing equations using finite-volume flux differencing,...">m_rhs</a> uses face values of flux_src(E) in this role; the axis cell has no face pair, so it reads tau_Re_vf(E) instead. Accumulates: call after s_compute_viscous_stress_cylindrical_boundary, which zeroes tau_Re_vf(mombeg:E); without viscosity this routine does that zeroing itself.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -219,12 +219,12 @@ Variables</h2></td></tr>
 
 <p>Cell-centered -k*dT/dr for the axis cell of a cylindrical grid. The generic geometric source in <a class="el" href="namespacem__rhs.html" title="Assemble the right-hand side of the governing equations using finite-volume flux differencing,...">m_rhs</a> uses face values of flux_src(E) in this role; the axis cell has no face pair, so it reads tau_Re_vf(E) instead. Accumulates: call after s_compute_viscous_stress_cylindrical_boundary, which zeroes tau_Re_vf(mombeg:E); without viscosity this routine does that zeroing itself. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00520">520</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ae9002f54944002ee0cf112b206f67547" name="ae9002f54944002ee0cf112b206f67547"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9002f54944002ee0cf112b206f67547">&#9670;&#160;</a></span>s_compute_conduction_source_flux()</h2>
+<a id="ae4dc57a415a71cc0cfea16ee7f06967e" name="ae4dc57a415a71cc0cfea16ee7f06967e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4dc57a415a71cc0cfea16ee7f06967e">&#9670;&#160;</a></span>s_compute_conduction_source_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,11 +247,6 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>flux_src_vf</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>irx</em></span>, </td>
         </tr>
         <tr>
@@ -269,7 +264,7 @@ Variables</h2></td></tr>
 
 <p>Accumulate -k*dT/dx_idir into the energy source flux at each idir-normal face. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -286,7 +281,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00376">376</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -302,7 +297,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00376">376</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -318,7 +313,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00376">376</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -334,7 +329,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__conduction_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__conduction_8fpp_8f90_source.html">m_conduction.fpp.f90</a>.</p>
 
 </div>
 </div>
