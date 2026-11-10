@@ -67,6 +67,7 @@ var namespaces_dup =
       [ "s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6", null ],
       [ "s_compute_q_t_sf", "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9", null ],
       [ "s_compute_t_from_primitives", "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f", null ],
+      [ "s_compute_transport_dt_re", "namespacem__chemistry.html#a78fbdad9466f76e916202ae329a78c38", null ],
       [ "isc1", "namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d", null ],
       [ "isc2", "namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f", null ],
       [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ]
@@ -461,6 +462,7 @@ var namespaces_dup =
       [ "ib_force_stride", "namespacem__global__parameters__common.html#a4ba903f793706af8debe8e2caa8df05f", null ],
       [ "ib_force_wrt", "namespacem__global__parameters__common.html#add28e056ca103be4479f6d7fb754d30a", null ],
       [ "ib_state_wrt", "namespacem__global__parameters__common.html#a12c9eea2b592ab77bf8763b43814a78a", null ],
+      [ "ib_surface_wrt", "namespacem__global__parameters__common.html#a51a0cfac72344c5bc7dab173cf3a00d1", null ],
       [ "igr", "namespacem__global__parameters__common.html#a2059a73bab13312fccb9c299e2ed2eed", null ],
       [ "igr_order", "namespacem__global__parameters__common.html#a8698448318affdac440a7eb61a65d60f", null ],
       [ "isentrope_b", "namespacem__global__parameters__common.html#aa7406e913186d283155931ab80c4a409", null ],

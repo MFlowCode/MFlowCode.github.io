@@ -8,11 +8,15 @@ var m__body__forces_8fpp_8f90 =
     [ "m_body_forces::s_finalize_body_forces_module", "namespacem__body__forces.html#adf9ca798003a8cc4fb2c278fd9756ce0", null ],
     [ "m_body_forces::s_initialize_body_force_with_spatial_support", "namespacem__body__forces.html#a76c0998dabb6d70fa0142f4fe013ceec", null ],
     [ "m_body_forces::s_initialize_body_forces_module", "namespacem__body__forces.html#a7db192e742e55158a9a8ad8018f98897", null ],
-    [ "m_body_forces::s_update_mean_dpdx", "namespacem__body__forces.html#ace4a16bd98c13be5d79ea0cf72c8a249", null ],
+    [ "m_body_forces::s_mean_controller", "namespacem__body__forces.html#a97f9792833a46866ce1d7f98b10737e3", null ],
+    [ "m_body_forces::s_open_history", "namespacem__body__forces.html#a9593ac2c8bd70031af48de04fea5f6d8", null ],
+    [ "m_body_forces::s_update_mean_sources", "namespacem__body__forces.html#ab60a9148215d63dfd6a5ec6ec125b4a6", null ],
     [ "m_body_forces::freq", "namespacem__body__forces.html#a60ffd7bffadca618855a8bb6d37e1af8", null ],
     [ "m_body_forces::mflux_old", "namespacem__body__forces.html#a68da6f997a52c32ad4e8eae3146721d8", null ],
     [ "m_body_forces::mpg_dir", "namespacem__body__forces.html#aa4b83418ba165ecb4e514dd821c9f627", null ],
     [ "m_body_forces::mpg_unit", "namespacem__body__forces.html#a319e9165c85b0fbcb3f1a00da16f9098", null ],
+    [ "m_body_forces::mts_on", "namespacem__body__forces.html#a82b4ed92f1cae5f66237a13dde53df22", null ],
+    [ "m_body_forces::mts_unit", "namespacem__body__forces.html#a02a69a37b1f5d646149bbf274367c5db", null ],
     [ "m_body_forces::num_synthetic_wave_numbers", "namespacem__body__forces.html#ad35670f3ead31d47c559fa60af0b558b", null ],
     [ "m_body_forces::phase", "namespacem__body__forces.html#a19650d0cd53cc308f618cf6e623a9e87", null ],
     [ "m_body_forces::rhom", "namespacem__body__forces.html#accd825ba224c4748c924853d2aab331f", null ],
@@ -29,5 +33,6 @@ var m__body__forces_8fpp_8f90 =
     [ "m_body_forces::synthetic_k_x", "namespacem__body__forces.html#ad39d87e27153eed3089c1339a842e5e0", null ],
     [ "m_body_forces::synthetic_k_y", "namespacem__body__forces.html#ab13214bb6705e354eb7ad00a8eb4811d", null ],
     [ "m_body_forces::synthetic_k_z", "namespacem__body__forces.html#abf979e29d0ae5cad24b418b2f0307a1b", null ],
-    [ "m_body_forces::synthetic_phase", "namespacem__body__forces.html#a71dacdaff4f9567ab88c6a7b5feaa231", null ]
+    [ "m_body_forces::synthetic_phase", "namespacem__body__forces.html#a71dacdaff4f9567ab88c6a7b5feaa231", null ],
+    [ "m_body_forces::temp_old", "namespacem__body__forces.html#a0cd648bb98f54723f645799817939cc8", null ]
 ];

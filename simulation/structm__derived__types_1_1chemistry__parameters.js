@@ -7,5 +7,6 @@ var structm__derived__types_1_1chemistry__parameters =
     [ "reaction_substeps", "structm__derived__types_1_1chemistry__parameters.html#a2ee849422fb5bdccb2776b947dd44777", null ],
     [ "reaction_substeps_max", "structm__derived__types_1_1chemistry__parameters.html#a454c1106edce06c89679917afdf735cf", null ],
     [ "reactions", "structm__derived__types_1_1chemistry__parameters.html#a29d1794966a0789082cc585b3430b13f", null ],
+    [ "transport_dt", "structm__derived__types_1_1chemistry__parameters.html#abd6408a52dc8aa47645fdfea00d30125", null ],
     [ "transport_model", "structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a", null ]
 ];

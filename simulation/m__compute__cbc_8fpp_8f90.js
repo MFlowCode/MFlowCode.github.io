@@ -1,8 +1,8 @@
 var m__compute__cbc_8fpp_8f90 =
 [
     [ "m_compute_cbc::f_base_l1", "namespacem__compute__cbc.html#af9a8e23f0b643323989e4f191830d21b", null ],
-    [ "m_compute_cbc::s_compute_constant_pressure_subsonic_outflow_l", "namespacem__compute__cbc.html#a8786f79b77186724789f238652a74a47", null ],
-    [ "m_compute_cbc::s_compute_force_free_subsonic_outflow_l", "namespacem__compute__cbc.html#a464cdf8e82aee66a294c38f9d0190711", null ],
+    [ "m_compute_cbc::s_compute_constant_pressure_subsonic_outflow_l", "namespacem__compute__cbc.html#a465fd5610a26bd9a5a50c3e623406e30", null ],
+    [ "m_compute_cbc::s_compute_force_free_subsonic_outflow_l", "namespacem__compute__cbc.html#aa6ec388f47501d2ce408cca75fa8abd1", null ],
     [ "m_compute_cbc::s_compute_nonreflecting_subsonic_buffer_l", "namespacem__compute__cbc.html#a3ed89568b020fb0ab93a0836cd99ba8e", null ],
     [ "m_compute_cbc::s_compute_nonreflecting_subsonic_inflow_l", "namespacem__compute__cbc.html#a639beb62ea79e2edfaf8bcf19bdbf7e4", null ],
     [ "m_compute_cbc::s_compute_nonreflecting_subsonic_outflow_l", "namespacem__compute__cbc.html#aaebbe5603a0b7f154c2b6c1c9bbd0d47", null ],

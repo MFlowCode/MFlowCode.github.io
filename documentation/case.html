@@ -542,7 +542,7 @@ Parameter Descriptions</h4>
 <li><span class="tt">thermal_layer</span> = δ &gt; 0 starts the gas around a <span class="tt">thermal_bc = 1</span> circle (geometry 2) or sphere (geometry 8) in the conduction solution for a wall brought to <span class="tt">Twall</span> a time t₀ = δ²/(4α) earlier: T = T∞ + (<span class="tt">Twall</span> − T∞)(R/r)^((d−1)/2) erfc((r − R)/δ), with pressure and composition unchanged. It is exact for a sphere and the leading-order term for a cylinder. Without it a hot wall meets ambient gas as a temperature step at t = 0, and the near-wall cells heat faster than they can expand; on coarse grids that transient can drive the state non-physical. Resolve δ with a few cells. Where layers overlap, the IB with the largest temperature change sets the cell, and periodic directions use the nearest image.</li>
 <li><span class="tt">surface_reaction</span> enables heterogeneous surface chemistry when set to 1. Surface reactions require <span class="tt">chemistry = T</span> and cannot be combined with <span class="tt">inj_species &gt; 0</span>.</li>
 <li>For STL/OBJ geometry (geometry 5 or 12), set <span class="tt">model_id</span> to index into the <span class="tt">stl_models</span> array and specify <span class="tt">model_filepath</span>, <span class="tt">model_scale</span>, <span class="tt">model_translate</span>, and <span class="tt">model_threshold</span> on that entry.</li>
-<li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon its own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces.</li>
+<li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon its own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces. Body forces (<span class="tt">bf_x</span>, <span class="tt">bf_y</span>, <span class="tt">bf_z</span>) act only on a <span class="tt">moving_ibm = 2</span> boundary, so a fixed or prescribed boundary needs no <span class="tt">mass</span> and its recorded force is the fluid and collision force alone.</li>
 <li><span class="tt">vel(i)</span> is the initial linear velocity of the IB in the x, y, z direction for i=1, 2, 3. When <span class="tt">moving_ibm</span> equals 2, this velocity is just the starting speed of the object, which will then accelerate due to external forces. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</li>
 <li><p class="startli"><span class="tt">angular_vel(i)</span> is the initial angular velocity of the IB about the x, y, z axes for i=1, 2, 3 in radians per second. When <span class="tt">moving_ibm</span> equals 2, this rotation rate is just the starting rate of the object, which will then change due to external torques. If <span class="tt">moving_ibm</span> equals 1, then this is constant if it is a number, or can be described analytically with an expression.</p>
 <p class="startli">Moving-IB analytic expressions use the same Python syntax and error-reporting as IC patch expressions (see the "Analytical Definition of Primitive Variables" section above).</p>
@@ -924,86 +924,88 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_force_stride</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Stride, in time steps, of the per-step immersed-boundary force record (default 1)  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">ib_surface_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the wall temperature and gasified mass flux at each surface point of the non-injecting IBs of a chemistry run, at every save (default off)  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parameter to handle writing IB state on saves and outputting the state as a point mesh to SILO files.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">pi_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">pres_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness to the formatted database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">c_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the sound speed to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">T_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add each fluid's temperature to the database (needs <span class="tt">cv</span> &gt; 0)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">omega_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the $i$-direction vorticity to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the numerical schlieren to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">qm_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">liutex_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Liutex to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">cf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write color function field  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">chem_wrt_T</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write temperature field for chemistry output  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">fft_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable FFT output  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">sim_data</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write interface and energy data files (post_process)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">down_sample</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable output downsampling  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">fd_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_alpha(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <span class="tt">alpha(i)</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">probe_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">num_probes</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of probes  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">probe(i)%[x,y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coordinates of probe $i$  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">output_partial_domain</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Output part of the domain  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%beg</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%end</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_txt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_header</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write header to Lagrangian bubble <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_db_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to silo/hdf5 database files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_id_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the global bubble idea to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble position to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_prev_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the previous bubble position to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_vel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble translational velocity to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rad_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rvel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radial velocity to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_r0_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble initial radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmax_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble maximum radius to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmin_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble minimum radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_dphidt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble subgrid velocity potential to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pres_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble pressure to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_mv_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble vapor mass to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_mg_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble gas mass to the database file  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_voidfrac_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the particle volume fraction in the host cell to the database file (<span class="tt">particles_lagrange</span> only)  </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
@@ -1019,6 +1021,7 @@ Adaptive Time-Stepping</h5>
 <li><span class="tt">probe_wrt</span> activates the output of state variables at coordinates specified by <span class="tt">probe(i)%[x;y,z]</span>.</li>
 <li><span class="tt">ib_state_wrt</span> is used to trigger post-processing of the IB state to be written out as a point mesh in the SILO files. When no IBs are moving, it also triggers force and torque calculation so that those values may be written to the output state files.</li>
 <li><span class="tt">ib_force_wrt</span> records the force, torque and kinematics of every immersed boundary in a single shared text file, <span class="tt">D/ib_forces.dat</span>, described below. It is off by default: the history is written every step, which at large rank counts is a cost a run should opt into rather than inherit. <span class="tt">ib_force_stride</span> writes only every N-th step, for runs long enough that the history itself becomes large.</li>
+<li><span class="tt">ib_surface_wrt</span> writes, at every save, one text file per rank, <span class="tt">D/ib_surface_&lt;rank&gt;_&lt;save&gt;.dat</span>, with a line per surface point of each non-injecting IB (<span class="tt">inj_species</span> = 0) of a chemistry run, and no header, columns <span class="tt">x y z ib nx ny nz area T_wall mdot</span>. <span class="tt">ib</span> is the global IB index, <span class="tt">(nx, ny, nz)</span> the level-set normal, <span class="tt">T_wall</span> the surface temperature [K] and <span class="tt">mdot</span> the gasified mass flux [kg/m²/s] from the surface solve (0 on an inert surface). <span class="tt">area</span> [m², or m per unit depth in 2D] is the surface each point stands for: summing <span class="tt">area</span>·<span class="tt">mdot</span> over an IB's lines gives its mass loss rate [kg/s], and <span class="tt">mdot</span>/ρ_solid is the local surface regression rate. The points are the ghost points within two cell sizes h = (cell volume)^(1/d) of the surface, each weighted by cell volume/(2h); for circles, spheres and cylinder sides the weight is also scaled by (R/(R − depth))^(d−1), the area ratio between the surface and the layer the point sits in. The areas then sum to the surface area without bias (a sphere at R = 12h: within 0.3%; a circle at R = 20h: within about 1%); other shapes keep the uncorrected band, which underestimates a convex surface by about (d−1)·h/R.</li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="sec-ib-force-history"></a>
 Immersed-boundary force history</h4>
@@ -1047,7 +1050,8 @@ Immersed-boundary force history</h4>
 <p>The file carries no header line, because every record sits at a computed byte offset and a header would shift them all. Each record is exactly 353 bytes including its newline (<span class="tt">I10</span> followed by nineteen <span class="tt">1X,ES17.9E3</span> fields), so the whole file loads with <span class="tt">numpy.loadtxt</span> and a single body or step can be read without scanning it:</p>
 <div class="fragment"><div class="line">row    = t_step / ib_force_stride - t_step_start / ib_force_stride - 1</div>
 <div class="line">offset = (row * num_ibs + ib_id - 1) * 353</div>
-</div><!-- fragment --><p>Rows count from the first step the run records, not from <span class="tt">t_step</span>, so row 0 is the first row of the file whether the run starts at step 0 or resumes from a restart. The first recorded step is the first multiple of <span class="tt">ib_force_stride</span> after <span class="tt">t_step_start</span>; <span class="tt">t_step_start</span> itself is skipped, because at that point the force is still the one from before the run began.</p>
+</div><!-- fragment --><p>Rows count from the first step the run records, not from <span class="tt">t_step</span>, so row 0 is the first row of the file whether the run starts at step 0 or resumes from a restart. The first recorded step is the first multiple of <span class="tt">ib_force_stride</span> after <span class="tt">t_step_start</span>; <span class="tt">t_step_start</span> itself is skipped, because at that point the force is still the one from before the run began. The last row is the run's final step if that step is a multiple of <span class="tt">ib_force_stride</span>, and otherwise the last multiple before it.</p>
+<p>A resumed run writes <span class="tt">D/ib_forces_&lt;t_step_start&gt;.dat</span> (<span class="tt">D/ib_forces_n&lt;n_start&gt;.dat</span> with <span class="tt">cfl_dt</span>) instead of overwriting <span class="tt">D/ib_forces.dat</span>. When each run resumes from the final step of the run before it, the files concatenate in order with no row repeated and none of the <span class="tt">ib_force_stride</span> sampling missing. This holds for any stride with a fixed <span class="tt">dt</span>. With <span class="tt">cfl_dt</span> the step counter restarts at 0 in each run, so only <span class="tt">ib_force_stride = 1</span> gives an unbroken history; a larger stride can leave up to <span class="tt">ib_force_stride - 1</span> unrecorded steps at the end of each run. A run killed mid-way has no final row and may hold rows past the restart it is resumed from.</p>
 <p>Rows are written in global body-id order, so the file is byte-identical however the domain is decomposed, and no merge step is needed after a parallel run.</p>
 <ul>
 <li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_output%beg</span> and <span class="tt">[x,y,z]_output%end</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
@@ -1503,7 +1507,25 @@ Mean pressure gradient forcing</h4>
 \[ f_i^{n+1} = f_i^n + \frac{G}{\Delta t}\left(Q_i^\ast - 2Q_i^n + Q_i^{n-1}\right). \]
 </p>
 <p>\(G = 1\) removes the flux error in one step for a constant drag; smaller \(G\) converges in roughly \(1/G\) steps with less impulsive forcing. \(t\), \(Q_{1:3}\), and \(\partial\bar p/\partial x_{1:3}\) are written every step to <span class="tt">mean_dpdx.dat</span> in the case directory. The controller state is not saved in restart files: set <span class="tt">mean_dpdx</span> on restart to the last value in <span class="tt">mean_dpdx.dat</span>. Each forced direction must be periodic (<span class="tt">bc_x[y,z]%beg = bc_x[y,z]%end = -1</span>) and Cartesian.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+Mean gas temperature source (thermostat)</h4>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">mean_qdot</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Uniform heat source per unit volume \(\dot q\) (initial value if controlled; default 0)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">mean_temp</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Target mass-averaged fluid temperature \(T_b^\ast\); enables the controller  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">mean_temp_gain</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Controller gain \(G\), required with <span class="tt">mean_temp</span>, \(0 &lt; G &lt; 4/3\)  </td></tr>
+</table>
+<p>The thermal analogue of the mean pressure gradient: a uniform volumetric heat source that holds the bulk gas temperature of a periodic domain (statistically stationary heat transfer, cf. the thermally fully developed periodic formulation of Tenneti, Sun, Garg &amp; Subramaniam, IJHMT 58, 2013, and Sun, Tenneti &amp; Subramaniam, IJHMT 86, 2015). \(\dot q\) is added to the energy equation. Immersed boundaries are not supported with the thermostat. It requires <span class="tt">chemistry</span>; the controlled quantity is the temperature, so gas-phase heat release lowers the source needed and the controller holds \(T_b^\ast\) net of chemistry ( \(\dot q\) may become negative).</p>
+<p>When <span class="tt">mean_temp</span> is set, \(\dot q\) is updated once per time step from the mass-averaged fluid temperature \(T_b = \sum \rho T\,dV / \sum \rho\,dV\), the quantity the energy budget acts on:</p>
+<p class="formulaDsp">
+\[ \dot q^{n+1} = \dot q^n + \frac{G\,\overline{\rho c_v}}{\Delta t}\left(T_b^\ast - 2T_b^n + T_b^{n-1}\right), \]
+</p>
+<p>with \(\overline{\rho c_v} = \sum \rho c_v\,dV / \sum dV\), the same controller as <span class="tt">mean_mflux</span> (deadbeat for \(G = 1\) and a constant heat loss). \(t\), \(T_b\), the mixing-cup temperature \(T_m = \sum \rho u_1 T\,dV / \sum \rho u_1\,dV\), \(\dot q\), and the fluid volume \(V_f\) (source power \(\dot q V_f\)) are written every step to <span class="tt">mean_temp.dat</span> in the case directory. As for <span class="tt">mean_dpdx</span>, the controller state is not saved in restart files: set <span class="tt">mean_qdot</span> on restart to the last value in <span class="tt">mean_temp.dat</span>. All active directions must be periodic and Cartesian.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
 14. Magnetohydrodynamics (MHD)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1534,7 +1556,7 @@ Mean pressure gradient forcing</h4>
 </ul>
 <p>Note: In 1D/2D/3D simulations, all three velocity components are treated as state variables and must be specified in the case file.</p>
 <p>Note: For relativistic flow, the conservative and primitive densities are different. <span class="tt">rho_wrt</span> outputs the primitive (rest mass) density.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 15. Elasticity</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1566,7 +1588,7 @@ Mean pressure gradient forcing</h4>
 <li><span class="tt">cont_damage</span> activates the continuum damage model for hypoelastic solid materials (requires <span class="tt">hypoelasticity = T</span>; HLL/HLLC only). Damage is produced by tensile maximum principal Cauchy stress beyond <span class="tt">tau_star</span> ( \(\geq 0\)) at rate <span class="tt">(alpha_bar*(sigma_1 - tau_star))**cont_damage_s</span> and is transported with the damageable-solid partial mass; see <a class="el" href="equations.html" title="Equations">Equations</a> for the model statement (Cao et al. <a class="el" href="citelist.html#CITEREF_cao19">[10]</a>; Spratt <a class="el" href="citelist.html#CITEREF_spratt24">[56]</a>). <span class="tt">tau_star</span>, <span class="tt">cont_damage_s</span> ( \(&gt; 0\)), and <span class="tt">alpha_bar</span> ( \(\geq 0\)) are empirically determined.</li>
 <li><span class="tt">reactive_burn</span> converts a "reactant" fluid into a "product" fluid (<span class="tt">num_fluids = 2</span>, <span class="tt">chemistry = 'F'</span>) via a programmed pressure burn <span class="tt">dlambda/dt = rburn%k (1 - lambda) ((p - rburn%pign)/rburn%pref)^rburn%n</span>. The two fluids share the same <span class="tt">gamma</span>/<span class="tt">pi_inf</span> and differ only in <span class="tt">qv</span>, so the conversion releases <span class="tt">qv</span> through the mixture EOS — a reactive-Euler/ZND detonation model on the diffuse-interface framework. It runs on the 5-equation (<span class="tt">model_eqns = 2</span>) and 6-equation (<span class="tt">model_eqns = 3</span>) multi-fluid models. Setting <span class="tt">rburn%ta &gt; 0</span> multiplies the rate by an Arrhenius factor <span class="tt">exp(-rburn%ta/T)</span>, where <span class="tt">T</span> is the reactant phasic temperature, giving temperature-driven ignition instead of a pure pressure switch.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
 16. Cylindrical Coordinates</h3>
 <p>When <span class="tt">cyl_coord = 'T'</span> is set in 3D the following constraints must be met:</p>
 <ul>
@@ -1579,7 +1601,7 @@ Mean pressure gradient forcing</h4>
 <ul>
 <li><span class="tt">bc_y%beg = -2</span> to enable reflective boundary conditions</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 17. Chemistry</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1599,23 +1621,26 @@ Mean pressure gradient forcing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">chem_params%adap_substeps</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Per-rank adaptive sub-step count driven by local stiffness  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">chem_params%transport_dt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Limit the adaptive dt by the local chemistry transport  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">chem_params%reaction_substeps_max</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sub-step ceiling when <span class="tt">adap_substeps</span> is enabled  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">cantera_file</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera-format mechanism file (e.g., .yaml)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">surface_cantera_file</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera-format mechanism file for heterogeneous surface chemistry  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">cantera_file</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera-format mechanism file (e.g., .yaml)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">surface_cantera_file</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera-format mechanism file for heterogeneous surface chemistry  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">surface_phase</span>  </td><td class="markdownTableBodyCenter">String  </td><td class="markdownTableBodyLeft">Cantera interface phase name for heterogeneous surface chemistry  </td></tr>
 </table>
 <ul>
 <li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
 <li><span class="tt">chem_params%reaction_substeps</span> controls how the reaction source is integrated. With <span class="tt">0</span> (default) the net production rates are added to the flow right-hand side and advanced by the flow time stepper (fine for hydrogen). With a value <span class="tt">&gt; 0</span>, the reaction is instead integrated by operator splitting after each flow update: every cell's constant-density, constant-internal-energy reactor is advanced over the timestep with that many sub-steps of an <b>α-QSS</b> (quasi-steady-state) integrator — a matrix-free, Jacobian-free predictor–corrector (Mott/CHEMEQ2) that splits the net rate into creation/destruction parts and applies a Padé α-weighting, so it stays stable on stiff mechanisms where an explicit source diverges. This decouples the (often much faster) chemical timescale from the flow timestep and is required for stiff mechanisms — e.g. hydrocarbons such as GRI-Mech methane, which otherwise diverge on the first step</li>
 <li><span class="tt">chem_params%adap_substeps</span> (default <span class="tt">F</span>) makes each rank choose its α-QSS sub-step count per flow step from the largest chemical stiffness among its own cells: the count sits at <span class="tt">reaction_substeps</span> (the floor) in inert or burned gas and rises toward <span class="tt">reaction_substeps_max</span> (the ceiling) only across the reaction front. It uses no MPI collectives. When enabled, <span class="tt">reaction_substeps &gt;= 1</span> and <span class="tt">reaction_substeps_max &gt;= reaction_substeps</span> are required</li>
+<li><span class="tt">chem_params%transport_dt</span> (default <span class="tt">F</span>) replaces the constant <span class="tt">fluid_pp%Re</span> in the viscous time-step limit with the local mixture transport: dt &lt;= <span class="tt">cfl_target</span>·Δx²/(d·D), with d the number of dimensions (explicit diffusion is stable while the d per-direction diffusion numbers sum below the limit) and D the largest of μ/ρ (with <span class="tt">viscous</span>), and λ/(ρ c_v) and the mixture-averaged diffusivities of the species present, Y_k ≠ 0 (with <span class="tt">chem_params%diffusion</span>). c_v, not c_p, because a cell cannot expand within a step; an absent species has no diffusion to destabilize. Mixture transport grows steeply with temperature, so near hot walls and flames a dt limited by the free-stream viscosity can exceed the explicit diffusion limit. Requires <span class="tt">cfl_adap_dt</span> or <span class="tt">cfl_const_dt</span>, and <span class="tt">viscous</span> or <span class="tt">chem_params%diffusion</span>. A non-Newtonian <span class="tt">mu_max</span> or bulk viscosity (<span class="tt">fluid_pp%Re(2)</span>) still bounds dt when it is tighter. Not supported with <span class="tt">igr</span></li>
 <li><span class="tt">cantera_file</span> specifies the chemical mechanism file. If the file is part of the standard Cantera library, only the filename is required. Otherwise, the file must be located in the same directory as your <span class="tt">case.py</span> file</li>
 <li><span class="tt">surface_cantera_file</span> and <span class="tt">surface_phase</span> specify the Cantera mechanism file and interface phase used for heterogeneous surface chemistry. These parameters must be specified together when a surface mechanism is used.</li>
 </ul>
 <p>MFC generates and compiles the mechanism's Fortran routines itself. Supported mechanism features and the Cantera-only mixing-layer initialization are described in <a class="el" href="thermochemistry.html" title="Thermochemistry implementation">Thermochemistry implementation</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
 18. Chemistry-Specific Boundary Conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1677,7 +1702,7 @@ Mean pressure gradient forcing</h4>
 <li>All HB parameters are non-dimensional (scaled by \(\rho_{\rm ref} U_{\rm ref} L_{\rm ref}\)), so \(1/\mu_{\rm eff}\) equals the local effective Reynolds number.</li>
 <li>For cylindrical geometry (<span class="tt">cyl_coord = T</span>) the shear rate uses the grid-direction strain components; curvature corrections to \(\dot\gamma\) are not yet included.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 20. GPU Performance (NVIDIA UVM)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1692,7 +1717,7 @@ Mean pressure gradient forcing</h4>
 <ul>
 <li>These parameters are for NVIDIA Grace-Hopper and similar architectures with hardware-managed unified memory. They allow MFC to run problems larger than GPU memory by paging data between host and device.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
 20. Synthetic Turbulence</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1724,7 +1749,7 @@ Mean pressure gradient forcing</h4>
 <li><span class="tt">synth_U_inf</span> advects the turbulent field in the x-direction at a constant velocity.</li>
 <li>Forcing is applied only within Gaussian-windowed zones. Each of the <span class="tt">num_turbulent_sources</span> zones must specify its center <span class="tt">turb_pos(i,:)</span> and full extents <span class="tt">synth_L(i,:)</span> for every active dimension (x, and y, z if <span class="tt">n &gt; 0</span>/<span class="tt">p &gt; 0</span>).</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
 Enumerations</h2>
 <h3 class="doxsection"><a class="anchor" id="boundary-conditions"></a>
 Boundary conditions</h3>
@@ -1764,7 +1789,7 @@ Boundary conditions</h3>
 </table>
 <p>*: This boundary condition is only used for <span class="tt">bc_y%beg</span> when using cylindrical coordinates (<span class="tt">cyl_coord = 'T'</span> and 3D). For axisymmetric problems, use <span class="tt">bc_y%beg = -2</span> with <span class="tt">cyl_coord = 'T'</span> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table <a class="el" href="#boundary-conditions" title="Boundary conditions">Boundary Conditions</a>. Their number (<span class="tt">#</span>) corresponds to the input value in <span class="tt">input.py</span> labeled <span class="tt">bc_[x,y,z]%[beg,end]</span> (see table <a class="el" href="#sec-simulation-algorithm" title="6. Simulation Algorithm">Simulation Algorithm Parameters</a>). The entries labeled "Characteristic." are characteristic boundary conditions based on Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[61]</a> and Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[62]</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
 Generalized Characteristic Boundary conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1920,7 +1945,7 @@ Acoustic Supports</h3>
 <li><span class="tt">%support = 10</span> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <span class="tt">%support = 9</span> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <span class="tt">%support = 9</span> around the x-axis.</li>
 <li><span class="tt">%support = 11</span> specifies a circular transducer array in 3D simulation. The total aperture of the array is <span class="tt">%aperture</span>, which is similar to <span class="tt">%support = 7</span>. The parameters <span class="tt">%num_elements</span>, <span class="tt">%element_polygon_ratio</span>, and <span class="tt">%rotate_angle</span> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <span class="tt">%num_elements</span>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
 Conservative Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1946,7 +1971,7 @@ Conservative Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
 Primitive Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1972,7 +1997,7 @@ Primitive Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-08</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-09</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

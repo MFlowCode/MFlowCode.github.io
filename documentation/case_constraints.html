@@ -157,7 +157,7 @@ $(function(){initNavTree('case_constraints.html','',''); });
   <div class="headertitle"><div class="title">Case Creator Guide </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
 Case Creator Guide</h1>
 <blockquote class="doxtable">
 <p><b>Quick reference</b> for building MFC cases: working examples, compatibility rules, and configuration requirements. </p>
@@ -170,7 +170,7 @@ Case Creator Guide</h1>
 <blockquote class="doxtable">
 <p><b>Learn by example:</b> The cases below are curated from MFC's <span class="tt">examples/</span> directory and are validated, working configurations. Use them as blueprints for building your own simulations. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
 🟢 Beginner Examples</h3>
 <details >
 <summary >
@@ -196,7 +196,7 @@ Case Creator Guide</h1>
 </ul>
 <p></p>
 </details>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
 🟡 Intermediate Examples</h3>
 <details >
 <summary >
@@ -329,7 +329,7 @@ Case Creator Guide</h1>
 </ul>
 <p></p>
 </details>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 🔴 Advanced Examples</h3>
 <details >
 <summary >
@@ -707,6 +707,7 @@ Geometry</h3>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>dt must be set when using fixed time stepping (t_step_start/t_step_stop)</li>
+<li>chem_paramstransport_dt requires cfl_adap_dt or cfl_const_dt</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>t_stop must be positive</li>
@@ -740,9 +741,9 @@ Geometry</h3>
 <li>When enabled, requires: <span class="tt">cantera_file</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>ib_surface_wrt requires ib and chemistry</li>
 <li>patch_ib(i)thermal_bc = thermal_bc requires chemistry = T</li>
 <li>patch_ib(i)thermal_bc = 1 requires chemistry = T or fluid_pp(1)k_therm &gt; 0</li>
-<li>patch_ib(i)thermal_bc = 1 without chemistry requires num_fluids = 1</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD hypoelasticity does not support chemistry</li>
@@ -1549,6 +1550,7 @@ Geometry</h3>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>weno_Re_flux requires viscous to be enabled</li>
 <li>fluid_pp(i)non_newtonian requires viscous = T</li>
+<li>chem_paramstransport_dt requires viscous = T or chem_paramsdiffusion = T</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD hypoelasticity does not support viscous effects (the dual-pass omits the viscous source term)</li>
@@ -1633,7 +1635,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-09</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
