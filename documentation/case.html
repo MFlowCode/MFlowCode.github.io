@@ -453,29 +453,33 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_ip_min_dist</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Minimum boundary-to-image-point distance, in local cell widths, for <span class="tt">ib_second_order_vel</span>.  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">ib_ip_interp</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Image-point interpolation: 1 inverse-distance weights over 2x2(x2) cells (default), 2 triangular-shaped-cloud (TSC) weights over 3x3(x3) cells.  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Length, if applicable, in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius, if applicable, of the applied geometry.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">airfoil_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">ib_airfoil</span> array for NACA airfoil geometry patches.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">model_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">stl_models</span> array for STL/OBJ geometry patches.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">slip</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Apply a slip boundary  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">thermal_bc</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Thermal boundary-condition selector: 0 = zero-normal-gradient temperature, 1 = prescribed wall temperature, 2 = reacting surface energy balance.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">Twall</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Prescribed wall temperature used when <span class="tt">thermal_bc = 1</span>.  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">thermal_layer</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Thickness of the initial conductive layer around a <span class="tt">thermal_bc = 1</span> circle or sphere [m]; 0 = none.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">surface_reaction</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Heterogeneous surface-reaction flag: 0 = disabled, 1 = enabled.  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">thermal_layer</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Thickness of the initial conductive layer around a <span class="tt">thermal_bc = 1</span> circle or sphere [m]; 0 = none.  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">surface_reaction</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Heterogeneous surface-reaction flag: 0 = disabled, 1 = enabled.  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sets the method used for IB movement.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">mass</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Body mass; must be &gt; 0 for <span class="tt">moving_ibm = 2</span>, whose acceleration is force/mass.  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial velocity of the moving IB in the i-th direction.  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -557,6 +561,7 @@ Parameter Descriptions</h4>
 <li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
 <li><span class="tt">ib_second_order_vel</span> replaces the default ghost-point velocity, which imposes the wall velocity at the ghost point, with the linear extrapolation of Mittal et al. (2008) through the boundary intercept and replaces the interpolation scheme with a bilinear weight interpolation.</li>
 <li><span class="tt">ib_ip_min_dist</span> sets \(d_{IP} = \max(d_{GP}, \text{ib\_ip\_min\_dist}\,\Delta)\), with \(\Delta\) the smallest local cell width, so image points of near-wall ghost points interpolate from fluid cells. The default 0 is the pure mirror ( \(d_{IP} = d_{GP}\)). About \(\sqrt{2}\) in 2D ( \(\sqrt{3}\) in 3D) keeps the stencil off a locally planar wall.</li>
+<li><span class="tt">ib_ip_interp</span> selects how the state at a ghost point's image point is interpolated from the grid. <span class="tt">1</span> (default) is the inverse-distance weighting over the 2x2(x2) cells around the point, which drops solid cells from the stencil. <span class="tt">2</span> uses triangular-shaped-cloud (quadratic B-spline) weights over the 3x3(x3) cells around the nearest cell (Ezra, Peles &amp; Kozak 2025, Int. J. Heat Mass Transf. 252:127314). The kernel is a partition of unity and smooth across cell boundaries, so a wall quantity interpolated from it converges one order faster than from inverse-distance weights, which are only continuous. The TSC stencil reads solid cells, which carry the ghost values of the last correction; a point buried in a body gets no fluid weight and takes the neighbor average. It does not combine with <span class="tt">ib_second_order_vel</span>.</li>
 <li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. A value of $r$ indicates that any given rank is aware of IBs up to $r$ ranks away. This value defaults to 0, which leaves the radius unset so that it is selected automatically. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
@@ -1499,7 +1504,7 @@ Mean pressure gradient forcing</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">mean_mflux(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Target fluid-averaged bulk mass flux \(Q_i^\ast\); enables the controller in direction <span class="tt">i</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">mean_dpdx_gain</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Controller gain \(G\), required with <span class="tt">mean_mflux</span>, \(0 &lt; G &lt; 4/3\)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">mean_dpdx_gain</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Controller gain \(G\), required with <span class="tt">mean_mflux</span>, \(0 &lt; G &lt; 4/3\); needs a constant <span class="tt">dt</span> (no <span class="tt">cfl_adap_dt</span>)  </td></tr>
 </table>
 <p>These drive a flow through a periodic direction with a mean pressure gradient, as in particle-resolved random-array studies (e.g. Tenneti, Garg &amp; Subramaniam, IJMF 2011). Unlike <span class="tt">bf_x[y,z]</span>, the source \(f_i = -\partial\bar p/\partial x_i\) is a force per unit volume, independent of density. It is added to the momentum equation, with work \(\mathbf{u}\cdot\mathbf{f}\) added to the energy equation. Immersed boundaries are not supported with the mean pressure gradient.</p>
 <p>When <span class="tt">mean_mflux(i)</span> is set, \(f_i\) is updated once per time step to hold the fluid-averaged bulk mass flux \(Q_i = \sum \rho u_i\,dV / \sum dV\) at \(Q_i^\ast\):</p>
@@ -1517,7 +1522,7 @@ Mean gas temperature source (thermostat)</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">mean_temp</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Target mass-averaged fluid temperature \(T_b^\ast\); enables the controller  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">mean_temp_gain</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Controller gain \(G\), required with <span class="tt">mean_temp</span>, \(0 &lt; G &lt; 4/3\)  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">mean_temp_gain</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Controller gain \(G\), required with <span class="tt">mean_temp</span>, \(0 &lt; G &lt; 4/3\); needs a constant <span class="tt">dt</span> (no <span class="tt">cfl_adap_dt</span>)  </td></tr>
 </table>
 <p>The thermal analogue of the mean pressure gradient: a uniform volumetric heat source that holds the bulk gas temperature of a periodic domain (statistically stationary heat transfer, cf. the thermally fully developed periodic formulation of Tenneti, Sun, Garg &amp; Subramaniam, IJHMT 58, 2013, and Sun, Tenneti &amp; Subramaniam, IJHMT 86, 2015). \(\dot q\) is added to the energy equation. Immersed boundaries are not supported with the thermostat. It requires <span class="tt">chemistry</span>; the controlled quantity is the temperature, so gas-phase heat release lowers the source needed and the controller holds \(T_b^\ast\) net of chemistry ( \(\dot q\) may become negative).</p>
 <p>When <span class="tt">mean_temp</span> is set, \(\dot q\) is updated once per time step from the mass-averaged fluid temperature \(T_b = \sum \rho T\,dV / \sum \rho\,dV\), the quantity the energy budget acts on:</p>
@@ -1633,6 +1638,7 @@ Mean gas temperature source (thermostat)</h4>
 </table>
 <ul>
 <li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
+<li>With <span class="tt">chemistry = 'T'</span>, species mass fractions are kept in [0, 1] by construction: reconstructed face values are limited onto the simplex (Zhang &amp; Shu 2010), so the species fluxes sum to the mass flux (Larrouturou 1991), and with HLLC they are the upwind mass fractions times the mass flux (other Riemann solvers keep only the sum consistency); the diffusion correction velocity carries upwind mass fractions; and the α-QSS reaction substep keeps non-negative compositions non-negative without clipping. As a last resort, any cell still outside the bounds at the end of an RK stage is cleaned as in PeleC (clean_massfrac): partial densities clipped to [0, ρ], ρ reset to their sum, velocity and specific energy kept, with the number of fluid-cell cleanings (per cell per RK stage) printed. Cell averages provably stay non-negative when, in every cell, dt times the outgoing mass flux per unit length, summed over directions, is at most the reconstruction's Gauss–Lobatto endpoint weight (1/12 for WENO5, 1/6 for WENO3, 1/2 for MUSCL) times ρ; at usual CFL numbers, and for the diffusion terms, the limiter and upwinding are standard practice rather than a proof, and the fallback cleanup is the safety net.</li>
 <li><span class="tt">chem_params%reaction_substeps</span> controls how the reaction source is integrated. With <span class="tt">0</span> (default) the net production rates are added to the flow right-hand side and advanced by the flow time stepper (fine for hydrogen). With a value <span class="tt">&gt; 0</span>, the reaction is instead integrated by operator splitting after each flow update: every cell's constant-density, constant-internal-energy reactor is advanced over the timestep with that many sub-steps of an <b>α-QSS</b> (quasi-steady-state) integrator — a matrix-free, Jacobian-free predictor–corrector (Mott/CHEMEQ2) that splits the net rate into creation/destruction parts and applies a Padé α-weighting, so it stays stable on stiff mechanisms where an explicit source diverges. This decouples the (often much faster) chemical timescale from the flow timestep and is required for stiff mechanisms — e.g. hydrocarbons such as GRI-Mech methane, which otherwise diverge on the first step</li>
 <li><span class="tt">chem_params%adap_substeps</span> (default <span class="tt">F</span>) makes each rank choose its α-QSS sub-step count per flow step from the largest chemical stiffness among its own cells: the count sits at <span class="tt">reaction_substeps</span> (the floor) in inert or burned gas and rises toward <span class="tt">reaction_substeps_max</span> (the ceiling) only across the reaction front. It uses no MPI collectives. When enabled, <span class="tt">reaction_substeps &gt;= 1</span> and <span class="tt">reaction_substeps_max &gt;= reaction_substeps</span> are required</li>
 <li><span class="tt">chem_params%transport_dt</span> (default <span class="tt">F</span>) replaces the constant <span class="tt">fluid_pp%Re</span> in the viscous time-step limit with the local mixture transport: dt &lt;= <span class="tt">cfl_target</span>·Δx²/(d·D), with d the number of dimensions (explicit diffusion is stable while the d per-direction diffusion numbers sum below the limit) and D the largest of μ/ρ (with <span class="tt">viscous</span>), and λ/(ρ c_v) and the mixture-averaged diffusivities of the species present, Y_k ≠ 0 (with <span class="tt">chem_params%diffusion</span>). c_v, not c_p, because a cell cannot expand within a step; an absent species has no diffusion to destabilize. Mixture transport grows steeply with temperature, so near hot walls and flames a dt limited by the free-stream viscosity can exceed the explicit diffusion limit. Requires <span class="tt">cfl_adap_dt</span> or <span class="tt">cfl_const_dt</span>, and <span class="tt">viscous</span> or <span class="tt">chem_params%diffusion</span>. A non-Newtonian <span class="tt">mu_max</span> or bulk viscosity (<span class="tt">fluid_pp%Re(2)</span>) still bounds dt when it is tighter. Not supported with <span class="tt">igr</span></li>
@@ -1997,7 +2003,7 @@ Primitive Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-09</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-10</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

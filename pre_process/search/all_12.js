@@ -97,7 +97,7 @@ var searchData=
   ['s_5fconvert_5fprimitive_5fto_5fconservative_5fvariables_94',['s_convert_primitive_to_conservative_variables',['../namespacem__variables__conversion.html#a6948eb28c04a325dc94f777d20558a1e',1,'m_variables_conversion']]],
   ['s_5fconvert_5fprimitive_5fto_5fflux_5fvariables_95',['s_convert_primitive_to_flux_variables',['../namespacem__variables__conversion.html#aa198f649115ef044b285170f886094ac',1,'m_variables_conversion']]],
   ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_96',['s_convert_species_to_mixture_variables',['../namespacem__variables__conversion.html#a7f3bffa0ba13432f79f095a78fcf6e5a',1,'m_variables_conversion']]],
-  ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5fkernel_97',['s_convert_species_to_mixture_variables_kernel',['../namespacem__variables__conversion.html#ac00dd41bc1a03bc4ee830cfa4fc7f2e6',1,'m_variables_conversion']]],
+  ['s_5fconvert_5fspecies_5fto_5fmixture_5fvariables_5fkernel_97',['s_convert_species_to_mixture_variables_kernel',['../namespacem__variables__conversion.html#ab530e862185674f74e71152c3d147c65',1,'m_variables_conversion']]],
   ['s_5fconvert_5fto_5fmixture_5fvariables_98',['s_convert_to_mixture_variables',['../namespacem__variables__conversion.html#ad79dc943a9108e838d80bb2b264fba8e',1,'m_variables_conversion']]],
   ['s_5fcreate_5fdirectory_99',['s_create_directory',['../namespacem__compile__specific.html#aa1b4e12a20e09147a215c3b5018484b0',1,'m_compile_specific']]],
   ['s_5fcreate_5fmpi_5ftypes_100',['s_create_mpi_types',['../namespacem__boundary__io.html#a74922617e3b2c7a414056d32bc6aa14d',1,'m_boundary_io']]],

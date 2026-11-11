@@ -175,6 +175,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a953d58cda7b882aa82ecf5f646bba0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add chemical reaction source terms to the species transport RHS using net production rates.  <br /></td></tr>
 <tr class="memitem:ac8e41fe81d743b1fb307fe95ffdc0c1b" id="r_ac8e41fe81d743b1fb307fe95ffdc0c1b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac8e41fe81d743b1fb307fe95ffdc0c1b">s_chemistry_reaction_substep</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, dtime, bounds)</td></tr>
 <tr class="memdesc:ac8e41fe81d743b1fb307fe95ffdc0c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition).  <br /></td></tr>
+<tr class="memitem:afceb64f9c9d24f599be335127532fd5e" id="r_afceb64f9c9d24f599be335127532fd5e"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#afceb64f9c9d24f599be335127532fd5e">f_qss_alpha</a> (r)</td></tr>
+<tr class="memdesc:afceb64f9c9d24f599be335127532fd5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">alpha-QSS weight for a sub-step with dt*(loss rate) = r. (1 - alpha)*r &lt; 1 for every r &gt;= 0, so a step from non-negative mass fractions with non-negative production stays non-negative.  <br /></td></tr>
 <tr class="memitem:aa46bc89032c53af80b5f7be732dbfb9f" id="r_aa46bc89032c53af80b5f7be732dbfb9f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa46bc89032c53af80b5f7be732dbfb9f">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_flat, irx, iry, irz, q_t_sf)</td></tr>
 <tr class="memdesc:aa46bc89032c53af80b5f7be732dbfb9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -232,6 +234,32 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="afceb64f9c9d24f599be335127532fd5e" name="afceb64f9c9d24f599be335127532fd5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afceb64f9c9d24f599be335127532fd5e">&#9670;&#160;</a></span>f_qss_alpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_chemistry::f_qss_alpha </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>alpha-QSS weight for a sub-step with dt*(loss rate) = r. (1 - alpha)*r &lt; 1 for every r &gt;= 0, so a step from non-negative mass fractions with non-negative production stays non-negative. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01031">1031</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_afceb64f9c9d24f599be335127532fd5e_icgraph.svg" width="399" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="ac8e41fe81d743b1fb307fe95ffdc0c1b" name="ac8e41fe81d743b1fb307fe95ffdc0c1b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac8e41fe81d743b1fb307fe95ffdc0c1b">&#9670;&#160;</a></span>s_chemistry_reaction_substep()</h2>
 
@@ -264,6 +292,11 @@ Variables</h2></td></tr>
 <p>Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition). </p>
 
 <p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00702">702</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_ac8e41fe81d743b1fb307fe95ffdc0c1b_cgraph.svg" width="399" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -319,7 +352,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01036">1036</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01057">1057</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>

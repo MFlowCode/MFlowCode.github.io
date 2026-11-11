@@ -707,6 +707,7 @@ Geometry</h3>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>dt must be set when using fixed time stepping (t_step_start/t_step_stop)</li>
+<li>target requires a constant time step: cfl_adap_dt must be off</li>
 <li>chem_paramstransport_dt requires cfl_adap_dt or cfl_const_dt</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
@@ -944,6 +945,18 @@ Geometry</h3>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>num_ibs must be &gt;= 1 when ib is enabled (or specify at least one particle_cloud with num_particles &gt; 0)</li>
 <li>num_ibs must be &lt;= num_ib_patches_max (num_ib_patches_max_namelist in m_constants.fpp)</li>
+</ul>
+<p></p>
+</details>
+<details >
+<summary >
+<b>ib_ip_interp</b> (<span class="tt">ib_ip_interp</span>)</summary>
+<p></p>
+<p><b>Schema constraints:</b></p><ul>
+<li>Choices: <span class="tt">1</span> = inverse-distance weights, 2x2(x2) cells, <span class="tt">2</span> = triangular-shaped-cloud weights, 3x3(x3) cells</li>
+</ul>
+<p><b>Requirements</b> (errors):</p><ul>
+<li>ib_ip_interp requires ib to be enabled</li>
 </ul>
 <p></p>
 </details>
@@ -1635,7 +1648,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-10</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-11</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

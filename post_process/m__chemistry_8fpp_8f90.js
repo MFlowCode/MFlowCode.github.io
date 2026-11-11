@@ -1,6 +1,7 @@
 var m__chemistry_8fpp_8f90 =
 [
     [ "m_chemistry::compute_viscosity_and_inversion", "namespacem__chemistry.html#adcf7ea4e71da08b937a94689dc134882", null ],
+    [ "m_chemistry::f_qss_alpha", "namespacem__chemistry.html#afceb64f9c9d24f599be335127532fd5e", null ],
     [ "m_chemistry::s_chemistry_reaction_substep", "namespacem__chemistry.html#ac8e41fe81d743b1fb307fe95ffdc0c1b", null ],
     [ "m_chemistry::s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#aa46bc89032c53af80b5f7be732dbfb9f", null ],
     [ "m_chemistry::s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6", null ],

@@ -2,11 +2,12 @@ var structm__derived__types_1_1ghost__point =
 [
     [ "db", "structm__derived__types_1_1ghost__point.html#abb6741d6f09ca4fbd71491deff59feca", null ],
     [ "ib_patch_id", "structm__derived__types_1_1ghost__point.html#a9d3df6e996facf4a53a91130027a3579", null ],
-    [ "interp_coeffs", "structm__derived__types_1_1ghost__point.html#a8d0cf4ddfd195cf0935b02e5c5267a57", null ],
+    [ "interp_coeffs", "structm__derived__types_1_1ghost__point.html#ae7d7f71141452fd104b2b42a59f27b69", null ],
     [ "interp_valid", "structm__derived__types_1_1ghost__point.html#a746d17c296d182784ac386330b5bbf2c", null ],
     [ "ip_dist", "structm__derived__types_1_1ghost__point.html#a15a3f36ffbb1bd396c404f572d282606", null ],
     [ "ip_grid", "structm__derived__types_1_1ghost__point.html#a3c5cc9af5e855c8a366c4f58eef1d646", null ],
     [ "ip_loc", "structm__derived__types_1_1ghost__point.html#a04d76b5bb46de3a1c2432f972893961d", null ],
+    [ "ip_stencil", "structm__derived__types_1_1ghost__point.html#afe22f5030807616fc4563149a912d821", null ],
     [ "levelset", "structm__derived__types_1_1ghost__point.html#a6d6b9ba23cbd190a4af9385c781ed9c8", null ],
     [ "levelset_norm", "structm__derived__types_1_1ghost__point.html#af976ab431e8ef9e6b437664327174e3e", null ],
     [ "loc", "structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44", null ],
