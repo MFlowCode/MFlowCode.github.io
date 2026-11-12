@@ -76,6 +76,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::ib_second_order_vel", "namespacem__global__parameters__common.html#a4b295b6329d4aecd57d400c5390ccf85", null ],
     [ "m_global_parameters_common::ib_state_wrt", "namespacem__global__parameters__common.html#a12c9eea2b592ab77bf8763b43814a78a", null ],
     [ "m_global_parameters_common::ib_surface_wrt", "namespacem__global__parameters__common.html#a51a0cfac72344c5bc7dab173cf3a00d1", null ],
+    [ "m_global_parameters_common::ib_wall_order", "namespacem__global__parameters__common.html#a4f2f6a0f8a5e79dba1b652b6a6394996", null ],
     [ "m_global_parameters_common::ic_beta", "namespacem__global__parameters__common.html#a29f9cb020a1e626e9122f5b61b8989af", null ],
     [ "m_global_parameters_common::ic_eps", "namespacem__global__parameters__common.html#a7efe5506d27cf4a5b08a6ed7fef666d7", null ],
     [ "m_global_parameters_common::igr", "namespacem__global__parameters__common.html#a2059a73bab13312fccb9c299e2ed2eed", null ],
