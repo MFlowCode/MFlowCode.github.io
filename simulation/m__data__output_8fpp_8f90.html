@@ -194,12 +194,17 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a53a556dc3fa26f1f97eb2044e8391997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the IB state information out to file.  <br /></td></tr>
 <tr class="memitem:a865687c6a3188efbd71b29b439302ec1" id="r_a865687c6a3188efbd71b29b439302ec1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a865687c6a3188efbd71b29b439302ec1">m_data_output::s_write_serial_ib_state</a> (t_step)</td></tr>
 <tr class="memdesc:a865687c6a3188efbd71b29b439302ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write IB state data to a per-timestep serial (unformatted) file.  <br /></td></tr>
-<tr class="memitem:a8d73bad55102d0442abeeb057c4d6aef" id="r_a8d73bad55102d0442abeeb057c4d6aef"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a8d73bad55102d0442abeeb057c4d6aef">m_data_output::s_write_ib_force_history</a> (t_step)</td></tr>
-<tr class="memdesc:a8d73bad55102d0442abeeb057c4d6aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record every immersed body's force, torque and kinematics for this step.  <br /></td></tr>
-<tr class="memitem:a679ff0f5511ae7481f474db8a51d34bb" id="r_a679ff0f5511ae7481f474db8a51d34bb"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a679ff0f5511ae7481f474db8a51d34bb">m_data_output::s_open_ib_force_history</a></td></tr>
-<tr class="memdesc:a679ff0f5511ae7481f474db8a51d34bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the shared history file. Done once for the run.  <br /></td></tr>
-<tr class="memitem:a8515ed6a92779575d4c1878f53113ff4" id="r_a8515ed6a92779575d4c1878f53113ff4"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a8515ed6a92779575d4c1878f53113ff4">m_data_output::s_close_ib_force_history</a></td></tr>
-<tr class="memdesc:a8515ed6a92779575d4c1878f53113ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the history file. Nothing is buffered, so there is nothing to flush first.  <br /></td></tr>
+<tr class="memitem:a565861aaf83ca5636f8622407b108749" id="r_a565861aaf83ca5636f8622407b108749"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a565861aaf83ca5636f8622407b108749">m_data_output::s_write_ib_history</a> (t_step)</td></tr>
+<tr class="memdesc:a565861aaf83ca5636f8622407b108749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record every immersed body's force, torque and kinematics (D/ib_forces.dat, ib_force_wrt with ib_state_wrt) and its mass and heat exchange (D/ib_heat.dat, ib_heat_wrt) for this step.  <br /></td></tr>
+<tr class="memitem:a0a885960d06c1c1e6df802ac32a4535a" id="r_a0a885960d06c1c1e6df802ac32a4535a"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a0a885960d06c1c1e6df802ac32a4535a">m_data_output::s_write_ib_record</a> (unit, row, gid, fields)</td></tr>
+<tr class="memdesc:a0a885960d06c1c1e6df802ac32a4535a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write body gid's record in the given row. The format is fixed width by construction: every ES descriptor right-justifies in its field, including for negatives, three-digit exponents, NaN and Inf, so a record is always 10 + 18*size(fields) characters plus its newline. That is what lets a rank write at a computed byte offset, with no gather and no per-rank shards.  <br /></td></tr>
+<tr class="memitem:a94ea575aed944cdce8815fe3f9b76ace" id="r_a94ea575aed944cdce8815fe3f9b76ace"><td class="memItemLeft">pure character(len=32) function&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a94ea575aed944cdce8815fe3f9b76ace">m_data_output::f_ib_rec_fmt</a> (nf)</td></tr>
+<tr class="memdesc:a94ea575aed944cdce8815fe3f9b76ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record format for nf reals after the body id.  <br /></td></tr>
+<tr class="memitem:ad159cbf108de8bc5227e5fd2fa83a8ac" id="r_ad159cbf108de8bc5227e5fd2fa83a8ac"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#ad159cbf108de8bc5227e5fd2fa83a8ac">m_data_output::s_open_ib_history</a> (unit, stem, nf)</td></tr>
+<tr class="memdesc:ad159cbf108de8bc5227e5fd2fa83a8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the shared history file D/&lt;stem&gt;.dat of nf-real records. Done once for the run.  <br /></td></tr>
+<tr class="memitem:adc92dcbfd2c015eb050515b44d92b7a6" id="r_adc92dcbfd2c015eb050515b44d92b7a6"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#adc92dcbfd2c015eb050515b44d92b7a6">m_data_output::s_close_ib_history</a></td></tr>
+<tr class="memdesc:adc92dcbfd2c015eb050515b44d92b7a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the history files. Nothing is buffered, so there is nothing to flush first.  <br /></td></tr>
+<tr class="memitem:a717c1fb540d55feb9e487a9fc27b33e1" id="r_a717c1fb540d55feb9e487a9fc27b33e1"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a717c1fb540d55feb9e487a9fc27b33e1">s_close_unit</a> (unit)</td></tr>
 <tr class="memitem:ad7b2f63ea430ad1518152658c5488dcf" id="r_ad7b2f63ea430ad1518152658c5488dcf"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#ad7b2f63ea430ad1518152658c5488dcf">m_data_output::s_write_ib_state_file</a> (time_step)</td></tr>
 <tr class="memdesc:ad7b2f63ea430ad1518152658c5488dcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes IB state records to restart_data/ib_state.dat. Called on every rank.  <br /></td></tr>
 <tr class="memitem:a26732099fe08301c8b312ae35ac4b535" id="r_a26732099fe08301c8b312ae35ac4b535"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a26732099fe08301c8b312ae35ac4b535">m_data_output::s_write_centroid_offsets</a> (step)</td></tr>
@@ -252,14 +257,13 @@ Functions/Subroutines</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:addfc053fb62d4bc8d27a1576330991b4" id="r_addfc053fb62d4bc8d27a1576330991b4"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#addfc053fb62d4bc8d27a1576330991b4">m_data_output::q_cons_temp_ds</a></td></tr>
-<tr class="memitem:abe27e5415e853b185e95ba5463f73b40" id="r_abe27e5415e853b185e95ba5463f73b40"><td class="memItemLeft">character(len= *), parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#abe27e5415e853b185e95ba5463f73b40">m_data_output::ib_rec_fmt</a> = '(I10,19(1X,ES17.9E3))'</td></tr>
-<tr class="memdesc:abe27e5415e853b185e95ba5463f73b40"><td class="mdescLeft">&#160;</td><td class="mdescRight">One fixed-width text record per immersed body per recorded step, in D/ib_forces.dat.  <br /></td></tr>
-<tr class="memitem:aa381db3b44573b9c9f24b6e58ab8a4c4" id="r_aa381db3b44573b9c9f24b6e58ab8a4c4"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#aa381db3b44573b9c9f24b6e58ab8a4c4">m_data_output::ib_rec_body</a> = 10 + 19*18</td></tr>
-<tr class="memdesc:aa381db3b44573b9c9f24b6e58ab8a4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">characters the format emits  <br /></td></tr>
-<tr class="memitem:a9f36d3cf833bb1ffe506c0270127af08" id="r_a9f36d3cf833bb1ffe506c0270127af08"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a9f36d3cf833bb1ffe506c0270127af08">m_data_output::ib_rec_len</a> = IB_REC_BODY + 1</td></tr>
-<tr class="memdesc:a9f36d3cf833bb1ffe506c0270127af08"><td class="mdescLeft">&#160;</td><td class="mdescRight">plus the newline  <br /></td></tr>
+<tr class="memitem:a78704b8b34c30c0bb73303ad68a2a269" id="r_a78704b8b34c30c0bb73303ad68a2a269"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a78704b8b34c30c0bb73303ad68a2a269">m_data_output::ib_force_nf</a> = 19</td></tr>
+<tr class="memdesc:a78704b8b34c30c0bb73303ad68a2a269"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-body history files, one fixed-width text record per body per recorded step (s_write_ib_record): reals per record, and the units held open for the run (-1 until the first write).  <br /></td></tr>
+<tr class="memitem:acbbe75efe28691e18856e7ce4c6c4649" id="r_acbbe75efe28691e18856e7ce4c6c4649"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#acbbe75efe28691e18856e7ce4c6c4649">m_data_output::ib_heat_nf</a> = 5</td></tr>
 <tr class="memitem:ac5f92d0384c353f333ed05b2b102bf8b" id="r_ac5f92d0384c353f333ed05b2b102bf8b"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#ac5f92d0384c353f333ed05b2b102bf8b">m_data_output::ib_hist_file</a> = -1</td></tr>
-<tr class="memdesc:ac5f92d0384c353f333ed05b2b102bf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">held open for the run; -1 until first write  <br /></td></tr>
+<tr class="memdesc:ac5f92d0384c353f333ed05b2b102bf8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">D/ib_forces.dat.  <br /></td></tr>
+<tr class="memitem:a9206883af069c371a65058f5831f1f2e" id="r_a9206883af069c371a65058f5831f1f2e"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a9206883af069c371a65058f5831f1f2e">m_data_output::ib_heat_file</a> = -1</td></tr>
+<tr class="memdesc:a9206883af069c371a65058f5831f1f2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">D/ib_heat.dat.  <br /></td></tr>
 <tr class="memitem:a0854e9aecaeaccbd38f66beae209eb1a" id="r_a0854e9aecaeaccbd38f66beae209eb1a"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a0854e9aecaeaccbd38f66beae209eb1a">m_data_output::lag_evol_id</a> = 11</td></tr>
 <tr class="memdesc:a0854e9aecaeaccbd38f66beae209eb1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-rank Lagrangian evolution files.  <br /></td></tr>
 <tr class="memitem:a84ccf36cfeaba1cc55a76b3ba72cf28a" id="r_a84ccf36cfeaba1cc55a76b3ba72cf28a"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a84ccf36cfeaba1cc55a76b3ba72cf28a">m_data_output::lag_stats_id</a> = 12</td></tr>
@@ -286,7 +290,40 @@ Variables</h2></td></tr>
 <div class="textblock"><p>Contains module <a class="el" href="namespacem__data__output.html" title="Writes solution data, run-time stability diagnostics (ICFL, VCFL, CCFL, Rc), and probe/center-of-mass...">m_data_output</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
-</div></div><!-- contents -->
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a717c1fb540d55feb9e487a9fc27b33e1" name="a717c1fb540d55feb9e487a9fc27b33e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a717c1fb540d55feb9e487a9fc27b33e1">&#9670;&#160;</a></span>s_close_unit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine s_close_ib_history::s_close_unit </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>unit</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01910">1910</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__data__output_8fpp_8f90_a717c1fb540d55feb9e487a9fc27b33e1_icgraph.svg" width="336" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

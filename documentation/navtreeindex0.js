@@ -59,6 +59,7 @@ var NAVTREEINDEX0 =
 "case.html#sec-fluid-materials":[3,0,3,4],
 "case.html#sec-formatted-output":[3,0,3,6],
 "case.html#sec-ib-force-history":[3,0,3,6,0],
+"case.html#sec-ib-heat-history":[3,0,3,6,1],
 "case.html#sec-immersed-boundary-patches":[3,0,3,3],
 "case.html#sec-non-newtonian":[3,0,3,18],
 "case.html#sec-patches":[3,0,3,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "equations.html#sec-flow-params-bubbles":[8,0,1,1,3],
 "equations.html#sec-material-values":[8,0,1,0,2],
 "equations.html#sec-nondim-bubble-dynamics":[8,0,1,1,0],
-"equations.html#sec-nondim-example":[8,0,1,2],
-"equations.html#sec-nondim-inputs":[8,0,1,1,2]
+"equations.html#sec-nondim-example":[8,0,1,2]
 };

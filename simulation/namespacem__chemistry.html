@@ -177,8 +177,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ac8e41fe81d743b1fb307fe95ffdc0c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition).  <br /></td></tr>
 <tr class="memitem:afceb64f9c9d24f599be335127532fd5e" id="r_afceb64f9c9d24f599be335127532fd5e"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#afceb64f9c9d24f599be335127532fd5e">f_qss_alpha</a> (r)</td></tr>
 <tr class="memdesc:afceb64f9c9d24f599be335127532fd5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">alpha-QSS weight for a sub-step with dt*(loss rate) = r. (1 - alpha)*r &lt; 1 for every r &gt;= 0, so a step from non-negative mass fractions with non-negative production stays non-negative.  <br /></td></tr>
-<tr class="memitem:aa46bc89032c53af80b5f7be732dbfb9f" id="r_aa46bc89032c53af80b5f7be732dbfb9f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa46bc89032c53af80b5f7be732dbfb9f">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_flat, irx, iry, irz, q_t_sf)</td></tr>
-<tr class="memdesc:aa46bc89032c53af80b5f7be732dbfb9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
+<tr class="memitem:a00fe740845f49fe69a5c0685061b6f89" id="r_a00fe740845f49fe69a5c0685061b6f89"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a00fe740845f49fe69a5c0685061b6f89">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_flat, irx, iry, irz, q_t_sf, ib_marks, wall_a, use_wall)</td></tr>
+<tr class="memdesc:a00fe740845f49fe69a5c0685061b6f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
+<tr class="memitem:a29bd713ec9b131030ad54a8b26cf1aa1" id="r_a29bd713ec9b131030ad54a8b26cf1aa1"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a29bd713ec9b131030ad54a8b26cf1aa1">f_flux_wall_face</a> (x, y, z, offsets, ib_marks, wall_a)</td></tr>
+<tr class="memdesc:a29bd713ec9b131030ad54a8b26cf1aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the face between cell (x, y, z) and its neighbour at + offsets is a reacting-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -230,11 +232,61 @@ Variables</h2></td></tr>
 
 <p>Compute mixture viscosities for left and right states and invert them for use as reciprocal Reynolds numbers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_adcf7ea4e71da08b937a94689dc134882_icgraph.svg" width="623" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a29bd713ec9b131030ad54a8b26cf1aa1" name="a29bd713ec9b131030ad54a8b26cf1aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29bd713ec9b131030ad54a8b26cf1aa1">&#9670;&#160;</a></span>f_flux_wall_face()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function m_chemistry::f_flux_wall_face </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>offsets</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>wall_a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Whether the face between cell (x, y, z) and its neighbour at + offsets is a reacting-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01971">1971</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_a29bd713ec9b131030ad54a8b26cf1aa1_icgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -256,7 +308,7 @@ Here is the caller graph for this function:</div>
 
 <p>alpha-QSS weight for a sub-step with dt*(loss rate) = r. (1 - alpha)*r &lt; 1 for every r &gt;= 0, so a step from non-negative mass fractions with non-negative production stays non-negative. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01031">1031</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01035">1035</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -296,7 +348,7 @@ Here is the caller graph for this function:</div>
 
 <p>Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00702">702</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00706">706</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -305,8 +357,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="aa46bc89032c53af80b5f7be732dbfb9f" name="aa46bc89032c53af80b5f7be732dbfb9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa46bc89032c53af80b5f7be732dbfb9f">&#9670;&#160;</a></span>s_compute_chemistry_diffusion_flux()</h2>
+<a id="a00fe740845f49fe69a5c0685061b6f89" name="a00fe740845f49fe69a5c0685061b6f89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00fe740845f49fe69a5c0685061b6f89">&#9670;&#160;</a></span>s_compute_chemistry_diffusion_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -344,7 +396,22 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>wall_a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>use_wall</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -353,11 +420,17 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">flux_src_flat</td><td>Flat (x, y, z, var) source-flux buffer; a plain-array dummy because src/common cannot <span class="tt">use <a class="el" href="namespacem__riemann__state.html" title="Shared Riemann-solver module state and the per-sweep setup, state-buffer population,...">m_riemann_state</a></span>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ib_marks</td><td>Reacting-wall area share of each body cell (use_wall, ib_flux_wall): those faces carry the surface rates in the Riemann flux, so diffusion keeps only conduction there. Only the use_wall kernels name ib_marks and wall_a; the others are the original kernels, so these may be unallocated </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01057">1057</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01061">1061</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_a00fe740845f49fe69a5c0685061b6f89_cgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -397,7 +470,7 @@ Here is the call graph for this function:</div>
 
 <p>Add chemical reaction source terms to the species transport RHS using net production rates. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -427,7 +500,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the temperature field from conservative variables by inverting the energy equation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00539">539</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -462,7 +535,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the temperature field from primitive variables using the ideal gas law and mixture molecular weight. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00571">571</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00575">575</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -502,7 +575,7 @@ Here is the caller graph for this function:</div>
 
 <p>Effective Reynolds numbers 1/(rho*D) from the largest local transport diffusivity D &ndash; mu/rho with viscous, and lambda/(rho*cv) and the mixture-averaged diffusivities of the species present with chem_paramsdiffusion &ndash; so the viscous dt limit (dx^2*rho*Re) tracks the transport actually integrated, summed over the num_dims directions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -519,7 +592,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00383">383</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -535,7 +608,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00383">383</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -551,7 +624,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00383">383</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>

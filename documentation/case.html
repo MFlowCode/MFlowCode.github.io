@@ -453,29 +453,37 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_ip_min_dist</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Minimum boundary-to-image-point distance, in local cell widths, for <span class="tt">ib_second_order_vel</span>.  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">ib_flux_wall</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Fixed reacting bodies: the mass, species and energy fluxes through the faces between fluid and body cells are the surface solve's rates, so the face fluxes carry the surface rates, and the gas budget closes to within the time and surface-solve error (examples/2D_ibm_wall_mass_budget).  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_ip_interp</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Image-point interpolation: 1 inverse-distance weights over 2x2(x2) cells (default), 2 triangular-shaped-cloud (TSC) weights over 3x3(x3) cells.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_wall_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Ghost velocity at no-slip walls: 1 default (wall value, with the <span class="tt">ib_second_order_vel</span> mirror if set), 2 two-probe quadratic wall-normal fill.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Length, if applicable, in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius, if applicable, of the applied geometry.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">airfoil_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">ib_airfoil</span> array for NACA airfoil geometry patches.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">model_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">stl_models</span> array for STL/OBJ geometry patches.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">slip</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Apply a slip boundary  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">thermal_bc</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Thermal boundary-condition selector: 0 = zero-normal-gradient temperature, 1 = prescribed wall temperature, 2 = reacting surface energy balance.  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">Twall</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Prescribed wall temperature used when <span class="tt">thermal_bc = 1</span>.  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">thermal_bc</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Thermal boundary-condition selector: 0 = zero-normal-gradient temperature, 1 = prescribed wall temperature, 2 = reacting surface energy balance, 3 = lumped solid whose temperature evolves.  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">thermal_layer</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Thickness of the initial conductive layer around a <span class="tt">thermal_bc = 1</span> circle or sphere [m]; 0 = none.  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">Twall</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Wall temperature: prescribed (<span class="tt">thermal_bc = 1</span>) or initial (<span class="tt">thermal_bc = 3</span>).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">thermal_layer</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Thickness of the initial conductive layer around a <span class="tt">thermal_bc = 1</span> or <span class="tt">3</span> circle or sphere [m]; 0 = none.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">rho_solid</span>, <span class="tt">cp_solid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Solid density [kg/m³] and heat capacity [J/kg/K] (<span class="tt">thermal_bc = 3</span>).  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">emissivity</span>, <span class="tt">T_rad</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Surface emissivity and radiative surroundings temperature [K] (<span class="tt">thermal_bc = 3</span>; default 0, no radiation).  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">heat_power</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Heat supplied to the body [W; W/m per unit depth in 2D], e.g. Joule heating (<span class="tt">thermal_bc = 3</span>).  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">surface_reaction</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Heterogeneous surface-reaction flag: 0 = disabled, 1 = enabled.  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -543,9 +551,16 @@ Parameter Descriptions</h4>
 <li><span class="tt">radius</span> is the radius to be used for circular patches.</li>
 <li><span class="tt">c</span>, <span class="tt">t</span>, <span class="tt">p</span>, and <span class="tt">m</span> specify the parameters for a NACA airfoil (set on the referenced <span class="tt">ib_airfoil</span> entry). <span class="tt">m</span> is the maximum camber, <span class="tt">p</span> is the location of maximum camber, <span class="tt">c</span> is the chord length, and <span class="tt">t</span> is the thickness. Additional details on this specification can be found in <a href="https://en.wikipedia.org/wiki/NACA_airfoil">NACA airfoil</a>.</li>
 <li><span class="tt">slip</span> applies a slip boundary to the surface of the patch if true and a no-slip boundary condition to the surface if false.</li>
-<li><span class="tt">thermal_bc</span> selects the thermal immersed-boundary condition. A value of 0 applies a zero-normal-gradient temperature condition, 1 prescribes the wall temperature using <span class="tt">Twall</span>, and 2 solves the reacting-surface energy balance for the surface temperature. The <span class="tt">thermal_bc = 2</span> option requires <span class="tt">surface_reaction = 1</span>. A non-zero <span class="tt">thermal_bc</span> cannot be combined with <span class="tt">inj_species &gt; 0</span>, since an injecting surface bypasses the ghost-state reconstruction. Without chemistry, <span class="tt">thermal_bc = 1</span> needs <span class="tt">fluid_pp(1)%k_therm &gt; 0</span> and <span class="tt">num_fluids = 1</span>.</li>
-<li><span class="tt">Twall</span> specifies the prescribed surface temperature when <span class="tt">thermal_bc = 1</span> and must be positive in that case. With chemistry it must also be within <span class="tt">T_surface_min</span> = 200 K and <span class="tt">T_surface_max</span> = 5000 K (<span class="tt">m_constants.fpp</span>), the range of the NASA polynomial fits.</li>
-<li><span class="tt">thermal_layer</span> = δ &gt; 0 starts the gas around a <span class="tt">thermal_bc = 1</span> circle (geometry 2) or sphere (geometry 8) in the conduction solution for a wall brought to <span class="tt">Twall</span> a time t₀ = δ²/(4α) earlier: T = T∞ + (<span class="tt">Twall</span> − T∞)(R/r)^((d−1)/2) erfc((r − R)/δ), with pressure and composition unchanged. It is exact for a sphere and the leading-order term for a cylinder. Without it a hot wall meets ambient gas as a temperature step at t = 0, and the near-wall cells heat faster than they can expand; on coarse grids that transient can drive the state non-physical. Resolve δ with a few cells. Where layers overlap, the IB with the largest temperature change sets the cell, and periodic directions use the nearest image.</li>
+<li><span class="tt">thermal_bc</span> selects the thermal immersed-boundary condition. A value of 0 applies a zero-normal-gradient temperature condition, 1 prescribes the wall temperature using <span class="tt">Twall</span>, 2 solves the reacting-surface energy balance for the surface temperature, and 3 treats the body as one lumped solid whose temperature, starting at <span class="tt">Twall</span>, evolves as described below. The <span class="tt">thermal_bc = 2</span> option requires <span class="tt">surface_reaction = 1</span>. A non-zero <span class="tt">thermal_bc</span> cannot be combined with <span class="tt">inj_species &gt; 0</span>, since an injecting surface bypasses the ghost-state reconstruction. Without chemistry, <span class="tt">thermal_bc = 1</span> needs <span class="tt">fluid_pp(1)%k_therm &gt; 0</span> and <span class="tt">num_fluids = 1</span>; <span class="tt">thermal_bc = 2</span> and <span class="tt">3</span> require <span class="tt">chemistry = T</span>.</li>
+<li><p class="startli">A <span class="tt">thermal_bc = 3</span> body is one lumped solid at temperature \(T\) (<span class="tt">Twall</span>) that exchanges heat with the gas through its surface:</p>
+<p class="formulaDsp">
+\[m c_s \frac{dT}{dt} = \dot Q_\mathrm{in} + c_s (T - T_\mathrm{ref}) \dot M_\mathrm{out} + P - \varepsilon \sigma A (T^4 - T_\mathrm{rad}^4),\]
+</p>
+<p class="startli">with \(m\) = <span class="tt">rho_solid</span> \(\cdot V\) ( \(V\) from the geometry: circle per unit depth, sphere, or cylinder), \(c_s\) = <span class="tt">cp_solid</span>, \(P\) = <span class="tt">heat_power</span>, \(\varepsilon\) = <span class="tt">emissivity</span> and \(T_\mathrm{rad}\) = <span class="tt">T_rad</span>. The solid energy is \(m c_s (T - T_\mathrm{ref})\) with \(T_\mathrm{ref}\) = 298.15 K, the reference of the formation enthalpies, so the energy the solid's lost mass carries is consistent with the gas energy. \(\dot Q_\mathrm{in}\) is the total energy flux into the body summed over every face between its cells and fluid cells, taken from the same Riemann, viscous, conductive and diffusive fluxes the flow update applies and weighted by the Runge-Kutta stages, so over a step the body gains exactly the energy those fluxes remove from the fluid. \(\dot M_\mathrm{out}\) is the body's gasification rate from the surface solve ( \(\sum\) <span class="tt">area</span> \(\cdot\)<span class="tt">mdot</span> over the <span class="tt">ib_surface_wrt</span> surface points; 0 for an inert surface), not the face mass flux, which also carries the mass the ghost-cell reconstruction does not conserve. \(A\) is the surface area from the same surface points. \(T\) is advanced once per time step, explicitly, which is stable while the body's thermal time \(m c_s/(hA)\) greatly exceeds the flow time step. The temperature is clamped to \([200, 5000]\) K (<span class="tt">T_surface_min</span>, <span class="tt">T_surface_max</span>) and is carried across restarts in <span class="tt">restart_data/ib_state</span>.</p>
+<p class="startli">Limitations. One temperature per body is valid only while the Biot number \(hR/k_s\) is small (graphite particles, millimetre rods). The geometry and \(m\) are fixed: mass lost enters the energy balance but the body does not recede. The balance is exact in the fluxes the right-hand side applies, not in the total energy of the discretised system, because the ghost-cell reconstruction is not itself conservative; the energy error this leaves has not been quantified, and the balance has been checked against a first-order estimate, not an analytic solution. It needs <span class="tt">chemistry = T</span> and a circle (2), sphere (8) or cylinder (10) that is not moving (<span class="tt">moving_ibm = 0</span>), and is not supported with <span class="tt">igr</span> or hypoelastic HLLD, which form no single set of face fluxes. <span class="tt">emissivity</span> \(&gt; 0\) needs <span class="tt">T_rad</span> \(&gt; 0\).</p>
+</li>
+<li><span class="tt">Twall</span> specifies the prescribed surface temperature when <span class="tt">thermal_bc = 1</span> (the initial temperature when <span class="tt">thermal_bc = 3</span>) and must be positive in that case. With chemistry it must also be within <span class="tt">T_surface_min</span> = 200 K and <span class="tt">T_surface_max</span> = 5000 K (<span class="tt">m_constants.fpp</span>), the range of the NASA polynomial fits.</li>
+<li><span class="tt">thermal_layer</span> = δ &gt; 0 starts the gas around a <span class="tt">thermal_bc = 1</span> or <span class="tt">3</span> circle (geometry 2) or sphere (geometry 8) in the conduction solution for a wall brought to <span class="tt">Twall</span> (the initial <span class="tt">Twall</span> for <span class="tt">thermal_bc = 3</span>) a time t₀ = δ²/(4α) earlier: T = T∞ + (<span class="tt">Twall</span> − T∞)(R/r)^((d−1)/2) erfc((r − R)/δ), with pressure and composition unchanged. It is exact for a sphere and the leading-order term for a cylinder. Without it a hot wall meets ambient gas as a temperature step at t = 0, and the near-wall cells heat faster than they can expand; on coarse grids that transient can drive the state non-physical. Resolve δ with a few cells: the profile is evaluated at the cell centres, not cell-averaged, so the cell-mean density differs from it by O((h/δ)²), about 1 % at δ = 2 cells. Where layers overlap, the IB with the largest temperature change sets the cell, and periodic directions use the nearest image.</li>
 <li><span class="tt">surface_reaction</span> enables heterogeneous surface chemistry when set to 1. Surface reactions require <span class="tt">chemistry = T</span> and cannot be combined with <span class="tt">inj_species &gt; 0</span>.</li>
 <li>For STL/OBJ geometry (geometry 5 or 12), set <span class="tt">model_id</span> to index into the <span class="tt">stl_models</span> array and specify <span class="tt">model_filepath</span>, <span class="tt">model_scale</span>, <span class="tt">model_translate</span>, and <span class="tt">model_threshold</span> on that entry.</li>
 <li><span class="tt">moving_ibm</span> sets the method by which movement will be applied to the immersed boundary. Using 0 will result in no movement. Using 1 will result 1-way coupling where the boundary moves at a constant rate and applied forces to the fluid based upon its own motion. In 1-way coupling, the fluid does not apply forces back onto the IB. Using 2 will result in 2-way coupling, where the boundary pushes on the fluid and the fluid pushes back on the boundary via pressure and viscous forces. If external forces are applied, the boundary will also experience those forces. Body forces (<span class="tt">bf_x</span>, <span class="tt">bf_y</span>, <span class="tt">bf_z</span>) act only on a <span class="tt">moving_ibm = 2</span> boundary, so a fixed or prescribed boundary needs no <span class="tt">mass</span> and its recorded force is the fluid and collision force alone.</li>
@@ -563,8 +578,9 @@ Parameter Descriptions</h4>
 <li><span class="tt">ib_coefficient_of_friction</span> is the coefficient of friction used in IB collisions.</li>
 <li><span class="tt">ib_second_order_vel</span> replaces the default ghost-point velocity, which imposes the wall velocity at the ghost point, with the linear extrapolation of Mittal et al. (2008) through the boundary intercept and replaces the interpolation scheme with a bilinear weight interpolation.</li>
 <li><span class="tt">ib_ip_min_dist</span> sets \(d_{IP} = \max(d_{GP}, \text{ib\_ip\_min\_dist}\,\Delta)\), with \(\Delta\) the smallest local cell width, so image points of near-wall ghost points interpolate from fluid cells. The default 0 is the pure mirror ( \(d_{IP} = d_{GP}\)). About \(\sqrt{2}\) in 2D ( \(\sqrt{3}\) in 3D) keeps the stencil off a locally planar wall.</li>
+<li><span class="tt">ib_flux_wall = T</span> sets the face fluxes of a reacting wall (<span class="tt">surface_reaction = 1</span>) from its surface solve instead of from the Riemann and diffusion stencils acting on the ghost state, which the ghost fill does not tie to the surface balance (an inert species leaks through the wall and the gas gains more mass than the surface gasifies). At each face between a fluid cell and a cell of a reacting body, the species fluxes into the gas are \(a\,\theta\,\dot m_k&#39;&#39;\), with \(\dot m_k&#39;&#39; = W_k \omega_k\) from the solve of that body cell (a ghost point with a fluid face neighbor), \(a = 1/(|n_x| + |n_y| + |n_z|)\) its share of the wall area (a planar wall of area \(A\) has \((|n_x| + |n_y| + |n_z|)A\) of staircase faces), and \(\theta \le 1\) a positivity factor of the fluid cell, set so that its wall faces take at most 0.9 of any species in one forward-Euler step. The mass flux is their sum and the energy flux is \(a\,\theta \sum_k \dot m_k&#39;&#39; (h_k(T_s) + v_n^2/2)\); conduction, pressure and viscous stresses are kept, and the momentum flux is the pressure terms plus that of the blowing gas, \(\dot m&#39;&#39; v_n \mathbf{n}\) (the momentum the ghost-state mass flux carried is dropped). Diffusion keeps only conduction at those faces. A face whose solve failed is impermeable and inert. With <span class="tt">ib_surface_wrt</span>, the records of a reacting body then come only from the ghost points that set the face fluxes, each weighted by \(a\,\theta\) times the area of its fluid faces, so summing <span class="tt">area</span>·<span class="tt">mdot</span> gives the mass the gas receives. The total wall area the faces carry is printed at start-up. Requires <span class="tt">chemistry</span>, <span class="tt">model_eqns = 2</span>, one fluid, HLLC, Cartesian coordinates, no <span class="tt">igr</span>, hypoelasticity or particle clouds, every body fixed (<span class="tt">moving_ibm = 0</span>), and the reacting bodies not blowing (<span class="tt">v_blow</span>, <span class="tt">inj_species</span>). The wall rates are formed at the end of each Runge-Kutta stage and are not saved in restart files, so the first stage after a start or restart sees an impermeable, inert wall. <span class="tt">examples/2D_ibm_wall_mass_budget</span> closes the gas budget of a reacting cylinder in a periodic box with and without the option.</li>
 <li><span class="tt">ib_ip_interp</span> selects how the state at a ghost point's image point is interpolated from the grid. <span class="tt">1</span> (default) is the inverse-distance weighting over the 2x2(x2) cells around the point, which drops solid cells from the stencil. <span class="tt">2</span> uses triangular-shaped-cloud (quadratic B-spline) weights over the 3x3(x3) cells around the nearest cell (Ezra, Peles &amp; Kozak 2025, Int. J. Heat Mass Transf. 252:127314). The kernel is a partition of unity and smooth across cell boundaries, so a wall quantity interpolated from it converges one order faster than from inverse-distance weights, which are only continuous. The TSC stencil reads solid cells, which carry the ghost values of the last correction; a point buried in a body gets no fluid weight and takes the neighbor average. It does not combine with <span class="tt">ib_second_order_vel</span>.</li>
-<li><span class="tt">ib_wall_order = 2</span> fills the ghost velocity of each no-slip wall point from a quadratic wall-normal profile through the wall value and two probes at one and two cell widths from the wall along the surface normal, interpolated with the same TSC weights as <span class="tt">ib_ip_interp = 2</span> (the option works with either <span class="tt">ib_ip_interp</span> setting; it does not require 2). The ghost value is what enforces no-slip in the solve, so a higher-order profile can raise the order of the wall shear and the drag; the gain depends on the case and is not guaranteed. The extrapolation is bounded by the linear mirror through the first probe (minmod), so it only limits the curvature correction. Where the outer probe has too little fluid around it (a narrow gap, a rim, a neighbouring body) a ghost point falls back to the linear mirror, or to the default fill when the first probe also lacks fluid, and the share of each is printed at the end of the run (<span class="tt">[WALLFILL]</span>), so a second-order claim is only made for the surface that earned it. Ghost cells keep the values of the last correction while the option is on, which is also what <span class="tt">ib_ip_interp = 2</span> does. Slip walls, the pressure and the energy (temperature) of the ghost are unchanged, and the option does not combine with <span class="tt">ib_second_order_vel</span>. The default <span class="tt">1</span> leaves every result unchanged.</li>
+<li><span class="tt">ib_wall_order = 2</span> fills the ghost velocity of each no-slip wall point from a quadratic wall-normal profile through the wall value and two probes at one and two cell widths from the wall along the surface normal, interpolated with the same TSC weights as <span class="tt">ib_ip_interp = 2</span> (the option works with either <span class="tt">ib_ip_interp</span> setting; it does not require 2). The ghost value is what enforces no-slip in the solve. Where the outer probe has too little fluid around it (a narrow gap, a rim, a neighbouring body) a ghost point falls back to the linear mirror, or to the default fill when the first probe also lacks fluid; the share of each tier is printed at the end of the run (<span class="tt">[WALLFILL]</span>, for every case with <span class="tt">ib_wall_order = 2</span>). Ghost cells keep the values of the last correction while the option is on, which is also what <span class="tt">ib_ip_interp = 2</span> does. Slip walls, the pressure and the energy (temperature) of the ghost are unchanged, and the option does not combine with <span class="tt">ib_second_order_vel</span>. The default <span class="tt">1</span> leaves every result unchanged. Measured gain (non-reacting ideal gas, tip or peak Mach 0.05, 4 to 80 cells across the gap, NVHPC on an A100): between flat walls (plane Poiseuille) the velocity and flow-rate errors are 10 to 20 times smaller than with the default and converge at about order 1.5 to 1.9 until they reach the level of a domain no-slip boundary, whatever the wall position inside a cell; the default converges at order 1 with the no-slip acting about 0.75 cell outside the wall. In a Taylor-Couette annulus (curved walls, one rotating) the gain is 25 to 40 % of the velocity error and a factor 2 or more in the torque, and neither option converges monotonically: an error of about 0.5 % of the torque and 0.3 % of the wall speed remains at 80 cells per inner radius, and the rotating wall keeps a velocity deficit that this option halves but does not remove. With 4 to 6 cells across the gap 15 to 32 % of the ghost points use the linear mirror and the quadratic fill is not accurate (26 % velocity error at 4 cells across a flat channel). The wall shear read back from a fit to the near-wall cells does not converge for either option; use the flow rate or an integrated force instead.</li>
 <li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. A value of $r$ indicates that any given rank is aware of IBs up to $r$ ranks away. This value defaults to 0, which leaves the radius unset so that it is selected automatically. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
 </ul>
 <h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
@@ -934,86 +950,88 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_surface_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the wall temperature and gasified mass flux at each surface point of the non-injecting IBs of a chemistry run, at every save (default off)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">ib_heat_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Record each immersed body's mass loss and heat exchange rates to <span class="tt">D/ib_heat.dat</span> (default off)  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parameter to handle writing IB state on saves and outputting the state as a point mesh to SILO files.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">pi_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">pres_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness to the formatted database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">c_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the sound speed to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">T_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add each fluid's temperature to the database (needs <span class="tt">cv</span> &gt; 0)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">omega_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the $i$-direction vorticity to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the numerical schlieren to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">qm_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">liutex_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Liutex to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">cf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write color function field  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">chem_wrt_T</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write temperature field for chemistry output  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">fft_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable FFT output  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">sim_data</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write interface and energy data files (post_process)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">down_sample</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable output downsampling  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">fd_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_alpha(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <span class="tt">alpha(i)</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">probe_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">num_probes</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of probes  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">probe(i)%[x,y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coordinates of probe $i$  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">output_partial_domain</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Output part of the domain  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%beg</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%end</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_txt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_header</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write header to Lagrangian bubble <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_db_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to silo/hdf5 database files  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_id_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the global bubble idea to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble position to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_prev_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the previous bubble position to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_vel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble translational velocity to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rad_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radius to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rvel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radial velocity to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_r0_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble initial radius to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmax_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble maximum radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmin_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble minimum radius to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_dphidt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble subgrid velocity potential to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_pres_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble pressure to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_mv_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble vapor mass to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_mg_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble gas mass to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_voidfrac_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the particle volume fraction in the host cell to the database file (<span class="tt">particles_lagrange</span> only)  </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
@@ -1061,6 +1079,26 @@ Immersed-boundary force history</h4>
 </div><!-- fragment --><p>Rows count from the first step the run records, not from <span class="tt">t_step</span>, so row 0 is the first row of the file whether the run starts at step 0 or resumes from a restart. The first recorded step is the first multiple of <span class="tt">ib_force_stride</span> after <span class="tt">t_step_start</span>; <span class="tt">t_step_start</span> itself is skipped, because at that point the force is still the one from before the run began. The last row is the run's final step if that step is a multiple of <span class="tt">ib_force_stride</span>, and otherwise the last multiple before it.</p>
 <p>A resumed run writes <span class="tt">D/ib_forces_&lt;t_step_start&gt;.dat</span> (<span class="tt">D/ib_forces_n&lt;n_start&gt;.dat</span> with <span class="tt">cfl_dt</span>) instead of overwriting <span class="tt">D/ib_forces.dat</span>. When each run resumes from the final step of the run before it, the files concatenate in order with no row repeated and none of the <span class="tt">ib_force_stride</span> sampling missing. This holds for any stride with a fixed <span class="tt">dt</span>. With <span class="tt">cfl_dt</span> the step counter restarts at 0 in each run, so only <span class="tt">ib_force_stride = 1</span> gives an unbroken history; a larger stride can leave up to <span class="tt">ib_force_stride - 1</span> unrecorded steps at the end of each run. A run killed mid-way has no final row and may hold rows past the restart it is resumed from.</p>
 <p>Rows are written in global body-id order, so the file is byte-identical however the domain is decomposed, and no merge step is needed after a parallel run.</p>
+<h4 class="doxsection"><a class="anchor" id="sec-ib-heat-history"></a>
+Immersed-boundary heat history</h4>
+<p><span class="tt">ib_heat_wrt</span> writes <span class="tt">D/ib_heat.dat</span> alongside, with the same rows and resumed-run naming (<span class="tt">ib_force_stride</span>, row and offset formulas above, 101-byte records: <span class="tt">I10</span> and five <span class="tt">1X,ES17.9E3</span> fields), whether or not <span class="tt">ib_force_wrt</span> is set. Its six columns are, per unit depth in 2D,</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Columns  </th><th class="markdownTableHeadLeft">Quantity  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">1  </td><td class="markdownTableBodyLeft">body id (the global <span class="tt">patch_ib</span> index)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">2  </td><td class="markdownTableBodyLeft">time  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">3  </td><td class="markdownTableBodyLeft">gasification rate [kg/s], positive when the body loses mass  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">4  </td><td class="markdownTableBodyLeft">face mass outflow [kg/s]  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">5  </td><td class="markdownTableBodyLeft">heat rate Q [W], positive into the body  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">6  </td><td class="markdownTableBodyLeft"><span class="tt">Twall</span> [K]  </td></tr>
+</table>
+<p>The gasification rate is the surface-solve mass flux integrated over the body, \(\sum\) <span class="tt">area</span> \(\cdot\)<span class="tt">mdot</span> of the <span class="tt">ib_surface_wrt</span> points (0 for an inert body): the body's mass loss. Columns 4 and 5 are the step's mass out of and energy into the body summed over its faces, as for <span class="tt">thermal_bc = 3</span> above; for a <span class="tt">thermal_bc = 3</span> body, Q also includes \(c_s (T - 298.15\,\mathrm{K})\) times column 3, so there Q is exactly the fluid's part of \(m c_s\, dT/dt\) (add <span class="tt">heat_power</span> and radiation for the whole balance). The face mass outflow is not the gasification rate: it also carries the mass the ghost-cell reconstruction does not conserve, which on a reacting cylinder at 20 cells per diameter can be a net inflow several times the gasification rate. As for the force, a row carries the exchange over the previous step and <span class="tt">Twall</span> at its end, so with <span class="tt">ib_force_stride = 1</span> \(\sum\) (column 3) \(\cdot\Delta t\) over the rows approximates the mass the body lost (the gasification rate is the last Runge-Kutta stage's, not stage-weighted like columns 4 and 5); with a larger stride a row holds one step of every <span class="tt">ib_force_stride</span>, so the sum no longer applies. Every body is summed, so a fixed-<span class="tt">Twall</span> reacting surface gets its mass loss and a heated wall its heat transfer. <span class="tt">ib_heat_wrt</span> and <span class="tt">thermal_bc = 3</span> require <span class="tt">chemistry</span>, Cartesian coordinates and fixed bodies, and are rejected with <span class="tt">igr</span> and hypoelastic HLLD, which form no face fluxes. A restart reads <span class="tt">Twall</span> from <span class="tt">restart_data/ib_state</span> only for <span class="tt">thermal_bc = 3</span> bodies; state files from before the record grew to 21 fields cannot be restarted.</p>
 <ul>
 <li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_output%beg</span> and <span class="tt">[x,y,z]_output%end</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
 </ul>
@@ -2006,7 +2044,7 @@ Primitive Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-11</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-12</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

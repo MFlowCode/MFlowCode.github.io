@@ -12,10 +12,11 @@ var searchData=
   ['qbmm_9',['qbmm',['../namespacem__global__parameters__common.html#a1d75c2964eb0a5b6577a7ffdfd3dc51b',1,'m_global_parameters_common']]],
   ['qbmm_5fidx_10',['qbmm_idx',['../namespacem__global__parameters.html#a32abf25abe0194ee18b40123f06cbab0',1,'m_global_parameters']]],
   ['qbmm_5fidx_5finfo_11',['qbmm_idx_info',['../structm__derived__types_1_1qbmm__idx__info.html',1,'m_derived_types']]],
-  ['qs_5ffluct_5fforce_12',['qs_fluct_force',['../structm__derived__types_1_1particle__lagrange__parameters.html#aefbe713bed78418732e100e2ab4e768d',1,'m_derived_types::particle_lagrange_parameters']]],
-  ['qs_5fforce_13',['qs_force',['../structm__derived__types_1_1particle__lagrange__parameters.html#af493d7e0a73b90a1dd793e1eb7117f61',1,'m_derived_types::particle_lagrange_parameters']]],
-  ['qv_14',['qv',['../structm__derived__types_1_1ic__patch__parameters.html#a38f421671dcc42916a0752d4f2a7288f',1,'m_derived_types::ic_patch_parameters::qv'],['../structm__derived__types_1_1physical__parameters.html#a76b5cb2203aa641482afb2f3aa74f9f1',1,'m_derived_types::physical_parameters::qv']]],
-  ['qvp_15',['qvp',['../structm__derived__types_1_1ic__patch__parameters.html#a639f4cb99b4c009f33ca9287eb30454c',1,'m_derived_types::ic_patch_parameters::qvp'],['../structm__derived__types_1_1physical__parameters.html#a0a0f768ffe9bf687034ae75163a36b7e',1,'m_derived_types::physical_parameters::qvp']]],
-  ['qvps_16',['qvps',['../namespacem__global__parameters__common.html#aac1b14351ac4a10fab7c368088d34e53',1,'m_global_parameters_common']]],
-  ['qvs_17',['qvs',['../namespacem__global__parameters__common.html#a1ee0b401a6be6e4fe322f6170f31c85a',1,'m_global_parameters_common']]]
+  ['qdot_12',['qdot',['../structm__derived__types_1_1ib__patch__parameters.html#a5b8a5c459fa0b4ab6f28b210be8f1ec9',1,'m_derived_types::ib_patch_parameters']]],
+  ['qs_5ffluct_5fforce_13',['qs_fluct_force',['../structm__derived__types_1_1particle__lagrange__parameters.html#aefbe713bed78418732e100e2ab4e768d',1,'m_derived_types::particle_lagrange_parameters']]],
+  ['qs_5fforce_14',['qs_force',['../structm__derived__types_1_1particle__lagrange__parameters.html#af493d7e0a73b90a1dd793e1eb7117f61',1,'m_derived_types::particle_lagrange_parameters']]],
+  ['qv_15',['qv',['../structm__derived__types_1_1ic__patch__parameters.html#a38f421671dcc42916a0752d4f2a7288f',1,'m_derived_types::ic_patch_parameters::qv'],['../structm__derived__types_1_1physical__parameters.html#a76b5cb2203aa641482afb2f3aa74f9f1',1,'m_derived_types::physical_parameters::qv']]],
+  ['qvp_16',['qvp',['../structm__derived__types_1_1ic__patch__parameters.html#a639f4cb99b4c009f33ca9287eb30454c',1,'m_derived_types::ic_patch_parameters::qvp'],['../structm__derived__types_1_1physical__parameters.html#a0a0f768ffe9bf687034ae75163a36b7e',1,'m_derived_types::physical_parameters::qvp']]],
+  ['qvps_17',['qvps',['../namespacem__global__parameters__common.html#aac1b14351ac4a10fab7c368088d34e53',1,'m_global_parameters_common']]],
+  ['qvs_18',['qvs',['../namespacem__global__parameters__common.html#a1ee0b401a6be6e4fe322f6170f31c85a',1,'m_global_parameters_common']]]
 ];

@@ -486,96 +486,100 @@ $(function(){initNavTree('m__finite__differences_8fpp_8f90_source.html','',''); 
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment">! Cray-specific GPU pointer setup for acoustic source spatials</span></div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="preprocessor"># 145 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="preprocessor"># 151 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="preprocessor"># 158 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="preprocessor"></span><span class="comment">! New line at end of file is required for FYPP</span></div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="preprocessor"># 6 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot; 2</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="preprocessor"></span><span class="comment"></span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment">!&gt; @brief Finite difference operators for computing divergence of velocity fields</span></div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html">  359</a></span><span class="keyword">module</span> <a class="code hl_namespace" href="namespacem__finite__differences.html">m_finite_differences</a></div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__global__parameters.html">m_global_parameters</a></div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment">! Whether stress index idx is a shear component. Spelled out because NVHPC 26.9 at -O2 vectorizes any(idx == shear_indices)</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="comment">! inside a loop to always true, which doubled the normal-stress elastic energy.</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="preprocessor"># 151 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="preprocessor"># 157 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="preprocessor"># 164 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="preprocessor"></span><span class="comment">! New line at end of file is required for FYPP</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="preprocessor"># 6 &quot;/home/runner/work/MFC/MFC/src/common/m_finite_differences.fpp&quot; 2</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="preprocessor"></span><span class="comment"></span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="comment">!&gt; @brief Finite difference operators for computing divergence of velocity fields</span></div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html">  363</a></span><span class="keyword">module</span> <a class="code hl_namespace" href="namespacem__finite__differences.html">m_finite_differences</a></div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="keyword">contains</span></div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="comment"></span> </div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="comment">    !&gt; Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coordinate direction (x, y,</span></div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment">    !! or z). Supports up to 4th order accuracy.</span></div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="comment">    !! @param fd_coeff_s Finite-diff. coefficients in the s-coordinate direction</span></div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="comment">    !! @param local_buff_size Size of the local buffer</span></div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="comment">    !! @param fd_number_in Finite-difference number</span></div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="comment">    !! @param fd_order_in Finite-difference order of accuracy</span></div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="comment">    !! @param offset_s Optional offset bounds in the s-coordinate direction</span></div>
-<div class="foldopen" id="foldopen00374" data-start="" data-end="">
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">  374</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a>(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="keywordtype">integer</span>                                                               :: lB, lE<span class="comment">  !&lt; loop bounds</span></div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: q</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: local_buff_size, fd_number_in, fd_order_in</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span>                           :: offset_s</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">intent(inout)</span>                  :: fd_coeff_s</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(-local_buff_size:q + local_buff_size)</span>, <span class="keywordtype">intent(in)</span> :: s_cc</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="keywordtype">integer</span>                                                               :: i<span class="comment">       !&lt; Generic loop iterator</span></div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        <span class="comment">! Coefficients always extend at least fd_number_in beyond the interior on each side, so a stencil centered on a</span></div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        <span class="comment">! ghost-adjacent cell (e.g. an immersed boundary near a domain boundary) has a real coefficient to read instead of</span></div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <span class="comment">! reading past the caller&#39;s allocation. offset_s, when given, widens this further (never narrows it) for callers</span></div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="comment">! that need more than fd_number_in of margin.</span></div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span> </div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(offset_s)) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>            lb = -max(fd_number_in, offset_s%beg)</div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>            le = q + max(fd_number_in, offset_s%end)</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>            lb = -fd_number_in</div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>            le = q + fd_number_in</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>        <span class="comment">! The stencil below reaches fd_number_in cells either side of i, and s_cc only exists over the</span></div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>        <span class="comment">! caller&#39;s buffer, so the loop cannot start closer than fd_number_in to either end of it. Without</span></div>
-<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        <span class="comment">! this, a caller whose buffer is narrower than 2*fd_number_in reads off the front of s_cc: a</span></div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>        <span class="comment">! 4th-order hypoelastic case with buff_size = 2 starts at i = -2 and immediately asks for</span></div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="comment">! s_cc(-4). Immersed-boundary cases are unaffected -- s_mfc_buff_size gives them buff_size &gt;= 10,</span></div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        <span class="comment">! so the clamp never binds and they still get coefficients out to -fd_number_in, which is the</span></div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="comment">! whole point of widening the range above.</span></div>
-<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        lb = max(lb, -local_buff_size + fd_number_in)</div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>        le = min(le, q + local_buff_size - fd_number_in)</div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
-<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        <span class="comment">! Computing the 1st order finite-difference coefficients</span></div>
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        <span class="keywordflow">if</span> (fd_order_in == 1) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>            <span class="keywordflow">do</span> i = lb, le</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>                fd_coeff_s(-1, i) = 0._wp</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>                fd_coeff_s(0, i) = -1._wp/(s_cc(i + 1) - s_cc(i))</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>                fd_coeff_s(1, i) = -fd_coeff_s(0, i)</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>            <span class="comment">! Computing the 2nd order finite-difference coefficients</span></div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fd_order_in == 2) <span class="keywordflow">then</span></div>
-<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>            <span class="keywordflow">do</span> i = lb, le</div>
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>                fd_coeff_s(-1, i) = -1._wp/(s_cc(i + 1) - s_cc(i - 1))</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>                fd_coeff_s(0, i) = 0._wp</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>            <span class="comment">! Computing the 4th order finite-difference coefficients</span></div>
-<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>            <span class="keywordflow">do</span> i = lb, le</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>                fd_coeff_s(-2, i) = 1._wp/(s_cc(i - 2) - 8._wp*s_cc(i - 1) - s_cc(i + 2) + 8._wp*s_cc(i + 1))</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>                fd_coeff_s(-1, i) = -8._wp*fd_coeff_s(-2, i)</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>                fd_coeff_s(0, i) = 0._wp</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                fd_coeff_s(2, i) = -fd_coeff_s(-2, i)</div>
-<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span><span class="keywordflow">            end do</span></div>
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span><span class="keywordflow">        end if</span></div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__global__parameters.html">m_global_parameters</a></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="keyword">contains</span></div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="comment"></span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span><span class="comment">    !&gt; Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coordinate direction (x, y,</span></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="comment">    !! or z). Supports up to 4th order accuracy.</span></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="comment">    !! @param fd_coeff_s Finite-diff. coefficients in the s-coordinate direction</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="comment">    !! @param local_buff_size Size of the local buffer</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="comment">    !! @param fd_number_in Finite-difference number</span></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="comment">    !! @param fd_order_in Finite-difference order of accuracy</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="comment">    !! @param offset_s Optional offset bounds in the s-coordinate direction</span></div>
+<div class="foldopen" id="foldopen00378" data-start="" data-end="">
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno"><a class="line" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">  378</a></span>    <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a>(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        <span class="keywordtype">integer</span>                                                               :: lB, lE<span class="comment">  !&lt; loop bounds</span></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: q</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <span class="keywordtype">integer</span>, <span class="keywordtype">intent(in)</span>                                                   :: local_buff_size, fd_number_in, fd_order_in</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        <span class="keywordtype">type</span>(int_bounds_info), <span class="keywordtype">optional</span>, <span class="keywordtype">intent(in)</span>                           :: offset_s</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">allocatable</span>, <span class="keywordtype">dimension(:,:)</span>, <span class="keywordtype">intent(inout)</span>                  :: fd_coeff_s</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="keywordtype">        real</span>(wp), <span class="keywordtype">dimension(-local_buff_size:q + local_buff_size)</span>, <span class="keywordtype">intent(in)</span> :: s_cc</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <span class="keywordtype">integer</span>                                                               :: i<span class="comment">       !&lt; Generic loop iterator</span></div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        <span class="comment">! Coefficients always extend at least fd_number_in beyond the interior on each side, so a stencil centered on a</span></div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <span class="comment">! ghost-adjacent cell (e.g. an immersed boundary near a domain boundary) has a real coefficient to read instead of</span></div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        <span class="comment">! reading past the caller&#39;s allocation. offset_s, when given, widens this further (never narrows it) for callers</span></div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <span class="comment">! that need more than fd_number_in of margin.</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>        <span class="keywordflow">if</span> (<span class="keyword">present</span>(offset_s)) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>            lb = -max(fd_number_in, offset_s%beg)</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>            le = q + max(fd_number_in, offset_s%end)</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>            lb = -fd_number_in</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>            le = q + fd_number_in</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span>        <span class="comment">! The stencil below reaches fd_number_in cells either side of i, and s_cc only exists over the</span></div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>        <span class="comment">! caller&#39;s buffer, so the loop cannot start closer than fd_number_in to either end of it. Without</span></div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>        <span class="comment">! this, a caller whose buffer is narrower than 2*fd_number_in reads off the front of s_cc: a</span></div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>        <span class="comment">! 4th-order hypoelastic case with buff_size = 2 starts at i = -2 and immediately asks for</span></div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>        <span class="comment">! s_cc(-4). Immersed-boundary cases are unaffected -- s_mfc_buff_size gives them buff_size &gt;= 10,</span></div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>        <span class="comment">! so the clamp never binds and they still get coefficients out to -fd_number_in, which is the</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>        <span class="comment">! whole point of widening the range above.</span></div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>        lb = max(lb, -local_buff_size + fd_number_in)</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>        le = min(le, q + local_buff_size - fd_number_in)</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span> </div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>        <span class="comment">! Computing the 1st order finite-difference coefficients</span></div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>        <span class="keywordflow">if</span> (fd_order_in == 1) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>            <span class="keywordflow">do</span> i = lb, le</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>                fd_coeff_s(-1, i) = 0._wp</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>                fd_coeff_s(0, i) = -1._wp/(s_cc(i + 1) - s_cc(i))</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>                fd_coeff_s(1, i) = -fd_coeff_s(0, i)</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>            <span class="comment">! Computing the 2nd order finite-difference coefficients</span></div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fd_order_in == 2) <span class="keywordflow">then</span></div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>            <span class="keywordflow">do</span> i = lb, le</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>                fd_coeff_s(-1, i) = -1._wp/(s_cc(i + 1) - s_cc(i - 1))</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>                fd_coeff_s(0, i) = 0._wp</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>            <span class="comment">! Computing the 4th order finite-difference coefficients</span></div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>            <span class="keywordflow">do</span> i = lb, le</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>                fd_coeff_s(-2, i) = 1._wp/(s_cc(i - 2) - 8._wp*s_cc(i - 1) - s_cc(i + 2) + 8._wp*s_cc(i + 1))</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>                fd_coeff_s(-1, i) = -8._wp*fd_coeff_s(-2, i)</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>                fd_coeff_s(0, i) = 0._wp</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>                fd_coeff_s(1, i) = -fd_coeff_s(-1, i)</div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>                fd_coeff_s(2, i) = -fd_coeff_s(-2, i)</div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span><span class="keywordflow">            end do</span></div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="keywordflow">        end if</span></div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
 </div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a></div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__finite__differences.html">m_finite_differences</a></div>
-<div class="ttc" id="anamespacem__finite__differences_html"><div class="ttname"><a href="namespacem__finite__differences.html">m_finite_differences</a></div><div class="ttdoc">Finite difference operators for computing divergence of velocity fields.</div><div class="ttdef"><b>Definition</b> <a href="#l00359">m_finite_differences.fpp.f90:359</a></div></div>
-<div class="ttc" id="anamespacem__finite__differences_html_a830833416c226c73bf244dae71884211"><div class="ttname"><a href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">m_finite_differences::s_compute_finite_difference_coefficients</a></div><div class="ttdeci">subroutine s_compute_finite_difference_coefficients(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div><div class="ttdoc">Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coor...</div><div class="ttdef"><b>Definition</b> <a href="#l00374">m_finite_differences.fpp.f90:375</a></div></div>
-<div class="ttc" id="anamespacem__global__parameters_html"><div class="ttname"><a href="namespacem__global__parameters.html">m_global_parameters</a></div><div class="ttdoc">Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00370">m_global_parameters.fpp.f90:370</a></div></div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">s_compute_finite_difference_coefficients</a></div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span> </div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__finite__differences.html">m_finite_differences</a></div>
+<div class="ttc" id="anamespacem__finite__differences_html"><div class="ttname"><a href="namespacem__finite__differences.html">m_finite_differences</a></div><div class="ttdoc">Finite difference operators for computing divergence of velocity fields.</div><div class="ttdef"><b>Definition</b> <a href="#l00363">m_finite_differences.fpp.f90:363</a></div></div>
+<div class="ttc" id="anamespacem__finite__differences_html_a830833416c226c73bf244dae71884211"><div class="ttname"><a href="namespacem__finite__differences.html#a830833416c226c73bf244dae71884211">m_finite_differences::s_compute_finite_difference_coefficients</a></div><div class="ttdeci">subroutine s_compute_finite_difference_coefficients(q, s_cc, fd_coeff_s, local_buff_size, fd_number_in, fd_order_in, offset_s)</div><div class="ttdoc">Compute the centered finite-difference coefficients for first-order spatial derivatives in the s-coor...</div><div class="ttdef"><b>Definition</b> <a href="#l00378">m_finite_differences.fpp.f90:379</a></div></div>
+<div class="ttc" id="anamespacem__global__parameters_html"><div class="ttname"><a href="namespacem__global__parameters.html">m_global_parameters</a></div><div class="ttdoc">Global parameters for the computational domain, fluid properties, and simulation algorithm configurat...</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00374">m_global_parameters.fpp.f90:374</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

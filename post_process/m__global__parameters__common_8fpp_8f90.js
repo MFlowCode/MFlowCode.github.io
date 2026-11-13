@@ -55,6 +55,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::ib", "namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1", null ],
     [ "m_global_parameters_common::ib_force_stride", "namespacem__global__parameters__common.html#a4ba903f793706af8debe8e2caa8df05f", null ],
     [ "m_global_parameters_common::ib_force_wrt", "namespacem__global__parameters__common.html#add28e056ca103be4479f6d7fb754d30a", null ],
+    [ "m_global_parameters_common::ib_heat_wrt", "namespacem__global__parameters__common.html#a462fba92c9c3ef1db972c5cc2134a969", null ],
     [ "m_global_parameters_common::ib_state_wrt", "namespacem__global__parameters__common.html#a12c9eea2b592ab77bf8763b43814a78a", null ],
     [ "m_global_parameters_common::ib_surface_wrt", "namespacem__global__parameters__common.html#a51a0cfac72344c5bc7dab173cf3a00d1", null ],
     [ "m_global_parameters_common::igr", "namespacem__global__parameters__common.html#a2059a73bab13312fccb9c299e2ed2eed", null ],
