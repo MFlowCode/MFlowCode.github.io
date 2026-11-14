@@ -1,7 +1,11 @@
 var annotated_dup =
 [
+    [ "m_amr_restart_io", "namespacem__amr__restart__io.html", [
+      [ "t_amr_restart_catalog", "structm__amr__restart__io_1_1t__amr__restart__catalog.html", "structm__amr__restart__io_1_1t__amr__restart__catalog" ]
+    ] ],
     [ "m_data_input", "namespacem__data__input.html", [
-      [ "s_read_abstract_data_files", "interfacem__data__input_1_1s__read__abstract__data__files.html", "interfacem__data__input_1_1s__read__abstract__data__files" ]
+      [ "s_read_abstract_data_files", "interfacem__data__input_1_1s__read__abstract__data__files.html", "interfacem__data__input_1_1s__read__abstract__data__files" ],
+      [ "amr_fine_block", "structm__data__input_1_1amr__fine__block.html", "structm__data__input_1_1amr__fine__block" ]
     ] ],
     [ "m_derived_types", "namespacem__derived__types.html", [
       [ "field_position", "structm__derived__types_1_1field__position.html", "structm__derived__types_1_1field__position" ],
@@ -57,7 +61,8 @@ var annotated_dup =
       [ "bubbles_lagrange_parameters", "structm__derived__types_1_1bubbles__lagrange__parameters.html", "structm__derived__types_1_1bubbles__lagrange__parameters" ],
       [ "particle_lagrange_parameters", "structm__derived__types_1_1particle__lagrange__parameters.html", "structm__derived__types_1_1particle__lagrange__parameters" ],
       [ "cell_num_bounds", "structm__derived__types_1_1cell__num__bounds.html", "structm__derived__types_1_1cell__num__bounds" ],
-      [ "simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ]
+      [ "simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ],
+      [ "t_box", "structm__derived__types_1_1t__box.html", "structm__derived__types_1_1t__box" ]
     ] ],
     [ "m_nvtx", "namespacem__nvtx.html", [
       [ "nvtxeventattributes", "structm__nvtx_1_1nvtxeventattributes.html", "structm__nvtx_1_1nvtxeventattributes" ],

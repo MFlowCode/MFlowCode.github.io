@@ -165,8 +165,8 @@ $(function(){initNavTree('namespacem__species__bounds.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a097fedef9c355865413c17ec540713ae" id="r_a097fedef9c355865413c17ec540713ae"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a097fedef9c355865413c17ec540713ae">s_bound_species_faces</a> (q_prim_vf, vl, vr, id)</td></tr>
 <tr class="memdesc:a097fedef9c355865413c17ec540713ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bound the species face values vL/vR of direction id, over the range the reconstruction filled.  <br /></td></tr>
-<tr class="memitem:a784510316a08f514037eebbbf65a8a7b" id="r_a784510316a08f514037eebbbf65a8a7b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a784510316a08f514037eebbbf65a8a7b">s_clean_species</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>)</td></tr>
-<tr class="memdesc:a784510316a08f514037eebbbf65a8a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup.  <br /></td></tr>
+<tr class="memitem:a536237cafe64ed8a35d76658715d2ab3" id="r_a536237cafe64ed8a35d76658715d2ab3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a536237cafe64ed8a35d76658715d2ab3">s_clean_species</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, tally)</td></tr>
+<tr class="memdesc:a536237cafe64ed8a35d76658715d2ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. tally = F (an AMR fine block, whose markers ib_markers does not hold) cleans without counting.  <br /></td></tr>
 <tr class="memitem:a0b56be4508f53cae5365d0aec59310df" id="r_a0b56be4508f53cae5365d0aec59310df"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0b56be4508f53cae5365d0aec59310df">s_report_species_cleanup</a> (t_step)</td></tr>
 <tr class="memdesc:a0b56be4508f53cae5365d0aec59310df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks.  <br /></td></tr>
 <tr class="memitem:a301dcbf126654d55fa6589cbb8067066" id="r_a301dcbf126654d55fa6589cbb8067066"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a301dcbf126654d55fa6589cbb8067066">f_theta</a> (ybar, y)</td></tr>
@@ -210,7 +210,7 @@ Variables</h2></td></tr>
 
 <p>Endpoint weight of the Gauss-Lobatto rule exact for the reconstruction's degree 2*polyn: 1/(N(N-1)), N = polyn + 2. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00671">671</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00683">683</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -248,7 +248,7 @@ Here is the caller graph for this function:</div>
 
 <p>Largest theta in [0, 1] keeping ybar + theta*(y - ybar) &gt;= 0, given ybar &gt;= 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00644">644</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00656">656</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -288,7 +288,7 @@ Here is the caller graph for this function:</div>
 
 <p>Bound the species face values vL/vR of direction id, over the range the reconstruction filled. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -297,8 +297,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a784510316a08f514037eebbbf65a8a7b" name="a784510316a08f514037eebbbf65a8a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a784510316a08f514037eebbbf65a8a7b">&#9670;&#160;</a></span>s_clean_species()</h2>
+<a id="a536237cafe64ed8a35d76658715d2ab3" name="a536237cafe64ed8a35d76658715d2ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a536237cafe64ed8a35d76658715d2ab3">&#9670;&#160;</a></span>s_clean_species()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,15 +306,24 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">subroutine, public m_species_bounds::s_clean_species </td>
           <td>(</td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span></td><td>)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">logical, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>tally</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. </p>
+<p>Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. tally = F (an AMR fine block, whose markers ib_markers does not hold) cleans without counting. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00510">510</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_a536237cafe64ed8a35d76658715d2ab3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -335,7 +344,7 @@ Here is the call graph for this function:</div>
 
 <p>Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00642">642</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -367,7 +376,7 @@ Here is the call graph for this function:</div>
 
 <p>Fluid-cell cleanings, and sum of |rho_new - rho_old|, since the last report. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -391,7 +400,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00381">381</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -417,7 +426,7 @@ Here is the call graph for this function:</div>
 
 <p>Violations below this fraction of rho are roundoff: cleaned but not counted. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00379">379</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>

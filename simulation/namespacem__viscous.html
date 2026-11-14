@@ -178,6 +178,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:abb9caed22e1825ad5437454a97053509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute cell-average spatial derivatives via the scalar divergence theorem.  <br /></td></tr>
 <tr class="memitem:acd9de9c89fd8e78eea15d7eb1f6a6b68" id="r_acd9de9c89fd8e78eea15d7eb1f6a6b68"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acd9de9c89fd8e78eea15d7eb1f6a6b68">s_compute_fd_gradient</a> (var, grad_x, grad_y, grad_z)</td></tr>
 <tr class="memdesc:acd9de9c89fd8e78eea15d7eb1f6a6b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the scalar gradient fields via finite differences.  <br /></td></tr>
+<tr class="memitem:a0ef32d94dfd7c0d2001d7497e16450f7" id="r_a0ef32d94dfd7c0d2001d7497e16450f7"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0ef32d94dfd7c0d2001d7497e16450f7">s_compact_ib_viscous_gradients</a> (q_prim_vf, markers, id, dql_x, dqr_x, dql_y, dqr_y, dql_z, dqr_z)</td></tr>
+<tr class="memdesc:a0ef32d94dfd7c0d2001d7497e16450f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">With weno_Re_flux next to an immersed body, replace the WENO velocity gradient on the faces of direction id within ib_visc_band cells of a body cell by the compact one of weno_Re_flux = F: the normal difference across the face, and the mean of the two cells' central tangential differences. Ghost values extend the flow only a layer or two deep (the mirror leaves a kink at the wall), and the gradient stencil of weno_Re_flux, about five cells wide, carries that into the fluid faces next to the wall. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set.  <br /></td></tr>
+<tr class="memitem:aa9b8a10a477811a3837b264917face0c" id="r_aa9b8a10a477811a3837b264917face0c"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa9b8a10a477811a3837b264917face0c">s_compact_ib_viscous_gradient</a> (q, markers, id, dql_x, dqr_x, dql_y, dqr_y, dql_z, dqr_z)</td></tr>
+<tr class="memdesc:aa9b8a10a477811a3837b264917face0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">One velocity component of s_compact_ib_viscous_gradients. The differences are written out per direction so that a coordinate array that does not exist (z_cc in 2D) is never touched.  <br /></td></tr>
 <tr class="memitem:aa3ef25c06b9615bed453231e9c9d69e9" id="r_aa3ef25c06b9615bed453231e9c9d69e9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa3ef25c06b9615bed453231e9c9d69e9">s_finalize_viscous_module</a> ()</td></tr>
 <tr class="memdesc:aa3ef25c06b9615bed453231e9c9d69e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalize the viscous module.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -188,6 +192,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a1d7799194eb302ce89e2c33b8f715c95" id="r_a1d7799194eb302ce89e2c33b8f715c95"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a1d7799194eb302ce89e2c33b8f715c95">is2_viscous</a></td></tr>
 <tr class="memitem:aace22bdf7b484cdde326717f36b093c9" id="r_aace22bdf7b484cdde326717f36b093c9"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#aace22bdf7b484cdde326717f36b093c9">is3_viscous</a></td></tr>
 <tr class="memitem:a9e3f63b94160e0038b446b0a1baa1a86" id="r_a9e3f63b94160e0038b446b0a1baa1a86"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a9e3f63b94160e0038b446b0a1baa1a86">res_viscous</a></td></tr>
+<tr class="memitem:ae65789673107028616ee6bdf75b4e1eb" id="r_ae65789673107028616ee6bdf75b4e1eb"><td class="memItemLeft">integer, <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae65789673107028616ee6bdf75b4e1eb">ib_visc_band</a> = 2</td></tr>
+<tr class="memdesc:ae65789673107028616ee6bdf75b4e1eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Faces within this many cells of an immersed-boundary cell take the compact velocity gradient.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Computes viscous stress tensors and diffusive flux contributions for the Navier&ndash;Stokes equations. </p>
@@ -258,11 +264,141 @@ Variables</h2></td></tr>
 
 <p>Compute cell-average spatial derivatives via the scalar divergence theorem. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02791">2791</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02805">2805</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__viscous_abb9caed22e1825ad5437454a97053509_icgraph.svg" width="456" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa9b8a10a477811a3837b264917face0c" name="aa9b8a10a477811a3837b264917face0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9b8a10a477811a3837b264917face0c">&#9670;&#160;</a></span>s_compact_ib_viscous_gradient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_viscous::s_compact_ib_viscous_gradient </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>markers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dql_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dqr_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dql_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dqr_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dql_z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dqr_z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>One velocity component of s_compact_ib_viscous_gradients. The differences are written out per direction so that a coordinate array that does not exist (z_cc in 2D) is never touched. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03611">3611</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__viscous_aa9b8a10a477811a3837b264917face0c_icgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0ef32d94dfd7c0d2001d7497e16450f7" name="a0ef32d94dfd7c0d2001d7497e16450f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ef32d94dfd7c0d2001d7497e16450f7">&#9670;&#160;</a></span>s_compact_ib_viscous_gradients()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_viscous::s_compact_ib_viscous_gradients </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>markers</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75">eqn_idx</a>%mom%beg:eqn_idx%mom%end), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dql_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75">eqn_idx</a>%mom%beg:eqn_idx%mom%end), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dqr_x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75">eqn_idx</a>%mom%beg:eqn_idx%mom%end), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dql_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75">eqn_idx</a>%mom%beg:eqn_idx%mom%end), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dqr_y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75">eqn_idx</a>%mom%beg:eqn_idx%mom%end), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dql_z</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75">eqn_idx</a>%mom%beg:eqn_idx%mom%end), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>dqr_z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>With weno_Re_flux next to an immersed body, replace the WENO velocity gradient on the faces of direction id within ib_visc_band cells of a body cell by the compact one of weno_Re_flux = F: the normal difference across the face, and the mean of the two cells' central tangential differences. Ghost values extend the flow only a layer or two deep (the mirror leaves a kink at the wall), and the gradient stencil of weno_Re_flux, about five cells wide, carries that into the fluid faces next to the wall. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03594">3594</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__viscous_a0ef32d94dfd7c0d2001d7497e16450f7_cgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -328,7 +464,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute viscous stress tensor near cylindrical axis, avoiding 1/r singularity at y_cb(-1)=0 Inverse Reynolds numbers of the mixture at one cell. Non-Newtonian fluids need the local shear rate, which comes from the velocity gradients; Newtonian ones reduce to the volume-fraction-weighted harmonic mean. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00496">496</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00510">510</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -368,7 +504,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the scalar gradient fields via finite differences. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03018">3018</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03032">3032</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -426,7 +562,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00610">610</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -449,7 +585,7 @@ Here is the call graph for this function:</div>
 
 <p>Finalize the viscous module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03576">3576</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03772">3772</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -549,7 +685,7 @@ Here is the call graph for this function:</div>
 
 <p>Computes viscous terms. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l01141">1141</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l01155">1155</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -572,7 +708,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the viscous module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -637,7 +773,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstruct left and right cell-boundary values of viscous primitive variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02313">2313</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02327">2327</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -702,11 +838,29 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstruct left and right cell-boundary values of viscous primitive variable derivatives. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02553">2553</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l02567">2567</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ae65789673107028616ee6bdf75b4e1eb" name="ae65789673107028616ee6bdf75b4e1eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae65789673107028616ee6bdf75b4e1eb">&#9670;&#160;</a></span>ib_visc_band</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, <a class="el" href="namespacem__thinc.html#ad06ae6d75b5713ae4c0496a74b68347d">parameter</a> m_viscous::ib_visc_band = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Faces within this many cells of an immersed-boundary cell take the compact velocity gradient. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a43f48a64b09c3da45707ec6ae199e1a8" name="a43f48a64b09c3da45707ec6ae199e1a8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43f48a64b09c3da45707ec6ae199e1a8">&#9670;&#160;</a></span>is1_viscous</h2>
 
@@ -719,7 +873,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -735,7 +889,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -751,7 +905,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -767,7 +921,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -783,7 +937,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l00416">416</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>

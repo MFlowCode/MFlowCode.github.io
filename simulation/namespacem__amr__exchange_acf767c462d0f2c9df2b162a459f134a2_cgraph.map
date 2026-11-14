@@ -1,0 +1,112 @@
+<map id="m_amr_exchange::s_amr_stage_fill_wave" name="m_amr_exchange::s_amr_stage_fill_wave">
+<area shape="rect" id="Node000001" title="Per&#45;stage level&#45;1 fill: the wave, then every owned level&#45;1 box&#39;s consume and ghost fill at once." alt="" coords="5,471,191,515"/>
+<area shape="rect" id="Node000002" href="$namespacem__amr__exchange.html#a0bfda9c1650516c1c23765f147cc839f" title="Level&#45;1 consume and ghost fill for all owned boxes at once: patches pooled in amr_cg (s_amr_cg_reserv..." alt="" coords="239,144,424,189"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,469,306,199,304,204,118,471"/>
+<area shape="rect" id="Node000014" href="$namespacem__amr__exchange.html#a9378fbe651cbc1245cbf5284c999f097" title="Level&#45;1 fill wave, exchange phase: each level&#45;1 box&#39;s padded coarse patch (region +/&#45; amr_cpat_mar) i..." alt="" coords="239,797,424,842"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="116,513,308,783,303,785,115,519"/>
+<area shape="rect" id="Node000003" href="$namespacem__amr__exchange.html#ab2028145be662cc9146653adb7b1c5af" title="Ghost&#45;fill every owned level&#45;1 box from its pooled patch (s_amr_l1_pool_gather&#39;s layout) in one kerne..." alt="" coords="498,75,684,119"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="416,141,492,122,488,126,420,145"/>
+<area shape="rect" id="Node000004" href="$namespacem__amr__exchange.html#a33adc14d7206126d8cea09cf88b84716" title="Consume the open level&#45;1 fill wave into the pooled amr_cg: box k at dim&#45;3 offset amr_cg_pz(k),..." alt="" coords="498,144,684,189"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="423,164,485,165,481,168,426,169"/>
+<area shape="rect" id="Node000005" href="$namespacem__amr__exchange.html#aa300e62bb5bb6354fac8374e033176b6" title="Hold np coarse patches in amr_cg stacked along dim 3 (patch p at p*(amr_cpat_hi(3) + 1)); grows only,..." alt="" coords="781,5,966,50"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="682,144,709,130,724,113,732,96,740,78,757,60,769,54,766,58,760,64,745,81,737,98,729,116,712,134,686,148"/>
+<area shape="rect" id="Node000006" href="$namespacem__amr__exchange.html#a305821ff8d76978e49208bcac9e63a15" title="Ring&#45;clipped own&#45;box copy on device: queue shell&#45;slab/own&#45;box intersections as slab rows and copy q_c..." alt="" coords="781,75,966,119"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="683,141,768,122,764,125,686,146"/>
+<area shape="rect" id="Node000008" href="$namespacem__amr__exchange.html#a6536fb3ee235530e1ec5007f420d678b" title="A contributor&#39;s slice [bl, bh] of box k&#39;s patch as transfer slabs: the whole slice (full) or its holl..." alt="" coords="781,213,966,258"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="683,187,768,208,764,211,685,192"/>
+<area shape="rect" id="Node000013" href="$namespacem__amr__exchange.html#a6347c707f0de1de9d2a9bfc1e13841c1" title="Unpack the queued slab rows (row 9: payload offset in buf) into the pooled amr_cg patches: a whole fi..." alt="" coords="781,144,966,189"/>
+<area shape="poly" id="edge11_Node000004_Node000013" title=" " alt="" coords="683,164,768,165,763,168,686,169"/>
+<area shape="rect" id="Node000007" href="$namespacem__amr__ghost.html#a9090ad366f2602781690ab6754bce2c1" title="Push the slab table to the device and empty it for the next build; returns the total cell count." alt="" coords="1051,75,1208,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="965,95,1038,96,1033,98,968,99"/>
+<area shape="rect" id="Node000009" href="$namespacem__amr__state.html#af95027d23bafcdd21f60a40caf83a2f5" title="Core [clo, chi] of the patch box that the ghost fill never reads, so the fill waves ship only the she..." alt="" coords="1052,144,1207,189"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="957,210,1039,190,1034,193,960,215"/>
+<area shape="rect" id="Node000011" href="$namespacem__amr__exchange.html#af6a57965b1280a51c6ec686cf2a3db21" title="Intersect the shell slabs with box [bl:bh], keeping order; also returns the total cell count." alt="" coords="1037,213,1222,258"/>
+<area shape="poly" id="edge9_Node000008_Node000011" title=" " alt="" coords="965,233,1023,234,1019,237,968,238"/>
+<area shape="rect" id="Node000012" href="$namespacem__amr__exchange.html#a281b00fcc02a5a55579e78a5ea4f5e86" title="Ring clip: split the hollow shell of patch [plo:phi] minus open core [clo:chi] into at most 6 disjoin..." alt="" coords="1037,283,1222,327"/>
+<area shape="poly" id="edge10_Node000008_Node000012" title=" " alt="" coords="958,256,1032,277,1027,279,960,261"/>
+<area shape="poly" id="edge12_Node000013_Node000007" title=" " alt="" coords="957,141,1038,121,1034,124,960,146"/>
+<area shape="poly" id="edge31_Node000014_Node000008" title=" " alt="" coords="332,797,346,683,372,519,391,436,413,360,440,299,454,276,470,259,503,237,538,220,576,209,615,203,694,201,768,210,763,212,693,206,616,208,577,215,540,225,505,241,474,263,459,279,444,302,418,362,396,437,378,520,351,683,337,798"/>
+<area shape="rect" id="Node000015" href="$namespacem__amr__distribution.html#acec3544e76c75af8cf357efa4a90d2f5" title="Per&#45;dim intersection of two global boxes [alo:ahi] and [blo:bhi] &#45;&gt; [olo:ohi] (empty when olo &gt; ohi i..." alt="" coords="799,749,948,794"/>
+<area shape="poly" id="edge14_Node000014_Node000015" title=" " alt="" coords="354,795,405,755,437,736,471,722,537,707,590,705,643,712,711,722,787,744,782,746,710,728,643,717,590,710,538,712,473,728,440,741,408,760,358,799"/>
+<area shape="rect" id="Node000016" href="$namespacem__amr__seam.html#afc8971b58cb2c2d2a49bba60c599beeb" title="Rebuild the same&#45;level seam&#45;pair list once per regrid/restart in identical (xb, yb) order on all rank..." alt="" coords="492,567,690,611"/>
+<area shape="poly" id="edge15_Node000014_Node000016" title=" " alt="" coords="341,796,361,759,390,715,427,668,470,628,493,616,490,620,474,632,431,672,394,718,366,762,346,798"/>
+<area shape="rect" id="Node000021" href="$namespacem__amr__state.html#a3e727af9b6a683c71cacfea571e8bc51" title="Block k&#39;s padded coarse patch box [plo, phi] (region +/&#45; amr_cpat_mar; collapsed dims 0:0)." alt="" coords="796,611,951,655"/>
+<area shape="poly" id="edge33_Node000014_Node000021" title=" " alt="" coords="349,795,400,743,434,716,471,695,549,665,631,646,710,636,783,632,778,635,711,641,632,652,551,671,473,699,437,721,404,747,353,798"/>
+<area shape="rect" id="Node000026" href="$namespacem__amr__state.html#ae5a0310b56cd13a7a75eb530d9e068a1" title="Rank&#45;local per&#45;stage guard: the local bubbles&#39; padded bbox must stay clear of the current block (init..." alt="" coords="514,1307,669,1351"/>
+<area shape="poly" id="edge24_Node000014_Node000026" title=" " alt="" coords="333,840,338,926,345,984,356,1047,373,1113,397,1178,431,1239,474,1292,502,1313,497,1313,470,1296,426,1242,393,1180,368,1115,350,1048,339,984,333,927,332,845"/>
+<area shape="rect" id="Node000031" href="$namespacem__amr__exchange.html#a18dc0da8cbea4abdbd43e76cb62355e8" title="Fused coarse&#45;field pack: the wave&#39;s whole send list in one launch; inverts the linear index s_amr_pac..." alt="" coords="498,960,684,1005"/>
+<area shape="poly" id="edge29_Node000014_Node000031" title=" " alt="" coords="351,840,404,893,437,921,473,945,487,953,482,955,471,950,434,926,401,897,352,845"/>
+<area shape="rect" id="Node000032" href="$namespacem__amr__exchange.html#a0f01ab72188111dd6f18a6270df65ecc" title="Fused&#45;pack plan for transfers 1:nt: slab corner, extents, absolute pool payload offset and exclusive ..." alt="" coords="498,1029,684,1074"/>
+<area shape="poly" id="edge30_Node000014_Node000032" title=" " alt="" coords="343,840,364,879,392,926,429,974,474,1015,487,1024,482,1025,470,1019,425,978,388,929,359,882,342,845"/>
+<area shape="rect" id="Node000033" href="$namespacem__amr__exchange.html#a5034153718a88d70f9b8ea17e1508a00" title="Pack (pack = T) the global box [bl:bh] of q_coarse into the wire buffer buf, or unpack it into amr_cg..." alt="" coords="498,1099,684,1143"/>
+<area shape="poly" id="edge32_Node000014_Node000033" title=" " alt="" coords="338,840,356,892,382,958,421,1026,446,1057,474,1084,487,1095,482,1095,470,1088,442,1061,417,1029,377,960,351,894,338,845"/>
+<area shape="rect" id="Node000034" href="$namespacem__amr__distribution.html#ac96c852d118d1001b0ab36f9e3e384d4" title="Rank r&#39;s contiguous owned coarse&#45;cell range per dim: the interior plus buff_size ghosts where the sub..." alt="" coords="774,957,973,1002"/>
+<area shape="poly" id="edge34_Node000014_Node000034" title=" " alt="" coords="423,799,492,793,567,795,605,801,643,810,678,824,712,843,725,854,732,867,738,893,743,919,749,931,760,943,765,949,760,949,756,947,745,934,738,921,733,894,727,869,721,858,709,847,676,829,641,815,604,806,566,801,492,798,426,804"/>
+<area shape="rect" id="Node000036" href="$namespacem__amr__distribution.html#a788f399145161843db699345c7b6ad87" title="Rebuild the epoch&#45;keyed block lists when the mesh epoch has moved (one O(global blocks) walk per regr..." alt="" coords="513,737,669,782"/>
+<area shape="poly" id="edge36_Node000014_Node000036" title=" " alt="" coords="423,796,500,780,496,783,426,800"/>
+<area shape="rect" id="Node000039" href="$namespacem__amr__distribution.html#a0d202c1154d912a9f8455e381083e33e" title="Refresh the owned&#45;block list if any owner write has happened since the last refresh...." alt="" coords="492,1168,691,1213"/>
+<area shape="poly" id="edge45_Node000014_Node000039" title=" " alt="" coords="336,840,349,904,373,988,391,1033,413,1077,441,1118,474,1154,481,1161,475,1161,470,1158,436,1121,408,1080,386,1035,368,990,344,905,335,845"/>
+<area shape="rect" id="Node000040" href="$namespacem__global__parameters.html#af702bb8b5735c116a7a47d6465d798ce" title="Make block slot islot the working slot: set amr_cur and copy its stored mirrors (region,..." alt="" coords="510,1237,673,1282"/>
+<area shape="poly" id="edge46_Node000014_Node000040" title=" " alt="" coords="334,840,343,915,364,1018,382,1073,405,1128,436,1179,474,1223,498,1241,493,1241,470,1227,431,1182,401,1130,377,1075,359,1019,338,916,333,845"/>
+<area shape="rect" id="Node000041" href="$namespacem__amr__wave.html#a4e418bd61f87e4e3e627ed90aab2677a" title="Add the msl slabs [tb:te] of block blk as transfers with peer." alt="" coords="492,1445,691,1490"/>
+<area shape="poly" id="edge47_Node000014_Node000041" title=" " alt="" coords="336,840,351,964,378,1142,397,1233,419,1317,445,1385,459,1411,474,1431,481,1440,476,1439,470,1435,455,1414,440,1387,414,1318,392,1234,373,1143,346,965,334,845"/>
+<area shape="rect" id="Node000043" href="$namespacem__amr__wave.html#a5976656ea038b361861a2b97b4130fd6" title="Lay the side out in its pool (peers in first&#45;appearance order, transfers contiguous per peer); grows ..." alt="" coords="492,1376,691,1421"/>
+<area shape="poly" id="edge49_Node000014_Node000043" title=" " alt="" coords="336,840,354,952,383,1108,402,1188,423,1262,447,1322,474,1362,481,1370,476,1369,470,1365,443,1324,418,1263,396,1190,378,1109,349,953,335,845"/>
+<area shape="rect" id="Node000044" href="$namespacem__amr__wave.html#ac0aeb1db627e6e107b711bf4858e05b4" title="Open a wave on tag band b." alt="" coords="472,1514,710,1542"/>
+<area shape="poly" id="edge50_Node000014_Node000044" title=" " alt="" coords="335,840,348,977,372,1176,391,1279,414,1373,441,1450,457,1479,474,1501,477,1505,472,1503,470,1504,453,1482,436,1452,408,1374,385,1280,367,1177,342,978,333,845"/>
+<area shape="rect" id="Node000046" href="$namespacem__amr__wave.html#a2216383abf87812d0d5fd444d8c11abe" title="One receive per peer into the side&#39;s pool runs." alt="" coords="474,908,708,936"/>
+<area shape="poly" id="edge52_Node000014_Node000046" title=" " alt="" coords="367,840,418,868,473,893,500,903,495,905,471,898,415,873,369,845"/>
+<area shape="rect" id="Node000053" href="$namespacem__amr__wave.html#af04e5bb5e6e7af93ffce2dde4253d7e5" title="Start enumerating a side&#39;s transfers." alt="" coords="492,273,691,318"/>
+<area shape="poly" id="edge54_Node000014_Node000053" title=" " alt="" coords="329,796,332,710,338,651,349,585,366,516,391,448,425,385,470,329,480,322,477,327,474,332,430,388,396,451,371,518,354,586,343,651,337,711,335,797"/>
+<area shape="rect" id="Node000054" href="$namespacem__amr__wave.html#a00ad409044d47b2d7b09bc022d88b950" title="One send per peer (the caller has packed every slice)." alt="" coords="472,856,710,884"/>
+<area shape="poly" id="edge55_Node000014_Node000054" title=" " alt="" coords="424,835,504,852,499,854,425,840"/>
+<area shape="rect" id="Node000055" href="$namespacem__amr__wave.html#ae854d091405e40eaa07addb4fb4a1e42" title="Pool bounds [lo, hi] of transfer t&#39;s payload." alt="" coords="492,343,691,387"/>
+<area shape="poly" id="edge57_Node000014_Node000055" title=" " alt="" coords="331,796,337,721,357,614,375,556,399,498,430,445,470,398,480,392,477,396,474,402,435,448,404,501,380,557,362,615,342,721,336,797"/>
+<area shape="rect" id="Node000056" href="$namespacem__amr__wave.html#a7609ffc58e63fd57b4b412dca91c5fff" title="Wait for all requests; under MFC_DEBUG each receive length must equal its plan." alt="" coords="474,411,708,439"/>
+<area shape="poly" id="edge58_Node000014_Node000056" title=" " alt="" coords="332,796,340,728,362,635,380,584,403,535,433,489,470,450,480,445,477,449,474,454,437,492,408,537,385,586,367,636,345,729,337,798"/>
+<area shape="rect" id="Node000057" href="$namespacem__phase__timing.html#aa7baa8a0c1bb5d1bc136d7c522b565e0" title=" " alt="" coords="484,463,698,491"/>
+<area shape="poly" id="edge59_Node000014_Node000057" title=" " alt="" coords="333,796,345,737,369,657,387,614,410,573,437,535,470,502,481,496,477,501,474,506,441,538,414,576,392,617,374,659,350,738,338,798"/>
+<area shape="rect" id="Node000058" href="$namespacem__phase__timing.html#aca18926c3c72e1130a77df71d7c5a0da" title=" " alt="" coords="482,515,700,543"/>
+<area shape="poly" id="edge60_Node000014_Node000058" title=" " alt="" coords="335,796,350,745,376,679,415,610,441,579,470,552,479,548,476,553,474,556,445,583,420,613,381,681,355,747,340,798"/>
+<area shape="rect" id="Node000017" href="$namespacem__amr__distribution.html#a1db209245e908339ddd027d765d1231c" title="Overlap count only (allocation sizing), = product of the per&#45;dim coord&#45;range widths." alt="" coords="790,491,957,535"/>
+<area shape="poly" id="edge16_Node000016_Node000017" title=" " alt="" coords="675,564,778,538,773,541,678,568"/>
+<area shape="rect" id="Node000020" href="$namespacem__box.html#a3de362b28d83a88bbfa7d3fa1db7b5f5" title="3D Morton (Z&#45;order) key of (ix, iy, iz), 21 bits/dim; negative coords clamp to 0." alt="" coords="1063,455,1196,483"/>
+<area shape="poly" id="edge17_Node000016_Node000020" title=" " alt="" coords="689,587,757,584,833,577,912,565,988,545,1046,520,1098,490,1094,494,1048,524,990,550,913,570,834,582,758,589,692,592"/>
+<area shape="poly" id="edge18_Node000016_Node000021" title=" " alt="" coords="689,602,783,618,778,620,691,607"/>
+<area shape="rect" id="Node000022" href="$namespacem__amr__distribution.html#ac8d9e8e87fe68f5205623f26748849ce" title="Ascending rank list overlapping coarse box [blo:bhi]: the coord brick is enumerated cx&#45;&gt;cy&#45;&gt;cz so r =..." alt="" coords="775,352,972,397"/>
+<area shape="poly" id="edge19_Node000016_Node000022" title=" " alt="" coords="688,567,708,552,722,535,729,518,732,482,735,445,742,426,756,407,764,403,761,407,760,411,747,428,740,446,737,482,734,519,727,538,712,556,692,571"/>
+<area shape="rect" id="Node000023" href="$namespacem__amr__state.html#a85f1578c01b897948b2a32ce7b88b33d" title="Block k&#39;s region box in global coarse cells; collapsed dimensions read 0:0." alt="" coords="796,680,951,725"/>
+<area shape="poly" id="edge20_Node000016_Node000023" title=" " alt="" coords="636,609,695,637,759,665,784,675,779,677,757,670,693,642,637,614"/>
+<area shape="rect" id="Node000024" href="$namespacem__amr__seam.html#a1870e4a5fa5cbaeb82fa1b04e1a5bcae" title="Binary&#45;search the Morton&#45;sorted lo corners for the block at clo, verify the seam predicate against xb..." alt="" coords="773,283,974,327"/>
+<area shape="poly" id="edge21_Node000016_Node000024" title=" " alt="" coords="688,568,708,552,726,526,734,500,735,474,732,447,729,420,730,393,738,365,756,338,762,335,759,339,760,341,742,368,735,394,734,420,737,447,740,474,739,501,731,529,712,556,692,572"/>
+<area shape="rect" id="Node000025" href="$namespacem__amr__distribution.html#a70b8e626bea578fa08675f892fd58655" title="ord(1:n) = item indices in ascending key order. Stable iterative bottom&#45;up merge sort,..." alt="" coords="796,421,951,466"/>
+<area shape="poly" id="edge23_Node000016_Node000025" title=" " alt="" coords="689,564,709,552,725,534,732,515,740,496,757,476,784,462,781,466,760,480,744,498,737,517,729,537,712,556,692,568"/>
+<area shape="poly" id="edge22_Node000024_Node000020" title=" " alt="" coords="964,325,990,337,1025,361,1058,389,1109,443,1104,443,1054,393,1022,365,987,342,965,330"/>
+<area shape="rect" id="Node000027" href="$namespacem__amr__state.html#a997ee09fdbcb6430f5240aefc2eafb7b" title="Do two coarse&#45;index boxes [alo:ahi] and [blo:bhi] overlap? Collapsed dims never disqualify." alt="" coords="1053,1009,1206,1054"/>
+<area shape="poly" id="edge25_Node000026_Node000027" title=" " alt="" coords="668,1312,709,1292,725,1276,733,1260,741,1242,756,1223,828,1169,905,1123,981,1086,1051,1059,1046,1061,983,1091,908,1128,831,1173,760,1227,746,1245,738,1262,729,1279,712,1296,670,1317"/>
+<area shape="rect" id="Node000028" href="$namespacem__amr__state.html#a2928fbd967a8a9fbaf5bc21f01a423b6" title="Convert a physical&#45;space bbox to a global coarse&#45;index bbox padded by pad_cells (uniform spacing; the..." alt="" coords="796,1376,951,1421"/>
+<area shape="poly" id="edge26_Node000026_Node000028" title=" " alt="" coords="669,1345,784,1376,778,1376,669,1351"/>
+<area shape="rect" id="Node000029" href="$namespacem__bubbles__el.html#ad4e9f505c7b4caca692d8909caf2a391" title="Rank&#45;local bounding box of Lagrangian bubble positions; pmin &gt; pmax when the rank holds none." alt="" coords="797,1237,950,1282"/>
+<area shape="poly" id="edge27_Node000026_Node000029" title=" " alt="" coords="669,1307,784,1281,779,1283,670,1313"/>
+<area shape="rect" id="Node000030" href="$namespacem__mpi__common.html#a04cfc0bdb377a0ce2f9fd478e4bb3807" title="The subroutine terminates the MPI execution environment." alt="" coords="785,1307,962,1351"/>
+<area shape="poly" id="edge28_Node000026_Node000030" title=" " alt="" coords="669,1326,772,1329,767,1329,670,1332"/>
+<area shape="rect" id="Node000035" href="$namespacem__amr__distribution.html#a822e61a8f53274d71049457939a0c509" title="Rank r&#39;s coarse&#45;grid decomposition (start_idx + local extent m/n/p), computed O(1) from its cartesian..." alt="" coords="1047,888,1212,933"/>
+<area shape="poly" id="edge35_Node000034_Node000035" title=" " alt="" coords="958,954,1035,936,1030,938,960,959"/>
+<area shape="poly" id="edge39_Node000036_Node000015" title=" " alt="" coords="669,760,786,767,781,769,671,765"/>
+<area shape="poly" id="edge40_Node000036_Node000021" title=" " alt="" coords="627,735,687,700,757,665,783,657,779,660,759,670,689,704,630,739"/>
+<area shape="poly" id="edge44_Node000036_Node000023" title=" " alt="" coords="668,741,782,720,778,723,671,746"/>
+<area shape="poly" id="edge41_Node000036_Node000034" title=" " alt="" coords="669,773,693,784,712,799,726,818,734,837,737,873,740,909,747,926,760,943,764,948,759,948,756,947,742,929,735,910,731,874,728,838,722,820,708,803,690,788,670,778"/>
+<area shape="rect" id="Node000037" href="$namespacem__amr__state.html#a609bec9589a9d150b77cd69fe7b936de" title="Index of the level&#45;(level(k)&#45;1) block that block k refines, or 0 for level 1 (parent is the L0 grid)...." alt="" coords="797,888,950,933"/>
+<area shape="poly" id="edge37_Node000036_Node000037" title=" " alt="" coords="670,776,712,799,729,818,737,838,744,856,760,874,785,890,780,890,757,878,740,859,732,840,724,821,709,803,670,781"/>
+<area shape="rect" id="Node000038" href="$namespacem__amr__distribution.html#a942cc28d416825c2409013f6d4bef481" title="Rank r&#39;s coarse interior box (global, no ghosts) from s_amr_rank_decomp; restriction targets are iden..." alt="" coords="794,819,953,863"/>
+<area shape="poly" id="edge42_Node000036_Node000038" title=" " alt="" coords="669,779,781,813,776,815,670,785"/>
+<area shape="poly" id="edge38_Node000037_Node000027" title=" " alt="" coords="950,928,990,943,1040,969,1087,1000,1082,1000,1038,974,988,947,951,933"/>
+<area shape="poly" id="edge43_Node000038_Node000035" title=" " alt="" coords="953,860,1035,884,1029,885,954,865"/>
+<area shape="rect" id="Node000042" href="$namespacem__amr__wave.html#a594d42818badc9b2580319434fc97271" title="Append one transfer of words payload words for block blk over box [bl, bh] with peer." alt="" coords="758,1454,989,1482"/>
+<area shape="poly" id="edge48_Node000041_Node000042" title=" " alt="" coords="691,1465,746,1467,740,1468,692,1470"/>
+<area shape="rect" id="Node000045" href="$namespacem__amr__wave.html#a43460fe4af1dbf6f143c4fb64a843290" title="Open a keyed&#45;tag wave: clear the touched per&#45;peer seq counters and bump the band&#39;s generation...." alt="" coords="781,1505,966,1550"/>
+<area shape="poly" id="edge51_Node000044_Node000045" title=" " alt="" coords="711,1525,768,1528,763,1528,711,1530"/>
+<area shape="rect" id="Node000047" href="$namespacem__amr__wave.html#ad0468cd0b66ee743df999cf738563a2c" title="One message per peer (dir = 1 sends, 2 receives) over the side&#39;s pool runs." alt="" coords="774,1027,973,1071"/>
+<area shape="poly" id="edge53_Node000046_Node000047" title=" " alt="" coords="689,934,712,946,729,962,737,979,745,996,760,1012,768,1019,763,1019,757,1016,740,999,732,982,724,965,709,950,689,939"/>
+<area shape="poly" id="edge56_Node000054_Node000047" title=" " alt="" coords="691,882,712,895,725,909,733,925,737,955,742,984,748,998,760,1012,765,1018,759,1017,756,1016,744,1001,737,986,732,955,728,926,721,912,709,899,691,887"/>
+</map>

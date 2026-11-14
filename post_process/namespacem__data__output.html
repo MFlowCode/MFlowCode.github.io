@@ -177,6 +177,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a00a1df7dd9a54fe10ae510fc59f56c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the computational grid (cell-boundary coordinates) to the formatted database slave and master files.  <br /></td></tr>
 <tr class="memitem:a342bb45ac15ca3a5da40fc6e2c8434bd" id="r_a342bb45ac15ca3a5da40fc6e2c8434bd"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a342bb45ac15ca3a5da40fc6e2c8434bd">s_write_variable_to_formatted_database_file</a> (varname, t_step)</td></tr>
 <tr class="memdesc:a342bb45ac15ca3a5da40fc6e2c8434bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a single flow variable field to the formatted database slave and master files for a given time step.  <br /></td></tr>
+<tr class="memitem:a3428b3f36d25677577f2489753165a3c" id="r_a3428b3f36d25677577f2489753165a3c"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a3428b3f36d25677577f2489753165a3c">s_write_amr_to_formatted_database_file</a> (t_step)</td></tr>
+<tr class="memdesc:a3428b3f36d25677577f2489753165a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overlay the AMR refined solution. Each owned fine block is written as an extra rectilinear quadmesh (Silo) or an appended block record (binary), carrying the primitive fields (mixture density, velocities, pressure, volume fractions) at true fine resolution. On rank 0 the Silo block meshes/vars are registered into the /root 'amr_blocks' multimesh and 'amr_<em>' multivars so VisIt/ParaView overlays them on the coarse 'rectilinear_grid'. Guarded by <span class="tt"><a class="el" href="namespacem__global__parameters__common.html#a156fb725a0f2632e07765da6811be58e">amr</a></span> at the caller; a no-op when no fine blocks are present. Binary layout per rank: an integer block count, then per block a header [lo(3), hi(3), m, n, p, nvars], the fine cell boundaries (x_cb, then y_cb/z_cb if active), then per variable a [name, field] record (same convention as the coarse binary variables). </em> <br /></td></tr>
 <tr class="memitem:a8740dbd203f9e9c054ceac628fcb53c2" id="r_a8740dbd203f9e9c054ceac628fcb53c2"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8740dbd203f9e9c054ceac628fcb53c2">s_write_lag_bubbles_results_to_text</a> (t_step)</td></tr>
 <tr class="memdesc:a8740dbd203f9e9c054ceac628fcb53c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the post-processed results in the folder 'lag_bubbles_data'.  <br /></td></tr>
 <tr class="memitem:a4b51c66195d7d2c5d6b8b504783621f9" id="r_a4b51c66195d7d2c5d6b8b504783621f9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4b51c66195d7d2c5d6b8b504783621f9">s_write_lag_bubbles_to_formatted_database_file</a> (t_step)</td></tr>
@@ -206,6 +208,8 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a89b990790ba269b93fd3a214685b9a21" id="r_a89b990790ba269b93fd3a214685b9a21"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#a89b990790ba269b93fd3a214685b9a21">db_real</a> = merge(DB_DOUBLE, DB_FLOAT, <a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a> == <a class="el" href="namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315">dp</a>)</td></tr>
+<tr class="memdesc:a89b990790ba269b93fd3a214685b9a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Silo datatype of a real(wp) array (grid coordinates, point meshes and point variables). A &ndash;single build must not declare DB_DOUBLE for wp data: Silo then reads two floats per coordinate and the second half of every array from past its end (garbage, sometimes NaN).  <br /></td></tr>
 <tr class="memitem:acdeb8b0cf51decddadad9b90af33e18a" id="r_acdeb8b0cf51decddadad9b90af33e18a"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1output__context.html">output_context</a>), public&#160;</td><td class="memItemRight"><a class="el" href="#acdeb8b0cf51decddadad9b90af33e18a">out</a></td></tr>
 <tr class="memdesc:acdeb8b0cf51decddadad9b90af33e18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output workspace: flow variable buffers, VisIt extents/offsets, directory paths, file handles, and variable count.  <br /></td></tr>
 <tr class="memitem:a9200025029de298307a47699927a60fa" id="r_a9200025029de298307a47699927a60fa"><td class="memItemLeft">integer, private&#160;</td><td class="memItemRight"><a class="el" href="#a9200025029de298307a47699927a60fa">err</a></td></tr>
@@ -232,7 +236,7 @@ Variables</h2></td></tr>
 
 <p>Close a Binary database file and backfill the variable count into its header record (m, n, p, dbvars). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01831">1831</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02032">2032</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -255,7 +259,7 @@ Here is the caller graph for this function:</div>
 
 <p>Close the energy data file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01858">1858</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02059">2059</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -278,7 +282,7 @@ Here is the caller graph for this function:</div>
 
 <p>Close the formatted database slave file and, for the root process, the master file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01816">1816</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02017">2017</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -306,7 +310,7 @@ Here is the caller graph for this function:</div>
 
 <p>Close the interface data file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01851">1851</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02052">2052</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -329,7 +333,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the cell-index bounds for the user-specified partial output domain in each coordinate direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00201">201</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00212">212</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -352,7 +356,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate module arrays and release all data-output resources. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01865">1865</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02066">2066</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -370,7 +374,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate storage arrays, configure output directories, and count flow variables for formatted database output. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00043">43</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00054">54</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -398,7 +402,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open the energy data file for appending volume-integrated energy budget quantities. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -424,7 +428,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open (or create) the Silo-HDF5 or Binary formatted database slave and master files for a given time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00316">316</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00327">327</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -447,11 +451,42 @@ Here is the caller graph for this function:</div>
 
 <p>Open the interface data file for appending extracted interface coordinates. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a3a7e2018fb2d4b7848d9065cf1e00043_icgraph.svg" width="534" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3428b3f36d25677577f2489753165a3c" name="a3428b3f36d25677577f2489753165a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3428b3f36d25677577f2489753165a3c">&#9670;&#160;</a></span>s_write_amr_to_formatted_database_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_data_output::s_write_amr_to_formatted_database_file </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Overlay the AMR refined solution. Each owned fine block is written as an extra rectilinear quadmesh (Silo) or an appended block record (binary), carrying the primitive fields (mixture density, velocities, pressure, volume fractions) at true fine resolution. On rank 0 the Silo block meshes/vars are registered into the /root 'amr_blocks' multimesh and 'amr_<em>' multivars so VisIt/ParaView overlays them on the coarse 'rectilinear_grid'. Guarded by <span class="tt"><a class="el" href="namespacem__global__parameters__common.html#a156fb725a0f2632e07765da6811be58e">amr</a></span> at the caller; a no-op when no fine blocks are present. Binary layout per rank: an integer block count, then per block a header [lo(3), hi(3), m, n, p, nvars], the fine cell boundaries (x_cb, then y_cb/z_cb if active), then per variable a [name, field] record (same convention as the coarse binary variables). </em></p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00814">814</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a3428b3f36d25677577f2489753165a3c_cgraph.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__output_a3428b3f36d25677577f2489753165a3c_icgraph.svg" width="600" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -477,7 +512,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute volume-integrated kinetic, potential, and internal energies and write the energy budget to the energy data file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01478">1478</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01679">1679</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -507,8 +542,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Write the computational grid (cell-boundary coordinates) to the formatted database slave and master files. </p>
+<p>DBADDDOPT takes doubles whatever wp is. Allocated explicitly, never by assignment: ifx/ifort default to -assume norealloc_lhs, where assigning to an unallocated allocatable is an error, not an allocation.</p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00419">419</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -539,7 +575,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read IB state and write a Silo point mesh with per-body scalar fields. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01564">1564</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01765">1765</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -567,7 +603,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert the binary immersed-boundary state file to per-body formatted text files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01341">1341</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01542">1542</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -602,7 +638,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write a single IB point-variable to the Silo database slave and master files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01787">1787</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01988">1988</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -628,7 +664,7 @@ Here is the caller graph for this function:</div>
 
 <p>Extract the volume-fraction interface contour from primitive fields and write the coordinates to the interface data file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01392">1392</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01593">1593</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -654,7 +690,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write the post-processed results in the folder 'lag_bubbles_data'. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00786">786</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00987">987</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -680,7 +716,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read Lagrangian bubble restart data and write bubble positions and scalar fields to the Silo database. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00962">962</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01163">1163</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -725,7 +761,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write a single Lagrangian bubble point-variable to the Silo database slave and master files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01294">1294</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01495">1495</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -754,8 +790,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Write a single flow variable field to the formatted database slave and master files for a given time step. </p>
+<p>see s_open_formatted_database_file: allocated explicitly for -assume norealloc_lhs</p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00614">614</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00631">631</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -770,6 +807,24 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a89b990790ba269b93fd3a214685b9a21" name="a89b990790ba269b93fd3a214685b9a21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89b990790ba269b93fd3a214685b9a21">&#9670;&#160;</a></span>db_real</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_data_output::db_real = merge(DB_DOUBLE, DB_FLOAT, <a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a> == <a class="el" href="namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315">dp</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Silo datatype of a real(wp) array (grid coordinates, point meshes and point variables). A &ndash;single build must not declare DB_DOUBLE for wp data: Silo then reads two floats per coordinate and the second half of every array from past its end (garbage, sometimes NaN). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00040">40</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a9200025029de298307a47699927a60fa" name="a9200025029de298307a47699927a60fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9200025029de298307a47699927a60fa">&#9670;&#160;</a></span>err</h2>
 
@@ -790,7 +845,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00035">35</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00046">46</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -816,7 +871,7 @@ Here is the caller graph for this function:</div>
 
 <p>Name of the Lagrangian output files and Silo point mesh: lag_bubbles or lag_particles. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00038">38</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00049">49</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -834,7 +889,7 @@ Here is the caller graph for this function:</div>
 
 <p>Output workspace: flow variable buffers, VisIt extents/offsets, directory paths, file handles, and variable count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00032">32</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00043">43</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>

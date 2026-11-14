@@ -157,7 +157,7 @@ $(function(){initNavTree('case_constraints.html','',''); });
   <div class="headertitle"><div class="title">Case Creator Guide </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md56"></a>
 Case Creator Guide</h1>
 <blockquote class="doxtable">
 <p><b>Quick reference</b> for building MFC cases: working examples, compatibility rules, and configuration requirements. </p>
@@ -170,7 +170,7 @@ Case Creator Guide</h1>
 <blockquote class="doxtable">
 <p><b>Learn by example:</b> The cases below are curated from MFC's <span class="tt">examples/</span> directory and are validated, working configurations. Use them as blueprints for building your own simulations. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md57"></a>
 🟢 Beginner Examples</h3>
 <details >
 <summary >
@@ -196,7 +196,7 @@ Case Creator Guide</h1>
 </ul>
 <p></p>
 </details>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md58"></a>
 🟡 Intermediate Examples</h3>
 <details >
 <summary >
@@ -329,7 +329,7 @@ Case Creator Guide</h1>
 </ul>
 <p></p>
 </details>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md59"></a>
 🔴 Advanced Examples</h3>
 <details >
 <summary >
@@ -940,7 +940,9 @@ Geometry</h3>
 <li>ib_state_wrt requires ib to be enabled</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
-<li>output_partial_domain is incompatible with certain output flags</li>
+<li>amr with ib does not support STL-model geometry (not yet validated)</li>
+<li>amr with ib does not support patch_ib thermal_bc or surface_reaction (not yet validated)</li>
+<li>amr with ib does not support wrt (not yet validated)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>num_ibs must be &gt;= 1 when ib is enabled (or specify at least one particle_cloud with num_particles &gt; 0)</li>
@@ -1558,6 +1560,7 @@ Geometry</h3>
 <li>Choices: <span class="tt">1</span> = RK1 (Forward Euler), <span class="tt">2</span> = RK2, <span class="tt">3</span> = RK3 (SSP)</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>amr requires time_stepper = 3 (SSP-RK3)</li>
 <li>adap_dt requires Runge-Kutta 3 (time_stepper = 3)</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
@@ -1573,9 +1576,9 @@ Geometry</h3>
 <li>When enabled, recommends: <span class="tt">fluid_pp(1)Re(1)</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>ib_visc_compact requires ib and viscous</li>
 <li>weno_Re_flux requires viscous to be enabled</li>
 <li>fluid_pp(i)non_newtonian requires viscous = T</li>
-<li>chem_paramstransport_dt requires viscous = T or chem_paramsdiffusion = T</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD hypoelasticity does not support viscous effects (the dual-pass omits the viscous source term)</li>
@@ -1652,15 +1655,17 @@ Geometry</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>Alpha-Rho Consistency</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): alpha(j) = 0 but alpha_rho(j) = alpha_rho (density in absent phase); patch_icpp(i): alpha(j) = alpha but alpha_rho(j) = 0 (present phase has zero density)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><b>Bubbles Euler</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">patch_icpp(i)alpha(void_idx) = alpha is not a dilute void fraction; the Ensemble-Averaged Bubble Model is an O(alpha) expansion and is not recommended above DILUTE_VOID_FRACTION_MAX  </td></tr>
+<td class="markdownTableBodyNone"><b>Amr</b>  </td><td class="markdownTableBodyNone">simulation  </td><td class="markdownTableBodyNone">amr_buf &lt; amr_regrid_int: at CFL near 1 a feature can outrun the tag buffer between regrids  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
+<td class="markdownTableBodyNone"><b>Bubbles Euler</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">patch_icpp(i)alpha(void_idx) = alpha is not a dilute void fraction; the Ensemble-Averaged Bubble Model is an O(alpha) expansion and is not recommended above DILUTE_VOID_FRACTION_MAX  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><b>Volume Fraction Sum</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): volume fractions sum to alpha_sum, expected 1.0  </td></tr>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-13</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-14</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

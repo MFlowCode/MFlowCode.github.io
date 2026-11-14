@@ -9,6 +9,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::a_z", "namespacem__global__parameters__common.html#a08ebb9d211c4ced4e7195f89e74f5997", null ],
     [ "m_global_parameters_common::adv_n", "namespacem__global__parameters__common.html#abd8385fa406337311dd37ea801da3321", null ],
     [ "m_global_parameters_common::alt_soundspeed", "namespacem__global__parameters__common.html#a8639a9fccbe089056a2a64d2ef72fb41", null ],
+    [ "m_global_parameters_common::amr_in_fine_advance", "namespacem__global__parameters__common.html#aa62be5e8fa0f6eb70b86d58a6022dd6b", null ],
     [ "m_global_parameters_common::any_state_dependent_eos", "namespacem__global__parameters__common.html#aaa444a960761cc93e73732d001e840c2", null ],
     [ "m_global_parameters_common::avg_state", "namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3", null ],
     [ "m_global_parameters_common::bub_pp", "namespacem__global__parameters__common.html#a16b84823f195186bb591af3056cac4ad", null ],

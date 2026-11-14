@@ -10,6 +10,7 @@ var m__bubbles__EL_8fpp_8f90 =
     [ "m_bubbles_el::s_finalize_lagrangian_solver", "namespacem__bubbles__el.html#ade4e00f6ff205074c51fac9ee67b5fc1", null ],
     [ "m_bubbles_el::s_get_pinf", "namespacem__bubbles__el.html#afe5c1d9044b73531faaf8e9406a6082c", null ],
     [ "m_bubbles_el::s_initialize_bubbles_el_module", "namespacem__bubbles__el.html#af2aa31c33f5f13915ec2711c4efbcf6c", null ],
+    [ "m_bubbles_el::s_lag_cloud_bbox_local", "namespacem__bubbles__el.html#ad4e9f505c7b4caca692d8909caf2a391", null ],
     [ "m_bubbles_el::s_load_bubbles", "namespacem__bubbles__el.html#ad1fe48a60a9f65a7acb83581447defd1", null ],
     [ "m_bubbles_el::s_mpi_sendrecv_lag_bubbles", "namespacem__bubbles__el.html#a2207f099fadfd9efb3e16c67e0bb0d49", null ],
     [ "m_bubbles_el::s_pack_lag_bubble", "namespacem__bubbles__el.html#aae420f3c5a31549df5f6616dca17f721", null ],

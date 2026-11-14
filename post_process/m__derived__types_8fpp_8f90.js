@@ -53,5 +53,6 @@ var m__derived__types_8fpp_8f90 =
     [ "m_derived_types::bubbles_lagrange_parameters", "structm__derived__types_1_1bubbles__lagrange__parameters.html", "structm__derived__types_1_1bubbles__lagrange__parameters" ],
     [ "m_derived_types::particle_lagrange_parameters", "structm__derived__types_1_1particle__lagrange__parameters.html", "structm__derived__types_1_1particle__lagrange__parameters" ],
     [ "m_derived_types::cell_num_bounds", "structm__derived__types_1_1cell__num__bounds.html", "structm__derived__types_1_1cell__num__bounds" ],
-    [ "m_derived_types::simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ]
+    [ "m_derived_types::simplex_noise_params", "structm__derived__types_1_1simplex__noise__params.html", "structm__derived__types_1_1simplex__noise__params" ],
+    [ "m_derived_types::t_box", "structm__derived__types_1_1t__box.html", "structm__derived__types_1_1t__box" ]
 ];

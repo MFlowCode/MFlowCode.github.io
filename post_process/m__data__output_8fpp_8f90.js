@@ -10,6 +10,8 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::s_open_energy_data_file", "namespacem__data__output.html#a39d0a9b6b516d8b9fd81f5b811bbf509", null ],
     [ "m_data_output::s_open_formatted_database_file", "namespacem__data__output.html#a85116323b58eb2fe6292647b9682d06d", null ],
     [ "m_data_output::s_open_intf_data_file", "namespacem__data__output.html#a3a7e2018fb2d4b7848d9065cf1e00043", null ],
+    [ "s_put_amr_block_variable", "m__data__output_8fpp_8f90.html#a145554e584327cfdc942060f68a2e28c", null ],
+    [ "m_data_output::s_write_amr_to_formatted_database_file", "namespacem__data__output.html#a3428b3f36d25677577f2489753165a3c", null ],
     [ "m_data_output::s_write_energy_data_file", "namespacem__data__output.html#a46f36ecca7ea4f45bba6abddb3b01e7b", null ],
     [ "m_data_output::s_write_grid_to_formatted_database_file", "namespacem__data__output.html#a00a1df7dd9a54fe10ae510fc59f56c7f", null ],
     [ "m_data_output::s_write_ib_bodies_to_formatted_database_file", "namespacem__data__output.html#ac623638b9c9cb66e63a7486c7c55bdb9", null ],
@@ -20,6 +22,7 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::s_write_lag_bubbles_to_formatted_database_file", "namespacem__data__output.html#a4b51c66195d7d2c5d6b8b504783621f9", null ],
     [ "m_data_output::s_write_lag_variable_to_formatted_database_file", "namespacem__data__output.html#ade07913434048799e610ebd64584658d", null ],
     [ "m_data_output::s_write_variable_to_formatted_database_file", "namespacem__data__output.html#a342bb45ac15ca3a5da40fc6e2c8434bd", null ],
+    [ "m_data_output::db_real", "namespacem__data__output.html#a89b990790ba269b93fd3a214685b9a21", null ],
     [ "m_data_output::err", "namespacem__data__output.html#a9200025029de298307a47699927a60fa", null ],
     [ "m_data_output::lag_name", "namespacem__data__output.html#aea209641c75a4086efecb5a659631ffa", null ],
     [ "m_data_output::out", "namespacem__data__output.html#acdeb8b0cf51decddadad9b90af33e18a", null ]

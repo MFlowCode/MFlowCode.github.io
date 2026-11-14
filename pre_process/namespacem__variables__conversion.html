@@ -209,11 +209,13 @@ Variables</h2></td></tr>
 <tr class="memitem:ac6ef13046c1ccd16dc9a9dee32d886c0" id="r_ac6ef13046c1ccd16dc9a9dee32d886c0"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ac6ef13046c1ccd16dc9a9dee32d886c0">is1e</a></td></tr>
 <tr class="memitem:aad965403f327ed31ada1f384b3853891" id="r_aad965403f327ed31ada1f384b3853891"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#aad965403f327ed31ada1f384b3853891">is2e</a></td></tr>
 <tr class="memitem:a494b160cf0c59565ee6f2585841f66de" id="r_a494b160cf0c59565ee6f2585841f66de"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a494b160cf0c59565ee6f2585841f66de">is3e</a></td></tr>
-<tr class="memitem:ac0a9330e3866671a2c04062d6a6b11a3" id="r_ac0a9330e3866671a2c04062d6a6b11a3"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#ac0a9330e3866671a2c04062d6a6b11a3">enforce_density_floor_vc</a> = .false.</td></tr>
+<tr class="memitem:a1c8789d722225a158bed129079d78581" id="r_a1c8789d722225a158bed129079d78581"><td class="memItemLeft">logical, public&#160;</td><td class="memItemRight"><a class="el" href="#a1c8789d722225a158bed129079d78581">enforce_density_floor_vc</a> = .false.</td></tr>
 <tr class="memitem:aebd4c7f3c5481e91ef2abcb0ccdd28ea" id="r_aebd4c7f3c5481e91ef2abcb0ccdd28ea"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#aebd4c7f3c5481e91ef2abcb0ccdd28ea">preserve_qbmm_number_vc</a> = .false.</td></tr>
 <tr class="memitem:adf574dccf02ef4866b4cf5282a0baaaf" id="r_adf574dccf02ef4866b4cf5282a0baaaf"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#adf574dccf02ef4866b4cf5282a0baaaf">lagrange_beta_index_vc</a> = 0</td></tr>
 <tr class="memitem:aadb7f5bb0ac300d191b82f5ce60b21af" id="r_aadb7f5bb0ac300d191b82f5ce60b21af"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#aadb7f5bb0ac300d191b82f5ce60b21af">rho_sf</a></td></tr>
 <tr class="memdesc:aadb7f5bb0ac300d191b82f5ce60b21af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar density function.  <br /></td></tr>
+<tr class="memitem:a2bcdaae5f1b384421a2ea6885434b46b" id="r_a2bcdaae5f1b384421a2ea6885434b46b"><td class="memItemLeft">logical, public&#160;</td><td class="memItemRight"><a class="el" href="#a2bcdaae5f1b384421a2ea6885434b46b">skip_mixture_store</a> = .false.</td></tr>
+<tr class="memdesc:a2bcdaae5f1b384421a2ea6885434b46b"><td class="mdescLeft">&#160;</td><td class="mdescRight">post_process's AMR overlay converts fine blocks larger than the coarse rank grid these caches span; it sets this around those conversions (the caches are coarse-grid derived fields only)  <br /></td></tr>
 <tr class="memitem:aa4e71dc86386a0e652bcdaf71014cb1d" id="r_aa4e71dc86386a0e652bcdaf71014cb1d"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#aa4e71dc86386a0e652bcdaf71014cb1d">gamma_sf</a></td></tr>
 <tr class="memdesc:aa4e71dc86386a0e652bcdaf71014cb1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar sp. heat ratio function.  <br /></td></tr>
 <tr class="memitem:a8f75a3f6d4d2f0bf57f0ad2da4ecba17" id="r_a8f75a3f6d4d2f0bf57f0ad2da4ecba17"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a8f75a3f6d4d2f0bf57f0ad2da4ecba17">pi_inf_sf</a></td></tr>
@@ -248,7 +250,7 @@ Variables</h2></td></tr>
 
 <p>Elastic strain energy of one stress component, doubled for a shear component: the tensor stores it once, the energy counts both off-diagonal entries. Zero without a shear modulus. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02522">2522</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02533">2533</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -298,7 +300,7 @@ Here is the caller graph for this function:</div>
 
 <p>Hypoelastic strain energy at one cell, summed over the stress components. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02574">2574</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02585">2585</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -343,7 +345,7 @@ Here is the call graph for this function:</div>
 
 <p>Total energy per unit volume, thermodynamic terms only. Callers add magnetic and elastic energy, which are not equation-of-state terms. The chemistry and relativistic branches use a different relation and stay open-coded. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02464">2464</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02475">2475</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -394,7 +396,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02591">2591</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02602">2602</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -469,7 +471,7 @@ Here is the call graph for this function:</div>
 
 <p>Compute the pressure from the appropriate equation of state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00481">481</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -524,7 +526,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute partial densities and volume fractions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02271">2271</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02282">2282</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -565,7 +567,7 @@ Here is the caller graph for this function:</div>
 <p>Convert conserved variables (rho*alpha, rho*u, E, alpha) to primitives (rho, u, p, alpha). Conversion depends on model_eqns: each model has different variable sets and EOS. </p>
 <p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01068">1068</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01079">1079</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -630,7 +632,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert mixture variables to density, gamma, pi_inf, and qv for the gamma/pi_inf model. Given conservative or primitive variables, transfers the density, specific heat ratio function and the liquid stiffness function from q_vf to rho, gamma and pi_inf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00549">549</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00560">560</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -660,7 +662,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert primitives (rho, u, p, alpha) to conserved variables (rho*alpha, rho*u, E, alpha). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01650">1650</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01661">1661</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -747,7 +749,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01894">1894</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01905">1905</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -822,7 +824,7 @@ Here is the call graph for this function:</div>
 
 <p>Convert species volume fractions and partial densities to mixture density, gamma, pi_inf, and qv. Given conservative or primitive variables, computes the density, the specific heat ratio function and the liquid stiffness function from q_vf and stores the results into rho, gamma and pi_inf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00588">588</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -902,7 +904,7 @@ Here is the caller graph for this function:</div>
 
 <p>Host- and device-callable conversion kernel for species and mixture variables. Device callers pass host copies of Re_size (amdflang reads the module variable stale cross-TU); absent, the module variable is used. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00609">609</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00620">620</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -982,7 +984,7 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch to the s_convert_mixture_to_mixture_variables and s_convert_species_to_mixture_variables subroutines. Replaces a procedure pointer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00463">463</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1010,7 +1012,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate fluid property arrays and post-processing fields allocated during module initialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02355">2355</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l02366">2366</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1040,7 +1042,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble mass-vapor values at quadrature nodes from the conserved moment statistics. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00981">981</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00992">992</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1075,7 +1077,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize bubble internal pressures at quadrature nodes using isothermal relations from the Preston model. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01021">1021</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l01032">1032</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1115,7 +1117,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the variables conversion module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00711">711</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00722">722</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1145,31 +1147,23 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ac0a9330e3866671a2c04062d6a6b11a3" name="ac0a9330e3866671a2c04062d6a6b11a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0a9330e3866671a2c04062d6a6b11a3">&#9670;&#160;</a></span>enforce_density_floor_vc</h2>
+<a id="a1c8789d722225a158bed129079d78581" name="a1c8789d722225a158bed129079d78581"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c8789d722225a158bed129079d78581">&#9670;&#160;</a></span>enforce_density_floor_vc</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">logical m_variables_conversion::enforce_density_floor_vc = .false.</td>
+          <td class="memname">logical, public m_variables_conversion::enforce_density_floor_vc = .false.</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00428">428</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1187,7 +1181,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar sp. heat ratio function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00445">445</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1211,7 +1205,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1235,7 +1229,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1259,7 +1253,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1283,7 +1277,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1307,7 +1301,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1331,7 +1325,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1355,7 +1349,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1379,7 +1373,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1397,7 +1391,7 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar liquid stiffness function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00446">446</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1415,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00429">429</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1445,7 +1439,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1463,7 +1457,25 @@ Here is the caller graph for this function:</div>
 
 <p>Scalar density function. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00444">444</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2bcdaae5f1b384421a2ea6885434b46b" name="a2bcdaae5f1b384421a2ea6885434b46b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bcdaae5f1b384421a2ea6885434b46b">&#9670;&#160;</a></span>skip_mixture_store</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical, public m_variables_conversion::skip_mixture_store = .false.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>post_process's AMR overlay converts fine blocks larger than the coarse rank grid these caches span; it sets this around those conversions (the caches are coarse-grid derived fields only) </p>
+
+<p class="definition">Definition at line <a class="el" href="m__variables__conversion_8fpp_8f90_source.html#l00455">455</a> of file <a class="el" href="m__variables__conversion_8fpp_8f90_source.html">m_variables_conversion.fpp.f90</a>.</p>
 
 </div>
 </div>

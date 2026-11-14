@@ -9,6 +9,7 @@ var m__hypoelastic_8fpp_8f90 =
     [ "m_hypoelastic::s_compute_hypoelastic_rhs_iface", "namespacem__hypoelastic.html#a7f1fd697efc4c4ffcab9ab501bc67423", null ],
     [ "m_hypoelastic::s_enforce_cont_damage_bounds", "namespacem__hypoelastic.html#aa677120747adfa628b4e516ea1dca8bf", null ],
     [ "m_hypoelastic::s_finalize_hypoelastic_module", "namespacem__hypoelastic.html#af55a4cd98f2c7efebc4d7d6730ca8aa5", null ],
+    [ "m_hypoelastic::s_hypoelastic_update_fd_coeffs", "namespacem__hypoelastic.html#ae9159ec67eb99720f13d17086a51c5a9", null ],
     [ "m_hypoelastic::s_initialize_hypoelastic_module", "namespacem__hypoelastic.html#ae831b1e378765b92095b58285aa16315", null ],
     [ "m_hypoelastic::du_dx_hypo", "namespacem__hypoelastic.html#a89d6a4bd9da2dea05f4581893048ed55", null ],
     [ "m_hypoelastic::du_dy_hypo", "namespacem__hypoelastic.html#add4f33c1e015ea4611e7634b618e87b8", null ],

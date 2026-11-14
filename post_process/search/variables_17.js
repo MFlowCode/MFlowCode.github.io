@@ -1,7 +1,7 @@
 var searchData=
 [
   ['x_0',['x',['../structm__derived__types_1_1vec3__dt.html#a776e3e58a5157b55bc1671fbb9bb43f3',1,'m_derived_types::vec3_dt::x'],['../structm__derived__types_1_1bc__xyz__info.html#a4a92070e3e7eb4a322ca183b80fdc946',1,'m_derived_types::bc_xyz_info::x']]],
-  ['x_5fcb_1',['x_cb',['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters']]],
+  ['x_5fcb_1',['x_cb',['../structm__data__input_1_1amr__fine__block.html#a77f68ebe1679c47ad2221bd91fd99ff0',1,'m_data_input::amr_fine_block::x_cb'],['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters::x_cb']]],
   ['x_5fcb_5fs_2',['x_cb_s',['../namespacem__global__parameters.html#a1a4c1a55ff0e8d1806e190b4f2b24c38',1,'m_global_parameters']]],
   ['x_5fcc_3',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
   ['x_5fcc_5fs_4',['x_cc_s',['../namespacem__global__parameters.html#a0393dae47b831cd3b98063a33d258829',1,'m_global_parameters']]],

@@ -11,6 +11,7 @@ var m__rhs_8fpp_8f90 =
     [ "m_rhs::s_reconstruct_cell_boundary_values", "namespacem__rhs.html#ac543dcbc8cd4d5f5d327c7a5c6a5333f", null ],
     [ "m_rhs::s_reconstruct_cell_boundary_values_first_order", "namespacem__rhs.html#acad656f0645129138d4a85729f65fa34", null ],
     [ "m_rhs::s_reconstruct_riemann_states", "namespacem__rhs.html#aad210ee751b85ed6cfcc7f9377a8b819", null ],
+    [ "m_rhs::s_zero_rhs_at_body", "namespacem__rhs.html#a1a2666c4902782accc020201cb21ad98", null ],
     [ "m_rhs::alf_sum", "namespacem__rhs.html#aaaecb99341e4534ec839e9356bf90536", null ],
     [ "m_rhs::alpha1", "namespacem__rhs.html#a8f1caa2cbf100cb4541639ddbb223e93", null ],
     [ "m_rhs::alpha2", "namespacem__rhs.html#a8277987df2db50d930d8fed30aa3021f", null ],

@@ -157,10 +157,10 @@ $(function(){initNavTree('case.html','',''); });
   <div class="headertitle"><div class="title">Case Files </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
 Case Files</h1>
 <p>Example Python case files, also referred to as <em>input files</em>, can be found in the <a href="https://github.com/MFlowCode/MFC/tree/master/examples">examples/</a> directory. They print a Python dictionary containing input parameters for MFC. Their contents, and a guide to filling them out, are documented in the user manual. A commented, tutorial script can also be found in <a href="https://github.com/MFlowCode/MFC/blob/master/examples/3D_sphbubcollapse/case.py">examples/3d_sphbubcollapse/</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
 Basic Skeleton</h2>
 <p>The skeleton for an input file may look like the following:</p>
 <div class="fragment"><div class="line"><span class="comment">#!/usr/bin/env python3</span></div>
@@ -175,7 +175,7 @@ Basic Skeleton</h2>
 </div><!-- fragment --><p>Thus, you can run your case file with Python to view the computed case dictionary that will be processed by MFC when you run:</p>
 <div class="fragment"><div class="line">python3 my_case_file.py</div>
 </div><!-- fragment --><p>This is particularly useful when computations are done in Python to generate the case.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
 (Optional) Accepting command line arguments</h2>
 <p>Input files can accept command line arguments, forwarded by <span class="tt">mfc.sh run</span>. Consider this example from the <span class="tt">scaling</span> case:</p>
 <div class="fragment"><div class="line"><span class="keyword">import</span> json, argparse</div>
@@ -197,9 +197,9 @@ Basic Skeleton</h2>
 <div class="fragment"><div class="line">./mfc.sh run &lt;path/to/case.py&gt; &lt;mfc.sh run arguments&gt; -- &lt;case arguments&gt;</div>
 </div><!-- fragment --><p>For example, to run the <span class="tt">scaling</span> case in "weak-scaling" mode:</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/scaling/benchmark.py -t pre_process -j 8 -- --scaling weak</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
 Parameters</h2>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
 Feature Compatibility</h2>
 <p>Before diving into parameter details, check the <b><a class="el" href="case_constraints.html" title="Case Creator Guide">Feature Compatibility Guide</a></b> to understand:</p><ul>
 <li>Which features work together (MHD, bubbles, phase change, etc.)</li>
@@ -342,7 +342,7 @@ Feature Compatibility</h2>
 <ul>
 <li><span class="tt">tau_e(i)</span> is the <span class="tt">i</span>-th component of the elastic stress tensor, ordered as <span class="tt">tau_xx</span>, <span class="tt">tau_xy</span>, <span class="tt">tau_yy</span>, <span class="tt">tau_xz</span>, <span class="tt">tau_yz</span>, and <span class="tt">tau_zz</span>. 1D simulation requires <span class="tt">tau(1)</span>, 2D <span class="tt">tau(1:3)</span>, and 3D <span class="tt">tau(1:6)</span>.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
 Analytical Definition of Primitive Variables</h4>
 <p>Some parameters, as described above, can be defined by analytical functions in the input file. For example, one can define the following patch:</p>
 <div class="fragment"><div class="line">&#39;patch_icpp(2)%geometry&#39;    : 1,</div>
@@ -376,7 +376,7 @@ Analytical Definition of Primitive Variables</h4>
 <div class="fragment"><div class="line"><span class="keywordflow">if</span> (patch_id == 2) <span class="keywordflow">then</span></div>
 <div class="line">    q_prim_vf(eqn_idx%cont%beg)%sf(i, 0, 0) = 1 + 0.1 * sin(20 * x_cc(i) * pi)</div>
 <div class="line"><span class="keyword">end </span>if</div>
-</div><!-- fragment --><h4 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h4 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
 Hard Coded Patches</h4>
 <p>Some patch configurations are not adequately handled with the above analytic variable definitions. In this case, a hard coded patch can be used. Hard coded patches can be added by adding additional hard coded patch identifiers to <span class="tt">src/common/include/1[2,3]dHardcodedIC.fpp</span>. When using a hard coded patch, the <span class="tt">patch_icpp(patch_id)%hcid</span> must be set to the hard-coded patch id. For example, to add a 2D Hardcoded patch with an id of 200, one would add the following to <span class="tt">src/common/include/2dHardcodedIC.fpp</span></p>
 <div class="fragment"><div class="line"><span class="comment">case(200)</span></div>
@@ -413,7 +413,7 @@ Hard Coded Patches</h4>
 <li><span class="tt">normMag</span> and <span class="tt">normFac</span> rescale and offset the raw interface data, \(h \leftarrow \texttt{normMag}\,h + \texttt{normFac}\). Each is applied only when set (defaults leave the data unchanged).</li>
 <li><span class="tt">p0_ic</span> and <span class="tt">g0_ic</span> set the initial (hydrostatic) pressure field about the interface, \(p = p_{0} + \rho\, g_{0}\,\big(h - x\big)\), where \(x\) is the coordinate normal to the interface.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
 Parameter Descriptions</h4>
 <ul>
 <li><span class="tt">num_patches</span> defines the total number of patches defined in the domain. The number has to be a positive integer.</li>
@@ -430,7 +430,7 @@ Parameter Descriptions</h4>
 <li><span class="tt">patch_icpp(j)%alpha(i)</span>, <span class="tt">patch_icpp(j)%alpha_rho(i)</span>, <span class="tt">patch_icpp(j)%pres</span>, and <span class="tt">patch_icpp(j)%vel(i)</span> define for $j$-th patch the void fraction of <span class="tt">fluid(i)</span>, partial density of <span class="tt">fluid(i)</span>, the pressure, and the velocity in the $i$-th coordinate direction. These physical parameters must be consistent with fluid material's parameters defined in the next subsection.</li>
 <li><span class="tt">model_id</span> selects the STL/OBJ model for a geometry-21 patch by indexing into the <span class="tt">stl_models</span> array. The model file, scaling, and translation, and the inside/outside threshold, are configured on that <span class="tt">stl_models</span> entry (see the <span class="tt">stl_models</span> section below); a cell is marked inside the model using a winding-number test.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
 Elliptic Smoothing</h4>
 <p>Initial conditions in which not all patches support the <span class="tt">patch_icpp(j)%smoothen</span> parameter can still be smoothed by applying iterations of the heat equation to the initial condition. This is enabled by adding <span class="tt">'elliptic_smoothing': "T",</span> and <span class="tt">'elliptic_smoothing_iters': N,</span> to the case dictionary, where <span class="tt">N</span> is the number of smoothing iterations to apply.</p>
 <h3 class="doxsection"><a class="anchor" id="sec-immersed-boundary-patches"></a>
@@ -459,72 +459,74 @@ Elliptic Smoothing</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_wall_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Ghost velocity at no-slip walls: 1 default (wall value, with the <span class="tt">ib_second_order_vel</span> mirror if set), 2 two-probe quadratic wall-normal fill.  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">ib_visc_compact</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">With <span class="tt">weno_Re_flux</span>, compact velocity gradients on the viscous faces within two cells of a body.  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">geometry</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Geometry configuration of the patch.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">x[y,z]_centroid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Centroid of the applied geometry in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">length_x[y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Length, if applicable, in the [x,y,z]-direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">radius</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Radius, if applicable, of the applied geometry.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">airfoil_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">ib_airfoil</span> array for NACA airfoil geometry patches.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">model_id</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Index into <span class="tt">stl_models</span> array for STL/OBJ geometry patches.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">slip</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Apply a slip boundary  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">thermal_bc</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Thermal boundary-condition selector: 0 = zero-normal-gradient temperature, 1 = prescribed wall temperature, 2 = reacting surface energy balance, 3 = lumped solid whose temperature evolves.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">Twall</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Wall temperature: prescribed (<span class="tt">thermal_bc = 1</span>) or initial (<span class="tt">thermal_bc = 3</span>).  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">thermal_layer</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Thickness of the initial conductive layer around a <span class="tt">thermal_bc = 1</span> or <span class="tt">3</span> circle or sphere [m]; 0 = none.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">rho_solid</span>, <span class="tt">cp_solid</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Solid density [kg/m³] and heat capacity [J/kg/K] (<span class="tt">thermal_bc = 3</span>).  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">emissivity</span>, <span class="tt">T_rad</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Surface emissivity and radiative surroundings temperature [K] (<span class="tt">thermal_bc = 3</span>; default 0, no radiation).  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">heat_power</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Heat supplied to the body [W; W/m per unit depth in 2D], e.g. Joule heating (<span class="tt">thermal_bc = 3</span>).  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">surface_reaction</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Heterogeneous surface-reaction flag: 0 = disabled, 1 = enabled.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">moving_ibm</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Sets the method used for IB movement.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">mass</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Body mass; must be &gt; 0 for <span class="tt">moving_ibm = 2</span>, whose acceleration is force/mass.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial velocity of the moving IB in the i-th direction.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">angular_vel(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Initial angular velocity of the moving IB in the i-th direction.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">kin_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Prescribed kinematics (requires <span class="tt">moving_ibm = 1</span>, 3D): [0] off; [1] hinged flapping (roll + pitch); [2] smoothed pitch ramp and hold.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">kin_hinge(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Hinge point, i-th component.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">kin_offset(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Body-frame vector from the hinge to the patch centroid, i-th component.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">kin_phi0</span>, <span class="tt">kin_theta0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Roll and pitch amplitudes (rad).  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">kin_theta_mean</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Mean pitch angle (rad), held before onset and superposed after.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">kin_freq</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Flapping frequency (cycles per unit time).  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">kin_phase</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Pitch phase lead relative to roll (rad); <span class="tt">pi/2</span> makes pitch lead by a quarter cycle.  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">kin_t0</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Onset time of flapping.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">kin_ramp</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Duration of the raised-cosine amplitude ramp after onset (0 = instantaneous).  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">kin_pitch_rate</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft"><span class="tt">kin_model = 2</span>: nominal pitch rate \(\Omega\) (rad per unit time); the pitch time is <span class="tt">kin_theta0</span>/ \(\Omega\).  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">kin_smooth</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft"><span class="tt">kin_model = 2</span>: smoothing parameter \(a\) of the Eldredge log-cosh ramp (11 in the AIAA canonical cases).  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">coefficient_of_restitution</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">A number 0 to 1 describing how elastic IB collisions are  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">collision_model</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Integer to select the collision model being used for IB collisions.  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">collision_temporal_resolution</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Minimum number of adaptive time steps used to resolve each collision  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">collision_time</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Amount of simulation time used to resolve collisions  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">collision_temporal_resolution</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Minimum number of adaptive time steps used to resolve each collision  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_coefficient_of_friction</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coefficient of friction used in IB collisions  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">patch_ib(j)%</span> where $j$ is the patch index.</p>
@@ -542,7 +544,7 @@ Elliptic Smoothing</h4>
 <td class="markdownTableBodyLeft"><span class="tt">model_threshold</span>  </td><td class="markdownTableBodyLeft">Real  </td><td class="markdownTableBodyLeft">Winding number threshold above which a cell is marked as inside the model.  </td></tr>
 </table>
 <p>These parameters should be prepended with <span class="tt">stl_models(k)%</span> where $k$ is the model index.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
 Parameter Descriptions</h4>
 <ul>
 <li><span class="tt">geometry</span> defines the type of geometry of an immersed boundary patch with an integer number. Definitions for currently implemented immersed boundary patch types are listed in table <a class="el" href="#immersed-boundary-patch-types" title="Immersed Boundary Patch Types">Immersed Boundary Patch Type</a>.</li>
@@ -581,9 +583,10 @@ Parameter Descriptions</h4>
 <li><span class="tt">ib_flux_wall = T</span> sets the face fluxes of a reacting wall (<span class="tt">surface_reaction = 1</span>) from its surface solve instead of from the Riemann and diffusion stencils acting on the ghost state, which the ghost fill does not tie to the surface balance (an inert species leaks through the wall and the gas gains more mass than the surface gasifies). At each face between a fluid cell and a cell of a reacting body, the species fluxes into the gas are \(a\,\theta\,\dot m_k&#39;&#39;\), with \(\dot m_k&#39;&#39; = W_k \omega_k\) from the solve of that body cell (a ghost point with a fluid face neighbor), \(a = 1/(|n_x| + |n_y| + |n_z|)\) its share of the wall area (a planar wall of area \(A\) has \((|n_x| + |n_y| + |n_z|)A\) of staircase faces), and \(\theta \le 1\) a positivity factor of the fluid cell, set so that its wall faces take at most 0.9 of any species in one forward-Euler step. The mass flux is their sum and the energy flux is \(a\,\theta \sum_k \dot m_k&#39;&#39; (h_k(T_s) + v_n^2/2)\); conduction, pressure and viscous stresses are kept, and the momentum flux is the pressure terms plus that of the blowing gas, \(\dot m&#39;&#39; v_n \mathbf{n}\) (the momentum the ghost-state mass flux carried is dropped). Diffusion keeps only conduction at those faces. A face whose solve failed is impermeable and inert. With <span class="tt">ib_surface_wrt</span>, the records of a reacting body then come only from the ghost points that set the face fluxes, each weighted by \(a\,\theta\) times the area of its fluid faces, so summing <span class="tt">area</span>·<span class="tt">mdot</span> gives the mass the gas receives. The total wall area the faces carry is printed at start-up. Requires <span class="tt">chemistry</span>, <span class="tt">model_eqns = 2</span>, one fluid, HLLC, Cartesian coordinates, no <span class="tt">igr</span>, hypoelasticity or particle clouds, every body fixed (<span class="tt">moving_ibm = 0</span>), and the reacting bodies not blowing (<span class="tt">v_blow</span>, <span class="tt">inj_species</span>). The wall rates are formed at the end of each Runge-Kutta stage and are not saved in restart files, so the first stage after a start or restart sees an impermeable, inert wall. <span class="tt">examples/2D_ibm_wall_mass_budget</span> closes the gas budget of a reacting cylinder in a periodic box with and without the option.</li>
 <li><span class="tt">ib_ip_interp</span> selects how the state at a ghost point's image point is interpolated from the grid. <span class="tt">1</span> (default) is the inverse-distance weighting over the 2x2(x2) cells around the point, which drops solid cells from the stencil. <span class="tt">2</span> uses triangular-shaped-cloud (quadratic B-spline) weights over the 3x3(x3) cells around the nearest cell (Ezra, Peles &amp; Kozak 2025, Int. J. Heat Mass Transf. 252:127314). The kernel is a partition of unity and smooth across cell boundaries, so a wall quantity interpolated from it converges one order faster than from inverse-distance weights, which are only continuous. The TSC stencil reads solid cells, which carry the ghost values of the last correction; a point buried in a body gets no fluid weight and takes the neighbor average. It does not combine with <span class="tt">ib_second_order_vel</span>.</li>
 <li><span class="tt">ib_wall_order = 2</span> fills the ghost velocity of each no-slip wall point from a quadratic wall-normal profile through the wall value and two probes at one and two cell widths from the wall along the surface normal, interpolated with the same TSC weights as <span class="tt">ib_ip_interp = 2</span> (the option works with either <span class="tt">ib_ip_interp</span> setting; it does not require 2). The ghost value is what enforces no-slip in the solve. Where the outer probe has too little fluid around it (a narrow gap, a rim, a neighbouring body) a ghost point falls back to the linear mirror, or to the default fill when the first probe also lacks fluid; the share of each tier is printed at the end of the run (<span class="tt">[WALLFILL]</span>, for every case with <span class="tt">ib_wall_order = 2</span>). Ghost cells keep the values of the last correction while the option is on, which is also what <span class="tt">ib_ip_interp = 2</span> does. Slip walls, the pressure and the energy (temperature) of the ghost are unchanged, and the option does not combine with <span class="tt">ib_second_order_vel</span>. The default <span class="tt">1</span> leaves every result unchanged. Measured gain (non-reacting ideal gas, tip or peak Mach 0.05, 4 to 80 cells across the gap, NVHPC on an A100): between flat walls (plane Poiseuille) the velocity and flow-rate errors are 10 to 20 times smaller than with the default and converge at about order 1.5 to 1.9 until they reach the level of a domain no-slip boundary, whatever the wall position inside a cell; the default converges at order 1 with the no-slip acting about 0.75 cell outside the wall. In a Taylor-Couette annulus (curved walls, one rotating) the gain is 25 to 40 % of the velocity error and a factor 2 or more in the torque, and neither option converges monotonically: an error of about 0.5 % of the torque and 0.3 % of the wall speed remains at 80 cells per inner radius, and the rotating wall keeps a velocity deficit that this option halves but does not remove. With 4 to 6 cells across the gap 15 to 32 % of the ghost points use the linear mirror and the quadratic fill is not accurate (26 % velocity error at 4 cells across a flat channel). The wall shear read back from a fit to the near-wall cells does not converge for either option; use the flow rate or an integrated force instead.</li>
+<li><span class="tt">ib_visc_compact = T</span> (requires <span class="tt">weno_Re_flux</span>) replaces the WENO velocity gradient on the viscous faces within two cells of a body cell by the compact one of <span class="tt">weno_Re_flux = F</span>: the normal difference across the face and the mean of the two cells' central tangential differences. The gradient of <span class="tt">weno_Re_flux</span> is built from reconstructed face values, a divergence-theorem cell gradient and a second reconstruction, a stencil about five cells wide, while the ghost values extend the flow only a layer or two into the body (the mirror leaves a kink at the wall), so the wide stencil carries the kink into the fluid faces next to the wall. Faces farther than two cells from a body are unchanged. The default <span class="tt">F</span> leaves every result unchanged.</li>
 <li><span class="tt">ib_neighborhood_radius</span> controls the size of the neighborhood size. A value of $r$ indicates that any given rank is aware of IBs up to $r$ ranks away. This value defaults to 0, which leaves the radius unset so that it is selected automatically. This parameter is required to strong-scale a case when IBs eventually grow to be larger than one full processor domain wide.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
 Particle Clouds</h4>
 <p>A particle cloud is a compact specification of a bed of identical circular (2D) or spherical (3D) immersed boundaries; each cloud is expanded into individual <span class="tt">patch_ib</span> particles at startup. Set <span class="tt">num_particle_clouds</span> to the number of beds and prepend the parameters below with <span class="tt">particle_cloud(j)%</span> where $j$ is the cloud index.</p>
 <table class="markdownTable">
@@ -889,14 +892,14 @@ Boundary Condition Patches</h4>
 <li><span class="tt">-17</span> Dirichlet</li>
 </ul>
 <p>Line segments along each domain edge are supported for 2D simulations. Squares and circles on each face are supported for 3D simulations.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
 Constant Time-Stepping</h4>
 <ul>
 <li><span class="tt">dt</span> specifies the constant time step size used in the simulation. The value of <span class="tt">dt</span> needs to be sufficiently small to satisfy the Courant-Friedrichs-Lewy (CFL) condition.</li>
 <li><span class="tt">t_step_start</span> and <span class="tt">t_step_stop</span> define the time steps at which the simulation starts and ends.</li>
 </ul>
 <p><span class="tt">t_step_save</span> is the time step interval for data output during simulation. To newly start the simulation, set <span class="tt">t_step_start = 0</span>. To restart the simulation from $k$-th time step, set <span class="tt">t_step_start = k</span>; see <a class="el" href="running.html" title="Running">Restarting Cases</a>. When <span class="tt">t_step_start &gt; 0</span>, <span class="tt">./mfc.sh run</span> skips <span class="tt">pre_process</span> by default, since it would otherwise overwrite the restart data being resumed from. Pass <span class="tt">-t pre_process</span> explicitly (as in the restart workflow) if regenerating it is intended.</p>
-<h5 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<h5 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
 Adaptive Time-Stepping</h5>
 <ul>
 <li><span class="tt">cfl_adap_dt</span> enables adaptive time stepping with a constant CFL when true</li>
@@ -926,112 +929,114 @@ Adaptive Time-Stepping</h5>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">prim_vars_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write primitive variables  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">rank_time_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Print the per-phase wall-time budget of the AMR step and the block-balance report  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">alpha_rho_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the partial density of the fluid $i$ to the database |  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">rho_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the mixture density to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">mom_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the $i$-direction momentum to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">vel_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the $i$-direction velocity to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">E_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the total energy to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">pres_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the pressure to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">alpha_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the volume fraction of fluid $i$ to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">gamma_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the specific heat ratio function to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">heat_ratio_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the specific heat ratio to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_force_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Record the immersed-boundary force history to <span class="tt">D/ib_forces.dat</span> (default off)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_force_stride</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Stride, in time steps, of the per-step immersed-boundary force record (default 1)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_surface_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the wall temperature and gasified mass flux at each surface point of the non-injecting IBs of a chemistry run, at every save (default off)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">ib_heat_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Record each immersed body's mass loss and heat exchange rates to <span class="tt">D/ib_heat.dat</span> (default off)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">ib_state_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Parameter to handle writing IB state on saves and outputting the state as a point mesh to SILO files.  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">pi_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness function to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">pres_inf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the liquid stiffness to the formatted database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">c_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the sound speed to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">T_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add each fluid's temperature to the database (needs <span class="tt">cv</span> &gt; 0)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">omega_wrt(i)</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the $i$-direction vorticity to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the numerical schlieren to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">qm_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Q-criterion to the database  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">liutex_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the Liutex to the database  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">cf_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write color function field  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">chem_wrt_T</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write temperature field for chemistry output  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">fft_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable FFT output  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">sim_data</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write interface and energy data files (post_process)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">down_sample</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable output downsampling  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">fd_order</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Order of finite differences for computing the vorticity and the numerical Schlieren function [1,2,4]  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">schlieren_alpha(i)</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Intensity of the numerical Schlieren computed via <span class="tt">alpha(i)</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">probe_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write the flow chosen probes data files for each time step  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">num_probes</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of probes  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">probe(i)%[x,y,z]</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Coordinates of probe $i$  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">output_partial_domain</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Output part of the domain  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%beg</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Beginning of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">[x,y,z]_output%end</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">End of the output domain in the [x,y,z]-direction  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_txt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_header</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write header to Lagrangian bubble <span class="tt">.dat</span> files  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_db_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Write Lagrangian bubble data to silo/hdf5 database files  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_id_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the global bubble idea to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble position to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pos_prev_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the previous bubble position to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_vel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble translational velocity to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rad_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rvel_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble radial velocity to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_r0_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble initial radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmax_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble maximum radius to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_rmin_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble minimum radius to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_dphidt_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble subgrid velocity potential to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_pres_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble pressure to the database file  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_mv_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble vapor mass to the database file  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight"><span class="tt">lag_mg_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble gas mass to the database file  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
+<td class="markdownTableBodyRight"><span class="tt">lag_betaT_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble heat flux model coefficient to the database file  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">lag_betaC_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the bubble mass flux model coefficient to the database file  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight"><span class="tt">lag_voidfrac_wrt</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Add the particle volume fraction in the host cell to the database file (<span class="tt">particles_lagrange</span> only)  </td></tr>
 </table>
 <p>The table lists formatted database output parameters. The parameters define variables that are outputted from simulation and file types and formats of data as well as options for post-processing.</p>
@@ -1102,6 +1107,50 @@ Immersed-boundary heat history</h4>
 <ul>
 <li><span class="tt">output_partial_domain</span> activates the output of part of the domain specified by <span class="tt">[x,y,z]_output%beg</span> and <span class="tt">[x,y,z]_output%end</span>. This is useful for large domains where only a portion of the domain is of interest. It is not supported when <span class="tt">precision = 1</span> and <span class="tt">format = 1</span>. It also cannot be enabled with <span class="tt">flux_wrt</span>, <span class="tt">heat_ratio_wrt</span>, <span class="tt">pres_inf_wrt</span>, <span class="tt">c_wrt</span>, <span class="tt">omega_wrt</span>, <span class="tt">ib</span>, <span class="tt">schlieren_wrt</span>, <span class="tt">qm_wrt</span>, or 'liutex_wrt'.</li>
 </ul>
+<h3 class="doxsection"><a class="anchor" id="sec-amr"></a>
+7.1. Adaptive Mesh Refinement (AMR)</h3>
+<p>Block-structured AMR (experimental): refined blocks over the base grid, rebuilt around high density gradients every <span class="tt">amr_regrid_int</span> steps, coupled to the base grid by conservative ghost fills, refluxing and restriction. Algorithm, supported physics and limitations: <a class="el" href="amr.html" title="Adaptive Mesh Refinement">Adaptive Mesh Refinement</a>. Requires <span class="tt">model_eqns = 2</span> or <span class="tt">3</span>, <span class="tt">time_stepper = 3</span>, WENO or IGR, and a uniform Cartesian grid.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">Parameter  </th><th class="markdownTableHeadCenter">Type  </th><th class="markdownTableHeadLeft">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Enable AMR (default F)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_block_beg(i)</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Initial block start, level-0 cell index in direction $i$ (inclusive)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_block_end(i)</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Initial block end, level-0 cell index in direction $i$ (inclusive)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_regrid_int</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Steps between regrids; 0 keeps the initial block (default 0)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_tag_eps</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Tagging threshold on the normalized density jump; &gt; 0 with regrid (default 0.1)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_tag_abs</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Tag on the absolute density jump; <span class="tt">amr_tag_eps</span> is then a density (default F)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_buf</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Padding around tagged cells in coarse cells; &gt;= 1 with regrid (default 3)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_cluster_eff</span>  </td><td class="markdownTableBodyCenter">Real  </td><td class="markdownTableBodyLeft">Minimum tag efficiency of a clustered box, in (0, 1] (default 0.7)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_blocking_factor</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Minimum box width in coarse cells (default 4; 1 = none)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_max_grid_size</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Maximum box width in coarse cells; 0 derives it from the decomposition (default 0)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_max_blocks</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Maximum number of blocks (default 1024)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_max_level</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Number of refined levels (default 1)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_ref_ratio</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Refinement ratio, 2 or 4; 4 allows one level (default 2)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_subcycle</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Two steps per parent step on each refined level; ratio 2, up to two levels (default F)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_prolong</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Prolongation: 1 limited linear, 2 quartic with a positivity fallback (default 1)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_place_owner</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Place each block on the rank owning most of its coarse cells (default F)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight"><span class="tt">amr_snap</span>  </td><td class="markdownTableBodyCenter">Integer  </td><td class="markdownTableBodyLeft">Regrid hysteresis in coarse cells, &lt;= <span class="tt">amr_buf - 2</span> (default 0; set by the toolchain under regrid)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight"><span class="tt">amr_device_pack</span>  </td><td class="markdownTableBodyCenter">Logical  </td><td class="markdownTableBodyLeft">Fused device pack/unpack of the coarse-patch exchange (default F; set by the toolchain when <span class="tt">amr_max_grid_size &lt;= 64</span>)  </td></tr>
+</table>
+<p>Each save writes the block hierarchy and fine solution next to the level-0 restart data; a restart reads the block geometry from it, not from <span class="tt">amr_block_beg</span>/<span class="tt">amr_block_end</span>.</p>
 <h3 class="doxsection"><a class="anchor" id="sec-acoustic-source"></a>
 8. Acoustic Source</h3>
 <table class="markdownTable">
@@ -1261,7 +1310,7 @@ Immersed-boundary heat history</h4>
 </ul>
 <p>Implementation of the parameters into the model follows Ando <a class="el" href="citelist.html#CITEREF_ando10">[3]</a>.</p>
 <p>See <a class="el" href="equations.html" title="Equations">Equations</a> Section 9 for the bubble dynamics equations.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
 9.1 Ensemble-Averaged Bubble Model</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1302,7 +1351,7 @@ Immersed-boundary heat history</h4>
 <li><span class="tt">sigV</span> specifies the standard deviation of the PDF of bubble velocity required in the QBMM feature.</li>
 <li><span class="tt">rhoRV</span> specifies the correlation coefficient of the joint PDF of bubble radius and bubble velocity required in the QBMM feature.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
 9.2 Volume-Averaged Bubble Model</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1367,7 +1416,7 @@ Immersed-boundary heat history</h4>
 <li><span class="tt">kahan_summation</span> uses Kahan compensated summation when smearing the bubble contributions onto the Eulerian void fraction, reducing the round-off sensitivity of the accumulation to the summation order. It is not compatible with <span class="tt">--mixed</span> precision builds.</li>
 <li>Restarts need <span class="tt">parallel_io = 'T'</span>, which writes the bubble restart file.</li>
 </ul>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
 9.3 Euler-Lagrange Solid Particle Model</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1511,7 +1560,7 @@ Immersed-boundary heat history</h4>
 <ul>
 <li><span class="tt">pi_fac</span> specifies the ratio of artificial and true <span class="tt">pi_\infty</span> values (<span class="tt">=</span> artificial <span class="tt">pi_\infty</span> / true <span class="tt">pi_\infty</span>). This parameter enables the use of true <span class="tt">pi_\infty</span> in bubble dynamics models when the <span class="tt">pi_\infty</span> given in the <span class="tt">case.py</span> file is an artificial value.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
 13. Body Forces</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1535,7 +1584,7 @@ Immersed-boundary heat history</h4>
 </p>
 <p>By convention, positive accelerations in the <span class="tt">x[y,z]</span> direction are in the positive <span class="tt">x[y,z]</span> direction.</p>
 <p>When <span class="tt">bf_spatial_support</span> is enabled, the body force is given a localized spatial envelope following Wei &amp; Freund (JFM, 2005), parameterized through the <span class="tt">spatial_bf</span> derived type with attributes <span class="tt">amp</span>, <span class="tt">x_centroid</span>, <span class="tt">y_centroid</span>, <span class="tt">conv_vel</span>, <span class="tt">sigma</span>, and per-mode arrays <span class="tt">freq(1:8)</span>, <span class="tt">phase(1:8)</span>. Unlike the domain-wide <span class="tt">k/w/p/g</span> forcing above, it seeds a downstream instability at a fixed streamwise location with a ladder of forcing frequencies. <span class="tt">x</span> is the streamwise direction by convention for this forcing: the <span class="tt">x</span> component advects with the mean flow via a <span class="tt">conv_vel*t</span> term, while the cross-stream (<span class="tt">y</span>) component does not. The source is constructed from a streamfunction, so it is divergence-free, and the corresponding <span class="tt">u*f</span> work term is added to the energy equation. This forcing is implemented for <b>2D cases only</b>; enabling it in 1D or 3D is rejected at startup.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
 Mean pressure gradient forcing</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1553,7 +1602,7 @@ Mean pressure gradient forcing</h4>
 \[ f_i^{n+1} = f_i^n + \frac{G}{\Delta t}\left(Q_i^\ast - 2Q_i^n + Q_i^{n-1}\right). \]
 </p>
 <p>\(G = 1\) removes the flux error in one step for a constant drag; smaller \(G\) converges in roughly \(1/G\) steps with less impulsive forcing. \(t\), \(Q_{1:3}\), and \(\partial\bar p/\partial x_{1:3}\) are written every step to <span class="tt">mean_dpdx.dat</span> in the case directory. The controller state is not saved in restart files: set <span class="tt">mean_dpdx</span> on restart to the last value in <span class="tt">mean_dpdx.dat</span>. Each forced direction must be periodic (<span class="tt">bc_x[y,z]%beg = bc_x[y,z]%end = -1</span>) and Cartesian.</p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
 Mean gas temperature source (thermostat)</h4>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1571,7 +1620,7 @@ Mean gas temperature source (thermostat)</h4>
 \[ \dot q^{n+1} = \dot q^n + \frac{G\,\overline{\rho c_v}}{\Delta t}\left(T_b^\ast - 2T_b^n + T_b^{n-1}\right), \]
 </p>
 <p>with \(\overline{\rho c_v} = \sum \rho c_v\,dV / \sum dV\), the same controller as <span class="tt">mean_mflux</span> (deadbeat for \(G = 1\) and a constant heat loss). \(t\), \(T_b\), the mixing-cup temperature \(T_m = \sum \rho u_1 T\,dV / \sum \rho u_1\,dV\), \(\dot q\), and the fluid volume \(V_f\) (source power \(\dot q V_f\)) are written every step to <span class="tt">mean_temp.dat</span> in the case directory. As for <span class="tt">mean_dpdx</span>, the controller state is not saved in restart files: set <span class="tt">mean_qdot</span> on restart to the last value in <span class="tt">mean_temp.dat</span>. All active directions must be periodic and Cartesian.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md45"></a>
 14. Magnetohydrodynamics (MHD)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1602,7 +1651,7 @@ Mean gas temperature source (thermostat)</h4>
 </ul>
 <p>Note: In 1D/2D/3D simulations, all three velocity components are treated as state variables and must be specified in the case file.</p>
 <p>Note: For relativistic flow, the conservative and primitive densities are different. <span class="tt">rho_wrt</span> outputs the primitive (rest mass) density.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md46"></a>
 15. Elasticity</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1634,7 +1683,7 @@ Mean gas temperature source (thermostat)</h4>
 <li><span class="tt">cont_damage</span> activates the continuum damage model for hypoelastic solid materials (requires <span class="tt">hypoelasticity = T</span>; HLL/HLLC only). Damage is produced by tensile maximum principal Cauchy stress beyond <span class="tt">tau_star</span> ( \(\geq 0\)) at rate <span class="tt">(alpha_bar*(sigma_1 - tau_star))**cont_damage_s</span> and is transported with the damageable-solid partial mass; see <a class="el" href="equations.html" title="Equations">Equations</a> for the model statement (Cao et al. <a class="el" href="citelist.html#CITEREF_cao19">[10]</a>; Spratt <a class="el" href="citelist.html#CITEREF_spratt24">[56]</a>). <span class="tt">tau_star</span>, <span class="tt">cont_damage_s</span> ( \(&gt; 0\)), and <span class="tt">alpha_bar</span> ( \(\geq 0\)) are empirically determined.</li>
 <li><span class="tt">reactive_burn</span> converts a "reactant" fluid into a "product" fluid (<span class="tt">num_fluids = 2</span>, <span class="tt">chemistry = 'F'</span>) via a programmed pressure burn <span class="tt">dlambda/dt = rburn%k (1 - lambda) ((p - rburn%pign)/rburn%pref)^rburn%n</span>. The two fluids share the same <span class="tt">gamma</span>/<span class="tt">pi_inf</span> and differ only in <span class="tt">qv</span>, so the conversion releases <span class="tt">qv</span> through the mixture EOS — a reactive-Euler/ZND detonation model on the diffuse-interface framework. It runs on the 5-equation (<span class="tt">model_eqns = 2</span>) and 6-equation (<span class="tt">model_eqns = 3</span>) multi-fluid models. Setting <span class="tt">rburn%ta &gt; 0</span> multiplies the rate by an Arrhenius factor <span class="tt">exp(-rburn%ta/T)</span>, where <span class="tt">T</span> is the reactant phasic temperature, giving temperature-driven ignition instead of a pure pressure switch.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md47"></a>
 16. Cylindrical Coordinates</h3>
 <p>When <span class="tt">cyl_coord = 'T'</span> is set in 3D the following constraints must be met:</p>
 <ul>
@@ -1647,7 +1696,7 @@ Mean gas temperature source (thermostat)</h4>
 <ul>
 <li><span class="tt">bc_y%beg = -2</span> to enable reflective boundary conditions</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md37"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md48"></a>
 17. Chemistry</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1679,7 +1728,7 @@ Mean gas temperature source (thermostat)</h4>
 </table>
 <ul>
 <li><span class="tt">chem_params%transport_model</span> specifies the methodology for calculating diffusion coefficients and other transport properties, <span class="tt">1</span> for mixture-average, <span class="tt">2</span> for Unity-Lewis</li>
-<li>With <span class="tt">chemistry = 'T'</span>, species mass fractions are kept in [0, 1] by construction: reconstructed face values are limited onto the simplex (Zhang &amp; Shu 2010), so the species fluxes sum to the mass flux (Larrouturou 1991), and with HLLC they are the upwind mass fractions times the mass flux (other Riemann solvers keep only the sum consistency); the diffusion correction velocity carries upwind mass fractions; and the α-QSS reaction substep keeps non-negative compositions non-negative without clipping. As a last resort, any cell still outside the bounds at the end of an RK stage is cleaned as in PeleC (clean_massfrac): partial densities clipped to [0, ρ], ρ reset to their sum, velocity and specific energy kept, with the number of fluid-cell cleanings (per cell per RK stage) printed. Cell averages provably stay non-negative when, in every cell, dt times the outgoing mass flux per unit length, summed over directions, is at most the reconstruction's Gauss–Lobatto endpoint weight (1/12 for WENO5, 1/6 for WENO3, 1/2 for MUSCL) times ρ; at usual CFL numbers, and for the diffusion terms, the limiter and upwinding are standard practice rather than a proof, and the fallback cleanup is the safety net.</li>
+<li>With <span class="tt">chemistry = 'T'</span>, species mass fractions are kept in [0, 1] by construction: reconstructed face values are limited onto the simplex (Zhang &amp; Shu 2010), so the species fluxes sum to the mass flux (Larrouturou 1991), and with HLLC they are the upwind mass fractions times the mass flux (other Riemann solvers keep only the sum consistency); the diffusion correction velocity carries the van Leer-limited upwind mass fractions (second order where smooth, between the neighbouring values, renormalised to sum 1); and the α-QSS reaction substep keeps non-negative compositions non-negative without clipping. As a last resort, any cell still outside the bounds at the end of an RK stage is cleaned as in PeleC (clean_massfrac): partial densities clipped to [0, ρ], ρ reset to their sum, velocity and specific energy kept, with the number of fluid-cell cleanings (per cell per RK stage) printed. Cell averages provably stay non-negative when, in every cell, dt times the outgoing mass flux per unit length, summed over directions, is at most the reconstruction's Gauss–Lobatto endpoint weight (1/12 for WENO5, 1/6 for WENO3, 1/2 for MUSCL) times ρ; at usual CFL numbers, and for the diffusion terms, the limiter and upwinding are standard practice rather than a proof, and the fallback cleanup is the safety net.</li>
 <li><span class="tt">chem_params%reaction_substeps</span> controls how the reaction source is integrated. With <span class="tt">0</span> (default) the net production rates are added to the flow right-hand side and advanced by the flow time stepper (fine for hydrogen). With a value <span class="tt">&gt; 0</span>, the reaction is instead integrated by operator splitting after each flow update: every cell's constant-density, constant-internal-energy reactor is advanced over the timestep with that many sub-steps of an <b>α-QSS</b> (quasi-steady-state) integrator — a matrix-free, Jacobian-free predictor–corrector (Mott/CHEMEQ2) that splits the net rate into creation/destruction parts and applies a Padé α-weighting, so it stays stable on stiff mechanisms where an explicit source diverges. This decouples the (often much faster) chemical timescale from the flow timestep and is required for stiff mechanisms — e.g. hydrocarbons such as GRI-Mech methane, which otherwise diverge on the first step</li>
 <li><span class="tt">chem_params%adap_substeps</span> (default <span class="tt">F</span>) makes each rank choose its α-QSS sub-step count per flow step from the largest chemical stiffness among its own cells: the count sits at <span class="tt">reaction_substeps</span> (the floor) in inert or burned gas and rises toward <span class="tt">reaction_substeps_max</span> (the ceiling) only across the reaction front. It uses no MPI collectives. When enabled, <span class="tt">reaction_substeps &gt;= 1</span> and <span class="tt">reaction_substeps_max &gt;= reaction_substeps</span> are required</li>
 <li><span class="tt">chem_params%transport_dt</span> (default <span class="tt">F</span>) replaces the constant <span class="tt">fluid_pp%Re</span> in the viscous time-step limit with the local mixture transport: dt &lt;= <span class="tt">cfl_target</span>·Δx²/(d·D), with d the number of dimensions (explicit diffusion is stable while the d per-direction diffusion numbers sum below the limit) and D the largest of μ/ρ (with <span class="tt">viscous</span>), and λ/(ρ c_v) and the mixture-averaged diffusivities of the species present, Y_k ≠ 0 (with <span class="tt">chem_params%diffusion</span>). c_v, not c_p, because a cell cannot expand within a step; an absent species has no diffusion to destabilize. Mixture transport grows steeply with temperature, so near hot walls and flames a dt limited by the free-stream viscosity can exceed the explicit diffusion limit. Requires <span class="tt">cfl_adap_dt</span> or <span class="tt">cfl_const_dt</span>, and <span class="tt">viscous</span> or <span class="tt">chem_params%diffusion</span>. A non-Newtonian <span class="tt">mu_max</span> or bulk viscosity (<span class="tt">fluid_pp%Re(2)</span>) still bounds dt when it is tighter. Not supported with <span class="tt">igr</span></li>
@@ -1687,7 +1736,7 @@ Mean gas temperature source (thermostat)</h4>
 <li><span class="tt">surface_cantera_file</span> and <span class="tt">surface_phase</span> specify the Cantera mechanism file and interface phase used for heterogeneous surface chemistry. These parameters must be specified together when a surface mechanism is used.</li>
 </ul>
 <p>MFC generates and compiles the mechanism's Fortran routines itself. Supported mechanism features and the Cantera-only mixing-layer initialization are described in <a class="el" href="thermochemistry.html" title="Thermochemistry implementation">Thermochemistry implementation</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md38"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md49"></a>
 18. Chemistry-Specific Boundary Conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1749,7 +1798,7 @@ Mean gas temperature source (thermostat)</h4>
 <li>All HB parameters are non-dimensional (scaled by \(\rho_{\rm ref} U_{\rm ref} L_{\rm ref}\)), so \(1/\mu_{\rm eff}\) equals the local effective Reynolds number.</li>
 <li>For cylindrical geometry (<span class="tt">cyl_coord = T</span>) the shear rate uses the grid-direction strain components; curvature corrections to \(\dot\gamma\) are not yet included.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md39"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md50"></a>
 20. GPU Performance (NVIDIA UVM)</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1764,7 +1813,7 @@ Mean gas temperature source (thermostat)</h4>
 <ul>
 <li>These parameters are for NVIDIA Grace-Hopper and similar architectures with hardware-managed unified memory. They allow MFC to run problems larger than GPU memory by paging data between host and device.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md40"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md51"></a>
 20. Synthetic Turbulence</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1796,7 +1845,7 @@ Mean gas temperature source (thermostat)</h4>
 <li><span class="tt">synth_U_inf</span> advects the turbulent field in the x-direction at a constant velocity.</li>
 <li>Forcing is applied only within Gaussian-windowed zones. Each of the <span class="tt">num_turbulent_sources</span> zones must specify its center <span class="tt">turb_pos(i,:)</span> and full extents <span class="tt">synth_L(i,:)</span> for every active dimension (x, and y, z if <span class="tt">n &gt; 0</span>/<span class="tt">p &gt; 0</span>).</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md41"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md52"></a>
 Enumerations</h2>
 <h3 class="doxsection"><a class="anchor" id="boundary-conditions"></a>
 Boundary conditions</h3>
@@ -1836,7 +1885,7 @@ Boundary conditions</h3>
 </table>
 <p>*: This boundary condition is only used for <span class="tt">bc_y%beg</span> when using cylindrical coordinates (<span class="tt">cyl_coord = 'T'</span> and 3D). For axisymmetric problems, use <span class="tt">bc_y%beg = -2</span> with <span class="tt">cyl_coord = 'T'</span> in 2D.</p>
 <p>The boundary condition supported by the MFC are listed in table <a class="el" href="#boundary-conditions" title="Boundary conditions">Boundary Conditions</a>. Their number (<span class="tt">#</span>) corresponds to the input value in <span class="tt">input.py</span> labeled <span class="tt">bc_[x,y,z]%[beg,end]</span> (see table <a class="el" href="#sec-simulation-algorithm" title="6. Simulation Algorithm">Simulation Algorithm Parameters</a>). The entries labeled "Characteristic." are characteristic boundary conditions based on Thompson <a class="el" href="citelist.html#CITEREF_thompson87">[61]</a> and Thompson <a class="el" href="citelist.html#CITEREF_thompson90">[62]</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md42"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md53"></a>
 Generalized Characteristic Boundary conditions</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1992,7 +2041,7 @@ Acoustic Supports</h3>
 <li><span class="tt">%support = 10</span> specifies an annular transducer array in 2D axisymmetric simulation. It is identical to <span class="tt">%support = 9</span> in terms of simulation parameters. It physically represents the a annulus obtained by revolving the arc in <span class="tt">%support = 9</span> around the x-axis.</li>
 <li><span class="tt">%support = 11</span> specifies a circular transducer array in 3D simulation. The total aperture of the array is <span class="tt">%aperture</span>, which is similar to <span class="tt">%support = 7</span>. The parameters <span class="tt">%num_elements</span>, <span class="tt">%element_polygon_ratio</span>, and <span class="tt">%rotate_angle</span> specify the number of transducer elements, the ratio of the polygon side length to the transducer element radius, and the rotation angle of the array. The polygon side length is calculated by using the total aperture as the circumcicle diameter, and the number of sides of the polygon as <span class="tt">%num_elements</span>. The ratio is used specify the aperture size of each transducer element in the array, as a ratio of the total aperture. The rotation angle is optional and defaults to 0. Physically it represents a circular ring of transducer elements.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md43"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md54"></a>
 Conservative Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -2018,7 +2067,7 @@ Conservative Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md44"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md55"></a>
 Primitive Variables Ordering</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -2044,7 +2093,7 @@ Primitive Variables Ordering</h3>
 <td class="markdownTableBodyNone">hypoelastic variables  </td><td class="markdownTableBodyNone">N/A  </td></tr>
 </table>
 <p>The above variables correspond to optional physics.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-12</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-13</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

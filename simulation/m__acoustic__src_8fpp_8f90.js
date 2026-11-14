@@ -10,6 +10,8 @@ var m__acoustic__src_8fpp_8f90 =
     [ "m_acoustic_src::s_source_spatial_transducer", "namespacem__acoustic__src.html#a10a80e623f32e69cb4968eae8b2d56b1", null ],
     [ "m_acoustic_src::s_source_spatial_transducer_array", "namespacem__acoustic__src.html#a994a36f1f099dfade61e9c8057ae7f27", null ],
     [ "m_acoustic_src::s_source_temporal", "namespacem__acoustic__src.html#ae7c2fe00940963c650cd3f28f65a4d1b", null ],
+    [ "m_acoustic_src::acoustic_supp_hi", "namespacem__acoustic__src.html#a6ac7f64c3a9e017a58b0fef78924204c", null ],
+    [ "m_acoustic_src::acoustic_supp_lo", "namespacem__acoustic__src.html#aa58e00d36d76e9cd0cf6db571a6168cc", null ],
     [ "m_acoustic_src::aperture", "namespacem__acoustic__src.html#a7b6d9532f559aa1bacbcc103862f69bc", null ],
     [ "m_acoustic_src::bb_bandwidth", "namespacem__acoustic__src.html#af2d136ef242278a53b52156f3f7d07ec", null ],
     [ "m_acoustic_src::bb_lowest_freq", "namespacem__acoustic__src.html#a9e874bb4bca9aefaa7e1a7c7985c18c6", null ],

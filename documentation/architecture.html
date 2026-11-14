@@ -159,7 +159,7 @@ $(function(){initNavTree('architecture.html','',''); });
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md_architecture"></a></p>
 <p>This page explains how MFC's source code is organized, how data flows through the solver, and where to find things. Read this before diving into the source.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md0"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
 Three-Phase Pipeline</h1>
 <p>MFC runs as three separate executables that communicate via binary files on disk:</p>
 <div class="fragment"><div class="line">pre_process ──&gt; simulation ──&gt; post_process</div>
@@ -177,7 +177,7 @@ Three-Phase Pipeline</h1>
 <td class="markdownTableBodyNone"><b>Post-Process</b>  </td><td class="markdownTableBodyNone"><span class="tt">src/post_process/p_main.fpp</span>  </td><td class="markdownTableBodyNone">Reads snapshots, computes derived quantities (vorticity, Schlieren, etc.), and writes Silo/HDF5 files for VisIt or ParaView.  </td></tr>
 </table>
 <p>Each phase is an independent MPI program. The simulation phase is where nearly all compute time is spent.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 Directory Layout</h1>
 <div class="fragment"><div class="line">src/</div>
 <div class="line">  common/          Shared modules used by all three phases</div>
@@ -185,7 +185,7 @@ Directory Layout</h1>
 <div class="line">  simulation/      Simulation source (solver core, physics models)</div>
 <div class="line">  post_process/    Post-process source (derived quantities, formatted I/O)</div>
 </div><!-- fragment --><p>Shared modules in <span class="tt">src/common/</span> include MPI communication, derived types, variable conversion, and utility functions. They are compiled into each phase.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 Key Data Structures</h1>
 <p>Two arrays carry the solution through the entire simulation:</p>
 <table class="markdownTable">
@@ -203,7 +203,7 @@ Key Data Structures</h1>
 <div class="line">  Index:    1 .. num_fluids | num_fluids+1 .. +num_vels | eqn_idx%E | eqn_idx%adv</div>
 <div class="line">  Meaning:  alpha*rho_k     | momentum components       | energy    | volume fractions</div>
 </div><!-- fragment --><p>Additional variables are appended for bubbles, elastic stress, magnetic fields, or chemistry species when those models are enabled. The total count is <span class="tt">sys_size</span>.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md14"></a>
 The Simulation Loop</h1>
 <p>The simulation advances the solution through this call chain each time step:</p>
 <div class="fragment"><div class="line">p_main (time-step loop)</div>
@@ -222,7 +222,7 @@ The Simulation Loop</h1>
 <div class="line">         ├─ s_apply_bodyforces           [if enabled]</div>
 <div class="line">         ├─ s_pressure_relaxation        [if 6-equation model]</div>
 <div class="line">         └─ s_ibm_correct_state          [if immersed boundaries]</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md15"></a>
 What happens at each stage</h2>
 <ol type="1">
 <li><b>Conservative → Primitive</b>: Convert stored <span class="tt">q_cons_vf</span> to <span class="tt">q_prim_vf</span> (density, velocity, pressure) using the equation of state. This is done by <span class="tt">m_variables_conversion</span>.</li>
@@ -232,10 +232,10 @@ What happens at each stage</h2>
 <li><b>Flux Differencing</b> (<span class="tt">m_rhs</span>): Accumulate the RHS as \(\partial q / \partial t = -\frac{1}{\Delta x}(F_{j+1/2} - F_{j-1/2})\) plus source terms (viscous stress, surface tension, bubble dynamics, body forces, etc.).</li>
 <li><b>Runge-Kutta Update</b> (<span class="tt">m_time_steppers</span>): Combine the RHS with the current state using TVD Runge-Kutta coefficients (1st, 2nd, or 3rd order SSP).</li>
 </ol>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md16"></a>
 Module Map</h1>
 <p>MFC has ~80 Fortran modules organized by function. Here is where to look for what:</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
 Solver Core</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -267,7 +267,7 @@ Solver Core</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_thinc</span>  </td><td class="markdownTableBodyNone">THINC and MTHINC interface compression for volume fraction sharpening  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Physics Models</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -317,7 +317,7 @@ Physics Models</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_species_bounds</span>  </td><td class="markdownTableBodyNone">Keeps reconstructed species mass fractions on the simplex (Y &gt;= 0, sum Y = 1)  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 Boundary Conditions</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -333,7 +333,7 @@ Boundary Conditions</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_boundary_io</span>  </td><td class="markdownTableBodyNone">Boundary condition restart I/O, capillary/IGR buffer population, and grid-variable buffers  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">m_ibm</span>  </td><td class="markdownTableBodyNone">Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients, and corrects the flow state  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">m_ibm</span>  </td><td class="markdownTableBodyNone">Per-block fine-grid immersed-boundary state for AMR  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_particle_cloud</span>  </td><td class="markdownTableBodyNone">Generates particle beds by converting particle_cloud patch specifications into individual immersed boundary patches before writing them to the initial IB state file  </td></tr>
 <tr class="markdownTableRowEven">
@@ -343,7 +343,7 @@ Boundary Conditions</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_compute_levelset</span>  </td><td class="markdownTableBodyNone">Computes signed-distance level-set fields and surface normals for immersed-boundary patch geometries  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
 I/O and Startup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -357,7 +357,7 @@ I/O and Startup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_delay_file_access</span>  </td><td class="markdownTableBodyNone">Rank-staggered file access delays to prevent I/O contention on parallel file systems  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
 Infrastructure</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -400,8 +400,48 @@ Infrastructure</h2>
 <td class="markdownTableBodyNone"><span class="tt">m_derived_variables</span>  </td><td class="markdownTableBodyNone">Derives diagnostic flow quantities (vorticity, speed of sound, numerical Schlieren, etc.) from conservative and primitive variables  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_patch_geometries</span>  </td><td class="markdownTableBodyNone">Contains helper functions specific to various patch gemoetries for determining if a grid cell lies inside of or outside of a patch geometry  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_box</span>  </td><td class="markdownTableBodyNone">Box type, per-rank partition arithmetic (one box per rank) and the Morton key  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr</span>  </td><td class="markdownTableBodyNone">Block-structured AMR: up to amr_max_blocks refined blocks (2:1 or 4:1 per amr_ref_ratio), optionally nested to amr_max_level, advanced with the shared solver via grid-state swap and conservatively coupled to each block's parent level (ghost prolongation, Berger-Colella flux reflux, restriction) and dynamic regrid  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_state</span>  </td><td class="markdownTableBodyNone">Module-scope AMR state (block pool, flat field store, wave buffers) and the leaf helpers every AMR module needs  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_distribution</span>  </td><td class="markdownTableBodyNone">Rank decomposition, box arithmetic and block ownership (SFC cut, owner lookups, owned-block lists)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_wave</span>  </td><td class="markdownTableBodyNone">MPI point-to-point waves for AMR exchange: post all receives, pack, post all sends, wait once  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_store</span>  </td><td class="markdownTableBodyNone">Flat per-block field store: dense slot indexing, reservation, alloc/free and the prim/bridge loaders  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_ghost</span>  </td><td class="markdownTableBodyNone">Coarse-to-fine ghost fill: slab table, limited-linear or quartic fill, quartic positivity guard, volume-fraction closure  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_seam</span>  </td><td class="markdownTableBodyNone">Same-level fine-fine seams and the coarse conservative halo  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_exchange</span>  </td><td class="markdownTableBodyNone">Parent/child data exchange: gather plans, pack/unpack and the fill waves  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_frame</span>  </td><td class="markdownTableBodyNone">Block-frame swap (fine grid state in/out of the shared solver)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_transfer</span>  </td><td class="markdownTableBodyNone">Prolongation, restriction and Berger-Colella reflux, including the restrict/reflux/freg waves  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_advance</span>  </td><td class="markdownTableBodyNone">Fine-block stage advance and the immersed-boundary/Lagrange fine services  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_stage</span>  </td><td class="markdownTableBodyNone">The AMR hooks of the SSP-RK stage loop (m_time_steppers): the stage-top coarse halo, the fine-level stage, and the end-of-step fold of the fine solution into the level-0 covered cells  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_cluster</span>  </td><td class="markdownTableBodyNone">Berger-Rigoutsos clustering of a sparse tag list into separated block boxes, identically on every rank: tag signatures, bisection, canonical Morton order and min-separation merge  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_regrid</span>  </td><td class="markdownTableBodyNone">Dynamic regrid for the AMR level set: density-gradient tagging, clustering (m_amr_cluster), box shaping, hierarchical child nesting (m_amr_nest), and slot rebuild with cross-rank fine-state migration  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_nest</span>  </td><td class="markdownTableBodyNone">Hierarchical child nesting for AMR regrid: each level's children are tagged by the density-gradient sensor on the old parent-level fine solution, clustered, and replayed in rank-invariant order  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_restart</span>  </td><td class="markdownTableBodyNone">AMR fine-level restart I/O: writes/reads the fine-level restart file alongside the level-0 restart (serial per-rank unformatted files, or one shared MPI-IO file under parallel_io)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_restart_io</span>  </td><td class="markdownTableBodyNone">The AMR fine-level restart file layout shared by m_amr_restart (writer/reader) and post_process's overlay reader (m_data_input): path, fine cell-boundary subdivision, global-header check and the parallel_io per-block catalog  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">m_amr_registers</span>  </td><td class="markdownTableBodyNone">AMR flux registers: per-RK-stage refluxing at the coarse/fine block boundary  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_phase_timing</span>  </td><td class="markdownTableBodyNone">Per-phase wall-time budget of the AMR step, reported when rank_time_wrt is on  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md11"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
 Pre-Process</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -425,11 +465,11 @@ Pre-Process</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_boundary_conditions</span>  </td><td class="markdownTableBodyNone">Applies spatially varying boundary condition patches along domain edges and faces  </td></tr>
 </table>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
 MPI Parallelization</h1>
 <p>The computational domain is decomposed into subdomains via <span class="tt">MPI_Cart_create</span>. Each rank owns a contiguous block of cells in (x, y, z). Ghost cells of width <span class="tt">buff_size</span> surround each subdomain and are filled by halo exchange before each RHS evaluation.</p>
 <p>On GPUs, the same domain decomposition applies. GPU kernels operate on the local subdomain, with explicit host-device transfers for MPI communication (unless GPU-aware MPI / RDMA is available).</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 Adding New Physics</h1>
 <p>To add a new source term or physics model:</p>
 <ol type="1">
@@ -441,7 +481,7 @@ Adding New Physics</h1>
 <li><b>Add the module to <span class="tt">docs/module_categories.json</span></b> so it appears in this page</li>
 </ol>
 <p>Follow the pattern of existing modules like <span class="tt">m_body_forces</span> (simple) or <span class="tt">m_viscous</span> (more involved) as a template.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-13</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-14</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

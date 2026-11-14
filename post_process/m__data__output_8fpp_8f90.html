@@ -184,6 +184,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a00a1df7dd9a54fe10ae510fc59f56c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the computational grid (cell-boundary coordinates) to the formatted database slave and master files.  <br /></td></tr>
 <tr class="memitem:a342bb45ac15ca3a5da40fc6e2c8434bd" id="r_a342bb45ac15ca3a5da40fc6e2c8434bd"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a342bb45ac15ca3a5da40fc6e2c8434bd">m_data_output::s_write_variable_to_formatted_database_file</a> (varname, t_step)</td></tr>
 <tr class="memdesc:a342bb45ac15ca3a5da40fc6e2c8434bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write a single flow variable field to the formatted database slave and master files for a given time step.  <br /></td></tr>
+<tr class="memitem:a3428b3f36d25677577f2489753165a3c" id="r_a3428b3f36d25677577f2489753165a3c"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a3428b3f36d25677577f2489753165a3c">m_data_output::s_write_amr_to_formatted_database_file</a> (t_step)</td></tr>
+<tr class="memdesc:a3428b3f36d25677577f2489753165a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overlay the AMR refined solution. Each owned fine block is written as an extra rectilinear quadmesh (Silo) or an appended block record (binary), carrying the primitive fields (mixture density, velocities, pressure, volume fractions) at true fine resolution. On rank 0 the Silo block meshes/vars are registered into the /root 'amr_blocks' multimesh and 'amr_<em>' multivars so VisIt/ParaView overlays them on the coarse 'rectilinear_grid'. Guarded by <span class="tt"><a class="el" href="namespacem__global__parameters__common.html#a156fb725a0f2632e07765da6811be58e">amr</a></span> at the caller; a no-op when no fine blocks are present. Binary layout per rank: an integer block count, then per block a header [lo(3), hi(3), m, n, p, nvars], the fine cell boundaries (x_cb, then y_cb/z_cb if active), then per variable a [name, field] record (same convention as the coarse binary variables). </em> <br /></td></tr>
+<tr class="memitem:a145554e584327cfdc942060f68a2e28c" id="r_a145554e584327cfdc942060f68a2e28c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a145554e584327cfdc942060f68a2e28c">s_put_amr_block_variable</a> (nm)</td></tr>
+<tr class="memdesc:a145554e584327cfdc942060f68a2e28c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the already-filled <span class="tt">vbuf</span> for the current block <span class="tt"><a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a></span> as variable <span class="tt">nm</span>: a Silo quadvar on the block mesh, or a [name, field] binary record. Object names are unique per rank+block (<span class="tt">&lt;nm&gt;_amr&lt;rank&gt;_&lt;<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>&gt;</span>).  <br /></td></tr>
 <tr class="memitem:a8740dbd203f9e9c054ceac628fcb53c2" id="r_a8740dbd203f9e9c054ceac628fcb53c2"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a8740dbd203f9e9c054ceac628fcb53c2">m_data_output::s_write_lag_bubbles_results_to_text</a> (t_step)</td></tr>
 <tr class="memdesc:a8740dbd203f9e9c054ceac628fcb53c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write the post-processed results in the folder 'lag_bubbles_data'.  <br /></td></tr>
 <tr class="memitem:a4b51c66195d7d2c5d6b8b504783621f9" id="r_a4b51c66195d7d2c5d6b8b504783621f9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a4b51c66195d7d2c5d6b8b504783621f9">m_data_output::s_write_lag_bubbles_to_formatted_database_file</a> (t_step)</td></tr>
@@ -213,6 +217,8 @@ Functions/Subroutines</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a89b990790ba269b93fd3a214685b9a21" id="r_a89b990790ba269b93fd3a214685b9a21"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a89b990790ba269b93fd3a214685b9a21">m_data_output::db_real</a> = merge(DB_DOUBLE, DB_FLOAT, <a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a> == <a class="el" href="namespacem__precision__select.html#ae769e44e0858808e47fa4ca9bda06315">dp</a>)</td></tr>
+<tr class="memdesc:a89b990790ba269b93fd3a214685b9a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Silo datatype of a real(wp) array (grid coordinates, point meshes and point variables). A &ndash;single build must not declare DB_DOUBLE for wp data: Silo then reads two floats per coordinate and the second half of every array from past its end (garbage, sometimes NaN).  <br /></td></tr>
 <tr class="memitem:acdeb8b0cf51decddadad9b90af33e18a" id="r_acdeb8b0cf51decddadad9b90af33e18a"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1output__context.html">output_context</a>), public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#acdeb8b0cf51decddadad9b90af33e18a">m_data_output::out</a></td></tr>
 <tr class="memdesc:acdeb8b0cf51decddadad9b90af33e18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output workspace: flow variable buffers, VisIt extents/offsets, directory paths, file handles, and variable count.  <br /></td></tr>
 <tr class="memitem:a9200025029de298307a47699927a60fa" id="r_a9200025029de298307a47699927a60fa"><td class="memItemLeft">integer, private&#160;</td><td class="memItemRight"><a class="el" href="namespacem__data__output.html#a9200025029de298307a47699927a60fa">m_data_output::err</a></td></tr>
@@ -223,7 +229,42 @@ Variables</h2></td></tr>
 <div class="textblock"><p>Contains module <a class="el" href="namespacem__data__output.html" title="Writes post-processed grid and flow-variable data to Silo-HDF5 or binary database files.">m_data_output</a>. </p>
 
 <p class="definition">Definition in file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
-</div></div><!-- contents -->
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a145554e584327cfdc942060f68a2e28c" name="a145554e584327cfdc942060f68a2e28c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145554e584327cfdc942060f68a2e28c">&#9670;&#160;</a></span>s_put_amr_block_variable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine s_write_amr_to_formatted_database_file::s_put_amr_block_variable </td>
+          <td>(</td>
+          <td class="paramtype">character(len=*), intent(in)</td>          <td class="paramname"><span class="paramname"><em>nm</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Write the already-filled <span class="tt">vbuf</span> for the current block <span class="tt"><a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a></span> as variable <span class="tt">nm</span>: a Silo quadvar on the block mesh, or a [name, field] binary record. Object names are unique per rank+block (<span class="tt">&lt;nm&gt;_amr&lt;rank&gt;_&lt;<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>&gt;</span>). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00968">968</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__data__output_8fpp_8f90_a145554e584327cfdc942060f68a2e28c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

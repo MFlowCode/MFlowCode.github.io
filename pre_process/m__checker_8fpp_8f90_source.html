@@ -483,46 +483,53 @@ $(function(){initNavTree('m__checker_8fpp_8f90_source.html','',''); });
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment">! Cray-specific GPU pointer setup for scalar fields</span></div>
 <div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="preprocessor"># 120 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment">! Cray-specific GPU pointer setup for acoustic source spatials</span></div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="preprocessor"># 145 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment">! Whether stress index idx is a shear component. Spelled out because NVHPC 26.9 at -O2 vectorizes any(idx == shear_indices)</span></div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="comment">! inside a loop to always true, which doubled the normal-stress elastic energy.</span></div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="preprocessor"># 151 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment">! Cray-specific GPU pointer teardown for scalar fields - exact inverse of ACC_SETUP_SFs. Removes the</span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="comment">! present-table entries ACC_SETUP_SFs added (the scalar_field descriptor and its %sf copyin). REQUIRED when</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span><span class="comment">! an ACC_SETUP&#39;d field is freed MID-RUN (e.g. AMR slot free on regrid/restart): Cray &#39;exit data delete&#39;</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="comment">! decrements the reference counter, so the lone @:DEALLOCATE(arg%sf) only undoes the @:ALLOCATE create ref</span></div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span><span class="comment">! and leaves the descriptor + the ACC_SETUP %sf copyin dangling. Call BEFORE @:DEALLOCATE(arg%sf).</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="preprocessor"># 140 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="preprocessor"># 157 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="preprocessor"></span> </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="preprocessor"># 164 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="preprocessor"></span><span class="comment">! New line at end of file is required for FYPP</span></div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="preprocessor"># 6 &quot;/home/runner/work/MFC/MFC/src/pre_process/m_checker.fpp&quot; 2</span></div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="preprocessor"></span><span class="comment"></span> </div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="comment">!&gt; @brief Checks pre-process input file parameters for compatibility and correctness</span></div>
-<div class="line"><a id="l00363" name="l00363"></a><span class="lineno"><a class="line" href="namespacem__checker.html">  363</a></span><span class="keyword">module</span> <a class="code hl_namespace" href="namespacem__checker.html">m_checker</a></div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__global__parameters.html">m_global_parameters</a></div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__mpi__proxy.html">m_mpi_proxy</a></div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__helper__basic.html">m_helper_basic</a></div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__helper.html">m_helper</a></div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keywordtype">implicit none</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment">! Cray-specific GPU pointer setup for acoustic source spatials</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="preprocessor"># 165 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="comment">! Whether stress index idx is a shear component. Spelled out because NVHPC 26.9 at -O2 vectorizes any(idx == shear_indices)</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="comment">! inside a loop to always true, which doubled the normal-stress elastic energy.</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="preprocessor"># 171 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="preprocessor"># 177 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="preprocessor"></span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="preprocessor"># 184 &quot;/home/runner/work/MFC/MFC/src/common/include/macros.fpp&quot;</span></div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span><span class="preprocessor"></span><span class="comment">! New line at end of file is required for FYPP</span></div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="preprocessor"># 6 &quot;/home/runner/work/MFC/MFC/src/pre_process/m_checker.fpp&quot; 2</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="preprocessor"></span><span class="comment"></span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="comment">!&gt; @brief Checks pre-process input file parameters for compatibility and correctness</span></div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno"><a class="line" href="namespacem__checker.html">  370</a></span><span class="keyword">module</span> <a class="code hl_namespace" href="namespacem__checker.html">m_checker</a></div>
 <div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">private</span>; <span class="keywordtype">public</span> :: <a class="code hl_function" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">s_check_inputs</a></div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="keyword">contains</span></div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="comment"></span> </div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="comment">    !&gt; Checks compatibility of parameters in the input file. Used by the pre_process stage</span></div>
-<div class="foldopen" id="foldopen00377" data-start="" data-end="">
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno"><a class="line" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">  377</a></span>    <span class="keywordtype">impure</span> <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">s_check_inputs</a></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__global__parameters.html">m_global_parameters</a></div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__mpi__proxy.html">m_mpi_proxy</a></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__helper__basic.html">m_helper_basic</a></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keywordtype">use </span><a class="code hl_namespace" href="namespacem__helper.html">m_helper</a></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>    <span class="keywordtype">implicit none</span></div>
 <div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span> </div>
-</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">s_check_inputs</a></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keywordtype">private</span>; <span class="keywordtype">public</span> :: <a class="code hl_function" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">s_check_inputs</a></div>
 <div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span> </div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__checker.html">m_checker</a></div>
-<div class="ttc" id="anamespacem__checker_html"><div class="ttname"><a href="namespacem__checker.html">m_checker</a></div><div class="ttdoc">Checks pre-process input file parameters for compatibility and correctness.</div><div class="ttdef"><b>Definition</b> <a href="#l00363">m_checker.fpp.f90:363</a></div></div>
-<div class="ttc" id="anamespacem__checker_html_a214e05cb46bc7c3e0dbe55fdc433c072"><div class="ttname"><a href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">m_checker::s_check_inputs</a></div><div class="ttdeci">impure subroutine, public s_check_inputs</div><div class="ttdoc">Checks compatibility of parameters in the input file. Used by the pre_process stage.</div><div class="ttdef"><b>Definition</b> <a href="#l00377">m_checker.fpp.f90:378</a></div></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="keyword">contains</span></div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span><span class="comment"></span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span><span class="comment">    !&gt; Checks compatibility of parameters in the input file. Used by the pre_process stage</span></div>
+<div class="foldopen" id="foldopen00384" data-start="" data-end="">
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno"><a class="line" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">  384</a></span>    <span class="keywordtype">impure</span> <span class="keyword">subroutine </span><a class="code hl_function" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">s_check_inputs</a></div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span> </div>
+</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    <span class="keyword">end subroutine </span><a class="code hl_function" href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">s_check_inputs</a></div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><span class="keyword">end module </span><a class="code hl_namespace" href="namespacem__checker.html">m_checker</a></div>
+<div class="ttc" id="anamespacem__checker_html"><div class="ttname"><a href="namespacem__checker.html">m_checker</a></div><div class="ttdoc">Checks pre-process input file parameters for compatibility and correctness.</div><div class="ttdef"><b>Definition</b> <a href="#l00370">m_checker.fpp.f90:370</a></div></div>
+<div class="ttc" id="anamespacem__checker_html_a214e05cb46bc7c3e0dbe55fdc433c072"><div class="ttname"><a href="namespacem__checker.html#a214e05cb46bc7c3e0dbe55fdc433c072">m_checker::s_check_inputs</a></div><div class="ttdeci">impure subroutine, public s_check_inputs</div><div class="ttdoc">Checks compatibility of parameters in the input file. Used by the pre_process stage.</div><div class="ttdef"><b>Definition</b> <a href="#l00384">m_checker.fpp.f90:385</a></div></div>
 <div class="ttc" id="anamespacem__global__parameters_html"><div class="ttname"><a href="namespacem__global__parameters.html">m_global_parameters</a></div><div class="ttdoc">Defines global parameters for the computational domain, simulation algorithm, and initial conditions.</div><div class="ttdef"><b>Definition</b> <a href="m__global__parameters_8fpp_8f90_source.html#l00019">m_global_parameters.fpp.f90:19</a></div></div>
-<div class="ttc" id="anamespacem__helper__basic_html"><div class="ttname"><a href="namespacem__helper__basic.html">m_helper_basic</a></div><div class="ttdoc">Basic floating-point utilities: approximate equality, default detection, and coordinate bounds.</div><div class="ttdef"><b>Definition</b> <a href="m__helper__basic_8fpp_8f90_source.html#l00363">m_helper_basic.fpp.f90:363</a></div></div>
-<div class="ttc" id="anamespacem__helper_html"><div class="ttname"><a href="namespacem__helper.html">m_helper</a></div><div class="ttdoc">Utility routines for bubble model setup, coordinate transforms, array sampling, and special functions...</div><div class="ttdef"><b>Definition</b> <a href="m__helper_8fpp_8f90_source.html#l00374">m_helper.fpp.f90:374</a></div></div>
+<div class="ttc" id="anamespacem__helper__basic_html"><div class="ttname"><a href="namespacem__helper__basic.html">m_helper_basic</a></div><div class="ttdoc">Basic floating-point utilities: approximate equality, default detection, and coordinate bounds.</div><div class="ttdef"><b>Definition</b> <a href="m__helper__basic_8fpp_8f90_source.html#l00370">m_helper_basic.fpp.f90:370</a></div></div>
+<div class="ttc" id="anamespacem__helper_html"><div class="ttname"><a href="namespacem__helper.html">m_helper</a></div><div class="ttdoc">Utility routines for bubble model setup, coordinate transforms, array sampling, and special functions...</div><div class="ttdef"><b>Definition</b> <a href="m__helper_8fpp_8f90_source.html#l00381">m_helper.fpp.f90:381</a></div></div>
 <div class="ttc" id="anamespacem__mpi__proxy_html"><div class="ttname"><a href="namespacem__mpi__proxy.html">m_mpi_proxy</a></div><div class="ttdoc">Broadcasts user inputs and decomposes the domain across MPI ranks for pre-processing.</div><div class="ttdef"><b>Definition</b> <a href="m__mpi__proxy_8fpp_8f90_source.html#l00007">m_mpi_proxy.fpp.f90:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

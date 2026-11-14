@@ -168,55 +168,91 @@ Simulation</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__acoustic__src.html" title="m_acoustic_src">m_acoustic_src</a>  </td><td class="markdownTableBodyNone">One-way acoustic source injection, Maeda and Colonius JCP (2017)  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr.html" title="m_amr">m_amr</a>  </td><td class="markdownTableBodyNone">Block-structured AMR: up to amr_max_blocks refined blocks (2:1 or 4:1 per amr_ref_ratio), optionally nested to amr_max_level, advanced with the shared solver via grid-state swap and conservatively coupled to each block's parent level (ghost prolongation, Berger-Colella flux reflux, restriction) and dynamic regrid  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__advance.html" title="m_amr_advance">m_amr_advance</a>  </td><td class="markdownTableBodyNone">Fine-block stage advance and the immersed-boundary/Lagrange fine services  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__cluster.html" title="m_amr_cluster">m_amr_cluster</a>  </td><td class="markdownTableBodyNone">Berger-Rigoutsos clustering of a sparse tag list into separated block boxes, identically on every rank: tag signatures, bisection, canonical Morton order and min-separation merge  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__distribution.html" title="m_amr_distribution">m_amr_distribution</a>  </td><td class="markdownTableBodyNone">Rank decomposition, box arithmetic and block ownership (SFC cut, owner lookups, owned-block lists)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__exchange.html" title="m_amr_exchange">m_amr_exchange</a>  </td><td class="markdownTableBodyNone">Parent/child data exchange: gather plans, pack/unpack and the fill waves  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__frame.html" title="m_amr_frame">m_amr_frame</a>  </td><td class="markdownTableBodyNone">Block-frame swap (fine grid state in/out of the shared solver)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__ghost.html" title="m_amr_ghost">m_amr_ghost</a>  </td><td class="markdownTableBodyNone">Coarse-to-fine ghost fill: slab table, limited-linear or quartic fill, quartic positivity guard, volume-fraction closure  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__nest.html" title="m_amr_nest">m_amr_nest</a>  </td><td class="markdownTableBodyNone">Hierarchical child nesting for AMR regrid: each level's children are tagged by the density-gradient sensor on the old parent-level fine solution, clustered, and replayed in rank-invariant order  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__registers.html" title="m_amr_registers">m_amr_registers</a>  </td><td class="markdownTableBodyNone">AMR flux registers: per-RK-stage refluxing at the coarse/fine block boundary  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__regrid.html" title="m_amr_regrid">m_amr_regrid</a>  </td><td class="markdownTableBodyNone">Dynamic regrid for the AMR level set: density-gradient tagging, clustering (<a class="el" href="namespacem__amr__cluster.html" title="Berger-Rigoutsos clustering of a sparse tag list into separated block boxes, identically on every ran...">m_amr_cluster</a>), box shaping, hierarchical child nesting (<a class="el" href="namespacem__amr__nest.html" title="Hierarchical child nesting for AMR regrid: each level&#39;s children are tagged by the density-gradient s...">m_amr_nest</a>), and slot rebuild with cross-rank fine-state migration  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__restart.html" title="m_amr_restart">m_amr_restart</a>  </td><td class="markdownTableBodyNone">AMR fine-level restart I/O: writes/reads the fine-level restart file alongside the level-0 restart (serial per-rank unformatted files, or one shared MPI-IO file under parallel_io)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__seam.html" title="m_amr_seam">m_amr_seam</a>  </td><td class="markdownTableBodyNone">Same-level fine-fine seams and the coarse conservative halo  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__stage.html" title="m_amr_stage">m_amr_stage</a>  </td><td class="markdownTableBodyNone">The AMR hooks of the SSP-RK stage loop (<a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>): the stage-top coarse halo, the fine-level stage, and the end-of-step fold of the fine solution into the level-0 covered cells  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__state.html" title="m_amr_state">m_amr_state</a>  </td><td class="markdownTableBodyNone">Module-scope AMR state (block pool, flat field store, wave buffers) and the leaf helpers every AMR module needs  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__store.html" title="m_amr_store">m_amr_store</a>  </td><td class="markdownTableBodyNone">Flat per-block field store: dense slot indexing, reservation, alloc/free and the prim/bridge loaders  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__transfer.html" title="m_amr_transfer">m_amr_transfer</a>  </td><td class="markdownTableBodyNone">Prolongation, restriction and Berger-Colella reflux, including the restrict/reflux/freg waves  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__wave.html" title="m_amr_wave">m_amr_wave</a>  </td><td class="markdownTableBodyNone">MPI point-to-point waves for AMR exchange: post all receives, pack, post all sends, wait once  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__body__forces.html" title="m_body_forces">m_body_forces</a>  </td><td class="markdownTableBodyNone">Computes gravitational and body force source terms for the momentum equations  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__bubbles.html" title="m_bubbles">m_bubbles</a>  </td><td class="markdownTableBodyNone">Bubble-dynamics procedures for ensemble- and volume-averaged model  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__bubbles__ee.html" title="m_bubbles_ee">m_bubbles_EE</a>  </td><td class="markdownTableBodyNone">Computes ensemble-averaged (Euler&ndash;Euler) bubble source terms for radius, velocity, pressure, and mass transfer  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__bubbles__el.html" title="m_bubbles_el">m_bubbles_EL</a>  </td><td class="markdownTableBodyNone">Tracks Lagrangian bubbles and couples their dynamics to the Eulerian flow via volume averaging  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__bubbles__el__kernels.html" title="m_bubbles_el_kernels">m_bubbles_EL_kernels</a>  </td><td class="markdownTableBodyNone">Kernel functions (Gaussian, delta) that smear Lagrangian bubble effects onto the Eulerian grid  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__cbc.html" title="m_cbc">m_cbc</a>  </td><td class="markdownTableBodyNone">Characteristic boundary conditions (CBCs) for slip walls, non-reflecting subsonic inflow/outflow, and supersonic boundaries  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__checker.html" title="m_checker">m_checker</a>  </td><td class="markdownTableBodyNone">Validates simulation input parameters for consistency and supported configurations  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__collisions.html" title="m_collisions">m_collisions</a>  </td><td class="markdownTableBodyNone">Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients, and corrects the flow state  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__compute__cbc.html" title="m_compute_cbc">m_compute_cbc</a>  </td><td class="markdownTableBodyNone">Characteristic boundary condition (CBC) computations for subsonic inflow, outflow, and slip walls  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__compute__levelset.html" title="m_compute_levelset">m_compute_levelset</a>  </td><td class="markdownTableBodyNone">Computes signed-distance level-set fields and surface normals for immersed-boundary patch geometries  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__conduction.html" title="m_conduction">m_conduction</a>  </td><td class="markdownTableBodyNone">Fourier heat conduction, div(k grad T), as a face-centered source flux on the energy equation  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__data__output.html" title="m_data_output">m_data_output</a>  </td><td class="markdownTableBodyNone">Writes solution data, run-time stability diagnostics (ICFL, VCFL, CCFL, Rc), and probe/center-of-mass files  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__derived__variables.html" title="m_derived_variables">m_derived_variables</a>  </td><td class="markdownTableBodyNone">Derives diagnostic flow quantities (vorticity, speed of sound, numerical Schlieren, etc.) from conservative and primitive variables  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__euler__lagrange.html" title="m_euler_lagrange">m_euler_lagrange</a>  </td><td class="markdownTableBodyNone">Utilities shared by the Euler-Lagrange bubble and solid-particle solvers: cell location, domain and cell-volume helpers, boundary handling, RK stages and Fornberg gradients  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__fftw.html" title="m_fftw">m_fftw</a>  </td><td class="markdownTableBodyNone">Forward and inverse FFT wrappers (FFTW/cuFFT/hipFFT) for azimuthal Fourier filtering in cylindrical geometries  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__global__parameters.html" title="m_global_parameters">m_global_parameters</a>  </td><td class="markdownTableBodyNone">Global parameters for the computational domain, fluid properties, and simulation algorithm configuration  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__hb__function.html" title="m_hb_function">m_hb_function</a>  </td><td class="markdownTableBodyNone">Herschel-Bulkley non-Newtonian viscosity: formula, shear rate, and mixture inverse-Re  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__hypoelastic.html" title="m_hypoelastic">m_hypoelastic</a>  </td><td class="markdownTableBodyNone">Computes hypoelastic stress-rate source terms and damage-state evolution  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__ib__patches.html" title="m_ib_patches">m_ib_patches</a>  </td><td class="markdownTableBodyNone">Immersed boundary patch geometry constructors for 2D and 3D shapes  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="namespacem__ibm.html" title="m_ibm">m_ibm</a>  </td><td class="markdownTableBodyNone">Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients, and corrects the flow state  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__ibm.html" title="m_ibm">m_ibm</a>  </td><td class="markdownTableBodyNone">Per-block fine-grid immersed-boundary state for AMR  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__igr.html" title="m_igr">m_igr</a>  </td><td class="markdownTableBodyNone">Iterative ghost rasterization (IGR) for sharp immersed boundary treatment  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__mpi__proxy.html" title="m_mpi_proxy">m_mpi_proxy</a>  </td><td class="markdownTableBodyNone">MPI halo exchange, domain decomposition, and buffer packing/unpacking for the simulation solver  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="namespacem__muscl.html" title="m_muscl">m_muscl</a>  </td><td class="markdownTableBodyNone">MUSCL reconstruction with interface sharpening for contact-preserving advection  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="namespacem__particles__el.html" title="m_particles_el">m_particles_EL</a>  </td><td class="markdownTableBodyNone">Euler-Lagrange solid particle solver with two-way coupling  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__muscl.html" title="m_muscl">m_muscl</a>  </td><td class="markdownTableBodyNone">MUSCL reconstruction with interface sharpening for contact-preserving advection  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__particles__el.html" title="m_particles_el">m_particles_EL</a>  </td><td class="markdownTableBodyNone">Euler-Lagrange solid particle solver with two-way coupling  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__particles__el__kernels.html" title="m_particles_el_kernels">m_particles_EL_kernels</a>  </td><td class="markdownTableBodyNone">This module contains kernel functions used to map the effect of the lagrangian particles in the Eulerian framework  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__phase__timing.html" title="m_phase_timing">m_phase_timing</a>  </td><td class="markdownTableBodyNone">Per-phase wall-time budget of the AMR step, reported when rank_time_wrt is on  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__pressure__relaxation.html" title="m_pressure_relaxation">m_pressure_relaxation</a>  </td><td class="markdownTableBodyNone">Pressure relaxation for the six-equation multi-component model via Newton&ndash;Raphson equilibration and volume-fraction correction  </td></tr>
 <tr class="markdownTableRowEven">
@@ -262,11 +298,15 @@ Common (shared)</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Module  </th><th class="markdownTableHeadNone">Description  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="namespacem__boundary__common.html" title="m_boundary_common">m_boundary_common</a>  </td><td class="markdownTableBodyNone">Noncharacteristic and processor boundary condition application for ghost cells and buffer regions  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__amr__restart__io.html" title="m_amr_restart_io">m_amr_restart_io</a>  </td><td class="markdownTableBodyNone">The AMR fine-level restart file layout shared by <a class="el" href="namespacem__amr__restart.html" title="AMR fine-level restart I/O: writes/reads the fine-level restart file alongside the level-0 restart (s...">m_amr_restart</a> (writer/reader) and post_process's overlay reader (m_data_input): path, fine cell-boundary subdivision, global-header check and the parallel_io per-block catalog  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="namespacem__boundary__io.html" title="m_boundary_io">m_boundary_io</a>  </td><td class="markdownTableBodyNone">Boundary condition restart I/O, capillary/IGR buffer population, and grid-variable buffers  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__boundary__common.html" title="m_boundary_common">m_boundary_common</a>  </td><td class="markdownTableBodyNone">Noncharacteristic and processor boundary condition application for ghost cells and buffer regions  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__boundary__io.html" title="m_boundary_io">m_boundary_io</a>  </td><td class="markdownTableBodyNone">Boundary condition restart I/O, capillary/IGR buffer population, and grid-variable buffers  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__boundary__primitives.html" title="m_boundary_primitives">m_boundary_primitives</a>  </td><td class="markdownTableBodyNone">Per-cell noncharacteristic boundary condition primitives applied in the ghost cells  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="namespacem__box.html" title="m_box">m_box</a>  </td><td class="markdownTableBodyNone">Box type, per-rank partition arithmetic (one box per rank) and the Morton key  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><a class="el" href="namespacem__checker__common.html" title="m_checker_common">m_checker_common</a>  </td><td class="markdownTableBodyNone">Shared input validation checks for grid dimensions and AMD GPU compiler limits  </td></tr>
 <tr class="markdownTableRowOdd">

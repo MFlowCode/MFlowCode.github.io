@@ -165,6 +165,8 @@ $(function(){initNavTree('namespacem__data__input.html','',''); });
 Data Types</h2></td></tr>
 <tr class="memitem:s_5Fread_5Fabstract_5Fdata_5Ffiles" id="r_s_5Fread_5Fabstract_5Fdata_5Ffiles"><td class="memItemLeft">interface &#160;</td><td class="memItemRight"><a class="el" href="interfacem__data__input_1_1s__read__abstract__data__files.html">s_read_abstract_data_files</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subroutine for reading data files.  <a href="interfacem__data__input_1_1s__read__abstract__data__files.html#details">More...</a><br /></td></tr>
+<tr class="memitem:amr_5Ffine_5Fblock" id="r_amr_5Ffine_5Fblock"><td class="memItemLeft">type &#160;</td><td class="memItemRight"><a class="el" href="structm__data__input_1_1amr__fine__block.html">amr_fine_block</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One AMR fine-block piece owned by this rank, held for visualization overlay of the refined solution.  <a href="structm__data__input_1_1amr__fine__block.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
@@ -172,6 +174,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a888fdc1ceb8dcce14220719df6a6f23f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper subroutine to read grid data files for a given direction.  <br /></td></tr>
 <tr class="memitem:a6e65911baddf566b7a796fadcea57495" id="r_a6e65911baddf566b7a796fadcea57495"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6e65911baddf566b7a796fadcea57495">s_setup_mpi_io_params</a> (data_size, m_mok, n_mok, p_mok, wp_mok, mok, str_mok, nvars_mok)</td></tr>
 <tr class="memdesc:a6e65911baddf566b7a796fadcea57495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper subroutine to setup MPI data I/O parameters.  <br /></td></tr>
+<tr class="memitem:a77e2bdb7b2d00ea88e5bbab78bf3eaf8" id="r_a77e2bdb7b2d00ea88e5bbab78bf3eaf8"><td class="memItemLeft">impure logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a77e2bdb7b2d00ea88e5bbab78bf3eaf8">f_save_exists</a> (t_step)</td></tr>
+<tr class="memdesc:a77e2bdb7b2d00ea88e5bbab78bf3eaf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does a saved restart exist for this index? Under cfl_dt a step can cross two t_save boundaries, so save indices may be skipped legitimately and the reader must skip them. Only the shared-file layout is checked: with file_per_process the answer would not be rank-uniform, so that path stays fail-closed.  <br /></td></tr>
 <tr class="memitem:af83b04522a4d96faabec6f8142f90e80" id="r_af83b04522a4d96faabec6f8142f90e80"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af83b04522a4d96faabec6f8142f90e80">s_read_ib_data_files</a> (file_loc_base, t_step)</td></tr>
 <tr class="memdesc:af83b04522a4d96faabec6f8142f90e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper subroutine to read IB data files.  <br /></td></tr>
 <tr class="memitem:a0720f62ee34c602705db6ab4f9b7641e" id="r_a0720f62ee34c602705db6ab4f9b7641e"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0720f62ee34c602705db6ab4f9b7641e">s_allocate_field_arrays</a> (local_start_idx, end_x, end_y, end_z)</td></tr>
@@ -186,6 +190,20 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a5746c07ce2bd024e906a721e6552443f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module.  <br /></td></tr>
 <tr class="memitem:a835b28a4dac77d1a1f2d5afef245c354" id="r_a835b28a4dac77d1a1f2d5afef245c354"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a835b28a4dac77d1a1f2d5afef245c354">s_finalize_data_input_module</a></td></tr>
 <tr class="memdesc:a835b28a4dac77d1a1f2d5afef245c354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocation procedures for the module.  <br /></td></tr>
+<tr class="memitem:ab53c169633ea017ea4c55de38e93c6fb" id="r_ab53c169633ea017ea4c55de38e93c6fb"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab53c169633ea017ea4c55de38e93c6fb">s_setup_amr_block</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, reg, isect_lo, sidx, fm, fn, fp, rr)</td></tr>
+<tr class="memdesc:ab53c169633ea017ea4c55de38e93c6fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Populate block slot <span class="tt"><a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a></span> metadata, allocate its conservative fields, and reconstruct its fine coordinates from the coarse cell boundaries (x_cb/y_cb/z_cb, already read for this t_step). isect_lo is the block's global coarse origin; sidx is this rank's global coarse origin (0 for a single-rank/no-MPI run). rr is the refinement factor for this block (amr_ref_ratio**level).  <br /></td></tr>
+<tr class="memitem:abbfd3eedd610f8947500905fdfc95078" id="r_abbfd3eedd610f8947500905fdfc95078"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#abbfd3eedd610f8947500905fdfc95078">s_amr_local_domain</a> (sidx, ext)</td></tr>
+<tr class="memdesc:abbfd3eedd610f8947500905fdfc95078"><td class="mdescLeft">&#160;</td><td class="mdescRight">This rank's subdomain in global coarse cells: origin sidx (0 for a single rank or no MPI) and extent ext.  <br /></td></tr>
+<tr class="memitem:a30c51ba2125457b7f661afbcc4c6f0de" id="r_a30c51ba2125457b7f661afbcc4c6f0de"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a30c51ba2125457b7f661afbcc4c6f0de">s_amr_block_isect</a> (reg, sidx, ext, isect_lo, isect_hi, owns)</td></tr>
+<tr class="memdesc:a30c51ba2125457b7f661afbcc4c6f0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Intersection of the block region reg with this rank's subdomain (sidx, ext); owns = non-empty in every active dimension.  <br /></td></tr>
+<tr class="memitem:af12d044bffb9d940d94ff29c2024a9a9" id="r_af12d044bffb9d940d94ff29c2024a9a9"><td class="memItemLeft">impure integer function&#160;</td><td class="memItemRight"><a class="el" href="#af12d044bffb9d940d94ff29c2024a9a9">f_amr_block_ratio</a> (reg, lvl, fmf)</td></tr>
+<tr class="memdesc:af12d044bffb9d940d94ff29c2024a9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refinement factor of a block from its level and fine x-extent fmf (cells - 1); aborts on an inconsistent header.  <br /></td></tr>
+<tr class="memitem:a1962fa38e55b6bef93f0dde5327a4594" id="r_a1962fa38e55b6bef93f0dde5327a4594"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1962fa38e55b6bef93f0dde5327a4594">s_amr_block_piece</a> (reg, isect_lo, isect_hi, rr, foff, fcnt)</td></tr>
+<tr class="memdesc:a1962fa38e55b6bef93f0dde5327a4594"><td class="mdescLeft">&#160;</td><td class="mdescRight">The kept sub-box of a block: fine-cell offset foff from the block origin and count fcnt of the intersection.  <br /></td></tr>
+<tr class="memitem:a87fdaa3277a2c8cc9c2e8186527d9c7d" id="r_a87fdaa3277a2c8cc9c2e8186527d9c7d"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a87fdaa3277a2c8cc9c2e8186527d9c7d">s_read_amr_data</a> (t_step)</td></tr>
+<tr class="memdesc:a87fdaa3277a2c8cc9c2e8186527d9c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the AMR fine-level restart file for t_step (layout: <a class="el" href="namespacem__amr__restart__io.html" title="The AMR fine-level restart file layout shared by m_amr_restart (writer/reader) and post_process&#39;s ove...">m_amr_restart_io</a>) and keep this rank's pieces of each block for the post-process overlay. No-op when amr is off or the file is absent.  <br /></td></tr>
+<tr class="memitem:aa759438ae516bccfdf646bd23ec75b57" id="r_aa759438ae516bccfdf646bd23ec75b57"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aa759438ae516bccfdf646bd23ec75b57">s_free_amr_data</a> ()</td></tr>
+<tr class="memdesc:aa759438ae516bccfdf646bd23ec75b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release the stored AMR fine-block pieces.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -199,11 +217,81 @@ Variables</h2></td></tr>
 <tr class="memitem:a40989f702d0dd91e694100c1e1c38feb" id="r_a40989f702d0dd91e694100c1e1c38feb"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), public&#160;</td><td class="memItemRight"><a class="el" href="#a40989f702d0dd91e694100c1e1c38feb">q_t_sf</a></td></tr>
 <tr class="memdesc:a40989f702d0dd91e694100c1e1c38feb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature field.  <br /></td></tr>
 <tr class="memitem:ae7e5a46044d44b5523ea49707c34b366" id="r_ae7e5a46044d44b5523ea49707c34b366"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), public&#160;</td><td class="memItemRight"><a class="el" href="#ae7e5a46044d44b5523ea49707c34b366">ib_markers</a></td></tr>
+<tr class="memitem:a1cf47246ecab225a41567fa0fcc62bb7" id="r_a1cf47246ecab225a41567fa0fcc62bb7"><td class="memItemLeft">type(<a class="el" href="structm__data__input_1_1amr__fine__block.html">amr_fine_block</a>), dimension(:), allocatable, public&#160;</td><td class="memItemRight"><a class="el" href="#a1cf47246ecab225a41567fa0fcc62bb7">amr_fine</a></td></tr>
+<tr class="memdesc:a1cf47246ecab225a41567fa0fcc62bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">this rank's owned block pieces  <br /></td></tr>
+<tr class="memitem:afe4cf221e45cb87edaef488702a82c8b" id="r_afe4cf221e45cb87edaef488702a82c8b"><td class="memItemLeft">integer, public&#160;</td><td class="memItemRight"><a class="el" href="#afe4cf221e45cb87edaef488702a82c8b">amr_num_fine</a></td></tr>
+<tr class="memdesc:afe4cf221e45cb87edaef488702a82c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of block pieces this rank owns (&lt;= file's block count)  <br /></td></tr>
 <tr class="memitem:aba1cbfb151ed869483feb37291104830" id="r_aba1cbfb151ed869483feb37291104830"><td class="memItemLeft">procedure(<a class="el" href="interfacem__data__input_1_1s__read__abstract__data__files.html">s_read_abstract_data_files</a>), pointer, public&#160;</td><td class="memItemRight"><a class="el" href="#aba1cbfb151ed869483feb37291104830">s_read_data_files</a> =&gt; null()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Reads raw simulation grid and conservative-variable data for a given time-step and fills buffer regions. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="af12d044bffb9d940d94ff29c2024a9a9" name="af12d044bffb9d940d94ff29c2024a9a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12d044bffb9d940d94ff29c2024a9a9">&#9670;&#160;</a></span>f_amr_block_ratio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure integer function m_data_input::f_amr_block_ratio </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>fmf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Refinement factor of a block from its level and fine x-extent fmf (cells - 1); aborts on an inconsistent header. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00698">698</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_af12d044bffb9d940d94ff29c2024a9a9_cgraph.svg" width="392" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_af12d044bffb9d940d94ff29c2024a9a9_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a77e2bdb7b2d00ea88e5bbab78bf3eaf8" name="a77e2bdb7b2d00ea88e5bbab78bf3eaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e2bdb7b2d00ea88e5bbab78bf3eaf8">&#9670;&#160;</a></span>f_save_exists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure logical function, public m_data_input::f_save_exists </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Does a saved restart exist for this index? Under cfl_dt a step can cross two t_save boundaries, so save indices may be skipped legitimately and the reader must skip them. Only the shared-file layout is checked: with file_per_process the answer would not be rank-uniform, so that path stays fail-closed. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00120">120</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a77e2bdb7b2d00ea88e5bbab78bf3eaf8_cgraph.svg" width="370" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a0720f62ee34c602705db6ab4f9b7641e" name="a0720f62ee34c602705db6ab4f9b7641e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0720f62ee34c602705db6ab4f9b7641e">&#9670;&#160;</a></span>s_allocate_field_arrays()</h2>
 
@@ -235,11 +323,141 @@ Variables</h2></td></tr>
 
 <p>Helper subroutine to allocate field arrays for given dimensionality. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00184">184</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00220">220</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a0720f62ee34c602705db6ab4f9b7641e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a30c51ba2125457b7f661afbcc4c6f0de" name="a30c51ba2125457b7f661afbcc4c6f0de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30c51ba2125457b7f661afbcc4c6f0de">&#9670;&#160;</a></span>s_amr_block_isect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine m_data_input::s_amr_block_isect </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sidx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>isect_lo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>isect_hi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(out)</td>          <td class="paramname"><span class="paramname"><em>owns</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Intersection of the block region reg with this rank's subdomain (sidx, ext); owns = non-empty in every active dimension. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00680">680</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a30c51ba2125457b7f661afbcc4c6f0de_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a1962fa38e55b6bef93f0dde5327a4594" name="a1962fa38e55b6bef93f0dde5327a4594"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1962fa38e55b6bef93f0dde5327a4594">&#9670;&#160;</a></span>s_amr_block_piece()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine m_data_input::s_amr_block_piece </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>isect_lo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>isect_hi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>rr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>foff</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>fcnt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The kept sub-box of a block: fine-cell offset foff from the block origin and count fcnt of the intersection. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00712">712</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a1962fa38e55b6bef93f0dde5327a4594_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="abbfd3eedd610f8947500905fdfc95078" name="abbfd3eedd610f8947500905fdfc95078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbfd3eedd610f8947500905fdfc95078">&#9670;&#160;</a></span>s_amr_local_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_data_input::s_amr_local_domain </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>sidx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>ext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This rank's subdomain in global coarse cells: origin sidx (0 for a single rank or no MPI) and extent ext. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00663">663</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_abbfd3eedd610f8947500905fdfc95078_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -258,7 +476,35 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocation procedures for the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00552">552</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00588">588</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a835b28a4dac77d1a1f2d5afef245c354_cgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa759438ae516bccfdf646bd23ec75b57" name="aa759438ae516bccfdf646bd23ec75b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa759438ae516bccfdf646bd23ec75b57">&#9670;&#160;</a></span>s_free_amr_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_data_input::s_free_amr_data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Release the stored AMR fine-block pieces. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00853">853</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_aa759438ae516bccfdf646bd23ec75b57_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -276,7 +522,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computation of parameters, allocation procedures, and/or any other tasks needed to properly setup the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00507">507</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00543">543</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -286,6 +532,37 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a5746c07ce2bd024e906a721e6552443f_icgraph.svg" width="538" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a87fdaa3277a2c8cc9c2e8186527d9c7d" name="a87fdaa3277a2c8cc9c2e8186527d9c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87fdaa3277a2c8cc9c2e8186527d9c7d">&#9670;&#160;</a></span>s_read_amr_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_data_input::s_read_amr_data </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Read the AMR fine-level restart file for t_step (layout: <a class="el" href="namespacem__amr__restart__io.html" title="The AMR fine-level restart file layout shared by m_amr_restart (writer/reader) and post_process&#39;s ove...">m_amr_restart_io</a>) and keep this rank's pieces of each block for the post-process overlay. No-op when amr is off or the file is absent. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00726">726</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a87fdaa3277a2c8cc9c2e8186527d9c7d_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a87fdaa3277a2c8cc9c2e8186527d9c7d_icgraph.svg" width="506" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -331,7 +608,7 @@ Here is the caller graph for this function:</div>
 
 <p>Helper subroutine to read grid data files for a given direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00051">51</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00063">63</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -366,7 +643,7 @@ Here is the caller graph for this function:</div>
 
 <p>Helper subroutine to read IB data files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00106">106</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00142">142</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -431,7 +708,7 @@ Here is the caller graph for this function:</div>
 
 <p>Helper subroutine to read parallel conservative variable data. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00402">402</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00438">438</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -462,7 +739,7 @@ Here is the caller graph for this function:</div>
 
 <p>Parallel-read the raw data files present in the corresponding time-step directory and to populate the associated grid and conservative variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00267">267</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00303">303</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -493,7 +770,7 @@ Here is the caller graph for this function:</div>
 
 <p>Read the raw data files present in the corresponding time-step directory and to populate the associated grid and conservative variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00207">207</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00243">243</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -503,6 +780,71 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_a94700a0b549ac60847be9f4f0ab94adf_icgraph.svg" width="100%" height="365"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab53c169633ea017ea4c55de38e93c6fb" name="ab53c169633ea017ea4c55de38e93c6fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab53c169633ea017ea4c55de38e93c6fb">&#9670;&#160;</a></span>s_setup_amr_block()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_data_input::s_setup_amr_block </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>isect_lo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>sidx</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>fm</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>fn</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>fp</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>rr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Populate block slot <span class="tt"><a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a></span> metadata, allocate its conservative fields, and reconstruct its fine coordinates from the coarse cell boundaries (x_cb/y_cb/z_cb, already read for this t_step). isect_lo is the block's global coarse origin; sidx is this rank's global coarse origin (0 for a single-rank/no-MPI run). rr is the refinement factor for this block (amr_ref_ratio**level). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00631">631</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_ab53c169633ea017ea4c55de38e93c6fb_cgraph.svg" width="379" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__data__input_ab53c169633ea017ea4c55de38e93c6fb_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -558,7 +900,7 @@ Here is the caller graph for this function:</div>
 
 <p>Helper subroutine to setup MPI data I/O parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00080">80</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00092">92</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -573,6 +915,42 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a1cf47246ecab225a41567fa0fcc62bb7" name="a1cf47246ecab225a41567fa0fcc62bb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf47246ecab225a41567fa0fcc62bb7">&#9670;&#160;</a></span>amr_fine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">type(<a class="el" href="structm__data__input_1_1amr__fine__block.html">amr_fine_block</a>), dimension(:), allocatable, public m_data_input::amr_fine</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>this rank's owned block pieces </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00055">55</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+
+</div>
+</div>
+<a id="afe4cf221e45cb87edaef488702a82c8b" name="afe4cf221e45cb87edaef488702a82c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe4cf221e45cb87edaef488702a82c8b">&#9670;&#160;</a></span>amr_num_fine</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, public m_data_input::amr_num_fine</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>number of block pieces this rank owns (&lt;= file's block count) </p>
+
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00056">56</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+
+</div>
+</div>
 <a id="ad9273d92fc99495df40876b8604af72e" name="ad9273d92fc99495df40876b8604af72e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad9273d92fc99495df40876b8604af72e">&#9670;&#160;</a></span>bc_type</h2>
 
@@ -587,7 +965,7 @@ Here is the caller graph for this function:</div>
 
 <p>Boundary condition identifiers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00042">42</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00043">43</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>
@@ -603,7 +981,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00044">44</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00045">45</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>
@@ -619,7 +997,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00040">40</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00041">41</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>
@@ -637,7 +1015,7 @@ Here is the caller graph for this function:</div>
 
 <p>Conservative variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00039">39</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00040">40</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>
@@ -655,7 +1033,7 @@ Here is the caller graph for this function:</div>
 
 <p>Primitive variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00041">41</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00042">42</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>
@@ -673,7 +1051,7 @@ Here is the caller graph for this function:</div>
 
 <p>Temperature field. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00043">43</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00044">44</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>
@@ -689,7 +1067,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00046">46</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__input_8f90_source.html#l00058">58</a> of file <a class="el" href="m__data__input_8f90_source.html">m_data_input.f90</a>.</p>
 
 </div>
 </div>

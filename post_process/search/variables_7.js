@@ -9,8 +9,9 @@ var searchData=
   ['heat_5fratio_5fwrt_6',['heat_ratio_wrt',['../namespacem__global__parameters__common.html#a76b53745854e92924b2a9a041d1a5e7a',1,'m_global_parameters_common']]],
   ['heattransfer_5fmodel_7',['heattransfer_model',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a7abbc0138bee7397be51f5d42eaa1474',1,'m_derived_types::bubbles_lagrange_parameters']]],
   ['height_8',['height',['../structm__derived__types_1_1acoustic__parameters.html#aa013826904d904e484c24cc2d6178cfa',1,'m_derived_types::acoustic_parameters']]],
-  ['hi_5foffset_9',['hi_offset',['../structm__derived__types_1_1output__context.html#a1d50c3cc4fceed653698eb4a8599dd4c',1,'m_derived_types::output_context']]],
-  ['hp_10',['hp',['../namespacem__precision__select.html#aae1265756d05d3113702b0a0383a50c9',1,'m_precision_select']]],
-  ['hyper_5fcleaning_11',['hyper_cleaning',['../namespacem__global__parameters__common.html#a4724699cb454e5156bb55fa9a40c2855',1,'m_global_parameters_common']]],
-  ['hypoelasticity_12',['hypoelasticity',['../namespacem__global__parameters__common.html#a533a3f4c2c09dc919fa899f2a2f22987',1,'m_global_parameters_common']]]
+  ['hi_9',['hi',['../structm__data__input_1_1amr__fine__block.html#a8afd829e79145f11eeaeb15d902aeaa2',1,'m_data_input::amr_fine_block::hi'],['../structm__derived__types_1_1t__box.html#acbfa22aad7701f8b514d8bb7e8afb28d',1,'m_derived_types::t_box::hi']]],
+  ['hi_5foffset_10',['hi_offset',['../structm__derived__types_1_1output__context.html#a1d50c3cc4fceed653698eb4a8599dd4c',1,'m_derived_types::output_context']]],
+  ['hp_11',['hp',['../namespacem__precision__select.html#aae1265756d05d3113702b0a0383a50c9',1,'m_precision_select']]],
+  ['hyper_5fcleaning_12',['hyper_cleaning',['../namespacem__global__parameters__common.html#a4724699cb454e5156bb55fa9a40c2855',1,'m_global_parameters_common']]],
+  ['hypoelasticity_13',['hypoelasticity',['../namespacem__global__parameters__common.html#a533a3f4c2c09dc919fa899f2a2f22987',1,'m_global_parameters_common']]]
 ];

@@ -1,0 +1,27 @@
+var m__amr__store_8fpp_8f90 =
+[
+    [ "f_fits", "m__amr__store_8fpp_8f90.html#a912c68306812ba0a7af5a3eee3ada6d0", null ],
+    [ "m_amr_store::s_amr_alloc_pool", "namespacem__amr__store.html#a3ffcecda90678c3984ec6a8e159a29c8", null ],
+    [ "m_amr_store::s_amr_alloc_slot", "namespacem__amr__store.html#a8c0df7a3b5a4e1cb9aed5d84015b8841", null ],
+    [ "m_amr_store::s_amr_bat_member_prim", "namespacem__amr__store.html#a7f9af124ebbd8d270bc0e704c1680599", null ],
+    [ "m_amr_store::s_amr_br_load", "namespacem__amr__store.html#afd3fc334fe80ead9b56e1b06613539d7", null ],
+    [ "m_amr_store::s_amr_br_load_batch", "namespacem__amr__store.html#a514a5867fd647628fdfd56c9572b513b", null ],
+    [ "m_amr_store::s_amr_br_load_faces", "namespacem__amr__store.html#aae77eaf7c800c60ffe2aaa2396aa0881", null ],
+    [ "m_amr_store::s_amr_br_store", "namespacem__amr__store.html#a93b0cfab2c1076f8cd05408a2b6821d4", null ],
+    [ "m_amr_store::s_amr_br_store_faces", "namespacem__amr__store.html#a56cd668918edc6a65bb1384c413b7520", null ],
+    [ "m_amr_store::s_amr_compact_store", "namespacem__amr__store.html#a54b50ab298015d0ce1204caf762bca5a", null ],
+    [ "m_amr_store::s_amr_copy_fine_fields", "namespacem__amr__store.html#a9d0c6a6c5de424feecba325a72e07b03", null ],
+    [ "m_amr_store::s_amr_dev_mem", "namespacem__amr__store.html#aa491df3e79bee879ada47b555ca279ea", null ],
+    [ "m_amr_store::s_amr_free_pool", "namespacem__amr__store.html#a64be8f5aa27264c6cf08ea002f405326", null ],
+    [ "m_amr_store::s_amr_free_slot", "namespacem__amr__store.html#a2089f9bfd6f07ac8aa2e1e6d294080cc", null ],
+    [ "m_amr_store::s_amr_free_swap_buffers", "namespacem__amr__store.html#a21a73de964456fef53e019bf6a661133", null ],
+    [ "m_amr_store::s_amr_init_swap_buffers", "namespacem__amr__store.html#a653abc5010d88e7959703d4aa73dcf5e", null ],
+    [ "m_amr_store::s_amr_loc_index_init", "namespacem__amr__store.html#acd0947ca5e84d2a3275de29accba401c", null ],
+    [ "m_amr_store::s_amr_reconcile_slots", "namespacem__amr__store.html#a3dcea5ec3922f5f85c7bfa448ac88771", null ],
+    [ "m_amr_store::s_amr_set_mbuf", "namespacem__amr__store.html#a57503fc7c491f8db824da3147d6580dc", null ],
+    [ "m_amr_store::s_amr_st_finalize", "namespacem__amr__store.html#a98b43a790075b1ee9db418b6a1dbad66", null ],
+    [ "m_amr_store::s_amr_st_move_slot", "namespacem__amr__store.html#a201839ec67268528bcf5b358e58df8f1", null ],
+    [ "m_amr_store::s_amr_st_reserve", "namespacem__amr__store.html#ace7f811ca933d990adb5346f105a439f", null ],
+    [ "m_amr_store::s_amr_sync_grid_state_to_device", "namespacem__amr__store.html#acf4995c236874bb8b0ce3909c53ea723", null ],
+    [ "m_amr_store::amr_gs_buf", "namespacem__amr__store.html#a579771a280e1c7f3ed7872e72a089900", null ]
+];

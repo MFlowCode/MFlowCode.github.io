@@ -1,8 +1,10 @@
 var files_dup =
 [
+    [ "m_amr_restart_io.fpp.f90", "m__amr__restart__io_8fpp_8f90.html", "m__amr__restart__io_8fpp_8f90" ],
     [ "m_boundary_common.fpp.f90", "m__boundary__common_8fpp_8f90.html", "m__boundary__common_8fpp_8f90" ],
     [ "m_boundary_io.fpp.f90", "m__boundary__io_8fpp_8f90.html", "m__boundary__io_8fpp_8f90" ],
     [ "m_boundary_primitives.fpp.f90", "m__boundary__primitives_8fpp_8f90.html", "m__boundary__primitives_8fpp_8f90" ],
+    [ "m_box.fpp.f90", "m__box_8fpp_8f90.html", "m__box_8fpp_8f90" ],
     [ "m_checker.fpp.f90", "m__checker_8fpp_8f90.html", "m__checker_8fpp_8f90" ],
     [ "m_checker_common.fpp.f90", "m__checker__common_8fpp_8f90.html", "m__checker__common_8fpp_8f90" ],
     [ "m_chemistry.fpp.f90", "m__chemistry_8fpp_8f90.html", "m__chemistry_8fpp_8f90" ],

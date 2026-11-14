@@ -187,6 +187,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a22620175f94237b04b08d371ae891467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce an array of vectors to their global sums across all MPI ranks.  <br /></td></tr>
 <tr class="memitem:a750c773a9421c7837f197be9bdc4fb73" id="r_a750c773a9421c7837f197be9bdc4fb73"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a750c773a9421c7837f197be9bdc4fb73">s_mpi_allreduce_integer_sum</a> (var_loc, var_glb)</td></tr>
 <tr class="memdesc:a750c773a9421c7837f197be9bdc4fb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local integer value to its global sum across all MPI ranks.  <br /></td></tr>
+<tr class="memitem:a3897ec25465ec05faa1f65724c31924d" id="r_a3897ec25465ec05faa1f65724c31924d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3897ec25465ec05faa1f65724c31924d">s_mpi_allreduce_integer_min</a> (var_loc, var_glb)</td></tr>
+<tr class="memdesc:a3897ec25465ec05faa1f65724c31924d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local integer value to its global minimum across all MPI ranks.  <br /></td></tr>
+<tr class="memitem:af5109f7f98d66745274b27bcee504fae" id="r_af5109f7f98d66745274b27bcee504fae"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af5109f7f98d66745274b27bcee504fae">s_mpi_allreduce_integer_max</a> (var_loc, var_glb)</td></tr>
+<tr class="memdesc:af5109f7f98d66745274b27bcee504fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local integer value to its global maximum across all MPI ranks.  <br /></td></tr>
 <tr class="memitem:acd08948df9c82e4b1112e377e91fadda" id="r_acd08948df9c82e4b1112e377e91fadda"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acd08948df9c82e4b1112e377e91fadda">s_mpi_allreduce_integer_sum_vec</a> (var_loc, var_glb)</td></tr>
 <tr class="memdesc:acd08948df9c82e4b1112e377e91fadda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce an integer(8) array to its element-wise global sum across all MPI ranks.  <br /></td></tr>
 <tr class="memitem:a40f3c1242840a184d017acef92cce7d4" id="r_a40f3c1242840a184d017acef92cce7d4"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a40f3c1242840a184d017acef92cce7d4">s_mpi_allreduce_min</a> (var_loc, var_glb)</td></tr>
@@ -195,6 +199,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a666ef6ca37d1c7cfa6d310edd1002be3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local real vector to its elementwise global minimum across all MPI ranks.  <br /></td></tr>
 <tr class="memitem:a65728020613f88febe83c74836abb371" id="r_a65728020613f88febe83c74836abb371"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a65728020613f88febe83c74836abb371">s_mpi_allreduce_max</a> (var_loc, var_glb)</td></tr>
 <tr class="memdesc:a65728020613f88febe83c74836abb371"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local real value to its global maximum across all MPI ranks.  <br /></td></tr>
+<tr class="memitem:abfe45738d21735a97ff40943d0d565da" id="r_abfe45738d21735a97ff40943d0d565da"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#abfe45738d21735a97ff40943d0d565da">s_mpi_allreduce_array_max</a> (arr, arr_len)</td></tr>
+<tr class="memdesc:abfe45738d21735a97ff40943d0d565da"><td class="mdescLeft">&#160;</td><td class="mdescRight">In-place elementwise max-reduction of a real array across all ranks: each element is written (identically) by its owner(s) and sentinel-low elsewhere, so MAX recovers the global array.  <br /></td></tr>
 <tr class="memitem:a9e8820cd853294229c309298cb44ad2b" id="r_a9e8820cd853294229c309298cb44ad2b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9e8820cd853294229c309298cb44ad2b">s_mpi_reduce_min</a> (var_loc)</td></tr>
 <tr class="memdesc:a9e8820cd853294229c309298cb44ad2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduce a local real value to its global minimum across all ranks.  <br /></td></tr>
 <tr class="memitem:a2e3bdaffd98ab167782c6f43f182f89e" id="r_a2e3bdaffd98ab167782c6f43f182f89e"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2e3bdaffd98ab167782c6f43f182f89e">s_mpi_reduce_maxloc</a> (var_loc)</td></tr>
@@ -264,7 +270,7 @@ Variables</h2></td></tr>
 
 <p>Gather per-rank time step wall-clock times onto rank 0 for performance reporting. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00797">797</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00805">805</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -332,7 +338,7 @@ Here is the caller graph for this function:</div>
 
 <p>Apply executable-configured output and local-domain policies after the shared Cartesian decomposition. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03484">3484</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03524">3524</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -422,7 +428,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate the local cell-boundary, cell-center, and cell-width arrays in one direction directly from the global cell-boundary array. This guarantees that every rank sees bitwise-identical values at any shared physical cell or boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03603">3603</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03643">3643</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -447,7 +453,7 @@ Here is the caller graph for this function:</div>
 
 <p>Abort naming the file if MPI_FILE_OPEN failed. File errors default to MPI_ERRORS_RETURN, so an unchecked failure carries on with an invalid handle and crashes somewhere unrelated. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01076">1076</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01129">1129</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -475,7 +481,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03681">3681</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03721">3721</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -510,7 +516,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00462">462</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -565,7 +571,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up MPI I/O data views and variable pointers for parallel file output. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00644">644</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00652">652</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -610,7 +616,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up MPI I/O data views for downsampled (coarsened) parallel file output. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00727">727</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00735">735</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -635,12 +641,87 @@ Here is the caller graph for this function:</div>
 
 <p>The subroutine terminates the MPI execution environment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01044">1044</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01099">1099</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__mpi__common_a04cfc0bdb377a0ce2f9fd478e4bb3807_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
+
+</div>
+</div>
+<a id="abfe45738d21735a97ff40943d0d565da" name="abfe45738d21735a97ff40943d0d565da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfe45738d21735a97ff40943d0d565da">&#9670;&#160;</a></span>s_mpi_allreduce_array_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_mpi_common::s_mpi_allreduce_array_max </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(arr_len), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>arr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>arr_len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>In-place elementwise max-reduction of a real array across all ranks: each element is written (identically) by its owner(s) and sentinel-low elsewhere, so MAX recovers the global array. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01049">1049</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="af5109f7f98d66745274b27bcee504fae" name="af5109f7f98d66745274b27bcee504fae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5109f7f98d66745274b27bcee504fae">&#9670;&#160;</a></span>s_mpi_allreduce_integer_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_mpi_common::s_mpi_allreduce_integer_max </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>var_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>var_glb</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reduce a local integer value to its global maximum across all MPI ranks. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00968">968</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3897ec25465ec05faa1f65724c31924d" name="a3897ec25465ec05faa1f65724c31924d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3897ec25465ec05faa1f65724c31924d">&#9670;&#160;</a></span>s_mpi_allreduce_integer_min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_mpi_common::s_mpi_allreduce_integer_min </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>var_loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>var_glb</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reduce a local integer value to its global minimum across all MPI ranks. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00952">952</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -665,7 +746,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local integer value to its global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00928">928</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00936">936</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -690,7 +771,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce an integer(8) array to its element-wise global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00944">944</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00984">984</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -715,7 +796,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global maximum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00992">992</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01032">1032</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -740,7 +821,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global minimum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00960">960</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01000">1000</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -765,7 +846,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real vector to its elementwise global minimum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00976">976</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01016">1016</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -790,7 +871,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00891">891</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00899">899</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -825,7 +906,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce an array of vectors to their global sums across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00907">907</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00915">915</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -843,7 +924,7 @@ Here is the caller graph for this function:</div>
 
 <p>Halts all processes until all have reached barrier. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01093">1093</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01146">1146</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -884,7 +965,7 @@ Here is the caller graph for this function:</div>
 <p>The purpose of this procedure is to optimally decompose the computational domain among the available processors. This is performed by attempting to award each processor, in each of the coordinate directions, approximately the same number of cells, and then recomputing the affected global parameters. </p>
 <p>Non-optimal number of processors in the x-, y- and z-directions</p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03089">3089</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03142">3142</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -912,7 +993,7 @@ Here is the caller graph for this function:</div>
 
 <p>The subroutine finalizes the MPI execution environment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01104">1104</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01157">1157</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -961,7 +1042,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00764">764</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00772">772</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -979,7 +1060,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the MPI execution environment and query the number of processors and local rank. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00608">608</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00616">616</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1032,7 +1113,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02525">2525</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l02578">2578</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1138,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local integer value to its global sum across all MPI ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00875">875</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00883">883</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1159,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a 2-element variable to its global maximum value with the owning processor rank (MPI_MAXLOC). Reduce a local value to its global maximum with location (rank) across all ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01027">1027</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01082">1082</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1099,7 +1180,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduce a local real value to its global minimum across all ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01008">1008</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01063">1063</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1149,7 +1230,7 @@ Here is the caller graph for this function:</div>
 
 <p>The goal of this subroutine is to determine the global extrema of the stability criteria in the computational domain. This is performed by sifting through the local extrema of each stability criterion. Note that each of the local extrema is from a single process, within its assigned section of the computational domain. Finally, note that the global extrema values are only bookkept on the rank 0 processor. <span class="tt">max_loc</span>/<span class="tt">max_glb</span> hold the max-reduced criteria (ICFL, VCFL, CCFL, TCFL) and <span class="tt">min_loc</span>/<span class="tt">min_glb</span> hold the min-reduced criteria (Rc). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00831">831</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00839">839</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1199,7 +1280,7 @@ Here is the caller graph for this function:</div>
 
 <p>The goal of this procedure is to populate the buffers of the grid variables by communicating with the neighboring processors. Note that only the buffers of the cell-width distributions are handled in such a way. This is because the buffers of cell-boundary locations may be calculated directly from those of the cell-width distributions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03548">3548</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l03588">3588</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1249,7 +1330,7 @@ Here is the caller graph for this function:</div>
 
 <p>The goal of this procedure is to populate the buffers of the cell-average conservative variables by communicating with the neighboring processors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01116">1116</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l01169">1169</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1279,7 +1360,7 @@ Here is the call graph for this function:</div>
 
 <p>Print a case file error with the prohibited condition and message, then abort execution. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00811">811</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00819">819</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1306,7 +1387,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1332,7 +1413,7 @@ Here is the caller graph for this function:</div>
 
 <p>Primitive variable receive buffer for halo exchange Variables for EL bubbles communication. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00415">415</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1358,7 +1439,7 @@ Here is the caller graph for this function:</div>
 
 <p>Primitive variable send buffer for halo exchange. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00413">413</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1374,7 +1455,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00416">416</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1390,7 +1471,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1414,7 +1495,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1430,7 +1511,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00442">442</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00450">450</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1448,7 +1529,7 @@ Here is the caller graph for this function:</div>
 
 <p>Most beta fields exchanged at once; sizes the beta halo. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00413">413</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1466,7 +1547,7 @@ Here is the caller graph for this function:</div>
 
 <p>q_beta indices to communicate, set by s_populate_beta_buffers </p>
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00419">419</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1490,7 +1571,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00457">457</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00465">465</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1514,7 +1595,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__common_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__mpi__common_8fpp_8f90_source.html">m_mpi_common.fpp.f90</a>.</p>
 
 </div>
 </div>

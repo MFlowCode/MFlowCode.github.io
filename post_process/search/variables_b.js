@@ -30,8 +30,10 @@ var searchData=
   ['levelset_27',['levelset',['../structm__derived__types_1_1ghost__point.html#a6d6b9ba23cbd190a4af9385c781ed9c8',1,'m_derived_types::ghost_point']]],
   ['levelset_5fnorm_28',['levelset_norm',['../structm__derived__types_1_1ghost__point.html#af976ab431e8ef9e6b437664327174e3e',1,'m_derived_types::ghost_point']]],
   ['liutex_5fwrt_29',['liutex_wrt',['../namespacem__global__parameters__common.html#a8be0def9a408b8720c15692e2c386a15',1,'m_global_parameters_common']]],
-  ['lo_5foffset_30',['lo_offset',['../structm__derived__types_1_1output__context.html#a080bf1c6903bb6e106a96ddd90028cd7',1,'m_derived_types::output_context']]],
-  ['loc_31',['loc',['../structm__derived__types_1_1bc__patch__parameters.html#a0bf999214be9cc921612ca7c0fa4e1a8',1,'m_derived_types::bc_patch_parameters::loc'],['../structm__derived__types_1_1acoustic__parameters.html#ac85b2712678cace28a685de797b4655a',1,'m_derived_types::acoustic_parameters::loc'],['../structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44',1,'m_derived_types::ghost_point::loc']]],
-  ['lower_32',['lower',['../structm__derived__types_1_1ib__airfoil__grid.html#a3264f63afe898c0eff0019079438e061',1,'m_derived_types::ib_airfoil_grid']]],
-  ['lp_33',['lp',['../namespacem__phase__change.html#a3e20769a9f02b9e24c8b59413b6675f1',1,'m_phase_change']]]
+  ['lo_30',['lo',['../structm__data__input_1_1amr__fine__block.html#a2601decca2ab2fdc5c4204a90be9ca66',1,'m_data_input::amr_fine_block::lo'],['../structm__derived__types_1_1t__box.html#a85e30ac57f97e781d01b10281911f1fc',1,'m_derived_types::t_box::lo']]],
+  ['lo_5foffset_31',['lo_offset',['../structm__derived__types_1_1output__context.html#a080bf1c6903bb6e106a96ddd90028cd7',1,'m_derived_types::output_context']]],
+  ['loc_32',['loc',['../structm__derived__types_1_1bc__patch__parameters.html#a0bf999214be9cc921612ca7c0fa4e1a8',1,'m_derived_types::bc_patch_parameters::loc'],['../structm__derived__types_1_1acoustic__parameters.html#ac85b2712678cace28a685de797b4655a',1,'m_derived_types::acoustic_parameters::loc'],['../structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44',1,'m_derived_types::ghost_point::loc']]],
+  ['lower_33',['lower',['../structm__derived__types_1_1ib__airfoil__grid.html#a3264f63afe898c0eff0019079438e061',1,'m_derived_types::ib_airfoil_grid']]],
+  ['lp_34',['lp',['../namespacem__phase__change.html#a3e20769a9f02b9e24c8b59413b6675f1',1,'m_phase_change']]],
+  ['lvl_35',['lvl',['../structm__amr__restart__io_1_1t__amr__restart__catalog.html#a44c61b8f40287f7432a481b0b4656337',1,'m_amr_restart_io::t_amr_restart_catalog']]]
 ];
