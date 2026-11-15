@@ -707,20 +707,20 @@ leak   = (M_N2(t) - M_N2(t_1)) / gasif
 What it shows</h3>
 <p><img src="mass_budget-2D_ibm_wall_mass_budget-example.png" alt="" height="400" class="inline"/></p>
 <p>Left: the gas mass gained (solid) and the mass gasified (dashed), for the default ghost-cell wall (blue) and with <span class="tt">ib_flux_wall = T</span> (orange). Right: the defect and the N2 leak as fractions of the gasified mass (the axis is linear below 1e-2 and logarithmic above).</p>
-<p>With the default wall, the faces between the fluid and the body carry the Riemann and diffusion fluxes of the ghost state, which the ghost fill does not tie to the surface balance. The gas gains 3 to 69 times the mass the surface gasifies, and N2, which no surface reaction touches, changes by multiples of it. With <span class="tt">ib_flux_wall = T</span> those faces carry the surface solve's own rates: the defect is 1.4e-2 at the first save, below 1% afterwards and about 0.3% or less after 60 us, and the N2 leak stays at 1e-10 of the gasified mass.</p>
+<p>With the default wall, the faces between the fluid and the body carry the Riemann and diffusion fluxes of the ghost state, which the ghost fill does not tie to the surface balance. The gas gains 3 to 69 times the mass the surface gasifies, and N2, which no surface reaction touches, changes by multiples of it. With <span class="tt">ib_flux_wall = T</span> those faces carry the surface solve's own rates: the defect is 1.6e-2 at the first save and below 0.4% afterwards, and the N2 leak stays at 1e-10 of the gasified mass.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">t [us]  </th><th class="markdownTableHeadRight">gained, default [kg/m]  </th><th class="markdownTableHeadRight">gasified, default [kg/m]  </th><th class="markdownTableHeadRight">defect, default  </th><th class="markdownTableHeadRight">N2 leak, default  </th><th class="markdownTableHeadRight">defect, flux wall  </th><th class="markdownTableHeadRight">N2 leak, flux wall  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">15  </td><td class="markdownTableBodyRight">5.2e-9  </td><td class="markdownTableBodyRight">7.4e-11  </td><td class="markdownTableBodyRight">68  </td><td class="markdownTableBodyRight">52  </td><td class="markdownTableBodyRight">1.4e-2  </td><td class="markdownTableBodyRight">4e-10  </td></tr>
+<td class="markdownTableBodyRight">15  </td><td class="markdownTableBodyRight">5.2e-9  </td><td class="markdownTableBodyRight">7.4e-11  </td><td class="markdownTableBodyRight">68  </td><td class="markdownTableBodyRight">52  </td><td class="markdownTableBodyRight">1.6e-2  </td><td class="markdownTableBodyRight">4e-10  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">30  </td><td class="markdownTableBodyRight">9.1e-9  </td><td class="markdownTableBodyRight">2.2e-10  </td><td class="markdownTableBodyRight">40  </td><td class="markdownTableBodyRight">31  </td><td class="markdownTableBodyRight">5.8e-3  </td><td class="markdownTableBodyRight">0  </td></tr>
+<td class="markdownTableBodyRight">30  </td><td class="markdownTableBodyRight">9.1e-9  </td><td class="markdownTableBodyRight">2.2e-10  </td><td class="markdownTableBodyRight">40  </td><td class="markdownTableBodyRight">31  </td><td class="markdownTableBodyRight">3.4e-3  </td><td class="markdownTableBodyRight">0  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">60  </td><td class="markdownTableBodyRight">1.09e-8  </td><td class="markdownTableBodyRight">5.2e-10  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">15  </td><td class="markdownTableBodyRight">-1.8e-4  </td><td class="markdownTableBodyRight">6e-11  </td></tr>
+<td class="markdownTableBodyRight">60  </td><td class="markdownTableBodyRight">1.09e-8  </td><td class="markdownTableBodyRight">5.2e-10  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">15  </td><td class="markdownTableBodyRight">-1.2e-3  </td><td class="markdownTableBodyRight">6e-11  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">105  </td><td class="markdownTableBodyRight">1.01e-8  </td><td class="markdownTableBodyRight">9.7e-10  </td><td class="markdownTableBodyRight">9.4  </td><td class="markdownTableBodyRight">7.5  </td><td class="markdownTableBodyRight">-5.4e-4  </td><td class="markdownTableBodyRight">3e-11  </td></tr>
+<td class="markdownTableBodyRight">105  </td><td class="markdownTableBodyRight">1.01e-8  </td><td class="markdownTableBodyRight">9.7e-10  </td><td class="markdownTableBodyRight">9.4  </td><td class="markdownTableBodyRight">7.5  </td><td class="markdownTableBodyRight">1.5e-4  </td><td class="markdownTableBodyRight">3e-11  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">300  </td><td class="markdownTableBodyRight">9.7e-9  </td><td class="markdownTableBodyRight">2.9e-9  </td><td class="markdownTableBodyRight">2.3  </td><td class="markdownTableBodyRight">2.2  </td><td class="markdownTableBodyRight">-3.1e-3  </td><td class="markdownTableBodyRight">-1e-11  </td></tr>
+<td class="markdownTableBodyRight">300  </td><td class="markdownTableBodyRight">9.7e-9  </td><td class="markdownTableBodyRight">2.9e-9  </td><td class="markdownTableBodyRight">2.3  </td><td class="markdownTableBodyRight">2.2  </td><td class="markdownTableBodyRight">-1.8e-3  </td><td class="markdownTableBodyRight">-1e-11  </td></tr>
 </table>
 <p>The default-wall column is the behavior of the solver without the option, which was also run on an unmodified build of master and gives the same table to all printed digits. Run on an AMD MI250X; an NVIDIA A100 gives the same table to the digits shown, and 1 and 2 ranks (the rank seam through the cylinder) agree too.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md331"></a>
@@ -1058,7 +1058,7 @@ IBM Bow Shock (3D)</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md378"></a>
 Final Condition</h3>
 <p><img src="result-3D_ibm_bowshock-example.png" alt="" height="400" class="inline"/></p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-14</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-15</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

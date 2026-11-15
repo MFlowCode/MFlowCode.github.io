@@ -625,7 +625,6 @@ Mean Pressure Gradient Forcing</h3>
 <li><span class="tt">mean_dpdx(i)</span>/<span class="tt">mean_mflux(i)</span> set for an inactive direction</li>
 <li><span class="tt">mean_dpdx(i)</span>/<span class="tt">mean_mflux(i)</span> require periodic <span class="tt">bc_d</span> (-1) on both ends</li>
 <li><span class="tt">mean_dpdx</span>/<span class="tt">mean_mflux</span> require Cartesian coordinates</li>
-<li><span class="tt">mean_dpdx</span>/<span class="tt">mean_mflux</span> do not support immersed boundaries</li>
 <li><span class="tt">mean_dpdx</span>/<span class="tt">mean_mflux</span> have not been validated with amr</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md572"></a>
@@ -633,16 +632,21 @@ Mean Gas Temperature Source</h3>
 <p class="formulaDsp">
 \[\dot q^{n+1} = \dot q^n + \frac{G\,\overline{\rho c_v}}{\Delta t}\left(T_b^\ast - 2T_b^n + T_b^{n-1}\right)\]
 </p>
-<p>mean_qdot or mean_temp requires chemistry, Cartesian coordinates, and periodic boundaries in every active direction. A mean_temp target requires mean_temp_gain G in (0, 4/3); a gain without a target is rejected.</p>
+<p>mean_qdot or mean_temp requires chemistry, Cartesian coordinates, periodic x, and periodic or wall (-15, -16) boundaries in y and z. A mean_temp target requires mean_temp_gain G in (0, 4/3); a gain without a target is rejected. mean_temp_wall (positive) requires a mean_temp target.</p>
 <p><b>Stage:</b> simulation | <b>Severity:</b> error</p>
 <p><b>Enforced checks:</b></p>
 <ul>
+<li><span class="tt">mean_temp_wall</span> requires a <span class="tt">mean_temp</span> target</li>
+<li><span class="tt">mean_temp_wall</span> must be positive</li>
 <li><span class="tt">mean_qdot</span>/<span class="tt">mean_temp</span> require chemistry</li>
 <li><span class="tt">mean_qdot</span>/<span class="tt">mean_temp</span> require Cartesian coordinates</li>
-<li><span class="tt">mean_qdot</span>/<span class="tt">mean_temp</span> do not support immersed boundaries</li>
 <li><span class="tt">mean_qdot</span>/<span class="tt">mean_temp</span> have not been validated with amr</li>
-<li><span class="tt">mean_qdot</span>/<span class="tt">mean_temp</span> require periodic <span class="tt">bc_d</span> (-1) on both ends</li>
+<li><span class="tt">mean_qdot</span>/<span class="tt">mean_temp</span> require kinds <span class="tt">bc_d</span> on both ends</li>
 <li><span class="tt">mean_temp</span> must be positive</li>
+<li><span class="tt">mean_temp_wall</span> requires <code class="f90l">chem_params%</code><code class="f90r">diffusion</code> = T (the only conduction path)</li>
+<li><span class="tt">mean_temp_wall</span> requires <span class="tt">mean_mflux(1)</span> &gt; 0: the mixing-cup temperature needs a held streamwise flow</li>
+<li><span class="tt">mean_temp_wall</span> requires <code class="f90l">bc_d%</code><code class="f90r">side</code> to be isothermal at <span class="tt">mean_temp_wall</span> (<span class="tt">t_wall</span> K): set <code class="f90l">bc_d%</code><code class="f90r">isothermal_tag</code> and <code class="f90l">bc_d%</code><code class="f90r">Twall_tag</code></li>
+<li><span class="tt">mean_temp_wall</span> requires <span class="tt">patch_ib(i)</span> to be isothermal at <span class="tt">mean_temp_wall</span> (<span class="tt">t_wall</span> K): <span class="tt">thermal_bc</span> = 1 and Twall</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md573"></a>
 Synthetic Turbulence Forcing</h3>
@@ -954,7 +958,7 @@ Euler-Lagrange Particle Model</h3>
 <li>ppsuth(fluid) must be positive if given</li>
 <li>ppsuth(fluid) needs <code class="f90l">fluid_pp(fluid)%</code><code class="f90r">cv</code> &gt; 0: Sutherland's law uses the temperature <span class="tt">p</span>/(rho cv (gamma - 1)) in K</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-14</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-15</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

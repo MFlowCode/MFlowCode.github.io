@@ -174,8 +174,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a642d35df6fdabfeca26587ac4ffa1941" id="r_a642d35df6fdabfeca26587ac4ffa1941"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a642d35df6fdabfeca26587ac4ffa1941">s_abort_on_bad_dt_cell</a> (idx)</td></tr>
 <tr class="memdesc:a642d35df6fdabfeca26587ac4ffa1941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abort with the location of a fluid cell whose state admits no valid time step (NaN or non-positive inviscid dt).  <br /></td></tr>
 <tr class="memitem:a19b72196160438bd0c5f88c7ac4e6684" id="r_a19b72196160438bd0c5f88c7ac4e6684"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a19b72196160438bd0c5f88c7ac4e6684">s_apply_synthetic_turbulence_force</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt)</td></tr>
-<tr class="memitem:a1bf4814ee0104e1ed03516fba66c06ff" id="r_a1bf4814ee0104e1ed03516fba66c06ff"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1bf4814ee0104e1ed03516fba66c06ff">s_propagate_immersed_boundaries</a> (s, t_step)</td></tr>
-<tr class="memdesc:a1bf4814ee0104e1ed03516fba66c06ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update immersed boundary positions and velocities at the current Runge-Kutta stage.  <br /></td></tr>
+<tr class="memitem:a5f84c7a9e33314abc24bfd4fa3a43327" id="r_a5f84c7a9e33314abc24bfd4fa3a43327"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5f84c7a9e33314abc24bfd4fa3a43327">s_advance_ib_pose</a> (s, t_step)</td></tr>
+<tr class="memdesc:a5f84c7a9e33314abc24bfd4fa3a43327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the immersed boundary positions and velocities to the current Runge-Kutta stage (forces from this stage's RHS).  <br /></td></tr>
 <tr class="memitem:a575aa7f95bf96994f49d81d71d19c192" id="r_a575aa7f95bf96994f49d81d71d19c192"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a575aa7f95bf96994f49d81d71d19c192">s_time_step_cycling</a> (t_step)</td></tr>
 <tr class="memdesc:a575aa7f95bf96994f49d81d71d19c192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the temporary q_prim_vf vector into q_prim_ts for use in p_main.  <br /></td></tr>
 <tr class="memitem:aa8e209d6747df776d818d3d4320ccf4d" id="r_aa8e209d6747df776d818d3d4320ccf4d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa8e209d6747df776d818d3d4320ccf4d">s_finalize_time_steppers_module</a></td></tr>
@@ -231,7 +231,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05397">5397</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05416">5416</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -257,11 +257,41 @@ Here is the caller graph for this function:</div>
 
 <p>Bubble source part in Strang operator splitting scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05175">5175</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05194">5194</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a478ee89172580cccd27e418731bc09b6_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5f84c7a9e33314abc24bfd4fa3a43327" name="a5f84c7a9e33314abc24bfd4fa3a43327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f84c7a9e33314abc24bfd4fa3a43327">&#9670;&#160;</a></span>s_advance_ib_pose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_time_steppers::s_advance_ib_pose </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Advance the immersed boundary positions and velocities to the current Runge-Kutta stage (forces from this stage's RHS). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05496">5496</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a5f84c7a9e33314abc24bfd4fa3a43327_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -301,7 +331,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05417">5417</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05436">5436</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -325,7 +355,7 @@ Here is the caller graph for this function:</div>
 <p>Compute the global time step size from CFL stability constraints across all cells. </p>
 <p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05196">5196</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05215">5215</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -353,7 +383,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05826">5826</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05850">5850</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -380,36 +410,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a1bf4814ee0104e1ed03516fba66c06ff" name="a1bf4814ee0104e1ed03516fba66c06ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bf4814ee0104e1ed03516fba66c06ff">&#9670;&#160;</a></span>s_propagate_immersed_boundaries()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_time_steppers::s_propagate_immersed_boundaries </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>t_step</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update immersed boundary positions and velocities at the current Runge-Kutta stage. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05477">5477</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a1bf4814ee0104e1ed03516fba66c06ff_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
 <a id="a575aa7f95bf96994f49d81d71d19c192" name="a575aa7f95bf96994f49d81d71d19c192"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a575aa7f95bf96994f49d81d71d19c192">&#9670;&#160;</a></span>s_time_step_cycling()</h2>
 
@@ -427,7 +427,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save the temporary q_prim_vf vector into q_prim_ts for use in p_main. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05593">5593</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05617">5617</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -466,7 +466,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="456" height="280"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="456" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

@@ -165,6 +165,12 @@ $(function(){initNavTree('namespacem__species__bounds.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a097fedef9c355865413c17ec540713ae" id="r_a097fedef9c355865413c17ec540713ae"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a097fedef9c355865413c17ec540713ae">s_bound_species_faces</a> (q_prim_vf, vl, vr, id)</td></tr>
 <tr class="memdesc:a097fedef9c355865413c17ec540713ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bound the species face values vL/vR of direction id, over the range the reconstruction filled.  <br /></td></tr>
+<tr class="memitem:ae09cfd5c1ef53172f934d7ae8e2c2cfb" id="r_ae09cfd5c1ef53172f934d7ae8e2c2cfb"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae09cfd5c1ef53172f934d7ae8e2c2cfb">s_bound_face_states</a> (q_prim_vf, vl, vr, id)</td></tr>
+<tr class="memdesc:ae09cfd5c1ef53172f934d7ae8e2c2cfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales each cell's primitive face states vL/vR of direction id toward its cell state by one theta (Zhang &amp; Shu, JCP 2010) so that face rho and p + p_inf stay positive and, with chemistry, the face gas constant stays positive and the face T &lt;= T_surface_max (past which cp can go negative and the sound speed NaN). Inactive where no face state leaves those bounds.  <br /></td></tr>
+<tr class="memitem:a0413b30c32f3ebdb0ab71ae9ac7614e7" id="r_a0413b30c32f3ebdb0ab71ae9ac7614e7"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a0413b30c32f3ebdb0ab71ae9ac7614e7">f_theta_floor</a> (vbar, v)</td></tr>
+<tr class="memdesc:a0413b30c32f3ebdb0ab71ae9ac7614e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest theta in [0, 1] keeping vbar + theta*(v - vbar) &gt;= verysmall*vbar (0 if vbar &lt;= 0).  <br /></td></tr>
+<tr class="memitem:a2c44248501cd840bafe0626f7dab8b9f" id="r_a2c44248501cd840bafe0626f7dab8b9f"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a2c44248501cd840bafe0626f7dab8b9f">f_theta_t</a> (theta, vb, vf)</td></tr>
+<tr class="memdesc:a2c44248501cd840bafe0626f7dab8b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest theta' &lt;= theta keeping the face (rho, p + p_inf, R_mix) scaled toward vb by theta' at T &lt;= T_surface_max (0 if vb is above it; p_inf is zero for the gases that carry chemistry). g = T_max rho R_mix - p is quadratic in theta'; where g(theta) &lt; 0 its first root is the stable smaller-root form.  <br /></td></tr>
 <tr class="memitem:a536237cafe64ed8a35d76658715d2ab3" id="r_a536237cafe64ed8a35d76658715d2ab3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a536237cafe64ed8a35d76658715d2ab3">s_clean_species</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, tally)</td></tr>
 <tr class="memdesc:a536237cafe64ed8a35d76658715d2ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. tally = F (an AMR fine block, whose markers ib_markers does not hold) cleans without counting.  <br /></td></tr>
 <tr class="memitem:a0b56be4508f53cae5365d0aec59310df" id="r_a0b56be4508f53cae5365d0aec59310df"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0b56be4508f53cae5365d0aec59310df">s_report_species_cleanup</a> (t_step)</td></tr>
@@ -210,7 +216,7 @@ Variables</h2></td></tr>
 
 <p>Endpoint weight of the Gauss-Lobatto rule exact for the reconstruction's degree 2*polyn: 1/(N(N-1)), N = polyn + 2. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00683">683</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00966">966</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -248,11 +254,132 @@ Here is the caller graph for this function:</div>
 
 <p>Largest theta in [0, 1] keeping ybar + theta*(y - ybar) &gt;= 0, given ybar &gt;= 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00656">656</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00939">939</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_a301dcbf126654d55fa6589cbb8067066_icgraph.svg" width="383" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0413b30c32f3ebdb0ab71ae9ac7614e7" name="a0413b30c32f3ebdb0ab71ae9ac7614e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0413b30c32f3ebdb0ab71ae9ac7614e7">&#9670;&#160;</a></span>f_theta_floor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_species_bounds::f_theta_floor </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vbar</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest theta in [0, 1] keeping vbar + theta*(v - vbar) &gt;= verysmall*vbar (0 if vbar &lt;= 0). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00735">735</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_a0413b30c32f3ebdb0ab71ae9ac7614e7_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2c44248501cd840bafe0626f7dab8b9f" name="a2c44248501cd840bafe0626f7dab8b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c44248501cd840bafe0626f7dab8b9f">&#9670;&#160;</a></span>f_theta_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_species_bounds::f_theta_t </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>theta</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vb</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest theta' &lt;= theta keeping the face (rho, p + p_inf, R_mix) scaled toward vb by theta' at T &lt;= T_surface_max (0 if vb is above it; p_inf is zero for the gases that carry chemistry). g = T_max rho R_mix - p is quadratic in theta'; where g(theta) &lt; 0 its first root is the stable smaller-root form. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00764">764</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_a2c44248501cd840bafe0626f7dab8b9f_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae09cfd5c1ef53172f934d7ae8e2c2cfb" name="ae09cfd5c1ef53172f934d7ae8e2c2cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09cfd5c1ef53172f934d7ae8e2c2cfb">&#9670;&#160;</a></span>s_bound_face_states()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_species_bounds::s_bound_face_states </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(1)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(2)%beg:,<a class="el" href="namespacem__global__parameters.html#a6bbde61f76fc10a0dead8a652b17deab">idwbuff</a>(3)%beg:,1:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scales each cell's primitive face states vL/vR of direction id toward its cell state by one theta (Zhang &amp; Shu, JCP 2010) so that face rho and p + p_inf stay positive and, with chemistry, the face gas constant stays positive and the face T &lt;= T_surface_max (past which cp can go negative and the sound speed NaN). Inactive where no face state leaves those bounds. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_ae09cfd5c1ef53172f934d7ae8e2c2cfb_cgraph.svg" width="376" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -288,7 +415,7 @@ Here is the caller graph for this function:</div>
 
 <p>Bound the species face values vL/vR of direction id, over the range the reconstruction filled. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -318,7 +445,7 @@ Here is the call graph for this function:</div>
 
 <p>Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. tally = F (an AMR fine block, whose markers ib_markers does not hold) cleans without counting. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00801">801</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -344,7 +471,7 @@ Here is the caller graph for this function:</div>
 
 <p>Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00642">642</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00925">925</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -376,7 +503,7 @@ Here is the call graph for this function:</div>
 
 <p>Fluid-cell cleanings, and sum of |rho_new - rho_old|, since the last report. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -400,7 +527,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -426,7 +553,7 @@ Here is the call graph for this function:</div>
 
 <p>Violations below this fraction of rho are roundoff: cleaned but not counted. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>

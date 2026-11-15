@@ -1,6 +1,7 @@
 var m__riemann__state_8fpp_8f90 =
 [
     [ "m_riemann_state::f_compute_hllc_star_momentum_flux", "namespacem__riemann__state.html#a8d5b7b8cbf28974e9eaf3f16f5fea941", null ],
+    [ "m_riemann_state::f_contact_weight", "namespacem__riemann__state.html#a277780cf915bd0e0437152cf3d533025", null ],
     [ "m_riemann_state::f_elastic_signal_speed", "namespacem__riemann__state.html#a0d3789c7ee1ade852bfe386bd26ddafe", null ],
     [ "m_riemann_state::f_low_mach_pcorr_hll", "namespacem__riemann__state.html#a5a2606d00e72a61ee46328e0a26e52b4", null ],
     [ "m_riemann_state::f_low_mach_pcorr_hllc", "namespacem__riemann__state.html#a3dac9cf413b6e391a68b3ec504ecb95a", null ],

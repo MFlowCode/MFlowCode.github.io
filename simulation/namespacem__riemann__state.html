@@ -169,6 +169,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a023e407514644aa28f47b726a652d0ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-Mach parameter of Thornber et al. JCP (2008): the larger of the two face Mach numbers, capped at one so the correction switches itself off once the flow is no longer low speed.  <br /></td></tr>
 <tr class="memitem:a5a2606d00e72a61ee46328e0a26e52b4" id="r_a5a2606d00e72a61ee46328e0a26e52b4"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a5a2606d00e72a61ee46328e0a26e52b4">f_low_mach_pcorr_hll</a> (vel_l_rms, vel_r_rms, c_l, c_r, rho_l, rho_r, s_m, s_p)</td></tr>
 <tr class="memdesc:a5a2606d00e72a61ee46328e0a26e52b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-Mach pressure correction added to the HLL and Lax-Friedrichs fluxes, which restores the pressure jump that the dissipation of those fluxes over-damps at low Mach number. Zero unless low_Mach == 1.  <br /></td></tr>
+<tr class="memitem:a277780cf915bd0e0437152cf3d533025" id="r_a277780cf915bd0e0437152cf3d533025"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a277780cf915bd0e0437152cf3d533025">f_contact_weight</a> (s_s, c)</td></tr>
+<tr class="memdesc:a277780cf915bd0e0437152cf3d533025"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weight on the left state of the contact-upwinded tangential interface velocity: the step sign(s_S) smoothed to a linear ramp of half-width contact_ramp*c, so a face with s_S at round-off averages the two sides rather than picking one.  <br /></td></tr>
 <tr class="memitem:a3dac9cf413b6e391a68b3ec504ecb95a" id="r_a3dac9cf413b6e391a68b3ec504ecb95a"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a3dac9cf413b6e391a68b3ec504ecb95a">f_low_mach_pcorr_hllc</a> (vel_l_rms, vel_r_rms, c_l, c_r, rho_l, rho_r, s_l, s_r, vel_l_norm, vel_r_norm)</td></tr>
 <tr class="memdesc:a3dac9cf413b6e391a68b3ec504ecb95a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The same correction for the HLLC flux, where the star state supplies the pressure jump directly and the correction scales with the mass flux through the acoustic waves instead. Zero unless low_Mach == 1.  <br /></td></tr>
 <tr class="memitem:abb40d68fb2e6a237bcbb5415b377ef89" id="r_abb40d68fb2e6a237bcbb5415b377ef89"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#abb40d68fb2e6a237bcbb5415b377ef89">s_apply_low_mach_velocity</a> (vel_l_rms, vel_r_rms, c_l, c_r, vel_l_norm, vel_r_norm)</td></tr>
@@ -312,11 +314,41 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03383">3383</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03430">3430</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a8d5b7b8cbf28974e9eaf3f16f5fea941_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a277780cf915bd0e0437152cf3d533025" name="a277780cf915bd0e0437152cf3d533025"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a277780cf915bd0e0437152cf3d533025">&#9670;&#160;</a></span>f_contact_weight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_riemann_state::f_contact_weight </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>s_s</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Weight on the left state of the contact-upwinded tangential interface velocity: the step sign(s_S) smoothed to a linear ramp of half-width contact_ramp*c, so a face with s_S at round-off averages the two sides rather than picking one. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00733">733</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__riemann__state_a277780cf915bd0e0437152cf3d533025_icgraph.svg" width="587" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -506,7 +538,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00733">733</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00780">780</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -616,7 +648,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00791">791</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00838">838</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -656,7 +688,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute bulk stress tensor components (diagonal only). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03143">3143</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03190">3190</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -696,7 +728,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute shear stress tensor components. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03099">3099</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03146">3146</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -801,7 +833,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00848">848</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00895">895</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -861,7 +893,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute Cartesian viscous source flux contributions for momentum and energy. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02898">2898</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02945">2945</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -972,7 +1004,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00952">952</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l00999">999</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1059,7 +1091,7 @@ Here is the caller graph for this function:</div>
 <p>Interface velocity ( \(v_1,v_2,v_3\)) (grid directions) for viscous work.</p>
 <p>Shear stress vector ( \(\sigma_{N1}, \sigma_{N2}, \sigma_{N3}\)) on N-face (grid directions).</p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02626">2626</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02673">2673</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1150,7 +1182,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03273">3273</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03320">3320</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1197,7 +1229,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03181">3181</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03228">3228</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1282,7 +1314,7 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch to the subroutines that are utilized to compute the viscous source fluxes for either Cartesian or cylindrical geometries. For more information please refer to: 1) s_compute_cartesian_viscous_source_flux 2) s_compute_cylindrical_viscous_source_flux. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01035">1035</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01082">1082</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1327,7 +1359,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reshape and copy the Riemann-solver flux buffers back to the physical-space output arrays for the selected sweep direction, finalizing the Riemann solve. Two variants are emitted from one template so the shared unpermute logic cannot drift apart: the plain routine also copies the advection flux_src set and the grid_geometry==3 z-sweep geometric source flux, while the _hatR variant unpermutes the hat_R-anchored flux_hatR_rs* set of the fused dual-pass HLLD solve (called between the two RHS assemblies) and is a strict subset: flux_src is anchor-independent (already finalized with the hat_L set) and its geometric source flux only exists for the axisymmetric y-sweep. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03445">3445</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l03492">3492</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1360,7 +1392,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l04004">4004</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l04051">4051</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1381,7 +1413,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set up the chosen Riemann solver algorithm for the current direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02190">2190</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l02237">2237</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1461,7 +1493,7 @@ Here is the caller graph for this function:</div>
 
 <p>Populate the left and right Riemann state variable buffers based on boundary conditions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01056">1056</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__riemann__state_8fpp_8f90_source.html#l01103">1103</a> of file <a class="el" href="m__riemann__state_8fpp_8f90_source.html">m_riemann_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

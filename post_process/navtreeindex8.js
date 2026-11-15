@@ -1,5 +1,10 @@
 var NAVTREEINDEX8 =
 {
+"structm__derived__types_1_1reactive__burn__parameters.html#ad249e63d845d2d58a2a94b623aa26818":[1,0,13,48,2],
+"structm__derived__types_1_1reactive__burn__parameters.html#ad249e63d845d2d58a2a94b623aa26818":[2,0,2,48,2],
+"structm__derived__types_1_1riemann__states.html":[1,0,13,12],
+"structm__derived__types_1_1riemann__states.html":[2,0,2,12],
+"structm__derived__types_1_1riemann__states.html#a8f54500cee0c91334b857c9378126159":[1,0,13,12,1],
 "structm__derived__types_1_1riemann__states.html#a8f54500cee0c91334b857c9378126159":[2,0,2,12,1],
 "structm__derived__types_1_1riemann__states.html#af842a510919e7aab678a5c4cd4e7929e":[1,0,13,12,0],
 "structm__derived__types_1_1riemann__states.html#af842a510919e7aab678a5c4cd4e7929e":[2,0,2,12,0],

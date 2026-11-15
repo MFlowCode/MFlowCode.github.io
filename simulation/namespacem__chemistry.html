@@ -180,7 +180,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a00fe740845f49fe69a5c0685061b6f89" id="r_a00fe740845f49fe69a5c0685061b6f89"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a00fe740845f49fe69a5c0685061b6f89">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_flat, irx, iry, irz, q_t_sf, ib_marks, wall_a, use_wall)</td></tr>
 <tr class="memdesc:a00fe740845f49fe69a5c0685061b6f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
 <tr class="memitem:a29bd713ec9b131030ad54a8b26cf1aa1" id="r_a29bd713ec9b131030ad54a8b26cf1aa1"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a29bd713ec9b131030ad54a8b26cf1aa1">f_flux_wall_face</a> (x, y, z, offsets, ib_marks, wall_a)</td></tr>
-<tr class="memdesc:a29bd713ec9b131030ad54a8b26cf1aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the face between cell (x, y, z) and its neighbour at + offsets is a reacting-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share.  <br /></td></tr>
+<tr class="memdesc:a29bd713ec9b131030ad54a8b26cf1aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the face between cell (x, y, z) and its neighbour at + offsets is a flux-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -280,7 +280,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Whether the face between cell (x, y, z) and its neighbour at + offsets is a reacting-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share. </p>
+<p>Whether the face between cell (x, y, z) and its neighbour at + offsets is a flux-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l02041">2041</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
@@ -420,7 +420,7 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">flux_src_flat</td><td>Flat (x, y, z, var) source-flux buffer; a plain-array dummy because src/common cannot <span class="tt">use <a class="el" href="namespacem__riemann__state.html" title="Shared Riemann-solver module state and the per-sweep setup, state-buffer population,...">m_riemann_state</a></span>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ib_marks</td><td>Reacting-wall area share of each body cell (use_wall, ib_flux_wall): those faces carry the surface rates in the Riemann flux, so diffusion keeps only conduction there. Only the use_wall kernels name ib_marks and wall_a; the others are the original kernels, so these may be unallocated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ib_marks</td><td>Wall area share of each body cell (use_wall, ib_flux_wall): those faces carry the wall's own rates in the Riemann flux, so diffusion keeps only conduction there. Only the use_wall kernels name ib_marks and wall_a; the others are the original kernels, so these may be unallocated </td></tr>
   </table>
   </dd>
 </dl>

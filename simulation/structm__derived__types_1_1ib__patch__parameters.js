@@ -1,7 +1,9 @@
 var structm__derived__types_1_1ib__patch__parameters =
 [
+    [ "accel", "structm__derived__types_1_1ib__patch__parameters.html#a49473c31a949109080e18d33113ab86b", null ],
     [ "airfoil_id", "structm__derived__types_1_1ib__patch__parameters.html#a5161bd8f7561e29cfb7369d85ba3c3f8", null ],
     [ "angles", "structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42", null ],
+    [ "angular_accel", "structm__derived__types_1_1ib__patch__parameters.html#a6e947201db989a2380cbc844ad64e9d6", null ],
     [ "angular_vel", "structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0", null ],
     [ "burn_rate_exp", "structm__derived__types_1_1ib__patch__parameters.html#adbc38d4ee109595774b6125ce52ba5e5", null ],
     [ "burn_rate_pref", "structm__derived__types_1_1ib__patch__parameters.html#aa0ea62975b928036e5cbef1fcb63c5ae", null ],
