@@ -164,18 +164,20 @@ $(function(){initNavTree('namespacem__ibm__fine.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Types</h2></td></tr>
 <tr class="memitem:ib_5Ffine_5Fstate" id="r_ib_5Ffine_5Fstate"><td class="memItemLeft">type &#160;</td><td class="memItemRight"><a class="el" href="structm__ibm__fine_1_1ib__fine__state.html">ib_fine_state</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-block fine IB state: each AMR slot keeps a host-side copy of its markers, computed at fine resolution and copied into <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>'s declare-target ib_markers for the fine advance (that array is never reallocated or pointer-swapped, since that corrupts the Cray present table; the swap syncs via GPU_UPDATE). Ghost-point lists park on-device in gp_park; num_gps is the slot's ghost-point count across a swap and col its gp_park column (0 = none).  <a href="structm__ibm__fine_1_1ib__fine__state.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-block fine IB state: each AMR slot keeps a host-side copy of its markers, computed at fine resolution and copied into <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>'s declare-target ib_markers for the fine advance (that array is never reallocated or pointer-swapped, since that corrupts the Cray present table; the swap syncs via GPU_UPDATE). Ghost-point lists park on-device in gp_park; num_gps is the slot's ghost-point count across a swap, off its gp_park offset and cap the entries reserved there (0 = none).  <a href="structm__ibm__fine_1_1ib__fine__state.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a0b0e996de81a9fd535e41f97265182a4" id="r_a0b0e996de81a9fd535e41f97265182a4"><td class="memItemLeft">type(<a class="el" href="structm__ibm__fine_1_1ib__fine__state.html">ib_fine_state</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a0b0e996de81a9fd535e41f97265182a4">ib_fine</a></td></tr>
 <tr class="memitem:a72769abc71151a7ef287b72b70a362e8" id="r_a72769abc71151a7ef287b72b70a362e8"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a72769abc71151a7ef287b72b70a362e8">num_gps_save</a></td></tr>
-<tr class="memitem:aa6d2c62991fcfa86cb78a1fcb77b6cd5" id="r_aa6d2c62991fcfa86cb78a1fcb77b6cd5"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa6d2c62991fcfa86cb78a1fcb77b6cd5">gp_park</a></td></tr>
-<tr class="memdesc:aa6d2c62991fcfa86cb78a1fcb77b6cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device-resident park for the coarse and fine ghost-point lists across a fine swap, copied to/from ghost_points by on-device kernels. Column 1 parks the coarse list; columns 2..n_park go to the slots holding ghost points (the blocks containing a body). Mapped via move_alloc + GPU_ENTER_DATA (the amr_cg idiom; a direct @:ALLOCATE aborts with lib-4425 on CCE OpenMP).  <br /></td></tr>
+<tr class="memitem:ace9f38c441505113e741a9b920377df2" id="r_ace9f38c441505113e741a9b920377df2"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ace9f38c441505113e741a9b920377df2">gp_park</a></td></tr>
+<tr class="memdesc:ace9f38c441505113e741a9b920377df2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device-resident park for the coarse and fine ghost-point lists across a fine swap, copied to/from ghost_points by on-device kernels. One packed pool: entries 1..park_coarse hold the coarse list; each slot holding ghost points (a block containing a body) gets a segment after it, so the pool scales with the ghost points parked, not blocks x the longest list. Mapped via move_alloc + GPU_ENTER_DATA (the amr_cg idiom; a direct @:ALLOCATE aborts with lib-4425 on CCE OpenMP).  <br /></td></tr>
 <tr class="memitem:a0b6662647c40cb981ec418cdfdc14264" id="r_a0b6662647c40cb981ec418cdfdc14264"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a0b6662647c40cb981ec418cdfdc14264">ib_coarse_slot</a> = 0</td></tr>
 <tr class="memdesc:a0b6662647c40cb981ec418cdfdc14264"><td class="mdescLeft">&#160;</td><td class="mdescRight">The coarse ghost points and markers park (host copies) in an extra ib_fine slot, ib_coarse_slot (= nslots+1): a new module-level derived-type allocatable here would corrupt a sibling's descriptor on CCE OpenMP (lib-4425).  <br /></td></tr>
-<tr class="memitem:a94fb1424a2ffe8ac24faa1c68700f542" id="r_a94fb1424a2ffe8ac24faa1c68700f542"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a94fb1424a2ffe8ac24faa1c68700f542">n_park</a> = 0</td></tr>
-<tr class="memdesc:a94fb1424a2ffe8ac24faa1c68700f542"><td class="mdescLeft">&#160;</td><td class="mdescRight">gp_park columns (coarse + fine)  <br /></td></tr>
+<tr class="memitem:a0538a226330e1590174347759817e26a" id="r_a0538a226330e1590174347759817e26a"><td class="memItemLeft">integer(kind=8)&#160;</td><td class="memItemRight"><a class="el" href="#a0538a226330e1590174347759817e26a">park_coarse</a> = 0_8</td></tr>
+<tr class="memdesc:a0538a226330e1590174347759817e26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">gp_park entries reserved for the coarse list  <br /></td></tr>
+<tr class="memitem:a5e0ef517c11288951d1ea46416e5bf86" id="r_a5e0ef517c11288951d1ea46416e5bf86"><td class="memItemLeft">integer(kind=8)&#160;</td><td class="memItemRight"><a class="el" href="#a5e0ef517c11288951d1ea46416e5bf86">park_top</a> = 0_8</td></tr>
+<tr class="memdesc:a5e0ef517c11288951d1ea46416e5bf86"><td class="mdescLeft">&#160;</td><td class="mdescRight">gp_park entries in use (coarse segment + fine segments)  <br /></td></tr>
 <tr class="memitem:a26d4e2630a2a060fdd60e92e96ca605d" id="r_a26d4e2630a2a060fdd60e92e96ca605d"><td class="memItemLeft">integer(kind=8)&#160;</td><td class="memItemRight"><a class="el" href="#a26d4e2630a2a060fdd60e92e96ca605d">fine_gps_cap</a> = 0_8</td></tr>
 <tr class="memdesc:a26d4e2630a2a060fdd60e92e96ca605d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine-block ghost-point capacity (= buffered fine-block cell count), set by s_ibm_alloc_fine; 0 when AMR-IB is inactive.  <br /></td></tr>
 <tr class="memitem:a11a8d27aca3aac672d12b534e92a1bad" id="r_a11a8d27aca3aac672d12b534e92a1bad"><td class="memItemLeft">integer, dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#a11a8d27aca3aac672d12b534e92a1bad">mkr_lo</a> = 0</td></tr>
@@ -199,25 +201,25 @@ Variables</h2></td></tr>
 
 <p>Fine-block ghost-point capacity (= buffered fine-block cell count), set by s_ibm_alloc_fine; 0 when AMR-IB is inactive. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="aa6d2c62991fcfa86cb78a1fcb77b6cd5" name="aa6d2c62991fcfa86cb78a1fcb77b6cd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6d2c62991fcfa86cb78a1fcb77b6cd5">&#9670;&#160;</a></span>gp_park</h2>
+<a id="ace9f38c441505113e741a9b920377df2" name="ace9f38c441505113e741a9b920377df2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace9f38c441505113e741a9b920377df2">&#9670;&#160;</a></span>gp_park</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:,:), allocatable m_ibm_fine::gp_park</td>
+          <td class="memname">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:), allocatable m_ibm_fine::gp_park</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Device-resident park for the coarse and fine ghost-point lists across a fine swap, copied to/from ghost_points by on-device kernels. Column 1 parks the coarse list; columns 2..n_park go to the slots holding ghost points (the blocks containing a body). Mapped via move_alloc + GPU_ENTER_DATA (the amr_cg idiom; a direct @:ALLOCATE aborts with lib-4425 on CCE OpenMP). </p>
+<p>Device-resident park for the coarse and fine ghost-point lists across a fine swap, copied to/from ghost_points by on-device kernels. One packed pool: entries 1..park_coarse hold the coarse list; each slot holding ghost points (a block containing a body) gets a segment after it, so the pool scales with the ghost points parked, not blocks x the longest list. Mapped via move_alloc + GPU_ENTER_DATA (the amr_cg idiom; a direct @:ALLOCATE aborts with lib-4425 on CCE OpenMP). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -235,7 +237,7 @@ Variables</h2></td></tr>
 
 <p>The coarse ghost points and markers park (host copies) in an extra ib_fine slot, ib_coarse_slot (= nslots+1): a new module-level derived-type allocatable here would corrupt a sibling's descriptor on CCE OpenMP (lib-4425). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -267,7 +269,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -285,25 +287,7 @@ Variables</h2></td></tr>
 
 <p>Bounds of ib_markers, enclosing both coarse and fine blocks so it never needs reallocating. Set by s_ibm_alloc_fine. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
-
-</div>
-</div>
-<a id="a94fb1424a2ffe8ac24faa1c68700f542" name="a94fb1424a2ffe8ac24faa1c68700f542"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94fb1424a2ffe8ac24faa1c68700f542">&#9670;&#160;</a></span>n_park</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer m_ibm_fine::n_park = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>gp_park columns (coarse + fine) </p>
-
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -320,6 +304,42 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a0538a226330e1590174347759817e26a" name="a0538a226330e1590174347759817e26a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0538a226330e1590174347759817e26a">&#9670;&#160;</a></span>park_coarse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(kind=8) m_ibm_fine::park_coarse = 0_8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gp_park entries reserved for the coarse list </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a5e0ef517c11288951d1ea46416e5bf86" name="a5e0ef517c11288951d1ea46416e5bf86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e0ef517c11288951d1ea46416e5bf86">&#9670;&#160;</a></span>park_top</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(kind=8) m_ibm_fine::park_top = 0_8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>gp_park entries in use (coarse segment + fine segments) </p>
+
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>

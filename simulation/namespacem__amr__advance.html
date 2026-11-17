@@ -173,6 +173,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ab952cf5e838cd7fde0316bf6ee4d8cdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Batched fine advance: owned fine blocks are advanced in batches of up to amr_bat_lim blocks of the same level and (padded) extent, stacked two ghost shells apart along the last active dimension, so one s_compute_rhs call and one RK kernel cover a batch. Blocks are independent, so grouping order is free. Members read the leader's coordinate arrays in the non-stacked dimensions (see s_amr_init_report).  <br /></td></tr>
 <tr class="memitem:a1fb04bf2f9f434efed4c43348d206bf2" id="r_a1fb04bf2f9f434efed4c43348d206bf2"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1fb04bf2f9f434efed4c43348d206bf2">s_amr_form_batch</a> (i, my, done)</td></tr>
 <tr class="memdesc:a1fb04bf2f9f434efed4c43348d206bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a batch at leader my(i): add later same-level blocks that fit the leader's extent, wasting &lt;= amr_bat_pad of the member's cells; marks members done.  <br /></td></tr>
+<tr class="memitem:afcc3004cc31a9c8ba09765da92d883be" id="r_afcc3004cc31a9c8ba09765da92d883be"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#afcc3004cc31a9c8ba09765da92d883be">s_amr_bat_ib_tables</a> ()</td></tr>
+<tr class="memdesc:afcc3004cc31a9c8ba09765da92d883be"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the IB face forces on this batch (s_accumulate_ib_face_fluxes): each member's origin relative to the leader's, and the boxes its level+1 children cover, in slab indices.  <br /></td></tr>
 <tr class="memitem:ae1ce691ffa563a17985fb8d1cda2e662" id="r_ae1ce691ffa563a17985fb8d1cda2e662"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae1ce691ffa563a17985fb8d1cda2e662">s_amr_batch_post_rk_hooks</a> (coefs, pb_in, mv_in)</td></tr>
 <tr class="memdesc:ae1ce691ffa563a17985fb8d1cda2e662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-member post-RK hooks of the coarse stage (q_cons_ts(1), <a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>).  <br /></td></tr>
 <tr class="memitem:a29672259084d569bc41ed78d0019806c" id="r_a29672259084d569bc41ed78d0019806c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a29672259084d569bc41ed78d0019806c">s_amr_bat_layout</a> ()</td></tr>
@@ -183,6 +185,42 @@ Functions/Subroutines</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Fine-block stage advance and the immersed-boundary/Lagrange fine services. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="afcc3004cc31a9c8ba09765da92d883be" name="afcc3004cc31a9c8ba09765da92d883be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc3004cc31a9c8ba09765da92d883be">&#9670;&#160;</a></span>s_amr_bat_ib_tables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_amr_advance::s_amr_bat_ib_tables</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>For the IB face forces on this batch (s_accumulate_ib_face_fluxes): each member's origin relative to the leader's, and the boxes its level+1 children cover, in slab indices. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00612">612</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__advance_afcc3004cc31a9c8ba09765da92d883be_cgraph.svg" width="383" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__advance_afcc3004cc31a9c8ba09765da92d883be_icgraph.svg" width="452" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a29672259084d569bc41ed78d0019806c" name="a29672259084d569bc41ed78d0019806c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a29672259084d569bc41ed78d0019806c">&#9670;&#160;</a></span>s_amr_bat_layout()</h2>
 
@@ -205,7 +243,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>The batch's slab layout: members stacked along the last active dim, stride amr_bat_w. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00638">638</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00682">682</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -248,7 +286,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-member post-RK hooks of the coarse stage (q_cons_ts(1), <a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00607">607</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00651">651</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -316,7 +354,7 @@ Here is the caller graph for this function:</div>
 
 <p>Device RK stage update over the batch: q = (c1*q + c2*q_stor + c3*dt_in*rhs)/c4 (compute in wp, store stp), reading each member's rhs at its slab offset. Keep in lockstep with the non-IGR rk_coef form in s_tvd_rk (<a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00653">653</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00697">697</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -381,7 +419,7 @@ Here is the caller graph for this function:</div>
 
 <p>Batched fine advance: owned fine blocks are advanced in batches of up to amr_bat_lim blocks of the same level and (padded) extent, stacked two ghost shells apart along the last active dimension, so one s_compute_rhs call and one RK kernel cover a batch. Blocks are independent, so grouping order is free. Members read the leader's coordinate arrays in the non-stacked dimensions (see s_amr_init_report). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00496">496</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00497">497</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -424,7 +462,7 @@ Here is the call graph for this function:</div>
 
 <p>Start a batch at leader my(i): add later same-level blocks that fit the leader's extent, wasting &lt;= amr_bat_pad of the member's cells; marks members done. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00588">588</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -474,7 +512,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00428">428</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00429">429</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -502,7 +540,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the fine-grid IB state (markers/ghost points/levelset) for every active block from the body geometry (static-body AMR), once after the coarse IB setup: swap grid and IB globals to each owned block, run the fine IB pipeline, restore. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -533,7 +571,7 @@ Here is the call graph for this function:</div>
 
 <p>Rebuild the current fine block's IB state from the moving body's position (prescribed motion, moving_ibm==1) by reusing the coarse s_update_mib on the swapped-in slot. Must precede s_amr_ib_correct_fine. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

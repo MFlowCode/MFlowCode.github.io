@@ -158,7 +158,7 @@ $(function(){initNavTree('structm__ibm__fine_1_1ib__fine__state.html','','struct
 </div><!--header-->
 <div class="contents">
 
-<p>Per-block fine IB state: each AMR slot keeps a host-side copy of its markers, computed at fine resolution and copied into <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>'s declare-target ib_markers for the fine advance (that array is never reallocated or pointer-swapped, since that corrupts the Cray present table; the swap syncs via GPU_UPDATE). Ghost-point lists park on-device in gp_park; num_gps is the slot's ghost-point count across a swap and col its gp_park column (0 = none).  
+<p>Per-block fine IB state: each AMR slot keeps a host-side copy of its markers, computed at fine resolution and copied into <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>'s declare-target ib_markers for the fine advance (that array is never reallocated or pointer-swapped, since that corrupts the Cray present table; the swap syncs via GPU_UPDATE). Ghost-point lists park on-device in gp_park; num_gps is the slot's ghost-point count across a swap, off its gp_park offset and cap the entries reserved there (0 = none).  
  <a href="#details">More...</a></p>
 <div class="dynheader">
 Collaboration diagram for m_ibm_fine::ib_fine_state:</div>
@@ -170,21 +170,22 @@ Collaboration diagram for m_ibm_fine::ib_fine_state:</div>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa83bf79d4cb72a6acee7ee31f363c308" id="r_aa83bf79d4cb72a6acee7ee31f363c308"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>)&#160;</td><td class="memItemRight"><a class="el" href="#aa83bf79d4cb72a6acee7ee31f363c308">markers</a></td></tr>
 <tr class="memitem:ad14930bd5f9d06d0a2bbf8c5873bb4cb" id="r_ad14930bd5f9d06d0a2bbf8c5873bb4cb"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ad14930bd5f9d06d0a2bbf8c5873bb4cb">num_gps</a></td></tr>
-<tr class="memitem:ad0e3c8a99fd81def20dd7b7a6acf0350" id="r_ad0e3c8a99fd81def20dd7b7a6acf0350"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ad0e3c8a99fd81def20dd7b7a6acf0350">col</a></td></tr>
+<tr class="memitem:a16cf626fef2eb02bbaa6c4430343500e" id="r_a16cf626fef2eb02bbaa6c4430343500e"><td class="memItemLeft">integer(kind=8)&#160;</td><td class="memItemRight"><a class="el" href="#a16cf626fef2eb02bbaa6c4430343500e">off</a></td></tr>
+<tr class="memitem:a44d2e393ca1ab16d4f5df018d15ab6b8" id="r_a44d2e393ca1ab16d4f5df018d15ab6b8"><td class="memItemLeft">integer(kind=8)&#160;</td><td class="memItemRight"><a class="el" href="#a44d2e393ca1ab16d4f5df018d15ab6b8">cap</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Per-block fine IB state: each AMR slot keeps a host-side copy of its markers, computed at fine resolution and copied into <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>'s declare-target ib_markers for the fine advance (that array is never reallocated or pointer-swapped, since that corrupts the Cray present table; the swap syncs via GPU_UPDATE). Ghost-point lists park on-device in gp_park; num_gps is the slot's ghost-point count across a swap and col its gp_park column (0 = none). </p>
+<div class="textblock"><p>Per-block fine IB state: each AMR slot keeps a host-side copy of its markers, computed at fine resolution and copied into <a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>'s declare-target ib_markers for the fine advance (that array is never reallocated or pointer-swapped, since that corrupts the Cray present table; the swap syncs via GPU_UPDATE). Ghost-point lists park on-device in gp_park; num_gps is the slot's ghost-point count across a swap, off its gp_park offset and cap the entries reserved there (0 = none). </p>
 
 <p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00382">382</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ad0e3c8a99fd81def20dd7b7a6acf0350" name="ad0e3c8a99fd81def20dd7b7a6acf0350"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0e3c8a99fd81def20dd7b7a6acf0350">&#9670;&#160;</a></span>col</h2>
+<a id="a44d2e393ca1ab16d4f5df018d15ab6b8" name="a44d2e393ca1ab16d4f5df018d15ab6b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d2e393ca1ab16d4f5df018d15ab6b8">&#9670;&#160;</a></span>cap</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">integer m_ibm_fine::ib_fine_state::col</td>
+          <td class="memname">integer(kind=8) m_ibm_fine::ib_fine_state::cap</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -222,6 +223,22 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a16cf626fef2eb02bbaa6c4430343500e" name="a16cf626fef2eb02bbaa6c4430343500e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16cf626fef2eb02bbaa6c4430343500e">&#9670;&#160;</a></span>off</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer(kind=8) m_ibm_fine::ib_fine_state::off</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -3,7 +3,7 @@ var namespacem__amr__registers =
     [ "t_face_reg", "structm__amr__registers_1_1t__face__reg.html", "structm__amr__registers_1_1t__face__reg" ],
     [ "f_amr_block_near", "namespacem__amr__registers.html#a2ca15461d7d5acfc9665d5c0c7e767af", null ],
     [ "f_amr_face_is_seam", "namespacem__amr__registers.html#abf35f098f46ef13ac46ae8cdef8947a7", null ],
-    [ "f_amr_is_child", "namespacem__amr__registers.html#ac774858b7db3aa64f9792ca24911e1e4", null ],
+    [ "f_amr_is_child", "namespacem__amr__registers.html#ac4d0f4555b96c9872a98e299dac4ba59", null ],
     [ "s_amr_apply_reflux", "namespacem__amr__registers.html#a8b412f1a56d0ec86f69344efcf9a7072", null ],
     [ "s_amr_apply_reflux_d1", "namespacem__amr__registers.html#a56bebf995e79c54d9a606bbe97b371d7", null ],
     [ "s_amr_apply_reflux_d2", "namespacem__amr__registers.html#a498157fd681940f0af1af49b32269fd1", null ],

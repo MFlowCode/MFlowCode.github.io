@@ -19,6 +19,7 @@ var amr =
         [ "The step", "amr_implementation.html#autotoc_md6", null ],
         [ "Regrid", "amr_implementation.html#autotoc_md7", null ],
         [ "Communication", "amr_implementation.html#autotoc_md8", null ],
+        [ "Checking a feature", "amr_implementation.html#amr-check", null ],
         [ "Instrumentation", "amr_implementation.html#autotoc_md9", null ],
         [ "Invariants and traps", "amr_implementation.html#autotoc_md10", null ]
       ] ]

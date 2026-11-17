@@ -205,7 +205,7 @@ Modules</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">m_amr_stage</span>  </td><td class="markdownTableBodyLeft">Hooks called by <span class="tt">s_tvd_rk</span>: stage begin, fine stage, subcycled fine step, end-of-step fold  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">m_phase_timing</span>  </td><td class="markdownTableBodyLeft"><span class="tt">rank_time_wrt</span> phase brackets and report  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">m_phase_timing</span>  </td><td class="markdownTableBodyLeft"><span class="tt">rank_time_wrt</span> phase brackets, AMR memory table and report  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Index spaces</h2>
@@ -245,6 +245,11 @@ Regrid</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
 Communication</h2>
 <p>Every exchange is a wave on <span class="tt">m_amr_wave</span>: all receives posted, sends packed and posted, one wait. Both sides derive the same transfer list from replicated metadata, so no handshake is needed, and messages carry keyed tags, so matching does not depend on posting order. Waves: coarse halo, level-1 and parent fill waves, seam halo, reflux faces, restriction and level&gt;=2 register waves, regrid migration. With <span class="tt">amr_device_pack</span> the fill waves pack and unpack in one fused kernel per family. Regrid adds a few collectives (tag reductions, the box list, owners).</p>
+<h2 class="doxsection"><a class="anchor" id="amr-check"></a>
+Checking a feature</h2>
+<p>A block cell that the block's edges cannot reach during a run advances exactly as the same cell of a uniform fine grid, so the two runs must agree there to roundoff. <span class="tt">./mfc.sh amr_check case.py</span> tests this: it runs the case with one static block (the case's <span class="tt">amr_block_beg</span>/<span class="tt">amr_block_end</span>, else the central half of the domain) and on a uniform grid at the block's resolution, averages the fine run onto the block's cells and prints the largest relative difference by distance from the block edge. The core is the cells farther from every edge than one reconstruction stencil per Runge-Kutta stage and step; the check passes when the core differs by less than <span class="tt">--tol</span> (default <span class="tt">1e-8</span>).</p>
+<p>The case needs a fixed <span class="tt">dt</span>, <span class="tt">t_step_start = 0</span>, and an initial condition that survives interpolation from the coarse grid: piecewise-constant patches whose faces lie on coarse cell faces, with part of the flow inside the core. The command reports when either the initial data differs or the core never changes. The two runs are made in <span class="tt">amr_check/amr</span> and <span class="tt">amr_check/fine</span> under the case directory; parameters naming a file there are passed as absolute paths, but input files the solver opens by a fixed relative name (e.g. <span class="tt">input/lag_bubbles.dat</span>) are not carried over. Options after <span class="tt">--</span> go to <span class="tt">./mfc.sh run</span>.</p>
+<p>A switch joins <span class="tt">AMR_VETTED_FLAGS</span> once a case that uses it passes this check and an AMR test covers it.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
 Instrumentation</h2>
 <p><span class="tt">rank_time_wrt = T</span> brackets the step phases (<span class="tt">PH_*</span> in <span class="tt">m_phase_timing</span>) with device-synchronizing timers and prints mean, max and imbalance per phase, plus the block-balance report at each regrid. With it off the brackets return immediately.</p>
@@ -257,7 +262,7 @@ Invariants and traps</h2>
 <li><span class="tt">amr_buf</span> sets the tag padding and also enters the box-merge distance; changing it changes the box topology.</li>
 <li>The rank-to-GPU map is <span class="tt">mod(local_rank, ndevices)</span>; <span class="tt">rocm-smi</span> numbering need not match.</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-13</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-16</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

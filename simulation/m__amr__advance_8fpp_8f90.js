@@ -1,5 +1,6 @@
 var m__amr__advance_8fpp_8f90 =
 [
+    [ "m_amr_advance::s_amr_bat_ib_tables", "namespacem__amr__advance.html#afcc3004cc31a9c8ba09765da92d883be", null ],
     [ "m_amr_advance::s_amr_bat_layout", "namespacem__amr__advance.html#a29672259084d569bc41ed78d0019806c", null ],
     [ "m_amr_advance::s_amr_batch_post_rk_hooks", "namespacem__amr__advance.html#ae1ce691ffa563a17985fb8d1cda2e662", null ],
     [ "m_amr_advance::s_amr_fine_rk_update_batch", "namespacem__amr__advance.html#a8c8eefd9fdf29296209f5cab971b4436", null ],

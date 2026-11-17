@@ -1,6 +1,7 @@
 var m__amr__transfer_8fpp_8f90 =
 [
     [ "m_amr_transfer::f_amr_reflux_participates", "namespacem__amr__transfer.html#addcca03ae989b45ca6c2fcb47938005c", null ],
+    [ "m_amr_transfer::s_amr_build_cfl_map", "namespacem__amr__transfer.html#aa31ee18162a4103689c22e4566db4402", null ],
     [ "m_amr_transfer::s_amr_build_static_multilevel", "namespacem__amr__transfer.html#ac94545f49b697aa2ef6a602e0992daf3", null ],
     [ "m_amr_transfer::s_amr_face_xfers", "namespacem__amr__transfer.html#a55c3221c50cd3cae3378398b88d8649a", null ],
     [ "m_amr_transfer::s_amr_freg_faces_poison", "namespacem__amr__transfer.html#a4390450a9360bb52423756dc77ede535", null ],
@@ -17,6 +18,7 @@ var m__amr__transfer_8fpp_8f90 =
     [ "m_amr_transfer::s_amr_reflux_to_parent", "namespacem__amr__transfer.html#a1ab1f024eb68ce34fa2e862331441700", null ],
     [ "m_amr_transfer::s_amr_restrict_device_st", "namespacem__amr__transfer.html#ad5c3cc80fa628ae8b03591b1a4ea3d85", null ],
     [ "m_amr_transfer::s_amr_restrict_device_wire", "namespacem__amr__transfer.html#a8b3e018e86a960e141147b693e6920b9", null ],
+    [ "m_amr_transfer::s_amr_restrict_fold", "namespacem__amr__transfer.html#ae4ffb8f52269e6c2f6589400230a9213", null ],
     [ "m_amr_transfer::s_amr_restrict_l1_batched", "namespacem__amr__transfer.html#a7d524b66ddbe7b842b64b5fd50db6656", null ],
     [ "m_amr_transfer::s_amr_restrict_l1_wave", "namespacem__amr__transfer.html#a95974de8629494e05fd6f1317b897faf", null ],
     [ "m_amr_transfer::s_amr_restrict_parent_wave", "namespacem__amr__transfer.html#a8ab310ed82ab96e651239c87ea5260b1", null ],

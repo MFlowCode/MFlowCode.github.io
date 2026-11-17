@@ -423,6 +423,9 @@ Variables</h2></td></tr>
 <tr class="memitem:a2dae46b316fb7d296f229d52cdc48e62" id="r_a2dae46b316fb7d296f229d52cdc48e62"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2dae46b316fb7d296f229d52cdc48e62">amr_region_lo_all</a></td></tr>
 <tr class="memdesc:a2dae46b316fb7d296f229d52cdc48e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-slot mirrors (allocated 1:amr_max_blocks by <a class="el" href="namespacem__amr.html" title="Block-structured AMR: up to amr_max_blocks refined blocks (2:1 or 4:1 per amr_ref_ratio),...">m_amr</a>): region box, rank intersection and ownership flag of every block. s_set_amr_fine_geometry writes the current slot's entry; s_amr_select_slot copies a slot's entry into the working mirrors.  <br /></td></tr>
 <tr class="memitem:a6457811c7b01a9f912095cacc750a1a8" id="r_a6457811c7b01a9f912095cacc750a1a8"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a6457811c7b01a9f912095cacc750a1a8">amr_region_hi_all</a></td></tr>
+<tr class="memitem:a2cd3d91821ac81a54a92f504cb60db89" id="r_a2cd3d91821ac81a54a92f504cb60db89"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2cd3d91821ac81a54a92f504cb60db89">amr_cfl_rf</a></td></tr>
+<tr class="memdesc:a2cd3d91821ac81a54a92f504cb60db89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spacing ratio of the finest cell over each coarse cell (1 where uncovered), and the powers of it by which that cell's inviscid, diffusive and capillary CFL numbers exceed the coarse cell's (a subcycled level also takes dt/ratio). Rebuilt by s_amr_build_cfl_map whenever the block set changes.  <br /></td></tr>
+<tr class="memitem:acca73173e095874b16047da1b2c22832" id="r_acca73173e095874b16047da1b2c22832"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#acca73173e095874b16047da1b2c22832">amr_cfl_pow</a> = 0._wp</td></tr>
 <tr class="memitem:a02d3818030f8b9243af51e862f55e12a" id="r_a02d3818030f8b9243af51e862f55e12a"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a02d3818030f8b9243af51e862f55e12a">amr_isect_lo_all</a></td></tr>
 <tr class="memitem:a49dea3efdc7caaa476b5ffbb116314b1" id="r_a49dea3efdc7caaa476b5ffbb116314b1"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a49dea3efdc7caaa476b5ffbb116314b1">amr_isect_hi_all</a></td></tr>
 <tr class="memitem:a66f52f596d106a60cd862f367cbc2ac0" id="r_a66f52f596d106a60cd862f367cbc2ac0"><td class="memItemLeft">logical, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a66f52f596d106a60cd862f367cbc2ac0">amr_owns_all</a></td></tr>
@@ -450,6 +453,10 @@ Variables</h2></td></tr>
 <tr class="memdesc:a00c16b7fc8ec62edab600e99c6d9af30"><td class="mdescLeft">&#160;</td><td class="mdescRight">A block may join a batch led by a larger block when padding it to the leader's extent wastes at most amr_bat_pad of its own cells. amr_bat_mext holds each member's own extents: the bridge load clamps to its buffered region, and the RK update and flux capture touch only its own cells.  <br /></td></tr>
 <tr class="memitem:ab1ab7578e7b79f79442dfbb4e28c092c" id="r_ab1ab7578e7b79f79442dfbb4e28c092c"><td class="memItemLeft">integer, dimension(3, <a class="el" href="#a8df6ef2874aa8658ee243ccdc8b27088">amr_bat_max</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ab1ab7578e7b79f79442dfbb4e28c092c">amr_bat_mext</a> = 0</td></tr>
 <tr class="memitem:ae5b04b11a4b115a1194b15dc19418db5" id="r_ae5b04b11a4b115a1194b15dc19418db5"><td class="memItemLeft">integer, dimension(3, <a class="el" href="#a8df6ef2874aa8658ee243ccdc8b27088">amr_bat_max</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ae5b04b11a4b115a1194b15dc19418db5">amr_bat_off</a> = 0</td></tr>
+<tr class="memitem:a83a750282664c8f22df15a7e8a80b7c8" id="r_a83a750282664c8f22df15a7e8a80b7c8"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3, <a class="el" href="#a8df6ef2874aa8658ee243ccdc8b27088">amr_bat_max</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a83a750282664c8f22df15a7e8a80b7c8">amr_bat_xsh</a> = 0._wp</td></tr>
+<tr class="memdesc:a83a750282664c8f22df15a7e8a80b7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the IB face forces on a fine frame: each batch member's origin minus the leader's (members read the leader's coordinate arrays), and the boxes of the frame's cells that a finer level covers (lo(1:3), hi(1:3) in the frame's indices), where the finer level takes the faces. The coarse frame uses the cell map amr_cfl_rf instead.  <br /></td></tr>
+<tr class="memitem:a1804817873f1c404176d4514de590e38" id="r_a1804817873f1c404176d4514de590e38"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a1804817873f1c404176d4514de590e38">amr_cov_n</a> = 0</td></tr>
+<tr class="memitem:aa545613a894c7679bcef1ffd60298461" id="r_aa545613a894c7679bcef1ffd60298461"><td class="memItemLeft">integer, dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aa545613a894c7679bcef1ffd60298461">amr_cov_box</a></td></tr>
 <tr class="memitem:af702bb8b5735c116a7a47d6465d798ce" id="r_af702bb8b5735c116a7a47d6465d798ce"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af702bb8b5735c116a7a47d6465d798ce">s_amr_select_slot</a> (islot)</td></tr>
 <tr class="memdesc:af702bb8b5735c116a7a47d6465d798ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make block slot islot the working slot: set amr_cur and copy its stored mirrors (region, intersection, ownership) into the working globals the per-block machinery reads.  <br /></td></tr>
 <tr class="memitem:a15979aa7789736321146104abdb129ea" id="r_a15979aa7789736321146104abdb129ea"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a15979aa7789736321146104abdb129ea">s_assign_default_values_to_user_inputs</a></td></tr>
@@ -485,7 +492,7 @@ Variables</h2></td></tr>
 
 <p>Make block slot islot the working slot: set amr_cur and copy its stored mirrors (region, intersection, ownership) into the working globals the per-block machinery reads. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01330">1330</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01365">1365</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -509,7 +516,7 @@ Here is the caller graph for this function:</div>
 <p>Assigns default values to the user inputs before reading them in. This enables for an easier consistency check of these parameters once they are read from the input file. </p>
 <p>amplitude, frequency, and phase shift sinusoid in each direction</p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01344">1344</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01379">1379</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -532,7 +539,7 @@ Here is the call graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03968">3968</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l04004">4004</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -550,7 +557,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the Lagrangian bubble projected-field indices (bub_q_idx). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03827">3827</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03863">3863</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -573,7 +580,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the global parameters module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01973">1973</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l02009">2009</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -601,7 +608,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initializes parallel infrastructure. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03924">3924</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03960">3960</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -619,7 +626,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the Lagrangian particle field indices (part_q_idx and part_field_idx), each vector spanning num_dims. Only the fields the enabled models use get an index: absent vectors are empty ranges, absent scalars are 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03863">3863</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l03899">3899</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -769,7 +776,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01307">1307</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -785,7 +792,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01307">1307</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -801,7 +808,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01306">1306</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01323">1323</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -819,7 +826,7 @@ Here is the caller graph for this function:</div>
 
 <p>Batched fine advance: amr_bat_n members (0 outside a batch), their block ids, shared extents, the stacking dimension (the last active one) and the stack stride (block width + two ghost shells). Member i sits at offset <a class="el" href="#ae5b04b11a4b115a1194b15dc19418db5">amr_bat_off(:, i)</a> = (i-1)*amr_bat_w along amr_bat_sd in the bridge and every solver scratch array. amr_bat_lim = members per batch, amr_bat_max = table capacity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01305">1305</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01322">1322</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -835,7 +842,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01312">1312</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01329">1329</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -851,7 +858,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01307">1307</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -867,7 +874,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01312">1312</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01329">1329</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -885,7 +892,7 @@ Here is the caller graph for this function:</div>
 
 <p>A block may join a batch led by a larger block when padding it to the leader's extent wastes at most amr_bat_pad of its own cells. amr_bat_mext holds each member's own extents: the bridge load clamps to its buffered region, and the RK update and flux capture touch only its own cells. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01311">1311</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01328">1328</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -901,7 +908,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01307">1307</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -917,7 +924,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01307">1307</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a83a750282664c8f22df15a7e8a80b7c8" name="a83a750282664c8f22df15a7e8a80b7c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a750282664c8f22df15a7e8a80b7c8">&#9670;&#160;</a></span>amr_bat_xsh</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3, <a class="el" href="#a8df6ef2874aa8658ee243ccdc8b27088">amr_bat_max</a>) m_global_parameters::amr_bat_xsh = 0._wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>For the IB face forces on a fine frame: each batch member's origin minus the leader's (members read the leader's coordinate arrays), and the boxes of the frame's cells that a finer level covers (lo(1:3), hi(1:3) in the frame's indices), where the finer level takes the faces. The coarse frame uses the cell map amr_cfl_rf instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01345">1345</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -938,7 +963,7 @@ Here is the caller graph for this function:</div>
 <li>region-width - 1). </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01282">1282</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01299">1299</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -956,7 +981,41 @@ Here is the caller graph for this function:</div>
 
 <p>Fine-level distribution map: SFC/work-balanced single-owner rank per active block, giving amr_rank_owns_block = (<a class="el" href="#aca86e0a2503a2df3b1c44d82c226c3a2" title="Fine-level distribution map: SFC/work-balanced single-owner rank per active block,...">amr_block_owner(amr_cur)</a> == proc_rank). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01287">1287</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01304">1304</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="acca73173e095874b16047da1b2c22832" name="acca73173e095874b16047da1b2c22832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acca73173e095874b16047da1b2c22832">&#9670;&#160;</a></span>amr_cfl_pow</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3) m_global_parameters::amr_cfl_pow = 0._wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01281">1281</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a2cd3d91821ac81a54a92f504cb60db89" name="a2cd3d91821ac81a54a92f504cb60db89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd3d91821ac81a54a92f504cb60db89">&#9670;&#160;</a></span>amr_cfl_rf</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), allocatable m_global_parameters::amr_cfl_rf</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Spacing ratio of the finest cell over each coarse cell (1 where uncovered), and the powers of it by which that cell's inviscid, diffusive and capillary CFL numbers exceed the coarse cell's (a subcycled level also takes dt/ratio). Rebuilt by s_amr_build_cfl_map whenever the block set changes. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01280">1280</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -975,6 +1034,38 @@ Here is the caller graph for this function:</div>
 <p>Coarse CONS ghosts at internal faces are already valid for this stage (the AMR cons halo ran before the coarse RHS), so s_compute_rhs converts over the buffered domain and skips the PRIM MPI exchange (byte-identical: the conversion is pointwise). </p>
 
 <p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01252">1252</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa545613a894c7679bcef1ffd60298461" name="aa545613a894c7679bcef1ffd60298461"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa545613a894c7679bcef1ffd60298461">&#9670;&#160;</a></span>amr_cov_box</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, dimension(:,:), allocatable m_global_parameters::amr_cov_box</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01347">1347</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a1804817873f1c404176d4514de590e38" name="a1804817873f1c404176d4514de590e38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1804817873f1c404176d4514de590e38">&#9670;&#160;</a></span>amr_cov_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_global_parameters::amr_cov_n = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01346">1346</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1056,7 +1147,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01277">1277</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01294">1294</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1090,7 +1181,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01277">1277</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01294">1294</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1108,7 +1199,7 @@ Here is the caller graph for this function:</div>
 
 <p>Monotone mesh epoch, incremented wherever amr_seam_pairs_dirty is set and at the end of each slot reconciliation (exchange plans bake local slot indices). The boolean cannot serve as plan staleness: the first lazy seam-cache rebuild consumes it and ownership can change with no regrid. Lives here so <a class="el" href="namespacem__amr__registers.html" title="AMR flux registers: per-RK-stage refluxing at the coarse/fine block boundary. Depends only on m_deriv...">m_amr_registers</a> can key on it without a use-cycle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01292">1292</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01309">1309</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1142,7 +1233,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01283">1283</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01300">1300</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1249,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01278">1278</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01295">1295</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1212,7 +1303,7 @@ Here is the caller graph for this function:</div>
 
 <p>Dense register slot of the working block (<a class="el" href="#a46068ae2a8e7cc77f56a4dc48f1074d5" title="Participation-local flux-register index (m_amr_registers): global block slot -&gt; dense register slot,...">amr_reg_of(amr_cur)</a>, 0 if unmapped); kept by s_amr_select_slot. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01300">1300</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01317">1317</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1228,7 +1319,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01298">1298</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01315">1315</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1246,7 +1337,7 @@ Here is the caller graph for this function:</div>
 
 <p>Participation-local flux-register index (<a class="el" href="namespacem__amr__registers.html" title="AMR flux registers: per-RK-stage refluxing at the coarse/fine block boundary. Depends only on m_deriv...">m_amr_registers</a>): global block slot -&gt; dense register slot, 0 when this rank neither owns block g, owns g's parent, nor reflux-face-participates in it. The flux-register arrays are sized by amr_reg_n, not amr_num_blocks. Rebuilt by s_amr_reg_prepare on every mesh-epoch change. Host-only. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01297">1297</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__global__parameters_8fpp_8f90_source.html#l01314">1314</a> of file <a class="el" href="m__global__parameters_8fpp_8f90_source.html">m_global_parameters.fpp.f90</a>.</p>
 
 </div>
 </div>

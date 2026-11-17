@@ -169,8 +169,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ae8912bf24b14160a2d3b6f52595cb868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the solution one full step using a TVD Runge-Kutta time integrator.  <br /></td></tr>
 <tr class="memitem:a478ee89172580cccd27e418731bc09b6" id="r_a478ee89172580cccd27e418731bc09b6"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a478ee89172580cccd27e418731bc09b6">s_adaptive_dt_bubble</a> (stage)</td></tr>
 <tr class="memdesc:a478ee89172580cccd27e418731bc09b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble source part in Strang operator splitting scheme.  <br /></td></tr>
-<tr class="memitem:ac56d2ccae6e6dbce231569d173aae88a" id="r_ac56d2ccae6e6dbce231569d173aae88a"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac56d2ccae6e6dbce231569d173aae88a">s_compute_dt</a> ()</td></tr>
-<tr class="memdesc:ac56d2ccae6e6dbce231569d173aae88a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the global time step size from CFL stability constraints across all cells.  <br /></td></tr>
+<tr class="memitem:a66fef5ca8d571721738db4d52fe41026" id="r_a66fef5ca8d571721738db4d52fe41026"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a66fef5ca8d571721738db4d52fe41026">s_compute_dt</a> (dt_cand)</td></tr>
+<tr class="memdesc:a66fef5ca8d571721738db4d52fe41026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the global time step size from CFL stability constraints across all cells Sets dt from the CFL criteria, each limited by the finest cell over the coarse cell under AMR. With dt_cand it only returns the global candidates at cfl_target (ICFL, VCFL, CCFL, TCFL, collision cap) and leaves dt alone.  <br /></td></tr>
+<tr class="memitem:ac1055616d128c9bf8c9efcdb70b4899a" id="r_ac1055616d128c9bf8c9efcdb70b4899a"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac1055616d128c9bf8c9efcdb70b4899a">s_amr_check_fixed_dt</a> ()</td></tr>
+<tr class="memdesc:ac1055616d128c9bf8c9efcdb70b4899a"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information).  <br /></td></tr>
 <tr class="memitem:a642d35df6fdabfeca26587ac4ffa1941" id="r_a642d35df6fdabfeca26587ac4ffa1941"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a642d35df6fdabfeca26587ac4ffa1941">s_abort_on_bad_dt_cell</a> (idx)</td></tr>
 <tr class="memdesc:a642d35df6fdabfeca26587ac4ffa1941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abort with the location of a fluid cell whose state admits no valid time step (NaN or non-positive inviscid dt).  <br /></td></tr>
 <tr class="memitem:a19b72196160438bd0c5f88c7ac4e6684" id="r_a19b72196160438bd0c5f88c7ac4e6684"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a19b72196160438bd0c5f88c7ac4e6684">s_apply_synthetic_turbulence_force</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt)</td></tr>
@@ -231,11 +233,11 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05416">5416</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05612">5612</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a642d35df6fdabfeca26587ac4ffa1941_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a642d35df6fdabfeca26587ac4ffa1941_icgraph.svg" width="100%" height="365"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -257,7 +259,7 @@ Here is the caller graph for this function:</div>
 
 <p>Bubble source part in Strang operator splitting scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05194">5194</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05203">5203</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -287,11 +289,39 @@ Here is the caller graph for this function:</div>
 
 <p>Advance the immersed boundary positions and velocities to the current Runge-Kutta stage (forces from this stage's RHS). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05496">5496</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05692">5692</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a5f84c7a9e33314abc24bfd4fa3a43327_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ac1055616d128c9bf8c9efcdb70b4899a" name="ac1055616d128c9bf8c9efcdb70b4899a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1055616d128c9bf8c9efcdb70b4899a">&#9670;&#160;</a></span>s_amr_check_fixed_dt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_time_steppers::s_amr_check_fixed_dt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05567">5567</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ac1055616d128c9bf8c9efcdb70b4899a_cgraph.svg" width="580" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ac1055616d128c9bf8c9efcdb70b4899a_icgraph.svg" width="502" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -331,7 +361,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05436">5436</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05632">5632</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -340,31 +370,34 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ac56d2ccae6e6dbce231569d173aae88a" name="ac56d2ccae6e6dbce231569d173aae88a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac56d2ccae6e6dbce231569d173aae88a">&#9670;&#160;</a></span>s_compute_dt()</h2>
+<a id="a66fef5ca8d571721738db4d52fe41026" name="a66fef5ca8d571721738db4d52fe41026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66fef5ca8d571721738db4d52fe41026">&#9670;&#160;</a></span>s_compute_dt()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine m_time_steppers::s_compute_dt</td>
+          <td class="memname">impure subroutine m_time_steppers::s_compute_dt </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(5), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>dt_cand</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the global time step size from CFL stability constraints across all cells. </p>
+<p>Compute the global time step size from CFL stability constraints across all cells Sets dt from the CFL criteria, each limited by the finest cell over the coarse cell under AMR. With dt_cand it only returns the global candidates at cfl_target (ICFL, VCFL, CCFL, TCFL, collision cap) and leaves dt alone. </p>
 <p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05215">5215</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05226">5226</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ac56d2ccae6e6dbce231569d173aae88a_cgraph.svg" width="375" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a66fef5ca8d571721738db4d52fe41026_cgraph.svg" width="375" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ac56d2ccae6e6dbce231569d173aae88a_icgraph.svg" width="494" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a66fef5ca8d571721738db4d52fe41026_icgraph.svg" width="100%" height="365"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -383,7 +416,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05850">5850</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06046">6046</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -427,7 +460,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save the temporary q_prim_vf vector into q_prim_ts for use in p_main. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05617">5617</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05813">5813</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

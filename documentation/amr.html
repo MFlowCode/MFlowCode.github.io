@@ -171,8 +171,8 @@ Overview</h2>
 Algorithm</h2>
 <ul>
 <li><b>Tagging and clustering.</b> A coarse cell is tagged when its normalized density jump exceeds <span class="tt">amr_tag_eps</span> (<span class="tt">amr_tag_abs = T</span> uses the absolute jump instead). Tags are clustered by Berger-Rigoutsos bisection into boxes that reach <span class="tt">amr_cluster_eff</span> tag efficiency, are at least <span class="tt">amr_blocking_factor</span> cells wide, are padded by <span class="tt">amr_buf</span> cells and are capped at <span class="tt">amr_max_grid_size</span> cells per dimension. Levels nest properly (a level-2 box lies inside one level-1 box).</li>
-<li><b>Prolongation.</b> New blocks and fine ghost cells are filled from the parent level by conservative minmod-limited linear interpolation (<span class="tt">amr_prolong = 1</span>) or conservative quartic interpolation (<span class="tt">amr_prolong = 2</span>). The quartic fill falls back to limited linear wherever it would give non-positive density or internal energy. Volume fractions are renormalized to sum to one and species mass fractions to <span class="tt">sum(Y) = 1, Y &gt;= 0</span>. A block that survives a regrid keeps its own fine solution.</li>
-<li><b>Advance.</b> Lock-step (default): every level takes each step at <span class="tt">dt</span>, so <span class="tt">dt</span> must satisfy the finest level's CFL limit. Subcycled (<span class="tt">amr_subcycle = T</span>): each refined level takes two steps per parent step, with ghost cells interpolated in time; <span class="tt">dt</span> is the level-0 step.</li>
+<li><b>Prolongation.</b> New blocks and fine ghost cells are filled from the parent level by conservative minmod-limited linear interpolation (<span class="tt">amr_prolong = 1</span>) or conservative quartic interpolation (<span class="tt">amr_prolong = 2</span>). The quartic fill falls back to limited linear in a cell whose children would leave the range of the neighbouring coarse averages (so a monotone profile stays monotone; only at a local extremum is the range widened), and wherever it would give non-positive density or internal energy. Volume fractions are renormalized to sum to one and species mass fractions to <span class="tt">sum(Y) = 1, Y &gt;= 0</span>. A block that survives a regrid keeps its own fine solution.</li>
+<li><b>Advance.</b> Lock-step (default): every level takes each step at <span class="tt">dt</span>, so <span class="tt">dt</span> must satisfy the finest level's CFL limit. With a CFL-based time step (<span class="tt">cfl_adap_dt</span>, <span class="tt">cfl_const_dt</span>) each coarse cell's limit is that of the finest cell covering it, so <span class="tt">dt</span> drops where blocks appear; the reported ICFL is the finest level's too. With a fixed <span class="tt">dt</span> the run aborts at start-up or after a regrid if <span class="tt">dt</span> exceeds the finest cells' inviscid limit (ICFL = 1), and prints the largest stable <span class="tt">dt</span>. Subcycled (<span class="tt">amr_subcycle = T</span>): each refined level takes two steps per parent step, with ghost cells interpolated in time; <span class="tt">dt</span> is the level-0 step.</li>
 <li><b>Refluxing and restriction.</b> Fine face fluxes (advective, viscous, diffusive) are accumulated in flux registers and replace the coarse fluxes at coarse/fine faces, so mass, momentum and energy are conserved across the interface. Each covered coarse cell is then set to the average of its fine children.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="amr-conservation"></a>
@@ -182,7 +182,7 @@ Conservation and accuracy</h2>
 Parallelism</h2>
 <p>Each block is owned whole by one rank. Owners come from a cost-weighted space-filling-curve cut over the blocks (cost: one per coarse cell plus <span class="tt">K_ib</span> per immersed-boundary cell), recomputed at every regrid. <span class="tt">amr_place_owner = T</span> instead places each block on the rank that owns most of the coarse cells under it, capped at 5% above the mean load, which cuts communication. A block may straddle rank boundaries; its coarse-side coupling moves point-to-point between the owner and the ranks it overlaps. All exchanges are posted in a fixed order, so runs are deterministic.</p>
 <p>On GPUs every block array is device-resident. A rank advances its blocks of equal level in batches stacked along the last dimension, one solver call per batch; this is why AMR needs a uniform Cartesian grid. The toolchain enables <span class="tt">amr_device_pack</span> (fused exchange kernels) when <span class="tt">amr_max_grid_size &lt;= 64</span> and sets <span class="tt">amr_snap = min(2, amr_buf - 2)</span> (regrid hysteresis) under dynamic regrid, unless they are set explicitly.</p>
-<p><span class="tt">rank_time_wrt = T</span> prints a per-phase time budget of the AMR step and the block-balance report.</p>
+<p><span class="tt">rank_time_wrt = T</span> prints a per-phase time budget of the AMR step, the block-balance report, and at the end of the run the memory each group of AMR arrays holds per rank (<span class="tt">[amr-mem]</span>: block store, advance scratch, coarse patches, flux registers, the fine IB ghost-point park, and the host-side per-slot IB marker copies).</p>
 <h2 class="doxsection"><a class="anchor" id="amr-physics"></a>
 Supported physics</h2>
 <p>Required: <span class="tt">model_eqns = 2</span> or <span class="tt">3</span>, <span class="tt">time_stepper = 3</span>, WENO (<span class="tt">recon_type = 1</span>) or IGR, a uniform Cartesian grid, and <span class="tt">mpp_lim = T</span> when <span class="tt">num_fluids &gt; 1</span>.</p>
@@ -196,19 +196,25 @@ Supported physics</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Chemistry (reactions, diffusion)  </td><td class="markdownTableBodyLeft">Lock-step only; no reaction substepping  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Immersed boundaries (fixed, prescribed or force-driven motion; not STL, <span class="tt">thermal_bc</span>, <span class="tt">surface_reaction</span>, <span class="tt">ib_surface_wrt</span> or <span class="tt">ib_heat_wrt</span>)  </td><td class="markdownTableBodyLeft">Supported; blocks always contain each body; moving bodies are lock-step only; multi-level with IB is single-rank  </td></tr>
+<td class="markdownTableBodyLeft">Immersed boundaries (fixed, prescribed or force-driven motion; not STL, <span class="tt">thermal_bc</span>, <span class="tt">surface_reaction</span>, <span class="tt">ib_surface_wrt</span> or <span class="tt">ib_heat_wrt</span>)  </td><td class="markdownTableBodyLeft">Supported; blocks always contain each body; moving bodies are lock-step only; multi-level with IB is single-rank; forces and torques are summed on the finest level covering each face (the coarse grid only with <span class="tt">amr_subcycle</span>)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Lagrangian bubbles  </td><td class="markdownTableBodyLeft">Lock-step; the cloud stays on the base grid (blocks are kept clear of it)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Acoustic sources  </td><td class="markdownTableBodyLeft">On the base grid; blocks are kept clear of the source support  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Body forces (<span class="tt">bf_x/y/z</span>, <span class="tt">bf_spatial_support</span>)  </td><td class="markdownTableBodyLeft">Supported; the source is evaluated on each block's own grid  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">MHD / RMHD  </td><td class="markdownTableBodyLeft">1D only  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">IGR  </td><td class="markdownTableBodyLeft">Single-rank, lock-step; coarse/fine conservation is truncation-order  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Euler-Euler bubbles, QBMM, phase change (<span class="tt">relax</span>), surface tension, synthetic turbulence  </td><td class="markdownTableBodyLeft">Not supported  </td></tr>
+<td class="markdownTableBodyLeft">IGR  </td><td class="markdownTableBodyLeft">Single-rank, lock-step; coarse/fine conservation is truncation-order  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Cylindrical coordinates, stretched grids, <span class="tt">bc = -4</span>  </td><td class="markdownTableBodyLeft">Not supported  </td></tr>
+<td class="markdownTableBodyLeft">Phase change (<span class="tt">relax</span>)  </td><td class="markdownTableBodyLeft">Supported; each block is relaxed at the end of the step, then restricted  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Euler-Euler bubbles, QBMM, surface tension, synthetic turbulence  </td><td class="markdownTableBodyLeft">Not supported  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">Riemann-extrapolation boundaries (<span class="tt">bc = -4</span>)  </td><td class="markdownTableBodyLeft">Supported, except with <span class="tt">null_weights</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">Cylindrical coordinates, stretched grids  </td><td class="markdownTableBodyLeft">Not supported  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="amr-parameters"></a>
 Parameters</h2>
@@ -271,7 +277,7 @@ Limitations</h2>
 <li><b>Regrid.</b> When no cell is tagged, regrid keeps the current blocks, so refinement does not retract until something is tagged again. Level-2 and deeper blocks are re-prolonged from their parent at every regrid (only level-1 data is carried over), so frequent regrids cost accuracy at those levels.</li>
 <li><b>Output.</b> Field output is at level-0 resolution with the fine solution restricted into it; post_process with <span class="tt">amr = T</span> overlays the blocks as separate SILO domains.</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-13</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-16</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

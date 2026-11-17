@@ -1,5 +1,7 @@
 var m__phase__timing_8fpp_8f90 =
 [
+    [ "m_phase_timing::s_mem_note", "namespacem__phase__timing.html#a1bf040c83b61741e6e298ed0eba57164", null ],
+    [ "m_phase_timing::s_mem_note_fields", "namespacem__phase__timing.html#a930f9aa76ec5552dc33d50c8c8facb78", null ],
     [ "m_phase_timing::s_phase_report", "namespacem__phase__timing.html#a3414519429d7df89d2309fffe5416549", null ],
     [ "m_phase_timing::s_phase_step_tic", "namespacem__phase__timing.html#a12b5125b2324923b7a07720bcb411aaf", null ],
     [ "m_phase_timing::s_phase_step_toc", "namespacem__phase__timing.html#a09a01be4e8889c99b647bd528eb8a1d0", null ],
@@ -7,6 +9,15 @@ var m__phase__timing_8fpp_8f90 =
     [ "m_phase_timing::s_phase_toc", "namespacem__phase__timing.html#aca18926c3c72e1130a77df71d7c5a0da", null ],
     [ "m_phase_timing::acc", "namespacem__phase__timing.html#a6b700e7ecc26566f0c8345c92f25a512", null ],
     [ "m_phase_timing::depth", "namespacem__phase__timing.html#a7ba0358c8eb393bc28613165d76f6e92", null ],
+    [ "m_phase_timing::mem_ib", "namespacem__phase__timing.html#a40a8be43105f36a2eac2f26706b5d90c", null ],
+    [ "m_phase_timing::mem_ibhost", "namespacem__phase__timing.html#a684ea9522fa0e53f67a3a06c3bff8a36", null ],
+    [ "m_phase_timing::mem_mib", "namespacem__phase__timing.html#af4a1ddca043cd9f2364156039929c7f6", null ],
+    [ "m_phase_timing::mem_n", "namespacem__phase__timing.html#abd91afd89c76b09c77871c73dccef424", null ],
+    [ "m_phase_timing::mem_name", "namespacem__phase__timing.html#a0e4a3180d4a3ec78efd4d57191f1894f", null ],
+    [ "m_phase_timing::mem_patch", "namespacem__phase__timing.html#ae56186a5cff686a7512185734de4a5f3", null ],
+    [ "m_phase_timing::mem_reg", "namespacem__phase__timing.html#afce34b214da35f4cc477f62f4e8553df", null ],
+    [ "m_phase_timing::mem_scratch", "namespacem__phase__timing.html#aad83a9eb78b45e8f942825e8eb7378ab", null ],
+    [ "m_phase_timing::mem_store", "namespacem__phase__timing.html#aee11943dc6b719fe3ec03c01b5cd588c", null ],
     [ "m_phase_timing::ncall", "namespacem__phase__timing.html#ac408b6855db0da16f0cb0401a2b39d62", null ],
     [ "m_phase_timing::ph_coarse", "namespacem__phase__timing.html#a67c1fc1ddb8edac4ec04214c5a39725a", null ],
     [ "m_phase_timing::ph_gather", "namespacem__phase__timing.html#a100271fc50d268edd41054e3c3ddbc8b", null ],

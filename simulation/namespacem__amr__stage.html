@@ -181,6 +181,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a34928ff0ed629e608bec68e7e7637f90"><td class="mdescLeft">&#160;</td><td class="mdescRight">The used pool (amr_cg_nuse patches) against the cache amr_pc: t &gt;= 0 stores it as time level t (t = 0 sizes the cache); t &lt; 0 writes the pool = (1 - theta) * level 0 + theta * level 1.  <br /></td></tr>
 <tr class="memitem:a0f03fab0b00f4afe4dbe2b6e08158351" id="r_a0f03fab0b00f4afe4dbe2b6e08158351"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0f03fab0b00f4afe4dbe2b6e08158351">s_amr_step_fold</a> (q_cons)</td></tr>
 <tr class="memdesc:a0f03fab0b00f4afe4dbe2b6e08158351"><td class="mdescLeft">&#160;</td><td class="mdescRight">End of step: fold the fine solution into the level-0 covered cells (the only deliberate level-0 write) and Berger-Colella state-reflux each level&gt;=2 block into its parent. Bottom-up (per-level waves), so covered cells hold the finest data.  <br /></td></tr>
+<tr class="memitem:ab352c1c074780d14f13e3540be3be072" id="r_ab352c1c074780d14f13e3540be3be072"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ab352c1c074780d14f13e3540be3be072">s_amr_relax_fine</a> (q_cons)</td></tr>
+<tr class="memdesc:ab352c1c074780d14f13e3540be3be072"><td class="mdescLeft">&#160;</td><td class="mdescRight">End-of-step phase-change relaxation on the fine blocks (the coarse grid's is in <a class="el" href="namespacem__start__up.html" title="Reads input files, loads initial conditions and grid data, and orchestrates solver initialization and...">m_start_up</a>), then a restrict so the covered cells hold the average of the relaxed fine cells. The relaxation is cell-local, so block order is free.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -229,7 +231,7 @@ Variables</h2></td></tr>
 
 <p>Ghost fill of levels lev_lo..lev_hi: the level-1 wave from the coarse q_cons (or, with theta, the patch cache at that coarse time fraction), then the parent waves. The fine-fine seam reads stage-entry interiors only, so it is posted before the fills and drained after. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00561">561</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00562">562</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -272,7 +274,7 @@ Here is the caller graph for this function:</div>
 
 <p>The used pool (amr_cg_nuse patches) against the cache amr_pc: t &gt;= 0 stores it as time level t (t = 0 sizes the cache); t &lt; 0 writes the pool = (1 - theta) * level 0 + theta * level 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00612">612</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00613">613</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -306,7 +308,7 @@ Here is the caller graph for this function:</div>
 
 <p>Level-1 ghost fill at coarse time fraction theta: blend the cached time levels into the pool, then the batched fill. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -349,7 +351,7 @@ Here is the caller graph for this function:</div>
 
 <p>Gather every owned level-1 block's coarse patch ring from q into the pooled amr_cg and keep it as time level t (0: step start, 1: step end), once per coarse step; stages then blend in time with no wave or halo. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00587">587</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00588">588</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -359,6 +361,32 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__stage_aa2bcae8991c56a9232470e2fec99f1e4_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab352c1c074780d14f13e3540be3be072" name="ab352c1c074780d14f13e3540be3be072"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab352c1c074780d14f13e3540be3be072">&#9670;&#160;</a></span>s_amr_relax_fine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_amr_stage::s_amr_relax_fine </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>End-of-step phase-change relaxation on the fine blocks (the coarse grid's is in <a class="el" href="namespacem__start__up.html" title="Reads input files, loads initial conditions and grid data, and orchestrates solver initialization and...">m_start_up</a>), then a restrict so the covered cells hold the average of the relaxed fine cells. The relaxation is cell-local, so block order is free. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00811">811</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__stage_ab352c1c074780d14f13e3540be3be072_icgraph.svg" width="503" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -380,7 +408,7 @@ Here is the caller graph for this function:</div>
 
 <p>Stage top: hoist the cons halo (the AMR fill needs it) so the RHS converts over the buffered domain instead of exchanging a prim halo on the same faces (pointwise, so byte-identical). Only where the cons halo carries everything the prim halo did (no q_T_sf, no igr). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -455,7 +483,7 @@ Here is the call graph for this function:</div>
 
 <p>The fine-level stage, with q_cons still the coarse stage-entry state: (1) fill every block's ghosts top-down as per-level waves after one coarse cons halo, (2) overwrite fine-fine seam ghosts with neighbours' stage-entry interiors (posted before the fills, drained after), (3) advance all owned blocks in batches, (4) reflux level-1 blocks into the coarse rhs (one face wave plus one batched apply, order-free). A level&gt;=2 block's coarse side is its parent, refluxed in s_amr_step_fold. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -481,7 +509,7 @@ Here is the call graph for this function:</div>
 
 <p>End of step: fold the fine solution into the level-0 covered cells (the only deliberate level-0 write) and Berger-Colella state-reflux each level&gt;=2 block into its parent. Bottom-up (per-level waves), so covered cells hold the finest data. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00791">791</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00796">796</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -546,7 +574,7 @@ Here is the call graph for this function:</div>
 
 <p>Subcycled fine advance (amr_subcycle): after level 0's step (q_old = step-start state, q_new = end state, coarse registers holding its dt-weighted flux integral) level 1 takes two substeps of dt/2. The level-1 patch rings of q_old and q_new are gathered once (s_amr_pc_gather); each stage blends them in time, fills the fine ghosts and advances level 1 with dt/2, accumulating fine registers over both substeps; level 2 (if any) then takes its two substeps (s_amr_subcycle_l2). The registers then correct the coarse state (Berger-Colella) and the caller's fold restricts. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00439">439</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -629,7 +657,7 @@ Here is the call graph for this function:</div>
 
 <p>Level 2's two substeps of dt0/4 after a level-1 substep ending at coarse time fraction th_end: refill level-1 ghosts at th_end (level-2 parent patches can reach them), fill each level-2 stage from parents blended between their substep-start backup and end state (amr_par_theta), then sync level 2 into level 1. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00502">502</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00503">503</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -666,7 +694,7 @@ Here is the caller graph for this function:</div>
 
 <p>SSP-RK3 stage times in units of the step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__stage_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__amr__stage_8fpp_8f90_source.html">m_amr_stage.fpp.f90</a>.</p>
 
 </div>
 </div>

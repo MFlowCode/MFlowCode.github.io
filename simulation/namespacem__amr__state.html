@@ -201,7 +201,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:ab79af0cb6714e862f5b6a24ae3503faf" id="r_ab79af0cb6714e862f5b6a24ae3503faf"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#ab79af0cb6714e862f5b6a24ae3503faf">f_amr_cons_ok</a> (fi, fj, fk, loc)</td></tr>
 <tr class="memdesc:ab79af0cb6714e862f5b6a24ae3503faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Admissible fine cell: positive density and (except model 4) positive internal energy; a NaN state is inadmissible.  <br /></td></tr>
 <tr class="memitem:a60b08d0eb90317968fdaee937cb7e707" id="r_a60b08d0eb90317968fdaee937cb7e707"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a60b08d0eb90317968fdaee937cb7e707">f_amr_quartic_half</a> (q, xi)</td></tr>
-<tr class="memdesc:a60b08d0eb90317968fdaee937cb7e707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average over one half (xi &lt; 0 left, &gt; 0 right; |xi| = 1/4) of the middle of five cell averages q: the conservative quartic, or MC-limited linear where either half leaves the range of the three nearest averages widened by their smallest second difference. Both halves are tested so the two children share one reconstruction (their mean stays q(0)).  <br /></td></tr>
+<tr class="memdesc:a60b08d0eb90317968fdaee937cb7e707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Average over one half (xi &lt; 0 left, &gt; 0 right; |xi| = 1/4) of the middle of five cell averages q: the conservative quartic, or MC-limited linear where either half leaves the range of the three nearest averages. At a local extremum of the averages that range is widened by their smallest second difference; where they are monotone it is not, so the children make no new extremum (at the foot of a steep front that difference is as large as q(0)). Both halves are tested so the two children share one reconstruction (their mean stays q(0)).  <br /></td></tr>
 <tr class="memitem:a9d9453a7456a3010e3e1d7f89126ed53" id="r_a9d9453a7456a3010e3e1d7f89126ed53"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9d9453a7456a3010e3e1d7f89126ed53">s_amr_scr_init</a> ()</td></tr>
 <tr class="memdesc:a9d9453a7456a3010e3e1d7f89126ed53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate the pooled q_prim/rhs advance scratch (idempotent). The lockstep driver associates it for every block, so it must exist on every rank, including one that never allocates a slot. rhs gets the igr widening.  <br /></td></tr>
 <tr class="memitem:aeb08749b536cffad3578dab5f6900d55" id="r_aeb08749b536cffad3578dab5f6900d55"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aeb08749b536cffad3578dab5f6900d55">s_amr_size_int</a> (a, <a class="el" href="namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2">n</a>)</td></tr>
@@ -643,9 +643,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Average over one half (xi &lt; 0 left, &gt; 0 right; |xi| = 1/4) of the middle of five cell averages q: the conservative quartic, or MC-limited linear where either half leaves the range of the three nearest averages widened by their smallest second difference. Both halves are tested so the two children share one reconstruction (their mean stays q(0)). </p>
+<p>Average over one half (xi &lt; 0 left, &gt; 0 right; |xi| = 1/4) of the middle of five cell averages q: the conservative quartic, or MC-limited linear where either half leaves the range of the three nearest averages. At a local extremum of the averages that range is widened by their smallest second difference; where they are monotone it is not, so the children make no new extremum (at the foot of a steep front that difference is as large as q(0)). Both halves are tested so the two children share one reconstruction (their mean stays q(0)). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01255">1255</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01257">1257</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1029,7 +1029,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate the pooled q_prim/rhs advance scratch (idempotent). The lockstep driver associates it for every block, so it must exist on every rank, including one that never allocates a slot. rhs gets the igr widening. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01290">1290</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01293">1293</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1059,7 +1059,7 @@ Here is the caller graph for this function:</div>
 
 <p>Grow-on-demand sizing for append-only tables and pools: a grow preserves the entries already appended. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01644">1644</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01647">1647</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1087,7 +1087,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01661">1661</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01664">1664</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1122,7 +1122,7 @@ Here is the call graph for this function:</div>
 
 <p>Wire pools, preserving on grow. dev keeps the pool device-resident across (re)allocation: the old image is deleted from the device before it is freed and the new one created after; contents never survive a wave, so nothing is copied. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01690">1690</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01693">1693</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1152,7 +1152,7 @@ Here is the call graph for this function:</div>
 
 <p>s_amr_size_int for a table of n columns of r ints. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01671">1671</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01674">1674</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

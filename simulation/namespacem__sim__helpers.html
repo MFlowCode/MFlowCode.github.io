@@ -169,6 +169,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aa618f132587a383bc9acc5b71fb81963"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the mixture coefficients, velocity and pressure of one cell.  <br /></td></tr>
 <tr class="memitem:a26041c29b2b8590a289c06b6a50a152a" id="r_a26041c29b2b8590a289c06b6a50a152a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a26041c29b2b8590a289c06b6a50a152a">s_compute_stability_from_dt</a> (vel, c, rho, re_l, alpha, alpha_rho, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, icfl, vcfl, rc, ccfl, tcfl)</td></tr>
 <tr class="memdesc:a26041c29b2b8590a289c06b6a50a152a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes stability criterion for a specified dt.  <br /></td></tr>
+<tr class="memitem:a3ae24ae909fdbbce99d93b784f2f002b" id="r_a3ae24ae909fdbbce99d93b784f2f002b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a3ae24ae909fdbbce99d93b784f2f002b">s_amr_scale_stability</a> (rf, pw1, pw2, pw3, icfl, vcfl, rc, ccfl, tcfl)</td></tr>
+<tr class="memdesc:a3ae24ae909fdbbce99d93b784f2f002b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stability numbers of the finest cell over a coarse cell, from the coarse cell's: rf is its spacing ratio (amr_cfl_rf) and pw1, pw2, pw3 the powers of it for the inviscid, diffusive and capillary criteria (amr_cfl_pow).  <br /></td></tr>
 <tr class="memitem:a397cf276fdf6878ade5222940b70b888" id="r_a397cf276fdf6878ade5222940b70b888"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a397cf276fdf6878ade5222940b70b888">s_compute_dt_from_cfl</a> (vel, c, max_dt, rho, re_l, alpha, alpha_rho, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
 <tr class="memdesc:a397cf276fdf6878ade5222940b70b888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the candidate dts for a specified CFL number: max_dt(1) from the inviscid, max_dt(2) the viscous, max_dt(3) the capillary, and max_dt(4) the thermal diffusion criterion (huge where the criterion is inactive).  <br /></td></tr>
 </table><table class="memberdecls">
@@ -202,11 +204,76 @@ Variables</h2></td></tr>
 
 <p>Computes the modified dtheta for Fourier filtering in azimuthal direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_aa641aecbabcfd37456c476ac6d8549a8_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3ae24ae909fdbbce99d93b784f2f002b" name="a3ae24ae909fdbbce99d93b784f2f002b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae24ae909fdbbce99d93b784f2f002b">&#9670;&#160;</a></span>s_amr_scale_stability()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_sim_helpers::s_amr_scale_stability </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pw1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pw2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pw3</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>icfl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vcfl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>ccfl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>tcfl</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The stability numbers of the finest cell over a coarse cell, from the coarse cell's: rf is its spacing ratio (amr_cfl_rf) and pw1, pw2, pw3 the powers of it for the inviscid, diffusive and capillary criteria (amr_cfl_pow). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00693">693</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a3ae24ae909fdbbce99d93b784f2f002b_icgraph.svg" width="630" height="87"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -302,7 +369,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the mixture coefficients, velocity and pressure of one cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -377,7 +444,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the candidate dts for a specified CFL number: max_dt(1) from the inviscid, max_dt(2) the viscous, max_dt(3) the capillary, and max_dt(4) the thermal diffusion criterion (huge where the criterion is inactive). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00692">692</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00724">724</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -467,7 +534,7 @@ Here is the call graph for this function:</div>
 
 <p>Computes stability criterion for a specified dt. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00562">562</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00563">563</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -496,7 +563,7 @@ Here is the caller graph for this function:</div>
 
 <p>Criterion currently limiting the adaptive time step (ICFL, VCFL, CCFL, TCFL, the collision cap, or the ramp limiter). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -512,7 +579,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 
 </div>
 </div>

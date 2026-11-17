@@ -94,6 +94,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::ib_heat_wrt", "namespacem__global__parameters__common.html#a462fba92c9c3ef1db972c5cc2134a969", null ],
     [ "m_global_parameters_common::ib_ip_interp", "namespacem__global__parameters__common.html#a21f1921a27f721f3a7dd0ff628fe7e10", null ],
     [ "m_global_parameters_common::ib_ip_min_dist", "namespacem__global__parameters__common.html#aa3d67003a1a9fc6c7e4ae0ded81ae608", null ],
+    [ "m_global_parameters_common::ib_mass_relax", "namespacem__global__parameters__common.html#ae533b7f8908ebc3cb2c0e2d9580ea43f", null ],
     [ "m_global_parameters_common::ib_neighborhood_radius", "namespacem__global__parameters__common.html#ab9ccaa096249cba26380149a7ceac372", null ],
     [ "m_global_parameters_common::ib_second_order_vel", "namespacem__global__parameters__common.html#a4b295b6329d4aecd57d400c5390ccf85", null ],
     [ "m_global_parameters_common::ib_smooth_contact", "namespacem__global__parameters__common.html#a7de2df729641252a83ba9152d7a31bed", null ],

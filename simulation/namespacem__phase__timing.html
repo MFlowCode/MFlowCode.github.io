@@ -169,6 +169,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a09a01be4e8889c99b647bd528eb8a1d0" id="r_a09a01be4e8889c99b647bd528eb8a1d0"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a09a01be4e8889c99b647bd528eb8a1d0">s_phase_step_toc</a> ()</td></tr>
 <tr class="memitem:a3414519429d7df89d2309fffe5416549" id="r_a3414519429d7df89d2309fffe5416549"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a3414519429d7df89d2309fffe5416549">s_phase_report</a> ()</td></tr>
 <tr class="memdesc:a3414519429d7df89d2309fffe5416549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mean and max over ranks per phase, share of the step-loop wall, imbalance (max/mean) and calls; the residual is the wall minus the sum of the means.  <br /></td></tr>
+<tr class="memitem:a1bf040c83b61741e6e298ed0eba57164" id="r_a1bf040c83b61741e6e298ed0eba57164"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1bf040c83b61741e6e298ed0eba57164">s_mem_note</a> (id, bytes)</td></tr>
+<tr class="memdesc:a1bf040c83b61741e6e298ed0eba57164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add bytes to group id of the end-of-run AMR memory table.  <br /></td></tr>
+<tr class="memitem:a930f9aa76ec5552dc33d50c8c8facb78" id="r_a930f9aa76ec5552dc33d50c8c8facb78"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a930f9aa76ec5552dc33d50c8c8facb78">s_mem_note_fields</a> (id, f)</td></tr>
+<tr class="memdesc:a930f9aa76ec5552dc33d50c8c8facb78"><td class="mdescLeft">&#160;</td><td class="mdescRight">s_mem_note for the fields of f that are allocated.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -222,10 +226,85 @@ Variables</h2></td></tr>
 <tr class="memitem:a9b652164eaf54acbab609988803a2c65" id="r_a9b652164eaf54acbab609988803a2c65"><td class="memItemLeft">integer(8)&#160;</td><td class="memItemRight"><a class="el" href="#a9b652164eaf54acbab609988803a2c65">wall_c</a> = 0</td></tr>
 <tr class="memitem:a7ba0358c8eb393bc28613165d76f6e92" id="r_a7ba0358c8eb393bc28613165d76f6e92"><td class="memItemLeft">integer, dimension(<a class="el" href="#a422045d70c4db3d111c505fff636d005">ph_n</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a7ba0358c8eb393bc28613165d76f6e92">depth</a> = 0</td></tr>
 <tr class="memdesc:a7ba0358c8eb393bc28613165d76f6e92"><td class="mdescLeft">&#160;</td><td class="mdescRight">a re-entered bracket (shared routine) measures only its outermost pair  <br /></td></tr>
+<tr class="memitem:aee11943dc6b719fe3ec03c01b5cd588c" id="r_aee11943dc6b719fe3ec03c01b5cd588c"><td class="memItemLeft">integer, parameter, public&#160;</td><td class="memItemRight"><a class="el" href="#aee11943dc6b719fe3ec03c01b5cd588c">mem_store</a> = 1</td></tr>
+<tr class="memdesc:aee11943dc6b719fe3ec03c01b5cd588c"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMR allocations by group, noted by each owner before it frees them (s_mem_note) and printed with the phase table.  <br /></td></tr>
+<tr class="memitem:aad83a9eb78b45e8f942825e8eb7378ab" id="r_aad83a9eb78b45e8f942825e8eb7378ab"><td class="memItemLeft">integer, parameter, public&#160;</td><td class="memItemRight"><a class="el" href="#aad83a9eb78b45e8f942825e8eb7378ab">mem_scratch</a> = 2</td></tr>
+<tr class="memdesc:aad83a9eb78b45e8f942825e8eb7378ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">batched-advance scratch (prim, rhs) and the block bridge  <br /></td></tr>
+<tr class="memitem:ae56186a5cff686a7512185734de4a5f3" id="r_ae56186a5cff686a7512185734de4a5f3"><td class="memItemLeft">integer, parameter, public&#160;</td><td class="memItemRight"><a class="el" href="#ae56186a5cff686a7512185734de4a5f3">mem_patch</a> = 3</td></tr>
+<tr class="memdesc:ae56186a5cff686a7512185734de4a5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">coarse patch pool and its subcycling time cache  <br /></td></tr>
+<tr class="memitem:afce34b214da35f4cc477f62f4e8553df" id="r_afce34b214da35f4cc477f62f4e8553df"><td class="memItemLeft">integer, parameter, public&#160;</td><td class="memItemRight"><a class="el" href="#afce34b214da35f4cc477f62f4e8553df">mem_reg</a> = 4</td></tr>
+<tr class="memdesc:afce34b214da35f4cc477f62f4e8553df"><td class="mdescLeft">&#160;</td><td class="mdescRight">flux registers  <br /></td></tr>
+<tr class="memitem:a40a8be43105f36a2eac2f26706b5d90c" id="r_a40a8be43105f36a2eac2f26706b5d90c"><td class="memItemLeft">integer, parameter, public&#160;</td><td class="memItemRight"><a class="el" href="#a40a8be43105f36a2eac2f26706b5d90c">mem_ib</a> = 5</td></tr>
+<tr class="memdesc:a40a8be43105f36a2eac2f26706b5d90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">fine IB ghost-point park  <br /></td></tr>
+<tr class="memitem:a684ea9522fa0e53f67a3a06c3bff8a36" id="r_a684ea9522fa0e53f67a3a06c3bff8a36"><td class="memItemLeft">integer, parameter, public&#160;</td><td class="memItemRight"><a class="el" href="#a684ea9522fa0e53f67a3a06c3bff8a36">mem_ibhost</a> = 6</td></tr>
+<tr class="memdesc:a684ea9522fa0e53f67a3a06c3bff8a36"><td class="mdescLeft">&#160;</td><td class="mdescRight">per-slot fine IB marker copies (host only)  <br /></td></tr>
+<tr class="memitem:abd91afd89c76b09c77871c73dccef424" id="r_abd91afd89c76b09c77871c73dccef424"><td class="memItemLeft">integer, parameter&#160;</td><td class="memItemRight"><a class="el" href="#abd91afd89c76b09c77871c73dccef424">mem_n</a> = 6</td></tr>
+<tr class="memitem:a0e4a3180d4a3ec78efd4d57191f1894f" id="r_a0e4a3180d4a3ec78efd4d57191f1894f"><td class="memItemLeft">character(len=8), dimension(<a class="el" href="#abd91afd89c76b09c77871c73dccef424">mem_n</a>+1), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a0e4a3180d4a3ec78efd4d57191f1894f">mem_name</a> = [character(len=8)::'store','scratch', 'patch', 'register', '<a class="el" href="namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1">ib</a> park', '<a class="el" href="namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1">ib</a> marks', 'total']</td></tr>
+<tr class="memitem:af4a1ddca043cd9f2364156039929c7f6" id="r_af4a1ddca043cd9f2364156039929c7f6"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="#abd91afd89c76b09c77871c73dccef424">mem_n</a>)&#160;</td><td class="memItemRight"><a class="el" href="#af4a1ddca043cd9f2364156039929c7f6">mem_mib</a> = 0._wp</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Per-phase wall-time budget of the AMR step, reported when rank_time_wrt is on. Brackets are disjoint (regrid sub-phases nest inside regrid) and drain the device first, so a phase's time includes the GPU work it launched. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a1bf040c83b61741e6e298ed0eba57164" name="a1bf040c83b61741e6e298ed0eba57164"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bf040c83b61741e6e298ed0eba57164">&#9670;&#160;</a></span>s_mem_note()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_phase_timing::s_mem_note </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add bytes to group id of the end-of-run AMR memory table. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__timing_a1bf040c83b61741e6e298ed0eba57164_icgraph.svg" width="466" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a930f9aa76ec5552dc33d50c8c8facb78" name="a930f9aa76ec5552dc33d50c8c8facb78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a930f9aa76ec5552dc33d50c8c8facb78">&#9670;&#160;</a></span>s_mem_note_fields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_phase_timing::s_mem_note_fields </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>f</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>s_mem_note for the fields of f that are allocated. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00545">545</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__timing_a930f9aa76ec5552dc33d50c8c8facb78_cgraph.svg" width="466" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="a3414519429d7df89d2309fffe5416549" name="a3414519429d7df89d2309fffe5416549"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3414519429d7df89d2309fffe5416549">&#9670;&#160;</a></span>s_phase_report()</h2>
 
@@ -240,7 +319,7 @@ Variables</h2></td></tr>
 
 <p>Mean and max over ranks per phase, share of the step-loop wall, imbalance (max/mean) and calls; the residual is the wall minus the sum of the means. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00481">481</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00494">494</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -261,7 +340,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00463">463</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -282,7 +361,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00469">469</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00482">482</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -306,7 +385,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00427">427</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -330,7 +409,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00450">450</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -360,7 +439,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -386,7 +465,188 @@ Here is the caller graph for this function:</div>
 
 <p>a re-entered bracket (shared routine) measures only its outermost pair </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a40a8be43105f36a2eac2f26706b5d90c" name="a40a8be43105f36a2eac2f26706b5d90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a8be43105f36a2eac2f26706b5d90c">&#9670;&#160;</a></span>mem_ib</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter, public m_phase_timing::mem_ib = 5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fine IB ghost-point park </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00418">418</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a684ea9522fa0e53f67a3a06c3bff8a36" name="a684ea9522fa0e53f67a3a06c3bff8a36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684ea9522fa0e53f67a3a06c3bff8a36">&#9670;&#160;</a></span>mem_ibhost</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter, public m_phase_timing::mem_ibhost = 6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>per-slot fine IB marker copies (host only) </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00419">419</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="af4a1ddca043cd9f2364156039929c7f6" name="af4a1ddca043cd9f2364156039929c7f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4a1ddca043cd9f2364156039929c7f6">&#9670;&#160;</a></span>mem_mib</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="#abd91afd89c76b09c77871c73dccef424">mem_n</a>) m_phase_timing::mem_mib = 0._wp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="abd91afd89c76b09c77871c73dccef424" name="abd91afd89c76b09c77871c73dccef424"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd91afd89c76b09c77871c73dccef424">&#9670;&#160;</a></span>mem_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter m_phase_timing::mem_n = 6</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a0e4a3180d4a3ec78efd4d57191f1894f" name="a0e4a3180d4a3ec78efd4d57191f1894f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4a3180d4a3ec78efd4d57191f1894f">&#9670;&#160;</a></span>mem_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">character(len=8), dimension(<a class="el" href="#abd91afd89c76b09c77871c73dccef424">mem_n</a> + 1), parameter m_phase_timing::mem_name = [character(len=8)::'store','scratch', 'patch', 'register', '<a class="el" href="namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1">ib</a> park', '<a class="el" href="namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1">ib</a> marks', 'total']</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ae56186a5cff686a7512185734de4a5f3" name="ae56186a5cff686a7512185734de4a5f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae56186a5cff686a7512185734de4a5f3">&#9670;&#160;</a></span>mem_patch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter, public m_phase_timing::mem_patch = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>coarse patch pool and its subcycling time cache </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00416">416</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="afce34b214da35f4cc477f62f4e8553df" name="afce34b214da35f4cc477f62f4e8553df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce34b214da35f4cc477f62f4e8553df">&#9670;&#160;</a></span>mem_reg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter, public m_phase_timing::mem_reg = 4</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>flux registers </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aad83a9eb78b45e8f942825e8eb7378ab" name="aad83a9eb78b45e8f942825e8eb7378ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad83a9eb78b45e8f942825e8eb7378ab">&#9670;&#160;</a></span>mem_scratch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter, public m_phase_timing::mem_scratch = 2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>batched-advance scratch (prim, rhs) and the block bridge </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00415">415</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aee11943dc6b719fe3ec03c01b5cd588c" name="aee11943dc6b719fe3ec03c01b5cd588c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee11943dc6b719fe3ec03c01b5cd588c">&#9670;&#160;</a></span>mem_store</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer, parameter, public m_phase_timing::mem_store = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>AMR allocations by group, noted by each owner before it frees them (s_mem_note) and printed with the phase table. </p>
+<p>flat block store (cons + RK stage copy) </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00414">414</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -410,7 +670,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -428,7 +688,7 @@ Here is the caller graph for this function:</div>
 
 <p>coarse (base-grid) solver work </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -446,7 +706,7 @@ Here is the caller graph for this function:</div>
 
 <p>fill waves: coarse-patch gather into every block </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -464,7 +724,7 @@ Here is the caller graph for this function:</div>
 
 <p>ghost prolongation from the gathered patch </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00385">385</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -482,7 +742,7 @@ Here is the caller graph for this function:</div>
 
 <p>coarse cons halo exchange (once per stage) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00383">383</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00384">384</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -500,7 +760,7 @@ Here is the caller graph for this function:</div>
 
 <p>subcycled coarse time interpolation for the level-1 fills </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -524,7 +784,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -548,7 +808,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -574,7 +834,7 @@ Here is the caller graph for this function:</div>
 
 <p>the disjoint brackets above; the regrid sub-phases below nest in PH_REGRID </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -592,7 +852,7 @@ Here is the caller graph for this function:</div>
 
 <p>level-1 reflux (faces wave + apply) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -610,7 +870,7 @@ Here is the caller graph for this function:</div>
 
 <p>regrid </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -628,7 +888,7 @@ Here is the caller graph for this function:</div>
 
 <p>post-stage restrict + reflux-to-parent fold </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -646,7 +906,7 @@ Here is the caller graph for this function:</div>
 
 <p>new-block build (fills, prolongation, overlap copy) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -664,7 +924,7 @@ Here is the caller graph for this function:</div>
 
 <p>clustering, shaping, nesting and box checks </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -682,7 +942,7 @@ Here is the caller graph for this function:</div>
 
 <p>coarse halo + host copy for tagging </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -700,7 +960,7 @@ Here is the caller graph for this function:</div>
 
 <p>fine-state migration </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -718,7 +978,7 @@ Here is the caller graph for this function:</div>
 
 <p>stash and owner assignment </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -736,7 +996,7 @@ Here is the caller graph for this function:</div>
 
 <p>slot reconcile, IB setup, seam check </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -754,7 +1014,7 @@ Here is the caller graph for this function:</div>
 
 <p>tagging </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -772,7 +1032,7 @@ Here is the caller graph for this function:</div>
 
 <p>fine-block RHS </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -790,7 +1050,7 @@ Here is the caller graph for this function:</div>
 
 <p>fine-block RK update + IB </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -808,7 +1068,7 @@ Here is the caller graph for this function:</div>
 
 <p>fine-fine seam halo </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00386">386</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -826,7 +1086,7 @@ Here is the caller graph for this function:</div>
 
 <p>per-batch grid-state swap and restore </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -850,7 +1110,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -876,7 +1136,7 @@ Here is the caller graph for this function:</div>
 
 <p>wall is the accumulated step-loop time the phases are budgeted against </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -900,7 +1160,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
