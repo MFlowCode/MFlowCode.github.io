@@ -24,7 +24,7 @@ var namespacem__ibm =
     [ "s_communicate_ib_forces", "namespacem__ibm.html#a20b12f9883611b3360b2d469a1870e66", null ],
     [ "s_compute_centroid_offset", "namespacem__ibm.html#a0c297ad593faad508e7d3032b7480723", null ],
     [ "s_compute_ghost_point_pressure", "namespacem__ibm.html#ad49ddd516052880c43cb2369c36a468b", null ],
-    [ "s_compute_ghost_point_velocity", "namespacem__ibm.html#a07cbd68c2407550952e7dc630dda27a1", null ],
+    [ "s_compute_ghost_point_velocity", "namespacem__ibm.html#aa77eb432f1eabe6b9682f4df0f53dea1", null ],
     [ "s_compute_ib_forces", "namespacem__ibm.html#abebbc0313fd270ee1c9ba1912f973f35", null ],
     [ "s_compute_image_points", "namespacem__ibm.html#a1234bec1c8eb33fb98651ff15fae70a4", null ],
     [ "s_compute_interpolation_coeffs", "namespacem__ibm.html#af541c50d114dcbae2665f4c004f00048", null ],

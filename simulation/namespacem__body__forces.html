@@ -184,6 +184,8 @@ Functions/Subroutines</h2></td></tr>
 dV) share them.  <br /></td></tr>
 <tr class="memitem:ad30d63d19e73248a6a01a62f2ce39c3e" id="r_ad30d63d19e73248a6a01a62f2ce39c3e"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad30d63d19e73248a6a01a62f2ce39c3e">s_apply_bodyforces</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt, q_t_sf)</td></tr>
 <tr class="memdesc:ad30d63d19e73248a6a01a62f2ce39c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the body forces source term at each Runge-Kutta stage.  <br /></td></tr>
+<tr class="memitem:a50eae5fd4940e011039d3ec6e9e5bd18" id="r_a50eae5fd4940e011039d3ec6e9e5bd18"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a50eae5fd4940e011039d3ec6e9e5bd18">s_apply_synthetic_turbulence_force</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt)</td></tr>
+<tr class="memdesc:a50eae5fd4940e011039d3ec6e9e5bd18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the synthetic turbulence forcing to the momentum and energy over the stage's local dt.  <br /></td></tr>
 <tr class="memitem:a9593ac2c8bd70031af48de04fea5f6d8" id="r_a9593ac2c8bd70031af48de04fea5f6d8"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9593ac2c8bd70031af48de04fea5f6d8">s_open_history</a> (unit, fname)</td></tr>
 <tr class="memdesc:a9593ac2c8bd70031af48de04fea5f6d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rank 0 opens a per-step history file in case_dir, appending on restart.  <br /></td></tr>
 <tr class="memitem:a97f9792833a46866ce1d7f98b10737e3" id="r_a97f9792833a46866ce1d7f98b10737e3"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a97f9792833a46866ce1d7f98b10737e3">s_mean_controller</a> (src, y, y_old, y_target, gain, c)</td></tr>
@@ -401,6 +403,57 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_ad30d63d19e73248a6a01a62f2ce39c3e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a50eae5fd4940e011039d3ec6e9e5bd18" name="a50eae5fd4940e011039d3ec6e9e5bd18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50eae5fd4940e011039d3ec6e9e5bd18">&#9670;&#160;</a></span>s_apply_synthetic_turbulence_force()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_body_forces::s_apply_synthetic_turbulence_force </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(1:<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf_in</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ldt</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds the synthetic turbulence forcing to the momentum and energy over the stage's local dt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ldt</td><td>local dt </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02066">2066</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a50eae5fd4940e011039d3ec6e9e5bd18_cgraph.svg" width="463" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a50eae5fd4940e011039d3ec6e9e5bd18_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -631,7 +684,12 @@ Here is the caller graph for this function:</div>
 <p>Compute the synthetic turbulence RHS contribution. </p>
 <p>Each Fourier mode m has wave vector k_m and a pre-computed solenoidal (divergence-free) direction e_m perpendicular to k_m. The force field is F = rho * (sum_m A_m * cos(k_m.(x-U*t*xhat) + phi_m) * e_m) * (U/Lx) * G. This excites all velocity components correctly and is zero outside the bounding box of the Gaussian window. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02312">2312</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02372">2372</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a68d941c7ca102fa11d8551de404c0cb9_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -649,7 +707,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the body forces module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02489">2489</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02549">2549</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -761,7 +819,7 @@ Here is the caller graph for this function:</div>
 
 <p>Integral (deadbeat for G = 1 and a constant load) update of a mean source s holding a fluid-mean quantity y at y_target: s += (G/dt) c (y_target - 2y^n + y^(n-1)), c the source-to-y capacity. y_old carries y^(n-1) between steps. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02082">2082</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02142">2142</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -799,7 +857,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rank 0 opens a per-step history file in case_dir, appending on restart. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02066">2066</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02126">2126</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -835,7 +893,7 @@ Here is the caller graph for this function:</div>
 <p>Once per step, fluid-cell averages driving the mean sources (sums over fluid cells). Mean pressure gradient: bulk mass flux Q_i = sum(rho u_i dV)/sum(dV), controlled to <a class="el" href="namespacem__global__parameters__common.html#aa2b9a473f29904ba40aed6049284d18c">mean_mflux(i)</a> by -dP/dx; logged to mean_dpdx.dat. Thermostat: mass-averaged temperature T_b = sum(rho T dV)/sum(rho dV), controlled to mean_temp by the heat source with capacity rho c_v (fluid mean); logged to mean_temp.dat with the mixing-cup T_m = sum(rho u_1 T dV)/sum(rho u_1 dV) and the fluid volume. With mean_temp_wall, the controller holds T_m instead and beta solves source total = beta (A1 + beta A2), A1 = sum(rho cp u_1 psi
 dV), A2 = sum(lam psi dV), psi = T - T_s, with A1 including the discrete conduction terms of the applied source; beta, A1, A2 are logged too. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02101">2101</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02161">2161</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

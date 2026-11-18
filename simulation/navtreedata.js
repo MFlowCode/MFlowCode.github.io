@@ -60,18 +60,18 @@ var NAVTREEINDEX =
 "m__sim__helpers_8fpp_8f90.html",
 "namespacem__amr__regrid.html#a121a43dc8e9346f63e240f1076392f6a",
 "namespacem__amr__transfer.html#a831c408c00a47ff1dcb052e52d5aa9df",
-"namespacem__cbc.html#a46dd3fd39eb024d7652510cae075f939",
-"namespacem__constants.html#ae89d49daff5ba33ed4286d11e767cea5",
-"namespacem__global__parameters.html#a5c017ac8b7bf0d36b4b3b88efe5ffc5f",
-"namespacem__global__parameters__common.html#a741db4538a2b242e110b57c95ae9ac9b",
-"namespacem__ibm.html#a32b716eb0478174045ffc2a8092785f7",
-"namespacem__particles__el.html#a25d1a88156408031c14b8ad2d7a194c6",
-"namespacem__riemann__state.html#a4f7ebb4b33ec4ac75f6dd39cb3b2d91a",
-"namespacemembers_vars_g.html",
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#ac413679a58d956b80a8df73b692e9801",
-"structm__derived__types_1_1ib__patch__parameters.html#a96ab94e72531ee91cb2dd40405b4c5f0",
-"structm__derived__types_1_1levelset__norm__field.html#afff4f3c38163d663c2d926f584b8b432",
-"structm__derived__types_1_1pres__field.html"
+"namespacem__cbc.html#a460b0f51b92de710648d9088801b1cde",
+"namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1",
+"namespacem__global__parameters.html#a5bb1184ff2f5339eb426051184818fe6",
+"namespacem__global__parameters__common.html#a72af482d4d3a3e787ebae5fd3cf21eb4",
+"namespacem__ibm.html#a31bf503a3fda2b4231f34b0db389a2f2",
+"namespacem__particles__el.html#a18e4c1332967c6dce2a6a7aa68335491",
+"namespacem__riemann__state.html#a3c154c3bc77a1f6ba64aaf2817d54159",
+"namespacemembers_vars.html",
+"structm__derived__types_1_1bubbles__lagrange__parameters.html#a7abbc0138bee7397be51f5d42eaa1474",
+"structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42",
+"structm__derived__types_1_1levelset__field.html",
+"structm__derived__types_1_1physical__parameters.html#af51060578c54a4a88cde14d1cd1e36cd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

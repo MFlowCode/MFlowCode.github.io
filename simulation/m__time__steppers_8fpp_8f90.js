@@ -4,7 +4,6 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::s_adaptive_dt_bubble", "namespacem__time__steppers.html#a478ee89172580cccd27e418731bc09b6", null ],
     [ "m_time_steppers::s_advance_ib_pose", "namespacem__time__steppers.html#a5f84c7a9e33314abc24bfd4fa3a43327", null ],
     [ "m_time_steppers::s_amr_check_fixed_dt", "namespacem__time__steppers.html#ac1055616d128c9bf8c9efcdb70b4899a", null ],
-    [ "m_time_steppers::s_apply_synthetic_turbulence_force", "namespacem__time__steppers.html#a19b72196160438bd0c5f88c7ac4e6684", null ],
     [ "m_time_steppers::s_compute_dt", "namespacem__time__steppers.html#a66fef5ca8d571721738db4d52fe41026", null ],
     [ "m_time_steppers::s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
     [ "m_time_steppers::s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],

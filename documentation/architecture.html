@@ -245,26 +245,28 @@ Solver Core</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_time_steppers</span>  </td><td class="markdownTableBodyNone">Total-variation-diminishing (TVD) Runge&ndash;Kutta time integrators (1st-, 2nd-, and 3rd-order SSP)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_stage_hooks</span>  </td><td class="markdownTableBodyNone">The hooks applied to the conservative state after each RK stage update, as one ordered list shared by the coarse grid (m_time_steppers) and the AMR fine blocks (m_amr_advance), so the two levels cannot run them in different orders  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_weno</span>  </td><td class="markdownTableBodyNone">WENO/WENO-Z/TENO reconstructions with optional monotonicity-preserving bounds and mapped weights  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solvers</span>  </td><td class="markdownTableBodyNone">Approximate and exact Riemann solvers (HLL, HLLC, HLLD, exact) for the multicomponent Navier&ndash;Stokes equations  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_state</span>  </td><td class="markdownTableBodyNone">Shared Riemann-solver module state and the per-sweep setup, state-buffer population, viscous source flux, and finalization helpers  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hlld</span>  </td><td class="markdownTableBodyNone">HLLD approximate Riemann solver for MHD, Miyoshi &amp; Kusano JCP (2005)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hll</span>  </td><td class="markdownTableBodyNone">HLL approximate Riemann solver, Harten et al  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_lf</span>  </td><td class="markdownTableBodyNone">Lax-Friedrichs (Rusanov) approximate Riemann solver  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hllc</span>  </td><td class="markdownTableBodyNone">HLLC Riemann solver with contact restoration, Toro et al  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">m_riemann_solver_hypo_hlld</span>  </td><td class="markdownTableBodyNone">Dual-pass HLLD approximate Riemann solver for hypoelastic flows, with non-conservative interface-velocity coupling  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">m_muscl</span>  </td><td class="markdownTableBodyNone">MUSCL reconstruction with interface sharpening for contact-preserving advection  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">m_variables_conversion</span>  </td><td class="markdownTableBodyNone">Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">m_muscl</span>  </td><td class="markdownTableBodyNone">MUSCL reconstruction with interface sharpening for contact-preserving advection  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">m_variables_conversion</span>  </td><td class="markdownTableBodyNone">Conservative-to-primitive variable conversion, mixture property evaluation, and pressure computation  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">m_thinc</span>  </td><td class="markdownTableBodyNone">THINC and MTHINC interface compression for volume fraction sharpening  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
@@ -481,7 +483,7 @@ Adding New Physics</h1>
 <li><b>Add the module to <span class="tt">docs/module_categories.json</span></b> so it appears in this page</li>
 </ol>
 <p>Follow the pattern of existing modules like <span class="tt">m_body_forces</span> (simple) or <span class="tt">m_viscous</span> (more involved) as a template.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-17</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-18</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

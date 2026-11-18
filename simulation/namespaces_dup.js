@@ -155,15 +155,11 @@ var namespaces_dup =
       [ "s_amr_unpack_rows", "namespacem__amr__exchange.html#a6347c707f0de1de9d2a9bfc1e13841c1", null ]
     ] ],
     [ "m_amr_frame", "namespacem__amr__frame.html", [
-      [ "s_amr_bodyforces_fine", "namespacem__amr__frame.html#ab4ddbff81ddd42b1ee2a90d83ee2d125", null ],
-      [ "s_amr_clean_species_fine", "namespacem__amr__frame.html#aae604f8e0390a9759498b1a71ff68799", null ],
-      [ "s_amr_cont_damage_fine", "namespacem__amr__frame.html#a3aedef6d4be0637ba4a0f8afcff5e457", null ],
       [ "s_amr_extend_ghost_coords", "namespacem__amr__frame.html#a8fe6339681be52493bcac208e05da81e", null ],
       [ "s_amr_fine_enter", "namespacem__amr__frame.html#a170f90f21fc14612998af7963b83a4b9", null ],
       [ "s_amr_fine_leave", "namespacem__amr__frame.html#a9e58df211f7eebcf44b3ebf10b51303b", null ],
       [ "s_amr_igr_restore_sigma", "namespacem__amr__frame.html#a7226e32b52d060a9529647ac498c3897", null ],
       [ "s_amr_igr_swap_sigma", "namespacem__amr__frame.html#ab06b4d904385112189d852403672a041", null ],
-      [ "s_amr_pressure_relax_fine", "namespacem__amr__frame.html#aa22d67bfe0b379a3610d3be81eefab47", null ],
       [ "s_amr_restore_coarse", "namespacem__amr__frame.html#a8584c4d1c3cbf43c1866d37cc98a986b", null ],
       [ "s_amr_swap_to_fine", "namespacem__amr__frame.html#a1c2c0e3fe9168e711b406fb68046133f", null ]
     ] ],
@@ -268,6 +264,7 @@ var namespaces_dup =
     ] ],
     [ "m_amr_stage", "namespacem__amr__stage.html", [
       [ "s_amr_fill_levels", "namespacem__amr__stage.html#a379c3ed8198250b5b519b1007cf8a7f6", null ],
+      [ "s_amr_fill_sub", "namespacem__amr__stage.html#a9f9fd979799d81dd5a1d495866358a97", null ],
       [ "s_amr_pc_copy", "namespacem__amr__stage.html#a34928ff0ed629e608bec68e7e7637f90", null ],
       [ "s_amr_pc_fill", "namespacem__amr__stage.html#a0261e436d111417762a8741490fa2016", null ],
       [ "s_amr_pc_gather", "namespacem__amr__stage.html#aa2bcae8991c56a9232470e2fec99f1e4", null ],
@@ -276,8 +273,7 @@ var namespaces_dup =
       [ "s_amr_stage_fine", "namespacem__amr__stage.html#ae7503818fecc9aa82725959208523729", null ],
       [ "s_amr_step_fold", "namespacem__amr__stage.html#a0f03fab0b00f4afe4dbe2b6e08158351", null ],
       [ "s_amr_subcycle_fine", "namespacem__amr__stage.html#a77d89b2cec477e4c458535765019b1f3", null ],
-      [ "s_amr_subcycle_l2", "namespacem__amr__stage.html#a7cfe122e6d5edeb6632602420d6abbb6", null ],
-      [ "c_stage", "namespacem__amr__stage.html#a6f09e03482eec583e770f07fbf6df347", null ]
+      [ "s_amr_subcycle_level", "namespacem__amr__stage.html#a4e939f6df9a18b4f2f51a89c8ef8dd28", null ]
     ] ],
     [ "m_amr_state", "namespacem__amr__state.html", "namespacem__amr__state" ],
     [ "m_amr_store", "namespacem__amr__store.html", [
@@ -344,6 +340,7 @@ var namespaces_dup =
       [ "f_fluid_volume", "namespacem__body__forces.html#a1ef61397941119c10fd3e0e48f6455f6", null ],
       [ "f_is_fluid_cell", "namespacem__body__forces.html#ae5e3477dc5dd198879fbbd3e1b44d957", null ],
       [ "s_apply_bodyforces", "namespacem__body__forces.html#ad30d63d19e73248a6a01a62f2ce39c3e", null ],
+      [ "s_apply_synthetic_turbulence_force", "namespacem__body__forces.html#a50eae5fd4940e011039d3ec6e9e5bd18", null ],
       [ "s_compute_acceleration", "namespacem__body__forces.html#ab227c5ae90649946f0090c234e5d0163", null ],
       [ "s_compute_body_force_with_spatial_support", "namespacem__body__forces.html#a418c876a8a4e110aec2d4754123b1311", null ],
       [ "s_compute_body_forces_rhs", "namespacem__body__forces.html#ab360b8ac3779a8dbffcc6301e14ec77b", null ],
@@ -1297,6 +1294,7 @@ var namespaces_dup =
       [ "ib_mass_relax", "namespacem__global__parameters__common.html#ae533b7f8908ebc3cb2c0e2d9580ea43f", null ],
       [ "ib_neighborhood_radius", "namespacem__global__parameters__common.html#ab9ccaa096249cba26380149a7ceac372", null ],
       [ "ib_second_order_vel", "namespacem__global__parameters__common.html#a4b295b6329d4aecd57d400c5390ccf85", null ],
+      [ "ib_slip_ccst", "namespacem__global__parameters__common.html#afa59b0b93ef68e3f5cb6b7086e5ff82f", null ],
       [ "ib_smooth_contact", "namespacem__global__parameters__common.html#a7de2df729641252a83ba9152d7a31bed", null ],
       [ "ib_state_wrt", "namespacem__global__parameters__common.html#a12c9eea2b592ab77bf8763b43814a78a", null ],
       [ "ib_surface_wrt", "namespacem__global__parameters__common.html#a51a0cfac72344c5bc7dab173cf3a00d1", null ],
@@ -2019,6 +2017,12 @@ var namespaces_dup =
       [ "clean_mass", "namespacem__species__bounds.html#ac82e9a15b74ce1a51e17a671d1cfe9c0", null ],
       [ "clean_report_tol", "namespacem__species__bounds.html#a0899b039d35e105e0ae58374c48d0881", null ]
     ] ],
+    [ "m_stage_hooks", "namespacem__stage__hooks.html", [
+      [ "f_stage_hooks_post_ib", "namespacem__stage__hooks.html#a9aee450e32c560cc23fa236968cd9ffd", null ],
+      [ "f_stage_hooks_pre_ib_on_block", "namespacem__stage__hooks.html#a9eb358ebdeaddf3a8f6124198fa12100", null ],
+      [ "s_stage_hooks_post_ib", "namespacem__stage__hooks.html#a4db951af8fdf7c32583c9de647bb3471", null ],
+      [ "s_stage_hooks_pre_ib", "namespacem__stage__hooks.html#a533f82730c57d1b20f29647f6d951f80", null ]
+    ] ],
     [ "m_start_up", "namespacem__start__up.html", [
       [ "s_assign_particle_cloud_ib_defaults", "namespacem__start__up.html#a308ac65752ef1268769cdff4bf9bc408", null ],
       [ "s_build_ib_neighborhood", "namespacem__start__up.html#ad9b45bd874a5d2a97704203606aebbb9", null ],
@@ -2087,7 +2091,6 @@ var namespaces_dup =
       [ "s_adaptive_dt_bubble", "namespacem__time__steppers.html#a478ee89172580cccd27e418731bc09b6", null ],
       [ "s_advance_ib_pose", "namespacem__time__steppers.html#a5f84c7a9e33314abc24bfd4fa3a43327", null ],
       [ "s_amr_check_fixed_dt", "namespacem__time__steppers.html#ac1055616d128c9bf8c9efcdb70b4899a", null ],
-      [ "s_apply_synthetic_turbulence_force", "namespacem__time__steppers.html#a19b72196160438bd0c5f88c7ac4e6684", null ],
       [ "s_compute_dt", "namespacem__time__steppers.html#a66fef5ca8d571721738db4d52fe41026", null ],
       [ "s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
       [ "s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],

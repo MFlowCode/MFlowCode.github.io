@@ -20,6 +20,7 @@ var m__amr__registers_8fpp_8f90 =
     [ "m_amr_registers::s_amr_reflux_faces", "namespacem__amr__registers.html#a77f6207d33d5500624521f85527035b2", null ],
     [ "m_amr_registers::s_amr_reg_prepare", "namespacem__amr__registers.html#a21b5a1571f93a5f1f3b3c521d8630e1c", null ],
     [ "m_amr_registers::s_amr_reg_reserve", "namespacem__amr__registers.html#aa3523635d3a012d6f74e2faf3a9fe1e2", null ],
+    [ "m_amr_registers::s_amr_set_rk_table", "namespacem__amr__registers.html#a1b1983438430b8b9506311e53e989ceb", null ],
     [ "m_amr_registers::s_amr_zero_registers", "namespacem__amr__registers.html#a6a28dde0554e50a76dc71e514e5fb24d", null ],
     [ "m_amr_registers::s_finalize_amr_registers", "namespacem__amr__registers.html#a09c1462d663e0232915ad46089601729", null ],
     [ "m_amr_registers::s_initialize_amr_registers", "namespacem__amr__registers.html#ad999fac345a7cbbb57aab6d729284750", null ],
@@ -32,12 +33,13 @@ var m__amr__registers_8fpp_8f90 =
     [ "m_amr_registers::amr_reg_epoch_built", "namespacem__amr__registers.html#ab8e999df6e597463b2d6f63397de9e76", null ],
     [ "m_amr_registers::amr_reg_floor", "namespacem__amr__registers.html#a4299ac40aafa64aa9456a5d9be575525", null ],
     [ "m_amr_registers::amr_reg_nblk_built", "namespacem__amr__registers.html#ae24109447bc23e7d87c3b65b56a7256a", null ],
+    [ "m_amr_registers::amr_rk_c", "namespacem__amr__registers.html#a2468b549e2019cedf7a6d53e2eea6291", null ],
+    [ "m_amr_registers::amr_rk_w", "namespacem__amr__registers.html#a850e7202556ee6ccce8e7ddfc40f13d4", null ],
     [ "m_amr_registers::areal", "namespacem__amr__registers.html#a0703230be2b48238e00346811646375d", null ],
     [ "m_amr_registers::bcap", "namespacem__amr__registers.html#a543d1912119e250cd5d4c3cb98bff9da", null ],
     [ "m_amr_registers::bmax", "namespacem__amr__registers.html#acc299ada9f3a825b7d6d5d992a7f5ce6", null ],
     [ "m_amr_registers::creg", "namespacem__amr__registers.html#a5df7ee03a933cc24c1b4e8edc44a131e", null ],
     [ "m_amr_registers::freg", "namespacem__amr__registers.html#a9c1c4fe301a4f4f97cd9fead2d9d47b1", null ],
     [ "m_amr_registers::rc", "namespacem__amr__registers.html#aeaef5156c56150951ef70ea7e5e066cd", null ],
-    [ "m_amr_registers::rf", "namespacem__amr__registers.html#ada3af4f7887217e463e1a7e9c7b98a6e", null ],
-    [ "m_amr_registers::rk3_w", "namespacem__amr__registers.html#a398c6fdd109bcdc8385c54cba814900a", null ]
+    [ "m_amr_registers::rf", "namespacem__amr__registers.html#ada3af4f7887217e463e1a7e9c7b98a6e", null ]
 ];

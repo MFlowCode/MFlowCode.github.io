@@ -75,6 +75,7 @@ var files_dup =
     [ "m_riemann_state.fpp.f90", "m__riemann__state_8fpp_8f90.html", "m__riemann__state_8fpp_8f90" ],
     [ "m_sim_helpers.fpp.f90", "m__sim__helpers_8fpp_8f90.html", "m__sim__helpers_8fpp_8f90" ],
     [ "m_species_bounds.fpp.f90", "m__species__bounds_8fpp_8f90.html", "m__species__bounds_8fpp_8f90" ],
+    [ "m_stage_hooks.fpp.f90", "m__stage__hooks_8fpp_8f90.html", "m__stage__hooks_8fpp_8f90" ],
     [ "m_start_up.fpp.f90", "m__start__up_8fpp_8f90.html", "m__start__up_8fpp_8f90" ],
     [ "m_surface_tension.fpp.f90", "m__surface__tension_8fpp_8f90.html", "m__surface__tension_8fpp_8f90" ],
     [ "m_thinc.fpp.f90", "m__thinc_8fpp_8f90.html", "m__thinc_8fpp_8f90" ],

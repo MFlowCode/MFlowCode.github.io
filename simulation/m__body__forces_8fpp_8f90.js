@@ -3,6 +3,7 @@ var m__body__forces_8fpp_8f90 =
     [ "m_body_forces::f_fluid_volume", "namespacem__body__forces.html#a1ef61397941119c10fd3e0e48f6455f6", null ],
     [ "m_body_forces::f_is_fluid_cell", "namespacem__body__forces.html#ae5e3477dc5dd198879fbbd3e1b44d957", null ],
     [ "m_body_forces::s_apply_bodyforces", "namespacem__body__forces.html#ad30d63d19e73248a6a01a62f2ce39c3e", null ],
+    [ "m_body_forces::s_apply_synthetic_turbulence_force", "namespacem__body__forces.html#a50eae5fd4940e011039d3ec6e9e5bd18", null ],
     [ "m_body_forces::s_compute_acceleration", "namespacem__body__forces.html#ab227c5ae90649946f0090c234e5d0163", null ],
     [ "m_body_forces::s_compute_body_force_with_spatial_support", "namespacem__body__forces.html#a418c876a8a4e110aec2d4754123b1311", null ],
     [ "m_body_forces::s_compute_body_forces_rhs", "namespacem__body__forces.html#ab360b8ac3779a8dbffcc6301e14ec77b", null ],

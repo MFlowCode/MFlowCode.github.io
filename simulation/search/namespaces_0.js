@@ -80,11 +80,12 @@ var searchData=
   ['m_5friemann_5fstate_77',['m_riemann_state',['../namespacem__riemann__state.html',1,'']]],
   ['m_5fsim_5fhelpers_78',['m_sim_helpers',['../namespacem__sim__helpers.html',1,'']]],
   ['m_5fspecies_5fbounds_79',['m_species_bounds',['../namespacem__species__bounds.html',1,'']]],
-  ['m_5fstart_5fup_80',['m_start_up',['../namespacem__start__up.html',1,'']]],
-  ['m_5fsurface_5ftension_81',['m_surface_tension',['../namespacem__surface__tension.html',1,'']]],
-  ['m_5fthinc_82',['m_thinc',['../namespacem__thinc.html',1,'']]],
-  ['m_5ftime_5fsteppers_83',['m_time_steppers',['../namespacem__time__steppers.html',1,'']]],
-  ['m_5fvariables_5fconversion_84',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]],
-  ['m_5fviscous_85',['m_viscous',['../namespacem__viscous.html',1,'']]],
-  ['m_5fweno_86',['m_weno',['../namespacem__weno.html',1,'']]]
+  ['m_5fstage_5fhooks_80',['m_stage_hooks',['../namespacem__stage__hooks.html',1,'']]],
+  ['m_5fstart_5fup_81',['m_start_up',['../namespacem__start__up.html',1,'']]],
+  ['m_5fsurface_5ftension_82',['m_surface_tension',['../namespacem__surface__tension.html',1,'']]],
+  ['m_5fthinc_83',['m_thinc',['../namespacem__thinc.html',1,'']]],
+  ['m_5ftime_5fsteppers_84',['m_time_steppers',['../namespacem__time__steppers.html',1,'']]],
+  ['m_5fvariables_5fconversion_85',['m_variables_conversion',['../namespacem__variables__conversion.html',1,'']]],
+  ['m_5fviscous_86',['m_viscous',['../namespacem__viscous.html',1,'']]],
+  ['m_5fweno_87',['m_weno',['../namespacem__weno.html',1,'']]]
 ];
