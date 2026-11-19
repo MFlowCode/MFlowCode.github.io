@@ -31,6 +31,7 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "length_y", "structm__derived__types_1_1ib__patch__parameters.html#aac6ae683129bd7b5342d8d85c8bfb3cb", null ],
     [ "length_z", "structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7", null ],
     [ "mass", "structm__derived__types_1_1ib__patch__parameters.html#a83f04c36c63c9e8f46f936726018d036", null ],
+    [ "mass_bank", "structm__derived__types_1_1ib__patch__parameters.html#a0ef271761aedfe933a45a013c52ab5d0", null ],
     [ "mdot", "structm__derived__types_1_1ib__patch__parameters.html#aafc584187e83186f7ca04f8be2e00d25", null ],
     [ "mdot_face", "structm__derived__types_1_1ib__patch__parameters.html#a160383b02795683dbd9a157f40d7acb0", null ],
     [ "model_id", "structm__derived__types_1_1ib__patch__parameters.html#a0ce38ab4b006bf64acd9a490616dd33a", null ],

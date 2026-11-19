@@ -171,8 +171,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a8fb021e54cf3ca51481377075435c6a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the temperature field from conservative variables by inverting the energy equation.  <br /></td></tr>
 <tr class="memitem:ae589845a052b6989808e9d9a098c3c0f" id="r_ae589845a052b6989808e9d9a098c3c0f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae589845a052b6989808e9d9a098c3c0f">s_compute_t_from_primitives</a> (q_t_sf, q_prim_vf, bounds)</td></tr>
 <tr class="memdesc:ae589845a052b6989808e9d9a098c3c0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the temperature field from primitive variables using the ideal gas law and mixture molecular weight.  <br /></td></tr>
-<tr class="memitem:a953d58cda7b882aa82ecf5f646bba0f6" id="r_a953d58cda7b882aa82ecf5f646bba0f6"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a953d58cda7b882aa82ecf5f646bba0f6">s_compute_chemistry_reaction_flux</a> (rhs_vf, q_cons_qp, q_t_sf, q_prim_qp, bounds)</td></tr>
-<tr class="memdesc:a953d58cda7b882aa82ecf5f646bba0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add chemical reaction source terms to the species transport RHS using net production rates.  <br /></td></tr>
+<tr class="memitem:a1af23884545d57d20e96609a37e39b88" id="r_a1af23884545d57d20e96609a37e39b88"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1af23884545d57d20e96609a37e39b88">s_compute_chemistry_reaction_flux</a> (rhs_vf, q_cons_qp, q_t_sf, q_prim_qp, bounds, track_stiff)</td></tr>
+<tr class="memdesc:a1af23884545d57d20e96609a37e39b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add chemical reaction source terms to the species transport RHS using net production rates.  <br /></td></tr>
 <tr class="memitem:ac8e41fe81d743b1fb307fe95ffdc0c1b" id="r_ac8e41fe81d743b1fb307fe95ffdc0c1b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac8e41fe81d743b1fb307fe95ffdc0c1b">s_chemistry_reaction_substep</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf, dtime, bounds)</td></tr>
 <tr class="memdesc:ac8e41fe81d743b1fb307fe95ffdc0c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition).  <br /></td></tr>
 <tr class="memitem:afceb64f9c9d24f599be335127532fd5e" id="r_afceb64f9c9d24f599be335127532fd5e"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#afceb64f9c9d24f599be335127532fd5e">f_qss_alpha</a> (r)</td></tr>
@@ -187,6 +187,9 @@ Variables</h2></td></tr>
 <tr class="memitem:ac5a506f5f9ae7e570019f3186bf93a6d" id="r_ac5a506f5f9ae7e570019f3186bf93a6d"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ac5a506f5f9ae7e570019f3186bf93a6d">isc1</a></td></tr>
 <tr class="memitem:a928f984be7aaae4b86063f7134ec9a7f" id="r_a928f984be7aaae4b86063f7134ec9a7f"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a928f984be7aaae4b86063f7134ec9a7f">isc2</a></td></tr>
 <tr class="memitem:ad9021792db73b9af37d34ccc1fece80d" id="r_ad9021792db73b9af37d34ccc1fece80d"><td class="memItemLeft">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ad9021792db73b9af37d34ccc1fece80d">isc3</a></td></tr>
+<tr class="memitem:ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3" id="r_ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3">chem_loss_max</a> = 0._wp</td></tr>
+<tr class="memdesc:ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest species loss rate (1/s) of the explicit reaction source since last reset: a bound on the Jacobian spectral radius.  <br /></td></tr>
+<tr class="memitem:a3ee037229743c705d44bb5b43678dda8" id="r_a3ee037229743c705d44bb5b43678dda8"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a3ee037229743c705d44bb5b43678dda8">y_floor_stiff</a> = 1.e-16_wp</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Multi-species chemistry interface for thermodynamic properties, reaction rates, and transport coefficients. </p>
@@ -232,7 +235,7 @@ Variables</h2></td></tr>
 
 <p>Compute mixture viscosities for left and right states and invert them for use as reciprocal Reynolds numbers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00415">415</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -277,7 +280,7 @@ Variables</h2></td></tr>
 
 <p>Whether the face between cell (x, y, z) and its neighbour at + offsets is a flux-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l02041">2041</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l02069">2069</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -303,7 +306,7 @@ Here is the caller graph for this function:</div>
 
 <p>alpha-QSS weight for a sub-step with dt*(loss rate) = r. (1 - alpha)*r &lt; 1 for every r &gt;= 0, so a step from non-negative mass fractions with non-negative production stays non-negative. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01042">1042</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01070">1070</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -343,7 +346,7 @@ Here is the caller graph for this function:</div>
 
 <p>Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00713">713</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00741">741</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -420,7 +423,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01068">1068</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l01096">1096</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -429,8 +432,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a953d58cda7b882aa82ecf5f646bba0f6" name="a953d58cda7b882aa82ecf5f646bba0f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a953d58cda7b882aa82ecf5f646bba0f6">&#9670;&#160;</a></span>s_compute_chemistry_reaction_flux()</h2>
+<a id="a1af23884545d57d20e96609a37e39b88" name="a1af23884545d57d20e96609a37e39b88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1af23884545d57d20e96609a37e39b88">&#9670;&#160;</a></span>s_compute_chemistry_reaction_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -458,14 +461,25 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>&#160;)</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1int__bounds__info.html">int_bounds_info</a>), dimension(1:3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bounds</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>track_stiff</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Add chemical reaction source terms to the species transport RHS using net production rates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">track_stiff</td><td>also record the max species loss rate (chem_loss_max) </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00607">607</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00611">611</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -495,7 +509,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the temperature field from conservative variables by inverting the energy equation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00546">546</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00550">550</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -525,7 +539,7 @@ Here is the call graph for this function:</div>
 
 <p>Compute the temperature field from primitive variables using the ideal gas law and mixture molecular weight. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00582">582</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00586">586</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -570,11 +584,29 @@ Here is the caller graph for this function:</div>
 
 <p>Effective Reynolds numbers 1/(rho*D) from the largest local transport diffusivity D &ndash; mu/rho with viscous, and lambda/(rho*cv) and the mixture-averaged diffusivities of the species present with chem_paramsdiffusion &ndash; so the viscous dt limit (dx^2*rho*Re) tracks the transport actually integrated, summed over the num_dims directions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00468">468</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3" name="ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3">&#9670;&#160;</a></span>chem_loss_max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_chemistry::chem_loss_max = 0._wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Largest species loss rate (1/s) of the explicit reaction source since last reset: a bound on the Jacobian spectral radius. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00409">409</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="ac5a506f5f9ae7e570019f3186bf93a6d" name="ac5a506f5f9ae7e570019f3186bf93a6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac5a506f5f9ae7e570019f3186bf93a6d">&#9670;&#160;</a></span>isc1</h2>
 
@@ -620,6 +652,22 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a3ee037229743c705d44bb5b43678dda8" name="a3ee037229743c705d44bb5b43678dda8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ee037229743c705d44bb5b43678dda8">&#9670;&#160;</a></span>y_floor_stiff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter m_chemistry::y_floor_stiff = 1.e-16_wp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 
 </div>
 </div>

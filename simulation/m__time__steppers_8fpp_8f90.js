@@ -1,5 +1,7 @@
 var m__time__steppers_8fpp_8f90 =
 [
+    [ "m_time_steppers::f_chem_stiffness_limit", "namespacem__time__steppers.html#a49080eae381c60b908f9406f82d1d245", null ],
+    [ "m_time_steppers::f_chem_stiffness_tracked", "namespacem__time__steppers.html#a27aaeb070e53d61d725d7d92e8867f26", null ],
     [ "m_time_steppers::s_abort_on_bad_dt_cell", "namespacem__time__steppers.html#a642d35df6fdabfeca26587ac4ffa1941", null ],
     [ "m_time_steppers::s_adaptive_dt_bubble", "namespacem__time__steppers.html#a478ee89172580cccd27e418731bc09b6", null ],
     [ "m_time_steppers::s_advance_ib_pose", "namespacem__time__steppers.html#a5f84c7a9e33314abc24bfd4fa3a43327", null ],
@@ -7,9 +9,13 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::s_compute_dt", "namespacem__time__steppers.html#a66fef5ca8d571721738db4d52fe41026", null ],
     [ "m_time_steppers::s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
     [ "m_time_steppers::s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],
+    [ "m_time_steppers::s_report_chem_stiffness", "namespacem__time__steppers.html#aea9b0e9e771b98c027d0ce972e756804", null ],
+    [ "m_time_steppers::s_report_chem_stiffness_summary", "namespacem__time__steppers.html#ab52f748ed75acd97f192b09844c99d42", null ],
     [ "m_time_steppers::s_time_step_cycling", "namespacem__time__steppers.html#a575aa7f95bf96994f49d81d71d19c192", null ],
     [ "m_time_steppers::s_tvd_rk", "namespacem__time__steppers.html#ae8912bf24b14160a2d3b6f52595cb868", null ],
     [ "m_time_steppers::bc_type", "namespacem__time__steppers.html#a14ff78f2da4ac39de3e5777ef727a567", null ],
+    [ "m_time_steppers::chem_stiff_max", "namespacem__time__steppers.html#aaa19814a864457b1bd073893ba4b6743", null ],
+    [ "m_time_steppers::chem_stiff_warned", "namespacem__time__steppers.html#add3104b0327482cf09ec7cdd41cb9565", null ],
     [ "m_time_steppers::num_probe_ts", "namespacem__time__steppers.html#a1f2231dbb3d51d3bfba88cb854aa644e", null ],
     [ "m_time_steppers::num_ts", "namespacem__time__steppers.html#af1bbf3b693b9d269249a93dca5069b56", null ],
     [ "m_time_steppers::q_cons_ts", "namespacem__time__steppers.html#a4bbe3aedc07e11e85679ec0c7a094f37", null ],

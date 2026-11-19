@@ -72,13 +72,15 @@ var namespaces_dup =
       [ "f_qss_alpha", "namespacem__chemistry.html#afceb64f9c9d24f599be335127532fd5e", null ],
       [ "s_chemistry_reaction_substep", "namespacem__chemistry.html#ac8e41fe81d743b1fb307fe95ffdc0c1b", null ],
       [ "s_compute_chemistry_diffusion_flux", "namespacem__chemistry.html#a00fe740845f49fe69a5c0685061b6f89", null ],
-      [ "s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a953d58cda7b882aa82ecf5f646bba0f6", null ],
+      [ "s_compute_chemistry_reaction_flux", "namespacem__chemistry.html#a1af23884545d57d20e96609a37e39b88", null ],
       [ "s_compute_q_t_sf", "namespacem__chemistry.html#a8fb021e54cf3ca51481377075435c6a9", null ],
       [ "s_compute_t_from_primitives", "namespacem__chemistry.html#ae589845a052b6989808e9d9a098c3c0f", null ],
       [ "s_compute_transport_dt_re", "namespacem__chemistry.html#a78fbdad9466f76e916202ae329a78c38", null ],
+      [ "chem_loss_max", "namespacem__chemistry.html#ab5af0c6f2ed9935d4bb6fc3fd8bfdbc3", null ],
       [ "isc1", "namespacem__chemistry.html#ac5a506f5f9ae7e570019f3186bf93a6d", null ],
       [ "isc2", "namespacem__chemistry.html#a928f984be7aaae4b86063f7134ec9a7f", null ],
-      [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ]
+      [ "isc3", "namespacem__chemistry.html#ad9021792db73b9af37d34ccc1fece80d", null ],
+      [ "y_floor_stiff", "namespacem__chemistry.html#a3ee037229743c705d44bb5b43678dda8", null ]
     ] ],
     [ "m_compile_specific", "namespacem__compile__specific.html", [
       [ "my_inquire", "namespacem__compile__specific.html#a9cf8c029e502931415929734c03f340d", null ],
@@ -619,7 +621,7 @@ var namespaces_dup =
       [ "s_initialize_bubbles_model", "namespacem__helper.html#aafee3a041d8a8605e3aa18c585dd8106", null ],
       [ "s_initialize_nonpoly", "namespacem__helper.html#a1e9d8d03a5b81a2f4a1b5a6348d11023", null ],
       [ "s_int_to_str", "namespacem__helper.html#afd343d70a36c65cb7be86a183aa594ac", null ],
-      [ "s_pack_ib_state", "namespacem__helper.html#ac5ba4fd7b217c3102778575ddf86bf5c", null ],
+      [ "s_pack_ib_state", "namespacem__helper.html#a68a7c93b72152a7cbdf65f64d4089028", null ],
       [ "s_print_2d_array", "namespacem__helper.html#abbd5b22c98850611aad33bc330a4691d", null ],
       [ "s_prng", "namespacem__helper.html#ac7e4e8792a668882d4145a218e26ad32", null ],
       [ "s_prng_splitmix32", "namespacem__helper.html#ab0842575e53fb0e123cd4a34cc14ffd9", null ],
