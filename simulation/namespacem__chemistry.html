@@ -177,8 +177,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:ac8e41fe81d743b1fb307fe95ffdc0c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator-split integration of the reaction source with an alpha-QSS (Mott quasi-steady-state) reactor. Called after the flow update: each cell's constant-(rho, e) reactor is advanced over dtime with chem_paramsreaction_substeps predictor-corrector sub-steps &ndash; or, when adap_substeps = T, an adaptive count nsub clamped to [reaction_substeps, reaction_substeps_max] and sized once per rank from the rank's stiffest cell &ndash; updating the species partial densities and temperature in place. Mixture density, momentum, and total energy are unchanged (reactions convert chemical to thermal energy at fixed internal energy). The alpha-QSS update treats each species' destruction as a pseudo-first-order loss, so it is stable for stiff ignition where an explicit source would overshoot and diverge, and relaxes to the correct chemical equilibrium rather than over-heating. Reaction is split from the flow update at first order (Lie-Trotter), and each sub-step renormalizes the mass fractions to sum to one (which does not strictly conserve elemental composition).  <br /></td></tr>
 <tr class="memitem:afceb64f9c9d24f599be335127532fd5e" id="r_afceb64f9c9d24f599be335127532fd5e"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#afceb64f9c9d24f599be335127532fd5e">f_qss_alpha</a> (r)</td></tr>
 <tr class="memdesc:afceb64f9c9d24f599be335127532fd5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">alpha-QSS weight for a sub-step with dt*(loss rate) = r. (1 - alpha)*r &lt; 1 for every r &gt;= 0, so a step from non-negative mass fractions with non-negative production stays non-negative.  <br /></td></tr>
-<tr class="memitem:a00fe740845f49fe69a5c0685061b6f89" id="r_a00fe740845f49fe69a5c0685061b6f89"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a00fe740845f49fe69a5c0685061b6f89">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_flat, irx, iry, irz, q_t_sf, ib_marks, wall_a, use_wall)</td></tr>
-<tr class="memdesc:a00fe740845f49fe69a5c0685061b6f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
+<tr class="memitem:a5371882cba2eb296679412807c9daac8" id="r_a5371882cba2eb296679412807c9daac8"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5371882cba2eb296679412807c9daac8">s_compute_chemistry_diffusion_flux</a> (idir, q_prim_qp, flux_src_flat, irx, iry, irz, q_t_sf, ib_marks, wall_a, ib_mode)</td></tr>
+<tr class="memdesc:a5371882cba2eb296679412807c9daac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute species mass diffusion fluxes at cell interfaces using mixture-averaged diffusivities.  <br /></td></tr>
+<tr class="memitem:a56ca8c50442d72023a8dd0af57c4a541" id="r_a56ca8c50442d72023a8dd0af57c4a541"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a56ca8c50442d72023a8dd0af57c4a541">f_property_temperature</a> (t, <a class="el" href="namespacem__global__parameters__common.html#a44889aede88d9b10f7dab1da61dcb0bf">p</a>, mw, rho, ib_marks, x, y, z)</td></tr>
+<tr class="memdesc:a56ca8c50442d72023a8dd0af57c4a541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature the diffusion properties of cell (x, y, z) are evaluated at: q_T_sf's value T, except in an immersed-body cell, where T is the conduction temperature (<a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>) and the cell's own state temperature p W/(rho R) is used.  <br /></td></tr>
 <tr class="memitem:a29bd713ec9b131030ad54a8b26cf1aa1" id="r_a29bd713ec9b131030ad54a8b26cf1aa1"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a29bd713ec9b131030ad54a8b26cf1aa1">f_flux_wall_face</a> (x, y, z, offsets, ib_marks, wall_a)</td></tr>
 <tr class="memdesc:a29bd713ec9b131030ad54a8b26cf1aa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the face between cell (x, y, z) and its neighbour at + offsets is a flux-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -285,11 +287,71 @@ Here is the caller graph for this function:</div>
 
 <p>Whether the face between cell (x, y, z) and its neighbour at + offsets is a flux-wall face (ib_flux_wall): one side is an immersed-body cell with a wall area share. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l02069">2069</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l02624">2624</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_a29bd713ec9b131030ad54a8b26cf1aa1_icgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a56ca8c50442d72023a8dd0af57c4a541" name="a56ca8c50442d72023a8dd0af57c4a541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ca8c50442d72023a8dd0af57c4a541">&#9670;&#160;</a></span>f_property_temperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_chemistry::f_property_temperature </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>p</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mw</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_marks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Temperature the diffusion properties of cell (x, y, z) are evaluated at: q_T_sf's value T, except in an immersed-body cell, where T is the conduction temperature (<a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>) and the cell's own state temperature p W/(rho R) is used. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__chemistry_8fpp_8f90_source.html#l02573">2573</a> of file <a class="el" href="m__chemistry_8fpp_8f90_source.html">m_chemistry.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_a56ca8c50442d72023a8dd0af57c4a541_icgraph.svg" width="427" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -360,8 +422,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a00fe740845f49fe69a5c0685061b6f89" name="a00fe740845f49fe69a5c0685061b6f89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00fe740845f49fe69a5c0685061b6f89">&#9670;&#160;</a></span>s_compute_chemistry_diffusion_flux()</h2>
+<a id="a5371882cba2eb296679412807c9daac8" name="a5371882cba2eb296679412807c9daac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5371882cba2eb296679412807c9daac8">&#9670;&#160;</a></span>s_compute_chemistry_diffusion_flux()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -414,7 +476,7 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>use_wall</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ib_mode</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -423,7 +485,7 @@ Here is the call graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">flux_src_flat</td><td>Flat (x, y, z, var) source-flux buffer; a plain-array dummy because src/common cannot <span class="tt">use <a class="el" href="namespacem__riemann__state.html" title="Shared Riemann-solver module state and the per-sweep setup, state-buffer population,...">m_riemann_state</a></span>. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ib_marks</td><td>Wall area share of each body cell (use_wall, ib_flux_wall): those faces carry the wall's own rates in the Riemann flux, so diffusion keeps only conduction there. Only the use_wall kernels name ib_marks and wall_a; the others are the original kernels, so these may be unallocated </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ib_marks</td><td>ib_mode 0: no immersed body. 1: q_T_sf holds the mirrored conduction temperature in body cells (<a class="el" href="namespacem__ibm.html" title="Ghost-node immersed boundary method: locates ghost/image points, computes interpolation coefficients,...">m_ibm</a>), which supply only the face temperature difference, so their properties use the cell's own state temperature p W/(rho R). 2: also the reacting-wall area share of each body cell (ib_flux_wall, wall_a): those faces carry the surface rates in the Riemann flux, so diffusion keeps only conduction there. A kernel names ib_marks (and wall_a) only in the modes that use them, so they may be unallocated otherwise </td></tr>
   </table>
   </dd>
 </dl>
@@ -432,7 +494,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_a00fe740845f49fe69a5c0685061b6f89_cgraph.svg" width="396" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__chemistry_a5371882cba2eb296679412807c9daac8_cgraph.svg" width="427" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

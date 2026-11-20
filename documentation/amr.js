@@ -8,6 +8,7 @@ var amr =
       [ "Supported physics", "amr.html#amr-physics", null ],
       [ "Parameters", "amr.html#amr-parameters", null ],
       [ "Example", "amr.html#amr-example", null ],
+      [ "When AMR pays", "amr.html#amr-payoff", null ],
       [ "Limitations", "amr.html#amr-limitations", null ]
     ] ],
     [ "AMR Implementation Reference", "amr_implementation.html", [

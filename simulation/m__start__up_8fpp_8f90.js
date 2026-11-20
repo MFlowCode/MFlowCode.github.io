@@ -20,6 +20,7 @@ var m__start__up_8fpp_8f90 =
     [ "m_start_up::s_read_lag_restart", "namespacem__start__up.html#a4b97bd743beb307ebaa1df25c774f940", null ],
     [ "m_start_up::s_read_parallel_data_files", "namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d", null ],
     [ "m_start_up::s_read_serial_data_files", "namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80", null ],
+    [ "m_start_up::s_resolve_ib_mass_relax", "namespacem__start__up.html#aba8c2cd9cca47504df72389eaa934608", null ],
     [ "m_start_up::s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
     [ "m_start_up::s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
     [ "m_start_up::dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],

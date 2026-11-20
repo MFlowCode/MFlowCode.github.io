@@ -25,6 +25,7 @@ var m__helper_8fpp_8f90 =
     [ "m_helper::s_initialize_bubbles_model", "namespacem__helper.html#aafee3a041d8a8605e3aa18c585dd8106", null ],
     [ "m_helper::s_initialize_nonpoly", "namespacem__helper.html#a1e9d8d03a5b81a2f4a1b5a6348d11023", null ],
     [ "m_helper::s_int_to_str", "namespacem__helper.html#afd343d70a36c65cb7be86a183aa594ac", null ],
+    [ "m_helper::s_locate_cell", "namespacem__helper.html#a6d45e166d8248d3a0d807c66431a73a3", null ],
     [ "m_helper::s_pack_ib_state", "namespacem__helper.html#a68a7c93b72152a7cbdf65f64d4089028", null ],
     [ "m_helper::s_print_2d_array", "namespacem__helper.html#abbd5b22c98850611aad33bc330a4691d", null ],
     [ "m_helper::s_prng", "namespacem__helper.html#ac7e4e8792a668882d4145a218e26ad32", null ],

@@ -4,10 +4,11 @@ var NAVTREEINDEX0 =
 "amr.html#amr-algorithm":[1,0,1],
 "amr.html#amr-conservation":[1,0,2],
 "amr.html#amr-example":[1,0,6],
-"amr.html#amr-limitations":[1,0,7],
+"amr.html#amr-limitations":[1,0,8],
 "amr.html#amr-overview":[1,0,0],
 "amr.html#amr-parallel":[1,0,3],
 "amr.html#amr-parameters":[1,0,5],
+"amr.html#amr-payoff":[1,0,7],
 "amr.html#amr-physics":[1,0,4],
 "amr.html#autotoc_md0":[1,0],
 "amr_implementation.html":[1,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "equations.html#autotoc_md209":[9,0,16,0,0],
 "equations.html#autotoc_md210":[9,0,16,0,1],
 "equations.html#autotoc_md211":[9,0,16,0,2],
-"equations.html#autotoc_md212":[9,0,16,1],
-"equations.html#autotoc_md213":[9,0,16,1,0]
+"equations.html#autotoc_md212":[9,0,16,1]
 };

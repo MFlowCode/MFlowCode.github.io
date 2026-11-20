@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['3_0',['3',['../equations.html#autotoc_md163',1,'2.2 Six-Equation Model (&lt;span class=&quot;tt&quot;&gt;model_eqns = 3&lt;/span&gt;)'],['../equations.html#autotoc_md174',1,'5. Cylindrical Coordinates (&lt;span class=&quot;tt&quot;&gt;cyl_coord = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[68]&lt;/a&gt; Sec. 2.3)'],['../equations.html#autotoc_md189',1,'8. Phase Change (&lt;span class=&quot;tt&quot;&gt;relax = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[68]&lt;/a&gt; Sec. 4.1.3)'],['../equations.html#autotoc_md215',1,'Exact (&lt;span class=&quot;tt&quot;&gt;riemann_solver = 3&lt;/span&gt;)']]],
+  ['3_0',['3',['../equations.html#autotoc_md163',1,'2.2 Six-Equation Model (&lt;span class=&quot;tt&quot;&gt;model_eqns = 3&lt;/span&gt;)'],['../equations.html#autotoc_md174',1,'5. Cylindrical Coordinates (&lt;span class=&quot;tt&quot;&gt;cyl_coord = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[68]&lt;/a&gt; Sec. 2.3)'],['../equations.html#autotoc_md189',1,'8. Phase Change (&lt;span class=&quot;tt&quot;&gt;relax = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[68]&lt;/a&gt; Sec. 4.1.3)'],['../gpuParallelization.html#autotoc_md443',1,'Contended atomics and launch cost (measured on MI300A, AFAR 24.3)'],['../equations.html#autotoc_md215',1,'Exact (&lt;span class=&quot;tt&quot;&gt;riemann_solver = 3&lt;/span&gt;)']]],
   ['3_201_20stiffened_20gas_20eos_20menikoff89_20lemetayer04_20wilfong26_20sec_202_202_1',['3.1 Stiffened Gas EOS (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_menikoff89&quot;&gt;[40]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_lemetayer04&quot;&gt;[30]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[68]&lt;/a&gt; Sec. 2.2)',['../equations.html#autotoc_md167',1,'']]],
   ['3_202_20ideal_20gas_20eos_20chemistry_20chemistry_20true_2',['3.2 Ideal Gas EOS (Chemistry, &lt;span class=&quot;tt&quot;&gt;chemistry = .true.&lt;/span&gt;)',['../equations.html#autotoc_md168',1,'']]],
   ['3_205_207_3',['WENO (&lt;span class=&quot;tt&quot;&gt;weno_order = 3, 5, 7&lt;/span&gt;)',['../equations.html#autotoc_md209',1,'']]],
@@ -13,10 +13,10 @@ var searchData=
   ['3_20patches_10',['3. Patches',['../case.html#sec-patches',1,'']]],
   ['3_20rayleigh17_20plesset49_11',['6.1.2 Rayleigh-Plesset (&lt;span class=&quot;tt&quot;&gt;bubble_model = 3&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_rayleigh17&quot;&gt;[32]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_plesset49&quot;&gt;[47]&lt;/a&gt;)',['../equations.html#autotoc_md179',1,'']]],
   ['3_20time_20integration_12',['15.3 Time Integration',['../equations.html#autotoc_md218',1,'']]],
-  ['3_3a_20running_20pace_20paraview_20server_13',['Step 3: Running pace-paraview-server',['../visualization.html#autotoc_md720',1,'']]],
+  ['3_3a_20running_20pace_20paraview_20server_13',['Step 3: Running pace-paraview-server',['../visualization.html#autotoc_md721',1,'']]],
   ['3d_14',['3D',['../examples.html#autotoc_md254',1,'3D Turbulent Mixing layer (3D)'],['../examples.html#autotoc_md378',1,'IBM Bow Shock (3D)'],['../examples.html#autotoc_md370',1,'Rayleigh-Taylor Instability (3D)'],['../examples.html#autotoc_md234',1,'Taylor-Green Vortex (3D)']]],
   ['3d_20cylindrical_15',['Azimuthal Fourier conduction convergence (3D cylindrical)',['../examples.html#autotoc_md306',1,'']]],
-  ['3d_20slicing_16',['3D slicing',['../visualization.html#autotoc_md704',1,'']]],
+  ['3d_20slicing_16',['3D slicing',['../visualization.html#autotoc_md705',1,'']]],
   ['3d_20temporal_20reacting_20mixing_20layer_20h2_20n2_20air_20mc_201_205_17',['3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)',['../examples.html#autotoc_md273',1,'']]],
   ['3d_20turbulent_20mixing_20layer_203d_18',['3D Turbulent Mixing layer (3D)',['../examples.html#autotoc_md254',1,'']]]
 ];

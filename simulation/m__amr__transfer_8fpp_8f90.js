@@ -3,6 +3,7 @@ var m__amr__transfer_8fpp_8f90 =
     [ "m_amr_transfer::f_amr_reflux_participates", "namespacem__amr__transfer.html#addcca03ae989b45ca6c2fcb47938005c", null ],
     [ "m_amr_transfer::s_amr_build_cfl_map", "namespacem__amr__transfer.html#aa31ee18162a4103689c22e4566db4402", null ],
     [ "m_amr_transfer::s_amr_build_static_multilevel", "namespacem__amr__transfer.html#ac94545f49b697aa2ef6a602e0992daf3", null ],
+    [ "m_amr_transfer::s_amr_check_block_geometry", "namespacem__amr__transfer.html#adaafa9dc801510f05e3a13a78eb8831f", null ],
     [ "m_amr_transfer::s_amr_face_xfers", "namespacem__amr__transfer.html#a55c3221c50cd3cae3378398b88d8649a", null ],
     [ "m_amr_transfer::s_amr_freg_faces_poison", "namespacem__amr__transfer.html#a4390450a9360bb52423756dc77ede535", null ],
     [ "m_amr_transfer::s_amr_freg_faces_req", "namespacem__amr__transfer.html#ac516da2197e8aabc9b48e85aacec2fbe", null ],

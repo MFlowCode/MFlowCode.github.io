@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"equations.html#autotoc_md213":[9,0,16,1,0],
 "equations.html#autotoc_md214":[9,0,16,1,1],
 "equations.html#autotoc_md215":[9,0,16,1,2],
 "equations.html#autotoc_md216":[9,0,16,1,3],
@@ -230,13 +231,14 @@ var NAVTREEINDEX1 =
 "gpuParallelization.html#autotoc_md441":[13,1,4],
 "gpuParallelization.html#autotoc_md442":[13,1,4,0],
 "gpuParallelization.html#autotoc_md443":[13,1,4,1],
-"gpuParallelization.html#autotoc_md445":[13,1,6],
+"gpuParallelization.html#autotoc_md444":[13,1,4,2],
+"gpuParallelization.html#autotoc_md446":[13,1,6],
 "gpuParallelization.html#silent-failure-traps":[13,1,5],
 "index.html":[],
 "index.html":[0],
 "pages.html":[],
 "papers.html":[14],
-"papers.html#autotoc_md446":[14,0],
+"papers.html#autotoc_md447":[14,0],
 "parameters.html":[15],
 "parameters.html#acoustic":[15,0,6],
 "parameters.html#alpha_rho_e_wrt":[15,0,23],
@@ -244,10 +246,8 @@ var NAVTREEINDEX1 =
 "parameters.html#alpha_wrt":[15,0,25],
 "parameters.html#amr_block_beg":[15,0,32],
 "parameters.html#amr_block_end":[15,0,33],
-"parameters.html#autotoc_md447":[15,0],
-"parameters.html#autotoc_md448":[15,0,0],
-"parameters.html#autotoc_md449":[15,0,1],
-"parameters.html#autotoc_md451":[15,0,2,0],
-"parameters.html#autotoc_md453":[15,0,3,0],
-"parameters.html#autotoc_md455":[15,0,4,0]
+"parameters.html#autotoc_md448":[15,0],
+"parameters.html#autotoc_md449":[15,0,0],
+"parameters.html#autotoc_md450":[15,0,1],
+"parameters.html#autotoc_md452":[15,0,2,0]
 };

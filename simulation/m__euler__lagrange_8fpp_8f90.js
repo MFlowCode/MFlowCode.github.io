@@ -14,7 +14,6 @@ var m__euler__lagrange_8fpp_8f90 =
     [ "m_euler_lagrange::s_get_lag_restart_point", "namespacem__euler__lagrange.html#a96f627e44a64d627aa12b1019ebfcb3c", null ],
     [ "m_euler_lagrange::s_initialize_lag_gradient", "namespacem__euler__lagrange.html#a3b6bd487ce4380aeca6b8831bcbe8460", null ],
     [ "m_euler_lagrange::s_lag_gradient_dir", "namespacem__euler__lagrange.html#a86fda85b88fcafdb575bc475379716e5", null ],
-    [ "m_euler_lagrange::s_locate_cell", "namespacem__euler__lagrange.html#a7f1274ebe109c800e486f61a68a04d91", null ],
     [ "m_euler_lagrange::s_set_lag_comm_coords", "namespacem__euler__lagrange.html#a57bfc3e8d77adaff703c417a152c4353", null ],
     [ "m_euler_lagrange::s_wrap_lag_entities_periodic", "namespacem__euler__lagrange.html#a47af949badf0364d54439cbfb0c2c923", null ],
     [ "m_euler_lagrange::nweights_grad", "namespacem__euler__lagrange.html#a1993255ccf04a073b85f1a9903b361e4", null ],

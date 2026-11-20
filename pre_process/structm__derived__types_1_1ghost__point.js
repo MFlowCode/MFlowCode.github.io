@@ -12,6 +12,8 @@ var structm__derived__types_1_1ghost__point =
     [ "levelset_norm", "structm__derived__types_1_1ghost__point.html#af976ab431e8ef9e6b437664327174e3e", null ],
     [ "loc", "structm__derived__types_1_1ghost__point.html#af66d67c76ce564bf5013183c1dce2d44", null ],
     [ "slip", "structm__derived__types_1_1ghost__point.html#aca2d4f2865d8c8abf9898c7943ae52ab", null ],
+    [ "t_cond", "structm__derived__types_1_1ghost__point.html#a6469447d1331371487400d65f3919ff3", null ],
+    [ "t_save", "structm__derived__types_1_1ghost__point.html#a87d1213a79c8940f193bcd251c6e8366", null ],
     [ "x_periodicity", "structm__derived__types_1_1ghost__point.html#a20328680231423e909f012c110cc81aa", null ],
     [ "y_periodicity", "structm__derived__types_1_1ghost__point.html#a9e33937f4756520112c48c3102f35936", null ],
     [ "z_periodicity", "structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095", null ]

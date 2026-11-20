@@ -965,6 +965,13 @@ Whole-image device codegen instability (worked around in the build)</h3>
 <p>MFC's build raises the cap (<span class="tt">-attributor-max-pi-accesses=16384</span>, passed to the offload linker in <span class="tt">cmake/MFCTargets.cmake</span>), which restores full pointer precision for the whole image and makes kernel quality independent of unrelated edits. The cost is a longer device link. If a build's device link is unexpectedly slow, this flag is why — do not remove it; kernel performance becomes nondeterministic across commits without it. The cap is unchanged in AFAR 24.3 (<a href="https://github.com/ROCm/llvm-project/issues/4070">ROCm/llvm-project#4070</a>; fix proposed in <a href="https://github.com/ROCm/llvm-project/pull/4094">#4094</a>).</p>
 <p>The failure signature without the flag: after adding a kernel, unrelated kernels' resource usage shifts image-wide (uniform LDS increase, scratch/spill jumps visible in <span class="tt">rocprofv3</span> dispatch records) and previously fast kernels slow several-fold.</p>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md443"></a>
+Contended atomics and launch cost (measured on MI300A, AFAR 24.3)</h3>
+<ul>
+<li>A <span class="tt">GPU_ATOMIC</span> update of a double lowers to a <span class="tt">flat_atomic_cmpswap</span> loop; <span class="tt">-munsafe-fp-atomics</span> does not change that on amdflang (checked in the device ISA). Many threads adding to one address serialize: the roughly 900 shell cells of a 512 x 512 circle summing its gas mass took 700 us, against 56 us with the adds spread over 32 sums (<span class="tt">ib_part</span>).</li>
+<li>A kernel's launch cost grows with the arrays it names: the general <span class="tt">s_accumulate_ib_face_fluxes</span> kernel (120 arguments) left a 0.5 ms host gap before every launch, the mass-only <span class="tt">s_accumulate_ib_mass</span> (a few arrays) 25 to 50 us. A kernel the common case does not need should not carry the arrays of the rare ones.</li>
+<li>A <span class="tt">GPU_UPDATE</span> host/device round trip of a few bytes is a device sync costing about 0.5 ms; skip it where the data are not read on the host (one rank needs no allreduce).</li>
+</ul>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md444"></a>
 Target regions inside Fortran BLOCK constructs are silently dropped</h3>
 <p>A <span class="tt">GPU_PARALLEL_LOOP</span> (OpenMP target region) written inside a Fortran <span class="tt">block ...
 end block</span> construct compiles cleanly, but amdflang omits it from the device image while the host still registers it. The first launch aborts with </p><pre class="fragment">hsa_executable_get_symbol_by_name(__omp_offloading_..._l&lt;line&gt;.kd):
@@ -987,7 +994,7 @@ Silent-Failure Traps</h2>
 <li><span class="tt">@:ACC_SETUP_VFs</span> and <span class="tt">@:ACC_SETUP_SFs</span> compile only under Cray. Around MPI, use <span class="tt">GPU_UPDATE(host=...)</span> before a send and <span class="tt">GPU_UPDATE(device=...)</span> after a receive.</li>
 </ul>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
 Compiler Documentation</h2>
 <ul>
 <li><a href="https://cpe.ext.hpe.com/docs/24.11/cce/man7/intro_openmp.7.html#environment-variables">Cray &amp; OpenMP Docs</a></li>
@@ -1001,7 +1008,7 @@ Compiler Documentation</h2>
 <li><a href="https://www.openmp.org/spec-html/5.1/openmp.html">OpenMP Docs</a></li>
 <li><a href="https://www.openacc.org/sites/default/files/inline-files/OpenACC.2.7.pdf">OpenACC Docs</a></li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-13</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-19</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

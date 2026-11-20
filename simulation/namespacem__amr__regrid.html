@@ -191,6 +191,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a21461910e75bdd6cfff2d046d3fa650e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regrid phase 1: density-gradient tag field, skipping the global boundary cells; tags over acoustic and bubble-cloud supports are suppressed. sidx = this rank's global start offsets.  <br /></td></tr>
 <tr class="memitem:a968241e2845af44dc253c8fdf8c90c4a" id="r_a968241e2845af44dc253c8fdf8c90c4a"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a968241e2845af44dc253c8fdf8c90c4a">s_amr_regrid_cluster_tags</a> (tag_grid, sidx, boxes, nboxes)</td></tr>
 <tr class="memdesc:a968241e2845af44dc253c8fdf8c90c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regrid phase 2: cluster this rank's tags (rank-invariant, via signature reductions) into separated boxes; nboxes = 0 if nothing is tagged.  <br /></td></tr>
+<tr class="memitem:ac43bfca1b0097442b93e75ac07e1d328" id="r_ac43bfca1b0097442b93e75ac07e1d328"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac43bfca1b0097442b93e75ac07e1d328">s_amr_regrid_dormant_seed</a> (boxes, nboxes)</td></tr>
+<tr class="memdesc:ac43bfca1b0097442b93e75ac07e1d328"><td class="mdescLeft">&#160;</td><td class="mdescRight">One coarse cell at the domain center, which shaping pads into the dormant block that replaces the hierarchy.  <br /></td></tr>
 <tr class="memitem:ad2167bcc3929908c18a0cf9f5235d2c4" id="r_ad2167bcc3929908c18a0cf9f5235d2c4"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#ad2167bcc3929908c18a0cf9f5235d2c4">f_amr_boxes_compatible</a> (alo, ahi, blo, bhi)</td></tr>
 <tr class="memdesc:ad2167bcc3929908c18a0cf9f5235d2c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">True iff two same-level blocks can coexist: disjoint, and either &gt;= 2 empty coarse cells apart or face-adjacent with an exact transverse match. Mirrors s_amr_check_seam_topology.  <br /></td></tr>
 <tr class="memitem:a1e62ece542e47e9473c40b1a71f98d6e" id="r_a1e62ece542e47e9473c40b1a71f98d6e"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1e62ece542e47e9473c40b1a71f98d6e">s_amr_regrid_snap_boxes</a> (boxes, nboxes, box_level)</td></tr>
@@ -213,8 +215,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a4fb8cb677b303163e417a5f49eb242ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">True iff the box set and levels equal the live slots (a rebuild would reproduce them).  <br /></td></tr>
 <tr class="memitem:a85b7de61b45858e7e69ebd9022fc0aad" id="r_a85b7de61b45858e7e69ebd9022fc0aad"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a85b7de61b45858e7e69ebd9022fc0aad">s_amr_mig_pack_device</a> (loc, l1, l2, l3, h1, h2, h3, buf)</td></tr>
 <tr class="memdesc:a85b7de61b45858e7e69ebd9022fc0aad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pack fine window [l, h] of an owned old block's stash (device store) into its wire slice buf; gi fastest, then gj, gk, ii.  <br /></td></tr>
-<tr class="memitem:ab50450647dc1a0156044b659c38e7863" id="r_ab50450647dc1a0156044b659c38e7863"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab50450647dc1a0156044b659c38e7863">s_amr_mig_window</a> (wlo, whi, ilo, flo, fhi)</td></tr>
-<tr class="memdesc:ab50450647dc1a0156044b659c38e7863"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine-index window [flo, fhi] in level-1 old block ilo's stash of the coarse box [wlo, whi] (0:0 in collapsed dims).  <br /></td></tr>
+<tr class="memitem:a14c9c4b85b9cc8b1ddfe66ed3b0deb15" id="r_a14c9c4b85b9cc8b1ddfe66ed3b0deb15"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a14c9c4b85b9cc8b1ddfe66ed3b0deb15">s_amr_mig_window</a> (wlo, whi, ilo, lev, flo, fhi)</td></tr>
+<tr class="memdesc:a14c9c4b85b9cc8b1ddfe66ed3b0deb15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine-index window [flo, fhi] in level-1 old block ilo's stash of the coarse box [wlo, whi] (0:0 in collapsed dims).  <br /></td></tr>
 <tr class="memitem:a33cf064e757a74d290d22277ac7d86dd" id="r_a33cf064e757a74d290d22277ac7d86dd"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a33cf064e757a74d290d22277ac7d86dd">s_amr_mig_free</a> (pool)</td></tr>
 <tr class="memdesc:a33cf064e757a74d290d22277ac7d86dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free a migration pool (device-resident when amr_fw_dev).  <br /></td></tr>
 <tr class="memitem:ad9c44721a791af542d753130a14ab293" id="r_ad9c44721a791af542d753130a14ab293"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad9c44721a791af542d753130a14ab293">s_amr_stash_copy_device</a> (loc, e1, e2, e3)</td></tr>
@@ -227,13 +229,13 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2f8fb389e30e30bd310ae5a87b59b82d" id="r_a2f8fb389e30e30bd310ae5a87b59b82d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2f8fb389e30e30bd310ae5a87b59b82d">s_amr_commit_boxes</a> (boxes, nboxes, box_level)</td></tr>
 <tr class="memdesc:a2f8fb389e30e30bd310ae5a87b59b82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Commit the new regions, levels and owners, after checking proper nesting.  <br /></td></tr>
 <tr class="memitem:a1be15dc77c1d7dcb1214a1c89ac343bf" id="r_a1be15dc77c1d7dcb1214a1c89ac343bf"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1be15dc77c1d7dcb1214a1c89ac343bf">s_amr_migrate_old_blocks</a> (boxes, nboxes, box_level, old_np, old_ilo, old_chi, old_owner, old_level, old_owns)</td></tr>
-<tr class="memdesc:a1be15dc77c1d7dcb1214a1c89ac343bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross-rank migration as one wave: each old owner ships the bounding box of its overlaps to every other rank owning an overlapping new level-1 block (level &gt;= 2 re-prolongs from its parent). Both sides enumerate old blocks ascending, so the transfers line up; received windows stay in amr_mig_rq. No-op at np=1.  <br /></td></tr>
+<tr class="memdesc:a1be15dc77c1d7dcb1214a1c89ac343bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross-rank migration as one wave: each old owner ships the bounding box of its overlaps to every other rank owning an overlapping new block of the same level. Both sides enumerate old blocks ascending, so the transfers line up; received windows stay in amr_mig_rq. No-op at np=1.  <br /></td></tr>
 <tr class="memitem:a5ee9d84c81acafca2f452fd681373ef8" id="r_a5ee9d84c81acafca2f452fd681373ef8"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5ee9d84c81acafca2f452fd681373ef8">s_amr_regrid_stash_migrate</a> (boxes, nboxes, box_level, old_np, old_ilo, old_ext, old_level, old_owns)</td></tr>
 <tr class="memdesc:a5ee9d84c81acafca2f452fd681373ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regrid phase 5: stash the old block set, commit the new one, and migrate stashed old blocks point-to-point to the ranks owning overlapping new blocks.  <br /></td></tr>
 <tr class="memitem:a938d6df0d1c238c1e5a9d3daae67a2ba" id="r_a938d6df0d1c238c1e5a9d3daae67a2ba"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a938d6df0d1c238c1e5a9d3daae67a2ba">s_amr_plan_rebuild_visits</a> (boxes, nboxes, old_np, old_ilo, old_ext, old_level, vpos, last_use, held, nh)</td></tr>
 <tr class="memdesc:a938d6df0d1c238c1e5a9d3daae67a2ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Visit order of the owned new boxes (level-major, vpos) and, per held old slot, the last visit that reads it (last_use).  <br /></td></tr>
 <tr class="memitem:a770f74bf1a1b57cca2589c63f0c6ef1d" id="r_a770f74bf1a1b57cca2589c63f0c6ef1d"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a770f74bf1a1b57cca2589c63f0c6ef1d">s_amr_carry_old_into_slot</a> (ks, boxes, old_np, old_ilo, old_ext, old_level)</td></tr>
-<tr class="memdesc:a770f74bf1a1b57cca2589c63f0c6ef1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite the freshly prolonged level-1 slot ks with the overlapping old level-1 blocks: from the migration pool when another rank owned them, else from the local stash.  <br /></td></tr>
+<tr class="memdesc:a770f74bf1a1b57cca2589c63f0c6ef1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite the freshly prolonged slot ks with the overlapping old blocks of its level: from the migration pool when another rank owned them, else from the local stash.  <br /></td></tr>
 <tr class="memitem:a27485614998dc36424d10bff6246e3c9" id="r_a27485614998dc36424d10bff6246e3c9"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a27485614998dc36424d10bff6246e3c9">s_amr_regrid_rebuild_slots</a> (q_cons_base, boxes, nboxes, old_np, old_ilo, old_ext, old_level)</td></tr>
 <tr class="memdesc:a27485614998dc36424d10bff6246e3c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regrid phase 6: build each new slot level by level (prolong from the coarse/parent patch, overwrite the overlap from covering stashed old blocks), then reconcile the slot pool, rebuild the fine IB state and re-check the seam topology. Old-only slots are freed after their last reader so device memory does not peak.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -290,7 +292,7 @@ Variables</h2></td></tr>
 
 <p>True iff two same-level blocks can coexist: disjoint, and either &gt;= 2 empty coarse cells apart or face-adjacent with an exact transverse match. Mirrors s_amr_check_seam_topology. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00779">779</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00793">793</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -434,7 +436,7 @@ Here is the caller graph for this function:</div>
 
 <p>Append to out(n+1:) the pieces of <span class="tt">box</span> that stay <span class="tt">gap</span> empty cells clear of [glo:ghi] and of each other, cutting dim by dim; the part inside the block's span is dropped. The caller guarantees <span class="tt">box</span> overlaps the gap-grown block. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00864">864</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00878">878</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -490,9 +492,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Overwrite the freshly prolonged level-1 slot ks with the overlapping old level-1 blocks: from the migration pool when another rank owned them, else from the local stash. </p>
+<p>Overwrite the freshly prolonged slot ks with the overlapping old blocks of its level: from the migration pool when another rank owned them, else from the local stash. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01628">1628</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01641">1641</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -550,7 +552,7 @@ Here is the caller graph for this function:</div>
 
 <p>Regrid phase 3a (IB): tile the boxes around the immersed bodies. Each body (bbox + margin; close bodies share one) owns a block; boxes give up that block plus a gap ring, the remainder tiles to &lt;= amr_maxc_fit, and body blocks are appended last. The ring keeps body blocks off other blocks, since the seam halo and reflux need exact-match transverse faces. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01032">1032</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01046">1046</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -689,7 +691,7 @@ Here is the caller graph for this function:</div>
 
 <p>Abort if ranks hold different box lists (each rank sees only nearby IB bodies; a mismatch hangs the ownership collectives). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00889">889</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00903">903</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -899,7 +901,7 @@ Here is the caller graph for this function:</div>
 
 <p>Commit the new regions, levels and owners, after checking proper nesting. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01478">1478</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01492">1492</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1001,7 +1003,7 @@ Here is the caller graph for this function:</div>
 
 <p>One margin-padded box (glo:ghi) and body extent (clo:chi) per immersed body, identical on every rank. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00923">923</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00937">937</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1112,7 +1114,7 @@ Here is the caller graph for this function:</div>
 
 <p>Fold body group j into group i (bbox and body-extent unions) and move the last group into slot j. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00911">911</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00925">925</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1146,7 +1148,7 @@ Here is the caller graph for this function:</div>
 
 <p>Free a migration pool (device-resident when amr_fw_dev). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01223">1223</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01237">1237</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1214,7 +1216,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pack fine window [l, h] of an owned old block's stash (device store) into its wire slice buf; gi fastest, then gj, gk, ii. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01158">1158</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01172">1172</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1223,8 +1225,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ab50450647dc1a0156044b659c38e7863" name="ab50450647dc1a0156044b659c38e7863"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab50450647dc1a0156044b659c38e7863">&#9670;&#160;</a></span>s_amr_mig_window()</h2>
+<a id="a14c9c4b85b9cc8b1ddfe66ed3b0deb15" name="a14c9c4b85b9cc8b1ddfe66ed3b0deb15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c9c4b85b9cc8b1ddfe66ed3b0deb15">&#9670;&#160;</a></span>s_amr_mig_window()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1250,6 +1252,11 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>lev</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>flo</em></span>, </td>
         </tr>
         <tr>
@@ -1267,11 +1274,11 @@ Here is the caller graph for this function:</div>
 
 <p>Fine-index window [flo, fhi] in level-1 old block ilo's stash of the coarse box [wlo, whi] (0:0 in collapsed dims). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01212">1212</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01226">1226</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__regrid_ab50450647dc1a0156044b659c38e7863_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__regrid_a14c9c4b85b9cc8b1ddfe66ed3b0deb15_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1338,9 +1345,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Cross-rank migration as one wave: each old owner ships the bounding box of its overlaps to every other rank owning an overlapping new level-1 block (level &gt;= 2 re-prolongs from its parent). Both sides enumerate old blocks ascending, so the transfers line up; received windows stay in amr_mig_rq. No-op at np=1. </p>
+<p>Cross-rank migration as one wave: each old owner ships the bounding box of its overlaps to every other rank owning an overlapping new block of the same level. Both sides enumerate old blocks ascending, so the transfers line up; received windows stay in amr_mig_rq. No-op at np=1. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01514">1514</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01528">1528</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1428,7 +1435,7 @@ Here is the caller graph for this function:</div>
 
 <p>Overwrite the new block's prolonged cons with the covering old block's stashed detail (old fine index = new + sh) over the old window [l, h], from store column vold or the received wire slice buf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01301">1301</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01315">1315</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1509,7 +1516,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01371">1371</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01385">1385</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1587,7 +1594,7 @@ Here is the caller graph for this function:</div>
 
 <p>Visit order of the owned new boxes (level-major, vpos) and, per held old slot, the last visit that reads it (last_use). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01595">1595</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01608">1608</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1666,7 +1673,7 @@ Here is the caller graph for this function:</div>
 
 <p>True iff the box set and levels equal the live slots (a rebuild would reproduce them). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01139">1139</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01153">1153</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1728,6 +1735,44 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ac43bfca1b0097442b93e75ac07e1d328" name="ac43bfca1b0097442b93e75ac07e1d328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac43bfca1b0097442b93e75ac07e1d328">&#9670;&#160;</a></span>s_amr_regrid_dormant_seed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_amr_regrid::s_amr_regrid_dormant_seed </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(inout), allocatable</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>nboxes</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>One coarse cell at the domain center, which shaping pads into the dormant block that replaces the hierarchy. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00778">778</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__regrid_ac43bfca1b0097442b93e75ac07e1d328_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a27485614998dc36424d10bff6246e3c9" name="a27485614998dc36424d10bff6246e3c9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27485614998dc36424d10bff6246e3c9">&#9670;&#160;</a></span>s_amr_regrid_rebuild_slots()</h2>
 
@@ -1782,7 +1827,7 @@ Here is the caller graph for this function:</div>
 
 <p>Regrid phase 6: build each new slot level by level (prolong from the coarse/parent patch, overwrite the overlap from covering stashed old blocks), then reconcile the slot pool, rebuild the fine IB state and re-check the seam topology. Old-only slots are freed after their last reader so device memory does not peak. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01665">1665</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01680">1680</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1825,7 +1870,7 @@ Here is the caller graph for this function:</div>
 
 <p>Regrid phase 3: pad and clamp each box, clip it clear of the acoustic/bubble supports, then tile oversized boxes (IB: after carving out the body blocks). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01088">1088</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01102">1102</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1873,7 +1918,7 @@ Here is the caller graph for this function:</div>
 
 <p>Hysteresis (amr_snap &gt; 0): a box within amr_snap cells per face of a live same-level block takes that block's box. All-or-none: the snapped set must stay disjoint, compatible and singly nested (within amr_cpat_mar), else the fresh boxes stand. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00805">805</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00819">819</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1946,7 +1991,7 @@ Here is the caller graph for this function:</div>
 
 <p>Regrid phase 5: stash the old block set, commit the new one, and migrate stashed old blocks point-to-point to the ranks owning overlapping new blocks. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01576">1576</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01589">1589</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2100,7 +2145,7 @@ Here is the caller graph for this function:</div>
 
 <p>Separate body groups that face each other across &lt; gap empty cells or overlap, reject groups over the block cap, and order them canonically. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00962">962</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l00976">976</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2153,7 +2198,7 @@ Here is the caller graph for this function:</div>
 
 <p>Device cons-&gt;stor stash copy of one owned old block's fine interior (the store is device-authoritative; no host staging). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01247">1247</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01261">1261</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2216,7 +2261,7 @@ Here is the caller graph for this function:</div>
 
 <p>Record the live slots' fine interiors on the device and the old block set (old_*; old_chi = replicated coarse hi corner). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01446">1446</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__regrid_8fpp_8f90_source.html#l01460">1460</a> of file <a class="el" href="m__amr__regrid_8fpp_8f90_source.html">m_amr_regrid.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

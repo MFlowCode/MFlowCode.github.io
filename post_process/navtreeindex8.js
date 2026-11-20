@@ -1,5 +1,12 @@
 var NAVTREEINDEX8 =
 {
+"structm__derived__types_1_1reactive__burn__parameters.html":[2,0,2,48],
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[1,0,13,48,5],
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[2,0,2,48,5],
+"structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4":[1,0,13,48,3],
+"structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4":[2,0,2,48,3],
+"structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63":[1,0,13,48,4],
+"structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63":[2,0,2,48,4],
 "structm__derived__types_1_1reactive__burn__parameters.html#a797a8e2cddd5bf0f70db4193b8bdd156":[1,0,13,48,0],
 "structm__derived__types_1_1reactive__burn__parameters.html#a797a8e2cddd5bf0f70db4193b8bdd156":[2,0,2,48,0],
 "structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f":[1,0,13,48,1],
