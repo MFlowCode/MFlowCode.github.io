@@ -184,7 +184,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a649e97de43e470f6ad434c418352b144" id="r_a649e97de43e470f6ad434c418352b144"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a649e97de43e470f6ad434c418352b144">s_cl_morton_sort</a> (alo, ahi, nacc)</td></tr>
 <tr class="memdesc:a649e97de43e470f6ad434c418352b144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort boxes by the Morton key of lo so the merge input depends on the box set alone, not on the rank-dependent acceptance order. Accepted boxes are disjoint, so the keys are distinct; the sort is stable for any collision.  <br /></td></tr>
 <tr class="memitem:aaf549376ee108d318a31b8b8d506b205" id="r_aaf549376ee108d318a31b8b8d506b205"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aaf549376ee108d318a31b8b8d506b205">s_cl_merge</a> (alo, ahi, nacc)</td></tr>
-<tr class="memdesc:aaf549376ee108d318a31b8b8d506b205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min-separation merge: two boxes are separated only if some active dim's gap reaches thr; else fuse to their bounding box. The fusion sequence is the linear walk (scan in list order, fuse the first too-close pair, restart), reproduced exactly with O(1) unlinking and a binned candidate search: a too-close partner of i lies within the 3^d bins around i's lo when the bin width is ext_max + thr, and the minimum surviving index among candidates is the first one a linear walk meets. After fusing (i, j) only box i changed, so the walk re-tests earlier survivors (minimum index first), then later ones, then resumes at the survivor's successor. Bins are rebuilt when a grown box outgrows the cell width.  <br /></td></tr>
+<tr class="memdesc:aaf549376ee108d318a31b8b8d506b205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min-separation merge: two boxes are separated only if some active dim's gap reaches thr; else fuse to their bounding box. Fusing only shrinks gaps, so the fixed point (groups with mutually separated bounding boxes) does not depend on the fusion order; a group keeps its lowest index, so the output order does not either. Each box in list order sweeps the 3^d bins around its lo (bin width ext_max + thr holds every too-close partner), absorbs every later box found too close and is absorbed by the lowest earlier one, until a sweep finds nothing. Bins are rebuilt when a grown box outgrows the cell width.  <br /></td></tr>
 <tr class="memitem:a520204884809e9e954d5aa88d383999c" id="r_a520204884809e9e954d5aa88d383999c"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a520204884809e9e954d5aa88d383999c">s_amr_cluster</a> (tags, ntag_in, boxes, nboxes, reduce)</td></tr>
 <tr class="memdesc:a520204884809e9e954d5aa88d383999c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cluster a sparse tag list tags(1:3, 1:ntag_in) of level-0 cell coords into separated block boxes, identically on every rank. Berger-Rigoutsos bisection until a box's tag efficiency reaches amr_cluster_eff (or it is atomic or the amr_max_blocks cap is hit), then merge boxes whose amr_buf-padded extents come within buff_size. Boxes are raw tagged extents; the caller pads, clamps and size-caps each. reduce: tags is this rank's local list and node signatures are reduced across ranks; otherwise tags is already replicated.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -313,7 +313,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cluster a sparse tag list tags(1:3, 1:ntag_in) of level-0 cell coords into separated block boxes, identically on every rank. Berger-Rigoutsos bisection until a box's tag efficiency reaches amr_cluster_eff (or it is atomic or the amr_max_blocks cap is hit), then merge boxes whose amr_buf-padded extents come within buff_size. Boxes are raw tagged extents; the caller pads, clamps and size-caps each. reduce: tags is this rank's local list and node signatures are reduced across ranks; otherwise tags is already replicated. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l01050">1050</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l01044">1044</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -665,13 +665,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Min-separation merge: two boxes are separated only if some active dim's gap reaches thr; else fuse to their bounding box. The fusion sequence is the linear walk (scan in list order, fuse the first too-close pair, restart), reproduced exactly with O(1) unlinking and a binned candidate search: a too-close partner of i lies within the 3^d bins around i's lo when the bin width is ext_max + thr, and the minimum surviving index among candidates is the first one a linear walk meets. After fusing (i, j) only box i changed, so the walk re-tests earlier survivors (minimum index first), then later ones, then resumes at the survivor's successor. Bins are rebuilt when a grown box outgrows the cell width. </p>
+<p>Min-separation merge: two boxes are separated only if some active dim's gap reaches thr; else fuse to their bounding box. Fusing only shrinks gaps, so the fixed point (groups with mutually separated bounding boxes) does not depend on the fusion order; a group keeps its lowest index, so the output order does not either. Each box in list order sweeps the 3^d bins around its lo (bin width ext_max + thr holds every too-close partner), absorbs every later box found too close and is absorbed by the lowest earlier one, until a sweep finds nothing. Bins are rebuilt when a grown box outgrows the cell width. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00845">845</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00852">852</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__cluster_aaf549376ee108d318a31b8b8d506b205_cgraph.svg" width="615" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__cluster_aaf549376ee108d318a31b8b8d506b205_cgraph.svg" width="631" height="267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -715,7 +715,7 @@ Here is the caller graph for this function:</div>
 
 <p>Sort boxes by the Morton key of lo so the merge input depends on the box set alone, not on the rank-dependent acceptance order. Accepted boxes are disjoint, so the keys are distinct; the sort is stable for any collision. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00819">819</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00827">827</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

@@ -5,9 +5,9 @@ var searchData=
   ['z_5fb_2',['z_b',['../namespacem__global__parameters__common.html#a5421ac05f3038d582ce492a54f507d10',1,'m_global_parameters_common']]],
   ['z_5fboundary_3',['z_boundary',['../namespacem__boundary__conditions.html#a36aeda9a80d56cda6d5c9f1eaaa0a888',1,'m_boundary_conditions::z_boundary'],['../namespacem__icpp__patches.html#ad909bf199ecd995b464bc9676f93e345',1,'m_icpp_patches::z_boundary']]],
   ['z_5fcb_4',['z_cb',['../namespacem__global__parameters.html#a70be15795fc52175ecd412d80576f0aa',1,'m_global_parameters']]],
-  ['z_5fcc_5',['z_cc',['../namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e',1,'m_global_parameters']]],
+  ['z_5fcc_5',['z_cc',['../structm__derived__types_1_1ic__grid.html#a4382bbe9d6c87aeedcb51b230b4c5f49',1,'m_derived_types::ic_grid::z_cc'],['../namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e',1,'m_global_parameters::z_cc']]],
   ['z_5fcentroid_6',['z_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a2c713897a2aaaa72122138366f5142be',1,'m_derived_types::ic_patch_parameters::z_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a0326a19a0aa2eed8c6f22efc656b5169',1,'m_derived_types::ib_patch_parameters::z_centroid'],['../structm__derived__types_1_1particle__cloud__parameters.html#a11cd1ebd5ce6b8e7c102eaa9c21b7d95',1,'m_derived_types::particle_cloud_parameters::z_centroid'],['../namespacem__boundary__conditions.html#abf9cbb8f5b51724552666fd9fcac91de',1,'m_boundary_conditions::z_centroid'],['../namespacem__icpp__patches.html#ad378f9e7501eda427635fb9f488a9310',1,'m_icpp_patches::z_centroid']]],
   ['z_5fdomain_7',['z_domain',['../namespacem__global__parameters.html#a4b6341f4ce0cc9c395b4791549357efc',1,'m_global_parameters']]],
-  ['z_5fdomain_5fglb_8',['z_domain_glb',['../namespacem__global__parameters.html#afa0ba4f0b5d7a4f940ebbf0506d3c3a2',1,'m_global_parameters']]],
+  ['z_5fdomain_5fglb_8',['z_domain_glb',['../namespacem__global__parameters__common.html#ac609ced0dac2fc0b7d30efba41c7749d',1,'m_global_parameters_common']]],
   ['z_5fperiodicity_9',['z_periodicity',['../structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095',1,'m_derived_types::ghost_point']]]
 ];

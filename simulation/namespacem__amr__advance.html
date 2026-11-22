@@ -167,6 +167,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aa57418fd7f04a0a74a5f98db087dc8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the fine-grid IB state (markers/ghost points/levelset) for every active block from the body geometry (static-body AMR), once after the coarse IB setup: swap grid and IB globals to each owned block, run the fine IB pipeline, restore.  <br /></td></tr>
 <tr class="memitem:ae905067c266be22ccb03bfdffb7d8cd7" id="r_ae905067c266be22ccb03bfdffb7d8cd7"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae905067c266be22ccb03bfdffb7d8cd7">s_amr_ib_correct_fine</a> (q_prim_b, pb_in, mv_in)</td></tr>
 <tr class="memdesc:ae905067c266be22ccb03bfdffb7d8cd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the IB state correction on the current fine block after its RK update, mirroring the coarse s_ibm_correct_state. amr_cur is set by the caller.  <br /></td></tr>
+<tr class="memitem:a05b7e97f0100d538c7cbcc88dfc88ab8" id="r_a05b7e97f0100d538c7cbcc88dfc88ab8"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a05b7e97f0100d538c7cbcc88dfc88ab8">s_amr_fine_hooks_post_ib</a> ()</td></tr>
+<tr class="memdesc:a05b7e97f0100d538c7cbcc88dfc88ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The clamps after the IB correction on the current fine block; the species cleanup's report reads the block's own markers.  <br /></td></tr>
 <tr class="memitem:a8b3172c110a3ce8cdd7a8f6d7eb39dd5" id="r_a8b3172c110a3ce8cdd7a8f6d7eb39dd5"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8b3172c110a3ce8cdd7a8f6d7eb39dd5">s_amr_update_mib_fine</a> ()</td></tr>
 <tr class="memdesc:a8b3172c110a3ce8cdd7a8f6d7eb39dd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild the current fine block's IB state from the moving body's position (prescribed motion, moving_ibm==1) by reusing the coarse s_update_mib on the swapped-in slot. Must precede s_amr_ib_correct_fine.  <br /></td></tr>
 <tr class="memitem:ab952cf5e838cd7fde0316bf6ee4d8cdc" id="r_ab952cf5e838cd7fde0316bf6ee4d8cdc"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ab952cf5e838cd7fde0316bf6ee4d8cdc">s_amr_fine_stage_advance_batched</a> (s, coefs, bc_type, q_t_sf, pb_in, rhs_pb, mv_in, rhs_mv, t_step)</td></tr>
@@ -218,7 +220,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Whether block blk's IB correction waits for the bodies to move: it holds ghost points, or a moving body (one coarse cell beyond the margin s_amr_update_mib_fine keeps it inside, for this stage's displacement) overlaps it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00700">700</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00706">706</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -254,7 +256,7 @@ Here is the caller graph for this function:</div>
 
 <p>For the IB face forces on this batch (s_accumulate_ib_face_fluxes): each member's origin relative to the leader's, and the boxes its level+1 children cover, in slab indices. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00613">613</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00623">623</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -290,7 +292,7 @@ Here is the caller graph for this function:</div>
 
 <p>The batch's slab layout: members stacked along the last active dim, stride amr_bat_w. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00943">943</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00945">945</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -333,7 +335,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-member post-RK hooks of the coarse stage (q_cons_ts(1), <a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00652">652</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00662">662</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -343,6 +345,42 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__advance_ae1ce691ffa563a17985fb8d1cda2e662_icgraph.svg" width="452" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a05b7e97f0100d538c7cbcc88dfc88ab8" name="a05b7e97f0100d538c7cbcc88dfc88ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b7e97f0100d538c7cbcc88dfc88ab8">&#9670;&#160;</a></span>s_amr_fine_hooks_post_ib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_amr_advance::s_amr_fine_hooks_post_ib</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The clamps after the IB correction on the current fine block; the species cleanup's report reads the block's own markers. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__advance_a05b7e97f0100d538c7cbcc88dfc88ab8_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__advance_a05b7e97f0100d538c7cbcc88dfc88ab8_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -401,7 +439,7 @@ Here is the caller graph for this function:</div>
 
 <p>Device RK stage update over the batch: q = (c1*q + c2*q_stor + c3*dt_in*rhs)/c4 (compute in wp, store stp), reading each member's rhs at its slab offset. Keep in lockstep with the non-IGR rk_coef form in s_tvd_rk (<a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00958">958</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00960">960</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -466,7 +504,7 @@ Here is the caller graph for this function:</div>
 
 <p>Batched fine advance: owned fine blocks are advanced in batches of up to amr_bat_lim blocks of the same level and (padded) extent, stacked two ghost shells apart along the last active dimension, so one s_compute_rhs call and one RK kernel cover a batch. Blocks are independent, so grouping order is free. Members read the leader's coordinate arrays in the non-stacked dimensions (see s_amr_init_report). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00497">497</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00507">507</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -496,7 +534,7 @@ Here is the call graph for this function:</div>
 
 <p>After the bodies have moved on the stage's complete force: the IB rebuild, the correction and the clamps after it, on each block s_amr_batch_post_rk_hooks left waiting, from its saved primitive state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00868">868</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00874">874</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -539,7 +577,7 @@ Here is the call graph for this function:</div>
 
 <p>Start a batch at leader my(i): add later same-level blocks that fit the leader's extent, wasting &lt;= amr_bat_pad of the member's cells; marks members done. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00589">589</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -628,7 +666,7 @@ Here is the caller graph for this function:</div>
 
 <p>Size amr_ibp for the owned blocks my(:) that wait (their columns need not survive a stage) and start the stage's list. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00719">719</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00725">725</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -667,7 +705,7 @@ Here is the caller graph for this function:</div>
 
 <p>Keep batch member ibm's primitive state from the RHS pass (amr_scr_prim, at its slab offset) in the next amr_ibp column. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00806">806</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00812">812</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -721,7 +759,7 @@ Here is the call graph for this function:</div>
 
 <p>Rebuild the current fine block's IB state from the moving body's position (prescribed motion, moving_ibm==1) by reusing the coarse s_update_mib on the swapped-in slot. Must precede s_amr_ib_correct_fine. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00454">454</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__advance_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__amr__advance_8fpp_8f90_source.html">m_amr_advance.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

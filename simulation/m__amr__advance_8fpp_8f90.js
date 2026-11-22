@@ -4,6 +4,7 @@ var m__amr__advance_8fpp_8f90 =
     [ "m_amr_advance::s_amr_bat_ib_tables", "namespacem__amr__advance.html#afcc3004cc31a9c8ba09765da92d883be", null ],
     [ "m_amr_advance::s_amr_bat_layout", "namespacem__amr__advance.html#a29672259084d569bc41ed78d0019806c", null ],
     [ "m_amr_advance::s_amr_batch_post_rk_hooks", "namespacem__amr__advance.html#ae1ce691ffa563a17985fb8d1cda2e662", null ],
+    [ "m_amr_advance::s_amr_fine_hooks_post_ib", "namespacem__amr__advance.html#a05b7e97f0100d538c7cbcc88dfc88ab8", null ],
     [ "m_amr_advance::s_amr_fine_rk_update_batch", "namespacem__amr__advance.html#a8c8eefd9fdf29296209f5cab971b4436", null ],
     [ "m_amr_advance::s_amr_fine_stage_advance_batched", "namespacem__amr__advance.html#ab952cf5e838cd7fde0316bf6ee4d8cdc", null ],
     [ "m_amr_advance::s_amr_fine_stage_ib", "namespacem__amr__advance.html#a3c4328a834ca1b045a52fbfe63bf783f", null ],

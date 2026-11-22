@@ -13,6 +13,9 @@ var annotated_dup =
       [ "t_amr_wave_side", "structm__amr__wave_1_1t__amr__wave__side.html", "structm__amr__wave_1_1t__amr__wave__side" ],
       [ "t_amr_wave", "structm__amr__wave_1_1t__amr__wave.html", "structm__amr__wave_1_1t__amr__wave" ]
     ] ],
+    [ "m_assign_variables", "namespacem__assign__variables.html", [
+      [ "s_assign_patch_xxxxx_primitive_variables", "interfacem__assign__variables_1_1s__assign__patch__xxxxx__primitive__variables.html", "interfacem__assign__variables_1_1s__assign__patch__xxxxx__primitive__variables" ]
+    ] ],
     [ "m_derived_types", "namespacem__derived__types.html", [
       [ "field_position", "structm__derived__types_1_1field__position.html", "structm__derived__types_1_1field__position" ],
       [ "scalar_field", "structm__derived__types_1_1scalar__field.html", "structm__derived__types_1_1scalar__field" ],
@@ -41,6 +44,7 @@ var annotated_dup =
       [ "output_context", "structm__derived__types_1_1output__context.html", "structm__derived__types_1_1output__context" ],
       [ "bc_patch_parameters", "structm__derived__types_1_1bc__patch__parameters.html", "structm__derived__types_1_1bc__patch__parameters" ],
       [ "bounds_info", "structm__derived__types_1_1bounds__info.html", "structm__derived__types_1_1bounds__info" ],
+      [ "ic_grid", "structm__derived__types_1_1ic__grid.html", "structm__derived__types_1_1ic__grid" ],
       [ "ic_model_parameters", "structm__derived__types_1_1ic__model__parameters.html", "structm__derived__types_1_1ic__model__parameters" ],
       [ "t_triangle", "structm__derived__types_1_1t__triangle.html", "structm__derived__types_1_1t__triangle" ],
       [ "t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],

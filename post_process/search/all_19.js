@@ -3,9 +3,10 @@ var searchData=
   ['z_0',['z',['../structm__derived__types_1_1vec3__dt.html#ace4febb4f02a613da59014c8269567c4',1,'m_derived_types::vec3_dt::z'],['../structm__derived__types_1_1bc__xyz__info.html#a5bb84a6338429074a84039185cef18b3',1,'m_derived_types::bc_xyz_info::z']]],
   ['z_5fcb_1',['z_cb',['../structm__data__input_1_1amr__fine__block.html#a2468c80bebba38b662ccacd0bcaedd87',1,'m_data_input::amr_fine_block::z_cb'],['../namespacem__global__parameters.html#a70be15795fc52175ecd412d80576f0aa',1,'m_global_parameters::z_cb']]],
   ['z_5fcb_5fs_2',['z_cb_s',['../namespacem__global__parameters.html#a1917d22745dc60bede791e2deb75bcbd',1,'m_global_parameters']]],
-  ['z_5fcc_3',['z_cc',['../namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e',1,'m_global_parameters']]],
+  ['z_5fcc_3',['z_cc',['../structm__derived__types_1_1ic__grid.html#a4382bbe9d6c87aeedcb51b230b4c5f49',1,'m_derived_types::ic_grid::z_cc'],['../namespacem__global__parameters.html#a9efba3343251f7bc76bf9c7c6613b41e',1,'m_global_parameters::z_cc']]],
   ['z_5fcentroid_4',['z_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a2c713897a2aaaa72122138366f5142be',1,'m_derived_types::ic_patch_parameters::z_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a0326a19a0aa2eed8c6f22efc656b5169',1,'m_derived_types::ib_patch_parameters::z_centroid'],['../structm__derived__types_1_1particle__cloud__parameters.html#a11cd1ebd5ce6b8e7c102eaa9c21b7d95',1,'m_derived_types::particle_cloud_parameters::z_centroid']]],
-  ['z_5foutput_5',['z_output',['../namespacem__global__parameters.html#a7300817a97c11941b4b6b1fb7e4f1662',1,'m_global_parameters']]],
-  ['z_5foutput_5fidx_6',['z_output_idx',['../namespacem__global__parameters.html#a462197f1d200764c9a08659fb9c38b8f',1,'m_global_parameters']]],
-  ['z_5fperiodicity_7',['z_periodicity',['../structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095',1,'m_derived_types::ghost_point']]]
+  ['z_5fdomain_5fglb_5',['z_domain_glb',['../namespacem__global__parameters__common.html#ac609ced0dac2fc0b7d30efba41c7749d',1,'m_global_parameters_common']]],
+  ['z_5foutput_6',['z_output',['../namespacem__global__parameters.html#a7300817a97c11941b4b6b1fb7e4f1662',1,'m_global_parameters']]],
+  ['z_5foutput_5fidx_7',['z_output_idx',['../namespacem__global__parameters.html#a462197f1d200764c9a08659fb9c38b8f',1,'m_global_parameters']]],
+  ['z_5fperiodicity_8',['z_periodicity',['../structm__derived__types_1_1ghost__point.html#a62c27c26dec401ea175a20486d769095',1,'m_derived_types::ghost_point']]]
 ];

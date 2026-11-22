@@ -23,7 +23,7 @@ var searchData=
   ['int_5fcomp_5foff_20',['int_comp_off',['../namespacem__constants.html#a76fb05a5c480427dc40c742213488095',1,'m_constants']]],
   ['int_5fcomp_5fthinc_21',['int_comp_thinc',['../namespacem__constants.html#ae69edaabc88d5ae8fffcd63137180cf4',1,'m_constants']]],
   ['int_5fen_22',['int_en',['../structm__derived__types_1_1eqn__idx__info.html#a3ee6d120c84f19d065e12e4dfab3ecbc',1,'m_derived_types::eqn_idx_info']]],
-  ['interface_5ffile_23',['interface_file',['../namespacem__global__parameters.html#a76310f26d3b06aa362a03d3bf0b170fa',1,'m_global_parameters']]],
+  ['interface_5ffile_23',['interface_file',['../namespacem__global__parameters__common.html#a5bb92a34a038382ca7c2964dd01e5412',1,'m_global_parameters_common']]],
   ['interp_5fcoeffs_24',['interp_coeffs',['../structm__derived__types_1_1ghost__point.html#ae7d7f71141452fd104b2b42a59f27b69',1,'m_derived_types::ghost_point']]],
   ['interp_5fvalid_25',['interp_valid',['../structm__derived__types_1_1ghost__point.html#a746d17c296d182784ac386330b5bbf2c',1,'m_derived_types::ghost_point']]],
   ['interpolation_5forder_26',['interpolation_order',['../structm__derived__types_1_1particle__lagrange__parameters.html#acf2c74cf8255e8b21beebbe2980771a2',1,'m_derived_types::particle_lagrange_parameters']]],

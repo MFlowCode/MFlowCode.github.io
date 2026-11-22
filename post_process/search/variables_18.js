@@ -3,10 +3,11 @@ var searchData=
   ['y_0',['y',['../structm__derived__types_1_1vec3__dt.html#abd6633ac3bd7d673be108906161f652e',1,'m_derived_types::vec3_dt::y'],['../structm__derived__types_1_1bc__xyz__info.html#a5c0634496cc8406b0e4bc5f51205135d',1,'m_derived_types::bc_xyz_info::y'],['../structm__derived__types_1_1ic__patch__parameters.html#af74ef04647d9957b08f3c6f01b8ce3ee',1,'m_derived_types::ic_patch_parameters::y']]],
   ['y_5fcb_1',['y_cb',['../structm__data__input_1_1amr__fine__block.html#ac5a3ef0b54873148d7a91dca43c6b714',1,'m_data_input::amr_fine_block::y_cb'],['../namespacem__global__parameters.html#a49b2b37d6e18e34be6bd6bf5aa3ed476',1,'m_global_parameters::y_cb']]],
   ['y_5fcb_5fs_2',['y_cb_s',['../namespacem__global__parameters.html#aabd262e7672264fafbf84b17c317ebd7',1,'m_global_parameters']]],
-  ['y_5fcc_3',['y_cc',['../namespacem__global__parameters.html#a353ab56efc0b78fea27c11158c2cf536',1,'m_global_parameters']]],
+  ['y_5fcc_3',['y_cc',['../structm__derived__types_1_1ic__grid.html#a8e8de3823a013c4e9c3ee87b1302246c',1,'m_derived_types::ic_grid::y_cc'],['../namespacem__global__parameters.html#a353ab56efc0b78fea27c11158c2cf536',1,'m_global_parameters::y_cc']]],
   ['y_5fcentroid_4',['y_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#a8441b883b97fbc475ece672cd519fe33',1,'m_derived_types::ic_patch_parameters::y_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a234982179567711b441a5a395448efdc',1,'m_derived_types::ib_patch_parameters::y_centroid'],['../structm__derived__types_1_1particle__cloud__parameters.html#a26c67d1bea43e6d16772d2d03f884937',1,'m_derived_types::particle_cloud_parameters::y_centroid'],['../structm__derived__types_1_1spbf__parameters.html#acf90a9aa0acefd3aae627b33f63b4070',1,'m_derived_types::spbf_parameters::y_centroid']]],
-  ['y_5ffloor_5fstiff_5',['y_floor_stiff',['../namespacem__chemistry.html#a3ee037229743c705d44bb5b43678dda8',1,'m_chemistry']]],
-  ['y_5foutput_6',['y_output',['../namespacem__global__parameters.html#aff552ba64f3c2b0c2b291c53ab3f0a5c',1,'m_global_parameters']]],
-  ['y_5foutput_5fidx_7',['y_output_idx',['../namespacem__global__parameters.html#ab5aba5a65e3e646de07025297bcb137b',1,'m_global_parameters']]],
-  ['y_5fperiodicity_8',['y_periodicity',['../structm__derived__types_1_1ghost__point.html#a9e33937f4756520112c48c3102f35936',1,'m_derived_types::ghost_point']]]
+  ['y_5fdomain_5fglb_5',['y_domain_glb',['../namespacem__global__parameters__common.html#aea02c42c08a7cc6f23b474e73cea8aca',1,'m_global_parameters_common']]],
+  ['y_5ffloor_5fstiff_6',['y_floor_stiff',['../namespacem__chemistry.html#a3ee037229743c705d44bb5b43678dda8',1,'m_chemistry']]],
+  ['y_5foutput_7',['y_output',['../namespacem__global__parameters.html#aff552ba64f3c2b0c2b291c53ab3f0a5c',1,'m_global_parameters']]],
+  ['y_5foutput_5fidx_8',['y_output_idx',['../namespacem__global__parameters.html#ab5aba5a65e3e646de07025297bcb137b',1,'m_global_parameters']]],
+  ['y_5fperiodicity_9',['y_periodicity',['../structm__derived__types_1_1ghost__point.html#a9e33937f4756520112c48c3102f35936',1,'m_derived_types::ghost_point']]]
 ];

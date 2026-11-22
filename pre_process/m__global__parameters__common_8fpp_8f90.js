@@ -1,6 +1,7 @@
 var m__global__parameters__common_8fpp_8f90 =
 [
     [ "m_global_parameters_common::s_assign_common_defaults", "namespacem__global__parameters__common.html#ac60cf55595c6f64131b53f71ad86de69", null ],
+    [ "m_global_parameters_common::s_assign_ic_patch_defaults", "namespacem__global__parameters__common.html#a02e00f1d6df4bb72b5738f28429198af", null ],
     [ "m_global_parameters_common::s_finalize_global_parameters_common", "namespacem__global__parameters__common.html#a111f4b8f2df875b3a318db289bed468c", null ],
     [ "m_global_parameters_common::s_initialize_eqn_idx", "namespacem__global__parameters__common.html#afe172fab1aa8c8cf8c161037e059472b", null ],
     [ "m_global_parameters_common::s_initialize_parallel_io_common", "namespacem__global__parameters__common.html#aa804dc9bb0ab17b1ea7fd822abdf2212", null ],
@@ -42,6 +43,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::fluid_k_therm", "namespacem__global__parameters__common.html#a93edb278aedbd20fc8af7b15bbd4630a", null ],
     [ "m_global_parameters_common::fluid_pp", "namespacem__global__parameters__common.html#a4cffac1ed73ae4fee589c4e8003f207f", null ],
     [ "m_global_parameters_common::fluid_rho", "namespacem__global__parameters__common.html#a8cdb9fa4edf3934784409b549bdd3b30", null ],
+    [ "m_global_parameters_common::g0_ic", "namespacem__global__parameters__common.html#adc7d78633fc2c9f0d25fc486852df38c", null ],
     [ "m_global_parameters_common::gammas", "namespacem__global__parameters__common.html#a2289b961bfaf04f76e6e16a431afd135", null ],
     [ "m_global_parameters_common::heat_conduction", "namespacem__global__parameters__common.html#a6d8182866181287faaa46cfdbeda0335", null ],
     [ "m_global_parameters_common::hyper_cleaning", "namespacem__global__parameters__common.html#a4724699cb454e5156bb55fa9a40c2855", null ],
@@ -50,6 +52,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::ib_airfoil", "namespacem__global__parameters__common.html#abae2557c74197a9071c2b51972068acd", null ],
     [ "m_global_parameters_common::igr", "namespacem__global__parameters__common.html#a2059a73bab13312fccb9c299e2ed2eed", null ],
     [ "m_global_parameters_common::igr_order", "namespacem__global__parameters__common.html#a8698448318affdac440a7eb61a65d60f", null ],
+    [ "m_global_parameters_common::interface_file", "namespacem__global__parameters__common.html#a5bb92a34a038382ca7c2964dd01e5412", null ],
     [ "m_global_parameters_common::isentrope_b", "namespacem__global__parameters__common.html#aa7406e913186d283155931ab80c4a409", null ],
     [ "m_global_parameters_common::isentrope_n", "namespacem__global__parameters__common.html#a4c25cf0a9d0ef96107fc74dc9d9a758e", null ],
     [ "m_global_parameters_common::loops_x", "namespacem__global__parameters__common.html#ac02a74e906f16f651b26714d359a0e1c", null ],
@@ -73,6 +76,8 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::n_start", "namespacem__global__parameters__common.html#abbd01b5e315692c405bba8fe113399d8", null ],
     [ "m_global_parameters_common::n_start_old", "namespacem__global__parameters__common.html#ae7495d3c2f1b89e676b82259229ab813", null ],
     [ "m_global_parameters_common::nb", "namespacem__global__parameters__common.html#aa020ae415f6871685926beb655009a86", null ],
+    [ "m_global_parameters_common::normfac", "namespacem__global__parameters__common.html#a13435bd7a9e829b22f862db060d3516c", null ],
+    [ "m_global_parameters_common::normmag", "namespacem__global__parameters__common.html#ab88c09dc54959d9f7d1878f757b75877", null ],
     [ "m_global_parameters_common::num_bc_patches", "namespacem__global__parameters__common.html#ae570b26f16e718525d8b25b7dfeaf86c", null ],
     [ "m_global_parameters_common::num_dims", "namespacem__global__parameters__common.html#a64d11fd6634dff139506a5b1ecd70a91", null ],
     [ "m_global_parameters_common::num_fluids", "namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a", null ],
@@ -88,6 +93,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::old_grid", "namespacem__global__parameters__common.html#ab56f7bfb02f11cdbb8b1b3a893cceb09", null ],
     [ "m_global_parameters_common::old_ic", "namespacem__global__parameters__common.html#a2cd9c97a057bded3488e8038a3fa7902", null ],
     [ "m_global_parameters_common::p", "namespacem__global__parameters__common.html#a44889aede88d9b10f7dab1da61dcb0bf", null ],
+    [ "m_global_parameters_common::p0_ic", "namespacem__global__parameters__common.html#a3c953ece84d96fa4b8d34bcc510e5a1b", null ],
     [ "m_global_parameters_common::palpha_eps", "namespacem__global__parameters__common.html#a9a576a89b4e634fdb59f98cb8d3947cb", null ],
     [ "m_global_parameters_common::parallel_io", "namespacem__global__parameters__common.html#a194f2f480473bbaa4dd386cd35eecc1e", null ],
     [ "m_global_parameters_common::particle_cloud", "namespacem__global__parameters__common.html#ab5aafc361efcdb6a6b33997d64fd96bb", null ],
@@ -149,8 +155,11 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::weno_polyn", "namespacem__global__parameters__common.html#ab707f0720d499fb44c689015c7669ca9", null ],
     [ "m_global_parameters_common::x_a", "namespacem__global__parameters__common.html#adb7401a7e91f56acac820b57ade9f8b9", null ],
     [ "m_global_parameters_common::x_b", "namespacem__global__parameters__common.html#abf2158edd47ef927225913240c0649ae", null ],
+    [ "m_global_parameters_common::x_domain_glb", "namespacem__global__parameters__common.html#a76b2d81849453ec60a894f756e8aba90", null ],
     [ "m_global_parameters_common::y_a", "namespacem__global__parameters__common.html#ab3aa56b21e92c0b6ce8b6aa9f48dbce3", null ],
     [ "m_global_parameters_common::y_b", "namespacem__global__parameters__common.html#a2f41ab2cf203b8b4e787f355e93c28fe", null ],
+    [ "m_global_parameters_common::y_domain_glb", "namespacem__global__parameters__common.html#aea02c42c08a7cc6f23b474e73cea8aca", null ],
     [ "m_global_parameters_common::z_a", "namespacem__global__parameters__common.html#a4e86266d1253161e04bcd2ef2917eb44", null ],
-    [ "m_global_parameters_common::z_b", "namespacem__global__parameters__common.html#a5421ac05f3038d582ce492a54f507d10", null ]
+    [ "m_global_parameters_common::z_b", "namespacem__global__parameters__common.html#a5421ac05f3038d582ce492a54f507d10", null ],
+    [ "m_global_parameters_common::z_domain_glb", "namespacem__global__parameters__common.html#ac609ced0dac2fc0b7d30efba41c7749d", null ]
 ];

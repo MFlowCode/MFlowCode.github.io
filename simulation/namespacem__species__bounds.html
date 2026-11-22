@@ -171,10 +171,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a0413b30c32f3ebdb0ab71ae9ac7614e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest theta in [0, 1] keeping vbar + theta*(v - vbar) &gt;= verysmall*vbar (0 if vbar &lt;= 0).  <br /></td></tr>
 <tr class="memitem:a2c44248501cd840bafe0626f7dab8b9f" id="r_a2c44248501cd840bafe0626f7dab8b9f"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a2c44248501cd840bafe0626f7dab8b9f">f_theta_t</a> (theta, vb, vf)</td></tr>
 <tr class="memdesc:a2c44248501cd840bafe0626f7dab8b9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest theta' &lt;= theta keeping the face (rho, p + p_inf, R_mix) scaled toward vb by theta' at T &lt;= T_surface_max (0 if vb is above it; p_inf is zero for the gases that carry chemistry). g = T_max rho R_mix - p is quadratic in theta'; where g(theta) &lt; 0 its first root is the stable smaller-root form.  <br /></td></tr>
-<tr class="memitem:a536237cafe64ed8a35d76658715d2ab3" id="r_a536237cafe64ed8a35d76658715d2ab3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a536237cafe64ed8a35d76658715d2ab3">s_clean_species</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, tally)</td></tr>
-<tr class="memdesc:a536237cafe64ed8a35d76658715d2ab3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. tally = F (an AMR fine block, whose markers ib_markers does not hold) cleans without counting.  <br /></td></tr>
+<tr class="memitem:a96d16a1e6a0e66f6701670e92f1cfb95" id="r_a96d16a1e6a0e66f6701670e92f1cfb95"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a96d16a1e6a0e66f6701670e92f1cfb95">s_clean_species</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, lvl)</td></tr>
+<tr class="memdesc:a96d16a1e6a0e66f6701670e92f1cfb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup, under AMR level lvl (0 = the coarse grid). A fine block's markers are in ib_markers_fine.  <br /></td></tr>
 <tr class="memitem:a0b56be4508f53cae5365d0aec59310df" id="r_a0b56be4508f53cae5365d0aec59310df"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0b56be4508f53cae5365d0aec59310df">s_report_species_cleanup</a> (t_step)</td></tr>
-<tr class="memdesc:a0b56be4508f53cae5365d0aec59310df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks.  <br /></td></tr>
+<tr class="memdesc:a0b56be4508f53cae5365d0aec59310df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks, per AMR level. Coarse cells under a fine block are counted on level 0 too.  <br /></td></tr>
 <tr class="memitem:a301dcbf126654d55fa6589cbb8067066" id="r_a301dcbf126654d55fa6589cbb8067066"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a301dcbf126654d55fa6589cbb8067066">f_theta</a> (ybar, y)</td></tr>
 <tr class="memdesc:a301dcbf126654d55fa6589cbb8067066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest theta in [0, 1] keeping ybar + theta*(y - ybar) &gt;= 0, given ybar &gt;= 0.  <br /></td></tr>
 <tr class="memitem:a9439e0f3a7b81e10d6f8dbaa992382fe" id="r_a9439e0f3a7b81e10d6f8dbaa992382fe"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a9439e0f3a7b81e10d6f8dbaa992382fe">f_lobatto_weight</a> (polyn)</td></tr>
@@ -184,9 +184,9 @@ Functions/Subroutines</h2></td></tr>
 Variables</h2></td></tr>
 <tr class="memitem:a0899b039d35e105e0ae58374c48d0881" id="r_a0899b039d35e105e0ae58374c48d0881"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), parameter&#160;</td><td class="memItemRight"><a class="el" href="#a0899b039d35e105e0ae58374c48d0881">clean_report_tol</a> = 1.e-12_wp</td></tr>
 <tr class="memdesc:a0899b039d35e105e0ae58374c48d0881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Violations below this fraction of rho are roundoff: cleaned but not counted.  <br /></td></tr>
-<tr class="memitem:a70eb0874cf0d7fb061f9d2a5a1415f72" id="r_a70eb0874cf0d7fb061f9d2a5a1415f72"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a70eb0874cf0d7fb061f9d2a5a1415f72">clean_cells</a> = 0._wp</td></tr>
-<tr class="memdesc:a70eb0874cf0d7fb061f9d2a5a1415f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fluid-cell cleanings, and sum of |rho_new - rho_old|, since the last report.  <br /></td></tr>
-<tr class="memitem:ac82e9a15b74ce1a51e17a671d1cfe9c0" id="r_ac82e9a15b74ce1a51e17a671d1cfe9c0"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ac82e9a15b74ce1a51e17a671d1cfe9c0">clean_mass</a> = 0._wp</td></tr>
+<tr class="memitem:ab95726468f30946840af552a658a7c44" id="r_ab95726468f30946840af552a658a7c44"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ab95726468f30946840af552a658a7c44">clean_cells</a></td></tr>
+<tr class="memdesc:ab95726468f30946840af552a658a7c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fluid-cell cleanings, and sum of |rho_new - rho_old|, since the last report, per AMR level (0 = the coarse grid).  <br /></td></tr>
+<tr class="memitem:ae70a27563a22c06ff4029cbb04d60a02" id="r_ae70a27563a22c06ff4029cbb04d60a02"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#ae70a27563a22c06ff4029cbb04d60a02">clean_mass</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Keeps reconstructed species mass fractions on the simplex (Y &gt;= 0, sum Y = 1). Each cell's face values are first shifted to sum to 1, then scaled toward the cell average by one theta shared by all species and both faces (Zhang &amp; Shu, JCP 2010). With face Y on the simplex the HLLC species fluxes are Y_upwind times the mass flux (Larrouturou, JCP 1991), so they sum to it and keep cell averages non-negative under the Zhang-Shu CFL. </p>
@@ -216,7 +216,7 @@ Variables</h2></td></tr>
 
 <p>Endpoint weight of the Gauss-Lobatto rule exact for the reconstruction's degree 2*polyn: 1/(N(N-1)), N = polyn + 2. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00966">966</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00976">976</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -254,7 +254,7 @@ Here is the caller graph for this function:</div>
 
 <p>Largest theta in [0, 1] keeping ybar + theta*(y - ybar) &gt;= 0, given ybar &gt;= 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00939">939</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00949">949</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -424,8 +424,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a536237cafe64ed8a35d76658715d2ab3" name="a536237cafe64ed8a35d76658715d2ab3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a536237cafe64ed8a35d76658715d2ab3">&#9670;&#160;</a></span>s_clean_species()</h2>
+<a id="a96d16a1e6a0e66f6701670e92f1cfb95" name="a96d16a1e6a0e66f6701670e92f1cfb95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96d16a1e6a0e66f6701670e92f1cfb95">&#9670;&#160;</a></span>s_clean_species()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -438,18 +438,18 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">logical, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>tally</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup. tally = F (an AMR fine block, whose markers ib_markers does not hold) cleans without counting. </p>
+<p>Fallback (as PeleC's clean_massfrac): clip each rho*Y_k to [0, rho], set rho = sum rho*Y_k, and scale momentum and energy by rho_new/rho_old so velocity and specific energy are kept. A cell whose clipped sum is not positive is left untouched. Every cell is cleaned, but only fluid cells (not IB cells) off by &gt; clean_report_tol*rho, or left untouched, are counted as cell cleanings (per cell per RK stage) for s_report_species_cleanup, under AMR level lvl (0 = the coarse grid). A fine block's markers are in ib_markers_fine. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00801">801</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_a536237cafe64ed8a35d76658715d2ab3_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__species__bounds_a96d16a1e6a0e66f6701670e92f1cfb95_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -469,9 +469,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks. </p>
+<p>Print, once per time step and only if nonzero, how many cell cleanings s_clean_species made across all ranks, per AMR level. Coarse cells under a fine block are counted on level 0 too. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00925">925</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00928">928</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -481,8 +481,8 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a70eb0874cf0d7fb061f9d2a5a1415f72" name="a70eb0874cf0d7fb061f9d2a5a1415f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70eb0874cf0d7fb061f9d2a5a1415f72">&#9670;&#160;</a></span>clean_cells</h2>
+<a id="ab95726468f30946840af552a658a7c44" name="ab95726468f30946840af552a658a7c44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab95726468f30946840af552a658a7c44">&#9670;&#160;</a></span>clean_cells</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -491,7 +491,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_species_bounds::clean_cells = 0._wp</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_species_bounds::clean_cells</td>
         </tr>
       </table>
   </td>
@@ -501,14 +501,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Fluid-cell cleanings, and sum of |rho_new - rho_old|, since the last report. </p>
+<p>Fluid-cell cleanings, and sum of |rho_new - rho_old|, since the last report, per AMR level (0 = the coarse grid). </p>
 
 <p class="definition">Definition at line <a class="el" href="m__species__bounds_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__species__bounds_8fpp_8f90_source.html">m_species_bounds.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="ac82e9a15b74ce1a51e17a671d1cfe9c0" name="ac82e9a15b74ce1a51e17a671d1cfe9c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac82e9a15b74ce1a51e17a671d1cfe9c0">&#9670;&#160;</a></span>clean_mass</h2>
+<a id="ae70a27563a22c06ff4029cbb04d60a02" name="ae70a27563a22c06ff4029cbb04d60a02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae70a27563a22c06ff4029cbb04d60a02">&#9670;&#160;</a></span>clean_mass</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -517,7 +517,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_species_bounds::clean_mass = 0._wp</td>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable m_species_bounds::clean_mass</td>
         </tr>
       </table>
   </td>

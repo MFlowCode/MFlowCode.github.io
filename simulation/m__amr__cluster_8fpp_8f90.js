@@ -1,7 +1,6 @@
 var m__amr__cluster_8fpp_8f90 =
 [
     [ "f_mrg_binof", "m__amr__cluster_8fpp_8f90.html#a830fd2041a6bda11a9e75c325cf40e94", null ],
-    [ "f_mrg_qmin", "m__amr__cluster_8fpp_8f90.html#aedd80f5e676dd0e5ac764bed36578fc0", null ],
     [ "m_amr_cluster::s_amr_box_sig", "namespacem__amr__cluster.html#ae5f2376846bf102133453eca69b28e8a", null ],
     [ "m_amr_cluster::s_amr_cluster", "namespacem__amr__cluster.html#a520204884809e9e954d5aa88d383999c", null ],
     [ "m_amr_cluster::s_amr_find_split_sig", "namespacem__amr__cluster.html#a410049b65e5a72d92ce4bec5e411319b", null ],
@@ -18,6 +17,7 @@ var m__amr__cluster_8fpp_8f90 =
     [ "s_mrg_binun", "m__amr__cluster_8fpp_8f90.html#a2c9baa2e768d6c9bba4e8944bfd7dfb4", null ],
     [ "s_mrg_build", "m__amr__cluster_8fpp_8f90.html#a9b3bff9c634ed14f3958c74d332cef49", null ],
     [ "s_mrg_fuse", "m__amr__cluster_8fpp_8f90.html#a3f9a1e0a5d58222396763aaa5a360f3d", null ],
+    [ "s_mrg_sweep", "m__amr__cluster_8fpp_8f90.html#ae051d885c66adb0f7618857bbb5449ec", null ],
     [ "m_amr_cluster::amr_cl_wide", "namespacem__amr__cluster.html#afe5fc1557385fadc723c98b515b550d2", null ],
     [ "m_amr_cluster::creq", "namespacem__amr__cluster.html#a512a58f350ccbb72a720ebe8a76dbf9a", null ],
     [ "m_amr_cluster::pidx", "namespacem__amr__cluster.html#a328a963b5c64ad17e040a16706cadd2c", null ],

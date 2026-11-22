@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n_0',['n',['../structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59',1,'m_derived_types::eqn_idx_info::n'],['../structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85',1,'m_derived_types::t_triangle::n'],['../structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f',1,'m_derived_types::reactive_burn_parameters::n'],['../namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2',1,'m_global_parameters_common::n']]],
+  ['n_0',['n',['../structm__derived__types_1_1eqn__idx__info.html#a607e06b3a37ba6b82783de311aa1df59',1,'m_derived_types::eqn_idx_info::n'],['../structm__derived__types_1_1ic__grid.html#ac72919aa61b73bab2c53761356736efd',1,'m_derived_types::ic_grid::n'],['../structm__derived__types_1_1t__triangle.html#affcd3a190d82b0cea9824f1947cb9b85',1,'m_derived_types::t_triangle::n'],['../structm__derived__types_1_1reactive__burn__parameters.html#ac3f1b960070efad80a71f2ddc5ace71f',1,'m_derived_types::reactive_burn_parameters::n'],['../namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2',1,'m_global_parameters_common::n']]],
   ['n_5fglb_1',['n_glb',['../namespacem__global__parameters.html#adab11dab474410541d4c37725bea01e1',1,'m_global_parameters']]],
   ['n_5fprocesses_5ffile_5faccess_2',['n_processes_file_access',['../namespacem__delay__file__access.html#ab213216c1359e4dac71415abf3e1b5fe',1,'m_delay_file_access']]],
   ['n_5fstart_3',['n_start',['../namespacem__global__parameters__common.html#abbd01b5e315692c405bba8fe113399d8',1,'m_global_parameters_common']]],
@@ -21,8 +21,8 @@ var searchData=
   ['non_5faxis_5fsym_18',['non_axis_sym',['../structm__derived__types_1_1ic__patch__parameters.html#a49998b4b26dbc45fc65b4b66b1c8336c',1,'m_derived_types::ic_patch_parameters::non_axis_sym'],['../namespacem__global__parameters.html#a35b233c1a1324bdcd462ac3a1bb8bd45',1,'m_global_parameters::non_axis_sym']]],
   ['non_5fnewtonian_19',['non_newtonian',['../structm__derived__types_1_1physical__parameters.html#a7ff8f76e3b412a00237f79bf14178423',1,'m_derived_types::physical_parameters']]],
   ['normal_20',['normal',['../structm__derived__types_1_1ic__patch__parameters.html#a3f13caa30aa19b76144013e254baf29b',1,'m_derived_types::ic_patch_parameters']]],
-  ['normfac_21',['normfac',['../namespacem__global__parameters.html#acef4db03ff0bc8d81b210effeace729d',1,'m_global_parameters']]],
-  ['normmag_22',['normmag',['../namespacem__global__parameters.html#a19c1fed2243ad97057ed959ffb3cded7',1,'m_global_parameters']]],
+  ['normfac_21',['normfac',['../namespacem__global__parameters__common.html#a13435bd7a9e829b22f862db060d3516c',1,'m_global_parameters_common']]],
+  ['normmag_22',['normmag',['../namespacem__global__parameters__common.html#ab88c09dc54959d9f7d1878f757b75877',1,'m_global_parameters_common']]],
   ['np_23',['np',['../structm__derived__types_1_1ib__airfoil__grid.html#a6ee71b7bce288d92a90505bd997f7d8d',1,'m_derived_types::ib_airfoil_grid']]],
   ['np_5fmax_24',['np_max',['../structm__derived__types_1_1cell__num__bounds.html#ac886bdc2f7e85c4abc302de569060bc5',1,'m_derived_types::cell_num_bounds']]],
   ['np_5fmin_25',['np_min',['../structm__derived__types_1_1cell__num__bounds.html#a66dd868c82c25e7d9fa9a017850ff5f1',1,'m_derived_types::cell_num_bounds']]],

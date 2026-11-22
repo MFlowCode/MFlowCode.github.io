@@ -27,6 +27,7 @@ var namespacem__derived__types =
     [ "output_context", "structm__derived__types_1_1output__context.html", "structm__derived__types_1_1output__context" ],
     [ "bc_patch_parameters", "structm__derived__types_1_1bc__patch__parameters.html", "structm__derived__types_1_1bc__patch__parameters" ],
     [ "bounds_info", "structm__derived__types_1_1bounds__info.html", "structm__derived__types_1_1bounds__info" ],
+    [ "ic_grid", "structm__derived__types_1_1ic__grid.html", "structm__derived__types_1_1ic__grid" ],
     [ "ic_model_parameters", "structm__derived__types_1_1ic__model__parameters.html", "structm__derived__types_1_1ic__model__parameters" ],
     [ "t_triangle", "structm__derived__types_1_1t__triangle.html", "structm__derived__types_1_1t__triangle" ],
     [ "t_bbox", "structm__derived__types_1_1t__bbox.html", "structm__derived__types_1_1t__bbox" ],

@@ -5,10 +5,10 @@ var searchData=
   ['x_5fb_2',['x_b',['../namespacem__global__parameters__common.html#abf2158edd47ef927225913240c0649ae',1,'m_global_parameters_common']]],
   ['x_5fboundary_3',['x_boundary',['../namespacem__boundary__conditions.html#a977302a23bbf19fff7035036593a67be',1,'m_boundary_conditions::x_boundary'],['../namespacem__icpp__patches.html#ad6dfc7826591d093ce5bfdb96be4efc6',1,'m_icpp_patches::x_boundary']]],
   ['x_5fcb_4',['x_cb',['../namespacem__global__parameters.html#a919e28a343eada8b52bd66e8edb26627',1,'m_global_parameters']]],
-  ['x_5fcc_5',['x_cc',['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters']]],
+  ['x_5fcc_5',['x_cc',['../structm__derived__types_1_1ic__grid.html#a0ef6727ceb40d9371ffdc1a32a9cec94',1,'m_derived_types::ic_grid::x_cc'],['../namespacem__global__parameters.html#a7f28c6009b6b3031436d2f1ad6228555',1,'m_global_parameters::x_cc']]],
   ['x_5fcentroid_6',['x_centroid',['../structm__derived__types_1_1ic__patch__parameters.html#aef7ef14d93a66bf0e9517bb79a7ebd6f',1,'m_derived_types::ic_patch_parameters::x_centroid'],['../structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b',1,'m_derived_types::ib_patch_parameters::x_centroid'],['../structm__derived__types_1_1particle__cloud__parameters.html#acc9f78ecfc242099095202261b3c23b7',1,'m_derived_types::particle_cloud_parameters::x_centroid'],['../structm__derived__types_1_1spbf__parameters.html#aef9f0f62436efae67dffa5c364fc7133',1,'m_derived_types::spbf_parameters::x_centroid'],['../namespacem__boundary__conditions.html#a9b4c3f2ebecdb0eeafb175a59f1908b8',1,'m_boundary_conditions::x_centroid'],['../namespacem__icpp__patches.html#a0be8a64c9ae619e0ab1b94852ae13014',1,'m_icpp_patches::x_centroid']]],
   ['x_5fdomain_7',['x_domain',['../namespacem__global__parameters.html#a58e390acc41a75facd63f1d89a8e60bc',1,'m_global_parameters']]],
-  ['x_5fdomain_5fglb_8',['x_domain_glb',['../namespacem__global__parameters.html#ac3e026ecd5d2a0664c275ad1e2fd253c',1,'m_global_parameters']]],
+  ['x_5fdomain_5fglb_8',['x_domain_glb',['../namespacem__global__parameters__common.html#a76b2d81849453ec60a894f756e8aba90',1,'m_global_parameters_common']]],
   ['x_5fperiodicity_9',['x_periodicity',['../structm__derived__types_1_1ghost__point.html#a20328680231423e909f012c110cc81aa',1,'m_derived_types::ghost_point']]],
   ['xyz_5fto_5fr_5fratios_10',['xyz_to_r_ratios',['../structm__derived__types_1_1source__spatial__type.html#aeb4fc8950a2b24d41d2195346d175f59',1,'m_derived_types::source_spatial_type']]]
 ];

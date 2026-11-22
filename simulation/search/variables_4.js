@@ -21,7 +21,8 @@ var searchData=
   ['epsilon_18',['epsilon',['../structm__derived__types_1_1ic__patch__parameters.html#a8ccdad6303b38c28dd84d2cc9d518909',1,'m_derived_types::ic_patch_parameters']]],
   ['epsilonb_19',['epsilonb',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#af7e775a975b57bac1f45ca41b1abae58',1,'m_derived_types::bubbles_lagrange_parameters']]],
   ['eqn_5fidx_20',['eqn_idx',['../namespacem__global__parameters__common.html#a80a963bfbdb8f497ff540a7b4beb6e75',1,'m_global_parameters_common']]],
-  ['eu_21',['eu',['../namespacem__global__parameters.html#afae3ee499776f2b3712201dec49664b2',1,'m_global_parameters']]],
-  ['euler_5flagrange_22',['euler_lagrange',['../namespacem__global__parameters__common.html#a411a00e73ce92e4a2e47bffe66f2e38b',1,'m_global_parameters_common']]],
-  ['exchange_5fall_5fchemistry_5ftemperatures_23',['exchange_all_chemistry_temperatures',['../namespacem__mpi__common.html#aebb5dd2f13edc5147e1dd9e2aa43b530',1,'m_mpi_common']]]
+  ['eta_21',['eta',['../namespacem__icpp__patches.html#a9912585d5233ceb0bd47a02a255a30a1',1,'m_icpp_patches']]],
+  ['eu_22',['eu',['../namespacem__global__parameters.html#afae3ee499776f2b3712201dec49664b2',1,'m_global_parameters']]],
+  ['euler_5flagrange_23',['euler_lagrange',['../namespacem__global__parameters__common.html#a411a00e73ce92e4a2e47bffe66f2e38b',1,'m_global_parameters_common']]],
+  ['exchange_5fall_5fchemistry_5ftemperatures_24',['exchange_all_chemistry_temperatures',['../namespacem__mpi__common.html#aebb5dd2f13edc5147e1dd9e2aa43b530',1,'m_mpi_common']]]
 ];

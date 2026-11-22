@@ -191,14 +191,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a649e97de43e470f6ad434c418352b144" id="r_a649e97de43e470f6ad434c418352b144"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__amr__cluster.html#a649e97de43e470f6ad434c418352b144">m_amr_cluster::s_cl_morton_sort</a> (alo, ahi, nacc)</td></tr>
 <tr class="memdesc:a649e97de43e470f6ad434c418352b144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort boxes by the Morton key of lo so the merge input depends on the box set alone, not on the rank-dependent acceptance order. Accepted boxes are disjoint, so the keys are distinct; the sort is stable for any collision.  <br /></td></tr>
 <tr class="memitem:aaf549376ee108d318a31b8b8d506b205" id="r_aaf549376ee108d318a31b8b8d506b205"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__amr__cluster.html#aaf549376ee108d318a31b8b8d506b205">m_amr_cluster::s_cl_merge</a> (alo, ahi, nacc)</td></tr>
-<tr class="memdesc:aaf549376ee108d318a31b8b8d506b205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min-separation merge: two boxes are separated only if some active dim's gap reaches thr; else fuse to their bounding box. The fusion sequence is the linear walk (scan in list order, fuse the first too-close pair, restart), reproduced exactly with O(1) unlinking and a binned candidate search: a too-close partner of i lies within the 3^d bins around i's lo when the bin width is ext_max + thr, and the minimum surviving index among candidates is the first one a linear walk meets. After fusing (i, j) only box i changed, so the walk re-tests earlier survivors (minimum index first), then later ones, then resumes at the survivor's successor. Bins are rebuilt when a grown box outgrows the cell width.  <br /></td></tr>
+<tr class="memdesc:aaf549376ee108d318a31b8b8d506b205"><td class="mdescLeft">&#160;</td><td class="mdescRight">Min-separation merge: two boxes are separated only if some active dim's gap reaches thr; else fuse to their bounding box. Fusing only shrinks gaps, so the fixed point (groups with mutually separated bounding boxes) does not depend on the fusion order; a group keeps its lowest index, so the output order does not either. Each box in list order sweeps the 3^d bins around its lo (bin width ext_max + thr holds every too-close partner), absorbs every later box found too close and is absorbed by the lowest earlier one, until a sweep finds nothing. Bins are rebuilt when a grown box outgrows the cell width.  <br /></td></tr>
 <tr class="memitem:a9b3bff9c634ed14f3958c74d332cef49" id="r_a9b3bff9c634ed14f3958c74d332cef49"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9b3bff9c634ed14f3958c74d332cef49">s_mrg_build</a> ()</td></tr>
 <tr class="memitem:a830fd2041a6bda11a9e75c325cf40e94" id="r_a830fd2041a6bda11a9e75c325cf40e94"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#a830fd2041a6bda11a9e75c325cf40e94">f_mrg_binof</a> (ii)</td></tr>
 <tr class="memitem:a068eaf1aebf562a88398f7919da11b94" id="r_a068eaf1aebf562a88398f7919da11b94"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a068eaf1aebf562a88398f7919da11b94">s_mrg_binreg</a> (ii)</td></tr>
 <tr class="memitem:a2c9baa2e768d6c9bba4e8944bfd7dfb4" id="r_a2c9baa2e768d6c9bba4e8944bfd7dfb4"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2c9baa2e768d6c9bba4e8944bfd7dfb4">s_mrg_binun</a> (ii)</td></tr>
 <tr class="memitem:a3f9a1e0a5d58222396763aaa5a360f3d" id="r_a3f9a1e0a5d58222396763aaa5a360f3d"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3f9a1e0a5d58222396763aaa5a360f3d">s_mrg_fuse</a> (x, y)</td></tr>
-<tr class="memitem:aedd80f5e676dd0e5ac764bed36578fc0" id="r_aedd80f5e676dd0e5ac764bed36578fc0"><td class="memItemLeft">integer function&#160;</td><td class="memItemRight"><a class="el" href="#aedd80f5e676dd0e5ac764bed36578fc0">f_mrg_qmin</a> (ii, above)</td></tr>
-<tr class="memdesc:aedd80f5e676dd0e5ac764bed36578fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum-index too-close partner of box ii among the binned candidates above (above = .true.) or below it.  <br /></td></tr>
+<tr class="memitem:ae051d885c66adb0f7618857bbb5449ec" id="r_ae051d885c66adb0f7618857bbb5449ec"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae051d885c66adb0f7618857bbb5449ec">s_mrg_sweep</a> (ii, below, nfused)</td></tr>
+<tr class="memdesc:ae051d885c66adb0f7618857bbb5449ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">One sweep of the bins around box ii: fuse every too-close later box into it (nfused of them) and return the lowest too-close earlier box in below (0 if none). ii grows during the sweep, so the caller repeats until nothing is found.  <br /></td></tr>
 <tr class="memitem:a520204884809e9e954d5aa88d383999c" id="r_a520204884809e9e954d5aa88d383999c"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="namespacem__amr__cluster.html#a520204884809e9e954d5aa88d383999c">m_amr_cluster::s_amr_cluster</a> (tags, ntag_in, boxes, nboxes, reduce)</td></tr>
 <tr class="memdesc:a520204884809e9e954d5aa88d383999c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cluster a sparse tag list tags(1:3, 1:ntag_in) of level-0 cell coords into separated block boxes, identically on every rank. Berger-Rigoutsos bisection until a box's tag efficiency reaches amr_cluster_eff (or it is atomic or the amr_max_blocks cap is hit), then merge boxes whose amr_buf-padded extents come within buff_size. Boxes are raw tagged extents; the caller pads, clamps and size-caps each. reduce: tags is this rank's local list and node signatures are reduced across ranks; otherwise tags is already replicated.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -248,49 +248,11 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00961">961</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00951">951</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_a830fd2041a6bda11a9e75c325cf40e94_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="aedd80f5e676dd0e5ac764bed36578fc0" name="aedd80f5e676dd0e5ac764bed36578fc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedd80f5e676dd0e5ac764bed36578fc0">&#9670;&#160;</a></span>f_mrg_qmin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">integer function s_cl_merge::f_mrg_qmin </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ii</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>above</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Minimum-index too-close partner of box ii among the binned candidates above (above = .true.) or below it. </p>
-
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l01011">1011</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_aedd80f5e676dd0e5ac764bed36578fc0_icgraph.svg" width="524" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -318,7 +280,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00971">971</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00961">961</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -355,11 +317,11 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00985">985</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00975">975</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_a2c9baa2e768d6c9bba4e8944bfd7dfb4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_a2c9baa2e768d6c9bba4e8944bfd7dfb4_icgraph.svg" width="100%" height="386"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -384,7 +346,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00924">924</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00914">914</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -425,7 +387,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00998">998</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l00988">988</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -434,7 +396,55 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_a3f9a1e0a5d58222396763aaa5a360f3d_icgraph.svg" width="522" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_a3f9a1e0a5d58222396763aaa5a360f3d_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ae051d885c66adb0f7618857bbb5449ec" name="ae051d885c66adb0f7618857bbb5449ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae051d885c66adb0f7618857bbb5449ec">&#9670;&#160;</a></span>s_mrg_sweep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine s_cl_merge::s_mrg_sweep </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>ii</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>below</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>nfused</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>One sweep of the bins around box ii: fuse every too-close later box into it (nfused of them) and return the lowest too-close earlier box in below (0 if none). ii grows during the sweep, so the caller repeats until nothing is found. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__cluster_8fpp_8f90_source.html#l01002">1002</a> of file <a class="el" href="m__amr__cluster_8fpp_8f90_source.html">m_amr_cluster.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_ae051d885c66adb0f7618857bbb5449ec_cgraph.svg" width="418" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__amr__cluster_8fpp_8f90_ae051d885c66adb0f7618857bbb5449ec_icgraph.svg" width="535" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

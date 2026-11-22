@@ -172,7 +172,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a66fef5ca8d571721738db4d52fe41026" id="r_a66fef5ca8d571721738db4d52fe41026"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a66fef5ca8d571721738db4d52fe41026">s_compute_dt</a> (dt_cand)</td></tr>
 <tr class="memdesc:a66fef5ca8d571721738db4d52fe41026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the global time step size from CFL stability constraints across all cells Sets dt from the CFL criteria, each limited by the finest cell over the coarse cell under AMR. With dt_cand it only returns the global candidates at cfl_target (ICFL, VCFL, CCFL, TCFL, collision cap) and leaves dt alone.  <br /></td></tr>
 <tr class="memitem:a5a111853755c62414164df49ffba0f16" id="r_a5a111853755c62414164df49ffba0f16"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5a111853755c62414164df49ffba0f16">s_amr_check_fixed_dt</a> (reach)</td></tr>
-<tr class="memdesc:a5a111853755c62414164df49ffba0f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information). reach: test every cell as if refined to amr_max_level, which a regrid may do later, and warn instead of aborting.  <br /></td></tr>
+<tr class="memdesc:a5a111853755c62414164df49ffba0f16"><td class="mdescLeft">&#160;</td><td class="mdescRight">AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information). reach: test every cell as if refined to amr_max_level, which a regrid may do later, so the failure is at start-up.  <br /></td></tr>
 <tr class="memitem:a642d35df6fdabfeca26587ac4ffa1941" id="r_a642d35df6fdabfeca26587ac4ffa1941"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a642d35df6fdabfeca26587ac4ffa1941">s_abort_on_bad_dt_cell</a> (idx)</td></tr>
 <tr class="memdesc:a642d35df6fdabfeca26587ac4ffa1941"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abort with the location of a fluid cell whose state admits no valid time step (NaN or non-positive inviscid dt).  <br /></td></tr>
 <tr class="memitem:a5f84c7a9e33314abc24bfd4fa3a43327" id="r_a5f84c7a9e33314abc24bfd4fa3a43327"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5f84c7a9e33314abc24bfd4fa3a43327">s_advance_ib_pose</a> (s, t_step)</td></tr>
@@ -234,7 +234,7 @@ Variables</h2></td></tr>
 
 <p>Real-axis stability limit of the SSP-RK scheme (RK3 2.51, RK1 and RK2 2). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06071">6071</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06072">6072</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -262,7 +262,7 @@ Here is the caller graph for this function:</div>
 
 <p>True when run_time_info is on and the reaction source is advanced explicitly inside the RK stages. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06063">6063</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06064">6064</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -299,7 +299,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05654">5654</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05655">5655</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -325,7 +325,7 @@ Here is the caller graph for this function:</div>
 
 <p>Bubble source part in Strang operator splitting scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05204">5204</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05205">5205</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -355,7 +355,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance the immersed boundary positions and velocities to the current Runge-Kutta stage (forces from this stage's RHS). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05675">5675</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05676">5676</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -379,9 +379,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information). reach: test every cell as if refined to amr_max_level, which a regrid may do later, and warn instead of aborting. </p>
+<p>AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information). reach: test every cell as if refined to amr_max_level, which a regrid may do later, so the failure is at start-up. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05569">5569</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05570">5570</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -413,7 +413,7 @@ Here is the caller graph for this function:</div>
 <p>Compute the global time step size from CFL stability constraints across all cells Sets dt from the CFL criteria, each limited by the finest cell over the coarse cell under AMR. With dt_cand it only returns the global candidates at cfl_target (ICFL, VCFL, CCFL, TCFL, collision cap) and leaves dt alone. </p>
 <p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05227">5227</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05228">5228</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -441,7 +441,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06077">6077</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06078">6078</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -490,7 +490,7 @@ Here is the caller graph for this function:</div>
 
 <p>Explicit reaction source (reaction_substeps = 0): warn once, with step and time, when dt*(max species loss rate), the stiffness estimate of the reaction Jacobian, exceeds the real-axis stability limit of the RK scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06030">6030</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06031">6031</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -518,7 +518,7 @@ Here is the caller graph for this function:</div>
 
 <p>End-of-run line with the largest dt*|lambda_max| of the explicit reaction source seen on any rank. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06051">6051</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06052">6052</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -549,7 +549,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save the temporary q_prim_vf vector into q_prim_ts for use in p_main. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05796">5796</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05797">5797</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

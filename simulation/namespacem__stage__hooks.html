@@ -165,8 +165,8 @@ $(function(){initNavTree('namespacem__stage__hooks.html','',''); });
 Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a533f82730c57d1b20f29647f6d951f80" id="r_a533f82730c57d1b20f29647f6d951f80"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a533f82730c57d1b20f29647f6d951f80">s_stage_hooks_pre_ib</a> (q_cons, q_prim, rhs, ldt, on_block, q_t_sf)</td></tr>
 <tr class="memdesc:a533f82730c57d1b20f29647f6d951f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sources and closures, before the IB correction. on_block: q_cons is an AMR fine block in its own frame, where the azimuthal filter does not apply (it is a whole-ring transform; case_validator rejects cylindrical grids with amr). q_prim is read by the synthetic turbulence forcing only.  <br /></td></tr>
-<tr class="memitem:a4db951af8fdf7c32583c9de647bb3471" id="r_a4db951af8fdf7c32583c9de647bb3471"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a4db951af8fdf7c32583c9de647bb3471">s_stage_hooks_post_ib</a> (q_cons, tally)</td></tr>
-<tr class="memdesc:a4db951af8fdf7c32583c9de647bb3471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps, after the IB correction. tally: count the species cleanup in its report (the coarse grid only).  <br /></td></tr>
+<tr class="memitem:a7a5f563b5e013e583c521e8fec62cb0f" id="r_a7a5f563b5e013e583c521e8fec62cb0f"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7a5f563b5e013e583c521e8fec62cb0f">s_stage_hooks_post_ib</a> (q_cons, lvl)</td></tr>
+<tr class="memdesc:a7a5f563b5e013e583c521e8fec62cb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps, after the IB correction. lvl: the AMR level of the frame (0 = the coarse grid), for the species cleanup's report.  <br /></td></tr>
 <tr class="memitem:a9eb358ebdeaddf3a8f6124198fa12100" id="r_a9eb358ebdeaddf3a8f6124198fa12100"><td class="memItemLeft">pure logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a9eb358ebdeaddf3a8f6124198fa12100">f_stage_hooks_pre_ib_on_block</a> ()</td></tr>
 <tr class="memdesc:a9eb358ebdeaddf3a8f6124198fa12100"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether s_stage_hooks_pre_ib does anything on a fine block (it costs a frame swap there).  <br /></td></tr>
 <tr class="memitem:a9aee450e32c560cc23fa236968cd9ffd" id="r_a9aee450e32c560cc23fa236968cd9ffd"><td class="memItemLeft">pure logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a9aee450e32c560cc23fa236968cd9ffd">f_stage_hooks_post_ib</a> ()</td></tr>
@@ -221,8 +221,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a4db951af8fdf7c32583c9de647bb3471" name="a4db951af8fdf7c32583c9de647bb3471"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4db951af8fdf7c32583c9de647bb3471">&#9670;&#160;</a></span>s_stage_hooks_post_ib()</h2>
+<a id="a7a5f563b5e013e583c521e8fec62cb0f" name="a7a5f563b5e013e583c521e8fec62cb0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a5f563b5e013e583c521e8fec62cb0f">&#9670;&#160;</a></span>s_stage_hooks_post_ib()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,23 +235,23 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>tally</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>lvl</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Clamps, after the IB correction. tally: count the species cleanup in its report (the coarse grid only). </p>
+<p>Clamps, after the IB correction. lvl: the AMR level of the frame (0 = the coarse grid), for the species cleanup's report. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__stage__hooks_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__stage__hooks_8fpp_8f90_source.html">m_stage_hooks.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__stage__hooks_a4db951af8fdf7c32583c9de647bb3471_cgraph.svg" width="428" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__stage__hooks_a7a5f563b5e013e583c521e8fec62cb0f_cgraph.svg" width="428" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__stage__hooks_a4db951af8fdf7c32583c9de647bb3471_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__stage__hooks_a7a5f563b5e013e583c521e8fec62cb0f_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

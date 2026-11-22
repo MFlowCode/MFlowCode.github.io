@@ -1,5 +1,6 @@
 var m__start__up_8fpp_8f90 =
 [
+    [ "m_start_up::s_amr_start_fresh_blocks", "namespacem__start__up.html#aca099584ba6e029a2698e28d8a852c36", null ],
     [ "m_start_up::s_assign_particle_cloud_ib_defaults", "namespacem__start__up.html#a308ac65752ef1268769cdff4bf9bc408", null ],
     [ "m_start_up::s_build_ib_neighborhood", "namespacem__start__up.html#ad9b45bd874a5d2a97704203606aebbb9", null ],
     [ "m_start_up::s_check_input_file", "namespacem__start__up.html#ad26e747c87bb6bcf4c9d6baa21d044c1", null ],
@@ -23,6 +24,7 @@ var m__start__up_8fpp_8f90 =
     [ "m_start_up::s_resolve_ib_mass_relax", "namespacem__start__up.html#aba8c2cd9cca47504df72389eaa934608", null ],
     [ "m_start_up::s_save_data", "namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d", null ],
     [ "m_start_up::s_save_performance_metrics", "namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3", null ],
+    [ "m_start_up::amr_fresh_start", "namespacem__start__up.html#a41557e3492f88d3eef50473d5f311448", null ],
     [ "m_start_up::dt_init", "namespacem__start__up.html#a7fae29ca4b4772f23e7d68568f49c752", null ],
     [ "m_start_up::q_cons_temp", "namespacem__start__up.html#a5ff0195ab839246aa31217659f44f8d3", null ]
 ];
