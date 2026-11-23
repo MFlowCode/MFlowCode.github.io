@@ -1,15 +1,17 @@
 var searchData=
 [
-  ['wave_5fspeeds_5fdirect_0',['wave_speeds_direct',['../namespacem__constants.html#a278b6b9f4afed8bc2a9b4b6a35e7d6c0',1,'m_constants']]],
-  ['wave_5fspeeds_5fpressure_1',['wave_speeds_pressure',['../namespacem__constants.html#a8518304b1cb4d5bfa3f768e063f63bdd',1,'m_constants']]],
-  ['wavelength_2',['wavelength',['../structm__derived__types_1_1acoustic__parameters.html#abbd722a2dc80054a7785b77a9b97d56c',1,'m_derived_types::acoustic_parameters']]],
-  ['web_3',['web',['../namespacem__global__parameters__common.html#a11eabc1c5449b85fb31eb3ba3b340dba',1,'m_global_parameters_common']]],
-  ['weight_4',['weight',['../namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef',1,'m_global_parameters']]],
-  ['weno_5forder_5',['weno_order',['../namespacem__global__parameters__common.html#addcc2b4e025f06396376dbacd33f2e0f',1,'m_global_parameters_common']]],
-  ['weno_5fpolyn_6',['weno_polyn',['../namespacem__global__parameters__common.html#ab707f0720d499fb44c689015c7669ca9',1,'m_global_parameters_common']]],
-  ['wp_7',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
-  ['write_5fbubbles_8',['write_bubbles',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['write_5fbubbles_5fstats_9',['write_bubbles_stats',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7',1,'m_derived_types::bubbles_lagrange_parameters']]],
-  ['write_5fparticles_10',['write_particles',['../structm__derived__types_1_1particle__lagrange__parameters.html#a63583b1dc408313e240cc2292efd3573',1,'m_derived_types::particle_lagrange_parameters']]],
-  ['write_5fvoid_5fevol_11',['write_void_evol',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a54e9ae35397e42006e1283d57554a62e',1,'m_derived_types::bubbles_lagrange_parameters::write_void_evol'],['../structm__derived__types_1_1particle__lagrange__parameters.html#a7329c66e713877714e3ba7982947a2f5',1,'m_derived_types::particle_lagrange_parameters::write_void_evol']]]
+  ['wall_5fcolumn_0',['wall_column',['../structm__derived__types_1_1ib__patch__parameters.html#aca541ac11f677070dc982b074ea5490a',1,'m_derived_types::ib_patch_parameters']]],
+  ['wall_5fcolumn_5flen_1',['wall_column_len',['../structm__derived__types_1_1ib__patch__parameters.html#a119ab2ef69f681d40ada7d63147c21d2',1,'m_derived_types::ib_patch_parameters']]],
+  ['wave_5fspeeds_5fdirect_2',['wave_speeds_direct',['../namespacem__constants.html#a278b6b9f4afed8bc2a9b4b6a35e7d6c0',1,'m_constants']]],
+  ['wave_5fspeeds_5fpressure_3',['wave_speeds_pressure',['../namespacem__constants.html#a8518304b1cb4d5bfa3f768e063f63bdd',1,'m_constants']]],
+  ['wavelength_4',['wavelength',['../structm__derived__types_1_1acoustic__parameters.html#abbd722a2dc80054a7785b77a9b97d56c',1,'m_derived_types::acoustic_parameters']]],
+  ['web_5',['web',['../namespacem__global__parameters__common.html#a11eabc1c5449b85fb31eb3ba3b340dba',1,'m_global_parameters_common']]],
+  ['weight_6',['weight',['../namespacem__global__parameters.html#a4e7f6ce2432690cb619f78639791f6ef',1,'m_global_parameters']]],
+  ['weno_5forder_7',['weno_order',['../namespacem__global__parameters__common.html#addcc2b4e025f06396376dbacd33f2e0f',1,'m_global_parameters_common']]],
+  ['weno_5fpolyn_8',['weno_polyn',['../namespacem__global__parameters__common.html#ab707f0720d499fb44c689015c7669ca9',1,'m_global_parameters_common']]],
+  ['wp_9',['wp',['../namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a',1,'m_precision_select']]],
+  ['write_5fbubbles_10',['write_bubbles',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a71b22510e73cd67f18223b6087952265',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['write_5fbubbles_5fstats_11',['write_bubbles_stats',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a298746dbc907d22519a493f5bdf4a6b7',1,'m_derived_types::bubbles_lagrange_parameters']]],
+  ['write_5fparticles_12',['write_particles',['../structm__derived__types_1_1particle__lagrange__parameters.html#a63583b1dc408313e240cc2292efd3573',1,'m_derived_types::particle_lagrange_parameters']]],
+  ['write_5fvoid_5fevol_13',['write_void_evol',['../structm__derived__types_1_1bubbles__lagrange__parameters.html#a54e9ae35397e42006e1283d57554a62e',1,'m_derived_types::bubbles_lagrange_parameters::write_void_evol'],['../structm__derived__types_1_1particle__lagrange__parameters.html#a7329c66e713877714e3ba7982947a2f5',1,'m_derived_types::particle_lagrange_parameters::write_void_evol']]]
 ];

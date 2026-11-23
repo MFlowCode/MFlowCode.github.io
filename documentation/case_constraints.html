@@ -706,9 +706,9 @@ Geometry</h3>
 <li>When enabled, recommends: <span class="tt">cfl_target</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>pre requires cfl_adap_dt or cfl_const_dt (the WCOL time-step limit)</li>
 <li>dt must be set when using fixed time stepping (t_step_start/t_step_stop)</li>
 <li>target requires a constant time step: cfl_adap_dt must be off</li>
-<li>chem_paramstransport_dt requires cfl_adap_dt or cfl_const_dt</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>t_stop must be positive</li>
@@ -763,6 +763,9 @@ Geometry</h3>
 <p></p>
 <p><b>Dependencies:</b></p><ul>
 <li>When set, requires: <span class="tt">ib</span>, <span class="tt">coefficient_of_restitution</span>, <span class="tt">collision_time</span></li>
+</ul>
+<p><b>Requirements</b> (errors):</p><ul>
+<li>ib_friction_slip_eps requires collision_model &gt; 0</li>
 </ul>
 <p></p>
 </details>
@@ -1697,7 +1700,7 @@ Geometry</h3>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-22</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

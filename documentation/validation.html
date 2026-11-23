@@ -157,7 +157,7 @@ $(function(){initNavTree('validation.html','',''); });
   <div class="headertitle"><div class="title">Validation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md707"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md720"></a>
 Validation</h1>
 <p>This page records what MFC has been checked against: exact solutions, reference data and conservation laws. Each section is one family of checks. It gives the status, the code version, the setup, the reference, the measured values with signed errors, and the limits. Every check has an example in <span class="tt">examples/</span> with a checker script and a README, and a small version of it runs in the test suite (<span class="tt">./mfc.sh test</span>).</p>
 <p>Status words: <b>validated</b> (agrees with the reference within the stated error), <b>partially validated</b> (agrees where measured; a regime or quantity is open), <b>open discrepancy</b> (disagrees, cause known or not), <b>comparison only</b> (reference data are qualitative). Errors are (MFC − reference)/reference.</p>
@@ -207,7 +207,7 @@ Sphere-wall collision</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">first-order reconstruction, HLLC, SSP-RK3, fixed \(\Delta t\), 16³ cells, air at 1e5 Pa (the gas plays no role)  </td></tr>
 </table>
-<p>| Reference | rigid-body impact of a sphere on a fixed wall with Coulomb friction and no tangential elasticity (Maw et al. <a class="el" href="citelist.html#CITEREF_maw1976">[39]</a>): \(v_n&#39; = -e v_n\); sliding throughout ( \(\tan\theta \ge 3.5\mu(1+e)\)): \(v_t&#39; = v_t - \mu(1+e)|v_n|\); sticking ( \(\tan\theta &lt; 3.5\mu(1+e)\)): \(v_t&#39; = \frac{5}{7}v_t\). Setup after Di Maio and Di Renzo <a class="el" href="citelist.html#CITEREF_dimaio2004">[17]</a> | | Measured | \(e_n = -v_y^\text{out}/v_y^\text{in}\) and \(v_x^\text{out}\) from the last <span class="tt">ib_state</span> record, by <span class="tt">check_collision.py</span> |</p>
+<p>| Reference | rigid-body impact of a sphere on a fixed wall with Coulomb friction and no tangential elasticity (Maw et al. <a class="el" href="citelist.html#CITEREF_maw1976">[42]</a>): \(v_n&#39; = -e v_n\); sliding throughout ( \(\tan\theta \ge 3.5\mu(1+e)\)): \(v_t&#39; = v_t - \mu(1+e)|v_n|\); sticking ( \(\tan\theta &lt; 3.5\mu(1+e)\)): \(v_t&#39; = \frac{5}{7}v_t\). Setup after Di Maio and Di Renzo <a class="el" href="citelist.html#CITEREF_dimaio2004">[18]</a> | | Measured | \(e_n = -v_y^\text{out}/v_y^\text{in}\) and \(v_x^\text{out}\) from the last <span class="tt">ib_state</span> record, by <span class="tt">check_collision.py</span> |</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Case  </th><th class="markdownTableHeadRight">Prescribed  </th><th class="markdownTableHeadRight">Measured  </th><th class="markdownTableHeadRight">Error  </th></tr>
@@ -245,7 +245,7 @@ Reproduce</h3>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-mean-forcing-channel"></a>
 Thermally developed channel</h2>
 <p><b>Status:</b> validated (plane channel; the same source in particle arrays is not). <b>Code:</b> <span class="tt">master</span> at 1e3f1be0b, with the thermally developed source <span class="tt">mean_temp_wall</span> of #2200. <b>Example:</b> <span class="tt">examples/2D_thermal_channel</span>.</p>
-<p>Periodic flow with a heated or cooled wall never reaches a uniform temperature, so the mean-temperature source (<span class="tt">mean_temp</span>, <span class="tt">mean_temp_wall</span>) removes the streamwise decay: it solves for the periodic part \(\psi\) of the thermally developed state \(T = T_s + \psi\,e^{-\beta x}\) Sun et al. <a class="el" href="citelist.html#CITEREF_sun2015">[62]</a> and holds the mixing-cup temperature at its target. A plane channel with isothermal walls has an exact developed Nusselt number, so it tests the source, its decay rate \(\beta\) and the wall heat transfer together.</p>
+<p>Periodic flow with a heated or cooled wall never reaches a uniform temperature, so the mean-temperature source (<span class="tt">mean_temp</span>, <span class="tt">mean_temp_wall</span>) removes the streamwise decay: it solves for the periodic part \(\psi\) of the thermally developed state \(T = T_s + \psi\,e^{-\beta x}\) Sun et al. <a class="el" href="citelist.html#CITEREF_sun2015">[66]</a> and holds the mixing-cup temperature at its target. A plane channel with isothermal walls has an exact developed Nusselt number, so it tests the source, its decay rate \(\beta\) and the wall heat transfer together.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
@@ -260,7 +260,7 @@ Thermally developed channel</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Drive and source  </td><td class="markdownTableBodyLeft"><span class="tt">mean_mflux</span> and <span class="tt">mean_dpdx</span> (gain 0.05); <span class="tt">mean_temp</span> = 300 K (gain 0.05) with <span class="tt">mean_temp_wall</span> = \(T_s\)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">constant-property laminar flow between parallel plates, constant wall temperature, fully developed: Nu = 7.5407 Shah and London <a class="el" href="citelist.html#CITEREF_shahlondon1978">[58]</a>. With axial conduction at the run's \(\mathrm{Pe}_H\), the eigenproblem \(\psi&#39;&#39; + (6\,\mathrm{Pe}_H\,\eta(1-\eta)\,b + b^2)\psi = 0\), \(\psi(0) = \psi(1) = 0\), \(b = \beta H\), gives Nu = 7.5417 and \(\beta H\) = 0.14122; <span class="tt">check_nu.py</span> solves it  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">constant-property laminar flow between parallel plates, constant wall temperature, fully developed: Nu = 7.5407 Shah and London <a class="el" href="citelist.html#CITEREF_shahlondon1978">[62]</a>. With axial conduction at the run's \(\mathrm{Pe}_H\), the eigenproblem \(\psi&#39;&#39; + (6\,\mathrm{Pe}_H\,\eta(1-\eta)\,b + b^2)\psi = 0\), \(\psi(0) = \psi(1) = 0\), \(b = \beta H\), gives Nu = 7.5417 and \(\beta H\) = 0.14122; <span class="tt">check_nu.py</span> solves it  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">mean_temp.dat</span> ( \(T_m\), \(\dot q\), \(V_f\), \(\beta\)) and the last save, by <span class="tt">check_nu.py</span>  </td></tr>
 </table>
@@ -289,13 +289,21 @@ Reproduce</h3>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_thermal_channel/case.py -t pre_process simulation -n 1 -- --ny 32 --nx 25 --tw 330 --tend 0.3</div>
 <div class="line">python3 examples/2D_thermal_channel/check_nu.py &lt;hot run directory&gt; &lt;cold run directory&gt;</div>
 </div><!-- fragment --><p>The cold run uses <span class="tt">--tw 270</span> in a copy of the directory (the output is written next to <span class="tt">case.py</span>). The tables were measured with GNU 13.3 (CPU, one rank, <span class="tt">-O3</span>). The suite runs the first 100 steps of the hot case as <span class="tt">2D -&gt; Chemistry -&gt; Thermal Channel -&gt; Wall Temperature</span>; its golden holds the conservative fields, and the tolerance is 1e-6 (GNU 13 double -O3, reldebug and debug agree to 5e-8, AMD MI250X and an AMD CPU build to 8e-8 and 6e-8; single precision differs from double by 4e-4, so the test is skipped in that lane).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md708"></a>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-cyl-drag-nu"></a>
+Circular cylinder drag and Nusselt number</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/2D_ibm_cylinder_drag_nu</span>. The face-flux immersed-boundary force and the face heat of a no-slip isothermal cylinder at Re 20, 40 and 100 against Dennis and Chang, Williamson and the Nusselt-number correlations, with a momentum balance as an independent drag. Results and limits: <a class="el" href="validation_cyl_drag_nu.html" title="Validation: Circular Cylinder Drag and Nusselt Number">Validation: Circular Cylinder Drag and Nusselt Number</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md721"></a>
+Other families</h2>
+<ul>
+<li><a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal conduction annulus</a>: image-point interpolation (inverse distance and TSC) against the exact radial conduction solution.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md722"></a>
 Adding a section</h2>
 <p>One <span class="tt">##</span> section per family, with an anchor <span class="tt">{#sec-validation-&lt;family&gt;}</span>: status and code version, one setup table per check, the reference and how it was obtained, a results table with signed errors, and the limits. Put each check's example, checker script and README under <span class="tt">examples/</span>, and register a small version in <span class="tt">toolchain/mfc/test/cases.py</span>. Cite references with <span class="tt">\cite</span> keys from <span class="tt">docs/references.bib</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md709"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md723"></a>
 Keeping the goldens current</h2>
-<p>The registered tests are regression guards: their goldens hold the output of the code at the time they were generated. When a default or an algorithm in the numerics a test exercises changes (for moving bodies, for example the <span class="tt">ib_mass_relax</span> default), regenerate the goldens with <span class="tt">./mfc.sh test --generate --only &lt;UUID&gt;</span> in the same change, and re-run the checker scripts to confirm the physics results above.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-21</div> </div></div><!-- contents -->
+<p>The registered tests are regression guards: their goldens hold the output of the code at the time they were generated. When a default or an algorithm in the numerics a test exercises changes (for moving bodies, for example the <span class="tt">ib_mass_relax</span> default), regenerate the goldens with <span class="tt">./mfc.sh test --generate --only &lt;UUID&gt;</span> in the same change, and re-run the checker scripts to confirm the physics results above. A case whose tolerance must be looser than the default takes <span class="tt">override_tol</span> chosen from the spread between compiler and device lanes (<a class="el" href="testing.html" title="Testing">Testing</a>).</p>
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-22</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

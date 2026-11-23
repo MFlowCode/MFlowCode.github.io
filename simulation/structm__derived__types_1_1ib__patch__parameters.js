@@ -58,6 +58,8 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "twall", "structm__derived__types_1_1ib__patch__parameters.html#a2fe404254a3378ee87b7dc533a174b7c", null ],
     [ "v_blow", "structm__derived__types_1_1ib__patch__parameters.html#a5d26b4909f9d64c66eb77d5efbf3d068", null ],
     [ "vel", "structm__derived__types_1_1ib__patch__parameters.html#a98912b082c30f25c788059a38f298f4a", null ],
+    [ "wall_column", "structm__derived__types_1_1ib__patch__parameters.html#aca541ac11f677070dc982b074ea5490a", null ],
+    [ "wall_column_len", "structm__derived__types_1_1ib__patch__parameters.html#a119ab2ef69f681d40ada7d63147c21d2", null ],
     [ "x_centroid", "structm__derived__types_1_1ib__patch__parameters.html#a07e0f6fdbc5130dff9b4d62a041d7e7b", null ],
     [ "y_centroid", "structm__derived__types_1_1ib__patch__parameters.html#a234982179567711b441a5a395448efdc", null ],
     [ "z_centroid", "structm__derived__types_1_1ib__patch__parameters.html#a0326a19a0aa2eed8c6f22efc656b5169", null ]

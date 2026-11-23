@@ -3,6 +3,8 @@ var m__viscous_8fpp_8f90 =
     [ "m_viscous::s_apply_scalar_divergence_theorem", "namespacem__viscous.html#abb9caed22e1825ad5437454a97053509", null ],
     [ "m_viscous::s_compact_ib_viscous_gradient", "namespacem__viscous.html#aa9b8a10a477811a3837b264917face0c", null ],
     [ "m_viscous::s_compact_ib_viscous_gradients", "namespacem__viscous.html#a0ef32d94dfd7c0d2001d7497e16450f7", null ],
+    [ "m_viscous::s_compact_normal_viscous_gradient", "namespacem__viscous.html#a86dc356f96161fcdf47b2caf6ba31157", null ],
+    [ "m_viscous::s_compact_normal_viscous_gradients", "namespacem__viscous.html#aef113dd9981ad652e157451f8d425216", null ],
     [ "m_viscous::s_compute_axis_inv_re", "namespacem__viscous.html#addf910517546fb6683139cbed222084f", null ],
     [ "m_viscous::s_compute_fd_gradient", "namespacem__viscous.html#acd9de9c89fd8e78eea15d7eb1f6a6b68", null ],
     [ "m_viscous::s_compute_viscous_stress_cylindrical_boundary", "namespacem__viscous.html#aae94249734e8bf23fa1af7ef74f5290a", null ],

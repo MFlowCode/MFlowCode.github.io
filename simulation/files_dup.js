@@ -52,6 +52,7 @@ var files_dup =
     [ "m_helper_basic.fpp.f90", "m__helper__basic_8fpp_8f90.html", "m__helper__basic_8fpp_8f90" ],
     [ "m_hypoelastic.fpp.f90", "m__hypoelastic_8fpp_8f90.html", "m__hypoelastic_8fpp_8f90" ],
     [ "m_ib_patches.fpp.f90", "m__ib__patches_8fpp_8f90.html", "m__ib__patches_8fpp_8f90" ],
+    [ "m_ib_wall_column.fpp.f90", "m__ib__wall__column_8fpp_8f90.html", "m__ib__wall__column_8fpp_8f90" ],
     [ "m_ibm.fpp.f90", "m__ibm_8fpp_8f90.html", "m__ibm_8fpp_8f90" ],
     [ "m_icpp_patches.fpp.f90", "m__icpp__patches_8fpp_8f90.html", "m__icpp__patches_8fpp_8f90" ],
     [ "m_igr.fpp.f90", "m__igr_8fpp_8f90.html", "m__igr_8fpp_8f90" ],

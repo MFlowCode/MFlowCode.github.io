@@ -1,5 +1,6 @@
 var m__collisions_8fpp_8f90 =
 [
+    [ "m_collisions::f_inv_tangential_mass", "namespacem__collisions.html#a161312fb1d33486f55b0fbf3e2250cc2", null ],
     [ "m_collisions::f_neighborhood_ranks_own_location", "namespacem__collisions.html#a6f78efa6a42123b9b5122de43e21733a", null ],
     [ "m_collisions::f_pair_bit_index", "namespacem__collisions.html#a12529992083ba196683a2ca71ce8da50", null ],
     [ "m_collisions::s_apply_collision_forces", "namespacem__collisions.html#ae2dd53a11be648ef6360131ed58b37f7", null ],
@@ -9,6 +10,7 @@ var m__collisions_8fpp_8f90 =
     [ "m_collisions::s_detect_ib_collisions", "namespacem__collisions.html#a8dac6fb2b3da2ea0e6d3df93df7c9e94", null ],
     [ "m_collisions::s_detect_wall_collisions", "namespacem__collisions.html#a9c5fd0d2e3e996b6ddea38af036c75d1", null ],
     [ "m_collisions::s_finalize_collisions_module", "namespacem__collisions.html#a6da9569c8e2a07f8609c8a706bbf1849", null ],
+    [ "m_collisions::s_ib_friction_direction", "namespacem__collisions.html#a4c866b49418ade6e7ab7c72145cdc8b8", null ],
     [ "m_collisions::s_initialize_collisions_module", "namespacem__collisions.html#ab75b5d1e5a69e4f989675e0ba2c868ed", null ],
     [ "m_collisions::s_resize_pair_bits", "namespacem__collisions.html#ab750f22e14980b7cc220243746f4e5e0", null ],
     [ "m_collisions::collision_lookup", "namespacem__collisions.html#af14b8f561916852b4111d4bf5a0656e8", null ],
