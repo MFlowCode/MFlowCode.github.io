@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔴_20advanced_20examples_0',['🔴 Advanced Examples',['../case_constraints.html#autotoc_md59',1,'']]]
+  ['🔢_20model_20equations_0',['🔢 Model Equations',['../case_constraints.html#model-equations',1,'']]]
 ];

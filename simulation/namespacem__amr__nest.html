@@ -194,10 +194,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a3dba5d8a93ad3db71bdc817523aa4b54" id="r_a3dba5d8a93ad3db71bdc817523aa4b54"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3dba5d8a93ad3db71bdc817523aa4b54">s_amr_tag_child_from_fine</a> (ob, win_lo, win_hi, ctag, any_tag)</td></tr>
 <tr class="memdesc:a3dba5d8a93ad3db71bdc817523aa4b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor-on-fine child tagging: OR the density-gradient tags of an old fine block into an L0 tag grid over a parent window. Reads the flat store on the host (caller refreshes it); one-sided differences at the fine edges avoid stale ghosts.  <br /></td></tr>
 <tr class="memitem:a5a43e0dc26d3146b8ccfe1f741e2ee42" id="r_a5a43e0dc26d3146b8ccfe1f741e2ee42"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a5a43e0dc26d3146b8ccfe1f741e2ee42">f_amr_tag_val_st</a> (loc, ci, cj, ck)</td></tr>
-<tr class="memdesc:a5a43e0dc26d3146b8ccfe1f741e2ee42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tagged variable at one cell (amr_tag_var): 1 total density (sum of the continuity variables), 2 volume fraction of fluid 1, 3 velocity magnitude, 4 pressure (five-equation mixture). <span class="tt">_st</span> reads the flat store, <span class="tt">_sf</span> the level-0 field.  <br /></td></tr>
+<tr class="memdesc:a5a43e0dc26d3146b8ccfe1f741e2ee42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The tagged variable at one cell (amr_tag_var): 1 total density (sum of the continuity variables), 2 volume fraction of fluid 1, 3 velocity magnitude, 4 pressure (five-equation mixture), 6 temperature (as s_compute_q_T_sf), 7 mass fraction of species amr_tag_species. <span class="tt">_st</span> reads the flat store, <span class="tt">_sf</span> the level-0 field. The vorticity (5) has its own stencil, f_amr_tag_vort.  <br /></td></tr>
+<tr class="memitem:af7e2bfc9bee776f75aae62bf5fb34067" id="r_af7e2bfc9bee776f75aae62bf5fb34067"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#af7e2bfc9bee776f75aae62bf5fb34067">f_amr_tag_vort_st</a> (loc, c, im, ip)</td></tr>
+<tr class="memdesc:af7e2bfc9bee776f75aae62bf5fb34067"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell-scaled vorticity magnitude |curl u|*dx at cell c (amr_tag_var = 5), from the velocity differences between its neighbours im and ip along each direction (im = ip - 1 at a clamped block edge: a one-sided difference).  <br /></td></tr>
 <tr class="memitem:afa8b974b5be4f8bf3d867b865f4f314b" id="r_afa8b974b5be4f8bf3d867b865f4f314b"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#afa8b974b5be4f8bf3d867b865f4f314b">f_amr_tag_val_sf</a> (q, ci, cj, ck)</td></tr>
+<tr class="memitem:ab41219538ec95fe4fe5329d694749713" id="r_ab41219538ec95fe4fe5329d694749713"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#ab41219538ec95fe4fe5329d694749713">f_amr_tag_vort_sf</a> (q, c, im, ip)</td></tr>
+<tr class="memdesc:ab41219538ec95fe4fe5329d694749713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cell-scaled vorticity magnitude |curl u|*dx at cell c (amr_tag_var = 5), from the velocity differences between its neighbours im and ip along each direction (im = ip - 1 at a clamped block edge: a one-sided difference).  <br /></td></tr>
 <tr class="memitem:a24c3bdca5ea26c7ec235e1ee4cde205c" id="r_a24c3bdca5ea26c7ec235e1ee4cde205c"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a24c3bdca5ea26c7ec235e1ee4cde205c">f_amr_tag_grad_st</a> (loc, ci, cj, ck, fm1, fm2, fm3)</td></tr>
-<tr class="memdesc:a24c3bdca5ea26c7ec235e1ee4cde205c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicator (jump of the amr_tag_var variable) at one cell of a block in the flat store, max over the active dimensions. The stencil is clamped to the block (fm1:fm3 = block extents) since its ghosts are stale.  <br /></td></tr>
+<tr class="memdesc:a24c3bdca5ea26c7ec235e1ee4cde205c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicator (jump of the amr_tag_var variable, or the cell-scaled vorticity) at one cell of a block in the flat store, max over the active dimensions. The stencil is clamped to the block (fm1:fm3 = block extents) since its ghosts are stale.  <br /></td></tr>
 <tr class="memitem:ac4993da543a027d8918b3c95fc20e1c6" id="r_ac4993da543a027d8918b3c95fc20e1c6"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public&#160;</td><td class="memItemRight"><a class="el" href="#ac4993da543a027d8918b3c95fc20e1c6">f_amr_tag_ind</a> (rp, <a class="el" href="namespacem__global__parameters.html#a7c02cc28add79f8e14e3ed53517e74d0">r0</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#a7592a5109a55c163c58d7ea7fdc1e888">rm</a>)</td></tr>
 <tr class="memdesc:ac4993da543a027d8918b3c95fc20e1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag indicator from the tagged variable at i+1, i, i-1: central difference over 2*r_i, or with amr_tag_abs the larger absolute face jump.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -238,7 +242,7 @@ Variables</h2></td></tr>
 
 <p>Too small to nest a child in some active dimension. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -299,13 +303,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Tag indicator (jump of the amr_tag_var variable) at one cell of a block in the flat store, max over the active dimensions. The stencil is clamped to the block (fm1:fm3 = block extents) since its ghosts are stale. </p>
+<p>Tag indicator (jump of the amr_tag_var variable, or the cell-scaled vorticity) at one cell of a block in the flat store, max over the active dimensions. The stencil is clamped to the block (fm1:fm3 = block extents) since its ghosts are stale. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00983">983</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01093">1093</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a24c3bdca5ea26c7ec235e1ee4cde205c_cgraph.svg" width="439" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a24c3bdca5ea26c7ec235e1ee4cde205c_cgraph.svg" width="439" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -341,7 +345,7 @@ Here is the caller graph for this function:</div>
 
 <p>Tag indicator from the tagged variable at i+1, i, i-1: central difference over 2*r_i, or with amr_tag_abs the larger absolute face jump. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01000">1000</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01114">1114</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -379,7 +383,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00933">933</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00989">989</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -420,7 +424,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>The tagged variable at one cell (amr_tag_var): 1 total density (sum of the continuity variables), 2 volume fraction of fluid 1, 3 velocity magnitude, 4 pressure (five-equation mixture). <span class="tt">_st</span> reads the flat store, <span class="tt">_sf</span> the level-0 field. </p>
+<p>The tagged variable at one cell (amr_tag_var): 1 total density (sum of the continuity variables), 2 volume fraction of fluid 1, 3 velocity magnitude, 4 pressure (five-equation mixture), 6 temperature (as s_compute_q_T_sf), 7 mass fraction of species amr_tag_species. <span class="tt">_st</span> reads the flat store, <span class="tt">_sf</span> the level-0 field. The vorticity (5) has its own stencil, f_amr_tag_vort. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">loc</td><td>flat-store slot </td></tr>
@@ -428,11 +432,100 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00882">882</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00884">884</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a5a43e0dc26d3146b8ccfe1f741e2ee42_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ab41219538ec95fe4fe5329d694749713" name="ab41219538ec95fe4fe5329d694749713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab41219538ec95fe4fe5329d694749713">&#9670;&#160;</a></span>f_amr_tag_vort_sf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function, public m_amr_nest::f_amr_tag_vort_sf </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>im</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cell-scaled vorticity magnitude |curl u|*dx at cell c (amr_tag_var = 5), from the velocity differences between its neighbours im and ip along each direction (im = ip - 1 at a clamped block edge: a one-sided difference). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01054">1054</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="af7e2bfc9bee776f75aae62bf5fb34067" name="af7e2bfc9bee776f75aae62bf5fb34067"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7e2bfc9bee776f75aae62bf5fb34067">&#9670;&#160;</a></span>f_amr_tag_vort_st()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_amr_nest::f_amr_tag_vort_st </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>loc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>im</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cell-scaled vorticity magnitude |curl u|*dx at cell c (amr_tag_var = 5), from the velocity differences between its neighbours im and ip along each direction (im = ip - 1 at a clamped block edge: a one-sided difference). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">loc</td><td>flat-store slot </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00949">949</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_af7e2bfc9bee776f75aae62bf5fb34067_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -476,7 +569,7 @@ Here is the caller graph for this function:</div>
 
 <p>Grow the pack buffers sidx/skb geometrically to hold nloc+extra entries, preserving the first nloc. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -529,7 +622,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pad a child by <span class="tt">pad</span> and clamp it into the nesting window; collapsed dims are pinned to 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00751">751</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00752">752</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -597,7 +690,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cluster a parent's tagged cells into children, padded by amr_buf and clamped into the nesting window. IB: expand over bodies and re-clamp (the window already holds the body plus margin). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00714">714</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00715">715</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -660,7 +753,7 @@ Here is the caller graph for this function:</div>
 
 <p>Tile a child to the level's slot cap, amr_maxc_fit/amr_ref_ratio**(lev-1) coarse cells, and append the tiles to this rank's list. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00762">762</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00763">763</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -723,7 +816,7 @@ Here is the caller graph for this function:</div>
 
 <p>Assemble every rank's children (7 ints each: lo, hi, parent kb) and order them by parent kb with a stable counting sort: chord(1:ntot) indexes gch in the canonical (kb ascending, emission) order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00789">789</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00790">790</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -776,7 +869,7 @@ Here is the caller graph for this function:</div>
 
 <p>Brand-new region (no old fine data yet): a centred inset so the child still appears this regrid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00736">736</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00737">737</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -839,7 +932,7 @@ Here is the caller graph for this function:</div>
 
 <p>mine(kb): this rank holds a level-(lev-1) block overlapping parent kb; covered(kb): any rank does (one LOR; every block has one owner). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00546">546</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -907,7 +1000,7 @@ Here is the caller graph for this function:</div>
 
 <p>Route each parent's (index, kb) pairs to its clustering owner with a stable counting sort by owner. Serial: the send list is the gathered list. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00623">623</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00624">624</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -965,11 +1058,11 @@ Here is the caller graph for this function:</div>
 
 <p>Pass 1 for one parent: tag its window from owned level-(lev-1) blocks (amr_block_level still holds the old levels). IB: also mark the body bbox with margin max(amr_buf, 4) + amr_cpat_mar, so the clamp to the window keeps a full image-point stencil. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00594">594</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a83fa6cbf9a2988211892668a5a871df3_cgraph.svg" width="100%" height="416"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a83fa6cbf9a2988211892668a5a871df3_cgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1005,7 +1098,7 @@ Here is the caller graph for this function:</div>
 
 <p>The nesting window of a parent: its box inset by amr_cpat_mar, so a child's ghost prolongation reads valid parent interior. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00574">574</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00575">575</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1073,7 +1166,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pass 2 for one parent: rebuild its dense window from the routed pairs with gkb == kb (dedups replicated tags) and extract the tags in (k,j,i) order. The int8 decode matches s_amr_pack_gwin_pairs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00680">680</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00681">681</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1146,7 +1239,7 @@ Here is the caller graph for this function:</div>
 
 <p>Append this rank's tagged cells of child window [mlo:mhi] as (int8 linear index, parent kb) pairs; the encode matches the s_amr_nest_window_tags decode. gwin is not modified. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00420">420</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1187,7 +1280,7 @@ Here is the caller graph for this function:</div>
 <p>Regrid phase 3b: nest child boxes inside each level-(l-1) box for l = 2..amr_max_level (parents first) and set box_level. A child's extent is the density-gradient sensor on the old parent-level fine solution, coarsened and clustered; a new region with no fine data gets a centred inset. </p>
 <p>Per level: pass 1 tags each parent's window from owned old blocks and packs (index, kb) pairs; an alltoall routes them to the parent's round-robin owner; pass 2 rebuilds the window and clusters it into children; an allgatherv plus a stable sort by kb replays the children in serial order, so the list and its truncation are rank-invariant. IB nesting is np=1 only. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00450">450</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1240,11 +1333,11 @@ Here is the call graph for this function:</div>
 
 <p>Sensor-on-fine child tagging: OR the density-gradient tags of an old fine block into an L0 tag grid over a parent window. Reads the flat store on the host (caller refreshes it); one-sided differences at the fine edges avoid stale ghosts. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00837">837</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00838">838</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a3dba5d8a93ad3db71bdc817523aa4b54_cgraph.svg" width="666" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a3dba5d8a93ad3db71bdc817523aa4b54_cgraph.svg" width="666" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1277,7 +1370,7 @@ Here is the caller graph for this function:</div>
 
 <p>Nested children were dropped for lack of block capacity (warn once per regrid). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 
 </div>
 </div>

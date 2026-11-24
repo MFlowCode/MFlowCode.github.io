@@ -305,7 +305,7 @@ Variables</h2></td></tr>
 
 <p>Array length for n particles: headroom for arrivals from neighbor ranks, capped at the global count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03083">3083</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03079">3079</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -336,7 +336,7 @@ Here is the caller graph for this function:</div>
 
 <p>Report every particle whose force is not finite (position, velocities, fluid state, Re, Ma and the force term that failed first) and abort the run. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01929">1929</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01925">1925</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -413,7 +413,7 @@ Here is the caller graph for this function:</div>
 
 <p>rhs -= (alpha_p/alpha_f)*field_vars(part_field_idxdsrc_tmp). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02400">2400</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02396">2396</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -447,7 +447,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate the per-particle arrays (host and device) with room for n particles. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03092">3092</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03088">3088</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -486,7 +486,7 @@ Here is the caller graph for this function:</div>
 
 <p>Barycentric Lagrange interpolation weights at every cell in each direction, computed once. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02733">2733</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02729">2729</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -521,7 +521,7 @@ Here is the caller graph for this function:</div>
 
 <p>Store the particle field gradients along dir (pressure, velocity, and density with added mass) from this sweep's reconstructed face states. Called inside the RHS direction loop, so the face states need no extra copy. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02644">2644</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02640">2640</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -555,7 +555,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Interpolate the fluid state to each particle, compute the drag, pressure-gradient, added-mass and fluctuating forces, and store the particle RHS for this RK stage. With two-way coupling, also project the forces onto the grid. Particles advance in lockstep with the fluid, using the same TVD RK stages (s_update_lagrange_particles_tdv_rk). </p>
-<p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
 <p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01738">1738</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
@@ -592,7 +591,7 @@ Here is the call graph for this function:</div>
 
 <p>Add the two-way coupling source terms to the fluid RHS: volume-fraction terms and the projected particle forces (Maeda and Colonius, 2018). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02255">2255</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02251">2251</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -630,7 +629,7 @@ Here is the call graph for this function:</div>
 
 <p>Copy particle src's state into slot dest, to compact the particle arrays after removals. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03043">3043</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03039">3039</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -668,7 +667,7 @@ Here is the caller graph for this function:</div>
 
 <p>Copy time level src into dest (1: committed u^n, 2: stage value). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02591">2591</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02587">2587</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -699,7 +698,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate the per-particle arrays (host and device). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03767">3767</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03763">3763</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -733,7 +732,7 @@ Here is the caller graph for this function:</div>
 
 <p>Enforce boundary conditions on Lagrangian particles. Phases: (1) GPU-&gt;host transfer, (2) MPI particle exchange with neighbors, (3) per-particle BC (clamp at walls, remove outside the domain) and compaction on the host, (4) host-&gt;GPU transfer, (5) re-smear onto Eulerian grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02521">2521</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02517">2517</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -761,7 +760,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate the particle arrays. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04508">4508</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04504">4504</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -839,7 +838,7 @@ Here is the call graph for this function:</div>
 
 <p>Fluid viscosity for the drag correlations: from the mixture Reynolds number when viscous, from the mixture model with chemistry, otherwise mu_ref with an optional Sutherland correction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01989">1989</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01985">1985</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -897,7 +896,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cell-centered derivative along dir of the sum of components fbeg:fend: the difference of the right and left reconstructed face states over the cell width. The face states are stored in (x, y, z) order for every sweep direction, so dq shares their (i, j, k) indexing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02667">2667</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02663">2663</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -931,7 +930,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reallocate the per-particle arrays with room for n particles, keeping the state of the first n_el_particles_loc. Host data: the caller updates the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04402">4402</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04398">4398</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1060,7 +1059,7 @@ Here is the caller graph for this function:</div>
 
 <p>Send the particles on the transfer list to their new ranks and append the particles received from the neighbors (host data). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02930">2930</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02926">2926</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1103,7 +1102,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pack particle k into MPI send slot q, in the field order of s_unpack_lag_particle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02951">2951</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02947">2947</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1189,7 +1188,7 @@ Here is the caller graph for this function:</div>
 
 <p>Project the particle quantities ind_start:ind_end onto the grid with the Gaussian kernel (Maeda and Colonius, 2018), exchange them across rank boundaries, and turn the projected particle volume fraction into the fluid volume fraction. recompute_gSum relocates the particles and recomputes the kernel normalization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02074">2074</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02070">2070</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1212,7 +1211,7 @@ Here is the caller graph for this function:</div>
 
 <p>Copy the particle state and projected volume fraction to the host before a save, and abort if any particle position or velocity is NaN. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02892">2892</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02888">2888</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1250,7 +1249,7 @@ Here is the caller graph for this function:</div>
 
 <p>Unpack particle k from MPI receive slot q, in the field order of s_pack_lag_particle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02997">2997</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02993">2993</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1285,7 +1284,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance particle positions and velocities by one TVD RK stage with the stage coefficients coef (a row of rk_coef), then apply boundary conditions and rank handover. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02456">2456</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02452">2452</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

@@ -171,7 +171,7 @@ Overview</h2>
 <h2 class="doxsection"><a class="anchor" id="amr-algorithm"></a>
 Algorithm</h2>
 <ul>
-<li><b>Tagging and clustering.</b> A coarse cell is tagged when its normalized density jump exceeds <span class="tt">amr_tag_eps</span> (<span class="tt">amr_tag_abs = T</span> uses the absolute jump instead). <span class="tt">amr_tag_var</span> tags on the volume fraction of fluid 1, the velocity magnitude or the pressure instead of the density, for interfaces, shear layers and pressure waves with no density jump. Tags are clustered by Berger-Rigoutsos bisection into boxes that reach <span class="tt">amr_cluster_eff</span> tag efficiency, are at least <span class="tt">amr_blocking_factor</span> cells wide, are padded by <span class="tt">amr_buf</span> cells and are capped at <span class="tt">amr_max_grid_size</span> cells per dimension. Levels nest properly (a level-2 box lies inside one level-1 box).</li>
+<li><b>Tagging and clustering.</b> A coarse cell is tagged when its normalized density jump exceeds <span class="tt">amr_tag_eps</span> (<span class="tt">amr_tag_abs = T</span> uses the absolute jump instead). <span class="tt">amr_tag_var</span> tags on the volume fraction of fluid 1, the velocity magnitude, the pressure, the temperature or a species mass fraction (<span class="tt">amr_tag_species</span>) instead of the density, for interfaces, shear layers, pressure waves and flames with no density jump. The vorticity (<span class="tt">amr_tag_var = 5</span>) is not a jump: a cell is tagged when its vorticity magnitude times its cell size <span class="tt">dx</span> (central velocity differences; a velocity, halving per level for a resolved vortex) exceeds <span class="tt">amr_tag_eps</span>, whatever <span class="tt">amr_tag_abs</span>. Tags are clustered by Berger-Rigoutsos bisection into boxes that reach <span class="tt">amr_cluster_eff</span> tag efficiency, are at least <span class="tt">amr_blocking_factor</span> cells wide, are padded by <span class="tt">amr_buf</span> cells and are capped at <span class="tt">amr_max_grid_size</span> cells per dimension. Levels nest properly (a level-2 box lies inside one level-1 box).</li>
 <li><b>Prolongation.</b> New blocks and fine ghost cells are filled from the parent level by conservative minmod-limited linear interpolation (<span class="tt">amr_prolong = 1</span>) or conservative quartic interpolation (<span class="tt">amr_prolong = 2</span>). The quartic fill falls back to limited linear in a cell whose children would leave the range of the neighbouring coarse averages (widened only where the second differences share a sign: at a smooth local extremum and next to one, so a smooth extremum keeps the quartic, a steep monotone front stays monotone, and an overshoot beside a front is not amplified), and wherever it would give non-positive density or internal energy. Volume fractions are renormalized to sum to one and species mass fractions to <span class="tt">sum(Y) = 1, Y &gt;= 0</span>. A block that survives a regrid keeps its own fine solution.</li>
 <li><b>Advance.</b> Lock-step (default): every level takes each step at <span class="tt">dt</span>, so <span class="tt">dt</span> must satisfy the finest level's CFL limit. With a CFL-based time step (<span class="tt">cfl_adap_dt</span>, <span class="tt">cfl_const_dt</span>) each coarse cell's limit is that of the finest cell covering it, so <span class="tt">dt</span> drops where blocks appear; the reported ICFL is the finest level's too. With a fixed <span class="tt">dt</span> the run aborts at start-up or after a regrid if <span class="tt">dt</span> exceeds the finest cells' inviscid limit (ICFL = 1), and prints the largest stable <span class="tt">dt</span>. With regrid on, start-up also aborts if <span class="tt">dt</span> would exceed that limit were the fastest cells refined to <span class="tt">amr_max_level</span>, so a run cannot fail on it later. Subcycled (<span class="tt">amr_subcycle = T</span>): each refined level takes two steps per parent step, with ghost cells interpolated in time; <span class="tt">dt</span> is the level-0 step. Needs <span class="tt">time_stepper = 2</span> or <span class="tt">3</span>.</li>
 <li><b>Refluxing and restriction.</b> Fine face fluxes (advective, viscous, diffusive) are accumulated in flux registers and replace the coarse fluxes at coarse/fine faces, so mass, momentum and energy are conserved across the interface. Each covered coarse cell is then set to the average of its fine children.</li>
@@ -182,7 +182,7 @@ Conservation and accuracy</h2>
 <h2 class="doxsection"><a class="anchor" id="amr-parallel"></a>
 Parallelism</h2>
 <p>Each block is owned whole by one rank. Owners come from a cost-weighted space-filling-curve cut over the blocks (cost: one per coarse cell plus <span class="tt">K_ib</span> per immersed-boundary cell), recomputed at every regrid. <span class="tt">amr_place_owner = T</span> instead places each block on the rank that owns most of the coarse cells under it, capped at 5% above the mean load, which cuts communication. A block may straddle rank boundaries; its coarse-side coupling moves point-to-point between the owner and the ranks it overlaps. All exchanges are posted in a fixed order, so runs are deterministic.</p>
-<p>On GPUs every block array is device-resident. A rank advances its blocks of equal level in batches stacked along the last dimension, one solver call per batch; this is why AMR needs a uniform Cartesian grid. The toolchain enables <span class="tt">amr_device_pack</span> (fused exchange kernels) when <span class="tt">amr_max_grid_size &lt;= 64</span> and sets <span class="tt">amr_snap = min(2, amr_buf - 2)</span> (regrid hysteresis) under dynamic regrid, unless they are set explicitly.</p>
+<p>On GPUs every block array is device-resident. A rank advances its blocks of equal level in batches stacked along the last dimension, one solver call per batch; this is why AMR needs a uniform Cartesian grid. The toolchain enables <span class="tt">amr_device_pack</span> (fused exchange kernels) and sets <span class="tt">amr_snap = min(2, amr_buf - 2)</span> (regrid hysteresis) under dynamic regrid, unless they are set explicitly.</p>
 <p><span class="tt">rank_time_wrt = T</span> prints a per-phase time budget of the AMR step, the block-balance report, and at the end of the run the memory each group of AMR arrays holds per rank (<span class="tt">[amr-mem]</span>: block store, advance scratch, coarse patches, flux registers, the fine IB ghost-point park, and the host-side per-slot IB marker copies).</p>
 <h2 class="doxsection"><a class="anchor" id="amr-physics"></a>
 Supported physics</h2>
@@ -236,30 +236,32 @@ Parameters</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">amr_tag_abs</span>  </td><td class="markdownTableBodyCenter">F  </td><td class="markdownTableBodyLeft">Tag on the absolute jump; <span class="tt">amr_tag_eps</span> then has the units of the tagged variable  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">amr_tag_var</span>  </td><td class="markdownTableBodyCenter">1  </td><td class="markdownTableBodyLeft">Tagged variable: 1 total density, 2 volume fraction of fluid 1, 3 velocity magnitude (needs <span class="tt">amr_tag_abs</span>), 4 pressure (five-equation model)  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">amr_tag_var</span>  </td><td class="markdownTableBodyCenter">1  </td><td class="markdownTableBodyLeft">Tagged variable: 1 total density, 2 volume fraction of fluid 1, 3 velocity magnitude (needs <span class="tt">amr_tag_abs</span>), 4 pressure (five-equation model), 5 vorticity (magnitude times the cell size against <span class="tt">amr_tag_eps</span>; 2D/3D), 6 temperature (chemistry), 7 mass fraction of species <span class="tt">amr_tag_species</span> (chemistry, needs <span class="tt">amr_tag_abs</span>)  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><span class="tt">amr_tag_species</span>  </td><td class="markdownTableBodyCenter">1  </td><td class="markdownTableBodyLeft">Species index tagged by <span class="tt">amr_tag_var = 7</span>  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">amr_buf</span>  </td><td class="markdownTableBodyCenter">3  </td><td class="markdownTableBodyLeft">Padding around tagged cells, coarse cells (&gt;= 1 with regrid)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">amr_cluster_eff</span>  </td><td class="markdownTableBodyCenter">0.7  </td><td class="markdownTableBodyLeft">Minimum tag efficiency of a clustered box  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">amr_blocking_factor</span>  </td><td class="markdownTableBodyCenter">4  </td><td class="markdownTableBodyLeft">Minimum box width, coarse cells  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">amr_max_grid_size</span>  </td><td class="markdownTableBodyCenter">0  </td><td class="markdownTableBodyLeft">Maximum box width, coarse cells; 0 derives it from the decomposition  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft"><span class="tt">amr_max_grid_size</span>  </td><td class="markdownTableBodyCenter">0  </td><td class="markdownTableBodyLeft">Maximum box width, coarse cells; 0 derives it from the decomposition (and, on several ranks, tiles regrid boxes smaller, not below 32, until there are two per rank)  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">amr_max_blocks</span>  </td><td class="markdownTableBodyCenter">1024  </td><td class="markdownTableBodyLeft">Maximum number of blocks  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">amr_max_level</span>  </td><td class="markdownTableBodyCenter">1  </td><td class="markdownTableBodyLeft">Number of refined levels  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">amr_ref_ratio</span>  </td><td class="markdownTableBodyCenter">2  </td><td class="markdownTableBodyLeft">Refinement ratio, 2 or 4 (4: one level only)  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">amr_subcycle</span>  </td><td class="markdownTableBodyCenter">F  </td><td class="markdownTableBodyLeft">Subcycle refined levels in time (ratio 2, up to two levels)  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">amr_prolong</span>  </td><td class="markdownTableBodyCenter">1  </td><td class="markdownTableBodyLeft">1: limited linear, 2: quartic (ratio 2)  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">amr_place_owner</span>  </td><td class="markdownTableBodyCenter">F  </td><td class="markdownTableBodyLeft">Owner-aware block placement  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><span class="tt">amr_snap</span>  </td><td class="markdownTableBodyCenter">0  </td><td class="markdownTableBodyLeft">Regrid hysteresis, coarse cells (&lt;= <span class="tt">amr_buf - 2</span>)  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">amr_place_owner</span>  </td><td class="markdownTableBodyCenter">F  </td><td class="markdownTableBodyLeft">Owner-aware block placement  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft"><span class="tt">amr_snap</span>  </td><td class="markdownTableBodyCenter">0  </td><td class="markdownTableBodyLeft">Regrid hysteresis, coarse cells (&lt;= <span class="tt">amr_buf - 2</span>)  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">amr_device_pack</span>  </td><td class="markdownTableBodyCenter">F  </td><td class="markdownTableBodyLeft">Fused device pack/unpack of the coarse-patch exchange  </td></tr>
 </table>
 <h2 class="doxsection"><a class="anchor" id="amr-example"></a>
@@ -272,7 +274,7 @@ Example</h2>
 <div class="line"><span class="stringliteral">&quot;amr_tag_eps&quot;</span>: 0.05,</div>
 <div class="line"><span class="stringliteral">&quot;amr_buf&quot;</span>: 3,</div>
 <div class="line"><span class="stringliteral">&quot;amr_max_grid_size&quot;</span>: 32,</div>
-</div><!-- fragment --><p>Complete cases: <span class="tt">examples/2D_amr_droplet</span> (a tracked interface), <span class="tt">examples/2D_amr_blast_multilevel</span> (two refined levels), <span class="tt">examples/2D_amr_ibm_cylinder</span> (an immersed body) and <span class="tt">examples/3D_amr_blast</span> (3D, subcycled).</p>
+</div><!-- fragment --><p>Complete cases: <span class="tt">examples/2D_amr_droplet</span> (a tracked interface), <span class="tt">examples/2D_amr_blast_multilevel</span> (two refined levels), <span class="tt">examples/2D_amr_ibm_cylinder</span> (an immersed body), <span class="tt">examples/3D_amr_blast</span> (3D, subcycled) and <span class="tt">examples/1D_amr_reactive_shocktube</span> (chemistry: the blocks follow a reacting front tagged on temperature).</p>
 <h2 class="doxsection"><a class="anchor" id="amr-payoff"></a>
 When AMR pays</h2>
 <p>AMR costs more per cell than a uniform grid: extra kernels for ghost fills, flux registers and restriction, plus the regrids. On a GPU it pays only when the grid it replaces is large enough that the cell count, and not that fixed cost, sets the time per step.</p>
@@ -297,13 +299,13 @@ When AMR pays</h2>
 <h2 class="doxsection"><a class="anchor" id="amr-limitations"></a>
 Limitations</h2>
 <ul>
-<li><b>Block size.</b> A block spans at most about half a rank's subdomain per dimension unless <span class="tt">amr_max_grid_size</span> is set; larger features are covered by several blocks.</li>
+<li><b>Block size.</b> A block spans at most about half a rank's subdomain per dimension unless <span class="tt">amr_max_grid_size</span> is set; larger features are covered by several blocks. On several ranks, regrid tiles the level-1 boxes smaller (not below 32 coarse cells) until there are at least two per rank, so a small refined region still spreads over the ranks.</li>
 <li><b>Restart.</b> <span class="tt">parallel_io</span> restarts work on any rank count when <span class="tt">amr_max_grid_size</span> is set; otherwise restart on no more ranks than wrote the checkpoint. The serial format needs the rank count that wrote it. The file header records <span class="tt">amr_ref_ratio</span>, <span class="tt">amr_max_level</span> and the storage precision, which must match (the level count may only grow); a missing fine-level file aborts the restart.</li>
 <li><b>Nesting.</b> A level-2 or deeper block lies inside one block of the level above; regrid builds each block's children inside it, a few coarse cells from its edge. Where a feature crosses the seam between two parent blocks, a strip that wide on each side of the seam stays at the parent's resolution. A larger <span class="tt">amr_max_grid_size</span> gives fewer seams.</li>
 <li><b>Regrid.</b> When no cell is tagged, regrid replaces the hierarchy with one small dormant level-1 block (one coarse cell at the domain center, padded by <span class="tt">amr_buf</span>), since the solver needs at least one block. At every level, the part of a new block that an old block of the same level covered keeps the old data; the rest is prolonged from the parent.</li>
 <li><b>Output.</b> Field output is at level-0 resolution with the fine solution restricted into it; post_process with <span class="tt">amr = T</span> overlays the blocks as separate SILO domains. Each save also writes <span class="tt">D/amr_levels.&lt;step&gt;.dat</span>: one line per refined level with its fine cell count and the mean of <span class="tt">|q|</span> over its cells for each conserved variable.</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-21</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

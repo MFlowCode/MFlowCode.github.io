@@ -5,6 +5,8 @@ var m__amr__nest_8fpp_8f90 =
     [ "m_amr_nest::f_amr_tag_ind", "namespacem__amr__nest.html#ac4993da543a027d8918b3c95fc20e1c6", null ],
     [ "m_amr_nest::f_amr_tag_val_sf", "namespacem__amr__nest.html#afa8b974b5be4f8bf3d867b865f4f314b", null ],
     [ "m_amr_nest::f_amr_tag_val_st", "namespacem__amr__nest.html#a5a43e0dc26d3146b8ccfe1f741e2ee42", null ],
+    [ "m_amr_nest::f_amr_tag_vort_sf", "namespacem__amr__nest.html#ab41219538ec95fe4fe5329d694749713", null ],
+    [ "m_amr_nest::f_amr_tag_vort_st", "namespacem__amr__nest.html#af7e2bfc9bee776f75aae62bf5fb34067", null ],
     [ "m_amr_nest::s_amr_grow_pack", "namespacem__amr__nest.html#ae630ad8e8e86f5b11bc0386a8ab3f896", null ],
     [ "m_amr_nest::s_amr_nest_clamp", "namespacem__amr__nest.html#a02c3d2dd163636f6cce719db108522b4", null ],
     [ "m_amr_nest::s_amr_nest_cluster_children", "namespacem__amr__nest.html#af4effbd0f248b303f7f7a8551fc545c0", null ],

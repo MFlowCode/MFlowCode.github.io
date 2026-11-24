@@ -169,6 +169,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:acbbfa0dcedf1481d4135431ca4b9e34a"><td class="mdescLeft">&#160;</td><td class="mdescRight">One line at the end of a run if the equilibration ever stopped on its iteration cap. Silence means every cell reached the tolerance.  <br /></td></tr>
 <tr class="memitem:a6270935d5b7ee5e6a12099873d9532d8" id="r_a6270935d5b7ee5e6a12099873d9532d8"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a6270935d5b7ee5e6a12099873d9532d8">s_needs_pressure_relaxation</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
 <tr class="memdesc:a6270935d5b7ee5e6a12099873d9532d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if pressure relaxation is needed for this cell.  <br /></td></tr>
+<tr class="memitem:a9de7eed88eb939d8d28da35b166eac07" id="r_a9de7eed88eb939d8d28da35b166eac07"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a9de7eed88eb939d8d28da35b166eac07">f_phase_active</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, i, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
+<tr class="memdesc:a9de7eed88eb939d8d28da35b166eac07"><td class="mdescLeft">&#160;</td><td class="mdescRight">A phase takes part in the equilibration if it is present with a positive mass. A vanishing phase transported to round-off can carry a negative partial density, which has no density to equilibrate; it keeps its state instead.  <br /></td></tr>
 <tr class="memitem:ad8109f147fed183aed390197702d14f2" id="r_ad8109f147fed183aed390197702d14f2"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad8109f147fed183aed390197702d14f2">s_correct_volume_fractions</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
 <tr class="memdesc:ad8109f147fed183aed390197702d14f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Correct volume fractions to physical bounds.  <br /></td></tr>
 <tr class="memitem:a0e29dbcd8881b2926d00aa8168f6988e" id="r_a0e29dbcd8881b2926d00aa8168f6988e"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0e29dbcd8881b2926d00aa8168f6988e">s_equilibrate_pressure</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, hit_cap, resid, unusable)</td></tr>
@@ -186,6 +188,56 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Pressure relaxation for the six-equation multi-component model via Newton&ndash;Raphson equilibration and volume-fraction correction. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a9de7eed88eb939d8d28da35b166eac07" name="a9de7eed88eb939d8d28da35b166eac07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9de7eed88eb939d8d28da35b166eac07">&#9670;&#160;</a></span>f_phase_active()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical function m_pressure_relaxation::f_phase_active </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_cons_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>i</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A phase takes part in the equilibration if it is present with a positive mass. A vanishing phase transported to round-off can carry a negative partial density, which has no density to equilibrate; it keeps its state instead. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00564">564</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__pressure__relaxation_a9de7eed88eb939d8d28da35b166eac07_cgraph.svg" width="182" height="80"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__pressure__relaxation_a9de7eed88eb939d8d28da35b166eac07_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a76311ce223587dde8aaf9ebbc7dbbb3a" name="a76311ce223587dde8aaf9ebbc7dbbb3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76311ce223587dde8aaf9ebbc7dbbb3a">&#9670;&#160;</a></span>s_correct_internal_energies()</h2>
 
@@ -237,7 +289,7 @@ Variables</h2></td></tr>
 
 <p>Correct internal energies using equilibrated pressure. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00821">821</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00850">850</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -282,7 +334,7 @@ Here is the caller graph for this function:</div>
 
 <p>Correct volume fractions to physical bounds. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00563">563</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00592">592</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -337,11 +389,11 @@ Here is the caller graph for this function:</div>
 
 <p>Main pressure equilibration using Newton-Raphson. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html#l00659">659</a> of file <a class="el" href="m__pressure__relaxation_8fpp_8f90_source.html">m_pressure_relaxation.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__pressure__relaxation_a0e29dbcd8881b2926d00aa8168f6988e_cgraph.svg" width="100%" height="553"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__pressure__relaxation_a0e29dbcd8881b2926d00aa8168f6988e_cgraph.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>

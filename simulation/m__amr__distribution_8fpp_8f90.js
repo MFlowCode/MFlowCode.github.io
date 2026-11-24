@@ -4,6 +4,7 @@ var m__amr__distribution_8fpp_8f90 =
     [ "m_amr_distribution::f_amr_overlap_count", "namespacem__amr__distribution.html#a1db209245e908339ddd027d765d1231c", null ],
     [ "m_amr_distribution::f_amr_owner", "namespacem__amr__distribution.html#a20a64c1df6d3d2eecd526f537b3cec6e", null ],
     [ "m_amr_distribution::f_amr_rank_overlaps", "namespacem__amr__distribution.html#abdb97a63132b05bebefdf169c952d550", null ],
+    [ "m_amr_distribution::f_amr_rank_tile", "namespacem__amr__distribution.html#aadf7d51df42ec191a346bbc51098b475", null ],
     [ "m_amr_distribution::s_amr_adopt_block_owners", "namespacem__amr__distribution.html#a5c016cb1f332ddc3194d975b69940997", null ],
     [ "m_amr_distribution::s_amr_assign_block_owners", "namespacem__amr__distribution.html#a88d95de4d553ef8f048dc50ecf1234d5", null ],
     [ "m_amr_distribution::s_amr_block_cost", "namespacem__amr__distribution.html#a2b22b0c6d58f3ac60ab7f180febf9971", null ],

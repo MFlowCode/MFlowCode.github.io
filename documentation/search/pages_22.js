@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['z_5fdomain_0',['z_domain',['../parameters.html#z_domain',1,'']]],
-  ['z_5foutput_1',['z_output',['../parameters.html#z_output',1,'']]],
-  ['zein10_2',['8.2 pTg-Relaxation (&lt;span class=&quot;tt&quot;&gt;relax_model = 6&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_zein10&quot;&gt;[77]&lt;/a&gt;)',['../equations.html#autotoc_md191',1,'']]],
-  ['zero_20reference_20check_20is_20not_20available_20here_3',['Why a zero-reference check is not available here',['../examples.html#autotoc_md329',1,'']]]
+  ['y_5fdomain_0',['y_domain',['../parameters.html#y_domain',1,'']]],
+  ['y_5foutput_1',['y_output',['../parameters.html#y_output',1,'']]],
+  ['yield_20stress_20poiseuille_20channel_2',['2D Bingham (Yield-Stress) Poiseuille Channel',['../examples.html#autotoc_md388',1,'']]],
+  ['your_20environment_3',['Step 1: Setting up your Environment',['../visualization.html#autotoc_md905',1,'']]]
 ];

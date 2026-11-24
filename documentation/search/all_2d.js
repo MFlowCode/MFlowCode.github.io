@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🧩_20case_20design_20playbook_0',['🧩 Case Design Playbook',['../case_constraints.html#case-design-playbook',1,'']]]
+  ['🟢_20beginner_20examples_0',['🟢 Beginner Examples',['../case_constraints.html#autotoc_md57',1,'']]]
 ];

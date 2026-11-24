@@ -34,6 +34,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::amr_subcycle", "namespacem__global__parameters__common.html#a8c856aadd5fa3e2636e6f8de40780b53", null ],
     [ "m_global_parameters_common::amr_tag_abs", "namespacem__global__parameters__common.html#a37d5582e5307fa821621da018d44cc2a", null ],
     [ "m_global_parameters_common::amr_tag_eps", "namespacem__global__parameters__common.html#a824cb894bd1e03ef408d84f74a44e4bc", null ],
+    [ "m_global_parameters_common::amr_tag_species", "namespacem__global__parameters__common.html#aced74716e8665e708d3feffc93f5e787", null ],
     [ "m_global_parameters_common::amr_tag_var", "namespacem__global__parameters__common.html#ad53f11c9d20e3c1e80ff8d2ab438645b", null ],
     [ "m_global_parameters_common::any_state_dependent_eos", "namespacem__global__parameters__common.html#aaa444a960761cc93e73732d001e840c2", null ],
     [ "m_global_parameters_common::avg_state", "namespacem__global__parameters__common.html#ab05ba2cf97e55309cc76ef937ab78be3", null ],

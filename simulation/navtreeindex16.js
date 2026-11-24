@@ -1,5 +1,11 @@
 var NAVTREEINDEX16 =
 {
+"structm__derived__types_1_1reactive__burn__parameters.html":[2,0,5,49],
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[1,0,41,49,5],
+"structm__derived__types_1_1reactive__burn__parameters.html#a0a1ad0295f8c886b183d9b43ed08a034":[2,0,5,49,5],
+"structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4":[1,0,41,49,3],
+"structm__derived__types_1_1reactive__burn__parameters.html#a54d0b7fb3439d5a1be2bcd964477ffd4":[2,0,5,49,3],
+"structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63":[1,0,41,49,4],
 "structm__derived__types_1_1reactive__burn__parameters.html#a700b4e7b1fdd9ef38c3de058f6b74a63":[2,0,5,49,4],
 "structm__derived__types_1_1reactive__burn__parameters.html#a797a8e2cddd5bf0f70db4193b8bdd156":[1,0,41,49,0],
 "structm__derived__types_1_1reactive__burn__parameters.html#a797a8e2cddd5bf0f70db4193b8bdd156":[2,0,5,49,0],

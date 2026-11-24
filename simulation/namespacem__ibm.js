@@ -26,6 +26,7 @@ var namespacem__ibm =
     [ "f_wall_column_dt", "namespacem__ibm.html#a6fc42fc10e4b44c48ff7fd42f97115b4", null ],
     [ "f_wall_face_sum", "namespacem__ibm.html#afec0fdd05115ab70c1defd3df1b338ee", null ],
     [ "f_wall_face_term", "namespacem__ibm.html#a332d4e340de5b00c29e55609bdb22a0b", null ],
+    [ "f_wall_point", "namespacem__ibm.html#a22815fe5c34b30797f30f3fbf7d283d2", null ],
     [ "f_wall_velocity", "namespacem__ibm.html#af8403815174f3e04c53e9bdc1066baa2", null ],
     [ "f_wc_body_centre", "namespacem__ibm.html#a8171978c02d41a9179164f2a20a55d63", null ],
     [ "f_wc_dist", "namespacem__ibm.html#a10607ae61cf7933b6f6803c2110b96ed", null ],

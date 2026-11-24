@@ -1,5 +1,10 @@
 var NAVTREEINDEX9 =
 {
+"namespacem__icpp__patches.html#a0c902f53d362fec05b33ac8314a8d9c9":[1,0,57,0],
+"namespacem__icpp__patches.html#a0cecf774d018ffe1870f3a3987eb2a76":[1,0,57,20],
+"namespacem__icpp__patches.html#a355dca3813273b7ee09399061ad340e0":[1,0,57,23],
+"namespacem__icpp__patches.html#a35fcf13863e2bb3c168b28ea0e158d04":[1,0,57,18],
+"namespacem__icpp__patches.html#a40da30d8d9e5ab38c0a1e953742b21c0":[1,0,57,2],
 "namespacem__icpp__patches.html#a4456287345c7226beb1f7a44e749f948":[1,0,57,28],
 "namespacem__icpp__patches.html#a491106bdc2ed7ceaa3d9d91d2978c69e":[1,0,57,25],
 "namespacem__icpp__patches.html#a4ba20b95a9c875dee930b99f13fe6d81":[1,0,57,19],
@@ -244,10 +249,5 @@ var NAVTREEINDEX9 =
 "namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe":[1,0,66,0],
 "namespacem__phase__change.html":[1,0,67],
 "namespacem__phase__change.html#a12729a2eee1498ac58eb6595f4dd6ceb":[1,0,67,3],
-"namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9":[1,0,67,1],
-"namespacem__phase__change.html#a19a8a866830bfc285d631672287a851f":[1,0,67,4],
-"namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837":[1,0,67,13],
-"namespacem__phase__change.html#a3e20769a9f02b9e24c8b59413b6675f1":[1,0,67,7],
-"namespacem__phase__change.html#a40fc0021e6742e8e4bd066690af9cfc7":[1,0,67,2],
-"namespacem__phase__change.html#a6a72e1b7f15cf87887ef362e7d837744":[1,0,67,6]
+"namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9":[1,0,67,1]
 };

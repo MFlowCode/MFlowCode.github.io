@@ -188,7 +188,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a865687c6a3188efbd71b29b439302ec1" id="r_a865687c6a3188efbd71b29b439302ec1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a865687c6a3188efbd71b29b439302ec1">s_write_serial_ib_state</a> (t_step)</td></tr>
 <tr class="memdesc:a865687c6a3188efbd71b29b439302ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write IB state data to a per-timestep serial (unformatted) file.  <br /></td></tr>
 <tr class="memitem:a565861aaf83ca5636f8622407b108749" id="r_a565861aaf83ca5636f8622407b108749"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a565861aaf83ca5636f8622407b108749">s_write_ib_history</a> (t_step)</td></tr>
-<tr class="memdesc:a565861aaf83ca5636f8622407b108749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record every immersed body's force, torque and kinematics (D/ib_forces.dat, ib_force_wrt with ib_state_wrt) and its mass and heat exchange (D/ib_heat.dat, ib_heat_wrt) for this step.  <br /></td></tr>
+<tr class="memdesc:a565861aaf83ca5636f8622407b108749"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record every immersed body's force, torque and kinematics (D/ib_forces.dat, ib_force_wrt) and its mass and heat exchange (D/ib_heat.dat, ib_heat_wrt) for this step.  <br /></td></tr>
 <tr class="memitem:a0a885960d06c1c1e6df802ac32a4535a" id="r_a0a885960d06c1c1e6df802ac32a4535a"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0a885960d06c1c1e6df802ac32a4535a">s_write_ib_record</a> (unit, row, gid, fields)</td></tr>
 <tr class="memdesc:a0a885960d06c1c1e6df802ac32a4535a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write body gid's record in the given row. The format is fixed width by construction: every ES descriptor right-justifies in its field, including for negatives, three-digit exponents, NaN and Inf, so a record is always 10 + 18*size(fields) characters plus its newline. That is what lets a rank write at a computed byte offset, with no gather and no per-rank shards.  <br /></td></tr>
 <tr class="memitem:a94ea575aed944cdce8815fe3f9b76ace" id="r_a94ea575aed944cdce8815fe3f9b76ace"><td class="memItemLeft">pure character(len=32) function&#160;</td><td class="memItemRight"><a class="el" href="#a94ea575aed944cdce8815fe3f9b76ace">f_ib_rec_fmt</a> (nf)</td></tr>
@@ -306,7 +306,7 @@ Variables</h2></td></tr>
 
 <p>Record format for nf reals after the body id. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01844">1844</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01839">1839</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -354,7 +354,7 @@ Here is the caller graph for this function:</div>
 
 <p>Half-open ownership lo &lt; v &lt;= hi, so a probe on a rank face is sampled once, by the rank holding the cell the serial code samples (left of the face); the first rank in a direction also owns its lower face. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03177">3177</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03172">3172</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -382,7 +382,7 @@ Here is the caller graph for this function:</div>
 
 <p>Close the history files. Nothing is buffered, so there is nothing to flush first. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01916">1916</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01911">1911</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -413,7 +413,7 @@ Here is the call graph for this function:</div>
 
 <p>Close the Lagrangian output files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02739">2739</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02734">2734</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -436,7 +436,7 @@ Here is the caller graph for this function:</div>
 
 <p>Closes probe files. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02598">2598</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02593">2593</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -454,7 +454,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write footer with stability criteria extrema and run-time to the information file, then close it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02575">2575</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02570">2570</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -472,7 +472,7 @@ Here is the caller graph for this function:</div>
 
 <p>Create case_dir/D on rank 0 if it does not exist. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02752">2752</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02747">2747</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -500,7 +500,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02641">2641</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02636">2636</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -523,7 +523,7 @@ Here is the call graph for this function:</div>
 
 <p>Initialize the data output module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02609">2609</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02604">2604</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -553,7 +553,7 @@ Here is the caller graph for this function:</div>
 
 <p>Create D/, open the Lagrangian output files, and write the initial output, from the restart point (save_count, qtime). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02657">2657</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02652">2652</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -601,7 +601,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open the shared history file D/&lt;stem&gt;.dat of nf-real records. Done once for the run. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01854">1854</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01849">1849</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -637,7 +637,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open this rank's bubble statistics file D/stats_lag_bubbles_&lt;rank&gt;.dat, appending if it exists. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02963">2963</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02958">2958</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -685,7 +685,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open this rank's evolution file D/lag_&lt;lag_kind&gt;<em>evol</em>&lt;rank&gt;.dat: on a fresh start replace it and write the column headers (first header width 14, the others width), on a restart append to it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02768">2768</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02763">2763</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -757,7 +757,7 @@ Here is the caller graph for this function:</div>
 
 <p>Open D/voidfraction.dat on rank 0, appending if it exists. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02793">2793</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02788">2788</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -796,7 +796,7 @@ Here is the caller graph for this function:</div>
 
 <p>Locate the grid cell responsible for an ICFL violation on this rank and report its state plus the nearest immersed-boundary particles, to aid debugging stability failures in particle-laden high-Mach cases. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00784">784</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00781">781</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -835,7 +835,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write each global patch's centroid_offset to restart_data/ib_offset_&lt;step&gt;.dat, so a restart continues about the same centre of mass instead of re-measuring it from the body voxelised at the restart attitude. Collective. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01973">1973</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01968">1968</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -921,7 +921,7 @@ Here is the caller graph for this function:</div>
 
 <p>Dispatch immersed boundary data output to the serial or parallel writer. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01607">1607</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01602">1602</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -950,12 +950,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Record every immersed body's force, torque and kinematics (D/ib_forces.dat, ib_force_wrt with ib_state_wrt) and its mass and heat exchange (D/ib_heat.dat, ib_heat_wrt) for this step. </p>
+<p>Record every immersed body's force, torque and kinematics (D/ib_forces.dat, ib_force_wrt) and its mass and heat exchange (D/ib_heat.dat, ib_heat_wrt) for this step. </p>
 <p>One shared text file per quantity, opened once for the run. Each rank writes only the bodies it owns, at a byte offset computed from the step and the global body id, so the file is byte-identical however the domain is decomposed and needs no merge step. Writing a file per body instead costs an inquire, open and close per body per rank per step, which is 3e5 filesystem metadata operations per step at 1000 ranks holding 100 bodies each.</p>
 <p>Layout: row r holds all num_gbl_ibs bodies in global id order, so body g occupies bytes ((r*num_gbl_ibs) + g - 1)*record length. The files carry no header line, which would shift every offset after it; the columns are listed in docs/documentation/case.md.</p>
 <p>Rows are numbered from the first step this run records, not from t_step, so that row 0 is always written. Nothing pre-fills the file &ndash; both open paths create it empty and every write lands at a computed offset &ndash; so a row no rank ever writes stays a hole, and a hole reads back as NUL bytes rather than blanks. Counting from t_step would leave exactly such a hole wherever the run starts: the skip below means step t_step_start is never written, and on a restart every row beneath it would be missing as well. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01763">1763</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01758">1758</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1008,7 +1008,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write body gid's record in the given row. The format is fixed width by construction: every ES descriptor right-justifies in its field, including for negatives, three-digit exponents, NaN and Inf, so a record is always 10 + 18*size(fields) characters plus its newline. That is what lets a rank write at a computed byte offset, with no gather and no per-rank shards. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01820">1820</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01815">1815</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1039,7 +1039,7 @@ Here is the caller graph for this function:</div>
 
 <p>Writes IB state records to restart_data/ib_state.dat. Called on every rank. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01944">1944</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01939">1939</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1078,7 +1078,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write on each time step the changes of the lagrangian bubbles. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02929">2929</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02924">2924</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1109,7 +1109,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write the maximum and minimum radius of each bubble. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02982">2982</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02977">2977</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1143,7 +1143,7 @@ Here is the caller graph for this function:</div>
 
 <p>Append each local particle's position, velocity, force, radius and fluid state at the particle to the evolution file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02893">2893</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02888">2888</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1169,7 +1169,7 @@ Here is the caller graph for this function:</div>
 
 <p>Append to the particle evolution file before an RK stage: at the first stage of t = 0, and at the last stage once mytime reaches the next t_save multiple. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02696">2696</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02691">2691</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1217,7 +1217,7 @@ Here is the call graph for this function:</div>
 
 <p>Write restart_data/lag_&lt;lag_kind&gt;_&lt;t_step&gt;.dat: a header (total count, time, dt, number of ranks, per-rank counts) followed by the lag_io_vars columns of every rank's entities, which the caller packs into io_data(1:n_loc, :). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03095">3095</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03090">3090</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1248,7 +1248,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write the Lagrangian restart file, and the bubble statistics, for save save_count. The caller syncs the state to the host. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02725">2725</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02720">2720</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1276,7 +1276,7 @@ Here is the caller graph for this function:</div>
 
 <p>Append the per-step Lagrangian output after the last RK stage commits the step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02713">2713</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02708">2708</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1316,7 +1316,7 @@ Here is the call graph for this function:</div>
 
 <p>Write grid and conservative variable data files in parallel via MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01303">1303</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01298">1298</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1355,7 +1355,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write immersed boundary marker data in parallel using MPI I/O. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01534">1534</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01529">1529</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1394,7 +1394,7 @@ Here is the caller graph for this function:</div>
 
 <p>Writes the IB state information out to file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01633">1633</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01628">1628</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1434,7 +1434,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write flow probe data at the current time step. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02006">2006</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02001">2001</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1468,7 +1468,7 @@ Here is the call graph for this function:</div>
 
 <p>Write the bubbles in this rank's physical domain to restart_data/lag_bubbles_&lt;t_step&gt;.dat (parallel I/O only). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03056">3056</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03051">3051</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1507,7 +1507,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write the particles in this rank's physical domain to restart_data/lustre_lag_particles_&lt;t_step&gt;.dat, in the bubble column layout so post_process reads both. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03016">3016</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l03011">3011</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1541,7 +1541,6 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Write stability criteria extrema to the run-time information file at the given time step. </p>
-<p>Host copies; amdflang reads Re_size stale cross-TU</p>
 
 <p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
@@ -1593,7 +1592,7 @@ Here is the call graph for this function:</div>
 
 <p>Write grid and conservative variable data files in serial format. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00938">938</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l00933">933</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1632,7 +1631,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write immersed boundary marker data to a serial (per-processor) unformatted file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01505">1505</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01500">1500</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1666,7 +1665,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write IB state data to a per-timestep serial (unformatted) file. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01719">1719</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l01714">1714</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1714,7 +1713,7 @@ Here is the caller graph for this function:</div>
 
 <p>Append the cloud's average and maximum Lagrangian volume fraction 1 - alpha_f and its total volume at qtime to D/voidfraction.dat. The average is over the cells the cloud occupies only. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02812">2812</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__data__output_8fpp_8f90_source.html#l02807">2807</a> of file <a class="el" href="m__data__output_8fpp_8f90_source.html">m_data_output.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

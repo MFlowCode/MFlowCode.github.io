@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['8_0',['10. Surface Tension (&lt;span class=&quot;tt&quot;&gt;surface_tension = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_schmidmayer17&quot;&gt;[60]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[76]&lt;/a&gt; Sec. 4.1.8)',['../equations.html#autotoc_md195',1,'']]],
-  ['8_201_20pt_20relaxation_20relax_5fmodel_205_20saurel08_1',['8.1 pT-Relaxation (&lt;span class=&quot;tt&quot;&gt;relax_model = 5&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_saurel08&quot;&gt;[58]&lt;/a&gt;)',['../equations.html#autotoc_md190',1,'']]],
-  ['8_202_20ptg_20relaxation_20relax_5fmodel_206_20zein10_2',['8.2 pTg-Relaxation (&lt;span class=&quot;tt&quot;&gt;relax_model = 6&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_zein10&quot;&gt;[77]&lt;/a&gt;)',['../equations.html#autotoc_md191',1,'']]],
-  ['8_20acoustic_20source_3',['8. Acoustic Source',['../case.html#sec-acoustic-source',1,'']]],
-  ['8_20phase_20change_20relax_20true_20wilfong26_20sec_204_201_203_4',['8. Phase Change (&lt;span class=&quot;tt&quot;&gt;relax = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[76]&lt;/a&gt; Sec. 4.1.3)',['../equations.html#autotoc_md189',1,'']]]
+  ['7_0',['7',['../equations.html#autotoc_md193',1,'9. Chemistry and Combustion (&lt;span class=&quot;tt&quot;&gt;chemistry = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[93]&lt;/a&gt; Sec. 4.1.7)'],['../equations.html#autotoc_md209',1,'WENO (&lt;span class=&quot;tt&quot;&gt;weno_order = 3, 5, 7&lt;/span&gt;)']]],
+  ['7_201_20adaptive_20mesh_20refinement_20amr_1',['7.1. Adaptive Mesh Refinement (AMR)',['../case.html#sec-amr',1,'']]],
+  ['7_201_20hypoelastic_20model_20hypoelasticity_20true_20rodriguez19_20wilfong26_20sec_204_201_206_2',['7.1 Hypoelastic Model (&lt;span class=&quot;tt&quot;&gt;hypoelasticity = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_rodriguez19&quot;&gt;[67]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_wilfong26&quot;&gt;[93]&lt;/a&gt; Sec. 4.1.6)',['../equations.html#autotoc_md187',1,'']]],
+  ['7_202_20continuum_20damage_20cont_5fdamage_20true_20cao19_20spratt24_20sec_204_201_202_3',['7.2 Continuum Damage (&lt;span class=&quot;tt&quot;&gt;cont_damage = .true.&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_cao19&quot;&gt;[12]&lt;/a&gt;; &lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_spratt24&quot;&gt;[76]&lt;/a&gt; Sec. 4.1.2)',['../equations.html#autotoc_md188',1,'']]],
+  ['7_20fluid_20structure_20interaction_4',['7. Fluid-Structure Interaction',['../equations.html#autotoc_md186',1,'']]],
+  ['7_20formatted_20output_5',['7. Formatted Output',['../case.html#sec-formatted-output',1,'']]]
 ];

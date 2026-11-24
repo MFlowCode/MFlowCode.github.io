@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['⚠️_20physics_20warnings_0',['⚠️ Physics Warnings',['../case_constraints.html#physics-warnings',1,'']]]
+  ['⚙️_20riemann_20solvers_0',['⚙️ Riemann Solvers',['../case_constraints.html#riemann-solvers',1,'']]]
 ];

@@ -1622,6 +1622,9 @@ Geometry</h3>
 <li>ppmu_ref(fluid) must be positive for QS drag in an inviscid case</li>
 <li>ppsuth(fluid) must be positive if given</li>
 </ul>
+<p><b>Warnings</b> (non-fatal):</p><ul>
+<li>⚠️ weno_Re_flux without weno_avg: a cell's velocity gradient uses only its own two face values, so the viscous flux misses a jump between neighbouring cells (zero wall shear on an impulsive start); set weno_avg = T</li>
+</ul>
 <p></p>
 </details>
 <details >
@@ -1696,11 +1699,13 @@ Geometry</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Viscosity</b>  </td><td class="markdownTableBodyNone">simulation  </td><td class="markdownTableBodyNone">weno_Re_flux without weno_avg: a cell's velocity gradient uses only its own two face values, so the viscous flux misses a jump between neighbouring cells (zero wall shear on an impulsive start); set weno_avg = T  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>Volume Fraction Sum</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): volume fractions sum to alpha_sum, expected 1.0  </td></tr>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-24</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

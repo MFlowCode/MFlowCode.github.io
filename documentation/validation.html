@@ -157,10 +157,11 @@ $(function(){initNavTree('validation.html','',''); });
   <div class="headertitle"><div class="title">Validation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md720"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md771"></a>
 Validation</h1>
 <p>This page records what MFC has been checked against: exact solutions, reference data and conservation laws. Each section is one family of checks. It gives the status, the code version, the setup, the reference, the measured values with signed errors, and the limits. Every check has an example in <span class="tt">examples/</span> with a checker script and a README, and a small version of it runs in the test suite (<span class="tt">./mfc.sh test</span>).</p>
 <p>Status words: <b>validated</b> (agrees with the reference within the stated error), <b>partially validated</b> (agrees where measured; a regime or quantity is open), <b>open discrepancy</b> (disagrees, cause known or not), <b>comparison only</b> (reference data are qualitative). Errors are (MFC − reference)/reference.</p>
+<p>Separate pages: <a class="el" href="validation_wall_order_couette.html" title="Wall-Normal Ghost Velocity at Viscous Walls">Wall-normal ghost velocity at viscous walls</a> (<span class="tt">ib_wall_order</span> against plane Poiseuille and Taylor-Couette flow). Other pages: <a class="el" href="validation_gas_chemistry.html" title="Gas-phase chemistry">Gas-phase chemistry</a> (ignition, flame speed, reactive shock tube). Reacting-flow pages: <a class="el" href="validation_detonation.html" title="Detonation">Detonation</a> (1D CJ front speed and state, 2D cell width), <a class="el" href="validation_flame_vortex.html" title="Flame-vortex interaction">Flame-vortex interaction</a> (2D pair, 3D ring), <a class="el" href="validation_burning_body.html" title="Burning carbon body">Burning carbon body</a> (cylinder and sphere burn rate).</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-moving-kinematics"></a>
 Moving-body kinematics</h2>
 <p><b>Status:</b> validated. <b>Code:</b> <span class="tt">master</span> at 067f23074, with the stage-consistent position update of <a href="https://github.com/MFlowCode/MFC/pull/2040">#2040</a>. <b>Examples:</b> <span class="tt">examples/2D_mibm_constant_acceleration</span>, <span class="tt">examples/3D_mibm_wall_collision</span>.</p>
@@ -207,7 +208,7 @@ Sphere-wall collision</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">first-order reconstruction, HLLC, SSP-RK3, fixed \(\Delta t\), 16³ cells, air at 1e5 Pa (the gas plays no role)  </td></tr>
 </table>
-<p>| Reference | rigid-body impact of a sphere on a fixed wall with Coulomb friction and no tangential elasticity (Maw et al. <a class="el" href="citelist.html#CITEREF_maw1976">[42]</a>): \(v_n&#39; = -e v_n\); sliding throughout ( \(\tan\theta \ge 3.5\mu(1+e)\)): \(v_t&#39; = v_t - \mu(1+e)|v_n|\); sticking ( \(\tan\theta &lt; 3.5\mu(1+e)\)): \(v_t&#39; = \frac{5}{7}v_t\). Setup after Di Maio and Di Renzo <a class="el" href="citelist.html#CITEREF_dimaio2004">[18]</a> | | Measured | \(e_n = -v_y^\text{out}/v_y^\text{in}\) and \(v_x^\text{out}\) from the last <span class="tt">ib_state</span> record, by <span class="tt">check_collision.py</span> |</p>
+<p>| Reference | rigid-body impact of a sphere on a fixed wall with Coulomb friction and no tangential elasticity (Maw et al. <a class="el" href="citelist.html#CITEREF_maw1976">[51]</a>): \(v_n&#39; = -e v_n\); sliding throughout ( \(\tan\theta \ge 3.5\mu(1+e)\)): \(v_t&#39; = v_t - \mu(1+e)|v_n|\); sticking ( \(\tan\theta &lt; 3.5\mu(1+e)\)): \(v_t&#39; = \frac{5}{7}v_t\). Setup after Di Maio and Di Renzo <a class="el" href="citelist.html#CITEREF_dimaio2004">[22]</a> | | Measured | \(e_n = -v_y^\text{out}/v_y^\text{in}\) and \(v_x^\text{out}\) from the last <span class="tt">ib_state</span> record, by <span class="tt">check_collision.py</span> |</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Case  </th><th class="markdownTableHeadRight">Prescribed  </th><th class="markdownTableHeadRight">Measured  </th><th class="markdownTableHeadRight">Error  </th></tr>
@@ -245,7 +246,7 @@ Reproduce</h3>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-mean-forcing-channel"></a>
 Thermally developed channel</h2>
 <p><b>Status:</b> validated (plane channel; the same source in particle arrays is not). <b>Code:</b> <span class="tt">master</span> at 1e3f1be0b, with the thermally developed source <span class="tt">mean_temp_wall</span> of #2200. <b>Example:</b> <span class="tt">examples/2D_thermal_channel</span>.</p>
-<p>Periodic flow with a heated or cooled wall never reaches a uniform temperature, so the mean-temperature source (<span class="tt">mean_temp</span>, <span class="tt">mean_temp_wall</span>) removes the streamwise decay: it solves for the periodic part \(\psi\) of the thermally developed state \(T = T_s + \psi\,e^{-\beta x}\) Sun et al. <a class="el" href="citelist.html#CITEREF_sun2015">[66]</a> and holds the mixing-cup temperature at its target. A plane channel with isothermal walls has an exact developed Nusselt number, so it tests the source, its decay rate \(\beta\) and the wall heat transfer together.</p>
+<p>Periodic flow with a heated or cooled wall never reaches a uniform temperature, so the mean-temperature source (<span class="tt">mean_temp</span>, <span class="tt">mean_temp_wall</span>) removes the streamwise decay: it solves for the periodic part \(\psi\) of the thermally developed state \(T = T_s + \psi\,e^{-\beta x}\) Sun et al. <a class="el" href="citelist.html#CITEREF_sun2015">[80]</a> and holds the mixing-cup temperature at its target. A plane channel with isothermal walls has an exact developed Nusselt number, so it tests the source, its decay rate \(\beta\) and the wall heat transfer together.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
@@ -260,7 +261,7 @@ Thermally developed channel</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Drive and source  </td><td class="markdownTableBodyLeft"><span class="tt">mean_mflux</span> and <span class="tt">mean_dpdx</span> (gain 0.05); <span class="tt">mean_temp</span> = 300 K (gain 0.05) with <span class="tt">mean_temp_wall</span> = \(T_s\)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">constant-property laminar flow between parallel plates, constant wall temperature, fully developed: Nu = 7.5407 Shah and London <a class="el" href="citelist.html#CITEREF_shahlondon1978">[62]</a>. With axial conduction at the run's \(\mathrm{Pe}_H\), the eigenproblem \(\psi&#39;&#39; + (6\,\mathrm{Pe}_H\,\eta(1-\eta)\,b + b^2)\psi = 0\), \(\psi(0) = \psi(1) = 0\), \(b = \beta H\), gives Nu = 7.5417 and \(\beta H\) = 0.14122; <span class="tt">check_nu.py</span> solves it  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">constant-property laminar flow between parallel plates, constant wall temperature, fully developed: Nu = 7.5407 Shah and London <a class="el" href="citelist.html#CITEREF_shahlondon1978">[75]</a>. With axial conduction at the run's \(\mathrm{Pe}_H\), the eigenproblem \(\psi&#39;&#39; + (6\,\mathrm{Pe}_H\,\eta(1-\eta)\,b + b^2)\psi = 0\), \(\psi(0) = \psi(1) = 0\), \(b = \beta H\), gives Nu = 7.5417 and \(\beta H\) = 0.14122; <span class="tt">check_nu.py</span> solves it  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">mean_temp.dat</span> ( \(T_m\), \(\dot q\), \(V_f\), \(\beta\)) and the last save, by <span class="tt">check_nu.py</span>  </td></tr>
 </table>
@@ -292,18 +293,45 @@ Reproduce</h3>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-cyl-drag-nu"></a>
 Circular cylinder drag and Nusselt number</h2>
 <p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/2D_ibm_cylinder_drag_nu</span>. The face-flux immersed-boundary force and the face heat of a no-slip isothermal cylinder at Re 20, 40 and 100 against Dennis and Chang, Williamson and the Nusselt-number correlations, with a momentum balance as an independent drag. Results and limits: <a class="el" href="validation_cyl_drag_nu.html" title="Validation: Circular Cylinder Drag and Nusselt Number">Validation: Circular Cylinder Drag and Nusselt Number</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md721"></a>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-particle-array"></a>
+Periodic particle arrays</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/2D_ibm_periodic_array</span>. Random arrays of fixed no-slip isothermal cylinders and spheres in a periodic box at a held mass flux: the global momentum balance (closes to 1e-4), the mean drag of 20-sphere arrays against Tenneti et al. (within 4 % at Re_m 20, +10 to +14 % at Re_m 100), the per-body force spread and the Nusselt number. Results and limits: <a class="el" href="validation_particle_array.html" title="Validation: Periodic Particle Arrays">Validation: Periodic Particle Arrays</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-shock-curtain"></a>
+Shock through a dense particle curtain</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/2D_ibm_shock_curtain</span>. The unsteady drag of a sphere after a Mach 1.22 shock against Mehta et al. (peak within 3 %), and the Favre-averaged gas velocity through a Mach 1.66 curtain of spheres at a solid fraction of 0.2 against a published particle-resolved DNS (0.04 to 0.05 of the post-shock velocity), with the wall-model comparison. Results and limits: <a class="el" href="validation_shock_curtain.html" title="Validation: Shock-Particle Interaction and Dense Curtains">Validation: Shock-Particle Interaction and Dense Curtains</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-ib-limits"></a>
+Accuracy limits of the ghost-cell immersed boundary</h2>
+<p><b>Status:</b> open discrepancy (measured limits, no example). Wall value about second order, wall-normal gradient first order or worse, rotating-wall shear plateau near 2 %, and the options that help or do not: <a class="el" href="ib_accuracy_limits.html" title="Accuracy Limits of the Ghost-Cell Immersed Boundary">Accuracy Limits of the Ghost-Cell Immersed Boundary</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-slip-walls"></a>
+Slip immersed walls</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/2D_ibm_slip_cylinder</span>. The gas mass of a fixed slip cylinder in a periodic box with and without <span class="tt">ib_mass_relax</span>, and the near-wall pressure and velocity error of an exact steady vortex for the curvature term, TSC image-point weights and <span class="tt">ib_slip_ccst</span>. Slip walls in a shock curtain and in close approach do not work and are recorded there. Results and limits: <a class="el" href="validation_slip_walls.html" title="Validation: Slip Immersed Walls">Validation: Slip Immersed Walls</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-species-transport"></a>
+Species diffusion, conduction and the transport time step</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/1D_diffusion_verification</span>. Trace-species diffusion and heat conduction against the erfc solution (second order), a multicomponent mixing layer against an independent 1D solver, and the stability threshold of <span class="tt">chem_params%transport_dt</span> for both transport models. Results and limits: <a class="el" href="validation_species_transport.html" title="Validation: Species Diffusion, Heat Conduction and the Transport Time Step">Validation: Species Diffusion, Heat Conduction and the Transport Time Step</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-wall-thermal"></a>
+Solid-wall thermal models</h2>
+<p><b>Status:</b> partially validated. <b>Examples:</b> <span class="tt">examples/2D_ibm_cylinder_drag_nu</span> (lumped cooling) and <span class="tt">examples/2D_ibm_cold_wall_transient</span>. The decay of a lumped-temperature cylinder in a cross flow against the time constant its fixed-wall Nusselt number implies, and the heat a cold isothermal cylinder absorbs from quiescent hot gas with and without the sub-grid wall conduction column against a body-fitted 1D reference. Results and limits: <a class="el" href="validation_wall_thermal.html" title="Validation: Solid-Wall Thermal Models">Validation: Solid-Wall Thermal Models</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-moving-body-budget"></a>
+Moving-body gas-mass budget and Galilean twin</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/2D_ibm_moving_mass_budget</span>. The gas mass a translating circle creates in a closed periodic box, with and without <span class="tt">ib_mass_relax</span>, and the conducted heat and force of the moving body against the same body held in the same relative flow. Results and limits: <a class="el" href="validation_moving_body_budget.html" title="Validation: Moving-Body Mass Budget and Galilean Twin">Validation: Moving-Body Mass Budget and Galilean Twin</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-sphere-drag-nu"></a>
+Sphere drag and Nusselt number</h2>
+<p><b>Status:</b> partially validated. <b>Example:</b> <span class="tt">examples/3D_ibm_sphere_drag_nu</span>. The face-flux drag and face heat of a no-slip isothermal sphere at Mach 0.2 and Re 20-300 against Schiller-Naumann, Ranz-Marshall and Whitaker, with a momentum balance as an independent drag. Results and limits: <a class="el" href="validation_sphere_drag_nu.html" title="Validation: Sphere Drag and Nusselt Number">Validation: Sphere Drag and Nusselt Number</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="sec-validation-standoff"></a>
+Bow-shock stand-off</h2>
+<p><b>Status:</b> open discrepancy (resolution-limited). <b>Example:</b> <span class="tt">examples/2D_ibm_cylinder_standoff</span>. The detached-shock distance of a cylinder and a sphere at Mach 1.5-3 against Billig's correlation and a body-fitted Euler solution. Results and limits: <a class="el" href="validation_standoff.html" title="Validation: Bow-Shock Stand-Off of a Cylinder and a Sphere">Validation: Bow-Shock Stand-Off of a Cylinder and a Sphere</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md772"></a>
 Other families</h2>
 <ul>
 <li><a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal conduction annulus</a>: image-point interpolation (inverse distance and TSC) against the exact radial conduction solution.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md722"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md773"></a>
 Adding a section</h2>
 <p>One <span class="tt">##</span> section per family, with an anchor <span class="tt">{#sec-validation-&lt;family&gt;}</span>: status and code version, one setup table per check, the reference and how it was obtained, a results table with signed errors, and the limits. Put each check's example, checker script and README under <span class="tt">examples/</span>, and register a small version in <span class="tt">toolchain/mfc/test/cases.py</span>. Cite references with <span class="tt">\cite</span> keys from <span class="tt">docs/references.bib</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md723"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md774"></a>
 Keeping the goldens current</h2>
 <p>The registered tests are regression guards: their goldens hold the output of the code at the time they were generated. When a default or an algorithm in the numerics a test exercises changes (for moving bodies, for example the <span class="tt">ib_mass_relax</span> default), regenerate the goldens with <span class="tt">./mfc.sh test --generate --only &lt;UUID&gt;</span> in the same change, and re-run the checker scripts to confirm the physics results above. A case whose tolerance must be looser than the default takes <span class="tt">override_tol</span> chosen from the spread between compiler and device lanes (<a class="el" href="testing.html" title="Testing">Testing</a>).</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-22</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
