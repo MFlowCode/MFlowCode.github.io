@@ -288,7 +288,7 @@ Known limitations and open issues</h2>
 <li>The wall shear read from near-wall cells (a three-cell quadratic fit in the channel, a cubic fit in the annulus) does not converge for the channel with either order.</li>
 <li>2D, two Mach numbers and Reynolds numbers, one machine and compiler. A third grid beyond 40 cells per R and 3D are not measured, so the status stays "partially validated". High-Reynolds-number boundary layers, moving flat walls and slip walls are not measured. The Mach 0.01 runs are not fully steady.</li>
 <li>The rigid-rotation check (an inviscid circle in gas already in rigid rotation) was not reproduced for this page: it needs an initial condition that no case-file patch provides.</li>
-<li>On an NVIDIA A100 the registered tests differ from the CPU golden by 5e-6 (annulus) and 1.5e-5 (channel) in density, the known CPU/GPU gap of the viscous immersed-boundary work (#2419), so their tolerance is 1e-4.</li>
+<li>The registered tests agree across the CPU lanes to 1e-13 and between an NVIDIA A100 and the CPU golden to 1e-14, so their tolerance is 1e-10. An A100 difference of 5e-6 reported earlier came from an annulus golden generated in single precision, not from a CPU/GPU gap.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md874"></a>
 Reproduce</h2>
@@ -296,8 +296,8 @@ Reproduce</h2>
 <div class="line">python3 examples/2D_ibm_plane_poiseuille/check_poiseuille.py examples/2D_ibm_plane_poiseuille</div>
 <div class="line">./mfc.sh run examples/2D_ibm_taylor_couette/case.py -t pre_process simulation -n 1 -- --cells_per_R 20 --ntau 12 --wall_order 2</div>
 <div class="line">python3 examples/2D_ibm_taylor_couette/check_couette.py examples/2D_ibm_taylor_couette</div>
-</div><!-- fragment --><p>Each run writes into the example directory (clear <span class="tt">D/</span>, <span class="tt">restart_data/</span> and the <span class="tt">.inp</span> files between runs). Channel: <span class="tt">--offset 0.37</span>, <span class="tt">--wall_order 1</span>. Annulus: <span class="tt">--wall_order 1</span>, <span class="tt">--ip_interp 2</span>, <span class="tt">--visc_compact 1</span>, <span class="tt">--mach 0.01 --re 11 --ntau 4</span>. The CI-sized runs are the tests <span class="tt">2D -&gt; IBM -&gt; Taylor-Couette -&gt; ib_wall_order=2</span> and <span class="tt">2D -&gt; IBM -&gt; Plane Poiseuille -&gt; ib_wall_order=2</span> (regression goldens, GNU 13 double: 100 steps for the annulus, 300 for the channel; the tolerance is 1e-4: the GNU, Intel, NVHPC and macOS CI lanes agree to 1e-13, but an A100 run differs from the CPU golden by 5e-6 and 1.5e-5 in density, the CPU/GPU gap of the viscous immersed-boundary work tracked in #2419).</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+</div><!-- fragment --><p>Each run writes into the example directory (clear <span class="tt">D/</span>, <span class="tt">restart_data/</span> and the <span class="tt">.inp</span> files between runs). Channel: <span class="tt">--offset 0.37</span>, <span class="tt">--wall_order 1</span>. Annulus: <span class="tt">--wall_order 1</span>, <span class="tt">--ip_interp 2</span>, <span class="tt">--visc_compact 1</span>, <span class="tt">--mach 0.01 --re 11 --ntau 4</span>. The CI-sized runs are the tests <span class="tt">2D -&gt; IBM -&gt; Taylor-Couette -&gt; ib_wall_order=2</span> and <span class="tt">2D -&gt; IBM -&gt; Plane Poiseuille -&gt; ib_wall_order=2</span> (regression goldens, GNU CPU, double: 100 steps for the annulus, 300 for the channel; the tolerance is 1e-10: the GNU, Intel, NVHPC and macOS CI lanes agree to 1e-13 and an A100 to 1e-14).</p>
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-24</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

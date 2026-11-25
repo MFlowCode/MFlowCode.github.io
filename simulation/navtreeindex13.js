@@ -1,5 +1,10 @@
 var NAVTREEINDEX13 =
 {
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[1,0,41,48,8],
+"structm__derived__types_1_1chemistry__parameters.html#af4ae920e0ee414783fc614e8b11a088a":[2,0,5,48,8],
+"structm__derived__types_1_1eos__coefficients.html":[1,0,41,50],
+"structm__derived__types_1_1eos__coefficients.html":[2,0,5,50],
+"structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[1,0,41,50,13],
 "structm__derived__types_1_1eos__coefficients.html#a00f0ca93f42e39a0fedbcfa99ac7eea7":[2,0,5,50,13],
 "structm__derived__types_1_1eos__coefficients.html#a1dac558b8377de7d6aad005397b02f75":[1,0,41,50,12],
 "structm__derived__types_1_1eos__coefficients.html#a1dac558b8377de7d6aad005397b02f75":[2,0,5,50,12],
@@ -244,10 +249,5 @@ var NAVTREEINDEX13 =
 "structm__derived__types_1_1ib__patch__parameters.html#ad22f39237df06e297bf6ab22aad3d775":[1,0,41,37,26],
 "structm__derived__types_1_1ib__patch__parameters.html#ad22f39237df06e297bf6ab22aad3d775":[2,0,5,37,26],
 "structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63":[1,0,41,37,48],
-"structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63":[2,0,5,37,48],
-"structm__derived__types_1_1ib__patch__parameters.html#adbc38d4ee109595774b6125ce52ba5e5":[1,0,41,37,5],
-"structm__derived__types_1_1ib__patch__parameters.html#adbc38d4ee109595774b6125ce52ba5e5":[2,0,5,37,5],
-"structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7":[1,0,41,37,29],
-"structm__derived__types_1_1ib__patch__parameters.html#adc0edc91974845e3af70fbba465cb5c7":[2,0,5,37,29],
-"structm__derived__types_1_1ib__patch__parameters.html#ade70c18f3ff53fa66c46f7a225b07577":[1,0,41,37,7]
+"structm__derived__types_1_1ib__patch__parameters.html#ad68984b963cc8f5831ee66da0403ea63":[2,0,5,37,48]
 };

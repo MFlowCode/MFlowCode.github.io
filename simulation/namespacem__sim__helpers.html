@@ -163,16 +163,24 @@ $(function(){initNavTree('namespacem__sim__helpers.html','',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions/Subroutines</h2></td></tr>
+<tr class="memitem:ade119fc02eb43b0e863f7ef5db8c5105" id="r_ade119fc02eb43b0e863f7ef5db8c5105"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ade119fc02eb43b0e863f7ef5db8c5105">s_compute_capillary_rho</a> (alpha, alpha_rho, rho_c)</td></tr>
+<tr class="memdesc:ade119fc02eb43b0e863f7ef5db8c5105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brackbill's capillary density (rho_1 + rho_2)/2 from the phase densities of an interface cell. Zero where a phase is absent, so single-phase cells, which carry no capillary force, impose no capillary limit.  <br /></td></tr>
 <tr class="memitem:aa641aecbabcfd37456c476ac6d8549a8" id="r_aa641aecbabcfd37456c476ac6d8549a8"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#aa641aecbabcfd37456c476ac6d8549a8">f_compute_filtered_dtheta</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
 <tr class="memdesc:aa641aecbabcfd37456c476ac6d8549a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the modified dtheta for Fourier filtering in azimuthal direction.  <br /></td></tr>
+<tr class="memitem:acc0349b3798a4f63ae0bce3924c8445d" id="r_acc0349b3798a4f63ae0bce3924c8445d"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acc0349b3798a4f63ae0bce3924c8445d">s_compute_inv_dx2_sum</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, s)</td></tr>
+<tr class="memdesc:acc0349b3798a4f63ae0bce3924c8445d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sum over directions of 1/spacing^2 at cell (j, k, l). An explicit diffusion with diffusivity D is RK-stable for D*dt*sum &lt;= 2.51/4 (RK3; 2/4 for RK1 and RK2), so the diffusive CFL numbers are D*dt*sum.  <br /></td></tr>
+<tr class="memitem:aed9353e4fad5e5d548d04ef9f981f9e9" id="r_aed9353e4fad5e5d548d04ef9f981f9e9"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aed9353e4fad5e5d548d04ef9f981f9e9">s_compute_visc_diffusivity</a> (re_l, rho, nu)</td></tr>
+<tr class="memdesc:aed9353e4fad5e5d548d04ef9f981f9e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Momentum diffusivity of the viscous stress: normal stresses diffuse with (4/3 mu + mu_b)/rho, the largest coefficient.  <br /></td></tr>
 <tr class="memitem:a287f4e373bb1a0881dd583b31651dc37" id="r_a287f4e373bb1a0881dd583b31651dc37"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a287f4e373bb1a0881dd583b31651dc37">s_compute_cell_state</a> (q_prim_vf, pres, rho, gamma, pi_inf, re, alpha, alpha_rho, vel, vel_sum, qv, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
 <tr class="memdesc:a287f4e373bb1a0881dd583b31651dc37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the mixture coefficients, velocity and pressure of one cell.  <br /></td></tr>
-<tr class="memitem:a26041c29b2b8590a289c06b6a50a152a" id="r_a26041c29b2b8590a289c06b6a50a152a"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a26041c29b2b8590a289c06b6a50a152a">s_compute_stability_from_dt</a> (vel, c, rho, re_l, alpha, alpha_rho, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, icfl, vcfl, rc, ccfl, tcfl)</td></tr>
-<tr class="memdesc:a26041c29b2b8590a289c06b6a50a152a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes stability criterion for a specified dt.  <br /></td></tr>
+<tr class="memitem:ace7ccec257bc145d1314e58191af17fd" id="r_ace7ccec257bc145d1314e58191af17fd"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ace7ccec257bc145d1314e58191af17fd">s_compute_cell_diffusivity</a> (alpha, alpha_rho, dth)</td></tr>
+<tr class="memdesc:ace7ccec257bc145d1314e58191af17fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thermal diffusivity k/(rho cv) of cell state (alpha, alpha_rho) for the explicit conduction step limit, zero without it.  <br /></td></tr>
+<tr class="memitem:a2a1d9c9166a69afe506660039b1d8df7" id="r_a2a1d9c9166a69afe506660039b1d8df7"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a2a1d9c9166a69afe506660039b1d8df7">s_compute_stability_from_dt</a> (vel, c, rho, re_l, alpha, alpha_rho, dth, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>, icfl, vcfl, rc, ccfl, tcfl)</td></tr>
+<tr class="memdesc:a2a1d9c9166a69afe506660039b1d8df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes stability criterion for a specified dt.  <br /></td></tr>
 <tr class="memitem:a3ae24ae909fdbbce99d93b784f2f002b" id="r_a3ae24ae909fdbbce99d93b784f2f002b"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a3ae24ae909fdbbce99d93b784f2f002b">s_amr_scale_stability</a> (rf, pw1, pw2, pw3, icfl, vcfl, rc, ccfl, tcfl)</td></tr>
 <tr class="memdesc:a3ae24ae909fdbbce99d93b784f2f002b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The stability numbers of the finest cell over a coarse cell, from the coarse cell's: rf is its spacing ratio (amr_cfl_rf) and pw1, pw2, pw3 the powers of it for the inviscid, diffusive and capillary criteria (amr_cfl_pow).  <br /></td></tr>
-<tr class="memitem:a397cf276fdf6878ade5222940b70b888" id="r_a397cf276fdf6878ade5222940b70b888"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a397cf276fdf6878ade5222940b70b888">s_compute_dt_from_cfl</a> (vel, c, max_dt, rho, re_l, alpha, alpha_rho, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
-<tr class="memdesc:a397cf276fdf6878ade5222940b70b888"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the candidate dts for a specified CFL number: max_dt(1) from the inviscid, max_dt(2) the viscous, max_dt(3) the capillary, and max_dt(4) the thermal diffusion criterion (huge where the criterion is inactive).  <br /></td></tr>
+<tr class="memitem:a269986d4d30cc89c19346c24c98103e1" id="r_a269986d4d30cc89c19346c24c98103e1"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a269986d4d30cc89c19346c24c98103e1">s_compute_dt_from_cfl</a> (vel, c, max_dt, rho, re_l, alpha, alpha_rho, dth, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l</a>)</td></tr>
+<tr class="memdesc:a269986d4d30cc89c19346c24c98103e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the candidate dts for a specified CFL number: max_dt(1) from the inviscid, max_dt(2) the viscous, max_dt(3) the capillary, and max_dt(4) the thermal diffusion criterion (huge where the criterion is inactive).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -204,11 +212,11 @@ Variables</h2></td></tr>
 
 <p>Computes the modified dtheta for Fourier filtering in azimuthal direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00466">466</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_aa641aecbabcfd37456c476ac6d8549a8_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_aa641aecbabcfd37456c476ac6d8549a8_icgraph.svg" width="100%" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -269,11 +277,81 @@ Here is the caller graph for this function:</div>
 
 <p>The stability numbers of the finest cell over a coarse cell, from the coarse cell's: rf is its spacing ratio (amr_cfl_rf) and pw1, pw2, pw3 the powers of it for the inviscid, diffusive and capillary criteria (amr_cfl_pow). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00689">689</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00902">902</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a3ae24ae909fdbbce99d93b784f2f002b_icgraph.svg" width="630" height="87"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ade119fc02eb43b0e863f7ef5db8c5105" name="ade119fc02eb43b0e863f7ef5db8c5105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade119fc02eb43b0e863f7ef5db8c5105">&#9670;&#160;</a></span>s_compute_capillary_rho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_sim_helpers::s_compute_capillary_rho </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>rho_c</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Brackbill's capillary density (rho_1 + rho_2)/2 from the phase densities of an interface cell. Zero where a phase is absent, so single-phase cells, which carry no capillary force, impose no capillary limit. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_ade119fc02eb43b0e863f7ef5db8c5105_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="ace7ccec257bc145d1314e58191af17fd" name="ace7ccec257bc145d1314e58191af17fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace7ccec257bc145d1314e58191af17fd">&#9670;&#160;</a></span>s_compute_cell_diffusivity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_sim_helpers::s_compute_cell_diffusivity </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>dth</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Thermal diffusivity k/(rho cv) of cell state (alpha, alpha_rho) for the explicit conduction step limit, zero without it. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00728">728</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_ace7ccec257bc145d1314e58191af17fd_icgraph.svg" width="432" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -359,7 +437,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the mixture coefficients, velocity and pressure of one cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00606">606</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -373,8 +451,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a397cf276fdf6878ade5222940b70b888" name="a397cf276fdf6878ade5222940b70b888"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a397cf276fdf6878ade5222940b70b888">&#9670;&#160;</a></span>s_compute_dt_from_cfl()</h2>
+<a id="a269986d4d30cc89c19346c24c98103e1" name="a269986d4d30cc89c19346c24c98103e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269986d4d30cc89c19346c24c98103e1">&#9670;&#160;</a></span>s_compute_dt_from_cfl()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,6 +495,11 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
         </tr>
         <tr>
@@ -434,17 +517,62 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the candidate dts for a specified CFL number: max_dt(1) from the inviscid, max_dt(2) the viscous, max_dt(3) the capillary, and max_dt(4) the thermal diffusion criterion (huge where the criterion is inactive). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00720">720</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00933">933</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a397cf276fdf6878ade5222940b70b888_cgraph.svg" width="456" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a269986d4d30cc89c19346c24c98103e1_cgraph.svg" width="100%" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="a26041c29b2b8590a289c06b6a50a152a" name="a26041c29b2b8590a289c06b6a50a152a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26041c29b2b8590a289c06b6a50a152a">&#9670;&#160;</a></span>s_compute_stability_from_dt()</h2>
+<a id="acc0349b3798a4f63ae0bce3924c8445d" name="acc0349b3798a4f63ae0bce3924c8445d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0349b3798a4f63ae0bce3924c8445d">&#9670;&#160;</a></span>s_compute_inv_dx2_sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_sim_helpers::s_compute_inv_dx2_sum </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>s</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sum over directions of 1/spacing^2 at cell (j, k, l). An explicit diffusion with diffusivity D is RK-stable for D*dt*sum &lt;= 2.51/4 (RK3; 2/4 for RK1 and RK2), so the diffusive CFL numbers are D*dt*sum. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00505">505</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_acc0349b3798a4f63ae0bce3924c8445d_cgraph.svg" width="456" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_acc0349b3798a4f63ae0bce3924c8445d_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a2a1d9c9166a69afe506660039b1d8df7" name="a2a1d9c9166a69afe506660039b1d8df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a1d9c9166a69afe506660039b1d8df7">&#9670;&#160;</a></span>s_compute_stability_from_dt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,6 +606,11 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alpha_rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dth</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -524,16 +657,51 @@ Here is the call graph for this function:</div>
 
 <p>Computes stability criterion for a specified dt. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00800">800</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a26041c29b2b8590a289c06b6a50a152a_cgraph.svg" width="456" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a2a1d9c9166a69afe506660039b1d8df7_cgraph.svg" width="100%" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a26041c29b2b8590a289c06b6a50a152a_icgraph.svg" width="662" height="87"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_a2a1d9c9166a69afe506660039b1d8df7_icgraph.svg" width="662" height="87"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aed9353e4fad5e5d548d04ef9f981f9e9" name="aed9353e4fad5e5d548d04ef9f981f9e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed9353e4fad5e5d548d04ef9f981f9e9">&#9670;&#160;</a></span>s_compute_visc_diffusivity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_sim_helpers::s_compute_visc_diffusivity </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(2), intent(in)</td>          <td class="paramname"><span class="paramname"><em>re_l</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(out)</td>          <td class="paramname"><span class="paramname"><em>nu</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Momentum diffusivity of the viscous stress: normal stresses diffuse with (4/3 mu + mu_b)/rho, the largest coefficient. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__sim__helpers_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__sim__helpers_8fpp_8f90_source.html">m_sim_helpers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__sim__helpers_aed9353e4fad5e5d548d04ef9f981f9e9_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

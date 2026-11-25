@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"namespacem__hypoelastic.html#a0b609359bab5eda290ed1467b1162420":[1,0,52,24],
 "namespacem__hypoelastic.html#a21959d0b04bd6fcd876cc70671cb83aa":[1,0,52,0],
 "namespacem__hypoelastic.html#a24e18ca539393efc85247031e5b6059e":[1,0,52,21],
 "namespacem__hypoelastic.html#a5db4ff745d468526058beb5b662f89c1":[1,0,52,16],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "namespacem__icpp__patches.html#a02af0560a13866518b1d5389a6cc106f":[1,0,57,22],
 "namespacem__icpp__patches.html#a03d8fed0821f3ad8a23410500e6cd425":[1,0,57,34],
 "namespacem__icpp__patches.html#a04a02df0a0ba674998e16142ee3950bd":[1,0,57,10],
-"namespacem__icpp__patches.html#a09bfe028b1fc7e71b3656b28b4ee9c14":[1,0,57,26],
-"namespacem__icpp__patches.html#a0be8a64c9ae619e0ab1b94852ae13014":[1,0,57,32]
+"namespacem__icpp__patches.html#a09bfe028b1fc7e71b3656b28b4ee9c14":[1,0,57,26]
 };

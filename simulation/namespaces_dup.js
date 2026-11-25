@@ -735,6 +735,7 @@ var namespaces_dup =
       [ "bubble_model_keller_miksis", "namespacem__constants.html#add269eafae758e420661429b24f3ebac", null ],
       [ "bubble_model_particle", "namespacem__constants.html#a47bdc1e0207e52dedf37b5e1b18e871f", null ],
       [ "bubble_model_rayleigh_plesset", "namespacem__constants.html#ad1076701ab02371c419c852b542e632d", null ],
+      [ "capillary_alpha_min", "namespacem__constants.html#ab98008155ecbaad552b73c61294a7d35", null ],
       [ "capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
       [ "case_file_error_code", "namespacem__constants.html#a78dc466963174e056c559059e09704cc", null ],
       [ "chem_tolerance", "namespacem__constants.html#aecd8876023a55cf9b664ac31cad4b6fa", null ],
@@ -2119,9 +2120,13 @@ var namespaces_dup =
     [ "m_sim_helpers", "namespacem__sim__helpers.html", [
       [ "f_compute_filtered_dtheta", "namespacem__sim__helpers.html#aa641aecbabcfd37456c476ac6d8549a8", null ],
       [ "s_amr_scale_stability", "namespacem__sim__helpers.html#a3ae24ae909fdbbce99d93b784f2f002b", null ],
+      [ "s_compute_capillary_rho", "namespacem__sim__helpers.html#ade119fc02eb43b0e863f7ef5db8c5105", null ],
+      [ "s_compute_cell_diffusivity", "namespacem__sim__helpers.html#ace7ccec257bc145d1314e58191af17fd", null ],
       [ "s_compute_cell_state", "namespacem__sim__helpers.html#a287f4e373bb1a0881dd583b31651dc37", null ],
-      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a397cf276fdf6878ade5222940b70b888", null ],
-      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a26041c29b2b8590a289c06b6a50a152a", null ],
+      [ "s_compute_dt_from_cfl", "namespacem__sim__helpers.html#a269986d4d30cc89c19346c24c98103e1", null ],
+      [ "s_compute_inv_dx2_sum", "namespacem__sim__helpers.html#acc0349b3798a4f63ae0bce3924c8445d", null ],
+      [ "s_compute_stability_from_dt", "namespacem__sim__helpers.html#a2a1d9c9166a69afe506660039b1d8df7", null ],
+      [ "s_compute_visc_diffusivity", "namespacem__sim__helpers.html#aed9353e4fad5e5d548d04ef9f981f9e9", null ],
       [ "dt_limiter", "namespacem__sim__helpers.html#a7d921036c4f5ee6f7ece0753ba3be98a", null ],
       [ "dt_limiter_names", "namespacem__sim__helpers.html#a807e70ab6d59db4ee2afba6203da6ea3", null ]
     ] ],
