@@ -170,7 +170,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a1c2c0e3fe9168e711b406fb68046133f" id="r_a1c2c0e3fe9168e711b406fb68046133f"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1c2c0e3fe9168e711b406fb68046133f">s_amr_swap_to_fine</a> (widen)</td></tr>
 <tr class="memdesc:a1c2c0e3fe9168e711b406fb68046133f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap the global grid state to the fine block. Must be paired with s_amr_restore_coarse.  <br /></td></tr>
 <tr class="memitem:a8fe6339681be52493bcac208e05da81e" id="r_a8fe6339681be52493bcac208e05da81e"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8fe6339681be52493bcac208e05da81e">s_amr_extend_ghost_coords</a> (d, cb, cc, dd, ext, glb, gcb)</td></tr>
-<tr class="memdesc:a8fe6339681be52493bcac208e05da81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend one axis of the installed fine grid into the ghost shell with the same parent-cell bisection the interior uses: boundary jg belongs to parent cell cl = isect_lo + floor(jg/rr), and k = modulo(jg, rr) picks the rr-way split. The parent boundaries are gcb for a level-1 block; a level&gt;=2 block's parent grid is rebuilt from replicated metadata (the parent's own arrays exist only on its owner). Blocks stay buff_size inside the domain, so every ghost parent is an in-domain cell.  <br /></td></tr>
+<tr class="memdesc:a8fe6339681be52493bcac208e05da81e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend one axis of the installed fine grid into the ghost shell with the same parent-cell bisection the interior uses: boundary jg belongs to parent cell cl = isect_lo + floor(jg/rr), and k = modulo(jg, rr) picks the rr-way split. The parent boundaries are gcb for a level-1 block; a level&gt;=2 block's parent grid is rebuilt from replicated metadata (the parent's own arrays exist only on its owner). Blocks stay buff_size inside the domain, so every ghost parent is an in-domain cell. A level&gt;=2 block may touch its parent's edge (seam nesting), so the parent grid is rebuilt padded past it.  <br /></td></tr>
 <tr class="memitem:a8584c4d1c3cbf43c1866d37cc98a986b" id="r_a8584c4d1c3cbf43c1866d37cc98a986b"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8584c4d1c3cbf43c1866d37cc98a986b">s_amr_restore_coarse</a> (sync_device)</td></tr>
 <tr class="memdesc:a8584c4d1c3cbf43c1866d37cc98a986b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restore the global grid state saved by s_amr_swap_to_fine.  <br /></td></tr>
 <tr class="memitem:ab06b4d904385112189d852403672a041" id="r_ab06b4d904385112189d852403672a041"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab06b4d904385112189d852403672a041">s_amr_igr_swap_sigma</a> ()</td></tr>
@@ -233,9 +233,9 @@ Functions/Subroutines</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Extend one axis of the installed fine grid into the ghost shell with the same parent-cell bisection the interior uses: boundary jg belongs to parent cell cl = isect_lo + floor(jg/rr), and k = modulo(jg, rr) picks the rr-way split. The parent boundaries are gcb for a level-1 block; a level&gt;=2 block's parent grid is rebuilt from replicated metadata (the parent's own arrays exist only on its owner). Blocks stay buff_size inside the domain, so every ghost parent is an in-domain cell. </p>
+<p>Extend one axis of the installed fine grid into the ghost shell with the same parent-cell bisection the interior uses: boundary jg belongs to parent cell cl = isect_lo + floor(jg/rr), and k = modulo(jg, rr) picks the rr-way split. The parent boundaries are gcb for a level-1 block; a level&gt;=2 block's parent grid is rebuilt from replicated metadata (the parent's own arrays exist only on its owner). Blocks stay buff_size inside the domain, so every ghost parent is an in-domain cell. A level&gt;=2 block may touch its parent's edge (seam nesting), so the parent grid is rebuilt padded past it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00555">555</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00556">556</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -327,7 +327,7 @@ Here is the caller graph for this function:</div>
 
 <p>Restore the coarse jac/jac_old saved by s_amr_igr_swap_sigma (bounds already restored). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00871">871</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00876">876</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -358,7 +358,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save the coarse jac/jac_old and seed the (already swapped-in) fine block's sigma by piecewise-constant parent injection from the saved coarse sigma: interior = initial guess, ghost shell = frozen Dirichlet coupling data. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00635">635</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -390,7 +390,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00590">590</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__frame_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__amr__frame_8fpp_8f90_source.html">m_amr_frame.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

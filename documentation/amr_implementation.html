@@ -259,12 +259,12 @@ Instrumentation</h2>
 Invariants and traps</h2>
 <ul>
 <li><span class="tt">amr_loc_of(k) &gt; 0</span> exactly when this rank owns live block <span class="tt">k</span>; <span class="tt">amr_st_cap &gt;= amr_loc_n</span>.</li>
-<li>No box exceeds its level's cap (<span class="tt">s_amr_check_box_caps</span>); same-level boxes are disjoint (<span class="tt">s_amr_check_box_disjoint</span>); a level&gt;=2 box lies in exactly one parent.</li>
+<li>No box exceeds its level's cap (<span class="tt">s_amr_check_box_caps</span>); same-level boxes are disjoint (<span class="tt">s_amr_check_box_disjoint</span>); a level&gt;=2 box lies in exactly one parent, inside its nesting window or on its edge against a matching same-level box (<span class="tt">f_amr_nested</span>). Such a box's parent patch reads the parent's seam ghosts (<span class="tt">amr_nest_seam</span>): each level's seams are then exchanged before the next level gathers, and its reflux skips the face on the parent's edge.</li>
 <li>A missing <span class="tt">s_amr_select_slot</span> makes a per-block routine act on the previous block.</li>
 <li><span class="tt">amr_buf</span> sets the tag padding and also enters the box-merge distance; changing it changes the box topology.</li>
 <li>The rank-to-GPU map is <span class="tt">mod(local_rank, ndevices)</span>; <span class="tt">rocm-smi</span> numbering need not match.</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-17</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-24</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

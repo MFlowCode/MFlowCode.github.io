@@ -222,7 +222,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a7d524b66ddbe7b842b64b5fd50db6656" id="r_a7d524b66ddbe7b842b64b5fd50db6656"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a7d524b66ddbe7b842b64b5fd50db6656">s_amr_restrict_l1_batched</a> (coarse_tgt, milo, mihi)</td></tr>
 <tr class="memdesc:a7d524b66ddbe7b842b64b5fd50db6656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rest of the level-1 restrict wave (receives posted): owned-block overwrite, send packs and received unpacks as one launch each over slab rows.  <br /></td></tr>
 <tr class="memitem:ad0be8e6e1a1d4a4f867433437e41b532" id="r_ad0be8e6e1a1d4a4f867433437e41b532"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad0be8e6e1a1d4a4f867433437e41b532">s_amr_sibling_face_weights</a> (kb, pblk, w_lo, w_hi)</td></tr>
-<tr class="memdesc:ad0be8e6e1a1d4a4f867433437e41b532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sibling-seam face weights for level&gt;=2 block kb under parent pblk: 0 on a face shared with a same-parent sibling tile (fine-fine; refluxing there double-writes), 1 otherwise. Uses replicated metadata only, and both the reflux apply and the freg wire-skip call it, so shipped and consumed faces agree.  <br /></td></tr>
+<tr class="memdesc:ad0be8e6e1a1d4a4f867433437e41b532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sibling-seam face weights for level&gt;=2 block kb under parent pblk: 0 on a face shared with a same-parent sibling tile (fine-fine; refluxing there double-writes) and on a face on the parent's edge (a seam with a child of the neighbouring parent, f_amr_nested; the outside cell is not the parent's), 1 otherwise. Uses replicated metadata only, and both the reflux apply and the freg wire-skip call it, so shipped and consumed faces agree.  <br /></td></tr>
 <tr class="memitem:a1ab1f024eb68ce34fa2e862331441700" id="r_a1ab1f024eb68ce34fa2e862331441700"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1ab1f024eb68ce34fa2e862331441700">s_amr_reflux_to_parent</a> (dt_reflux)</td></tr>
 <tr class="memdesc:a1ab1f024eb68ce34fa2e862331441700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multi-level reflux: apply the Berger-Colella C/F flux correction from the current level&gt;=2 block into its parent block's cells just outside the block footprint, in the parent-fine frame (mirror of the L0 s_amr_apply_reflux targeted at the parent; "the coarse" is level l-1). State form: q_parent(outside) += dt*(F_coarse - Fbar_fine)/dxf on the low face and += dt*(Fbar_fine - F_coarse)/dxf on the high face, where Fbar_fine is the child-averaged fine register. creg/freg key off this block's slot. Per-face parent-fine dx (stretched-grid safe).  <br /></td></tr>
 <tr class="memitem:ad5c3cc80fa628ae8b03591b1a4ea3d85" id="r_ad5c3cc80fa628ae8b03591b1a4ea3d85"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ad5c3cc80fa628ae8b03591b1a4ea3d85">s_amr_restrict_device_st</a> (ctloc, loc, bl, bh, rlo, rr, o1, o2, o3)</td></tr>
@@ -875,7 +875,7 @@ Here is the call graph for this function:</div>
 <p>Multi-level reflux: apply the Berger-Colella C/F flux correction from the current level&gt;=2 block into its parent block's cells just outside the block footprint, in the parent-fine frame (mirror of the L0 s_amr_apply_reflux targeted at the parent; "the coarse" is level l-1). State form: q_parent(outside) += dt*(F_coarse - Fbar_fine)/dxf on the low face and += dt*(Fbar_fine - F_coarse)/dxf on the high face, where Fbar_fine is the child-averaged fine register. creg/freg key off this block's slot. Per-face parent-fine dx (stretched-grid safe). </p>
 <p>The parent's owner applies: it holds the parent field and the parent-side creg (captured over its own advance). Only freg crosses the wire, and only when the two owners differ. Both participants must reach this routine or the P2P pair deadlocks (cf. the restrict). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02142">2142</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02147">2147</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -953,7 +953,7 @@ Here is the caller graph for this function:</div>
 
 <p>Device-native restriction of the fine block (flat store) to coarse averages over the covered cells [bl:bh] (global; block origin rlo, ratio rr); child-sum order ddk, ddj, ddi, /nchild. One body for two destinations so results match bit-for-bit: a parent block in the flat store (<span class="tt">_st</span>, local origin o) or the wire buffer buf (<span class="tt">_wire</span>; ci fastest, then cj, ck, i; wp). Never push the whole coarse array to the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02198">2198</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02213">2213</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1009,7 +1009,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02277">2277</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02292">2292</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1237,9 +1237,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Sibling-seam face weights for level&gt;=2 block kb under parent pblk: 0 on a face shared with a same-parent sibling tile (fine-fine; refluxing there double-writes), 1 otherwise. Uses replicated metadata only, and both the reflux apply and the freg wire-skip call it, so shipped and consumed faces agree. </p>
+<p>Sibling-seam face weights for level&gt;=2 block kb under parent pblk: 0 on a face shared with a same-parent sibling tile (fine-fine; refluxing there double-writes) and on a face on the parent's edge (a seam with a child of the neighbouring parent, f_amr_nested; the outside cell is not the parent's), 1 otherwise. Uses replicated metadata only, and both the reflux apply and the freg wire-skip call it, so shipped and consumed faces agree. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02112">2112</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__transfer_8fpp_8f90_source.html#l02113">2113</a> of file <a class="el" href="m__amr__transfer_8fpp_8f90_source.html">m_amr_transfer.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

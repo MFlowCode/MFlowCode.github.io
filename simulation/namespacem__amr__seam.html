@@ -175,8 +175,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a1870e4a5fa5cbaeb82fa1b04e1a5bcae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary-search the Morton-sorted lo corners for the block at clo, verify the seam predicate against xb and record it in (mb, md, nm); a block already recorded is raised to the higher d.  <br /></td></tr>
 <tr class="memitem:afc8971b58cb2c2d2a49bba60c599beeb" id="r_afc8971b58cb2c2d2a49bba60c599beeb"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afc8971b58cb2c2d2a49bba60c599beeb">s_amr_build_seam_pairs</a> ()</td></tr>
 <tr class="memdesc:afc8971b58cb2c2d2a49bba60c599beeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild the same-level seam-pair list once per regrid/restart in identical (xb, yb) order on all ranks, and the per-block overlap-rank lists (amr_ovl_gather/scatter).  <br /></td></tr>
-<tr class="memitem:afaae5418ddc8c52404d0c848e2a43555" id="r_afaae5418ddc8c52404d0c848e2a43555"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afaae5418ddc8c52404d0c848e2a43555">s_amr_fine_fine_post</a> ()</td></tr>
-<tr class="memdesc:afaae5418ddc8c52404d0c848e2a43555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine-fine halo between tiled sub-blocks: overwrite seam ghosts with the neighbour's stage-entry interior (cross-rank via the seam wave, same-rank by local copy). Wire is wp, cast to stp on unpack.  <br /></td></tr>
+<tr class="memitem:ab28c20ca543c9c21aef95927176fdb42" id="r_ab28c20ca543c9c21aef95927176fdb42"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ab28c20ca543c9c21aef95927176fdb42">s_amr_fine_fine_post</a> (lev)</td></tr>
+<tr class="memdesc:ab28c20ca543c9c21aef95927176fdb42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine-fine halo between tiled sub-blocks: overwrite seam ghosts with the neighbour's stage-entry interior (cross-rank via the seam wave, same-rank by local copy). Wire is wp, cast to stp on unpack. With lev, only that level's seams.  <br /></td></tr>
 <tr class="memitem:a051e153db1b84b6d29f1d5186e4dca9c" id="r_a051e153db1b84b6d29f1d5186e4dca9c"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a051e153db1b84b6d29f1d5186e4dca9c">s_amr_fine_fine_drain</a> ()</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
@@ -313,7 +313,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__seam_8fpp_8f90_source.html#l00741">741</a> of file <a class="el" href="m__amr__seam_8fpp_8f90_source.html">m_amr_seam.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__seam_8fpp_8f90_source.html#l00745">745</a> of file <a class="el" href="m__amr__seam_8fpp_8f90_source.html">m_amr_seam.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -322,25 +322,28 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="afaae5418ddc8c52404d0c848e2a43555" name="afaae5418ddc8c52404d0c848e2a43555"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaae5418ddc8c52404d0c848e2a43555">&#9670;&#160;</a></span>s_amr_fine_fine_post()</h2>
+<a id="ab28c20ca543c9c21aef95927176fdb42" name="ab28c20ca543c9c21aef95927176fdb42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28c20ca543c9c21aef95927176fdb42">&#9670;&#160;</a></span>s_amr_fine_fine_post()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine, public m_amr_seam::s_amr_fine_fine_post</td>
+          <td class="memname">impure subroutine, public m_amr_seam::s_amr_fine_fine_post </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>lev</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fine-fine halo between tiled sub-blocks: overwrite seam ghosts with the neighbour's stage-entry interior (cross-rank via the seam wave, same-rank by local copy). Wire is wp, cast to stp on unpack. </p>
+<p>Fine-fine halo between tiled sub-blocks: overwrite seam ghosts with the neighbour's stage-entry interior (cross-rank via the seam wave, same-rank by local copy). Wire is wp, cast to stp on unpack. With lev, only that level's seams. </p>
 
 <p class="definition">Definition at line <a class="el" href="m__amr__seam_8fpp_8f90_source.html#l00680">680</a> of file <a class="el" href="m__amr__seam_8fpp_8f90_source.html">m_amr_seam.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__seam_afaae5418ddc8c52404d0c848e2a43555_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__seam_ab28c20ca543c9c21aef95927176fdb42_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>

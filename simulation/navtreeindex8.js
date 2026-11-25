@@ -1,5 +1,15 @@
 var NAVTREEINDEX8 =
 {
+"namespacem__helper__basic.html#a388ce5b49cbc696a303c4b90bc391dce":[1,0,51,2],
+"namespacem__helper__basic.html#a3c1aec484d3a42e286175589f263bf6a":[1,0,51,7],
+"namespacem__helper__basic.html#a3f0eae73a833f30924d4b2665a13a429":[1,0,51,1],
+"namespacem__helper__basic.html#a44b315932234aba936169db4c58e6ce6":[1,0,51,9],
+"namespacem__helper__basic.html#a52d428e094b06923296886952382a20e":[1,0,51,8],
+"namespacem__helper__basic.html#aca848e4b699c913e2e59d31cd1479b92":[1,0,51,4],
+"namespacem__helper__basic.html#ae471b9ef006f8d7b9a5decde38dcc9f3":[1,0,51,6],
+"namespacem__helper__basic.html#af1b06a05daa43f724ac3b0ff2f97db14":[1,0,51,3],
+"namespacem__hypoelastic.html":[1,0,52],
+"namespacem__hypoelastic.html#a03f50dc3e64178b3f17f7a807ab7ff33":[1,0,52,20],
 "namespacem__hypoelastic.html#a0b609359bab5eda290ed1467b1162420":[1,0,52,24],
 "namespacem__hypoelastic.html#a21959d0b04bd6fcd876cc70671cb83aa":[1,0,52,0],
 "namespacem__hypoelastic.html#a24e18ca539393efc85247031e5b6059e":[1,0,52,21],
@@ -239,15 +249,5 @@ var NAVTREEINDEX8 =
 "namespacem__ibm__fine.html#a0538a226330e1590174347759817e26a":[1,0,56,8],
 "namespacem__ibm__fine.html#a0b0e996de81a9fd535e41f97265182a4":[1,0,56,4],
 "namespacem__ibm__fine.html#a0b6662647c40cb981ec418cdfdc14264":[1,0,56,3],
-"namespacem__ibm__fine.html#a11a8d27aca3aac672d12b534e92a1bad":[1,0,56,6],
-"namespacem__ibm__fine.html#a26d4e2630a2a060fdd60e92e96ca605d":[1,0,56,1],
-"namespacem__ibm__fine.html#a5e0ef517c11288951d1ea46416e5bf86":[1,0,56,9],
-"namespacem__ibm__fine.html#a6dbb2d78d8d22e5e04440b1c46d2f612":[1,0,56,5],
-"namespacem__ibm__fine.html#a72769abc71151a7ef287b72b70a362e8":[1,0,56,7],
-"namespacem__ibm__fine.html#ace9f38c441505113e741a9b920377df2":[1,0,56,2],
-"namespacem__icpp__patches.html":[1,0,57],
-"namespacem__icpp__patches.html#a02af0560a13866518b1d5389a6cc106f":[1,0,57,22],
-"namespacem__icpp__patches.html#a03d8fed0821f3ad8a23410500e6cd425":[1,0,57,34],
-"namespacem__icpp__patches.html#a04a02df0a0ba674998e16142ee3950bd":[1,0,57,10],
-"namespacem__icpp__patches.html#a09bfe028b1fc7e71b3656b28b4ee9c14":[1,0,57,26]
+"namespacem__ibm__fine.html#a11a8d27aca3aac672d12b534e92a1bad":[1,0,56,6]
 };

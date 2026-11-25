@@ -1,6 +1,5 @@
 var m__amr__regrid_8fpp_8f90 =
 [
-    [ "m_amr_regrid::f_amr_boxes_compatible", "namespacem__amr__regrid.html#ad2167bcc3929908c18a0cf9f5235d2c4", null ],
     [ "m_amr_regrid::f_in_acoustic_support", "namespacem__amr__regrid.html#a5fced0f02fd4cb49d283f0f0914048c6", null ],
     [ "m_amr_regrid::f_in_lag_support", "namespacem__amr__regrid.html#a2c93c552219065cb1bd075f441296d70", null ],
     [ "m_amr_regrid::s_amr_box_carve", "namespacem__amr__regrid.html#af278ab5cd7db5bc4c372ea087367115b", null ],

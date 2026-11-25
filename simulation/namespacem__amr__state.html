@@ -180,8 +180,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a4746bf5fd078bec44a9214d839816c65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coarse-patch margin amr_cpat_mar: the coarse cells a buff_size fine ghost layer spans plus the prolongation reach.  <br /></td></tr>
 <tr class="memitem:af95027d23bafcdd21f60a40caf83a2f5" id="r_af95027d23bafcdd21f60a40caf83a2f5"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af95027d23bafcdd21f60a40caf83a2f5">s_amr_patch_core</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, clo, chi)</td></tr>
 <tr class="memdesc:af95027d23bafcdd21f60a40caf83a2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Core [clo, chi] of the patch box that the ghost fill never reads, so the fill waves ship only the shell around it.  <br /></td></tr>
-<tr class="memitem:a184b40678b44572be36b67c02420338e" id="r_a184b40678b44572be36b67c02420338e"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a184b40678b44572be36b67c02420338e">s_amr_build_block_coords</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, gcb, glb, fcb, fcc, fdx, d)</td></tr>
-<tr class="memdesc:a184b40678b44572be36b67c02420338e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine cell coordinates of block k in dimension d, rebuilt from the global coarse boundaries gcb by replaying k's ancestor chain from replicated metadata, so any rank can reproduce them. Do not bisect <a class="el" href="#a486a4899b7f39711cd0afebb79324c4a" title="Fixed pool of refined-block slots; the working slot amr_cur selects which one per-block routines oper...">amr_slots(parent)</a>x_cb instead: the parent's slot exists only on its owner, which a level&gt;=2 block's owner need not be.  <br /></td></tr>
+<tr class="memitem:a63fe67a0622565f60a85cc5e4fc9055f" id="r_a63fe67a0622565f60a85cc5e4fc9055f"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a63fe67a0622565f60a85cc5e4fc9055f">s_amr_build_block_coords</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, gcb, glb, fcb, fcc, fdx, d, pad)</td></tr>
+<tr class="memdesc:a63fe67a0622565f60a85cc5e4fc9055f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fine cell coordinates of block k in dimension d, rebuilt from the global coarse boundaries gcb by replaying k's ancestor chain from replicated metadata, so any rank can reproduce them. Do not bisect <a class="el" href="#a486a4899b7f39711cd0afebb79324c4a" title="Fixed pool of refined-block slots; the working slot amr_cur selects which one per-block routines oper...">amr_slots(parent)</a>x_cb instead: the parent's slot exists only on its owner, which a level&gt;=2 block's owner need not be. With pad, every level is widened by pad parent cells per side, so the result holds k's boundaries over -1-pad*rr : nf+pad*rr, stored from fcb(-1).  <br /></td></tr>
 <tr class="memitem:a142366aa75f2e87029ccab58a6bd8da2" id="r_a142366aa75f2e87029ccab58a6bd8da2"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a142366aa75f2e87029ccab58a6bd8da2">s_amr_build_global_cb</a> (pad)</td></tr>
 <tr class="memdesc:a142366aa75f2e87029ccab58a6bd8da2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assemble the global coarse cell-boundary arrays over (-1-pad : G+pad): each rank writes its own cells' boundaries into a sentinel-filled array and an elementwise MAX allreduce recovers the global one. A larger-pad rebuild gives a consistent superset.  <br /></td></tr>
 <tr class="memitem:a997ee09fdbcb6430f5240aefc2eafb7b" id="r_a997ee09fdbcb6430f5240aefc2eafb7b"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#a997ee09fdbcb6430f5240aefc2eafb7b">f_amr_boxes_overlap</a> (alo, ahi, blo, bhi)</td></tr>
@@ -297,6 +297,8 @@ Variables</h2></td></tr>
 <tr class="memitem:a617590a46642913c5877faef00683533" id="r_a617590a46642913c5877faef00683533"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a617590a46642913c5877faef00683533">amr_n_own</a> = 0</td></tr>
 <tr class="memitem:a5b6cef6afbe0a3d3f5b5d8fe8eb8dc3d" id="r_a5b6cef6afbe0a3d3f5b5d8fe8eb8dc3d"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a5b6cef6afbe0a3d3f5b5d8fe8eb8dc3d">amr_parent_blk</a></td></tr>
 <tr class="memdesc:a5b6cef6afbe0a3d3f5b5d8fe8eb8dc3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">cached f_amr_parent_block (0 for level &lt;= 1), avoiding an O(global blocks) scan per block per stage  <br /></td></tr>
+<tr class="memitem:a3bda52a7d758d87ab59b0d35b6555313" id="r_a3bda52a7d758d87ab59b0d35b6555313"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a3bda52a7d758d87ab59b0d35b6555313">amr_nest_seam</a> = .false.</td></tr>
+<tr class="memdesc:a3bda52a7d758d87ab59b0d35b6555313"><td class="mdescLeft">&#160;</td><td class="mdescRight">a level &gt;= 2 block lies within amr_cpat_mar coarse cells of its parent's edge, so its parent patch reads the parent's ghosts  <br /></td></tr>
 <tr class="memitem:a2cecce361b1ac35c47a02cbbd3d86a46" id="r_a2cecce361b1ac35c47a02cbbd3d86a46"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a2cecce361b1ac35c47a02cbbd3d86a46">amr_child_ptr</a></td></tr>
 <tr class="memdesc:a2cecce361b1ac35c47a02cbbd3d86a46"><td class="mdescLeft">&#160;</td><td class="mdescRight">children of p = amr_child_idx(amr_child_ptr(p-1)+1 : <a class="el" href="#a2cecce361b1ac35c47a02cbbd3d86a46" title="children of p = amr_child_idx(amr_child_ptr(p-1)+1 : amr_child_ptr(p)), ascending">amr_child_ptr(p)</a>), ascending  <br /></td></tr>
 <tr class="memitem:a4776a48331ab54b80e4839cef9958d78" id="r_a4776a48331ab54b80e4839cef9958d78"><td class="memItemLeft">integer, dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a4776a48331ab54b80e4839cef9958d78">amr_child_idx</a></td></tr>
@@ -419,7 +421,7 @@ Variables</h2></td></tr>
 
 <p>Do two coarse-index boxes [alo:ahi] and [blo:bhi] overlap? Collapsed dims never disqualify. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00782">782</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00788">788</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -459,7 +461,7 @@ Here is the caller graph for this function:</div>
 
 <p>Admissible fine cell: positive density and (except model 4) positive internal energy; a NaN state is inadmissible. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01233">1233</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01239">1239</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -482,7 +484,7 @@ Here is the caller graph for this function:</div>
 
 <p>Coarse-patch margin amr_cpat_mar: the coarse cells a buff_size fine ghost layer spans plus the prolongation reach. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00660">660</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00662">662</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -557,7 +559,7 @@ Here is the caller graph for this function:</div>
 
 <p>Minmod-limited linear value at fine offset (xix, xiy, xiz) in coarse cell u0, from its face neighbours (m, p) per direction; pass u0 for both neighbours of a direction without a slope. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01209">1209</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01215">1215</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -588,7 +590,7 @@ Here is the caller graph for this function:</div>
 
 <p>Index of the level-(level(k)-1) block that block k refines, or 0 for level 1 (parent is the L0 grid). Regions are in L0 cell indices at every level; proper nesting guarantees one overlapping parent. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00792">792</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00798">798</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -616,7 +618,7 @@ Here is the caller graph for this function:</div>
 
 <p>How many parent cells inside a child's footprint the ghost prolongation reads: 1 for limited linear, 2 for the quartic. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00653">653</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00655">655</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -651,7 +653,7 @@ Here is the caller graph for this function:</div>
 
 <p>Average over one half (xi &lt; 0 left, &gt; 0 right; |xi| = 1/4) of the middle of five cell averages q: the conservative quartic, or MC-limited linear where either half leaves the range of the three nearest averages. That range is widened only where the three second differences share a sign (smooth data): by the smallest of them, c, at a local extremum of the averages, and where they are monotone by c/4 times the ratio of the smallest to the largest, never across zero. A smooth extremum in the next cell needs c/8 (without it the fill is second order there) and has a ratio near one; at the foot of a steep front c is as large as q(0) and the ratio is small; at an under- or overshoot beside a front the differences change sign and the quartic's slope is the front's, not the cell's. Both halves are tested so the two children share one reconstruction (their mean stays q(0)). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01277">1277</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01283">1283</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -681,7 +683,7 @@ Here is the caller graph for this function:</div>
 
 <p>minmod slope limiter: 0 if a,b differ in sign, else the smaller-magnitude argument. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01176">1176</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01182">1182</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -690,8 +692,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a184b40678b44572be36b67c02420338e" name="a184b40678b44572be36b67c02420338e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a184b40678b44572be36b67c02420338e">&#9670;&#160;</a></span>s_amr_build_block_coords()</h2>
+<a id="a63fe67a0622565f60a85cc5e4fc9055f" name="a63fe67a0622565f60a85cc5e4fc9055f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63fe67a0622565f60a85cc5e4fc9055f">&#9670;&#160;</a></span>s_amr_build_block_coords()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -729,12 +731,17 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>pad</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fine cell coordinates of block k in dimension d, rebuilt from the global coarse boundaries gcb by replaying k's ancestor chain from replicated metadata, so any rank can reproduce them. Do not bisect <a class="el" href="#a486a4899b7f39711cd0afebb79324c4a" title="Fixed pool of refined-block slots; the working slot amr_cur selects which one per-block routines oper...">amr_slots(parent)</a>x_cb instead: the parent's slot exists only on its owner, which a level&gt;=2 block's owner need not be. </p>
+<p>Fine cell coordinates of block k in dimension d, rebuilt from the global coarse boundaries gcb by replaying k's ancestor chain from replicated metadata, so any rank can reproduce them. Do not bisect <a class="el" href="#a486a4899b7f39711cd0afebb79324c4a" title="Fixed pool of refined-block slots; the working slot amr_cur selects which one per-block routines oper...">amr_slots(parent)</a>x_cb instead: the parent's slot exists only on its owner, which a level&gt;=2 block's owner need not be. With pad, every level is widened by pad parent cells per side, so the result holds k's boundaries over -1-pad*rr : nf+pad*rr, stored from fcb(-1). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">gcb</td><td>global L0 cell boundaries </td></tr>
@@ -743,16 +750,16 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00680">680</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00683">683</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__state_a184b40678b44572be36b67c02420338e_cgraph.svg" width="578" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__state_a63fe67a0622565f60a85cc5e4fc9055f_cgraph.svg" width="578" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__state_a184b40678b44572be36b67c02420338e_icgraph.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__state_a63fe67a0622565f60a85cc5e4fc9055f_icgraph.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -774,7 +781,7 @@ Here is the caller graph for this function:</div>
 
 <p>Assemble the global coarse cell-boundary arrays over (-1-pad : G+pad): each rank writes its own cells' boundaries into a sentinel-filled array and an elementwise MAX allreduce recovers the global one. A larger-pad rebuild gives a consistent superset. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00726">726</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00732">732</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -802,7 +809,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rank-local per-stage guard: the local bubbles' padded bbox must stay clear of the current block (initial overlap, or drift beyond the regrid margin). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01157">1157</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01163">1163</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -857,7 +864,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pack (dir=+1) / unpack (dir=-1) the fine cells of slot's q_cons over [dlo:dhi] in dim d (interior transverse, all sys_size) in a fixed order, so a packer and unpacker with matching extents align cell-for-cell. On GPU only this near-seam slab moves device&lt;-&gt;host. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00812">812</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00818">818</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -892,7 +899,7 @@ Here is the caller graph for this function:</div>
 
 <p>Block k's padded coarse patch box [plo, phi] (region +/- amr_cpat_mar; collapsed dims 0:0). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00642">642</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00644">644</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -927,7 +934,7 @@ Here is the caller graph for this function:</div>
 
 <p>Core [clo, chi] of the patch box that the ghost fill never reads, so the fill waves ship only the shell around it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00667">667</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00669">669</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -977,7 +984,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert a physical-space bbox to a global coarse-index bbox padded by pad_cells (uniform spacing; the axisymmetric half axis cell only shrinks <a class="el" href="namespacem__global__parameters.html#ae309d53f918438b582ad9595e1dfeaf0">dy(0)</a>, so the floor stays conservative). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01120">1120</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01126">1126</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1012,7 +1019,7 @@ Here is the caller graph for this function:</div>
 
 <p>Block k's region box in global coarse cells; collapsed dimensions read 0:0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00632">632</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00634">634</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1035,7 +1042,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate the pooled q_prim/rhs advance scratch (idempotent). The lockstep driver associates it for every block, so it must exist on every rank, including one that never allocates a slot. rhs gets the igr widening. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01318">1318</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01324">1324</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1065,7 +1072,7 @@ Here is the caller graph for this function:</div>
 
 <p>Grow-on-demand sizing for append-only tables and pools: a grow preserves the entries already appended. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01672">1672</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01678">1678</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1093,7 +1100,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01689">1689</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01695">1695</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1128,7 +1135,7 @@ Here is the call graph for this function:</div>
 
 <p>Wire pools, preserving on grow. dev keeps the pool device-resident across (re)allocation: the old image is deleted from the device before it is freed and the new one created after; contents never survive a wave, so nothing is copied. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01718">1718</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01724">1724</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1165,7 @@ Here is the call graph for this function:</div>
 
 <p>s_amr_size_int for a table of n columns of r ints. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01699">1699</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l01705">1705</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1213,7 +1220,7 @@ Here is the caller graph for this function:</div>
 
 <p>Fill fcb/fcc/fdx by subdividing parent cells (s_amr_subdivide_cb); pcb_lb is lbound(pcb, 1). Only 0..nfine is filled. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00616">616</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00618">618</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1406,7 +1413,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00603">603</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00605">605</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1424,7 +1431,7 @@ Here is the caller graph for this function:</div>
 
 <p>patches amr_cg holds, stacked along dim 3 (s_amr_cg_reserve) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00602">602</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1449,7 @@ Here is the caller graph for this function:</div>
 
 <p>patches the level-1 pool gather filled (s_amr_l1_pool_gather) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00601">601</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00603">603</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1460,7 +1467,7 @@ Here is the caller graph for this function:</div>
 
 <p>dim-3 offset of each owned level-1 box's patch in the pool </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00602">602</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00604">604</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1478,7 +1485,7 @@ Here is the caller graph for this function:</div>
 
 <p>(<a class="el" href="#a2cecce361b1ac35c47a02cbbd3d86a46" title="children of p = amr_child_idx(amr_child_ptr(p-1)+1 : amr_child_ptr(p)), ascending">amr_child_ptr(0)</a> = 0) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00520">520</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1496,7 +1503,7 @@ Here is the caller graph for this function:</div>
 
 <p>children of p = amr_child_idx(amr_child_ptr(p-1)+1 : <a class="el" href="#a2cecce361b1ac35c47a02cbbd3d86a46" title="children of p = amr_child_idx(amr_child_ptr(p-1)+1 : amr_child_ptr(p)), ascending">amr_child_ptr(p)</a>), ascending </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00517">517</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1550,7 +1557,7 @@ Here is the caller graph for this function:</div>
 
 <p>amr_cg upper local bounds per dim (0 in collapsed dims) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00605">605</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00607">607</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1568,7 +1575,7 @@ Here is the caller graph for this function:</div>
 
 <p>coarse-cell stencil reach (f_amr_cpat_mar) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00604">604</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00606">606</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1586,7 +1593,7 @@ Here is the caller graph for this function:</div>
 
 <p>global coarse index of amr_cg local cell 0 (region_lo - amr_cpat_mar) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00606">606</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00608">608</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1622,7 +1629,7 @@ Here is the caller graph for this function:</div>
 
 <p>(0:num_procs-1, 1:amr_max_level) SFC Morton-key upper bound per rank, one independent cost-weighted cut per level (owner = cut search, f_amr_owner); O(P) storage. Per level because same-level boxes have distinct Morton keys, which the binary search needs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00543">543</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00545">545</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1640,7 +1647,7 @@ Here is the caller graph for this function:</div>
 
 <p>Device-resident wire pools: with rdma_mpi MPI sends/receives them by device address, and the step-path kernels find them present, so slices do not cross PCIe per wave. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00532">532</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1656,7 +1663,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00529">529</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00531">531</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1672,7 +1679,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00529">529</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1690,7 +1697,7 @@ Here is the caller graph for this function:</div>
 
 <p>Wire pools of the pooled waves (<a class="el" href="namespacem__amr__wave.html" title="MPI point-to-point waves for AMR exchange: post all receives, pack, post all sends,...">m_amr_wave</a> lays them out; contents never survive a wave). The fill and restrict waves share amr_fw_sq/rq; the seam wave is posted before the fills and drained after, so it has its own pair. The zero-copy reflux waves list their blocks in amr_fw_rblk. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00529">529</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1708,7 +1715,7 @@ Here is the caller graph for this function:</div>
 
 <p>Fused exchange packs (amr_device_pack): one row per wave transfer (slab corner (1:3), extents (4:6), payload offset in the wire pool (7); the child pack also has source store slot (8) and the child's patch frame (9:11)) plus the exclusive element prefix, so one kernel walks a family's transfers. Rebuilt per wave. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00539">539</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00541">541</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1724,7 +1731,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00539">539</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00541">541</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1742,7 +1749,7 @@ Here is the caller graph for this function:</div>
 
 <p>Global coarse cell-boundary arrays (-1:X_glb), assembled once at init; the fine-distribution owner rebuilds whole-block fine coordinates from them. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00582">582</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1758,7 +1765,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00582">582</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1774,7 +1781,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00582">582</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1880,7 +1887,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00521">521</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1898,7 +1905,7 @@ Here is the caller graph for this function:</div>
 
 <p>second key half, matching s_amr_reg_prepare's (epoch, num_blocks) pair </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00520">520</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2007,7 +2014,7 @@ Here is the caller graph for this function:</div>
 
 <p>Regrid box size cap per dim (fixed for the run, identical on all ranks; 1 in collapsed dims): a box of at most min-over-ranks of (local extent + 1)/2 cells intersects every rank in at most (its extent + 1)/2 cells, so the per-rank scratch constraint 2*(isect cells) - 1 &lt;= local extent holds by construction. Equals amr_maxc at np=1. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00548">548</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00550">550</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2043,7 +2050,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set wherever amr_block_owner is written (assigner, inheritance, restart/migration), so lists built from it never go stale. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2159,6 +2166,24 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a3bda52a7d758d87ab59b0d35b6555313" name="a3bda52a7d758d87ab59b0d35b6555313"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bda52a7d758d87ab59b0d35b6555313">&#9670;&#160;</a></span>amr_nest_seam</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical m_amr_state::amr_nest_seam = .false.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>a level &gt;= 2 block lies within amr_cpat_mar coarse cells of its parent's edge, so its parent patch reads the parent's ghosts </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a27b616eb4f02e674d02270be2d2420ad" name="a27b616eb4f02e674d02270be2d2420ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a27b616eb4f02e674d02270be2d2420ad">&#9670;&#160;</a></span>amr_num_seam_pairs</h2>
 
@@ -2205,7 +2230,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00523">523</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2239,7 +2264,7 @@ Here is the caller graph for this function:</div>
 
 <p>per-block list lengths </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00523">523</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2293,7 +2318,7 @@ Here is the caller graph for this function:</div>
 
 <p>Subcycling patch cache: the pooled level-1 patches (amr_cg, amr_cg_nuse patches) at the step start (time level 0) then the step end (1), each flat with g1 fastest, then g2, g3, variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00611">611</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00613">613</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2311,7 +2336,7 @@ Here is the caller graph for this function:</div>
 
 <p>device-resident pools of the packed reflux-faces wave </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00528">528</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00530">530</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2327,7 +2352,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00528">528</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00530">530</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2447,7 +2472,7 @@ Here is the caller graph for this function:</div>
 
 <p>rows queued in amr_slab_tab (s_amr_slab_add) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00601">601</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2465,7 +2490,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-block gathered coarse patch: the owner may not hold the coarse cells its block refines, so before each prolongation/ghost fill the patch region_lo-amr_cpat_mar : region_hi+amr_cpat_mar is gathered point-to-point into amr_cg (stp scalar_fields, block-local frame: cell 0 = global coarse cell <a class="el" href="#ae2eeadf1d42e88d98b46714f1bcfa104" title="global coarse index of amr_cg local cell 0 (region_lo - amr_cpat_mar)">amr_cpat_off(d)</a>). Messages carry wp cast to stp, so at np=1 the patch equals the local coarse read bitwise. Sized to the largest block. amr_slab_tab: device-resident slab table for the shell/ghost kernels, rows lo(1:3),hi(1:3),soff,scnt over &lt;= 6 slabs, refreshed by one GPU_UPDATE per launch. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2551,7 +2576,7 @@ Here is the caller graph for this function:</div>
 
 <p>seam pairs both of whose blocks this rank owns: exchanged by one batched kernel at drain, no wire </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00536">536</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2567,7 +2592,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2583,7 +2608,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2599,7 +2624,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2615,7 +2640,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2631,7 +2656,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00535">535</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00537">537</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2647,7 +2672,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00529">529</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2663,7 +2688,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00529">529</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2681,7 +2706,7 @@ Here is the caller graph for this function:</div>
 
 <p>Swap nesting depth: only the outermost swap saves the coarse state and only its restore puts it back; inner swaps re-install, inner restores are no-ops. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00581">581</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2785,7 +2810,7 @@ Here is the caller graph for this function:</div>
 
 <p>consume cursor into the open fill wave's receive transfers (box-major) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00607">607</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00609">609</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2803,7 +2828,7 @@ Here is the caller graph for this function:</div>
 
 <p>local accumulator behind amr_xchg_coarse_ghosts; s_amr_reduce_xchg_flag does one allreduce per scan </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00591">591</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00593">593</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2821,7 +2846,7 @@ Here is the caller graph for this function:</div>
 
 <p>True (identically on all ranks) iff some rank's fine ghost fill reads its coarse ghost cells: the solver populates only prim ghosts, so the cons ghosts must be halo-exchanged first. Never true at np=1. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00589">589</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00591">591</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2887,7 +2912,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00561">561</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2903,7 +2928,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00583">583</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2919,7 +2944,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00586">586</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2935,7 +2960,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00587">587</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2951,7 +2976,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00558">558</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00560">560</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2967,7 +2992,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00558">558</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00560">560</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2985,7 +3010,7 @@ Here is the caller graph for this function:</div>
 
 <p>IGR sigma-state bounce: the fine solve reuses jac/jac_old at fine indices, so the coarse contents (jac_old is the Jacobi warm start) are saved here across the fine advance. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00563">563</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3001,7 +3026,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00563">563</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3019,7 +3044,7 @@ Here is the caller graph for this function:</div>
 
 <p>Swap contract (s_amr_swap_to_fine / s_amr_restore_coarse): the fine advance swaps these coarse globals to the block's values and restores after: m/n/p, idwint/idwbuff, the nine coordinate arrays (sw_x_cb..sw_dz), acoustic_source; WENO/hypoelastic/IGR spacing coefficients are recomputed instead. Any new module-level state derived from m/n/p/idwint/idwbuff/coords that a kernel reads on the fine grid must be swapped here or refreshed per fine call, including its device copy (a stale device copy reads out of range under CCE OpenACC; cv_int is refreshed by a per-call GPU_UPDATE in s_compute_rhs). amr_swap_depth makes the swap re-entrant and guards an unpaired restore. Saved coarse-level global state for swap/restore. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00557">557</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3035,7 +3060,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00557">557</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3051,7 +3076,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00557">557</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3067,7 +3092,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00583">583</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3083,7 +3108,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00583">583</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3099,7 +3124,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00586">586</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3115,7 +3140,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00586">586</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3131,7 +3156,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00587">587</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3147,7 +3172,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__state_8fpp_8f90_source.html#l00587">587</a> of file <a class="el" href="m__amr__state_8fpp_8f90_source.html">m_amr_state.fpp.f90</a>.</p>
 
 </div>
 </div>

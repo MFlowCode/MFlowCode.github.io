@@ -1,5 +1,15 @@
 var NAVTREEINDEX10 =
 {
+"namespacem__particles__el__kernels.html#ad9782930f5a6afd0c73dab25fb52e819":[1,0,65,8],
+"namespacem__particles__el__kernels.html#ae75954e9cb2e436fd3b3e0cd75bf30e7":[1,0,65,0],
+"namespacem__patch__geometries.html":[1,0,66],
+"namespacem__patch__geometries.html#a057b01b6ea14457a8c272602d0cda0ba":[1,0,66,4],
+"namespacem__patch__geometries.html#a488e8317d848547d5652b53bafabd1fa":[1,0,66,1],
+"namespacem__patch__geometries.html#a4f236151439e8fe80d81a54b3300dd12":[1,0,66,2],
+"namespacem__patch__geometries.html#ab3f1c9d66160b9f49a9170ee2a4e2502":[1,0,66,3],
+"namespacem__patch__geometries.html#afeec9dce9eb3814e5a76863a1f29aefe":[1,0,66,0],
+"namespacem__phase__change.html":[1,0,67],
+"namespacem__phase__change.html#a12729a2eee1498ac58eb6595f4dd6ceb":[1,0,67,3],
 "namespacem__phase__change.html#a14dd0bb1de0c3205491af730be9405f9":[1,0,67,1],
 "namespacem__phase__change.html#a19a8a866830bfc285d631672287a851f":[1,0,67,4],
 "namespacem__phase__change.html#a21ff57cd8445fba4d418fd2cc4eb7837":[1,0,67,13],
@@ -239,15 +249,5 @@ var NAVTREEINDEX10 =
 "namespacem__stage__hooks.html#a9aee450e32c560cc23fa236968cd9ffd":[1,0,83,0],
 "namespacem__stage__hooks.html#a9eb358ebdeaddf3a8f6124198fa12100":[1,0,83,1],
 "namespacem__start__up.html":[1,0,84],
-"namespacem__start__up.html#a191081d40ca4d71652c77df4c3bad640":[1,0,84,14],
-"namespacem__start__up.html#a1bf604b2afd7b81737153114d92e7c80":[1,0,84,20],
-"namespacem__start__up.html#a1fb7a3f9d412acd2a9cbcfe8b45006dd":[1,0,84,10],
-"namespacem__start__up.html#a25f79bc2aae3d0302d4a97247d84f92a":[1,0,84,13],
-"namespacem__start__up.html#a308ac65752ef1268769cdff4bf9bc408":[1,0,84,1],
-"namespacem__start__up.html#a3226ddf0c64cff078579641fda52781d":[1,0,84,19],
-"namespacem__start__up.html#a38182f7fcc92c1c687840339a20e85cd":[1,0,84,9],
-"namespacem__start__up.html#a39b74a3be1912601a03c3190b6dbf5b3":[1,0,84,23],
-"namespacem__start__up.html#a3d543d2498cb1126d6e674c66a3c694a":[1,0,84,5],
-"namespacem__start__up.html#a41557e3492f88d3eef50473d5f311448":[1,0,84,24],
-"namespacem__start__up.html#a47ade6ffcd98aafcccf10910f626142d":[1,0,84,22]
+"namespacem__start__up.html#a191081d40ca4d71652c77df4c3bad640":[1,0,84,14]
 };

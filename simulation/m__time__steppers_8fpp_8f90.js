@@ -6,7 +6,9 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::s_adaptive_dt_bubble", "namespacem__time__steppers.html#a478ee89172580cccd27e418731bc09b6", null ],
     [ "m_time_steppers::s_advance_ib_pose", "namespacem__time__steppers.html#a5f84c7a9e33314abc24bfd4fa3a43327", null ],
     [ "m_time_steppers::s_amr_check_fixed_dt", "namespacem__time__steppers.html#a5a111853755c62414164df49ffba0f16", null ],
+    [ "m_time_steppers::s_check_fixed_dt_viscous", "namespacem__time__steppers.html#a0e78a3f24f9c1264e706f9d80e50484d", null ],
     [ "m_time_steppers::s_compute_dt", "namespacem__time__steppers.html#a66fef5ca8d571721738db4d52fe41026", null ],
+    [ "m_time_steppers::s_compute_dt_limits", "namespacem__time__steppers.html#a795c1078c5b46358d15ddfb87cedc51f", null ],
     [ "m_time_steppers::s_finalize_time_steppers_module", "namespacem__time__steppers.html#aa8e209d6747df776d818d3d4320ccf4d", null ],
     [ "m_time_steppers::s_initialize_time_steppers_module", "namespacem__time__steppers.html#a1694b8625ff0c8865b20b7888842f7b2", null ],
     [ "m_time_steppers::s_report_chem_stiffness", "namespacem__time__steppers.html#aea9b0e9e771b98c027d0ce972e756804", null ],
@@ -27,5 +29,6 @@ var m__time__steppers_8fpp_8f90 =
     [ "m_time_steppers::rhs_pb", "namespacem__time__steppers.html#a4d5085ff453c535fc06dac97b7c3ee8d", null ],
     [ "m_time_steppers::rhs_vf", "namespacem__time__steppers.html#a3d0867c3c2572c712d2aed6d677e6fc2", null ],
     [ "m_time_steppers::rk_coef", "namespacem__time__steppers.html#af8510128ce61b7a356e523c9795201a8", null ],
-    [ "m_time_steppers::stor", "namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12", null ]
+    [ "m_time_steppers::stor", "namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12", null ],
+    [ "m_time_steppers::visc_cap_warned", "namespacem__time__steppers.html#a7648cbf87786807f67efe8e99ca9874e", null ]
 ];

@@ -171,8 +171,22 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a8711103afd142d70b84cb8498a2e491d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Regrid phase 3b: nest child boxes inside each level-(l-1) box for l = 2..amr_max_level (parents first) and set box_level. A child's extent is the density-gradient sensor on the old parent-level fine solution, coarsened and clustered; a new region with no fine data gets a centred inset.  <br /></td></tr>
 <tr class="memitem:af937d5a4bbb36fd3e7028ef6bfc86ee3" id="r_af937d5a4bbb36fd3e7028ef6bfc86ee3"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af937d5a4bbb36fd3e7028ef6bfc86ee3">s_amr_nest_mark_parents</a> (boxes, plo, phi, lev, mine, covered)</td></tr>
 <tr class="memdesc:af937d5a4bbb36fd3e7028ef6bfc86ee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">mine(kb): this rank holds a level-(lev-1) block overlapping parent kb; covered(kb): any rank does (one LOR; every block has one owner).  <br /></td></tr>
-<tr class="memitem:a3d6eca8c87b2fe1afc9c4097ced10b6c" id="r_a3d6eca8c87b2fe1afc9c4097ced10b6c"><td class="memItemLeft">pure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a3d6eca8c87b2fe1afc9c4097ced10b6c">s_amr_nest_window</a> (box, mlo, mhi)</td></tr>
-<tr class="memdesc:a3d6eca8c87b2fe1afc9c4097ced10b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The nesting window of a parent: its box inset by amr_cpat_mar, so a child's ghost prolongation reads valid parent interior.  <br /></td></tr>
+<tr class="memitem:a8c84bc31ced2b97d40081a4f26990980" id="r_a8c84bc31ced2b97d40081a4f26990980"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8c84bc31ced2b97d40081a4f26990980">s_amr_nest_close_seams</a> (boxes, par, box_level, clo, nboxes, lev)</td></tr>
+<tr class="memdesc:a8c84bc31ced2b97d40081a4f26990980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join children across parent seams. Where parent pb sits on parent pa's high face in dim d, and a child of each ends at its nesting window there with the same transverse extents, both are brought to the shared parent face (s_amr_nest_reach): the boxes on it become a fine-fine seam pair and the strip between the children is refined. The parent patch of such a box reaches amr_cpat_mar cells into the parent's ghosts, which the parents' own seam exchange fills. A closure that leaves a neighbour with a partly shared face is undone (a tile joins only if the tiles beside it do), as is one the block pool has no room for. One dim at a time, so a later dim sees the new extents and can close the corner where four parents meet. Replicated inputs: rank-invariant. Not with IB.  <br /></td></tr>
+<tr class="memitem:ac324e92f0cc4fe4ab817ec25f63b6584" id="r_ac324e92f0cc4fe4ab817ec25f63b6584"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ac324e92f0cc4fe4ab817ec25f63b6584">s_amr_nest_reach</a> (boxes, par, box_level, nboxes, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, d, side, cap, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>)</td></tr>
+<tr class="memdesc:ac324e92f0cc4fe4ab817ec25f63b6584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bring box k from its nesting window to its parent's edge in dim d on <span class="tt">side</span> (+1 high, -1 low): extend it, or, if it is wider than <span class="tt">cap</span>, append the strip between as its own tile. j = the box now on the edge.  <br /></td></tr>
+<tr class="memitem:a8ec8b7d7e02156150824339aa14bbad9" id="r_a8ec8b7d7e02156150824339aa14bbad9"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8ec8b7d7e02156150824339aa14bbad9">s_amr_nest_retract</a> (boxes, par, n0, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, d, side)</td></tr>
+<tr class="memdesc:a8ec8b7d7e02156150824339aa14bbad9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Undo s_amr_nest_reach for box j: a strip (j &gt; n0) is emptied in dim d, an extended box goes back to its nesting window.  <br /></td></tr>
+<tr class="memitem:a3cd66c3bb5ce0debec616428f921084e" id="r_a3cd66c3bb5ce0debec616428f921084e"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#a3cd66c3bb5ce0debec616428f921084e">f_amr_nest_fits</a> (boxes, clo, chi, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, d)</td></tr>
+<tr class="memdesc:a3cd66c3bb5ce0debec616428f921084e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box j is compatible with every other box of clo..chi (those emptied in dim d aside).  <br /></td></tr>
+<tr class="memitem:a2cd9a699e3b19f67163d125a9c0926bd" id="r_a2cd9a699e3b19f67163d125a9c0926bd"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#a2cd9a699e3b19f67163d125a9c0926bd">f_amr_box_seam</a> (boxes, nboxes, box_level, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, d, side)</td></tr>
+<tr class="memdesc:a2cd9a699e3b19f67163d125a9c0926bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same-level box kk shares box k's whole face in dim d on <span class="tt">side</span> (+1 high, -1 low).  <br /></td></tr>
+<tr class="memitem:a26f4d83c91ba29d44da617db1d4ef6a0" id="r_a26f4d83c91ba29d44da617db1d4ef6a0"><td class="memItemLeft">pure logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a26f4d83c91ba29d44da617db1d4ef6a0">f_amr_nested</a> (boxes, nboxes, box_level, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>)</td></tr>
+<tr class="memdesc:a26f4d83c91ba29d44da617db1d4ef6a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proper nesting of level &gt;= 2 box k: it overlaps one parent-level box and each of its faces lies inside that parent's nesting window, or on the parent's edge as a seam with a same-level box (s_amr_nest_close_seams).  <br /></td></tr>
+<tr class="memitem:a677cf00898d5933f5da4948084f63082" id="r_a677cf00898d5933f5da4948084f63082"><td class="memItemLeft">pure logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a677cf00898d5933f5da4948084f63082">f_amr_boxes_compatible</a> (alo, ahi, blo, bhi)</td></tr>
+<tr class="memdesc:a677cf00898d5933f5da4948084f63082"><td class="mdescLeft">&#160;</td><td class="mdescRight">True iff two same-level blocks can coexist: disjoint, and either &gt;= 2 empty coarse cells apart or face-adjacent with an exact transverse match. Mirrors s_amr_check_seam_topology (<a class="el" href="namespacem__amr__regrid.html" title="Dynamic regrid for the AMR level set: density-gradient tagging, clustering (m_amr_cluster),...">m_amr_regrid</a>).  <br /></td></tr>
+<tr class="memitem:a77e28e295d97e535ba260cebb4b94a87" id="r_a77e28e295d97e535ba260cebb4b94a87"><td class="memItemLeft">pure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a77e28e295d97e535ba260cebb4b94a87">s_amr_nest_window</a> (box, mlo, mhi)</td></tr>
+<tr class="memdesc:a77e28e295d97e535ba260cebb4b94a87"><td class="mdescLeft">&#160;</td><td class="mdescRight">The nesting window of a parent: its box inset by amr_cpat_mar, so a child's ghost prolongation reads valid parent interior.  <br /></td></tr>
 <tr class="memitem:a4450dbdbfd7e5b5433346879cda7f56c" id="r_a4450dbdbfd7e5b5433346879cda7f56c"><td class="memItemLeft">pure logical function&#160;</td><td class="memItemRight"><a class="el" href="#a4450dbdbfd7e5b5433346879cda7f56c">f_amr_nest_window_empty</a> (lo, hi)</td></tr>
 <tr class="memdesc:a4450dbdbfd7e5b5433346879cda7f56c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Too small to nest a child in some active dimension.  <br /></td></tr>
 <tr class="memitem:a83fa6cbf9a2988211892668a5a871df3" id="r_a83fa6cbf9a2988211892668a5a871df3"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a83fa6cbf9a2988211892668a5a871df3">s_amr_nest_tag_parent</a> (box, lev, mlo, mhi, gwin, covered)</td></tr>
@@ -213,6 +227,162 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Hierarchical child nesting for AMR regrid: each level's children are tagged by the density-gradient sensor on the old parent-level fine solution, clustered, and replayed in rank-invariant order. Also holds the shared tag sensor. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function/Subroutine Documentation</h2>
+<a id="a2cd9a699e3b19f67163d125a9c0926bd" name="a2cd9a699e3b19f67163d125a9c0926bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd9a699e3b19f67163d125a9c0926bd">&#9670;&#160;</a></span>f_amr_box_seam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure logical function m_amr_nest::f_amr_box_seam </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nboxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>box_level</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>side</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Same-level box kk shares box k's whole face in dim d on <span class="tt">side</span> (+1 high, -1 low). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00694">694</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a2cd9a699e3b19f67163d125a9c0926bd_icgraph.svg" width="480" height="39"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a677cf00898d5933f5da4948084f63082" name="a677cf00898d5933f5da4948084f63082"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a677cf00898d5933f5da4948084f63082">&#9670;&#160;</a></span>f_amr_boxes_compatible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure logical function, public m_amr_nest::f_amr_boxes_compatible </td>
+          <td>(</td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ahi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>blo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bhi</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>True iff two same-level blocks can coexist: disjoint, and either &gt;= 2 empty coarse cells apart or face-adjacent with an exact transverse match. Mirrors s_amr_check_seam_topology (<a class="el" href="namespacem__amr__regrid.html" title="Dynamic regrid for the AMR level set: density-gradient tagging, clustering (m_amr_cluster),...">m_amr_regrid</a>). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00737">737</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a677cf00898d5933f5da4948084f63082_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3cd66c3bb5ce0debec616428f921084e" name="a3cd66c3bb5ce0debec616428f921084e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd66c3bb5ce0debec616428f921084e">&#9670;&#160;</a></span>f_amr_nest_fits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure logical function m_amr_nest::f_amr_nest_fits </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>clo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>chi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Box j is compatible with every other box of clo..chi (those emptied in dim d aside). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00679">679</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a3cd66c3bb5ce0debec616428f921084e_cgraph.svg" width="463" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a3cd66c3bb5ce0debec616428f921084e_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
 <a id="a4450dbdbfd7e5b5433346879cda7f56c" name="a4450dbdbfd7e5b5433346879cda7f56c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4450dbdbfd7e5b5433346879cda7f56c">&#9670;&#160;</a></span>f_amr_nest_window_empty()</h2>
 
@@ -242,11 +412,51 @@ Variables</h2></td></tr>
 
 <p>Too small to nest a child in some active dimension. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00771">771</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a4450dbdbfd7e5b5433346879cda7f56c_icgraph.svg" width="100%" height="432"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a26f4d83c91ba29d44da617db1d4ef6a0" name="a26f4d83c91ba29d44da617db1d4ef6a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f4d83c91ba29d44da617db1d4ef6a0">&#9670;&#160;</a></span>f_amr_nested()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure logical function, public m_amr_nest::f_amr_nested </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>nboxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>box_level</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Proper nesting of level &gt;= 2 box k: it overlaps one parent-level box and each of its faces lies inside that parent's nesting window, or on the parent's edge as a seam with a same-level box (s_amr_nest_close_seams). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00712">712</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a26f4d83c91ba29d44da617db1d4ef6a0_cgraph.svg" width="480" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -305,7 +515,7 @@ Here is the caller graph for this function:</div>
 
 <p>Tag indicator (jump of the amr_tag_var variable, or the cell-scaled vorticity) at one cell of a block in the flat store, max over the active dimensions. The stencil is clamped to the block (fm1:fm3 = block extents) since its ghosts are stale. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01093">1093</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01279">1279</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -345,7 +555,7 @@ Here is the caller graph for this function:</div>
 
 <p>Tag indicator from the tagged variable at i+1, i, i-1: central difference over 2*r_i, or with amr_tag_abs the larger absolute face jump. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01114">1114</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01300">1300</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -383,7 +593,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00989">989</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01175">1175</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -432,7 +642,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00884">884</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01070">1070</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -472,7 +682,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cell-scaled vorticity magnitude |curl u|*dx at cell c (amr_tag_var = 5), from the velocity differences between its neighbours im and ip along each direction (im = ip - 1 at a clamped block edge: a one-sided difference). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01054">1054</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01240">1240</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -521,7 +731,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00949">949</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01135">1135</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -622,11 +832,74 @@ Here is the caller graph for this function:</div>
 
 <p>Pad a child by <span class="tt">pad</span> and clamp it into the nesting window; collapsed dims are pinned to 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00752">752</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00938">938</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a02c3d2dd163636f6cce719db108522b4_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8c84bc31ced2b97d40081a4f26990980" name="a8c84bc31ced2b97d40081a4f26990980"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c84bc31ced2b97d40081a4f26990980">&#9670;&#160;</a></span>s_amr_nest_close_seams()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_amr_nest::s_amr_nest_close_seams </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>par</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>box_level</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>clo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>nboxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>lev</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Join children across parent seams. Where parent pb sits on parent pa's high face in dim d, and a child of each ends at its nesting window there with the same transverse extents, both are brought to the shared parent face (s_amr_nest_reach): the boxes on it become a fine-fine seam pair and the strip between the children is refined. The parent patch of such a box reaches amr_cpat_mar cells into the parent's ghosts, which the parents' own seam exchange fills. A closure that leaves a neighbour with a partly shared face is undone (a tile joins only if the tiles beside it do), as is one the block pool has no room for. One dim at a time, so a later dim sees the new extents and can close the corner where four parents meet. Replicated inputs: rank-invariant. Not with IB. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a8c84bc31ced2b97d40081a4f26990980_cgraph.svg" width="100%" height="439"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a8c84bc31ced2b97d40081a4f26990980_icgraph.svg" width="440" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -690,7 +963,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cluster a parent's tagged cells into children, padded by amr_buf and clamped into the nesting window. IB: expand over bodies and re-clamp (the window already holds the body plus margin). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00715">715</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00901">901</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -753,7 +1026,7 @@ Here is the caller graph for this function:</div>
 
 <p>Tile a child to the level's slot cap, amr_maxc_fit/amr_ref_ratio**(lev-1) coarse cells, and append the tiles to this rank's list. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00763">763</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00949">949</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -816,7 +1089,7 @@ Here is the caller graph for this function:</div>
 
 <p>Assemble every rank's children (7 ints each: lo, hi, parent kb) and order them by parent kb with a stable counting sort: chord(1:ntot) indexes gch in the canonical (kb ascending, emission) order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00790">790</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00976">976</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -869,7 +1142,7 @@ Here is the caller graph for this function:</div>
 
 <p>Brand-new region (no old fine data yet): a centred inset so the child still appears this regrid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00737">737</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00923">923</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -932,11 +1205,142 @@ Here is the caller graph for this function:</div>
 
 <p>mine(kb): this rank holds a level-(lev-1) block overlapping parent kb; covered(kb): any rank does (one LOR; every block has one owner). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00547">547</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00551">551</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_af937d5a4bbb36fd3e7028ef6bfc86ee3_icgraph.svg" width="440" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac324e92f0cc4fe4ab817ec25f63b6584" name="ac324e92f0cc4fe4ab817ec25f63b6584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac324e92f0cc4fe4ab817ec25f63b6584">&#9670;&#160;</a></span>s_amr_nest_reach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine m_amr_nest::s_amr_nest_reach </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>par</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>box_level</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(inout)</td>          <td class="paramname"><span class="paramname"><em>nboxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>side</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>cap</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bring box k from its nesting window to its parent's edge in dim d on <span class="tt">side</span> (+1 high, -1 low): extend it, or, if it is wider than <span class="tt">cap</span>, append the strip between as its own tile. j = the box now on the edge. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00641">641</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_ac324e92f0cc4fe4ab817ec25f63b6584_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8ec8b7d7e02156150824339aa14bbad9" name="a8ec8b7d7e02156150824339aa14bbad9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec8b7d7e02156150824339aa14bbad9">&#9670;&#160;</a></span>s_amr_nest_retract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure subroutine m_amr_nest::s_amr_nest_retract </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), dimension(:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>boxes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>par</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>n0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>j</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>side</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Undo s_amr_nest_reach for box j: a strip (j &gt; n0) is emptied in dim d, an extended box goes back to its nesting window. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00663">663</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a8ec8b7d7e02156150824339aa14bbad9_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1000,7 +1404,7 @@ Here is the caller graph for this function:</div>
 
 <p>Route each parent's (index, kb) pairs to its clustering owner with a stable counting sort by owner. Serial: the send list is the gathered list. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00624">624</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00810">810</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1058,7 +1462,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pass 1 for one parent: tag its window from owned level-(lev-1) blocks (amr_block_level still holds the old levels). IB: also mark the body bbox with margin max(amr_buf, 4) + amr_cpat_mar, so the clamp to the window keeps a full image-point stencil. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00781">781</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1072,14 +1476,17 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a3d6eca8c87b2fe1afc9c4097ced10b6c" name="a3d6eca8c87b2fe1afc9c4097ced10b6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d6eca8c87b2fe1afc9c4097ced10b6c">&#9670;&#160;</a></span>s_amr_nest_window()</h2>
+<a id="a77e28e295d97e535ba260cebb4b94a87" name="a77e28e295d97e535ba260cebb4b94a87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e28e295d97e535ba260cebb4b94a87">&#9670;&#160;</a></span>s_amr_nest_window()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pure subroutine, public m_amr_nest::s_amr_nest_window </td>
+          <td class="memname">pure subroutine m_amr_nest::s_amr_nest_window </td>
           <td>(</td>
           <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1t__box.html">t_box</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>box</em></span>, </td>
         </tr>
@@ -1094,15 +1501,20 @@ Here is the caller graph for this function:</div>
           <td class="paramtype">integer, dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>mhi</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>The nesting window of a parent: its box inset by amr_cpat_mar, so a child's ghost prolongation reads valid parent interior. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00575">575</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00761">761</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a3d6eca8c87b2fe1afc9c4097ced10b6c_icgraph.svg" width="440" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__nest_a77e28e295d97e535ba260cebb4b94a87_icgraph.svg" width="444" height="107"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1166,7 +1578,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pass 2 for one parent: rebuild its dense window from the routed pairs with gkb == kb (dedups replicated tags) and extract the tags in (k,j,i) order. The int8 decode matches s_amr_pack_gwin_pairs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00681">681</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00867">867</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1278,9 +1690,9 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Regrid phase 3b: nest child boxes inside each level-(l-1) box for l = 2..amr_max_level (parents first) and set box_level. A child's extent is the density-gradient sensor on the old parent-level fine solution, coarsened and clustered; a new region with no fine data gets a centred inset. </p>
-<p>Per level: pass 1 tags each parent's window from owned old blocks and packs (index, kb) pairs; an alltoall routes them to the parent's round-robin owner; pass 2 rebuilds the window and clusters it into children; an allgatherv plus a stable sort by kb replays the children in serial order, so the list and its truncation are rank-invariant. IB nesting is np=1 only. </p>
+<p>Per level: pass 1 tags each parent's window from owned old blocks and packs (index, kb) pairs; an alltoall routes them to the parent's round-robin owner; pass 2 rebuilds the window and clusters it into children; an allgatherv plus a stable sort by kb replays the children in serial order, so the list and its truncation are rank-invariant; s_amr_nest_close_seams then joins children across parent seams. IB nesting is np=1 only. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1333,7 +1745,7 @@ Here is the call graph for this function:</div>
 
 <p>Sensor-on-fine child tagging: OR the density-gradient tags of an old fine block into an L0 tag grid over a parent window. Reads the flat store on the host (caller refreshes it); one-sided differences at the fine edges avoid stale ghosts. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l00838">838</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__nest_8fpp_8f90_source.html#l01024">1024</a> of file <a class="el" href="m__amr__nest_8fpp_8f90_source.html">m_amr_nest.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
