@@ -248,7 +248,6 @@ var namespaces_dup =
       [ "num_fluids_max", "namespacem__constants.html#a98d57985f5f6603153d9a870aaff08a1", null ],
       [ "num_ib_airfoils_max", "namespacem__constants.html#a00a06abac10f6cb8ad7d7468b0c0b33e", null ],
       [ "num_ib_patches_max_namelist", "namespacem__constants.html#a3088a7ca489e4d8281ad467d9eb5c74b", null ],
-      [ "num_local_ibs_max", "namespacem__constants.html#a0ef5dbdaf637c46bc04b4abd1cb1233d", null ],
       [ "num_particle_clouds_max", "namespacem__constants.html#a3d55a69cf4cc9d7d00e179db3be28e6a", null ],
       [ "num_patches_max", "namespacem__constants.html#a2678965621459e6045edb254772ffdb5", null ],
       [ "num_probes_max", "namespacem__constants.html#ae89a45bab1dc4f820e2076b5b367f6c1", null ],

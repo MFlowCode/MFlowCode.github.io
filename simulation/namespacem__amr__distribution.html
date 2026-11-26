@@ -213,7 +213,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:aeb3b9af000f5eea9fa04a9cc3e6b8c4a" id="r_aeb3b9af000f5eea9fa04a9cc3e6b8c4a"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aeb3b9af000f5eea9fa04a9cc3e6b8c4a">s_amr_expand_box_over_bodies</a> (lo, hi)</td></tr>
 <tr class="memdesc:aeb3b9af000f5eea9fa04a9cc3e6b8c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expand a candidate regrid box (global indices) to fully contain every immersed body it overlaps, with a margin; aborts if a body exceeds the per-rank block cap.  <br /></td></tr>
 <tr class="memitem:aadf7d51df42ec191a346bbc51098b475" id="r_aadf7d51df42ec191a346bbc51098b475"><td class="memItemLeft">pure integer function, dimension(3), public&#160;</td><td class="memItemRight"><a class="el" href="#aadf7d51df42ec191a346bbc51098b475">f_amr_rank_tile</a> (boxes, nboxes)</td></tr>
-<tr class="memdesc:aadf7d51df42ec191a346bbc51098b475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tile size for the level-1 regrid boxes: amr_maxc_fit, halved (not below amr_rank_tile_min cells) until the boxes make amr_rank_tiles tiles per rank, so a small refined region still gives every rank work while blocks stay as large as that allows. amr_maxc_fit as is with amr_max_grid_size set or on one rank. Replicated input: rank-invariant.  <br /></td></tr>
+<tr class="memdesc:aadf7d51df42ec191a346bbc51098b475"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tile size for the level-1 regrid boxes: from amr_maxc_fit, shrink one cell in one dimension at a time (in turn, not below amr_rank_tile_min) until there is at least one tile per rank, so a small refined region gives every rank work while blocks stay as large as that allows (a box splits into 8x8x8 tiles for 512 ranks, not 7x7x7). amr_maxc_fit as is with amr_max_grid_size set or on one rank. Replicated input: rank-invariant.  <br /></td></tr>
 <tr class="memitem:a704b6fa5a59d9f296116a51b4c46479b" id="r_a704b6fa5a59d9f296116a51b4c46479b"><td class="memItemLeft">pure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a704b6fa5a59d9f296116a51b4c46479b">s_amr_tile_box</a> (lo, hi, out, nt, cap, capped, tsz)</td></tr>
 <tr class="memdesc:a704b6fa5a59d9f296116a51b4c46479b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split box [lo:hi] into an even grid of adjacent sub-boxes each &lt;= amr_maxc_fit per dim (the max a rank can whole-own), appended to out(nt+1:); sets capped=1 and stops if the cap is hit. Collapsed dims stay [0:0].  <br /></td></tr>
 </table>
@@ -254,7 +254,7 @@ Functions/Subroutines</h2></td></tr>
 
 <p>Closed-form inverse of the per-dim split in s_amr_rank_decomp: the cart coord owning global coarse cell g, with base=(gd+1)/pd, rem=mod(gd+1,pd). Exact for g in [0,gd]; callers clamp for out-of-range g (ghost reach). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -284,7 +284,7 @@ Here is the caller graph for this function:</div>
 
 <p>Overlap count only (allocation sizing), = product of the per-dim coord-range widths. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00508">508</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00509">509</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -323,7 +323,7 @@ Here is the caller graph for this function:</div>
 
 <p>Owner rank of block k by binary search of its Morton key in its level's cut <a class="el" href="namespacem__amr__state.html#a4a9c9528823eb4a1f50e105d1d28c9ee" title="(0:num_procs-1, 1:amr_max_level) SFC Morton-key upper bound per rank, one independent cost-weighted c...">amr_fine_cut(:, level)</a>; reproduces s_amr_assign_block_owners' assignment exactly. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01037">1037</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01044">1044</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -363,7 +363,7 @@ Here is the caller graph for this function:</div>
 
 <p>Does rank r's subdomain overlap coarse box [blo:bhi]? Answers membership without enumerating the overlap set, which is O(num_procs) for a box spanning the machine. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00494">494</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00495">495</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -396,9 +396,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Tile size for the level-1 regrid boxes: amr_maxc_fit, halved (not below amr_rank_tile_min cells) until the boxes make amr_rank_tiles tiles per rank, so a small refined region still gives every rank work while blocks stay as large as that allows. amr_maxc_fit as is with amr_max_grid_size set or on one rank. Replicated input: rank-invariant. </p>
+<p>Tile size for the level-1 regrid boxes: from amr_maxc_fit, shrink one cell in one dimension at a time (in turn, not below amr_rank_tile_min) until there is at least one tile per rank, so a small refined region gives every rank work while blocks stay as large as that allows (a box splits into 8x8x8 tiles for 512 ranks, not 7x7x7). amr_maxc_fit as is with amr_max_grid_size set or on one rank. Replicated input: rank-invariant. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01154">1154</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01162">1162</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -419,7 +419,7 @@ Here is the caller graph for this function:</div>
 
 <p>Install a recorded owner table instead of recomputing it (restart at the writer's rank count): the cost weights read live state (body markers) that differs between the regrid before the write and the restart. Each level's cut is the running max Morton key of each rank's blocks; s_amr_validate_owner rejects a table not contiguous in that order (unless amr_place_owner). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00966">966</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00967">967</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -445,11 +445,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00914">914</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00915">915</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__distribution_a88d95de4d553ef8f048dc50ecf1234d5_cgraph.svg" width="100%" height="590"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__distribution_a88d95de4d553ef8f048dc50ecf1234d5_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -484,7 +484,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-block cost over each block's level-0 footprint (1 per cell + K_ib per IB-marked cell), summed over each rank's owned coarse cells and replicated by one MPI_ALLREDUCE(SUM). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00544">544</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00545">545</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -524,7 +524,7 @@ Here is the caller graph for this function:</div>
 
 <p>Margin-padded global coarse-index bounding box of immersed body i (supported analytic geometries only; aborts on others). Reads the body's live centroid and orientation, so a moving body's box tracks it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01097">1097</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01104">1104</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -579,7 +579,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-dim intersection of two global boxes [alo:ahi] and [blo:bhi] -&gt; [olo:ohi] (empty when olo &gt; ohi in some dim). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00533">533</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00534">534</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -609,7 +609,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set this rank's intersection of box lo:hi with its subdomain (amr_isect_lo/hi) and whether it holds fine cells (amr_rank_owns_block: nonempty in all active dims). Call with the coarse grid state in m/n/p, never inside the fine advance. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01073">1073</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01080">1080</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -657,7 +657,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-dim contiguous rank-coord range [clo:chi] whose owned coarse slab meets box [blo:bhi], clamped to [0,pd-1]. The boundary coords' coarse_range is extended by buff_size at the domain edge (s_amr_rank_coarse_range), and clamping reproduces both the interior (scatter) and coarse_range (gather) sets. Collapsed dims contribute coord 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -692,7 +692,7 @@ Here is the caller graph for this function:</div>
 
 <p>Expand a candidate regrid box (global indices) to fully contain every immersed body it overlaps, with a margin; aborts if a body exceeds the per-rank block cap. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01124">1124</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01131">1131</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -745,7 +745,7 @@ Here is the call graph for this function:</div>
 
 <p>Coarse-side overlap per rank of block k's region grown by g coarse cells: level 1 against the level-0 rank bricks, level &gt;= 2 against the owners of the level-(l-1) blocks. Adds into vol(0:) and lists touched ranks in rk(1:nr); the caller zeroes vol(rk(1:nr)) after use. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00820">820</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00821">821</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -803,7 +803,7 @@ Here is the caller graph for this function:</div>
 
 <p>Owner-aware placement (amr_place_owner) of one level's na blocks (slots aidx, weights wt, Morton keys key): each block goes to the rank owning most of the coarse cells under it. A rank above (1 + place_tol) x the mean sheds its last blocks in Morton order, first to the least-loaded rank next to the block, then to the least-loaded rank anywhere, never pushing the receiver above the cap (or above the block's own weight, when one block exceeds it). Replicated inputs in a fixed order, so every rank computes the same owners. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00856">856</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00857">857</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -843,7 +843,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rank r's contiguous owned coarse-cell range per dim: the interior plus buff_size ghosts where the subdomain touches the domain edge. One span, so box intersections identify contributors without a per-cell scan. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00520">520</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00521">521</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -883,7 +883,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rank r's coarse-grid decomposition (start_idx + local extent m/n/p), computed O(1) from its cartesian coords. The domain cart is MPI_CART_CREATE(reorder=.false.), so ranks keep MPI_COMM_WORLD order and coords are row-major in r. The per-dim split is the integer split-with-remainder of s_mpi_decompose_computational_domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -918,7 +918,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rank r's coarse interior box (global, no ghosts) from s_amr_rank_decomp; restriction targets are identified by interior overlap alone. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01084">1084</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01091">1091</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -963,7 +963,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ascending rank list overlapping coarse box [blo:bhi]: the coord brick is enumerated cx-&gt;cy-&gt;cz so r = cx*(Py*Pz)+cy*Pz+cz ascends, reproducing the 0..num_procs-1 scan order. Owner not excluded. Caller sizes ranks(:) &gt;= f_amr_overlap_count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00471">471</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00472">472</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -991,7 +991,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rebuild the epoch-keyed block lists when the mesh epoch has moved (one O(global blocks) walk per regrid, not per RK stage). Also caches the parent index (f_amr_parent_block is an O(global blocks) scan) and the children adjacency used by s_amr_sibling_face_weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00696">696</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00697">697</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1019,7 +1019,7 @@ Here is the caller graph for this function:</div>
 
 <p>Refresh the owned-block list if any owner write has happened since the last refresh. Lazy, since s_amr_assign_block_owners is not the only writer of amr_block_owner. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00674">674</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1057,7 +1057,12 @@ Here is the caller graph for this function:</div>
 
 <p>Per-level and total load-balance report (rank 0, rank_time_wrt): max/mean assigned block weight over ranks (1 = perfect). no_blocks_ranks is the granularity floor of a level with fewer boxes than ranks, not idleness. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00991">991</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00992">992</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__distribution_ae0957b4bcff3be874a8e77737f7e2956_cgraph.svg" width="418" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1102,7 +1107,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cost-weighted SFC partition of n items into num_procs contiguous Morton-key ranges: walk the key-sorted items (stable merge sort) and advance the owner rank when the running weight crosses the next even share. Writes owner(1:n) and cut(0:num_procs-1) (running Morton upper bound per rank; ranks with no item inherit the predecessor's bound, so cut is non-decreasing). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1142,7 +1147,7 @@ Here is the caller graph for this function:</div>
 
 <p>ord(1:n) = item indices in ascending key order. Stable iterative bottom-up merge sort, a pure function of the input so every rank derives identical orders from replicated keys (differing assignments would deadlock or abort). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00636">636</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00637">637</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1203,7 +1208,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01177">1177</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01189">1189</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1221,7 +1226,7 @@ Here is the caller graph for this function:</div>
 
 <p>Guard: the computed decomposition must reproduce this rank's actual one (each rank checks itself, so all r are covered). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1249,7 +1254,7 @@ Here is the caller graph for this function:</div>
 
 <p>Guard: the SFC cut-point accessor must reproduce the stored owner table exactly. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01059">1059</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__distribution_8fpp_8f90_source.html#l01066">1066</a> of file <a class="el" href="m__amr__distribution_8fpp_8f90_source.html">m_amr_distribution.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">

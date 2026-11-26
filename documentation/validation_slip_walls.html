@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_slip_walls.html','',''); });
   <div class="headertitle"><div class="title">Validation: Slip Immersed Walls </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md819"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md893"></a>
 Slip immersed walls: mass conservation, curvature pressure and the CCST ghost state</h1>
 <p><b>Status:</b> partially validated (mass budget and exact vortex); open discrepancy for slip walls in unsteady shock flow and close approach. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_slip_cylinder</span>. <b>Last run:</b> 2026-11-23.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md820"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md894"></a>
 Purpose</h2>
-<p>Gas at tens to hundreds of m/s slides along 50-micron bodies in particle-resolved shock flows, and the slip wall has to conserve the gas mass and give the right pressure on a curved surface. This checks three things of the slip-wall ghost state of an immersed boundary against exact results: the gas mass in a closed box (with and without <span class="tt">ib_mass_relax</span>), the near-wall pressure and velocity of an exact steady vortex (the curvature term of the ghost pressure, the image-point interpolation <span class="tt">ib_ip_interp</span> and <span class="tt">ib_slip_ccst</span>, the curvature-corrected symmetry technique of Dadone and Grossman <a class="el" href="citelist.html#CITEREF_dadonegrossman2004">[19]</a>), and records two cases of slip walls that do not work.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md821"></a>
+<p>Gas at tens to hundreds of m/s slides along 50-micron bodies in particle-resolved shock flows, and the slip wall has to conserve the gas mass and give the right pressure on a curved surface. This checks three things of the slip-wall ghost state of an immersed boundary against exact results: the gas mass in a closed box (with and without <span class="tt">ib_mass_relax</span>), the near-wall pressure and velocity of an exact steady vortex (the curvature term of the ghost pressure, the image-point interpolation <span class="tt">ib_ip_interp</span> and <span class="tt">ib_slip_ccst</span>, the curvature-corrected symmetry technique of Dadone and Grossman <a class="el" href="citelist.html#CITEREF_dadonegrossman2004">[21]</a>), and records two cases of slip walls that do not work.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md895"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -183,19 +183,19 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">GNU 13, CPU, one rank, double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md822"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md896"></a>
 Reference data</h2>
 <ul>
 <li><b>Mass.</b> In a periodic box with no source the total gas mass is constant.</li>
 <li><b>Exact vortex.</b> \(u_\theta = M c_0 R/r\), \(T/T_0 = 1 - \frac{\gamma-1}{2}(u_\theta/c_0)^2\), \(\rho = \rho_0 (T/T_0)^{1/(\gamma-1)}\), \(p = p_0 (T/T_0)^{\gamma/(\gamma-1)}\). An exact steady Euler solution tangent to the wall, with \(dp/dr = \rho u_\theta^2/r\) (the balance the curvature term of the ghost pressure imposes).</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md823"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md897"></a>
 Quantities</h2>
 <ul>
 <li><b>Mass change.</b> The sum of the density over the fluid cells (centres outside the body) at the saves, relative to the first save (<span class="tt">check_slip.py</span>).</li>
 <li><b>Vortex error.</b> Root-mean-square over the cells of a wall-distance band (in cells) of \((p-p_\mathrm{ex})/(\frac12\rho_0 (M c_0)^2)\), \((u_\theta-u_{\theta,\mathrm{ex}})/(M c_0)\) and \(u_r/(M c_0)\) (zero in the exact solution), at the end of the run. Only the first band (0 to 1 cells) is tabulated.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md824"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md898"></a>
 Results</h2>
 <p><b>Gas mass in a closed box, one flow-through</b> (changes at half and at the end of the flow-through):</p>
 <table class="markdownTable">
@@ -238,7 +238,7 @@ Results</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">ib_slip_ccst</span>, TSC  </td><td class="markdownTableBodyLeft">5.04e-03 / 1.37e-03 / 3.17e-04  </td><td class="markdownTableBodyLeft">1.9, 2.1  </td><td class="markdownTableBodyLeft">1.70e-03 / 7.58e-04 / 2.74e-04  </td><td class="markdownTableBodyLeft">1.2, 1.5  </td><td class="markdownTableBodyLeft">2.91e-03 / 8.46e-04 / 2.21e-04  </td><td class="markdownTableBodyLeft">1.8, 1.9  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md825"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md899"></a>
 Assessment</h2>
 <ul>
 <li>With the default <span class="tt">ib_mass_relax</span> a fixed slip wall gains gas: 0.36 % of the box mass per flow-through at 16 cells per R. <span class="tt">ib_mass_relax = 1</span> holds the mass to round-off (1e-13), and 30 to 6e-5. The drift falls slowly with resolution (3.6e-3 at 16 cells per R, 2.1e-3 at 32: a factor 1.7 for doubling), so the option is the remedy.</li>
@@ -248,10 +248,10 @@ Assessment</h2>
 <li>The same vortex runs reproduce, to three digits, the first-band errors measured for these options before they were merged (pressure 3.28e-2 / 1.58e-2 / 6.38e-3 at M = 0.3 with the default options), so the merged code matches the study that motivated it.</li>
 <li>Status is partially validated: only a fixed circle, steady inviscid flow and 2D were run; the options were not measured on a moving or accelerating slip body, on a sphere, or in the shock-curtain flow.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md826"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md900"></a>
 Known limitations</h2>
 <ul>
-<li><b>Slip curtains are unsupported.</b> A shock through a 2D curtain of slip cylinders (about 115 um diameter, 16 cells per diameter, area fraction 0.21, Mach 1.66) fails shortly after the shock enters the curtain (two-way coupled moving particles); the same curtain with no-slip walls runs to the end. The likely cause is the inviscid slip model in 2D: the gas stays attached to each cylinder and expands at the shoulders toward vacuum, deeper as the grid is refined, where published inviscid slip-wall bed simulations Mehta et al. <a class="el" href="citelist.html#CITEREF_mehta2019">[54]</a> are 3D (the flow can relieve sideways) and body fitted. This was not verified in MFC (an independent prototype of the 2D Euler problem keeps a positive minimum pressure, so it does not reproduce the failure itself). Use no-slip walls for curtains.</li>
+<li><b>Slip curtains are unsupported.</b> A shock through a 2D curtain of slip cylinders (about 115 um diameter, 16 cells per diameter, area fraction 0.21, Mach 1.66) fails shortly after the shock enters the curtain (two-way coupled moving particles); the same curtain with no-slip walls runs to the end. The likely cause is the inviscid slip model in 2D: the gas stays attached to each cylinder and expands at the shoulders toward vacuum, deeper as the grid is refined, where published inviscid slip-wall bed simulations Mehta et al. <a class="el" href="citelist.html#CITEREF_mehta2019">[56]</a> are 3D (the flow can relieve sideways) and body fitted. This was not verified in MFC (an independent prototype of the 2D Euler problem keeps a positive minimum pressure, so it does not reproduce the failure itself). Use no-slip walls for curtains.</li>
 <li><b>Slip particles in close approach.</b> A gap of under about two cells between two slip bodies (or a body and a wall) drains to vacuum (mechanism not isolated).</li>
 <li><b>Unsteady flow with <span class="tt">ib_slip_ccst</span>.</b> Conserving total enthalpy between the image point and the ghost holds only for steady flow. A version of the option failed in three of three runs of a 2D shock curtain of about 40 slip particles (NaN partway through the run) where the zero-gradient slip fill passed four of four; the merged option was not run in that curtain. A nearly stagnant image point is given a bounded tangential speed (0.5 to 2 times the image point's), and the option is refused with chemistry.</li>
 <li><b>Local conservation.</b> <span class="tt">ib_mass_relax</span> returns each body's net ghost-layer intake, so the body's total gas mass is conserved; the face fluxes that carry the intake are not corrected, and the correction is local to two cells of the body. A conservative face flux (cut cells) is not available. Count the mass of all fluid cells: the relaxation puts the returned mass in the two cells next to the body, so a count that leaves them out sees the drift as smaller than it is and the correction as incomplete.</li>
@@ -259,7 +259,7 @@ Known limitations</h2>
 <li><b>Curvature.</b> The curvature term is exact for circles, spheres and the sides of cylinders; other shapes have none and keep the zero-gradient ghost pressure.</li>
 <li>Not re-measured here: the pressure of an accelerating slip cylinder (added mass), the uniform-flow pressure coefficient of a slip circle and the trajectory of a free slip cylinder behind a shock, which in the earlier study did not separate the options; and the comparison with the code before the curvature term, which cannot be made on <span class="tt">master</span>.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md827"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md901"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_slip_cylinder/case.py -t pre_process simulation post_process -n 1 -- --steps 0 --cells_per_R 16 --half 8 --mass_relax 1</div>
 <div class="line">python3 examples/2D_ibm_slip_cylinder/check_slip.py examples/2D_ibm_slip_cylinder --case-args &#39;--steps 0 --cells_per_R 16 --half 8 --mass_relax 1&#39;</div>

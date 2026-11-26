@@ -161,6 +161,7 @@ var m__global__parameters__common_8fpp_8f90 =
     [ "m_global_parameters_common::num_ibs", "namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a", null ],
     [ "m_global_parameters_common::num_igr_iters", "namespacem__global__parameters__common.html#aa1e22da9a10e91416ed94dbe3ab7ba6c", null ],
     [ "m_global_parameters_common::num_igr_warm_start_iters", "namespacem__global__parameters__common.html#a92acc33f22f3d952ebd02abc394e0c40", null ],
+    [ "m_global_parameters_common::num_local_ibs_max", "namespacem__global__parameters__common.html#a1fe9ce040615f8faf30739865a38ee72", null ],
     [ "m_global_parameters_common::num_particle_clouds", "namespacem__global__parameters__common.html#afd19941d4e6671d30ec5feff9291606d", null ],
     [ "m_global_parameters_common::num_patches", "namespacem__global__parameters__common.html#a531386f948a8eb7ee6f2b6935fe609ff", null ],
     [ "m_global_parameters_common::num_probes", "namespacem__global__parameters__common.html#a5a42f33a6449f59a10f940ce5a125213", null ],

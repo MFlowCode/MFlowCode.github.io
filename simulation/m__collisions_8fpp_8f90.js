@@ -12,6 +12,7 @@ var m__collisions_8fpp_8f90 =
     [ "m_collisions::s_finalize_collisions_module", "namespacem__collisions.html#a6da9569c8e2a07f8609c8a706bbf1849", null ],
     [ "m_collisions::s_ib_friction_direction", "namespacem__collisions.html#a4c866b49418ade6e7ab7c72145cdc8b8", null ],
     [ "m_collisions::s_initialize_collisions_module", "namespacem__collisions.html#ab75b5d1e5a69e4f989675e0ba2c868ed", null ],
+    [ "m_collisions::s_pair_owner_point", "namespacem__collisions.html#aed3e19b2965c3de508bbcd1e5b7f1d42", null ],
     [ "m_collisions::s_resize_pair_bits", "namespacem__collisions.html#ab750f22e14980b7cc220243746f4e5e0", null ],
     [ "m_collisions::collision_lookup", "namespacem__collisions.html#af14b8f561916852b4111d4bf5a0656e8", null ],
     [ "m_collisions::collisions_active", "namespacem__collisions.html#a3ff9d9d82031eaeb094d320959d733ec", null ],

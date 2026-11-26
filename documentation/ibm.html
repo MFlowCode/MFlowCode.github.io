@@ -157,10 +157,10 @@ $(function(){initNavTree('ibm.html','',''); });
   <div class="headertitle"><div class="title">Immersed Boundaries </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md512"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md545"></a>
 Immersed Boundaries</h1>
 <p>This page is a map of the immersed-boundary (IB) options. The parameters and their constraints are in <a class="el" href="case.html#sec-immersed-boundary-patches" title="4. Immersed Boundary Patches">Immersed Boundary Patches</a> of the case-file documentation; this page only says which option does what and where it is checked. Enable the model with <span class="tt">ib = T</span> and <span class="tt">num_ibs</span>; each body is a <span class="tt">patch_ib(i)</span> entry whose geometry is listed in <a class="el" href="case.html#immersed-boundary-patch-types" title="Immersed Boundary Patch Types">Immersed Boundary Patch Types</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md513"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md546"></a>
 Motion</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -177,7 +177,7 @@ Motion</h2>
 <td class="markdownTableBodyLeft"><span class="tt">ib_friction_slip_eps</span>  </td><td class="markdownTableBodyLeft">regularises the friction direction at small slip speed, so contacts split across MPI ranks agree with a single rank  </td></tr>
 </table>
 <p>Moving-body kinematics and the restitution of a wall collision are checked in <a class="el" href="validation.html#sec-validation-moving-kinematics" title="Moving-body kinematics">Validation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md514"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md547"></a>
 Wall treatment</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -196,10 +196,10 @@ Wall treatment</h2>
 <td class="markdownTableBodyLeft"><span class="tt">ib_mass_relax</span>  </td><td class="markdownTableBodyLeft">returns the spurious gas mass of a body over about N steps; the default resolves at start-up (see the parameter entry)  </td></tr>
 </table>
 <p>Each option has a default that leaves existing results unchanged, except <span class="tt">ib_mass_relax</span>, whose default depends on whether a body moves. Drag and Nusselt number of a cylinder: <a class="el" href="validation_cyl_drag_nu.html" title="Validation: Circular Cylinder Drag and Nusselt Number">Validation: Circular Cylinder Drag and Nusselt Number</a>. Interpolation against an exact conduction solution: <a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal Conduction Annulus: Image-Point Interpolation</a>. Slip walls (mass budget, exact vortex, known failures): <a class="el" href="validation_slip_walls.html" title="Validation: Slip Immersed Walls">Validation: Slip Immersed Walls</a>. Lumped cooling and the wall conduction column: <a class="el" href="validation_wall_thermal.html" title="Validation: Solid-Wall Thermal Models">Validation: Solid-Wall Thermal Models</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md515"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md548"></a>
 Heat transfer and chemistry</h2>
 <p><span class="tt">thermal_bc</span> selects the wall condition: zero-gradient (0), prescribed <span class="tt">Twall</span> (1), reacting-surface energy balance (2), lumped solid with an evolving temperature (3). <span class="tt">wall_column</span> adds a sub-grid conduction column to a fixed isothermal circle or sphere, and <span class="tt">ib_flux_wall</span> sets the face fluxes of a reacting wall from its surface solve. Examples: <span class="tt">examples/2D_ibm_lumped_wall</span>, <span class="tt">examples/2D_ibm_wall_mass_budget</span>, <span class="tt">examples/2D_ibm_conduction_annulus</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md516"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md549"></a>
 Output and restart</h2>
 <ul>
 <li><span class="tt">ib_force_wrt</span> writes <span class="tt">ib_forces.dat</span> (<a class="el" href="case.html#sec-ib-force-history" title="Immersed-boundary force history">force history</a>); <span class="tt">ib_heat_wrt</span> writes <span class="tt">ib_heat.dat</span> (<a class="el" href="case.html#sec-ib-heat-history" title="Immersed-boundary heat history">heat history</a>); <span class="tt">ib_surface_wrt</span> writes surface-point records for a chemistry run.</li>

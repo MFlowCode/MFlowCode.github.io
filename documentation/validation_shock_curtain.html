@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_shock_curtain.html','',''); });
   <div class="headertitle"><div class="title">Validation: Shock-Particle Interaction and Dense Curtains </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md810"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md872"></a>
 Shock-particle interaction: unsteady drag of a sphere and a shock through a dense curtain</h1>
 <p><b>Status:</b> partially validated: the mean gas velocity through a dense curtain agrees with a published particle-resolved DNS to 0.04 to 0.05 \(u_{ps}\) (3D, a reduced cross-section, two realizations); the single-sphere drag peak is within 3 % of the inviscid reference. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_shock_curtain</span>. <b>Last run:</b> 2026-11-23.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md811"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md873"></a>
 Purpose</h2>
-<p>A shock crossing a cloud of particles loads each particle with an unsteady force and drives a mean gas flow through the cloud. This checks both with fixed immersed bodies: the drag history of a single sphere after shock passage against the inviscid result of Mehta et al. <a class="el" href="citelist.html#CITEREF_mehta2016">[53]</a>, and the Favre-averaged gas velocity through a random curtain at a solid fraction of 0.2 against the particle-resolved DNS of Sridhar, Fox and Capecelatro Sridhar et al. <a class="el" href="citelist.html#CITEREF_sridhar2025">[77]</a>, including which wall model is needed. A short note records a qualitative comparison with a shock-tube experiment.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md812"></a>
+<p>A shock crossing a cloud of particles loads each particle with an unsteady force and drives a mean gas flow through the cloud. This checks both with fixed immersed bodies: the drag history of a single sphere after shock passage against the inviscid result of Mehta et al. <a class="el" href="citelist.html#CITEREF_mehta2016">[55]</a>, and the Favre-averaged gas velocity through a random curtain at a solid fraction of 0.2 against the particle-resolved DNS of Sridhar, Fox and Capecelatro Sridhar et al. <a class="el" href="citelist.html#CITEREF_sridhar2025">[83]</a>, including which wall model is needed. A short note records a qualitative comparison with a shock-tube experiment.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md874"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -181,19 +181,19 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">sphere runs: GNU 13 on an x86 CPU, one rank; curtain: NVIDIA A100 80GB, NVHPC 25.11; double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md813"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md875"></a>
 Reference data</h2>
 <ul>
-<li>Mehta, Neal, Jackson, Balachandar and Thakur Mehta et al. <a class="el" href="citelist.html#CITEREF_mehta2016">[53]</a>, Fig. 6(a): the inviscid single-sphere drag at Ms 1.22, peak 7.49 at \(t/\tau\) = 0.36 ( \(\tau = D/W_s\), \(t = 0\) at the shock's arrival at the nose), read from the figure. The other peaks in the figure (3.72, 2.34, 1.71 and 1.44 at Ms 1.5, 2, 3 and 6) are tabulated in <span class="tt">check_curtain.py</span>.</li>
-<li>Sridhar, Fox and Capecelatro Sridhar et al. <a class="el" href="citelist.html#CITEREF_sridhar2025">[77]</a>, Case 5 (Ms 1.66, \(\phi\) = 0.2), Fig. 3(d)-(f): the Favre-averaged gas velocity over the post-shock velocity against \((x-x_0)/L\) at \(t/\tau_L\) = 0.5, 1 and 2, \(\tau_L = L/W_s\) with \(L\) the curtain thickness. Their DNS is viscous with a 6th-order central scheme at 40 cells/D. The values were read from the published figure (raster panels, curve thickness about 0.01 in \(u/u_{ps}\)) and ship as binned medians in <span class="tt">examples/2D_ibm_shock_curtain/sridhar2025_ms166_phi02.txt</span>.</li>
+<li>Mehta, Neal, Jackson, Balachandar and Thakur Mehta et al. <a class="el" href="citelist.html#CITEREF_mehta2016">[55]</a>, Fig. 6(a): the inviscid single-sphere drag at Ms 1.22, peak 7.49 at \(t/\tau\) = 0.36 ( \(\tau = D/W_s\), \(t = 0\) at the shock's arrival at the nose), read from the figure. The other peaks in the figure (3.72, 2.34, 1.71 and 1.44 at Ms 1.5, 2, 3 and 6) are tabulated in <span class="tt">check_curtain.py</span>.</li>
+<li>Sridhar, Fox and Capecelatro Sridhar et al. <a class="el" href="citelist.html#CITEREF_sridhar2025">[83]</a>, Case 5 (Ms 1.66, \(\phi\) = 0.2), Fig. 3(d)-(f): the Favre-averaged gas velocity over the post-shock velocity against \((x-x_0)/L\) at \(t/\tau_L\) = 0.5, 1 and 2, \(\tau_L = L/W_s\) with \(L\) the curtain thickness. Their DNS is viscous with a 6th-order central scheme at 40 cells/D. The values were read from the published figure (raster panels, curve thickness about 0.01 in \(u/u_{ps}\)) and ship as binned medians in <span class="tt">examples/2D_ibm_shock_curtain/sridhar2025_ms166_phi02.txt</span>.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md814"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md876"></a>
 Quantities</h2>
 <ul>
 <li><b>Cd(t)</b> = \(F_x/(\tfrac12\rho_2 u_2^2 \pi D^2/4)\) with the post-shock state, from <span class="tt">D/ib_forces.dat</span> (<span class="tt">check_curtain.py --drag</span>).</li>
 <li><b>ũ(x)</b> = \(\langle I\rho u\rangle/\langle I\rho\rangle\) over the cross-stream slabs (I = 1 for cell centres outside every body), over \(u_{ps}\). The comparison error is the mean \(|\tilde u - \tilde u_\mathrm{ref}|/u_{ps}\) over \(-0.35 &lt; (x-x_0)/L &lt; 1\), excluding \(\pm 0.05 L\) around the reflected and transmitted shocks. Saves fall at \(t/\tau_L\) within 0.25 of a reference panel (the nearest panel is used).</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md815"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md877"></a>
 Results</h2>
 <p>Single sphere, Ms 1.22, peak Cd (reference 7.49):</p>
 <table class="markdownTable">
@@ -226,14 +226,14 @@ Results</h2>
 <td class="markdownTableBodyLeft">seed 2  </td><td class="markdownTableBodyRight">2.002 (2)  </td><td class="markdownTableBodyRight">0.052  </td><td class="markdownTableBodyRight">0.505  </td></tr>
 </table>
 <p>The profiles of seed 1 are in <span class="tt">examples/2D_ibm_shock_curtain/curtain_profiles.png</span> (made by <span class="tt">check_curtain.py --png</span>): the transmitted and reflected shocks are where the DNS puts them to within a few percent of the curtain thickness, and the plateau inside the curtain is about 0.03 to 0.06 \(u_{ps}\) below the DNS at \(t/\tau_L\) = 1 and 2.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md816"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md878"></a>
 Assessment</h2>
 <ul>
 <li>The inviscid slip sphere lies within 2 to 3 % of Mehta's peak at 12 and 14 cells/D, with the late drag near zero as in the inviscid reference. The inviscid no-slip ghost velocity is not a substitute for it for a single body: its peak is 19 % high and its late drag 0.85, because no-slip with inviscid fluxes imposes a wall layer the reference does not have.</li>
 <li>Through the curtain the inviscid no-slip spheres reproduce the shape and the level of the DNS mean velocity profile to 0.04 to 0.05 \(u_{ps}\) at the three panel times, for both realizations. This is a little larger than the 0.02 to 0.03 of earlier runs at \(t/\tau_L\) = 2 (below); the plateau of these runs is slightly low, i.e. the curtain is slightly more opaque, which the reduced 6 D cross-section and the 10 cells/D resolution may explain (not verified).</li>
-<li>Qualitative comparison with a shock-tube experiment (Wagner et al. <a class="el" href="citelist.html#CITEREF_wagner2012">[91]</a>, Beresh et al. <a class="el" href="citelist.html#CITEREF_beresh2011">[6]</a>): earlier runs of a moving, colliding curtain with no-slip bodies followed the measured upstream and downstream curtain edges to about 150 microseconds after the shock's arrival (the downstream edge within the spread of the repeated experiments at 100 microseconds); later times, the transmitted and reflected wave strengths were not reconciled with the experiment. The published data are hard to reconcile with each other and with the stated conditions, so this is a comparison of trends, not a validation, and no benchmark is built on it. The example's <span class="tt">--moving</span> option is that configuration.</li>
+<li>Qualitative comparison with a shock-tube experiment (Wagner et al. <a class="el" href="citelist.html#CITEREF_wagner2012">[100]</a>, Beresh et al. <a class="el" href="citelist.html#CITEREF_beresh2011">[6]</a>): earlier runs of a moving, colliding curtain with no-slip bodies followed the measured upstream and downstream curtain edges to about 150 microseconds after the shock's arrival (the downstream edge within the spread of the repeated experiments at 100 microseconds); later times, the transmitted and reflected wave strengths were not reconciled with the experiment. The published data are hard to reconcile with each other and with the stated conditions, so this is a comparison of trends, not a validation, and no benchmark is built on it. The example's <span class="tt">--moving</span> option is that configuration.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md817"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md879"></a>
 Known limitations</h2>
 <ul>
 <li>The curtain comparison is one realization on a 6 D x 6 D cross-section at 10 cells/D, not the 12 D x 12 D cross-section of the reference DNS and not at its 40 cells/D. Earlier runs on a pre-merge build with the full 12 D cross-section at 12, 20 and 40 cells/D gave errors of 0.094 to 0.096, 0.062 to 0.068 and 0.021 to 0.030 at \(t/\tau_L\) = 0.5, 1 and 2, independent of resolution; an inviscid no-slip run at 12 cells/D gave 0.095, 0.066 and 0.023, and an inviscid slip run 0.124, 0.139 and 0.054 (gas through the curtain about 30 % too fast at \(t/\tau_L\) = 1). The slip result is why the curtain uses no slip. These earlier numbers are not repeated on <span class="tt">master</span>.</li>
@@ -242,7 +242,7 @@ Known limitations</h2>
 <li>Slip walls on moving bodies abort in the curtain (a NaN within the first steps): use no slip for moving bodies. This is a known solver limit documented with the slip-wall limits and is not fixed by this example; the registered test uses fixed bodies.</li>
 <li>The 3D sphere at Ms 3: the inviscid peak converged to 5.5 % above Mehta's and the late level was low in earlier runs (cause not verified); only Ms 1.22 is repeated here.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md818"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md880"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_shock_curtain/case.py -n 1 --gpu -- --dim 3 --single --slip --mach 1.22 --xu 3 --xd 7 \</div>
 <div class="line">    --width 6 --cells_per_D 12 --steps 0 --tau 8</div>

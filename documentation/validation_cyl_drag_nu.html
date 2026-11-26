@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_cyl_drag_nu.html','',''); });
   <div class="headertitle"><div class="title">Validation: Circular Cylinder Drag and Nusselt Number </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md778"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md830"></a>
 Circular cylinder, Re 20-100: drag, wake, shedding and heat transfer</h1>
 <p><b>Status:</b> partially validated. <b>Code:</b> <span class="tt">master</span> at 615348a25. <b>Example:</b> <span class="tt">examples/2D_ibm_cylinder_drag_nu</span>. <b>Last run:</b> 2026-11-21.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md779"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md831"></a>
 Purpose</h2>
 <p>A ghost-cell immersed boundary with chemistry-based thermodynamics and transport is the code path of particle-resolved reacting runs. This checks the drag from the face-flux force of <span class="tt">ib_force_wrt</span> (it replaced a volume integral that missed part of the friction drag, <a href="https://github.com/MFlowCode/MFC/issues/2013">#2013</a>), the wake and shedding frequency, and the Nusselt number from the face heat of <span class="tt">ib_heat_wrt</span>, against references and against a force that does not use the immersed-boundary code.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md780"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md832"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -185,15 +185,15 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">AMD MI300A, OpenMP offload, double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md781"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md833"></a>
 Reference data</h2>
 <ul>
 <li>Dennis and Chang <b>[DennisChang1970:]</b> Cd 2.05 (Re 20) and 1.52 (Re 40); L/D 0.94 and 2.35. Fornberg <b>[Fornberg1980:]</b> Cd 2.00 and 1.50 (values as compiled in the literature; the original tables were not re-read).</li>
-<li>Henderson <a class="el" href="citelist.html#CITEREF_henderson1995">[31]</a> (Cd 1.35) and Park et al. <a class="el" href="citelist.html#CITEREF_park1998">[61]</a> (Cd 1.33, Cl amplitude 0.332, St 0.165) at Re 100.</li>
+<li>Henderson <a class="el" href="citelist.html#CITEREF_henderson1995">[33]</a> (Cd 1.35) and Park et al. <a class="el" href="citelist.html#CITEREF_park1998">[64]</a> (Cd 1.33, Cl amplitude 0.332, St 0.165) at Re 100.</li>
 <li>Williamson <b>[Williamson1989:]</b> St = -3.3265/Re + 0.1816 + 1.6e-4 Re (0.1643 at Re 100).</li>
-<li>Nu: Lange et al. <a class="el" href="citelist.html#CITEREF_lange1998">[38]</a> (2D DNS fit, Pr = 0.7) and Churchill and Bernstein <a class="el" href="citelist.html#CITEREF_churchillbernstein1977">[14]</a> (evaluated at the film Pr = 0.712).</li>
+<li>Nu: Lange et al. <a class="el" href="citelist.html#CITEREF_lange1998">[40]</a> (2D DNS fit, Pr = 0.7) and Churchill and Bernstein <a class="el" href="citelist.html#CITEREF_churchillbernstein1977">[15]</a> (evaluated at the film Pr = 0.712).</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md782"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md834"></a>
 Quantities</h2>
 <ul>
 <li><b>Cd_IB</b>: \(\langle F_x\rangle/(\tfrac12\rho U^2 D)\) from <span class="tt">D/ib_forces.dat</span>.</li>
@@ -202,7 +202,7 @@ Quantities</h2>
 <li><b>St</b> from the dominant frequency of the lift history (second half of the run).</li>
 <li><b>Nu</b> = \(-(Q_\mathrm{hot}-Q_\mathrm{cold})\,D/(\pi D\,k_f\,(T_w-T_\infty))\) with Q the heat the body takes (<span class="tt">D/ib_heat.dat</span>, face fluxes), \(k_f\) at the film temperature, and the cold (Tw = T_inf) twin removing the viscous heating of the wall.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md783"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md835"></a>
 Results</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -229,7 +229,7 @@ Results</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">4.962  </td><td class="markdownTableBodyRight">5.128  </td><td class="markdownTableBodyRight">-3.2 %  </td><td class="markdownTableBodyRight">5.190  </td><td class="markdownTableBodyRight">-4.4 %  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md784"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md836"></a>
 Assessment</h2>
 <ul>
 <li>The face-flux force agrees with the momentum balance (box 2 D) to 0.1 % at Re 20 and 0.1-0.3 % at Re 40 at 20 cells/D, and with the references to within 1.0 % at Re 20 and 40 and 0.3-1.8 % at Re 100. It moves toward the reference from 10 to 20 cells/D (Cd changes by 2.4 % at Re 20 and 1.4 % at Re 40).</li>
@@ -237,7 +237,7 @@ Assessment</h2>
 <li>Nu is within 1.4 % of Lange at Re 20 and 40 and 3.2 % low at Re 100.</li>
 <li>Status is partially validated: 40 cells per diameter, the grid-convergence order and Re 100 on the larger domain were not measured here.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md785"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md837"></a>
 Known limitations</h2>
 <ul>
 <li><b>L/D is first order and low</b> (0.818 against 0.94 at Re 20, 2.064 against 2.35 at Re 40: 13 % and 12 % low at 20 cells/D, 23 % and 18 % low at 10). The no-slip ghost value is the wall value, not a reflection, so the effective wall sits up to a cell inside the surface (<a href="https://github.com/MFlowCode/MFC/issues/2014">#2014</a>); <span class="tt">ib_wall_order = 2</span> is the option for it and was not run here.</li>
@@ -246,7 +246,7 @@ Known limitations</h2>
 <li>Nu varies by 2-4 % between correlations. The face-heat Nu carries no wall-gradient fit: an earlier drift of Nu with refinement at Re 40 came from fitting the wall gradient of the temperature field, not from the solver.</li>
 <li>The film Prandtl number of dry air in <span class="tt">h2o2.yaml</span> is 0.712; Lange's fit is for 0.7.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md786"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md838"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_cylinder_drag_nu/case.py -t pre_process simulation post_process -n 1 --gpu -- \</div>
 <div class="line">    --silo --Re 40 --cells_per_D 20 --xu 15 --xd 25 --hy 16 --steps 0 --tstar 50</div>

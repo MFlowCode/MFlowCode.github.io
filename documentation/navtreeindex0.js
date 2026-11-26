@@ -108,7 +108,7 @@ var NAVTREEINDEX0 =
 "case_constraints.html#physics-warnings":[5,0,7],
 "case_constraints.html#quick-parameter-reference":[5,0,6],
 "case_constraints.html#riemann-solvers":[5,0,4],
-"citelist.html":[40],
+"citelist.html":[52],
 "cli-reference.html":[6],
 "cli-reference.html#amr_check":[6,0,4,0],
 "cli-reference.html#autotoc_md61":[6,0],

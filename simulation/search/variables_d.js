@@ -73,7 +73,7 @@ var searchData=
   ['num_5figr_5fiters_70',['num_igr_iters',['../namespacem__global__parameters__common.html#aa1e22da9a10e91416ed94dbe3ab7ba6c',1,'m_global_parameters_common']]],
   ['num_5figr_5fwarm_5fstart_5fiters_71',['num_igr_warm_start_iters',['../namespacem__global__parameters__common.html#a92acc33f22f3d952ebd02abc394e0c40',1,'m_global_parameters_common']]],
   ['num_5flocal_5fibs_72',['num_local_ibs',['../namespacem__global__parameters.html#a7619ac383aef2e99a4cc968a26c88fe5',1,'m_global_parameters']]],
-  ['num_5flocal_5fibs_5fmax_73',['num_local_ibs_max',['../namespacem__constants.html#a0ef5dbdaf637c46bc04b4abd1cb1233d',1,'m_constants']]],
+  ['num_5flocal_5fibs_5fmax_73',['num_local_ibs_max',['../namespacem__global__parameters__common.html#a1fe9ce040615f8faf30739865a38ee72',1,'m_global_parameters_common']]],
   ['num_5fparticle_5fclouds_74',['num_particle_clouds',['../namespacem__global__parameters__common.html#afd19941d4e6671d30ec5feff9291606d',1,'m_global_parameters_common']]],
   ['num_5fparticle_5fclouds_5fmax_75',['num_particle_clouds_max',['../namespacem__constants.html#a3d55a69cf4cc9d7d00e179db3be28e6a',1,'m_constants']]],
   ['num_5fparticles_76',['num_particles',['../structm__derived__types_1_1particle__cloud__parameters.html#a0ae151488b79619176a04ee9a474ab3a',1,'m_derived_types::particle_cloud_parameters']]],

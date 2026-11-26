@@ -157,9 +157,9 @@ $(function(){initNavTree('validation_burning_body.html','',''); });
   <div class="headertitle"><div class="title">Burning carbon body </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md775"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md826"></a>
 Burning carbon body validation</h1>
-<p><b>Status:</b> cylinder burn rate against a 1D radial reference: validated with <span class="tt">ib_ip_interp = 2</span> at 24 cells per diameter (+0.3 % at 10 us, +0.2 % at 20 us), +0.8 to +1.4 % at 12; with the default image points +0.6 to +0.9 % at 24 and +1.3 to +1.9 % at 12; sphere: partially validated with <span class="tt">ib_ip_interp = 2</span> (+2.5 to +4 % at 12 cells per diameter), +6 to +9 % with the default. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/nD_ibm_carbon_burn</span>. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
+<p><b>Status:</b> cylinder burn rate against a 1D radial reference: validated with <span class="tt">ib_ip_interp = 2</span> (+0.15 % at 10 us and -0.11 % at 20 us at 24 cells per diameter, +0.90 % and +0.07 % at 12), which with the per-species ghost mirror weight reproduces the earlier study; with the default image points +0.6 to +0.9 % at 24 and +1.3 to +1.9 % at 12; sphere: partially validated with <span class="tt">ib_ip_interp = 2</span> (+2.1 % at 10 us, +1.1 % at 20 us at 12 cells per diameter), +6 to +9 % with the default. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a; the per-species ghost mirror weight and its numbers: 5c43aa27d with this change. <b>Example:</b> <span class="tt">examples/nD_ibm_carbon_burn</span>. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
 <p>A carbon body at fixed temperature gasifies in hot, high-pressure moist air with a CO flame off the surface. The reference is an independent 1D radially symmetric transient solution of the same model (<span class="tt">ref1d.py</span>, shipped), so the comparison checks the immersed-boundary surface chemistry (<span class="tt">ib_flux_wall</span>, the surface solve's species fluxes through the wall faces) and the reacting transport around a staircase body, with the mechanisms (<span class="tt">2D_ibm_reacting_surface</span>) shared. Tables marked "earlier" were measured on a pre-merge build and were not repeated.</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-burning-body-setup"></a>
 Setup</h2>
@@ -181,7 +181,7 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">compare_burn_rate.py</span>: <span class="tt">D/ib_heat.dat</span> column 4 (face mass outflow of the flux wall) and column 3 (surface-solve rate) against the reference \(2\pi R\sum_k W_k s_k\) (cylinder) or \(4\pi R^2\sum_k W_k s_k\) (sphere), averaged over .5 us; flame peak temperature and radius from the temperature binned in r  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md776"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md827"></a>
 Cylinder</h3>
 <p>Burn rate \(\dot m&#39;\) [kg/(m s)] against the reference (default settings of <span class="tt">master</span>) (column 4 of <span class="tt">ib_heat.dat</span>, error = MFC/reference - 1; column 3 in parentheses). Measured on <span class="tt">master</span> at 0cdfdf02a with NVHPC 25.11 on an NVIDIA A100 (12 cells per diameter to 60 us, 24 cells per diameter to 30 us); the 12-cell run on the CPU (NVHPC 25.11) agrees with the A100 to 1e-5 relative and the 24-cell run at 10 us to 1e-4. The right-hand columns are the errors of the earlier study (pre-merge build whose defaults differed from <span class="tt">master</span>: triangular-shaped-cloud image points and the compact viscous face gradient).</p>
 <table class="markdownTable">
@@ -218,7 +218,7 @@ Cylinder</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">master</span> before #2248 (wall conduction through the unbounded mirror temperature)  </td><td class="markdownTableBodyRight">burn rate equal to <span class="tt">master</span> to 5 digits through 5 us  </td><td class="markdownTableBodyRight"></td></tr>
 </table>
-<p>The earlier study's build reproduces its numbers exactly with this case file, so the case and the reference are not the difference. The default that moves the burn rate is the image-point interpolation: the earlier build used triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>), <span class="tt">master</span> uses inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>). Setting it recovers about half of the gap at 12 cells per diameter and nearly all of it at 24 (below). The other options of the earlier build do not matter here (<span class="tt">ib_smooth_contact</span>, <span class="tt">ib_mass_relax</span>, which the flux wall makes redundant, <span class="tt">weno_Re_flux_compact</span>). What remains at 12 cells per diameter (+0.5 and +0.7 percentage points at 10 and 20 us) comes from changes of the earlier build that are not in <span class="tt">master</span> (for example the mirrored temperature of the advected ghost of an isothermal or reacting wall); this was not isolated. The recommended setting for these cases is <span class="tt">--set ib_ip_interp=2</span>.</p>
+<p>The earlier study's build reproduces its numbers exactly with this case file, so the case and the reference are not the difference. The default that moves the burn rate is the image-point interpolation: the earlier build used triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>), <span class="tt">master</span> uses inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>). Setting it recovers about half of the gap at 12 cells per diameter and nearly all of it at 24 (below). The other options of the earlier build do not matter here (<span class="tt">ib_smooth_contact</span>, <span class="tt">ib_mass_relax</span>, which the flux wall makes redundant, <span class="tt">weno_Re_flux_compact</span>). What remained at 12 cells per diameter (+0.5 and +0.7 percentage points at 10 and 20 us) is the species ghost (next section). The recommended setting for these cases is <span class="tt">--set ib_ip_interp=2</span>.</p>
 <p>With <span class="tt">ib_ip_interp = 2</span> (A100, NVHPC 25.11):</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -228,7 +228,33 @@ Cylinder</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+0.80 %  </td><td class="markdownTableBodyRight">+0.16 %  </td><td class="markdownTableBodyRight">+0.08 % / -0.11 %  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md777"></a>
+<p><b>The per-species ghost mirror weight.</b> The ghost state of a chemistry wall blends each mass fraction from the mirror back toward the surface value, \(Y_g = Y_s + \theta (Y_s - Y_{IP})\), with \(\theta\) the largest weight up to 1 that keeps \(Y_g\) positive. <span class="tt">master</span> used one \(\theta\) for all species, the smallest; at a carbon wall the surface consumes the trace radicals (O, OH), their \(Y_s\) is far below \(Y_{IP}\), and the shared weight falls to about 0.006, so every species ghost is the first-order Dirichlet value \(Y_s\). The earlier build gave each species its own \(\theta\) and let the most abundant species at the surface close \(\sum Y_g = 1\) (the shared weight only if that species would go negative). With that rule (now in <span class="tt">master</span> through this change; A100, NVHPC 25.11, error of column 4):</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadLeft">Body, cells/D, image points  </th><th class="markdownTableHeadRight">t [us]  </th><th class="markdownTableHeadRight">shared \(\theta\)  </th><th class="markdownTableHeadRight">per-species \(\theta\)  </th><th class="markdownTableHeadRight">earlier study  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">cylinder, 12, <span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyRight">+1.39 %  </td><td class="markdownTableBodyRight">+0.90 %  </td><td class="markdownTableBodyRight">+0.92 %  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">cylinder, 12, <span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+0.80 %  </td><td class="markdownTableBodyRight">+0.07 %  </td><td class="markdownTableBodyRight">+0.08 %  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">cylinder, 24, <span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyRight">+0.32 %  </td><td class="markdownTableBodyRight">+0.15 %  </td><td class="markdownTableBodyRight">+0.16 %  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">cylinder, 24, <span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+0.16 %  </td><td class="markdownTableBodyRight">-0.11 %  </td><td class="markdownTableBodyRight">-0.11 %  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">sphere, 12, <span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyRight">+3.17 %  </td><td class="markdownTableBodyRight">+2.07 %  </td><td class="markdownTableBodyRight">+2.07 %  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">sphere, 12, <span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+2.49 %  </td><td class="markdownTableBodyRight">+1.15 %  </td><td class="markdownTableBodyRight">+1.14 %  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">cylinder, 12, default  </td><td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyRight">+1.87 %  </td><td class="markdownTableBodyRight">+1.87 %  </td><td class="markdownTableBodyRight"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">cylinder, 12, default  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+1.36 %  </td><td class="markdownTableBodyRight">+1.35 %  </td><td class="markdownTableBodyRight"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyLeft">sphere, 12, default  </td><td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyRight">+7.35 %  </td><td class="markdownTableBodyRight">+7.34 %  </td><td class="markdownTableBodyRight"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyLeft">sphere, 12, default  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+6.22 %  </td><td class="markdownTableBodyRight">+6.20 %  </td><td class="markdownTableBodyRight"></td></tr>
+</table>
+<p>The per-species weight reproduces the earlier study on both bodies and both grids to 0.02 percentage points, so the rest of the gap was this rule and not the advected-ghost temperature mentioned before: that mirror applies to moving walls only, in <span class="tt">master</span> and in the earlier build alike. With the default inverse-distance image points the weight changes the burn rate by under 0.02 percentage points (cylinder and sphere). The TSC stencil reads the solid cells next to the image point, which hold the last ghost values (<span class="tt">ib_keep_ghost</span>), so the species ghost feeds back into the image-point state there; this is the likely reason the two settings act together (not separately verified).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md828"></a>
 Sphere</h3>
 <p>Same setup in 3D (<span class="tt">--ndim 3</span>), 12 cells per diameter (72 x 72 x 72 cells) to 30 us, <span class="tt">master</span> at 0cdfdf02a, NVHPC 25.11 on an NVIDIA A100, reference in kg/s:</p>
 <table class="markdownTable">
@@ -241,7 +267,7 @@ Sphere</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">30  </td><td class="markdownTableBodyRight">1.4490e-8  </td><td class="markdownTableBodyRight">1.5416e-8  </td><td class="markdownTableBodyRight">+6.39 %  </td><td class="markdownTableBodyRight">1.5464e-8  </td><td class="markdownTableBodyRight">+6.72 %  </td></tr>
 </table>
-<p>With TSC image points (<span class="tt">ib_ip_interp = 2</span>, the recommended setting) the error is +4.05 % at 5 us, +3.17 % at 10 us and +2.49 % at 20 us (default: +9.14 %, +7.35 %, +6.22 %), against +2.07 %, +1.14 % (10, 20 us) of the earlier study (pre-merge build with <span class="tt">ib_ip_interp = 2</span> as the default and an older flux-wall face rule). The flame peak is 2247.5 K at r = 1.59 R at 30 us with the default settings (reference 2236.1 K at 1.61 R). The remaining 1 to 1.3 percentage points are not isolated (see the cylinder). Finer grids were not run (a 24-cell sphere is 144^3 cells). Status: partially validated with <span class="tt">ib_ip_interp = 2</span> (within 3.2 % at 12 cells per diameter), open discrepancy with the default image points.</p>
+<p>With TSC image points (<span class="tt">ib_ip_interp = 2</span>, the recommended setting) the error is +4.05 % at 5 us, +3.17 % at 10 us and +2.49 % at 20 us (default: +9.14 %, +7.35 %, +6.22 %), against +2.07 %, +1.14 % (10, 20 us) of the earlier study (pre-merge build with <span class="tt">ib_ip_interp = 2</span> as the default and an older flux-wall face rule); with the per-species ghost mirror weight +2.72 %, +2.07 % and +1.15 % (above). The flame peak is 2247.5 K at r = 1.59 R at 30 us with the default settings (reference 2236.1 K at 1.61 R). The remaining 1 to 1.3 percentage points were the shared species mirror weight (see the cylinder). Finer grids were not run (a 24-cell sphere is 144^3 cells). Status: partially validated with <span class="tt">ib_ip_interp = 2</span> (within 2.1 % from 10 us on at 12 cells per diameter, one grid), open discrepancy with the default image points.</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-burning-body-limits"></a>
 Known limitations</h2>
 <ul>
@@ -249,7 +275,7 @@ Known limitations</h2>
 <li>Element conservation of the flux wall (closed-box O, H and N inventories to round-off) is checked by <span class="tt">2D_ibm_wall_mass_budget</span> (see <a class="el" href="validation.html" title="Validation">Validation</a>); the 64-particle array budget of the earlier study is not repeated here.</li>
 <li>The film-theory series and the stagnation-flow comparisons (Makino and co-workers) of the earlier study are not part of this page: they need the stagnation reference of a separate study and were not re-measured.</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

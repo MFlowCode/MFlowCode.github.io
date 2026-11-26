@@ -1,6 +1,7 @@
 var m__rhs_8fpp_8f90 =
 [
     [ "s_add_directional_advection_source_terms", "m__rhs_8fpp_8f90.html#aa8b607941c2dac6b15ccffaec24cfba2", null ],
+    [ "m_rhs::s_amr_flatten_seam_faces", "namespacem__rhs.html#a065e99a12f3bb0255e3338dd40f126aa", null ],
     [ "m_rhs::s_compute_additional_physics_rhs", "namespacem__rhs.html#a9f3373c5da17365937d76b4038969640", null ],
     [ "m_rhs::s_compute_advection_source_term", "namespacem__rhs.html#a2f29cb03778e6307a72c152799063371", null ],
     [ "m_rhs::s_compute_directional_rhs", "namespacem__rhs.html#a5e194557c7d28a9ee7962f2eb9032710", null ],

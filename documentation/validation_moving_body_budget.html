@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_moving_body_budget.html','',''); });
   <div class="headertitle"><div class="title">Validation: Moving-Body Mass Budget and Galilean Twin </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md790"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md851"></a>
 Moving immersed boundary: gas mass created at the surface, and the heat and force of a body against its Galilean twin</h1>
-<p><b>Status:</b> partially validated. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_moving_mass_budget</span>. <b>Last run:</b> 2026-11-22.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md791"></a>
+<p><b>Status:</b> partially validated. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_moving_mass_budget</span>. <b>Last run:</b> 2026-11-22 (mass runs); 2026-11-24 (twin runs, with <span class="tt">weno_avg = T</span>, which <span class="tt">weno_Re_flux</span> now requires).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md852"></a>
 Purpose</h2>
 <p>A ghost-cell immersed boundary is not conservative at a moving wall. Gas flows through the faces between the fluid and the body into ghost cells whose values are then overwritten, and cells change side as the body moves, so the gas total drifts with the distance the body travels. This measures that drift, checks the opt-in correction <span class="tt">ib_mass_relax</span> (the solver default for a moving body, 30), and compares the conducted heat and the force of a translating body with the same body held in the same relative flow. Both matter for particle-resolved runs, where a particle's drag and heating are read from these quantities.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md792"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md853"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -179,20 +179,20 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Twin runs  </td><td class="markdownTableBodyLeft">Re = U D/ \(\nu\) = 40, Pr 0.7, isothermal wall (<span class="tt">thermal_bc = 1</span>), wall/gas temperature 0.9 and 0.2, box 8 D, 16 and 32 cells/D, 6 D travelled, <span class="tt">ib_ip_interp = 2</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, fixed step from an acoustic CFL of 0.4, <span class="tt">fd_order</span> 4 and <span class="tt">weno_Re_flux</span> when viscous  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, fixed step from an acoustic CFL of 0.4, <span class="tt">fd_order</span> 4, <span class="tt">weno_Re_flux</span> and <span class="tt">weno_avg</span> when viscous  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Correction  </td><td class="markdownTableBodyLeft"><span class="tt">ib_mass_relax</span> = 0 (off) and 30  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">GNU 13 on an x86 CPU, double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md793"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md854"></a>
 Reference data</h2>
 <ul>
 <li>Exact: the gas mass of a closed periodic box with an inert body is constant.</li>
 <li>Exact: a body moving through gas at rest and the same body held in gas moving at the opposite velocity feel the same relative flow, so their conducted heat and force agree (ratio 1). The twin is a self-consistency check, not a comparison with an external value.</li>
-<li>Qualitative background on the force noise and the mass error of fresh and dead cells: Lee et al. <a class="el" href="citelist.html#CITEREF_lee2011">[41]</a> and Seo and Mittal <a class="el" href="citelist.html#CITEREF_seomittal2011">[74]</a>. Neither is used as a number here.</li>
+<li>Qualitative background on the force noise and the mass error of fresh and dead cells: Lee et al. <a class="el" href="citelist.html#CITEREF_lee2011">[43]</a> and Seo and Mittal <a class="el" href="citelist.html#CITEREF_seomittal2011">[79]</a>. Neither is used as a number here.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md794"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md855"></a>
 Quantities</h2>
 <ul>
 <li><b>Gas mass</b> M: \(\sum\rho\,dV\) over the cells whose centre is outside the body at its prescribed position (periodic wrap), from the saves. <b>Steady rate</b>: the least-squares slope of 100 (M - M_0)/M_0 against the distance travelled after the first diameter (the impulsive start is excluded), in % of the gas per diameter.</li>
@@ -200,7 +200,7 @@ Quantities</h2>
 <li><b>Force</b>: \(F_x\) of <span class="tt">D/ib_forces.dat</span> (<span class="tt">ib_force_wrt</span>, one row per step), means over the same window; the RMS of the difference of the two histories (the fixed history interpolated to the moving times, mean removed) is given in percent of the mean fixed force.</li>
 <li>Script: <span class="tt">examples/2D_ibm_moving_mass_budget/check_budget.py</span>.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md795"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md856"></a>
 Results</h2>
 <p>Steady rate of the gas mass, % of the gas per diameter travelled, and the total change after 6 D (inviscid, inverse-distance image points):</p>
 <table class="markdownTable">
@@ -219,39 +219,39 @@ Results</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">wall T / gas T  </th><th class="markdownTableHeadRight">cells/D  </th><th class="markdownTableHeadRight">Q, relax 0  </th><th class="markdownTableHeadRight">Q, relax 30  </th><th class="markdownTableHeadRight">F_x, relax 0  </th><th class="markdownTableHeadRight">F_x, relax 30  </th><th class="markdownTableHeadRight">RMS of the F difference, relax 30  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">0.9  </td><td class="markdownTableBodyRight">16  </td><td class="markdownTableBodyRight">0.940  </td><td class="markdownTableBodyRight">0.993  </td><td class="markdownTableBodyRight">0.966  </td><td class="markdownTableBodyRight">0.963  </td><td class="markdownTableBodyRight">2.7 %  </td></tr>
+<td class="markdownTableBodyRight">0.9  </td><td class="markdownTableBodyRight">16  </td><td class="markdownTableBodyRight">0.944  </td><td class="markdownTableBodyRight">1.009  </td><td class="markdownTableBodyRight">0.978  </td><td class="markdownTableBodyRight">0.976  </td><td class="markdownTableBodyRight">2.5 %  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">0.9  </td><td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.966  </td><td class="markdownTableBodyRight">1.002  </td><td class="markdownTableBodyRight">0.969  </td><td class="markdownTableBodyRight">0.968  </td><td class="markdownTableBodyRight">1.6 %  </td></tr>
+<td class="markdownTableBodyRight">0.9  </td><td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.974  </td><td class="markdownTableBodyRight">1.009  </td><td class="markdownTableBodyRight">0.985  </td><td class="markdownTableBodyRight">0.984  </td><td class="markdownTableBodyRight">1.6 %  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">0.2  </td><td class="markdownTableBodyRight">16  </td><td class="markdownTableBodyRight">0.760  </td><td class="markdownTableBodyRight">0.817  </td><td class="markdownTableBodyRight">1.248  </td><td class="markdownTableBodyRight">1.748  </td><td class="markdownTableBodyRight">112 %  </td></tr>
+<td class="markdownTableBodyRight">0.2  </td><td class="markdownTableBodyRight">16  </td><td class="markdownTableBodyRight">0.764  </td><td class="markdownTableBodyRight">0.823  </td><td class="markdownTableBodyRight">1.400  </td><td class="markdownTableBodyRight">1.915  </td><td class="markdownTableBodyRight">118 %  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">0.2  </td><td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.882  </td><td class="markdownTableBodyRight">0.917  </td><td class="markdownTableBodyRight">0.690  </td><td class="markdownTableBodyRight">0.682  </td><td class="markdownTableBodyRight">7.5 %  </td></tr>
+<td class="markdownTableBodyRight">0.2  </td><td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.894  </td><td class="markdownTableBodyRight">0.928  </td><td class="markdownTableBodyRight">0.784  </td><td class="markdownTableBodyRight">0.785  </td><td class="markdownTableBodyRight">7.3 %  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md796"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md857"></a>
 Assessment</h2>
 <ul>
 <li>A moving no-slip circle creates gas mass at 0.013-0.05 % of the gas per diameter travelled (inverse-distance image points), falling at about first order with refinement. Over the 6 D of the runs this is 0.13-0.36 %, and it would grow with the distance a particle travels.</li>
 <li><span class="tt">ib_mass_relax = 30</span> holds the total to 0.016 % or less over 6 D at every grid and the steady rate to 0.002 %/D, with the start-up offset bounded.</li>
-<li>With the correction, the conducted heat of a wall at 0.9 of the gas temperature agrees with its twin to 0.7 % at 16 cells/D and 0.2 % at 32; the correction moves the ratio from 0.94 and 0.97 and does not change the force (3 % low at both grids).</li>
-<li>A cold wall (0.2 of the gas temperature) is not reproduced: the heat is 18 % low at 16 cells/D and 8 % low at 32 with the correction, and the force of the moving body is not close to its twin's.</li>
+<li>With the correction, the conducted heat of a wall at 0.9 of the gas temperature agrees with its twin to 0.9 % at 16 and 32 cells/D; the correction moves the ratio from 0.94 and 0.97 and does not change the force (2 % low at 16 cells/D, 1.6 % at 32).</li>
+<li>A cold wall (0.2 of the gas temperature) is not reproduced: the heat is 18 % low at 16 cells/D and 7 % low at 32 with the correction, and the force of the moving body is not close to its twin's.</li>
 <li>Status is partially validated: the mass budget and the warm-wall twin close; the cold-wall twin and the force do not.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md797"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md858"></a>
 Known limitations</h2>
 <ul>
-<li><b>Cold moving wall.</b> The conducted heat is low by 8-18 % at 16-32 cells/D even with the correction, converging about first order. The cause is a ghost-state error at the advancing nose that the correction does not remove (found in a separate Python prototype; not re-verified in MFC). The solver documentation lists measured twin ratios for the same case.</li>
-<li><b>Force of a moving body.</b> <span class="tt">ib_forces.dat</span> is the lab-frame face momentum flux (<span class="tt">ib_face_ft</span>); it has no \(-V f_m\) term and the cells a body covers or uncovers book no momentum. The twin ratio is 0.96-0.97 for a wall near the gas temperature and not meaningful for the cold wall (1.25 and 1.75 at 16 cells/D, 0.69 and 0.68 at 32, RMS difference 7-112 % of the fixed force). The force noise of a moving body (the cell-crossing frequency) is visible in the RMS column and was not separated here. Not changed in this example.</li>
+<li><b>Cold moving wall.</b> The conducted heat is low by 7-18 % at 16-32 cells/D even with the correction, converging about first order. The cause is a ghost-state error at the advancing nose that the correction does not remove (found in a separate Python prototype; not re-verified in MFC). The solver documentation lists measured twin ratios for the same case.</li>
+<li><b>Force of a moving body.</b> <span class="tt">ib_forces.dat</span> is the lab-frame face momentum flux (<span class="tt">ib_face_ft</span>); it has no \(-V f_m\) term and the cells a body covers or uncovers book no momentum. The twin ratio is 0.98 for a wall near the gas temperature and not meaningful for the cold wall (1.40 and 1.92 at 16 cells/D, 0.78 at 32, RMS difference 7-118 % of the fixed force). The force noise of a moving body (the cell-crossing frequency) is visible in the RMS column and was not separated here. Not changed in this example.</li>
 <li>Drift with the box: 2D, one body, Mach 0.3, inviscid; 3D bodies cross cells in three directions and a particle array was not run here (the fixed-body array is covered by <span class="tt">ib_flux_wall</span>, see the <span class="tt">2D_ibm_wall_mass_budget</span> example).</li>
 <li>The reacting moving body (gasification plus swept cells) is covered by the suite's <span class="tt">Moving Heat Output</span> tests (regression only), not by a validation case.</li>
 <li>The conducted-heat estimator is a cubic fit; its absolute value is not an independent measurement.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md798"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md859"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_moving_mass_budget/case.py -t pre_process simulation -n 1 --gpu -- \</div>
 <div class="line">    --cells_per_D 24 --mach 0.3 --box 5 --travel 6 --nsave 24 --relax 0</div>
 <div class="line">python3 examples/2D_ibm_moving_mass_budget/check_budget.py mass &lt;run directory&gt;</div>
 </div><!-- fragment --><p>Twin: run the same case with <span class="tt">--cells_per_D 16 --mach 0.3 --box 8 --Re 40 --Twall 0.2 --ip_interp 2 --travel 6 --nsave 12 --stride 1</span> once with <span class="tt">--relax 0</span>, once with <span class="tt">--relax 30</span>, and once with <span class="tt">--frame fixed</span>, then <span class="tt">check_budget.py twin --moving &lt;moving run&gt; --fixed &lt;fixed run&gt;</span>. A build without MPI adds <span class="tt">--serial_io</span>. The suite runs the CI-sized case as <span class="tt">2D -&gt; IBM -&gt; Moving Circle -&gt; Mass Budget</span> and <span class="tt">... -&gt; Cold Wall</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

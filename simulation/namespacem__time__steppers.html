@@ -167,6 +167,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a1694b8625ff0c8865b20b7888842f7b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the time steppers module.  <br /></td></tr>
 <tr class="memitem:ae8912bf24b14160a2d3b6f52595cb868" id="r_ae8912bf24b14160a2d3b6f52595cb868"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ae8912bf24b14160a2d3b6f52595cb868">s_tvd_rk</a> (t_step, time_avg, nstage)</td></tr>
 <tr class="memdesc:ae8912bf24b14160a2d3b6f52595cb868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the solution one full step using a TVD Runge-Kutta time integrator.  <br /></td></tr>
+<tr class="memitem:a15da46b85b1614c29f368ee0eb1f5f09" id="r_a15da46b85b1614c29f368ee0eb1f5f09"><td class="memItemLeft">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a15da46b85b1614c29f368ee0eb1f5f09">f_clock_seconds</a> (t0, t1, rate, cmax)</td></tr>
+<tr class="memdesc:a15da46b85b1614c29f368ee0eb1f5f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seconds between two system_clock counts, correcting for the counter wrapping past cmax.  <br /></td></tr>
 <tr class="memitem:a478ee89172580cccd27e418731bc09b6" id="r_a478ee89172580cccd27e418731bc09b6"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a478ee89172580cccd27e418731bc09b6">s_adaptive_dt_bubble</a> (stage)</td></tr>
 <tr class="memdesc:a478ee89172580cccd27e418731bc09b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bubble source part in Strang operator splitting scheme.  <br /></td></tr>
 <tr class="memitem:a66fef5ca8d571721738db4d52fe41026" id="r_a66fef5ca8d571721738db4d52fe41026"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a66fef5ca8d571721738db4d52fe41026">s_compute_dt</a> (dt_cand)</td></tr>
@@ -240,7 +242,7 @@ Variables</h2></td></tr>
 
 <p>Real-axis stability limit of the SSP-RK scheme (RK3 2.51, RK1 and RK2 2). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06141">6141</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06152">6152</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -268,7 +270,7 @@ Here is the caller graph for this function:</div>
 
 <p>True when run_time_info is on and the reaction source is advanced explicitly inside the RK stages. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06133">6133</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06144">6144</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -278,6 +280,46 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a27aaeb070e53d61d725d7d92e8867f26_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a15da46b85b1614c29f368ee0eb1f5f09" name="a15da46b85b1614c29f368ee0eb1f5f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15da46b85b1614c29f368ee0eb1f5f09">&#9670;&#160;</a></span>f_clock_seconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pure real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_time_steppers::f_clock_seconds </td>
+          <td>(</td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>t1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>rate</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>cmax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Seconds between two system_clock counts, correcting for the counter wrapping past cmax. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05207">5207</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_a15da46b85b1614c29f368ee0eb1f5f09_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -305,7 +347,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05724">5724</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05735">5735</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -331,7 +373,7 @@ Here is the caller graph for this function:</div>
 
 <p>Bubble source part in Strang operator splitting scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05212">5212</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05217">5217</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -361,7 +403,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance the immersed boundary positions and velocities to the current Runge-Kutta stage (forces from this stage's RHS). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05745">5745</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05756">5756</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -387,7 +429,7 @@ Here is the caller graph for this function:</div>
 
 <p>AMR with a fixed dt: abort if dt exceeds the finest level's inviscid limit (ICFL = 1, as s_write_run_time_information). reach: test every cell as if refined to amr_max_level, which a regrid may do later, so the failure is at start-up. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05585">5585</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05596">5596</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -415,7 +457,7 @@ Here is the caller graph for this function:</div>
 
 <p>Fixed dt with viscosity: warn at start-up if dt exceeds the viscous stability limit (visc_dt_cap) of the stencil. The chemistry temperature is the Newton guess of the next conversion, so it is restored and the run stays bitwise unchanged. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05680">5680</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05691">5691</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -446,7 +488,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the global time step size from CFL stability constraints across all cells Sets dt from the CFL criteria, each limited by the finest cell over the coarse cell under AMR. With dt_cand it only returns the global candidates at cfl_target (ICFL, VCFL, CCFL, TCFL, collision cap, WCOL) and leaves dt alone. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05235">5235</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05246">5246</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -477,7 +519,7 @@ Here is the caller graph for this function:</div>
 
 <p>The dt candidates of s_compute_dt at cfl_target = 1: the stability limits of the current state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05643">5643</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05654">5654</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -505,7 +547,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06147">6147</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06158">6158</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -554,7 +596,7 @@ Here is the caller graph for this function:</div>
 
 <p>Explicit reaction source (reaction_substeps = 0): warn once, with step and time, when dt*(max species loss rate), the stiffness estimate of the reaction Jacobian, exceeds the real-axis stability limit of the RK scheme. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06100">6100</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06111">6111</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -582,7 +624,7 @@ Here is the caller graph for this function:</div>
 
 <p>End-of-run line with the largest dt*|lambda_max| of the explicit reaction source seen on any rank. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06121">6121</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l06132">6132</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -613,7 +655,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save the temporary q_prim_vf vector into q_prim_ts for use in p_main. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05866">5866</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__time__steppers_8fpp_8f90_source.html#l05877">5877</a> of file <a class="el" href="m__time__steppers_8fpp_8f90_source.html">m_time_steppers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -652,7 +694,7 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="610" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__time__steppers_ae8912bf24b14160a2d3b6f52595cb868_cgraph.svg" width="610" height="334"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
