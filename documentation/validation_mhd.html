@@ -157,7 +157,7 @@ $(function(){initNavTree('validation_mhd.html','',''); });
   <div class="headertitle"><div class="title">Validation: Ideal MHD </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md850"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md854"></a>
 Ideal MHD: Alfven wave, Brio-Wu shock tube, Orszag-Tang divergence error</h1>
 <p><b>Status:</b> Alfven wave: validated (exact solution, design order). Brio-Wu: partially validated (grid convergence and the compound-wave states against published values; there is no exact solution to compare with). Orszag-Tang: partially validated (divergence error and mass conservation measured; no reference flow data). <b>Code:</b> <span class="tt">master</span> at 5838b641c. <b>Examples:</b> <span class="tt">examples/1D_mhd_smooth_alfven_wave</span>, <span class="tt">examples/1D_brio_wu_hlld</span>, <span class="tt">examples/1D_brio_wu</span>, <span class="tt">examples/2D_orszag_tang_hyper_cleaning</span>. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
 <p>All tables were measured with GNU 13 (CPU, one rank, double precision) on <span class="tt">master</span> at 5838b641c unless a row says otherwise.</p>
@@ -167,7 +167,7 @@ Circularly polarized Alfven wave</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Case  </td><td class="markdownTableBodyLeft">Tóth Toth <a class="el" href="citelist.html#CITEREF_toth2000">[98]</a> section 6.3.1: \(\rho = 1\), \(p = 0.1\), \(\gamma = 5/3\), \(B_x = 1\), \(v_\perp = B_\perp = 0.1(\sin 2\pi x, \cos 2\pi x)\) (<span class="tt">hcid = 150</span>)  </td></tr>
+<td class="markdownTableBodyLeft">Case  </td><td class="markdownTableBodyLeft">Tóth Toth <a class="el" href="citelist.html#CITEREF_toth2000">[100]</a> section 6.3.1: \(\rho = 1\), \(p = 0.1\), \(\gamma = 5/3\), \(B_x = 1\), \(v_\perp = B_\perp = 0.1(\sin 2\pi x, \cos 2\pi x)\) (<span class="tt">hcid = 150</span>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Domain  </td><td class="markdownTableBodyLeft">\(x \in [0, 1]\), periodic, one period (t = 1)  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -175,7 +175,18 @@ Circularly polarized Alfven wave</h2>
 </table>
 <p>| Reference | exact: the wave moves at \(B_x/\sqrt{\rho} = 1\) in \(-x\) with \(\rho\), \(p\), \(|B_\perp|\) constant, so the state at t = 1 is the initial state | | Measured | <span class="tt">check_alfven.py</span>: L1 error (mean \(|\cdot|\)) of \(B_y\) at t = 1; \(v_y\), \(v_z\), \(B_z\) agree with it to 1 %; max \(|\rho - 1|\) |</p>
 <p>| cells | WENO3 L1( \(B_y\)) | order | WENO5 L1( \(B_y\)) | order | WENO5 max \(|\rho - 1|\) | | &mdash;: | &mdash;: | &mdash;: | &mdash;: | &mdash;: | &mdash;: | | 32 | 5.69e-3 | | 1.99e-5 | | 2.1e-6 | | 64 | 1.39e-3 | 2.03 | 1.21e-6 | 4.04 | 6.5e-8 | | 128 | 2.34e-4 | 2.57 | 1.11e-7 | 3.44 | 1.8e-9 | | 256 | 2.05e-5 | 3.51 | 1.27e-8 | 3.13 | 6.2e-11 | | 512 | 1.16e-6 | 4.14 | 1.56e-9 | 3.03 | 1.9e-12 |</p>
-<p>The example deck itself (1024 cells, WENO3, \(\Delta t\) = 1e-5, CFL 0.011) gives L1( \(B_y\)) = 6.3e-8 and \(|\rho - 1| \le 2.5\)e-8. WENO5 at fixed CFL approaches third order, the order of SSP-RK3; WENO3 is second order on coarse grids, where its weights are far from optimal at the extrema of the sine, and steepens toward its optimal-weight order as the grid is refined (the 4.1 between 256 and 512 cells is pre-asymptotic). The wave amplitude 0.1 is not small, so this checks the nonlinear HLLD fluxes as well as the linear Alfven speed.</p>
+<p>The example deck itself (1024 cells, WENO3, \(\Delta t\) = 1e-5, CFL 0.011) gives L1( \(B_y\)) = 6.3e-8 and \(|\rho - 1| \le 2.5\)e-8. WENO5 at fixed CFL approaches third order, the order of SSP-RK3: at CFL 0.4 the time error dominates from 128 cells on. With the CFL number reduced, WENO5 reaches its design order (CPU, NVHPC 25.11; L1( \(B_y\)) at 32, 64, 128 and 256 cells):</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadRight">fast-wave CFL  </th><th class="markdownTableHeadRight">32  </th><th class="markdownTableHeadRight">64  </th><th class="markdownTableHeadRight">128  </th><th class="markdownTableHeadRight">256  </th><th class="markdownTableHeadLeft">orders  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">0.4  </td><td class="markdownTableBodyRight">1.99e-5  </td><td class="markdownTableBodyRight">1.21e-6  </td><td class="markdownTableBodyRight">1.11e-7  </td><td class="markdownTableBodyRight">1.27e-8  </td><td class="markdownTableBodyLeft">4.04, 3.44, 3.13  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">0.1  </td><td class="markdownTableBodyRight">1.37e-5  </td><td class="markdownTableBodyRight">4.38e-7  </td><td class="markdownTableBodyRight">1.48e-8  </td><td class="markdownTableBodyRight">6.03e-10  </td><td class="markdownTableBodyLeft">4.97, 4.89, 4.62  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">0.025  </td><td class="markdownTableBodyRight">1.36e-5  </td><td class="markdownTableBodyRight">4.26e-7  </td><td class="markdownTableBodyRight">1.33e-8  </td><td class="markdownTableBodyRight">4.13e-10  </td><td class="markdownTableBodyLeft">5.00, 5.00, 5.01  </td></tr>
+</table>
+<p>The primitive-variable reconstruction that limits nonlinear smooth flows to second order (<a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>) does not act here: \(\rho\) is uniform, so the velocity is linear in the momentum, and the pressure recovered from the cell averages differs from p by a constant ( \(|v_\perp|\) and \(|B_\perp|\) are uniform), which has no gradient. WENO3 is second order on coarse grids, where its weights are far from optimal at the extrema of the sine, and steepens toward its optimal-weight order as the grid is refined (the 4.1 between 256 and 512 cells is pre-asymptotic). The wave amplitude 0.1 is not small, so this checks the nonlinear HLLD fluxes as well as the linear Alfven speed.</p>
 <p>Limits: one dimension, so \(\nabla\cdot B = 0\) holds trivially (the divergence error is measured on the Orszag-Tang vortex below); the 2D and 3D versions of the wave are not run.</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-mhd-briowu"></a>
 Brio-Wu shock tube</h2>
@@ -183,13 +194,13 @@ Brio-Wu shock tube</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Case  </td><td class="markdownTableBodyLeft">Brio and Wu <b>[BrioWu1988:]</b> left \((\rho, p, B_y) = (1, 1, 1)\), right \((0.125, 0.1, -1)\), \(B_x = 0.75\), at rest; \(\gamma = 2\), and \(\gamma = 5/3\) as in Ryu and Jones <a class="el" href="citelist.html#CITEREF_ryujones1995">[72]</a>  </td></tr>
+<td class="markdownTableBodyLeft">Case  </td><td class="markdownTableBodyLeft">Brio and Wu <b>[BrioWu1988:]</b> left \((\rho, p, B_y) = (1, 1, 1)\), right \((0.125, 0.1, -1)\), \(B_x = 0.75\), at rest; \(\gamma = 2\), and \(\gamma = 5/3\) as in Ryu and Jones <a class="el" href="citelist.html#CITEREF_ryujones1995">[74]</a>  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Domain  </td><td class="markdownTableBodyLeft">\(x \in [0, 1]\), jump at 0.5, extrapolation ends, t = 0.2 (the right fast rarefaction reaches the end at about t = 0.13; all runs share this)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLD (<span class="tt">1D_brio_wu_hlld</span>) or HLL (<span class="tt">1D_brio_wu</span>), SSP-RK3, \(\Delta t = 2\times10^{-4} \cdot 801/N\)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">no exact solution: with the compound wave the Riemann problem is not unique, and dissipative schemes converge to the solution with the compound wave. (a) A 25632-cell HLLD run of the same deck, block-averaged onto each grid. (b) For \(\gamma = 5/3\), the states on both sides of the intermediate shock of the compound wave that Ryu and Jones read from their 8192-cell calculation (section 5 of Ryu and Jones <a class="el" href="citelist.html#CITEREF_ryujones1995">[72]</a>): preshock \(\rho\) = 0.647, p = 0.484, \(B_y\) = 0.536; postshock \(\rho\) = 0.827, p = 0.758  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">no exact solution: with the compound wave the Riemann problem is not unique, and dissipative schemes converge to the solution with the compound wave. (a) A 25632-cell HLLD run of the same deck, block-averaged onto each grid. (b) For \(\gamma = 5/3\), the states on both sides of the intermediate shock of the compound wave that Ryu and Jones read from their 8192-cell calculation (section 5 of Ryu and Jones <a class="el" href="citelist.html#CITEREF_ryujones1995">[74]</a>): preshock \(\rho\) = 0.647, p = 0.484, \(B_y\) = 0.536; postshock \(\rho\) = 0.827, p = 0.758  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">check_brio_wu.py</span>: L1 errors against (a); preshock state (median over cells 12 to 4 before the sign change of \(B_y\)) and postshock state (the density peak within 10 cells after it) for (b)  </td></tr>
 </table>
@@ -261,7 +272,7 @@ Orszag-Tang vortex: divergence error</h2>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/1D_mhd_smooth_alfven_wave/case.py -t pre_process simulation post_process -n 1 -- -N 128 --cfl 0.4 --weno 5</div>
 <div class="line">python3 examples/1D_mhd_smooth_alfven_wave/check_alfven.py examples/1D_mhd_smooth_alfven_wave</div>
-</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
+</div><!-- fragment --><div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

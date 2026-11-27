@@ -15,6 +15,7 @@ var m__body__forces_8fpp_8f90 =
     [ "m_body_forces::s_initialize_body_forces_module", "namespacem__body__forces.html#a7db192e742e55158a9a8ad8018f98897", null ],
     [ "m_body_forces::s_mean_controller", "namespacem__body__forces.html#a97f9792833a46866ce1d7f98b10737e3", null ],
     [ "m_body_forces::s_open_history", "namespacem__body__forces.html#a9593ac2c8bd70031af48de04fea5f6d8", null ],
+    [ "m_body_forces::s_remove_mts_dissipation", "namespacem__body__forces.html#a5e32691a145c9153e9e088af725cb1eb", null ],
     [ "m_body_forces::s_update_mean_sources", "namespacem__body__forces.html#ab60a9148215d63dfd6a5ec6ec125b4a6", null ],
     [ "m_body_forces::freq", "namespacem__body__forces.html#a60ffd7bffadca618855a8bb6d37e1af8", null ],
     [ "m_body_forces::mflux_old", "namespacem__body__forces.html#a68da6f997a52c32ad4e8eae3146721d8", null ],

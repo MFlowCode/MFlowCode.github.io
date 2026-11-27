@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"namespacem__variables__conversion.html#a8b30b668d9de48d0bf0d53fa56116847":[1,0,29,7],
 "namespacem__variables__conversion.html#a8f75a3f6d4d2f0bf57f0ad2da4ecba17":[1,0,29,28],
 "namespacem__variables__conversion.html#a94d4c83c80c0e5eb55a27addc9b849c3":[1,0,29,2],
 "namespacem__variables__conversion.html#aa198f649115ef044b285170f886094ac":[1,0,29,9],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e":[1,0,13,51,1],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e":[2,0,2,51,1],
 "structm__derived__types_1_1bubbles__lagrange__parameters.html#adfc29c4a349fe0dd3841bf8727ded042":[1,0,13,51,8],
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#adfc29c4a349fe0dd3841bf8727ded042":[2,0,2,51,8]
+"structm__derived__types_1_1bubbles__lagrange__parameters.html#adfc29c4a349fe0dd3841bf8727ded042":[2,0,2,51,8],
+"structm__derived__types_1_1bubbles__lagrange__parameters.html#af2a1172ea32b05fd97d53fd331486cc9":[1,0,13,51,12]
 };

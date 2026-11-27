@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_standoff.html','',''); });
   <div class="headertitle"><div class="title">Validation: Bow-Shock Stand-Off of a Cylinder and a Sphere </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md920"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md932"></a>
 Supersonic bluff bodies: bow-shock stand-off at Mach 1.5-3 (documented over-prediction)</h1>
 <p><b>Status:</b> open discrepancy, resolution-limited. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_cylinder_standoff</span>. <b>Last run:</b> 2026-11-22.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md921"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md933"></a>
 Purpose</h2>
 <p>The distance of the detached bow shock from a bluff body is a sensitive check of an immersed boundary in supersonic flow: the shock stands only a few cells from the wall at the resolutions a 3D run can afford. This measures the stand-off of a sphere at Mach 1.5, 2 and 3 and of a cylinder at Mach 2, against Billig's correlation Billig <a class="el" href="citelist.html#CITEREF_billig1967">[7]</a> and against an independent body-fitted solution, and shows how the error falls with the grid.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md922"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md934"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -185,21 +185,21 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">NVIDIA A100 80GB (Georgia Tech), NVHPC 25.11, double precision (sphere); GNU 13 CPU (cylinder and body-fitted solver)  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md923"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md935"></a>
 Reference data</h2>
 <ul>
 <li>Billig <b>[Billig1967:]</b> \(\Delta/R = 0.143\exp(3.24/M^2)\) (sphere), \(0.386\exp(4.67/M^2)\) (cylinder). An inviscid, high-Reynolds-number fit; the paper's equation number was not re-read.</li>
 <li>The normal-shock pressure ratio of the Rankine-Hugoniot jump (p2/p1 = 4.5 at Mach 2) and the Rayleigh pitot pressure (1.253 p2 at Mach 2) for the nose-pressure check.</li>
 <li>Body-fitted reference: <span class="tt">examples/2D_ibm_cylinder_standoff/bodyfitted_sphere.py</span>, an axisymmetric Euler solver on a polar mesh around the sphere (finite volumes weighted by the cylindrical radius, MUSCL-minmod, HLLC on the rotated face normal, SSP-RK3; no immersed boundary). Outer radius 2.2 R, 80 and 160 cells in each direction; steady to 1e-5 R over the last 8 R/u at Mach 2.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md924"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md936"></a>
 Quantities</h2>
 <ul>
 <li><b>Stand-off</b> \(\Delta/R\): the distance from the body surface to the first point, scanning inward on the stagnation line from the inflow, where the pressure reaches the mean of p1 and the normal-shock p2; linear interpolation between cells. Mean of the last three saves; the range over them is listed.</li>
 <li><b>p_nose/p2</b>: the pressure of the last cell before the body over p2 (theory: the pitot ratio, 1.253 at Mach 2, 1.388 at Mach 1.5, 1.167 at Mach 3).</li>
 <li>Script: <span class="tt">examples/2D_ibm_cylinder_standoff/standoff.py</span>.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md925"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md937"></a>
 Results</h2>
 <p>Sphere, A100:</p>
 <table class="markdownTable">
@@ -224,7 +224,7 @@ Results</h2>
 </table>
 <p>Body-fitted solver ( \(\Delta/R\) on 80 and 160 cells): Mach 1.5 0.6130 and 0.6131 (1.6 % above Billig); Mach 2 0.3489 and 0.3498 (Billig 8.1 % low of the body-fitted value); Mach 3 0.2153 and 0.2179 (Billig 5.9 % low; changing by 1.2 % between the grids).</p>
 <p>The nose pressure at Mach 2 is 1.15-1.26 p2 against the pitot value 1.253 (it oscillates with the shock position); at Mach 1.5, 1.29-1.41 against 1.388.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md926"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md938"></a>
 Assessment</h2>
 <ul>
 <li>The stand-off error against Billig falls with the grid at Mach 1.5 (+15.8 to +10.2 %) and 2 (+29.6, +25.2, +22.5 %), as in the earlier measurements of this configuration (+27.5, +22.0 and +17.5 % at 20, 40 and 60 cells/D in a viscous Re 5000 run; the 60 cells/D value agrees).</li>
@@ -232,7 +232,7 @@ Assessment</h2>
 <li>The sphere is resolution-limited, not a defect of the measurement: the stand-off is 4-12 cells at these grids and three definitions of the shock position agree in the earlier runs.</li>
 <li>Status is an open discrepancy: no grid here is in the asymptotic range, and Mach 3 is unsettled.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md927"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md939"></a>
 Known limitations</h2>
 <ul>
 <li><b>Mach 3 is unsteady.</b> The stand-off oscillates between saves by 0.007 R (40 cells/D) to 0.036 R (20 cells/D) and the nose pressure is 1.04-1.20 p2 against 1.167. The body-fitted solver at Mach 3 shows a stand-off that still changes by 1.2 % between 80 and 160 cells. Whether the MFC oscillation is a carbuncle of the HLLC solver was not tested (an earlier Python prototype showed one, steady with HLL); no sensor-switched Riemann solver is proposed here.</li>
@@ -242,7 +242,7 @@ Known limitations</h2>
 <li>Run only to t u/R = 40, which settles the sphere at Mach 1.5 and 2 (60 cells/D: 0.3776 R in each of the last five saves to 0.0005); the Mach 2 sequence is not extrapolated.</li>
 <li>The body-fitted solver is axisymmetric inviscid Euler with an outer boundary at 2.2 R; at Mach 2 a 3 R boundary changed it by 0.0008 R in earlier runs.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md928"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md940"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_cylinder_standoff/case.py -t pre_process simulation -n 1 --gpu -- \</div>
 <div class="line">    --dim 3 --cells_per_D 40 --steps 0 --tstar 40 --frames 8</div>

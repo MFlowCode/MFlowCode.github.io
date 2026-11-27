@@ -109,6 +109,7 @@ var namespaces_dup =
       [ "s_amr_compute_isect", "namespacem__amr__distribution.html#a70bdec9348d3a259bf8032f994f01e0d", null ],
       [ "s_amr_coord_range", "namespacem__amr__distribution.html#a33f3e1c8c1c73fbc43def5e6d644de7b", null ],
       [ "s_amr_expand_box_over_bodies", "namespacem__amr__distribution.html#aeb3b9af000f5eea9fa04a9cc3e6b8c4a", null ],
+      [ "s_amr_note_level_fill", "namespacem__amr__distribution.html#aefbc9fccc7cc393c11795d0d51dbde31", null ],
       [ "s_amr_place_overlap", "namespacem__amr__distribution.html#a6c0a05fbd477a74a56c7cc8cda2a18ce", null ],
       [ "s_amr_place_owner", "namespacem__amr__distribution.html#a891974ee3f7734bc7da1bf9c9215d366", null ],
       [ "s_amr_rank_coarse_range", "namespacem__amr__distribution.html#ac96c852d118d1001b0ab36f9e3e384d4", null ],
@@ -374,6 +375,7 @@ var namespaces_dup =
       [ "s_initialize_body_forces_module", "namespacem__body__forces.html#a7db192e742e55158a9a8ad8018f98897", null ],
       [ "s_mean_controller", "namespacem__body__forces.html#a97f9792833a46866ce1d7f98b10737e3", null ],
       [ "s_open_history", "namespacem__body__forces.html#a9593ac2c8bd70031af48de04fea5f6d8", null ],
+      [ "s_remove_mts_dissipation", "namespacem__body__forces.html#a5e32691a145c9153e9e088af725cb1eb", null ],
       [ "s_update_mean_sources", "namespacem__body__forces.html#ab60a9148215d63dfd6a5ec6ec125b4a6", null ],
       [ "freq", "namespacem__body__forces.html#a60ffd7bffadca618855a8bb6d37e1af8", null ],
       [ "mflux_old", "namespacem__body__forces.html#a68da6f997a52c32ad4e8eae3146721d8", null ],
@@ -428,7 +430,7 @@ var namespaces_dup =
       [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__io.html#a913e50a8381702d2886b419f225a78b9", null ],
       [ "s_read_serial_boundary_condition_files", "namespacem__boundary__io.html#a6bd453bc00436c7cbb2d823169f9dd10", null ],
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__io.html#a1b6a5f4b89c0cc5313f8f448ce1a9b2c", null ],
-      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#adf427aecbc4ff3f63146fab16a8a71e2", null ],
+      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#ad75052b660e20d0be5fe68c2b0b24f65", null ],
       [ "mpi_bc_buffer_type", "namespacem__boundary__io.html#a358f0f61cd25c20cda6384220f38214b", null ],
       [ "mpi_bc_type_type", "namespacem__boundary__io.html#a08a01f94849046589e0337b0068adec0", null ]
     ] ],
@@ -746,7 +748,6 @@ var namespaces_dup =
       [ "capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
       [ "case_file_error_code", "namespacem__constants.html#a78dc466963174e056c559059e09704cc", null ],
       [ "chem_tolerance", "namespacem__constants.html#aecd8876023a55cf9b664ac31cad4b6fa", null ],
-      [ "contact_ramp", "namespacem__constants.html#a9afbece3a1f47f9e9b1699a4151f24be", null ],
       [ "coupling_one_way", "namespacem__constants.html#ae9a26e1577411b6d42e6af05a134da50", null ],
       [ "coupling_two_way", "namespacem__constants.html#a3f3dc95c8b61870b075bf81b79171703", null ],
       [ "damage_energy_cutoff", "namespacem__constants.html#ac6bc87a17f8e74a0a76137af4be7123f", null ],
@@ -911,6 +912,7 @@ var namespaces_dup =
       [ "next_write_time", "namespacem__data__output.html#a797860a47f49321ba46e0c5674bde1f4", null ],
       [ "q_cons_temp_ds", "namespacem__data__output.html#addfc053fb62d4bc8d27a1576330991b4", null ],
       [ "rc_min", "namespacem__data__output.html#a420dff0ba83cd92dc6fb32ee5b26e139", null ],
+      [ "rt_clock0", "namespacem__data__output.html#ac8cdc6738abd4125a77abb02f7d6181e", null ],
       [ "tcfl_max", "namespacem__data__output.html#a4bcfd157c5abd538c73b83cc65965c4e", null ],
       [ "vcfl_max", "namespacem__data__output.html#a4566bfca1a62d6dc4a2ae2e390b8be45", null ],
       [ "void_stat_min", "namespacem__data__output.html#a754c5d577e342e50ebcbc55774b32f41", null ]
@@ -1020,6 +1022,7 @@ var namespaces_dup =
       [ "s_compute_finite_difference_coefficients", "namespacem__finite__differences.html#a830833416c226c73bf244dae71884211", null ]
     ] ],
     [ "m_global_parameters", "namespacem__global__parameters.html", [
+      [ "f_step_time", "namespacem__global__parameters.html#aa293afda72e5a127b21f1ef022ec0f2d", null ],
       [ "s_amr_select_slot", "namespacem__global__parameters.html#af702bb8b5735c116a7a47d6465d798ce", null ],
       [ "s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a15979aa7789736321146104abdb129ea", null ],
       [ "s_finalize_global_parameters_module", "namespacem__global__parameters.html#a16ad4c64940e4b092652f3c1c6df76c7", null ],
@@ -1215,6 +1218,7 @@ var namespaces_dup =
       [ "synth_l", "namespacem__global__parameters.html#ae5024ef38dc8a09d5448f73aebd27760", null ],
       [ "synth_n_waves_per_shell", "namespacem__global__parameters.html#ac1ed34c173ce6485b6e32d2a91a4b990", null ],
       [ "t0ref", "namespacem__global__parameters.html#a47f14158f79eaa37dabc2f8ed64faf59", null ],
+      [ "t_rhs", "namespacem__global__parameters.html#a90ccc964f47714578c235922a8f1c151", null ],
       [ "turb_pos", "namespacem__global__parameters.html#ac383e2f206fa195ed83b421b29719fd7", null ],
       [ "tw", "namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef", null ],
       [ "use_nc_iface_vel", "namespacem__global__parameters.html#a9fa6420cccfba9d9370dabf6a48f58b5", null ],
@@ -1589,6 +1593,7 @@ var namespaces_dup =
       [ "rho_k_field", "namespacem__hypoelastic.html#afe9683427014c670048603ea240ef77f", null ]
     ] ],
     [ "m_ib_patches", "namespacem__ib__patches.html", [
+      [ "f_ib_marker", "namespacem__ib__patches.html#abfcdfffea457406a168e900cab0de3b2", null ],
       [ "f_r", "namespacem__ib__patches.html#af5ec2b3362739e6cdd95f35f3c402564", null ],
       [ "get_indices_from_bounds", "namespacem__ib__patches.html#a12a440228072b7e454f8b4c8dad8db27", null ],
       [ "s_apply_ib_patches", "namespacem__ib__patches.html#ab06da168882fb777f4122978c8ddd91a", null ],
@@ -1922,6 +1927,7 @@ var namespaces_dup =
       [ "s_mem_note", "namespacem__phase__timing.html#a1bf040c83b61741e6e298ed0eba57164", null ],
       [ "s_mem_note_fields", "namespacem__phase__timing.html#a930f9aa76ec5552dc33d50c8c8facb78", null ],
       [ "s_mem_note_level", "namespacem__phase__timing.html#a9e10835a453918d4238bb7a6376f5a12", null ],
+      [ "s_mem_reset_levels", "namespacem__phase__timing.html#afeed6d0b465dd27fc9f7423711c25355", null ],
       [ "s_phase_report", "namespacem__phase__timing.html#a3414519429d7df89d2309fffe5416549", null ],
       [ "s_phase_step_tic", "namespacem__phase__timing.html#a12b5125b2324923b7a07720bcb411aaf", null ],
       [ "s_phase_step_toc", "namespacem__phase__timing.html#a09a01be4e8889c99b647bd528eb8a1d0", null ],
@@ -2097,7 +2103,6 @@ var namespaces_dup =
     ] ],
     [ "m_riemann_state", "namespacem__riemann__state.html", [
       [ "f_compute_hllc_star_momentum_flux", "namespacem__riemann__state.html#a8d5b7b8cbf28974e9eaf3f16f5fea941", null ],
-      [ "f_contact_weight", "namespacem__riemann__state.html#a277780cf915bd0e0437152cf3d533025", null ],
       [ "f_elastic_signal_speed", "namespacem__riemann__state.html#a0d3789c7ee1ade852bfe386bd26ddafe", null ],
       [ "f_low_mach_pcorr_hll", "namespacem__riemann__state.html#a5a2606d00e72a61ee46328e0a26e52b4", null ],
       [ "f_low_mach_pcorr_hllc", "namespacem__riemann__state.html#a3dac9cf413b6e391a68b3ec504ecb95a", null ],
@@ -2108,10 +2113,10 @@ var namespaces_dup =
       [ "s_compute_average_state", "namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce", null ],
       [ "s_compute_cartesian_viscous_source_flux", "namespacem__riemann__state.html#a9f1526cb8d1444238752e4918ae44947", null ],
       [ "s_compute_chemistry_average_state", "namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af", null ],
-      [ "s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__state.html#a3c154c3bc77a1f6ba64aaf2817d54159", null ],
+      [ "s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__state.html#a75bf2b3fc38b2539f3505401caff0b2c", null ],
       [ "s_compute_hypoelastic_interface_energy", "namespacem__riemann__state.html#a79c11408c7da3bd3f351beefbf93cf36", null ],
       [ "s_compute_interface_reynolds", "namespacem__riemann__state.html#a1374bf25872e527e0db938ff2b6b6482", null ],
-      [ "s_compute_viscous_source_flux", "namespacem__riemann__state.html#a9cc8596e17c57c53b5acddadf22b6e8b", null ],
+      [ "s_compute_viscous_source_flux", "namespacem__riemann__state.html#ab8496bf5a3857e392a7b61b46c25fd1b", null ],
       [ "s_finalize_riemann_solver", "namespacem__riemann__state.html#aa4a8e893633d8b7c01435f5e20b32de3", null ],
       [ "s_finalize_riemann_solver_hatr", "namespacem__riemann__state.html#a2282bce6eb265cbaf74c8d8dba0d5db6", null ],
       [ "s_initialize_riemann_solver", "namespacem__riemann__state.html#a6ebf8da5dce7538019dc2c0840799ba9", null ],
@@ -2154,12 +2159,15 @@ var namespaces_dup =
       [ "f_theta_floor", "namespacem__species__bounds.html#a0413b30c32f3ebdb0ab71ae9ac7614e7", null ],
       [ "f_theta_t", "namespacem__species__bounds.html#a2c44248501cd840bafe0626f7dab8b9f", null ],
       [ "s_bound_face_states", "namespacem__species__bounds.html#ae09cfd5c1ef53172f934d7ae8e2c2cfb", null ],
+      [ "s_bound_face_states_zs", "namespacem__species__bounds.html#a0305db866b51319392df6e4d4222819c", null ],
       [ "s_bound_species_faces", "namespacem__species__bounds.html#a097fedef9c355865413c17ec540713ae", null ],
       [ "s_clean_species", "namespacem__species__bounds.html#a96d16a1e6a0e66f6701670e92f1cfb95", null ],
       [ "s_report_species_cleanup", "namespacem__species__bounds.html#a0b56be4508f53cae5365d0aec59310df", null ],
       [ "clean_cells", "namespacem__species__bounds.html#ab95726468f30946840af552a658a7c44", null ],
       [ "clean_mass", "namespacem__species__bounds.html#ae70a27563a22c06ff4029cbb04d60a02", null ],
-      [ "clean_report_tol", "namespacem__species__bounds.html#a0899b039d35e105e0ae58374c48d0881", null ]
+      [ "clean_report_tol", "namespacem__species__bounds.html#a0899b039d35e105e0ae58374c48d0881", null ],
+      [ "face_t_cap", "namespacem__species__bounds.html#adbf3cc358691a31a43476c04ef43a471", null ],
+      [ "pos_floor", "namespacem__species__bounds.html#ae0e0ebc39e465f799710f7d5137d65a1", null ]
     ] ],
     [ "m_stage_hooks", "namespacem__stage__hooks.html", [
       [ "f_stage_hooks_post_ib", "namespacem__stage__hooks.html#a9aee450e32c560cc23fa236968cd9ffd", null ],
@@ -2263,6 +2271,7 @@ var namespaces_dup =
       [ "rhs_mv", "namespacem__time__steppers.html#a9b1ba77bd20d4a08f515cc6b247f3263", null ],
       [ "rhs_pb", "namespacem__time__steppers.html#a4d5085ff453c535fc06dac97b7c3ee8d", null ],
       [ "rhs_vf", "namespacem__time__steppers.html#a3d0867c3c2572c712d2aed6d677e6fc2", null ],
+      [ "rk_c", "namespacem__time__steppers.html#a9efb1d35a9dd9c06d7baddda1479b8e9", null ],
       [ "rk_coef", "namespacem__time__steppers.html#af8510128ce61b7a356e523c9795201a8", null ],
       [ "stor", "namespacem__time__steppers.html#aff56a5b526c68569aa9da7590b5eff12", null ],
       [ "visc_cap_warned", "namespacem__time__steppers.html#a7648cbf87786807f67efe8e99ca9874e", null ]
@@ -2309,6 +2318,7 @@ var namespaces_dup =
       [ "s_compact_normal_viscous_gradient", "namespacem__viscous.html#a86dc356f96161fcdf47b2caf6ba31157", null ],
       [ "s_compact_normal_viscous_gradients", "namespacem__viscous.html#aef113dd9981ad652e157451f8d425216", null ],
       [ "s_compute_axis_inv_re", "namespacem__viscous.html#a6fadb6156833127ecc7ec19a23ba37e9", null ],
+      [ "s_compute_axisym_viscous_hoop", "namespacem__viscous.html#a1ed7e310f9836ecb760a6b1294601eb0", null ],
       [ "s_compute_fd_gradient", "namespacem__viscous.html#acd9de9c89fd8e78eea15d7eb1f6a6b68", null ],
       [ "s_compute_viscous_stress_cylindrical_boundary", "namespacem__viscous.html#aae94249734e8bf23fa1af7ef74f5290a", null ],
       [ "s_finalize_viscous_module", "namespacem__viscous.html#aa3ef25c06b9615bed453231e9c9d69e9", null ],
@@ -2321,7 +2331,7 @@ var namespaces_dup =
       [ "is2_viscous", "namespacem__viscous.html#a1d7799194eb302ce89e2c33b8f715c95", null ],
       [ "is3_viscous", "namespacem__viscous.html#aace22bdf7b484cdde326717f36b093c9", null ],
       [ "iv", "namespacem__viscous.html#a77381e5e4b644064f69d9b306edc6913", null ],
-      [ "res_viscous", "namespacem__viscous.html#a9e3f63b94160e0038b446b0a1baa1a86", null ]
+      [ "res_viscous", "namespacem__viscous.html#a129a3826b96a64f3ee0aad75dcda2821", null ]
     ] ],
     [ "m_weno", "namespacem__weno.html", [
       [ "s_compute_weno_coefficients", "namespacem__weno.html#acd4f52b755635cf7b0e75d1352b27b1d", null ],

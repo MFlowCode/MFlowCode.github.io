@@ -157,7 +157,7 @@ $(function(){initNavTree('validation_burning_body.html','',''); });
   <div class="headertitle"><div class="title">Burning carbon body </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md826"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md830"></a>
 Burning carbon body validation</h1>
 <p><b>Status:</b> cylinder burn rate against a 1D radial reference: validated with <span class="tt">ib_ip_interp = 2</span> (+0.15 % at 10 us and -0.11 % at 20 us at 24 cells per diameter, +0.90 % and +0.07 % at 12), which with the per-species ghost mirror weight reproduces the earlier study; with the default image points +0.6 to +0.9 % at 24 and +1.3 to +1.9 % at 12; sphere: partially validated with <span class="tt">ib_ip_interp = 2</span> (+2.1 % at 10 us, +1.1 % at 20 us at 12 cells per diameter), +6 to +9 % with the default. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a; the per-species ghost mirror weight and its numbers: 5c43aa27d with this change. <b>Example:</b> <span class="tt">examples/nD_ibm_carbon_burn</span>. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
 <p>A carbon body at fixed temperature gasifies in hot, high-pressure moist air with a CO flame off the surface. The reference is an independent 1D radially symmetric transient solution of the same model (<span class="tt">ref1d.py</span>, shipped), so the comparison checks the immersed-boundary surface chemistry (<span class="tt">ib_flux_wall</span>, the surface solve's species fluxes through the wall faces) and the reacting transport around a staircase body, with the mechanisms (<span class="tt">2D_ibm_reacting_surface</span>) shared. Tables marked "earlier" were measured on a pre-merge build and were not repeated.</p>
@@ -181,7 +181,7 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">compare_burn_rate.py</span>: <span class="tt">D/ib_heat.dat</span> column 4 (face mass outflow of the flux wall) and column 3 (surface-solve rate) against the reference \(2\pi R\sum_k W_k s_k\) (cylinder) or \(4\pi R^2\sum_k W_k s_k\) (sphere), averaged over .5 us; flame peak temperature and radius from the temperature binned in r  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md827"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md831"></a>
 Cylinder</h3>
 <p>Burn rate \(\dot m&#39;\) [kg/(m s)] against the reference (default settings of <span class="tt">master</span>) (column 4 of <span class="tt">ib_heat.dat</span>, error = MFC/reference - 1; column 3 in parentheses). Measured on <span class="tt">master</span> at 0cdfdf02a with NVHPC 25.11 on an NVIDIA A100 (12 cells per diameter to 60 us, 24 cells per diameter to 30 us); the 12-cell run on the CPU (NVHPC 25.11) agrees with the A100 to 1e-5 relative and the 24-cell run at 10 us to 1e-4. The right-hand columns are the errors of the earlier study (pre-merge build whose defaults differed from <span class="tt">master</span>: triangular-shaped-cloud image points and the compact viscous face gradient).</p>
 <table class="markdownTable">
@@ -254,7 +254,7 @@ Cylinder</h3>
 <td class="markdownTableBodyLeft">sphere, 12, default  </td><td class="markdownTableBodyRight">20  </td><td class="markdownTableBodyRight">+6.22 %  </td><td class="markdownTableBodyRight">+6.20 %  </td><td class="markdownTableBodyRight"></td></tr>
 </table>
 <p>The per-species weight reproduces the earlier study on both bodies and both grids to 0.02 percentage points, so the rest of the gap was this rule and not the advected-ghost temperature mentioned before: that mirror applies to moving walls only, in <span class="tt">master</span> and in the earlier build alike. With the default inverse-distance image points the weight changes the burn rate by under 0.02 percentage points (cylinder and sphere). The TSC stencil reads the solid cells next to the image point, which hold the last ghost values (<span class="tt">ib_keep_ghost</span>), so the species ghost feeds back into the image-point state there; this is the likely reason the two settings act together (not separately verified).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md828"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md832"></a>
 Sphere</h3>
 <p>Same setup in 3D (<span class="tt">--ndim 3</span>), 12 cells per diameter (72 x 72 x 72 cells) to 30 us, <span class="tt">master</span> at 0cdfdf02a, NVHPC 25.11 on an NVIDIA A100, reference in kg/s:</p>
 <table class="markdownTable">

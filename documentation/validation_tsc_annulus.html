@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_tsc_annulus.html','',''); });
   <div class="headertitle"><div class="title">Isothermal Conduction Annulus: Image-Point Interpolation </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md936"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md948"></a>
 Isothermal Conduction Annulus: Image-Point Interpolation</h1>
 <p><b>Status:</b> partially validated (wall temperature and whole-gap error validated at three resolutions; wall gradient measured only as a fit estimate). <b>Code:</b> <span class="tt">master</span> at d1e6852c1, with <span class="tt">ib_ip_interp</span> (<a href="https://github.com/MFlowCode/MFC/pull/2165">#2165</a>). TSC is opt-in; no default change is planned. <b>Example:</b> <span class="tt">examples/2D_ibm_conduction_annulus</span>. <b>Last run:</b> 2026-11-21.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md937"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md949"></a>
 Purpose</h2>
 <p>The ghost-cell immersed boundary method imposes an isothermal wall temperature through the state interpolated at an image point inside the gas. The weights of that interpolation set the accuracy of the imposed wall temperature. This page compares the inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>, the default) with the triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>; the kernel is described by Ezra, Peles and Kozak, Int. J. Heat Mass Transf. 252:127314, 2025) against the exact conduction solution of an annulus.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md938"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md950"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -183,10 +183,10 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Settings  </td><td class="markdownTableBodyLeft"><span class="tt">ib_ip_interp</span> 1 or 2; every other <span class="tt">ib_*</span> option at its default  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md939"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md951"></a>
 Reference</h2>
 <p>Exact steady conduction at constant conductivity: \(T(r) = T_1 + (T_2 - T_1)\ln(r/R)/\ln(r_2/R)\). It holds for a gas at rest at any uniform pressure.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md940"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md952"></a>
 Quantities</h2>
 <p>Errors are (MFC - exact) divided by \(T_2 - T_1\) (<span class="tt">check_annulus.py</span>).</p>
 <ul>
@@ -194,7 +194,7 @@ Quantities</h2>
 <li><b>Gradient error:</b> \(dT/dr\) of the same fit at the wall, relative to the exact gradient.</li>
 <li><b>Gap error:</b> relative L2 and maximum error of \(T\) over the gas cells more than \(0.5\Delta x\) from either wall.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md941"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md953"></a>
 Results</h2>
 <p>Measured on AMD MI300A (amdflang), one rank, the code version above.</p>
 <table class="markdownTable">
@@ -220,14 +220,14 @@ Results</h2>
 <td class="markdownTableBodyRight">40  </td><td class="markdownTableBodyRight">2.02e-3  </td><td class="markdownTableBodyRight">1.86e-4  </td><td class="markdownTableBodyRight">8.94e-3  </td><td class="markdownTableBodyRight">3.39e-4  </td><td class="markdownTableBodyRight">+1.4e-2  </td><td class="markdownTableBodyRight">−4.3e-4  </td></tr>
 </table>
 <p>Comparison with an earlier measurement of the same geometry (a start from a uniform temperature, a build before the current master; not repeated here): the wall errors agree within a factor of 1.5 (inner idw 2.6e-2, 1.7e-2, 5.0e-3; inner TSC 5.8e-3, 1.0e-3, 3.0e-4; outer idw 1.1e-2, 7.6e-3, 3.5e-3; outer TSC 3.1e-4, 4.5e-5, 2.0e-5). The gap errors do not: that measurement gave a whole-gap L2 of 5.1e-2, 2.5e-2, 1.3e-2 for both weightings. The present table starts from the exact profile; a uniform start on the current master gives a TSC gap L2 of 2.6e-3, 5.5e-3, 6.0e-3 and an inverse-distance one of 7.8e-3, 3.3e-3, 4.5e-3.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md942"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md954"></a>
 Assessment</h2>
 <ul>
 <li>TSC lowers the imposed wall temperature error by a factor of 5 to 130 at every resolution; on the inner wall it converges at about second order, on the outer wall at first order from a much lower level. Inverse distance is first order or worse.</li>
 <li>The whole-gap L2 error is 6 to 14 times lower with TSC and converges at order 1.9 then 1.1; inverse distance gives 0.8 then 1.4.</li>
 <li>The wall gradient from a fit through the first cells converges for TSC on the inner wall and not for inverse distance. This is an estimator, not the heat flux the solver applies to the wall.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md943"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md955"></a>
 Known limitations</h2>
 <ul>
 <li>Constant conductivity and a quiescent gas only. A temperature-dependent conductivity and the wall heat flux need chemistry (<span class="tt">ib_heat_wrt</span>) and are not covered.</li>
@@ -236,7 +236,7 @@ Known limitations</h2>
 <li>Rotating (Taylor-Couette) walls, the minimum image-point distance (<span class="tt">ib_ip_min_dist</span>) and the quadratic wall fill are not covered.</li>
 <li>Isothermal ghost conduction through the unbounded mirror temperature is under review in <a href="https://github.com/MFlowCode/MFC/pull/2248">#2248</a>; the numbers above are without it.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md944"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md956"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_conduction_annulus/case.py -n 1 -- --cells_per_R 20 --interp 2</div>
 <div class="line">python3 examples/2D_ibm_conduction_annulus/check_annulus.py examples/2D_ibm_conduction_annulus</div>

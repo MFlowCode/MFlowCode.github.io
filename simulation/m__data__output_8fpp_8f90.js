@@ -54,6 +54,7 @@ var m__data__output_8fpp_8f90 =
     [ "m_data_output::next_write_time", "namespacem__data__output.html#a797860a47f49321ba46e0c5674bde1f4", null ],
     [ "m_data_output::q_cons_temp_ds", "namespacem__data__output.html#addfc053fb62d4bc8d27a1576330991b4", null ],
     [ "m_data_output::rc_min", "namespacem__data__output.html#a420dff0ba83cd92dc6fb32ee5b26e139", null ],
+    [ "m_data_output::rt_clock0", "namespacem__data__output.html#ac8cdc6738abd4125a77abb02f7d6181e", null ],
     [ "m_data_output::tcfl_max", "namespacem__data__output.html#a4bcfd157c5abd538c73b83cc65965c4e", null ],
     [ "m_data_output::vcfl_max", "namespacem__data__output.html#a4566bfca1a62d6dc4a2ae2e390b8be45", null ],
     [ "m_data_output::void_stat_min", "namespacem__data__output.html#a754c5d577e342e50ebcbc55774b32f41", null ]

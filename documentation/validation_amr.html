@@ -157,7 +157,7 @@ $(function(){initNavTree('validation_amr.html','',''); });
   <div class="headertitle"><div class="title">Adaptive mesh refinement </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md811"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md815"></a>
 AMR validation</h1>
 <p>AMR (<a class="el" href="amr.html" title="Adaptive Mesh Refinement">Adaptive Mesh Refinement</a>) must give the uniform fine-grid answer where the blocks cover the flow, keep the uniform grid's order of accuracy through coarse/fine seams, and must not create or destroy mass, momentum or energy at coarse/fine faces, in regrids or in subcycling. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
 <p>The Sod and conservation checks read the fine data from the serial restart files (level 0 in <span class="tt">q_cons_vf*.dat</span>, the blocks in <span class="tt">amr_fine.dat</span>, via <span class="tt">mfc.viz.read_amr_restart</span>).</p>
@@ -176,7 +176,7 @@ Sod shock tube against the exact Riemann solution</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Compared  </td><td class="markdownTableBodyLeft">AMR on base N; uniform N; uniform at the finest AMR spacing (2N, 4N); N = 100, 200, 400  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">exact Riemann solution (pressure function and Newton iteration, Toro <a class="el" href="citelist.html#CITEREF_toro09">[97]</a> ch. 4), computed in <span class="tt">check_sod.py</span>: \(p^*\) = 0.30313, \(u^*\) = 0.92745, contact at 0.68549, shock at 0.85043  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">exact Riemann solution (pressure function and Newton iteration, Toro <a class="el" href="citelist.html#CITEREF_toro09">[99]</a> ch. 4), computed in <span class="tt">check_sod.py</span>: \(p^*\) = 0.30313, \(u^*\) = 0.92745, contact at 0.68549, shock at 0.85043  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft">on the composite grid (finest level covering each point): \(L_1 = \sum_i \vert\rho_i - \bar\rho_i^{exact}\vert\,\Delta x_i\) with the exact cell average, and the contact and shock positions (where \(\rho\) crosses the middle of its exact jump), by <span class="tt">check_sod.py</span>  </td></tr>
 </table>
@@ -239,7 +239,7 @@ Reproduce</h3>
 <div class="line">python3 examples/1D_amr_sod/check_sod.py examples/1D_amr_sod</div>
 <div class="line">./mfc.sh run examples/2D_amr_conservation/case.py -t pre_process simulation -n 1 -- --subcycle</div>
 <div class="line">python3 examples/2D_amr_conservation/check_conservation.py examples/2D_amr_conservation</div>
-</div><!-- fragment --><p><span class="tt">case.py -N &lt;N&gt; --levels 0</span> and <span class="tt">--fine</span> give the uniform grids; <span class="tt">--subcycle</span> the subcycled AMR runs. Each run needs its own directory (copy <span class="tt">case.py</span>), since the checker reads the restart files of the case directory. The suite runs <span class="tt">AMR -&gt; 1D -&gt; Example -&gt; Sod two levels</span> (995DE2F6) and <span class="tt">AMR -&gt; 2D -&gt; Example -&gt; conservation subcycle</span> (2352E14C).</p>
+</div><!-- fragment --><p>The checkers import <span class="tt">mfc.viz</span>, so run them in MFC's Python environment (<span class="tt">source build/venv/bin/activate</span> after any <span class="tt">./mfc.sh</span> command). <span class="tt">case.py -N &lt;N&gt; --levels 0</span> and <span class="tt">--fine</span> give the uniform grids; <span class="tt">--subcycle</span> the subcycled AMR runs. Each run needs its own directory (copy <span class="tt">case.py</span>), since the checker reads the restart files of the case directory. The suite runs <span class="tt">AMR -&gt; 1D -&gt; Example -&gt; Sod two levels</span> (995DE2F6) and <span class="tt">AMR -&gt; 2D -&gt; Example -&gt; conservation subcycle</span> (2352E14C).</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-amr-vortex"></a>
 Smooth flow across block seams</h2>
 <p><b>Status:</b> validated (second order in L1 for every block layout and fill, after #2482). <b>Example:</b> <span class="tt">examples/2D_amr_isentropic_vortex</span>.</p>
@@ -248,7 +248,7 @@ Smooth flow across block seams</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Flow  </td><td class="markdownTableBodyLeft">isentropic vortex Shu <a class="el" href="citelist.html#CITEREF_shu1998">[81]</a>, \(\epsilon = 5\), \(\gamma = 1.4\), \(\rho_\infty = p_\infty = 1\), carried by \(u = 1\) from \(x = -3\) to \(x = 3\) ( \(t = 6\)) on a periodic \([-10, 10]^2\)  </td></tr>
+<td class="markdownTableBodyLeft">Flow  </td><td class="markdownTableBodyLeft">isentropic vortex Shu <a class="el" href="citelist.html#CITEREF_shu1998">[83]</a>, \(\epsilon = 5\), \(\gamma = 1.4\), \(\rho_\infty = p_\infty = 1\), carried by \(u = 1\) from \(x = -3\) to \(x = 3\) ( \(t = 6\)) on a periodic \([-10, 10]^2\)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Grids  </td><td class="markdownTableBodyLeft">base N = 128, 256, 512, 1024; one 2:1 level. Static: one block over \([-1.25, 1.25] \times [-2.5, 2.5]\) (3.1 % of the domain), which the vortex enters, crosses and leaves. Regrid: density-jump tags ( \(\epsilon_\text{tag} = 0.006\,\Delta x\), down to \(r \approx 2.5\)), <span class="tt">amr_buf = 3</span>, regrid every 10 steps (6.5-9 % of the domain refined)  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -334,13 +334,13 @@ Sedov-Taylor blast</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Blast  </td><td class="markdownTableBodyLeft">energy \(E = 1\) in a sphere of radius 0.04 at the center of \([-0.6, 0.6]^3\); \(\rho_0 = 1\), \(p_0 = 10^{-3}\), \(\gamma = 1.4\), extrapolation boundaries; to \(t = 0.16\) ( \(R = 0.50\), shock Mach number about 11)  </td></tr>
+<td class="markdownTableBodyLeft">Blast  </td><td class="markdownTableBodyLeft">energy \(E = 1\) in a sphere of radius 0.04 at the center of \([-0.6, 0.6]^3\); \(\rho_0 = 1\), \(p_0 = 10^{-3}\), \(\gamma = 1.4\), extrapolation boundaries; to \(t = 0.16\) ( \(R = 0.50\), shock Mach number about 33)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Grids  </td><td class="markdownTableBodyLeft">base 96³ and 192³; one 2:1 level, absolute density-jump tags (<span class="tt">amr_tag_abs</span>, 0.1), <span class="tt">amr_buf = 4</span>, regrid every 4 steps, lock-step and subcycled; uniform 96³, 192³ and 384³  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">MUSCL-2 (minmod), HLLC, SSP-RK3, CFL 0.3 (adaptive)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">\(R = \xi_0 (E t^2/\rho_0)^{1/5}\) Taylor <a class="el" href="citelist.html#CITEREF_taylorblast1950">[91]</a> Sedov <a class="el" href="citelist.html#CITEREF_sedov1959">[78]</a> with \(\xi_0 = 1.0328\) for \(\gamma = 1.4\), from the energy integral of the similarity equations (<span class="tt">check_sedov.py</span> integrates them; \(\gamma = 5/3\) gives 1.1517); post-shock density \((\gamma + 1)/(\gamma - 1) = 6\)  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">\(R = \xi_0 (E t^2/\rho_0)^{1/5}\) Taylor <a class="el" href="citelist.html#CITEREF_taylorblast1950">[93]</a> Sedov <a class="el" href="citelist.html#CITEREF_sedov1959">[80]</a> with \(\xi_0 = 1.0328\) for \(\gamma = 1.4\), from the energy integral of the similarity equations (<span class="tt">check_sedov.py</span> integrates them; \(\gamma = 5/3\) gives 1.1517); post-shock density \((\gamma + 1)/(\gamma - 1) = 6\)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft">per save, on the composite grid: \(E\) from the data (total energy above the ambient), the shell-averaged density in shells one finest cell thick, \(R\) at the outermost half-jump between \(\rho_0\) and the peak, by <span class="tt">check_sedov.py</span>  </td></tr>
 </table>
@@ -367,7 +367,7 @@ Sedov-Taylor blast</h2>
 </ul>
 <p>Limits:</p><ul>
 <li><b>Early times.</b> The energy sits in a finite sphere (0.04, 3-13 cells) with a staircase surface, which shifts the virtual origin; the first save (t = 0.02, R = 5.4 r0) carries that and the startup transient. The patch stair-step loses 0.9 % of the energy at 96³/192³ and 0.5 % at 384³; the reference uses the measured energy.</li>
-<li><b>Counter-pressure.</b> \(p_0 = 10^{-3}\) leaves the shock at Mach 11 at the end; the strong-shock solution ignores \(p_0\) (an effect of order \(1/M^2\), about 1 %, not separated from the discretization error here).</li>
+<li><b>Counter-pressure.</b> \(p_0 = 10^{-3}\) leaves the shock at Mach 33 at the end ( \(\dot R = 0.4 R/t\) against \(c_0 = \sqrt{\gamma p_0/\rho_0}\)); the strong-shock solution ignores \(p_0\) (an effect of order \(1/M^2\), about 0.1 %, not separated from the discretization error here).</li>
 <li><b>Scheme.</b> WENO5 with <span class="tt">mp_weno = T</span> went NaN next to the blast at t = 0.004 on a uniform 256³ octant (no AMR), so the check uses MUSCL with minmod. An octant with symmetry walls cannot be refined at the walls (a block must lie <span class="tt">buff_size</span> cells inside the domain), so the whole sphere is simulated.</li>
 <li>Save times come from <span class="tt">run_time.inf</span>, which has four significant digits (0.04 % in R).</li>
 <li>Only the radius and the peak density are checked; the interior profiles are not compared.</li>
@@ -396,7 +396,7 @@ Cylinder wake</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M with <span class="tt">mp_weno</span>, HLLC, SSP-RK3, <span class="tt">weno_Re_flux</span>, <span class="tt">fd_order = 2</span>, fixed \(\Delta t\) at CFL 0.38 on the finest cells (level-0 cells when subcycled), to t = 650 (130 D/U)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">Henderson <a class="el" href="citelist.html#CITEREF_henderson1995">[33]</a> (Cd 1.35), Park et al. <a class="el" href="citelist.html#CITEREF_park1998">[64]</a> (Cd 1.33, St 0.165), Williamson's fit Williamson <a class="el" href="citelist.html#CITEREF_williamson1989">[103]</a> (St 0.1643); all incompressible and unconfined  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">Henderson <a class="el" href="citelist.html#CITEREF_henderson1995">[33]</a> (Cd 1.35), Park et al. <a class="el" href="citelist.html#CITEREF_park1998">[65]</a> (Cd 1.33, St 0.165), Williamson's fit Williamson <a class="el" href="citelist.html#CITEREF_williamson1989">[105]</a> (St 0.1643); all incompressible and unconfined  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">D/ib_forces.dat</span> by <span class="tt">check_wake.py</span>: mean Cd and St = D/(U T), T the mean spacing of the upward zero crossings of Cl, over the whole periods in t = 400-650 (8 periods); an FFT of the window agrees to 0.2 %  </td></tr>
 </table>
@@ -430,7 +430,7 @@ Reproduce</h3>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_amr_cylinder_wake/case.py -t pre_process simulation -n 1 --gpu</div>
 <div class="line">python3 examples/2D_amr_cylinder_wake/check_wake.py examples/2D_amr_cylinder_wake [&lt;uniform 32 cells/D run&gt;]</div>
 </div><!-- fragment --><p>The uniform and subcycled runs are edits at the top of <span class="tt">case.py</span> in a copy of the directory (<span class="tt">amr = False</span> with <span class="tt">N = 32</span> or <span class="tt">N = 16</span>; <span class="tt">subcycle = True</span>). Measured on one MI250X GCD, amdflang with OpenMP offload, double precision.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

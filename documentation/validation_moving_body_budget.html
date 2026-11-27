@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_moving_body_budget.html','',''); });
   <div class="headertitle"><div class="title">Validation: Moving-Body Mass Budget and Galilean Twin </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md851"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md855"></a>
 Moving immersed boundary: gas mass created at the surface, and the heat and force of a body against its Galilean twin</h1>
 <p><b>Status:</b> partially validated. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_moving_mass_budget</span>. <b>Last run:</b> 2026-11-22 (mass runs); 2026-11-24 (twin runs, with <span class="tt">weno_avg = T</span>, which <span class="tt">weno_Re_flux</span> now requires).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md852"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md856"></a>
 Purpose</h2>
 <p>A ghost-cell immersed boundary is not conservative at a moving wall. Gas flows through the faces between the fluid and the body into ghost cells whose values are then overwritten, and cells change side as the body moves, so the gas total drifts with the distance the body travels. This measures that drift, checks the opt-in correction <span class="tt">ib_mass_relax</span> (the solver default for a moving body, 30), and compares the conducted heat and the force of a translating body with the same body held in the same relative flow. Both matter for particle-resolved runs, where a particle's drag and heating are read from these quantities.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md853"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md857"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -185,14 +185,14 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">GNU 13 on an x86 CPU, double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md854"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md858"></a>
 Reference data</h2>
 <ul>
 <li>Exact: the gas mass of a closed periodic box with an inert body is constant.</li>
 <li>Exact: a body moving through gas at rest and the same body held in gas moving at the opposite velocity feel the same relative flow, so their conducted heat and force agree (ratio 1). The twin is a self-consistency check, not a comparison with an external value.</li>
-<li>Qualitative background on the force noise and the mass error of fresh and dead cells: Lee et al. <a class="el" href="citelist.html#CITEREF_lee2011">[43]</a> and Seo and Mittal <a class="el" href="citelist.html#CITEREF_seomittal2011">[79]</a>. Neither is used as a number here.</li>
+<li>Qualitative background on the force noise and the mass error of fresh and dead cells: Lee et al. <a class="el" href="citelist.html#CITEREF_lee2011">[44]</a> and Seo and Mittal <a class="el" href="citelist.html#CITEREF_seomittal2011">[81]</a>. Neither is used as a number here.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md855"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md859"></a>
 Quantities</h2>
 <ul>
 <li><b>Gas mass</b> M: \(\sum\rho\,dV\) over the cells whose centre is outside the body at its prescribed position (periodic wrap), from the saves. <b>Steady rate</b>: the least-squares slope of 100 (M - M_0)/M_0 against the distance travelled after the first diameter (the impulsive start is excluded), in % of the gas per diameter.</li>
@@ -200,7 +200,7 @@ Quantities</h2>
 <li><b>Force</b>: \(F_x\) of <span class="tt">D/ib_forces.dat</span> (<span class="tt">ib_force_wrt</span>, one row per step), means over the same window; the RMS of the difference of the two histories (the fixed history interpolated to the moving times, mean removed) is given in percent of the mean fixed force.</li>
 <li>Script: <span class="tt">examples/2D_ibm_moving_mass_budget/check_budget.py</span>.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md856"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md860"></a>
 Results</h2>
 <p>Steady rate of the gas mass, % of the gas per diameter travelled, and the total change after 6 D (inviscid, inverse-distance image points):</p>
 <table class="markdownTable">
@@ -227,7 +227,7 @@ Results</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">0.2  </td><td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.894  </td><td class="markdownTableBodyRight">0.928  </td><td class="markdownTableBodyRight">0.784  </td><td class="markdownTableBodyRight">0.785  </td><td class="markdownTableBodyRight">7.3 %  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md857"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md861"></a>
 Assessment</h2>
 <ul>
 <li>A moving no-slip circle creates gas mass at 0.013-0.05 % of the gas per diameter travelled (inverse-distance image points), falling at about first order with refinement. Over the 6 D of the runs this is 0.13-0.36 %, and it would grow with the distance a particle travels.</li>
@@ -236,7 +236,7 @@ Assessment</h2>
 <li>A cold wall (0.2 of the gas temperature) is not reproduced: the heat is 18 % low at 16 cells/D and 7 % low at 32 with the correction, and the force of the moving body is not close to its twin's.</li>
 <li>Status is partially validated: the mass budget and the warm-wall twin close; the cold-wall twin and the force do not.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md858"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md862"></a>
 Known limitations</h2>
 <ul>
 <li><b>Cold moving wall.</b> The conducted heat is low by 7-18 % at 16-32 cells/D even with the correction, converging about first order. The cause is a ghost-state error at the advancing nose that the correction does not remove (found in a separate Python prototype; not re-verified in MFC). The solver documentation lists measured twin ratios for the same case.</li>
@@ -245,7 +245,7 @@ Known limitations</h2>
 <li>The reacting moving body (gasification plus swept cells) is covered by the suite's <span class="tt">Moving Heat Output</span> tests (regression only), not by a validation case.</li>
 <li>The conducted-heat estimator is a cubic fit; its absolute value is not an independent measurement.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md859"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md863"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_moving_mass_budget/case.py -t pre_process simulation -n 1 --gpu -- \</div>
 <div class="line">    --cells_per_D 24 --mach 0.3 --box 5 --travel 6 --nsave 24 --relax 0</div>

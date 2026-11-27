@@ -157,19 +157,19 @@ $(function(){initNavTree('validation_blast.html','',''); });
   <div class="headertitle"><div class="title">Validation: Circular Blast Wave </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md812"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md816"></a>
 Circular blast wave against a radial reference, uniform and adaptive grids</h1>
 <p><b>Status:</b> validated (density and shock radius, uniform grids and two-level AMR on the CPU); the AMR run fails on an NVIDIA GPU (<a href="https://github.com/MFlowCode/MFC/issues/2467">#2467</a>). <b>Code:</b> <span class="tt">master</span> at 5838b641c. <b>Example:</b> <span class="tt">examples/2D_amr_blast_multilevel</span> (default: AMR; <span class="tt">--no-amr -N</span>: uniform grid). <b>Last run:</b> 2026-11-25.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md813"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md817"></a>
 Purpose</h2>
 <p>A cylindrical explosion has a shock that weakens as it expands, a contact and an inward rarefaction, and its exact solution is radially symmetric, so a fine 1D radial solution is an independent reference for the 2D Cartesian run. It checks the multidimensional shock capturing on a grid not aligned with the flow, and the adaptive-mesh refinement of the example against uniform grids.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md814"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md818"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Problem  </td><td class="markdownTableBodyLeft">disc of radius 0.1 at (0.5, 0.5) with ( \(\rho\), p) = (1, 1) in gas at (0.125, 0.1), at rest, \(\gamma\) = 1.4 (the 2D Sod explosion, Toro section 17.1 Toro <a class="el" href="citelist.html#CITEREF_toro09">[97]</a>); t = 0.15625  </td></tr>
+<td class="markdownTableBodyLeft">Problem  </td><td class="markdownTableBodyLeft">disc of radius 0.1 at (0.5, 0.5) with ( \(\rho\), p) = (1, 1) in gas at (0.125, 0.1), at rest, \(\gamma\) = 1.4 (the 2D Sod explosion, Toro section 17.1 Toro <a class="el" href="citelist.html#CITEREF_toro09">[99]</a>); t = 0.15625  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Domain  </td><td class="markdownTableBodyLeft">[0, 1]², extrapolation boundaries (the shock stays inside, at r = 0.34)  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -179,7 +179,7 @@ Setup</h2>
 </table>
 <p>| Measured | L1 density error \(\sum|\rho - \rho_\mathrm{ref}|\,\Delta x\,\Delta y\) against the reference averaged over each cell (4 × 4 samples), and the shock radius (outermost radius where the azimuthal-mean density exceeds the mean of the ambient and the peak density), measured the same way on both, by <span class="tt">check_blast.py</span> |</p>
 <p>AMR output is the level-0 field with the finer levels restricted into it, so the AMR run is compared at 128².</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md815"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md819"></a>
 Results</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -194,13 +194,13 @@ Results</h2>
 <td class="markdownTableBodyLeft">AMR, 128² + 2 levels (512² effective at the fronts)  </td><td class="markdownTableBodyRight">5.47e-4  </td><td class="markdownTableBodyRight"></td><td class="markdownTableBodyRight">0.3402  </td><td class="markdownTableBodyRight">0.3400  </td></tr>
 </table>
 <p>On an A100 (NVHPC 25.11) the uniform 512² run agrees with the CPU to 7e-12 in density (the same L1 error and shock radius). The AMR run aborts on the A100 at step 665 of 800 when its flux registers grow (<a href="https://github.com/MFlowCode/MFC/issues/2467">#2467</a>), so the AMR row is CPU only.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md816"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md820"></a>
 Assessment</h2>
 <ul>
 <li>The density converges at order 0.87 toward the radial reference, as expected with a shock and a contact; the shock radius agrees within a tenth of a cell at every resolution.</li>
 <li>The two-level AMR run, refined to 512² resolution around the fronts, is as accurate as the uniform 512² grid (5.5e-4 against 5.9e-4) on its level-0 output.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md817"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md821"></a>
 Known limitations</h2>
 <ul>
 <li>The disc is a staircase on the Cartesian grid (<span class="tt">geometry = 2</span> assigns whole cells), which adds an O( \(\Delta x\)) error to the initial mass; it is part of the error above.</li>
@@ -208,7 +208,7 @@ Known limitations</h2>
 <li>The AMR comparison uses the restricted level-0 field; the fine-level solution is not compared directly.</li>
 <li>AMR on an NVIDIA GPU with NVHPC aborts in this example (<a href="https://github.com/MFlowCode/MFC/issues/2467">#2467</a>).</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md818"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md822"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_amr_blast_multilevel/case.py -t pre_process simulation -n 1</div>
 <div class="line">./mfc.sh run examples/2D_amr_blast_multilevel/case.py -t pre_process simulation -n 1 -- --no-amr -N 256</div>

@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_surface_tension.html','',''); });
   <div class="headertitle"><div class="title">Validation: Surface Tension </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md929"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md941"></a>
 Surface tension: Laplace pressure jump of a static drop</h1>
 <p><b>Status:</b> validated (static 2D drop). <b>Code:</b> <span class="tt">master</span> at 5838b641c. <b>Example:</b> <span class="tt">examples/2D_laplace_pressure_jump</span>. <b>Last run:</b> 2026-11-24. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md930"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md942"></a>
 Purpose</h2>
-<p>Surface tension (<span class="tt">surface_tension</span>, the capillary model of Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer17">[76]</a> with a color function) must balance the pressure jump across a curved interface at rest. A 2D drop in equilibrium has the exact jump \(\Delta p = \sigma/R\); the residual flow (spurious currents) measures how well the discrete capillary force and the pressure gradient balance.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md931"></a>
+<p>Surface tension (<span class="tt">surface_tension</span>, the capillary model of Schmidmayer et al. <a class="el" href="citelist.html#CITEREF_schmidmayer17">[78]</a> with a color function) must balance the pressure jump across a curved interface at rest. A 2D drop in equilibrium has the exact jump \(\Delta p = \sigma/R\); the residual flow (spurious currents) measures how well the discrete capillary force and the pressure gradient balance.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md943"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -181,7 +181,7 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft">mean p where alpha_water &gt; 0.999 minus mean p where alpha_water &lt; 0.001 and r &gt; 1.5 R, averaged over the last 20 saves; the largest speed in the window; <span class="tt">check_laplace.py</span>  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md932"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md944"></a>
 Results</h2>
 <p>GNU 13.3 (CPU, one rank) unless noted; the capillary speed \(\sqrt{\sigma/(\rho_l R)}\) is 0.23 m/s.</p>
 <table class="markdownTable">
@@ -196,7 +196,7 @@ Results</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyRight">100, A100  </td><td class="markdownTableBodyRight">0.15004  </td><td class="markdownTableBodyRight">53.185  </td><td class="markdownTableBodyRight">-0.25 %  </td><td class="markdownTableBodyRight">-0.28 %  </td><td class="markdownTableBodyRight">8.9e-3  </td><td class="markdownTableBodyRight">0.042  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md933"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md945"></a>
 Assessment</h2>
 <ul>
 <li>The pressure jump matches \(\sigma/R\) to 1.0 % at 25 cells, 0.01 % at 50 and 0.25 % at 100 cells across the box (10, 20 and 40 cells per drop radius). The error does not decrease monotonically past 50 cells: at 100 cells the jump still varies by 0.9 % over the averaging window, which is larger than its error, so the 50 and 100 cell values agree within that unsteadiness.</li>
@@ -204,14 +204,14 @@ Assessment</h2>
 <li>The A100 and CPU runs at 50 cells agree to 3e-5 in the jump.</li>
 <li>The spurious currents are 0.04 to 0.05 m/s, 16 to 23 % of the capillary speed, and do not fall with the grid.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md934"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md946"></a>
 Known limitations</h2>
 <ul>
 <li>Only the static drop is checked. The oscillation frequency of a perturbed drop (Rayleigh and Lamb) and capillary waves were not run: no example sets them up.</li>
 <li>The spurious currents (16 to 23 % of the capillary speed) do not fall with the grid; the jump is averaged over 20 saves to reduce their pressure signature, which at 100 cells is still 0.9 % of the jump.</li>
 <li>2D only; a 3D drop ( \(\Delta p = 2\sigma/R\)) was not run.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md935"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md947"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_laplace_pressure_jump/case.py -t pre_process simulation post_process -n 1 -- -N 50</div>
 <div class="line">python3 examples/2D_laplace_pressure_jump/check_laplace.py examples/2D_laplace_pressure_jump --case-args &quot;-N 50&quot;</div>

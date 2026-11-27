@@ -6,6 +6,7 @@ var m__viscous_8fpp_8f90 =
     [ "m_viscous::s_compact_normal_viscous_gradient", "namespacem__viscous.html#a86dc356f96161fcdf47b2caf6ba31157", null ],
     [ "m_viscous::s_compact_normal_viscous_gradients", "namespacem__viscous.html#aef113dd9981ad652e157451f8d425216", null ],
     [ "m_viscous::s_compute_axis_inv_re", "namespacem__viscous.html#a6fadb6156833127ecc7ec19a23ba37e9", null ],
+    [ "m_viscous::s_compute_axisym_viscous_hoop", "namespacem__viscous.html#a1ed7e310f9836ecb760a6b1294601eb0", null ],
     [ "m_viscous::s_compute_fd_gradient", "namespacem__viscous.html#acd9de9c89fd8e78eea15d7eb1f6a6b68", null ],
     [ "m_viscous::s_compute_viscous_stress_cylindrical_boundary", "namespacem__viscous.html#aae94249734e8bf23fa1af7ef74f5290a", null ],
     [ "m_viscous::s_finalize_viscous_module", "namespacem__viscous.html#aa3ef25c06b9615bed453231e9c9d69e9", null ],
@@ -18,5 +19,5 @@ var m__viscous_8fpp_8f90 =
     [ "m_viscous::is2_viscous", "namespacem__viscous.html#a1d7799194eb302ce89e2c33b8f715c95", null ],
     [ "m_viscous::is3_viscous", "namespacem__viscous.html#aace22bdf7b484cdde326717f36b093c9", null ],
     [ "m_viscous::iv", "namespacem__viscous.html#a77381e5e4b644064f69d9b306edc6913", null ],
-    [ "m_viscous::res_viscous", "namespacem__viscous.html#a9e3f63b94160e0038b446b0a1baa1a86", null ]
+    [ "m_viscous::res_viscous", "namespacem__viscous.html#a129a3826b96a64f3ee0aad75dcda2821", null ]
 ];

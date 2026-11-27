@@ -33,7 +33,6 @@ var m__constants_8fpp_8f90 =
     [ "m_constants::capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
     [ "m_constants::case_file_error_code", "namespacem__constants.html#a78dc466963174e056c559059e09704cc", null ],
     [ "m_constants::chem_tolerance", "namespacem__constants.html#aecd8876023a55cf9b664ac31cad4b6fa", null ],
-    [ "m_constants::contact_ramp", "namespacem__constants.html#a9afbece3a1f47f9e9b1699a4151f24be", null ],
     [ "m_constants::coupling_one_way", "namespacem__constants.html#ae9a26e1577411b6d42e6af05a134da50", null ],
     [ "m_constants::coupling_two_way", "namespacem__constants.html#a3f3dc95c8b61870b075bf81b79171703", null ],
     [ "m_constants::damage_energy_cutoff", "namespacem__constants.html#ac6bc87a17f8e74a0a76137af4be7123f", null ],

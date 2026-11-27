@@ -157,11 +157,11 @@ $(function(){initNavTree('validation_wall_order_couette.html','',''); });
   <div class="headertitle"><div class="title">Wall-Normal Ghost Velocity at Viscous Walls </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md952"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md966"></a>
 Wall-Normal Ghost Velocity at Viscous Walls</h1>
 <p><b>Status:</b> partially validated (<span class="tt">ib_wall_order = 2</span> is measured on a flat wall and on a rotating curved wall; 2D only, two grids per regime beyond the first; the near-wall shear of order 2 has a floor of 1 to 2 % with the default image points and gradients, 0.1 to 0.8 % with TSC and compact gradients). <b>Code:</b> channel: <span class="tt">master</span> at dd9778b26; annulus: <span class="tt">master</span> at 13b4d8b (contains #2176 <span class="tt">ib_wall_order</span>, #2169 centripetal ghost pressure, #2165 TSC image points, #2212 compact viscous gradients and #2383 wall-point ghost velocity), unmodified. NVIDIA A100, NVHPC 25.11, OpenACC, double precision, one rank. <b>Last run:</b> 2026-11-24 (order 2 wall shear: options, Mach number and the compressible reference); 2026-11-22 (the rest). <b>Examples:</b> <span class="tt">examples/2D_ibm_plane_poiseuille</span>, <span class="tt">examples/2D_ibm_taylor_couette</span>.</p>
 <p>#2176 added <span class="tt">ib_wall_order = 2</span>, a two-probe quadratic wall-normal ghost velocity at no-slip walls, and reported no accuracy gain against an exact solution. This page measures it against two exact viscous solutions, for <span class="tt">ib_wall_order</span> 1 (the default mirror) and 2, and records what happens at a rotating curved wall.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md953"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md967"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -179,14 +179,14 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5, HLLC, SSP-RK3, <span class="tt">fd_order = 4</span>, <span class="tt">weno_Re_flux = T</span>, <span class="tt">ib_wall_order</span> 1 or 2  </td><td class="markdownTableBodyLeft">same  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md954"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md968"></a>
 Reference data</h2>
 <ol type="1">
 <li>Channel: \(u = g y (H-y)/(2\nu)\), \(u_\text{max} = g H^2/(8\nu)\), flow rate \(g H^3/(12\nu)\), wall shear \(\rho g H/2\).</li>
 <li>Annulus (incompressible): \(u_\theta = A r + B/r\) with \(A = -\Omega R^2/(r_2^2-R^2)\), \(B = \Omega R^2 r_2^2/(r_2^2-R^2)\); torque on the inner body per unit depth \(-4\pi\mu B\) (the outer wall receives \(+4\pi\mu B\)).</li>
 <li>Compressibility (O(M^2)), viscous heating and the density drift of the immersed boundary are not in the references. The mean density rises over the run (about 2 % at 10 and 0.4 % at 40 cells per R in an earlier measurement, not repeated here).</li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md955"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md969"></a>
 Quantities</h2>
 <ul>
 <li><b>Velocity error (L2):</b> rms over the fluid cells (centre inside the gas and more than half a cell from a wall in the annulus), divided by u_max (channel) or Omega R (annulus). In the annulus it is split into the azimuthal-mean part (error averaged in bins of one cell width in r) and the rest.</li>
@@ -196,9 +196,9 @@ Quantities</h2>
 <li><b>Wall force (channel):</b> from the face fluxes against g H Lx / 2 per wall. In steady state this is the body-force balance, so it cannot separate the two orders.</li>
 </ul>
 <p>The scripts are <span class="tt">check_poiseuille.py</span> and <span class="tt">check_couette.py</span>; the text output labels each cell with its right face, so cell centres are the labels minus dx/2.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md956"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md970"></a>
 Results</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md957"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md971"></a>
 Flat channel, Mach 0.05</h3>
 <p>Wall on a cell face (offset 0) and 0.37 cell inside it. Errors are signed (MFC minus exact over exact) for the flow rate.</p>
 <table class="markdownTable">
@@ -220,7 +220,7 @@ Flat channel, Mach 0.05</h3>
 <li>Wall velocity from the quadratic fit, in units of u_max (exact 0): order 1 0.77, 0.42, 0.46 at 8, 16, 32 cells; order 2 0.115, 0.051, 0.020.</li>
 <li>The wall force agrees with g H / 2 within 1.2e-3 for both orders when the wall is on a cell face. With the wall inside a cell the order 2 force splits unequally between the two walls (+-7 % at 8 cells, +-4 % at 16), because the fluxes are taken at the staircase faces, not at the wall.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md958"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md972"></a>
 Taylor-Couette annulus, Mach 0.05</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -244,7 +244,7 @@ Taylor-Couette annulus, Mach 0.05</h3>
 <li>The inner-wall shear from local cubic fits at 96 wall points, net of the fit's own error: order 2 gives 1.9e-2, 2.0e-2 and 1.9e-2 at 10, 20 and 40 cells per R (the fit's own error is 1.9e-2, 3.2e-3 and 4.5e-4 on the exact profile); order 1 gives 0.12, 0.20 and 0.98. The order 2 shear does not converge with the default image points and gradients; the next section separates the options, the Mach number and compressibility.</li>
 <li>The change of the azimuthal velocity over the last save interval is below 1.1e-5 of Omega R in these runs.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md959"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md973"></a>
 Order 2 wall shear: options, Mach number and compressibility</h3>
 <p>Same annulus, <span class="tt">ib_wall_order = 2</span>, Re = 10, 12 slowest viscous times (velocity change over the last save at most 3.6e-6 of Omega R), <span class="tt">master</span> at 5c43aa27d; 10 and 20 cells per R on GNU 13 CPU, 40 cells per R and the Mach 0.01 runs at 20 on an NVIDIA A100 (NVHPC 25.11). Shear error net of the fit's own error: the rms over the 96 points and their mean (the azimuthal-mean part); inner torque from the face fluxes.</p>
 <table class="markdownTable">
@@ -283,7 +283,7 @@ Order 2 wall shear: options, Mach number and compressibility</h3>
 <li>The floor belongs to the near-wall discretization. With the default viscous gradient the near-wall cells carry a mean shear bias of +0.8 % (+7.6e-3 to +8.8e-3 from 10 to 40 cells per R), while the torque from the face fluxes is within 1e-3: the bias lives in the one or two cells whose WENO gradient stencil reaches the ghost cells (see <span class="tt">ib_visc_compact</span>). <span class="tt">ib_visc_compact</span> removes most of the mean (+1.4e-3 at 10 cells per R); TSC image points remove most of the point-to-point scatter; together they give 2.6e-3, 3.2e-3 and 1.05e-3 at 10, 20 and 40 cells per R.</li>
 <li>The Mach number changes the floor only through the numerics: at 10 cells per R the default gives 1.5 % at Mach 0.01 against 1.9 % at 0.05, and TSC with compact gradients 0.8 % against 0.26 % (0.39 % against 0.32 % at 20 cells per R), and the compressible reference rules out a physical cause for either difference. The earlier statement that Mach 0.01 is fine compared Mach 0.01 with TSC and compact gradients against Mach 0.05 with the defaults.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md960"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md974"></a>
 Rotating inner wall with the optional wall treatments, Mach 0.01</h3>
 <p>Same annulus at tip Mach 0.01 and Re = 11, run for 4 slowest viscous times from rest, <span class="tt">ib_wall_order = 1</span> unless noted. The centripetal ghost pressure of #2169 is always on for a spinning body; <span class="tt">ib_ip_interp = 2</span> (TSC) and <span class="tt">ib_visc_compact = T</span> (compact viscous gradients next to a body) are opt-in. Shear is the inner-wall shear \(S = r\,d(u_\theta/r)/dr\) from local cubic fits at 96 wall points (3.5 to 5 cells), rms relative error; the same fit applied to the exact profile gives 3.2e-3 (20 cells per R) and 9.2e-4 (30). The runs are not fully steady (the velocity changes by 1.7e-3 to 1.9e-3 of Omega R over the last save interval).</p>
 <table class="markdownTable">
@@ -311,7 +311,7 @@ Rotating inner wall with the optional wall treatments, Mach 0.01</h3>
 <li>The inner torque stays within 1.3 % with order 1 and 0.9 % with order 2; the outer torque is 1.8 to 3.3 % low for every option.</li>
 <li>Before #2383, <span class="tt">master</span> evaluated a rotating body's wall velocity at the ghost point instead of the wall point (in <span class="tt">s_compute_ghost_point_velocity</span>), so the imposed wall speed was \(\Omega(R-|\phi|)\), not \(\Omega R\). The same runs on that build gave an inner shear of 28 to 47 % for every option, which is why #2383 was made. The numbers above are with #2383.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md961"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md975"></a>
 Assessment</h2>
 <ul>
 <li><b>Flat wall:</b> order 2 is a large gain in the velocity profile and the flow rate (8 to 17 times at 8 to 32 cells across). The default order leaves a large first-order error because the no-slip acts about 0.75 cell outside the wall.</li>
@@ -319,7 +319,7 @@ Assessment</h2>
 <li><b>Wall shear:</b> from near-wall cells it does not converge for order 1. For order 2 it has a floor of 1.3 to 2 % with the default image points and viscous gradient at Mach 0.01 and 0.05, a discretization error next to the wall (compressibility changes the shear by about 3e-5 relative); TSC image points with <span class="tt">ib_visc_compact</span> bring it to 0.1 % at 40 cells per R (Mach 0.05). The flow rate (channel) and the torque (annulus) are the integral measures that converge.</li>
 <li>Order 2 is not uniformly better: it splits the wall force unevenly between two walls when a wall lies inside a cell.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md962"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md976"></a>
 Known limitations and open issues</h2>
 <ul>
 <li>The default order acts about 0.75 cell outside a flat wall; the same code path acts less far out at the curved fixed wall. The cause is not identified (not verified).</li>
@@ -329,7 +329,7 @@ Known limitations and open issues</h2>
 <li>The rigid-rotation check (an inviscid circle in gas already in rigid rotation) was not reproduced for this page: it needs an initial condition that no case-file patch provides.</li>
 <li>The registered tests agree across the CPU lanes to 1e-13 and between an NVIDIA A100 and the CPU golden to 1e-14, so their tolerance is 1e-10. An A100 difference of 5e-6 reported earlier came from an annulus golden generated in single precision, not from a CPU/GPU gap.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md963"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md977"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_plane_poiseuille/case.py -t pre_process simulation -n 1 -- --cells 16 --ntau 12 --wall_order 2</div>
 <div class="line">python3 examples/2D_ibm_plane_poiseuille/check_poiseuille.py examples/2D_ibm_plane_poiseuille</div>

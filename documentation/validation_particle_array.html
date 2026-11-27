@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_particle_array.html','',''); });
   <div class="headertitle"><div class="title">Validation: Periodic Particle Arrays </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md861"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md865"></a>
 Periodic arrays of fixed particles: drag, heat transfer and the reacting-array budget</h1>
 <p><b>Status:</b> partially validated. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/2D_ibm_periodic_array</span>. <b>Last run:</b> 2026-11-23.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md862"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md866"></a>
 Purpose</h2>
-<p>Particle-resolved training and closure data for gas-solid flow come from periodic boxes holding many particles, driven at a fixed bulk flow, with a force and a heat flux recorded for every particle. This checks that configuration: the global momentum balance of the periodic box, the mean drag of random sphere arrays against the Tenneti, Garg and Subramaniam correlation Tenneti et al. <a class="el" href="citelist.html#CITEREF_tenneti2011">[92]</a>, the spread of the per-particle force, and the Nusselt number against Gunn <a class="el" href="citelist.html#CITEREF_gunn1978">[29]</a>. It also records what is known of the burning-array mass budget.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md863"></a>
+<p>Particle-resolved training and closure data for gas-solid flow come from periodic boxes holding many particles, driven at a fixed bulk flow, with a force and a heat flux recorded for every particle. This checks that configuration: the global momentum balance of the periodic box, the mean drag of random sphere arrays against the Tenneti, Garg and Subramaniam correlation Tenneti et al. <a class="el" href="citelist.html#CITEREF_tenneti2011">[94]</a>, the spread of the per-particle force, and the Nusselt number against Gunn <a class="el" href="citelist.html#CITEREF_gunn1978">[29]</a>. It also records what is known of the burning-array mass budget.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md867"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -185,15 +185,15 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">NVIDIA A100 80GB, NVHPC 25.11, double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md864"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md868"></a>
 Reference data</h2>
 <ul>
-<li>Tenneti, Garg and Subramaniam Tenneti et al. <a class="el" href="citelist.html#CITEREF_tenneti2011">[92]</a>, Eq. 43: the total force per particle over \(F_\mathrm{St} = 3\pi\mu D(1-\phi)W\), fit range \(0.1 \le \phi \le 0.5\), \(\mathrm{Re}_m \le 300\). The immersed-boundary force has no mean-pressure-gradient part, so the total force is the recorded force over \((1-\phi)\) (their Eqs. 33 and 38). The authors report an average deviation of 2.5 % of the fit from their data.</li>
-<li>Gunn <a class="el" href="citelist.html#CITEREF_gunn1978">[29]</a> for the particle Nusselt number of a fixed bed, with \(\epsilon = 1-\phi\) and \(\mathrm{Re} = \mathrm{Re}_m\); and Sun, Tenneti and Subramaniam Sun et al. <a class="el" href="citelist.html#CITEREF_sun2015">[86]</a> for the thermally developed state (<span class="tt">mean_temp_wall</span>).</li>
+<li>Tenneti, Garg and Subramaniam Tenneti et al. <a class="el" href="citelist.html#CITEREF_tenneti2011">[94]</a>, Eq. 43: the total force per particle over \(F_\mathrm{St} = 3\pi\mu D(1-\phi)W\), fit range \(0.1 \le \phi \le 0.5\), \(\mathrm{Re}_m \le 300\). The immersed-boundary force has no mean-pressure-gradient part, so the total force is the recorded force over \((1-\phi)\) (their Eqs. 33 and 38). The authors report an average deviation of 2.5 % of the fit from their data.</li>
+<li>Gunn <a class="el" href="citelist.html#CITEREF_gunn1978">[29]</a> for the particle Nusselt number of a fixed bed, with \(\epsilon = 1-\phi\) and \(\mathrm{Re} = \mathrm{Re}_m\); and Sun, Tenneti and Subramaniam Sun et al. <a class="el" href="citelist.html#CITEREF_sun2015">[88]</a> for the thermally developed state (<span class="tt">mean_temp_wall</span>).</li>
 <li>Exact: the momentum balance of a periodic box, \(\sum_i F_{x,i} = -\partial_x \bar p\, V_f\) at steady state.</li>
 <li>No reference exists for the 2D cylinder array: its checks are the balance and the spread.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md865"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md869"></a>
 Quantities</h2>
 <p>All from <span class="tt">check_array.py</span> on the run directory (<span class="tt">D/ib_forces.dat</span>, <span class="tt">D/ib_heat.dat</span>, <span class="tt">mean_dpdx.dat</span>; no field output).</p>
 <ul>
@@ -203,7 +203,7 @@ Quantities</h2>
 <li><b>spread</b>: standard deviation over the mean of the time-averaged streamwise force of the bodies.</li>
 <li><b>Nu</b> (<span class="tt">--nu</span>, runs with <span class="tt">--thermostat</span>): the heat the bodies give the gas over \(N \pi D^2 k_f (T_s - T_m)\), \(k_f\) at the film temperature, \(T_m\) = <span class="tt">mean_temp</span>.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md866"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md870"></a>
 Results</h2>
 <p>2D, 12 cylinders at \(\phi\) = 0.2, \(\mathrm{Re}_m\) = 20, 14 cells/D (the CI-sized case run to \(tW/D\) = 43): Q/Q* = 1.000000, balance 1.0000, Cd 9.58, spread 0.44 (bodies between 0.40 and 1.72 of the mean).</p>
 <p>3D, 20 spheres at \(\phi\) = 0.2, mean drag (error against Tenneti Eq. 43 at the realized \(\mathrm{Re}_m\)):</p>
@@ -221,21 +221,22 @@ Results</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">1  </td><td class="markdownTableBodyRight">24  </td><td class="markdownTableBodyRight">13.894  </td><td class="markdownTableBodyRight">12.606  </td><td class="markdownTableBodyRight">+10.2 %  </td><td class="markdownTableBodyRight">1.0000  </td><td class="markdownTableBodyRight">0.25  </td></tr>
 </table>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md867"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md871"></a>
 Nusselt number</h3>
 <p>Thermally developed state (<span class="tt">--thermostat</span>: <span class="tt">mean_temp_wall</span> at the body temperature, mixing-cup temperature held at 300 K), 20 spheres at \(\phi\) = 0.2, \(\mathrm{Re}_m\) = 20, 16 cells/D, Mach 0.1, \(tW/D\) = 8, last 30 %, bodies at 290 K and 310 K (seed 1). Gunn gives 5.995 and the Sun et al. correlation 3.39 on the same (surface-area) basis, from the equation as fitted to their data (a mixing-cup Nusselt number per cross-section perimeter, times \(\pi/4\)).</p>
+<p>The thermostat removes the viscous dissipation from the energy equation (<span class="tt">mean_temp_wall</span> with <span class="tt">viscous</span>, Patankar et al. <a class="el" href="citelist.html#CITEREF_patankar1977">[67]</a>); the first columns are with it removed (A100, NVHPC 25.11, one rank, last 40 %), the last column is before (last 30 %).</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadRight">bodies  </th><th class="markdownTableHeadRight">Nu  </th><th class="markdownTableHeadRight">Gunn  </th><th class="markdownTableHeadRight">difference  </th><th class="markdownTableHeadRight">F/F_St  </th></tr>
+<th class="markdownTableHeadRight">bodies  </th><th class="markdownTableHeadRight">Nu  </th><th class="markdownTableHeadRight">Gunn  </th><th class="markdownTableHeadRight">difference  </th><th class="markdownTableHeadRight">F/F_St  </th><th class="markdownTableHeadRight">Nu before the removal  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">290 K (cold)  </td><td class="markdownTableBodyRight">6.647  </td><td class="markdownTableBodyRight">5.995  </td><td class="markdownTableBodyRight">+10.9 %  </td><td class="markdownTableBodyRight">7.359  </td></tr>
+<td class="markdownTableBodyRight">290 K (cold)  </td><td class="markdownTableBodyRight">6.113  </td><td class="markdownTableBodyRight">5.995  </td><td class="markdownTableBodyRight">+2.0 %  </td><td class="markdownTableBodyRight">7.361  </td><td class="markdownTableBodyRight">6.647  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">310 K (hot)  </td><td class="markdownTableBodyRight">5.039  </td><td class="markdownTableBodyRight">5.998  </td><td class="markdownTableBodyRight">-16.0 %  </td><td class="markdownTableBodyRight">7.430  </td></tr>
+<td class="markdownTableBodyRight">310 K (hot)  </td><td class="markdownTableBodyRight">5.711  </td><td class="markdownTableBodyRight">5.998  </td><td class="markdownTableBodyRight">-4.8 %  </td><td class="markdownTableBodyRight">7.432  </td><td class="markdownTableBodyRight">5.039  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">mean of the pair  </td><td class="markdownTableBodyRight">5.84  </td><td class="markdownTableBodyRight">5.996  </td><td class="markdownTableBodyRight">-2.6 %  </td><td class="markdownTableBodyRight"></td></tr>
+<td class="markdownTableBodyRight">mean of the pair  </td><td class="markdownTableBodyRight">5.91  </td><td class="markdownTableBodyRight">5.996  </td><td class="markdownTableBodyRight">-1.4 %  </td><td class="markdownTableBodyRight"></td><td class="markdownTableBodyRight">5.84  </td></tr>
 </table>
-<p>The hot and cold runs disagree by 28 %, so the pair mean (5.84, which cancels the viscous heating to first order) is the quotable number: 2.6 % below Gunn and 1.7 times the Sun et al. value. The drag does not depend on the temperature difference (7.36 and 7.43).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md868"></a>
+<p>The hot and cold runs disagree by 7 % (28 % before the removal, which was mostly viscous heating), so the pair mean is the quotable number: 1.4 % below Gunn and 1.7 times the Sun et al. value. The drag does not depend on the temperature difference (7.36 and 7.43).</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md872"></a>
 Burning array (not repeated on <span class="tt">master</span>)</h3>
 <p>A reacting array (carbon spheres in hot air, the Bradley-Chelliah surface mechanism of <span class="tt">examples/2D_ibm_reacting_surface</span>, lumped solid wall <span class="tt">thermal_bc = 3</span>, <span class="tt">mean_temp</span> thermostat) was run in earlier development builds, not on <span class="tt">master</span>, and is not part of the example or the suite (11-species chemistry is too heavy for the suite). The measurements are quoted with their settings: 64 spheres at \(\phi\) = 0.10 in a cube of 6.96 D, 2000 K and 10 atm air, Re_m 100 held by <span class="tt">mean_mflux</span>, 24 cells/D, <span class="tt">ib_ip_interp = 2</span>, one realization, two flow-throughs.</p>
 <ul>
@@ -244,31 +245,31 @@ Burning array (not repeated on <span class="tt">master</span>)</h3>
 <li>Drag was +7.6 % above Tenneti and the Nusselt number (conductive, mixing-cup temperature) +6 % above Gunn, within the scatter of the non-reacting arrays above.</li>
 </ul>
 <p>The single-body closed-box budget is reproducible on <span class="tt">master</span> with <span class="tt">examples/2D_ibm_wall_mass_budget</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md869"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md873"></a>
 Assessment</h2>
 <ul>
 <li>The momentum balance closes to 1e-4 in every run and the controller holds the flux exactly: the periodic box, the force record and the controller agree.</li>
 <li>At \(\mathrm{Re}_m\) = 20 the mean drag of two 20-sphere realizations is 2 % below Tenneti (the realizations differ by 4 %, the size of the scatter between realizations of such small boxes). At \(\mathrm{Re}_m\) = 100 it is 11 to 14 % above at 16 cells/D.</li>
 <li>Status is partially validated: boxes of 20 spheres, two realizations and at most two grids are not enough to separate the correlation's own 2.5 % deviation, the realization scatter and the grid error.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md870"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md874"></a>
 Known limitations</h2>
 <ul>
 <li>The Re 100 excess is a grid effect in part: it changes little from 16 to 24 cells/D (+10.7 % to +10.2 % for seed 1), so the 20-sphere boxes here do not show the 7 to 8 % grid error of the reference. Tenneti et al. report that their own drag converges from below with resolution and that 20 cells/D is about 7 to 8 % low at \(\phi\) = 0.2 (their Fig. 3, read from the plot), so the correlation itself may sit below a converged solution; this is an argument about the reference, not a measurement of MFC.</li>
 <li>The boxes hold 20 spheres in a 3.74 D cube; the literature arrays hold 80 or more. Realization scatter is large (4 % at Re 20 here).</li>
 <li>Not run: 3D arrays above 1 M cells and the 80-particle boxes (0.8 to 5.8 M cells); the pre-merge drag, Mach and per-particle force tables of those runs are not repeated here.</li>
-<li><b>Nusselt number, open.</b> The hot and cold bodies of the thermostat pair differ by 28 % (6.65 and 5.04 against 5.995 for Gunn); earlier runs showed the same asymmetry and a slow relaxation of the hot case. Against the Sun et al. correlation the pair mean is 1.7 times higher (earlier runs: 1.7 to 1.9), which is not explained (the methods, constant against variable properties and the Mach number differ). Treat the Nusselt numbers as plus or minus 15 %. Two further observations on <span class="tt">master</span>: at Mach 0.3 the viscous heating is of the order of the 10 K drive (the cold run gave Nu 10.6), so use Mach 0.1 or lower; and the hot run at Mach 0.3 aborted at \(tW/D\) = 8.3 with an infinite viscous CFL number (reproduce: <span class="tt">--dim 3 --n_bodies 20 --mach 0.3 --cfl 0.2 --cells_per_D 16 --Re 20 --tstar 12 --thermostat --tw_ratio 1.0333</span>), which is a solver limit, not fixed here (<a href="https://github.com/MFlowCode/MFC/issues/2418">#2418</a>).</li>
+<li><b>Nusselt number, open.</b> The hot and cold bodies of the thermostat pair differ by 7 % (6.11 and 5.71 against 5.995 for Gunn). Against the Sun et al. correlation the pair mean is 1.7 times higher (earlier runs: 1.7 to 1.9), which is not explained (the methods, constant against variable properties and the Mach number differ). Treat the Nusselt numbers as plus or minus 15 %. At Mach 0.3 (Brinkman number 0.77) the hot run used to cool its core to 1 K and abort at \(tW/D\) = 8.3 (<a href="https://github.com/MFlowCode/MFC/issues/2418">#2418</a>); with the dissipation removed it completes \(tW/D\) = 12 with the fluid between 253 K and 322 K. The cell-centre dissipation takes out about 85 % of the pump work at 16 cells/D, so the rest still biases high-Mach runs: use Mach 0.1 for a Nusselt number.</li>
 <li>A closed periodic box with isothermal bodies gains mass slowly (documented in <a class="el" href="ib_accuracy_limits.html" title="Accuracy Limits of the Ghost-Cell Immersed Boundary">Accuracy Limits of the Ghost-Cell Immersed Boundary</a> and the mass-budget example <span class="tt">examples/2D_ibm_wall_mass_budget</span>).</li>
 <li>A body force on moving particles is not a mean pressure gradient: with <span class="tt">mean_dpdx</span> the force is not applied inside the bodies, so use the controller for fixed or moving arrays alike.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md871"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md875"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_periodic_array/case.py -n 1 --gpu -- --tstar 40 --stride 20</div>
 <div class="line">python3 examples/2D_ibm_periodic_array/check_array.py examples/2D_ibm_periodic_array</div>
 <div class="line">./mfc.sh run examples/2D_ibm_periodic_array/case.py -n 1 --gpu -- --dim 3 --n_bodies 20 --phi 0.2 --mach 0.3 \</div>
 <div class="line">    --Re 100 --cells_per_D 16 --tstar 10 --stride 50 --cfl 0.2 --seed 1</div>
 </div><!-- fragment --><p>The suite runs the CI-sized case (12 cylinders, 96 x 96 cells, 200 steps, 2 ranks) as <span class="tt">2D -&gt; Chemistry -&gt; IBM -&gt; Periodic Array</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

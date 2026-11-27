@@ -1,5 +1,6 @@
 var m__global__parameters_8fpp_8f90 =
 [
+    [ "m_global_parameters::f_step_time", "namespacem__global__parameters.html#aa293afda72e5a127b21f1ef022ec0f2d", null ],
     [ "m_global_parameters::s_amr_select_slot", "namespacem__global__parameters.html#af702bb8b5735c116a7a47d6465d798ce", null ],
     [ "m_global_parameters::s_assign_default_values_to_user_inputs", "namespacem__global__parameters.html#a15979aa7789736321146104abdb129ea", null ],
     [ "m_global_parameters::s_finalize_global_parameters_module", "namespacem__global__parameters.html#a16ad4c64940e4b092652f3c1c6df76c7", null ],
@@ -196,6 +197,7 @@ var m__global__parameters_8fpp_8f90 =
     [ "m_global_parameters::synth_l", "namespacem__global__parameters.html#ae5024ef38dc8a09d5448f73aebd27760", null ],
     [ "m_global_parameters::synth_n_waves_per_shell", "namespacem__global__parameters.html#ac1ed34c173ce6485b6e32d2a91a4b990", null ],
     [ "m_global_parameters::t0ref", "namespacem__global__parameters.html#a47f14158f79eaa37dabc2f8ed64faf59", null ],
+    [ "m_global_parameters::t_rhs", "namespacem__global__parameters.html#a90ccc964f47714578c235922a8f1c151", null ],
     [ "m_global_parameters::turb_pos", "namespacem__global__parameters.html#ac383e2f206fa195ed83b421b29719fd7", null ],
     [ "m_global_parameters::tw", "namespacem__global__parameters.html#ad48aea41066f34a5b868bb5d83767eef", null ],
     [ "m_global_parameters::use_nc_iface_vel", "namespacem__global__parameters.html#a9fa6420cccfba9d9370dabf6a48f58b5", null ],

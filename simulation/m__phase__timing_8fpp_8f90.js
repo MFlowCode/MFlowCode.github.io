@@ -3,6 +3,7 @@ var m__phase__timing_8fpp_8f90 =
     [ "m_phase_timing::s_mem_note", "namespacem__phase__timing.html#a1bf040c83b61741e6e298ed0eba57164", null ],
     [ "m_phase_timing::s_mem_note_fields", "namespacem__phase__timing.html#a930f9aa76ec5552dc33d50c8c8facb78", null ],
     [ "m_phase_timing::s_mem_note_level", "namespacem__phase__timing.html#a9e10835a453918d4238bb7a6376f5a12", null ],
+    [ "m_phase_timing::s_mem_reset_levels", "namespacem__phase__timing.html#afeed6d0b465dd27fc9f7423711c25355", null ],
     [ "m_phase_timing::s_phase_report", "namespacem__phase__timing.html#a3414519429d7df89d2309fffe5416549", null ],
     [ "m_phase_timing::s_phase_step_tic", "namespacem__phase__timing.html#a12b5125b2324923b7a07720bcb411aaf", null ],
     [ "m_phase_timing::s_phase_step_toc", "namespacem__phase__timing.html#a09a01be4e8889c99b647bd528eb8a1d0", null ],

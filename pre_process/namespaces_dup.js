@@ -41,7 +41,7 @@ var namespaces_dup =
       [ "s_read_parallel_boundary_condition_files", "namespacem__boundary__io.html#a913e50a8381702d2886b419f225a78b9", null ],
       [ "s_read_serial_boundary_condition_files", "namespacem__boundary__io.html#a6bd453bc00436c7cbb2d823169f9dd10", null ],
       [ "s_write_parallel_boundary_condition_files", "namespacem__boundary__io.html#a1b6a5f4b89c0cc5313f8f448ce1a9b2c", null ],
-      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#adf427aecbc4ff3f63146fab16a8a71e2", null ],
+      [ "s_write_serial_boundary_condition_files", "namespacem__boundary__io.html#ad75052b660e20d0be5fe68c2b0b24f65", null ],
       [ "mpi_bc_buffer_type", "namespacem__boundary__io.html#a358f0f61cd25c20cda6384220f38214b", null ],
       [ "mpi_bc_type_type", "namespacem__boundary__io.html#a08a01f94849046589e0337b0068adec0", null ]
     ] ],
@@ -184,7 +184,6 @@ var namespaces_dup =
       [ "capillary_cutoff", "namespacem__constants.html#ad2919a9016acfe411dfc41e18beb1140", null ],
       [ "case_file_error_code", "namespacem__constants.html#a78dc466963174e056c559059e09704cc", null ],
       [ "chem_tolerance", "namespacem__constants.html#aecd8876023a55cf9b664ac31cad4b6fa", null ],
-      [ "contact_ramp", "namespacem__constants.html#a9afbece3a1f47f9e9b1699a4151f24be", null ],
       [ "coupling_one_way", "namespacem__constants.html#ae9a26e1577411b6d42e6af05a134da50", null ],
       [ "coupling_two_way", "namespacem__constants.html#a3f3dc95c8b61870b075bf81b79171703", null ],
       [ "damage_energy_cutoff", "namespacem__constants.html#ac6bc87a17f8e74a0a76137af4be7123f", null ],

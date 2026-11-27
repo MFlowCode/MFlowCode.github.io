@@ -696,6 +696,9 @@ Geometry</h3>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>patch_icpp(istr)r0 must be positive (got r0)</li>
 </ul>
+<p><b>Warnings</b> (non-fatal):</p><ul>
+<li>⚠️ mpp_lim clips volume fractions to [0, 1] where the mixture equation of state is formed, which breaks pressure equilibrium at material interfaces; use it only if the case fails without it (see mpp_lim in <a class="el" href="case_8md.html">docs/documentation/case.md</a>)</li>
+</ul>
 <p></p>
 </details>
 <details >
@@ -747,9 +750,9 @@ Geometry</h3>
 <li>patch_ib(i)thermal_bc = thermal_bc requires chemistry = T</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
+<li>face_bound = 2 does not support chemistry (use face_bound = 1 with chemistry)</li>
 <li>HLLD hypoelasticity does not support chemistry</li>
 <li>riemann_hypo_ADC does not support bubbles, surface tension, chemistry, or continuum damage (the ADC HLL blend omits their flux components)</li>
-<li>ib_slip_ccst is not supported with chemistry</li>
 </ul>
 <p><b>Valid values</b> (errors):</p><ul>
 <li>patch_ib(i)Twall must be positive when thermal_bc = 1</li>
@@ -798,10 +801,16 @@ Geometry</h3>
 <b>face_bound</b> (<span class="tt">face_bound</span>)</summary>
 <p></p>
 <p><b>Schema constraints:</b></p><ul>
-<li>Choices: <span class="tt">0</span> = off, <span class="tt">1</span> = positivity bound on face states</li>
+<li>Choices: <span class="tt">0</span> = off, <span class="tt">1</span> = positivity bound on face states, <span class="tt">2</span> = Zhang-Shu positivity bound on face states, 5- and 6-equation models</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
 <li>face_bound = 1 requires model_eqns = 2</li>
+<li>face_bound = 2 requires model_eqns = 2 or 3</li>
+<li>face_bound = 2 requires stiffened-gas fluids: its bounds are linear in the volume fractions</li>
+</ul>
+<p><b>Incompatibilities</b> (errors):</p><ul>
+<li>face_bound = 2 does not support chemistry (use face_bound = 1 with chemistry)</li>
+<li>face_bound = 2 does not support flag</li>
 </ul>
 <p></p>
 </details>
@@ -1127,9 +1136,9 @@ Geometry</h3>
 <li>Min: 0</li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
+<li>igr requires a 2D or 3D case (n &gt; 0); m_igr has no 1D path</li>
 <li>int_comp = 2 (MTHINC) requires at least 2D (n &gt; 0)</li>
 <li>HLLD hypoelasticity requires at least 2D (n &gt; 0)</li>
-<li>Immersed Boundaries do not work in 1D (requires n &gt; 0)</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>Bx0 must not be set in 2D/3D MHD simulations</li>
@@ -1623,9 +1632,9 @@ Geometry</h3>
 <li>When enabled, recommends: <span class="tt">fluid_pp(1)Re(1)</span></li>
 </ul>
 <p><b>Requirements</b> (errors):</p><ul>
-<li>ib_smooth_contact requires ib and viscous</li>
 <li>ib_visc_compact requires ib and viscous</li>
 <li>weno_Re_flux requires viscous to be enabled</li>
+<li>fluid_pp(i)non_newtonian requires viscous = T</li>
 </ul>
 <p><b>Incompatibilities</b> (errors):</p><ul>
 <li>HLLD hypoelasticity does not support viscous effects (the dual-pass omits the viscous source term)</li>
@@ -1708,11 +1717,13 @@ Geometry</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>EOS Parameter Sanity</b>  </td><td class="markdownTableBodyNone">common, post_process, pre_process, simulation  </td><td class="markdownTableBodyNone">fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (unusually high). MFC uses the transformed parameter Gamma = 1/(gamma-1); fluid_pp(i)gamma = gamma implies physical gamma = physical_gamma (very close to 1). Did you enter the physical gamma instead of 1/(gamma-1)?  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Mpp Lim</b>  </td><td class="markdownTableBodyNone">simulation  </td><td class="markdownTableBodyNone">mpp_lim clips volume fractions to [0, 1] where the mixture equation of state is formed, which breaks pressure equilibrium at material interfaces; use it only if the case fails without it (see mpp_lim in <a class="el" href="case_8md.html">docs/documentation/case.md</a>)  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><b>Volume Fraction Sum</b>  </td><td class="markdownTableBodyNone">pre_process  </td><td class="markdownTableBodyNone">patch_icpp(i): volume fractions sum to alpha_sum, expected 1.0  </td></tr>
 </table>
 <hr  />
 <p>💡 <b>Tip:</b> If you encounter a validation error, check the relevant section above or review <a href="https://github.com/MFlowCode/MFC/blob/master/toolchain/mfc/case_validator.py"><span class="tt">case_validator.py</span></a> for complete validation logic.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-27</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

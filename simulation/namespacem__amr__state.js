@@ -2,9 +2,11 @@ var namespacem__amr__state =
 [
     [ "t_level", "structm__amr__state_1_1t__level.html", "structm__amr__state_1_1t__level" ],
     [ "f_amr_boxes_overlap", "namespacem__amr__state.html#a997ee09fdbcb6430f5240aefc2eafb7b", null ],
+    [ "f_amr_col_bytes", "namespacem__amr__state.html#a203d605cebf540f2daf50764b97faae2", null ],
     [ "f_amr_cons_ok", "namespacem__amr__state.html#ab79af0cb6714e862f5b6a24ae3503faf", null ],
     [ "f_amr_cpat_mar", "namespacem__amr__state.html#a4746bf5fd078bec44a9214d839816c65", null ],
     [ "f_amr_lin", "namespacem__amr__state.html#aa06d07aaf3f2e05098e3a665530c5481", null ],
+    [ "f_amr_mg_mu_frac_max", "namespacem__amr__state.html#a82f199a391c7205cf77e8187fe350189", null ],
     [ "f_amr_parent_block", "namespacem__amr__state.html#a609bec9589a9d150b77cd69fe7b936de", null ],
     [ "f_amr_prolong_reach", "namespacem__amr__state.html#a571893298eb8be21678a76078f351313", null ],
     [ "f_amr_quartic_half", "namespacem__amr__state.html#a60b08d0eb90317968fdaee937cb7e707", null ],

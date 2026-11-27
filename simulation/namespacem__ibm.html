@@ -282,7 +282,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a77117a18125d8a13280497f26bcd3f4b" id="r_a77117a18125d8a13280497f26bcd3f4b"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#a77117a18125d8a13280497f26bcd3f4b">s_interpolation_weights</a> (gp, i, <a class="el" href="m__phase__change_8fpp_8f90.html#ace2eaec12668a4d4eedb46c8c99c94f2">j</a>, <a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, dist, fluid_mask, interp_coeffs)</td></tr>
 <tr class="memdesc:a77117a18125d8a13280497f26bcd3f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fluid-masked image-point weights: bilinear for second-order IBM, else inverse distance squared.  <br /></td></tr>
 <tr class="memitem:a115e213a2be87a5e60e9f756394e8323" id="r_a115e213a2be87a5e60e9f756394e8323"><td class="memItemLeft">subroutine, private&#160;</td><td class="memItemRight"><a class="el" href="#a115e213a2be87a5e60e9f756394e8323">s_interpolate_image_point</a> (q_prim_vf, gp, alpha_rho_ip, alpha_ip, pres_ip, vel_ip, c_ip, r_ip, v_ip, pb_ip, mv_ip, nmom_ip, pb_in, mv_in, presb_ip, massv_ip, ys_ip)</td></tr>
-<tr class="memdesc:a115e213a2be87a5e60e9f756394e8323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate primitive variables to a ghost point's image point using bilinear or trilinear interpolation.  <br /></td></tr>
+<tr class="memdesc:a115e213a2be87a5e60e9f756394e8323"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpolate primitive variables to a ghost point's image point with the precomputed interp_coeffs: inverse-distance weights over the 2x2(x2) cell (ib_ip_interp = 1) or TSC weights over 3x3(x3) cells (ib_ip_interp = 2).  <br /></td></tr>
 <tr class="memitem:a6e21f4b417f5847d212383f5f2f5f059" id="r_a6e21f4b417f5847d212383f5f2f5f059"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6e21f4b417f5847d212383f5f2f5f059">s_update_ib_rotation_matrices</a> (<a class="el" href="namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a">num_ibs</a>)</td></tr>
 <tr class="memdesc:a6e21f4b417f5847d212383f5f2f5f059"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the current indexes of immersed boundaries and replaces them after updating the position of each moving immersed boundary Recalculate the moving bodies' rotation matrices from their current angles (device).  <br /></td></tr>
 <tr class="memitem:a02fbdb1ad4d0ed7ccc43767cb06e08ff" id="r_a02fbdb1ad4d0ed7ccc43767cb06e08ff"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a02fbdb1ad4d0ed7ccc43767cb06e08ff">s_update_mib</a> (<a class="el" href="namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a">num_ibs</a>)</td></tr>
@@ -497,7 +497,7 @@ Variables</h2></td></tr>
 
 <p>Centre of cell c (z = 0 in 2D). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04070">4070</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04136">4136</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -523,7 +523,7 @@ Here is the caller graph for this function:</div>
 
 <p>Smallest cell width at a ghost point's cell. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04258">4258</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04324">4324</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -558,7 +558,7 @@ Here is the caller graph for this function:</div>
 
 <p>sum_i kappa_i u_i^2 over the principal directions of the wall, for a velocity u_t tangent to it: the centripetal acceleration of fluid sliding along a curved wall with outward normal n. Known for a circle and a sphere (1/R in every direction) and the curved side of a cylinder (none along its axis, the first column of its rotation matrix); zero for any other shape, which keeps the zero-curvature condition there. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02237">2237</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02303">2303</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -609,7 +609,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11949">11949</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12025">12025</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -655,7 +655,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11667">11667</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11743">11743</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -681,7 +681,7 @@ Here is the caller graph for this function:</div>
 
 <p>The surface temperature is held at Twall: prescribed (thermal_bc = 1) or evolved by the heat balance (thermal_bc = 3). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04876">4876</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04942">4942</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -736,7 +736,7 @@ Here is the caller graph for this function:</div>
 
 <p>Momentum density of component i in cell (j, k, l). The momentum halos of q_cons_vf are not exchanged between ranks, so a halo cell (rank seam, periodic edge) takes rho*u from q_prim_vf, whose halos are. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08164">8164</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08238">8238</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -776,7 +776,7 @@ Here is the caller graph for this function:</div>
 
 <p>Area of the face (j, k, l) normal to direction idir. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08218">8218</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08292">8292</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -826,7 +826,7 @@ Here is the caller graph for this function:</div>
 
 <p>Face flux of component c. The dual-pass HLLD RHS takes the hat_R set at the left face of a cell (hatR) and hat_L at its right. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08061">8061</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08135">8135</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -866,7 +866,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mass flux through face (j, k, l). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08112">8112</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08186">8186</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -897,7 +897,7 @@ Here is the caller graph for this function:</div>
 
 <p>Position of rank in ib_nbrs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09205">9205</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09281">9281</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -932,7 +932,7 @@ Here is the caller graph for this function:</div>
 
 <p>The ib_part shard of cell or face (j, k, l); neighbouring cells, which a body's surface visits together, get different ones. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04902">4902</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04968">4968</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -963,7 +963,7 @@ Here is the caller graph for this function:</div>
 
 <p>Weight of RK stage <span class="tt">stage</span> in the step (SSP-RK: 1; 1/2, 1/2; 1/6, 1/6, 2/3). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08246">8246</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08320">8320</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -994,7 +994,7 @@ Here is the caller graph for this function:</div>
 
 <p>Solid volume of a circle (per unit depth), sphere or cylinder IB. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04928">4928</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04994">4994</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1025,7 +1025,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ghost points stored for fine slot islot: zero for a block that holds no immersed body. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09864">9864</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09940">9940</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1051,7 +1051,7 @@ Here is the caller graph for this function:</div>
 
 <p>log(cosh(x)) without overflow for large |x| </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07947">7947</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08021">8021</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1077,7 +1077,7 @@ Here is the caller graph for this function:</div>
 
 <p>A moving airfoil or STL (geometries 4, 5, 11, 12) moves its centroid to the centre of mass and keeps a centroid_offset. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08914">8914</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08988">8988</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1135,7 +1135,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ghost value from the quadratic wall-normal profile, bounded by the linear mirror (minmod). The two extrapolations agree exactly for a linear profile, so this limits only the curvature correction, and to the size the linear mirror already produces. Unlimited, the quadratic amplifies that correction with ghost depth and can leave unphysical near-wall states. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07335">7335</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07408">7408</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1161,7 +1161,7 @@ Here is the caller graph for this function:</div>
 
 <p>Path of the T_cond file of a save: one shared file, or one file per rank with file_per_process (as ib_state). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04531">4531</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04597">4597</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1204,7 +1204,7 @@ Here is the caller graph for this function:</div>
 
 <p>Apply TSC weights from s_tsc_weights to one field. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07168">7168</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07241">7241</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1244,7 +1244,7 @@ Here is the caller graph for this function:</div>
 
 <p>TSC weights from s_tsc_weights applied to the gas cells only, renormalized. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07224">7224</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07297">7297</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1270,7 +1270,7 @@ Here is the caller graph for this function:</div>
 
 <p>Tensor product of the 1D TSC weights: the coefficient on each cell of the 3x3x3 stencil. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07473">7473</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07546">7546</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1300,7 +1300,7 @@ Here is the caller graph for this function:</div>
 
 <p>Wall-column time-step limit: a step's column drain takes at most wall_column_dt_frac of a near-wall gas cell's heat span, rho c_v V |T_top - T_w| (rho, c_v at the cell's state). At a step start the column's flux is the true singular one, about 10x the mirror's, and at the acoustic step it removed 40 % of a cell's heat per wall face in one stage: the collapsing pressure sent an impulsively started flow non-finite. From the last step's flux; before the first, from the semi-infinite start, q dt = 2 lambda dT sqrt(dt/(pi alpha_w)). Idle in steady state, where the drain per step is a small part of the span. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04161">4161</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04227">4227</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1346,7 +1346,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11607">11607</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11683">11683</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1396,7 +1396,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_flux_wall: wall area per face area times species q's consumption rate (q &gt; 0) or 1 (q = 0) of the body cell (j, k, l) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11637">11637</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11713">11713</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1432,7 +1432,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02187">2187</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02253">2253</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1462,7 +1462,7 @@ Here is the caller graph for this function:</div>
 
 <p>Velocity of the body's material point at r from its centroid: translation plus rotation about the centroid. Zero for a fixed body. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02135">2135</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02201">2201</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1488,7 +1488,7 @@ Here is the caller graph for this function:</div>
 
 <p>Centre of the periodic image of a ghost point's circle or sphere. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03974">3974</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04040">4040</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1523,7 +1523,7 @@ Here is the caller graph for this function:</div>
 
 <p>Signed wall distance of point x from a ghost point's circle or sphere (centre cb). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04023">4023</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04089">4089</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1574,7 +1574,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08368">8368</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08442">8442</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1604,7 +1604,7 @@ Here is the call graph for this function:</div>
 
 <p>The mass part of s_accumulate_ib_face_fluxes alone: ib_mass_relax on fixed bodies with no forces, heat output, lumped body, AMR or dual-pass HLLD. A kernel's launch cost grows with the arrays it names (about 0.5 ms on an MI300A for the general one), so this one names only what the mass sum needs. It reads flux_rsx_vf itself: f_ib_face_mass, which NVHPC did not inline here, returned the fluxes of the first RHS evaluation at every step on an A100 (#2414). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08260">8260</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08334">8334</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1649,7 +1649,7 @@ Here is the caller graph for this function:</div>
 
 <p>Moving bodies: book the mass and the body-frame energy E' = E - rho u.V_b + rho |V_b|^2/2 of each cell a body covered (+) or uncovered (-) at this stage's placement, into <a class="el" href="#ae856ec6f995d552056f7477779dd561a">ib_heat(3)</a> (mass out of the body, as a rate) and <a class="el" href="#ae856ec6f995d552056f7477779dd561a">ib_heat(2)</a> (energy in). The grid faces do not move with the wall, so the face fluxes alone miss the gas swept between face and wall. Called at every placement, after the stage update and before the ghost correction overwrites the covered cells: a cell's content enters the step's result with weight a_w (the product of the later stages' rk_coef(:,1)/rk_coef(:,4)) and the step-start state with 1 - a_w, so it is booked as a_w q + (1 - a_w) q_start. V_b = V + omega x r at the cell, r the minimum-image lever arm to the centroid. A cell passing directly from one body to another is not counted. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05551">5551</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05617">5617</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1672,7 +1672,7 @@ Here is the call graph for this function:</div>
 
 <p>ib_markers_prev = ib_markers over the whole halo </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05668">5668</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05734">5734</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1707,7 +1707,7 @@ Here is the caller graph for this function:</div>
 
 <p>Species half of the ghost-state blend: each species takes its own positivity-limited theta and the bath species (the most abundant at the surface) absorbs the difference, so sum(Y_g) = sum(Y_s). One theta shared by every species collapsed to ~0.006 at a burning carbon wall, where the surface consumes the trace radicals (O, OH), and made every species ghost first order. The shared theta is the fallback if the bath species would go negative. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12084">12084</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12160">12160</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1770,7 +1770,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12040">12040</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12116">12116</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1793,7 +1793,7 @@ Here is the caller graph for this function:</div>
 
 <p>Abort if any namelist immersed boundary marks no cell anywhere. The owning rank is chosen by the patch centroid, so an STL placed with model_translate while its centroid is left elsewhere is handed to ranks that do not hold it, and it vanishes silently. Cloud particles are skipped: a particle's centroid is its body, so it cannot vanish this way. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09755">9755</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09831">9831</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1819,7 +1819,7 @@ Here is the caller graph for this function:</div>
 
 <p>Abort if a ghost point's body was not in the rank's neighborhood list (s_get_neighborhood_idx returned -1). The setters clamp the id to 1 so no device read of patch_ib(id &lt;= 0) happens before this check. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06599">6599</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06665">6665</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1849,7 +1849,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reduces forces and torques so every rank holding an IB ends with bit-identical values. Each IB has one owner, the rank whose subdomain holds its centroid (patch_ibowner_rank, stamped at handoff). Phase 1: each rank sends its nonzero partials to the owner, which adds them to its own partial in ascending source-rank order once all have arrived. Phase 2: each owner sends its totals to every neighborhood rank, which overwrite their partials. One nonblocking message per neighbor per phase. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09390">9390</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09466">9466</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1891,7 +1891,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08849">8849</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08923">8923</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1965,7 +1965,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02299">2299</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02365">2365</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2048,7 +2048,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02346">2346</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02412">2412</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2076,7 +2076,7 @@ Here is the caller graph for this function:</div>
 
 <p>Set each IB's force and torque: the fluid's share from the face fluxes of the last RHS evaluation (s_accumulate_ib_face_fluxes), plus collisions and body forces. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08720">8720</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08794">8794</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2107,7 +2107,7 @@ Here is the call graph for this function:</div>
 
 <p>Compute the image points for each ghost point. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05913">5913</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05979">5979</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2138,7 +2138,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the interpolation coefficients for image points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06608">6608</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06674">6674</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2178,7 +2178,7 @@ Here is the caller graph for this function:</div>
 
 <p>Computes the moment of inertia for an immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08954">8954</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09028">9028</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2204,7 +2204,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_mass_relax: take this step's release of each body's bank (s_update_ib_temperatures) out of the gas within ib_shell_width cells of the body, scaling the partial densities, momentum, energy and species of those cells by one factor (velocity, temperature and composition kept). The ghost-cell treatment does not conserve mass at a moving or gasifying wall (face fluxes into overwritten ghost cells against cells changing side); this returns the gas to exactly the gasified mass, lagged by about ib_mass_relax steps. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05479">5479</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05545">5545</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2234,7 +2234,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_uncover_fill: a cell the body left at this placement (solid at the last one, fluid now) holds the cold ghost state it last had, which the stage update then carries as gas. Give it the mean density, species and pressure of the neighbours in its 3x3(x3) that were fluid at both placements, the state of the flow it moved into; with chemistry the energy is rebuilt from the mean state's temperature. The velocity stays the ghost's: the mean of the neighbours' makes the drag of a moving body disagree more with its Galilean twin. A cell with no such neighbour is left as it is. The step-start state q_start, which the later stages blend in, gets the same state; q_prim_vf (the stage-start primitives) is updated for the image-point interpolation. The halo is filled as well (see the loop bounds). Call before s_add_swept_cells so the booking sees the filled state. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05728">5728</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05794">5794</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2257,7 +2257,7 @@ Here is the call graph for this function:</div>
 
 <p>Finalize the IBM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10471">10471</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10547">10547</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2283,7 +2283,7 @@ Here is the call graph for this function:</div>
 
 <p>Locate all ghost points in the domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06149">6149</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06215">6215</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2311,7 +2311,7 @@ Here is the caller graph for this function:</div>
 
 <p>Gather the ghost points in lexicographic (i,j,k) order: count them per i-slab, scan the counts into slab offsets, then fill each slab serially in (j,k) order. The serial-sweep order, reached in parallel over slabs and linear in the cell count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06340">6340</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06406">6406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2350,7 +2350,7 @@ Here is the caller graph for this function:</div>
 
 <p>Count the number of ghost points for memory allocation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06061">6061</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06127">6127</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2373,7 +2373,7 @@ Here is the caller graph for this function:</div>
 
 <p>Swaps ownership of IBs and passes ownership of IBs to neighbor processors. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09493">9493</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09569">9569</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2419,7 +2419,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05340">5340</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05406">5406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2445,7 +2445,7 @@ Here is the caller graph for this function:</div>
 
 <p>Adds <a class="el" href="#ae856ec6f995d552056f7477779dd561a">ib_heat(1:5)</a> (the host copy: this rank's partial sums per slot) over the ranks that hold each body, through its owner (patch_ibowner_rank), and, with ib_mass_relax, steps the owners' banks. Phase 1: each rank sends its nonzero partials of bodies it does not own to the owner, which adds them in ascending source-rank order. Phase 2: each owner returns the totals and the bank's release (row 7) to the ranks that sent, the only ranks with cells of the body. Both are point-to-point with neighborhood ranks and carry only bodies a rank shares, so the volume follows the bodies on rank boundaries, not the body count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09223">9223</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09299">9299</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2476,7 +2476,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_flux_wall, before each Riemann solve (primitive buffers filled): fill ib_wall_src's buffer cells and set the positivity factor of every fluid cell in the domain and its first buffer layer (a wall face on a rank seam is solved on both sides), the largest theta &lt;= 1 for which its wall faces take at most ib_wall_safety of any species in one forward-Euler step of size dt (each SSP-RK stage is a convex combination of such steps). Conservative: the body books the scaled flux. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11496">11496</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11572">11572</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2499,7 +2499,7 @@ Here is the call graph for this function:</div>
 
 <p>ib_flux_wall: allocate the wall fields, give each body's ghost points with a fluid face neighbor their wall area per face area, and report the wall area the faces carry. A planar wall of area A has sum|n_i| A of staircase faces, so each face carries 1/sum|n_i| of its own area. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11138">11138</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11214">11214</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2544,7 +2544,7 @@ Here is the caller graph for this function:</div>
 
 <p>At a handoff, move the ib_mass_relax banks of the bodies that changed owner from the old owner to the new one. The new owner knows which neighbors to expect from (gain_from); the old owner queued its records in s_handoff_ib_ownership. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09333">9333</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09409">9409</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2575,7 +2575,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_mass_relax: tag the fluid cells within ib_shell_width cells of each body (ib_shell) and add their gas mass to <a class="el" href="#a29a11160ab53becd9c2bd85d9bbb00f0" title="Per patch_ib slot and shard: (1) energy and (2) mass from the face fluxes and (3) shell mass of ib_ma...">ib_part(3)</a> (summed into <a class="el" href="#ae856ec6f995d552056f7477779dd561a">ib_heat(5)</a> by s_update_ib_temperatures). A cell within reach of two bodies goes to the nearer one. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05372">5372</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05438">5438</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2603,7 +2603,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_flux_wall: fill ib_wall_src's buffer cells from the neighbouring ranks or the periodic image; they stay zero (no wall) at other domain boundaries </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11711">11711</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11787">11787</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2643,7 +2643,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance every wall column over dt from the state of the step's first RHS, and set the columns' guard targets. T and p at the top s_m come through the Lagrange probe (s_lag3_weights); where its stencil has less than half its weight in the gas (a narrow gap) the ghost keeps the mirror this step. lambda and c_p are tabulated per column, at the ghost's (image-point) composition, between the extremes of the column. On the first step of a run, restart included, the columns start from the gas field sampled along their normals. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03704">3704</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03770">3770</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2698,7 +2698,7 @@ Here is the call graph for this function:</div>
 
 <p>Allocate the per-slot fine-IB marker fields, sized to the max buffered fine extents; ghost-point lists start empty. No-op unless amr .and. ib. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09809">9809</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09885">9885</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2729,7 +2729,7 @@ Here is the caller graph for this function:</div>
 
 <p>Abort if any one body has ghost points on more than one rank: the fine image-point stencil is exact only when a body's whole fine state lives on one rank. Counts are per global body, so bodies on different ranks are fine. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09941">9941</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10017">10017</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2782,7 +2782,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02431">2431</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l02497">2497</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2817,7 +2817,7 @@ Here is the caller graph for this function:</div>
 
 <p>Fill the halo cells of the corrected ghosts: the state (both forms) and the flags of corrected_gps, from the neighbouring rank at a processor edge or from the periodic image, so the buried-point average sees the same ghosts as a single rank. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06790">6790</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06856">6856</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2852,7 +2852,7 @@ Here is the caller graph for this function:</div>
 
 <p>Halo cells of q(1:nv) along each direction, from the neighbouring rank at a processor edge (the exchange of the RHS) and from the periodic image where the direction has one rank; other boundaries keep their halos. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06896">6896</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06962">6962</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2902,7 +2902,7 @@ Here is the caller graph for this function:</div>
 
 <p>Load ib_markers_fine for the next fine RHS pass: member ibm's fine markers (interior 0:mext(:, ibm)) land at offset (ibm - 1)*w along dimension sd; the rest of the installed frame reads 0, so padding and gaps zero nothing. Per-block callers pass nb = 1, w = 0. Grid globals must already be swapped. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09967">9967</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10043">10043</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2925,7 +2925,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the deepest-level marker-field bounds into mkr_lo/mkr_hi: the coarse block (m/n/p with ghosts) or the deepest fine block a rank can own, whichever is larger (a level-l block has amr_ref_ratio**l * base_ext - 1 interior cells per active dim, base_ext = the user footprint in coarse cells). Called from s_initialize_ibm_module and s_ibm_alloc_fine. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09788">9788</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09864">9864</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2948,7 +2948,7 @@ Here is the caller graph for this function:</div>
 
 <p>Note the fine IB state's memory for the end-of-run AMR table. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09840">9840</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09916">9916</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -2969,7 +2969,7 @@ Here is the caller graph for this function:</div>
 
 <p>Rebuild corrected_gps from the ghost-point list now in ghost_points: s_compute_interpolation_coeffs only sets entries, so clear the whole field and re-mark the ghost points on-device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10314">10314</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10390">10390</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2999,7 +2999,7 @@ Here is the caller graph for this function:</div>
 
 <p>Give slot islot a gp_park segment for n_f ghost points at the pool top: exact for fixed bodies (the list keeps its length until s_ibm_reset_fine_park), full-length for moving bodies (so a slot never needs a second one, and a vacated one is reused). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10285">10285</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10361">10361</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3022,7 +3022,7 @@ Here is the caller graph for this function:</div>
 
 <p>Forget every slot's parked fine list (before the fine lists are rebuilt for the current block set). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09853">9853</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09929">9929</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3048,7 +3048,7 @@ Here is the caller graph for this function:</div>
 
 <p>Undo s_ibm_set_conduction_temperature on this rank's ghosts, so the reaction source and the split chemistry substep see each ghost's own temperature. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04359">4359</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04425">4425</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3069,7 +3069,7 @@ Here is the caller graph for this function:</div>
 
 <p>Restore the coarse IB globals saved by s_ibm_swap_to_fine, parking the (possibly updated) fine state back in slot islot. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10150">10150</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10226">10226</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3100,7 +3100,7 @@ Here is the caller graph for this function:</div>
 
 <p>Put the mirrored ghost temperature T_cond from s_ibm_correct_state in q_T_sf, where the wall conduction takes its face difference. Only that difference may read it: the mirror of a cold wall in hot gas lies below 0 K, so the diffusion properties use each ghost's own state, and s_ibm_restore_conduction_temperature undoes this once the fluxes are formed. Call after the conservative-to-primitive conversion, before the halo exchange. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04308">4308</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04374">4374</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3118,7 +3118,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initializes the values of various IBM variables, such as ghost points and image points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01361">1361</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l01372">1372</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3146,7 +3146,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the fine-grid IB state (markers, ghost points, levelset, image points, interpolation coeffs) for the current block, mirroring the static-body portion of s_ibm_setup. Grid globals must be swapped to the fine block and IB globals to this slot (s_ibm_swap_to_fine) first. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10406">10406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10482">10482</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3187,7 +3187,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09996">9996</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l10072">10072</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3218,7 +3218,7 @@ Here is the caller graph for this function:</div>
 
 <p>Add to cnt(1:num_gbl_ibs) the ghost points each body has in the active list (the fine slot's when swapped in); counted on the device, since ghost_points never crosses to the host. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09874">9874</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09950">9950</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3258,7 +3258,7 @@ Here is the caller graph for this function:</div>
 
 <p>Copy the opposite interior cells into the halo of direction d at side loc (-1 beg, 1 end). Earlier directions are already filled, so the corner cells come out right. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l06953">6953</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07019">7019</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3281,7 +3281,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocates memory for the variables in the IBM module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00770">770</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00781">781</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3397,7 +3397,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Interpolate primitive variables to a ghost point's image point using bilinear or trilinear interpolation. </p>
+<p>Interpolate primitive variables to a ghost point's image point with the precomputed interp_coeffs: inverse-distance weights over the 2x2(x2) cell (ib_ip_interp = 1) or TSC weights over 3x3(x3) cells (ib_ip_interp = 2). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">q_prim_vf</td><td>Primitive Variables </td></tr>
@@ -3406,7 +3406,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07588">7588</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07662">7662</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3475,7 +3475,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07526">7526</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07599">7599</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3520,7 +3520,7 @@ Here is the caller graph for this function:</div>
 
 <p>Lagrange (biquadratic, triquadratic in 3D) weights of point loc on the stencil s_tsc_weights centres there, from the cells' own centres: an interpolant, where TSC smooths a sample by about (h^2/4) lap phi. Where a stencil cell is solid the TSC weights are kept. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07289">7289</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07362">7362</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3548,7 +3548,7 @@ Here is the caller graph for this function:</div>
 
 <p>Pack every ghost's global cell index (i, j, k) and T_cond into <a class="el" href="#aec06157c0c487559ea774c9c93a4d649" title="Packed (i, j, k, T_cond) per ghost for the T_cond restart file, so only these four reals per ghost cr...">gp_tc_rec(1:4, 1:num_gps)</a> on the device and bring only those four reals per ghost to the host, instead of the whole <a class="el" href="structm__derived__types_1_1ghost__point.html" title="Ghost Point for Immersed Boundaries.">ghost_point</a> (about 380 B). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04409">4409</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04475">4475</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3579,7 +3579,7 @@ Here is the caller graph for this function:</div>
 <p>Index of the most abundant species, i.e. the balance the sum constraint displaces. </p>
 <p>Closing sum(Y) = 1 by dropping one species' flux balance is standard (Surface CHEMKIN), but the dropped species absorbs the roundoff of every other balance, so it must be the bath gas. Dropping a fixed index instead &ndash; the last species in the mechanism &ndash; lands that error on whatever the mechanism happens to list last, which for the reduced GRI mechanism shipped with the reacting-surface example is H2O2, a trace radical whose own surface balance then goes unenforced. Cantera's solveSP re-scans for the largest species each iteration (evalSurfLarge) for this reason. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12137">12137</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12213">12213</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3609,7 +3609,7 @@ Here is the caller graph for this function:</div>
 
 <p>Prescribed kinematics for patch i at time t: hinged flapping (kin_model = 1) or the Eldredge pitch ramp (kin_model = 2). Flapping rolls phi about the lab x axis through the hinge and pitches theta about the body spanwise (y) axis through it; the ramp holds phi at zero and drives theta alone. Both compose as R = Rx(phi) Ry(theta) (MFC's angle convention) and set the angles, centroid, velocity and lab-frame angular velocity; nothing is integrated, so restarts are exact. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07975">7975</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08049">8049</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3640,7 +3640,7 @@ Here is the caller graph for this function:</div>
 
 <p>Restore T_cond of this rank's ghosts from the file of s_write_ib_conduction_temperature, after s_ibm_setup has found them. Rank 0 reads the header and broadcasts it (with file_per_process each rank reads its own); a rank then reads only the slabs whose bounding box meets its cells, in blocks of tcond_chunk records, keeping the records it owns. On the rank count that wrote the file that is its own slab: O(local ghosts) reads plus O(n_w) header entries; on another rank count a few neighbouring slabs. Nothing is proportional to the global ghost count. A file from before T_cond was saved is absent: the first stage then conducts through each ghost's own temperature, as it always did. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04645">4645</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04711">4711</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3690,7 +3690,7 @@ Here is the caller graph for this function:</div>
 
 <p>Store ghost point i's surface record in gp_surf. The weight is the surface area the point stands for. Ghost points within two cell sizes h = dV^(1/d) of the surface fill a band of volume ~2hA, so dV/(2h) each sums to the area A (a length in 2D) whatever the surface's orientation to the grid. The band lies inside the solid, where a layer at depth s has area A (1 - s/R)^(d-1) on a curved surface; for circles, spheres and cylinders the weight is scaled back by (R/(R - s))^(d-1), which removes that bias (sampled on random lattice offsets: &lt; 0.1% mean, 0.3% spread for a sphere at R = 12h). The factor is limited to R/(R - s) &lt;= 2, so a body of only a few cells cannot give an infinite or negative weight. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04772">4772</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04838">4838</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3718,7 +3718,7 @@ Here is the caller graph for this function:</div>
 
 <p>One line at the end of a run if the reacting surface ever failed to solve. Silence means every ghost point on every step reached the surface-balance tolerance, i.e. the surface chemistry was actually applied everywhere it was asked for. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04728">4728</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04794">4794</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -3739,7 +3739,7 @@ Here is the caller graph for this function:</div>
 
 <p>On restart, replace the re-measured centroid offsets with the ones the run was using (restart_data/ib_offset_&lt;step&gt;.dat, written with each checkpoint), and re-place kinematics-driven bodies about them. No file: the measured offsets stand. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08924">8924</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l08998">8998</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3767,7 +3767,7 @@ Here is the caller graph for this function:</div>
 
 <p>Builds the ascending list of distinct neighborhood ranks used by s_communicate_ib_forces and allocates its buffers once. The ascending order is the fixed order in which an owner adds its neighbors' contributions. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09162">9162</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09238">9238</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3807,7 +3807,7 @@ Here is the caller graph for this function:</div>
 
 <p>Restore the max-heap rooted at root over order(1:last), comparing by key. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05891">5891</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05957">5957</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3882,7 +3882,7 @@ Here is the caller graph for this function:</div>
 
 <p>Newton solve for a reacting surface. thermal_bc=0: zero-normal-gradient T; 1: prescribed T; 2: energy balance. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12168">12168</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12244">12244</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -3932,7 +3932,7 @@ Here is the caller graph for this function:</div>
 
 <p>Small dense linear solve with partial pivoting for the local surface Newton system. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12336">12336</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l12412">12412</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -3958,7 +3958,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ghost-point indices ordered by grid location, so per-point output does not inherit the discovery order. s_find_ghost_points assigns slots from a GPU atomic, so that order is the thread schedule's and differs between CPU and GPU builds (MFlowCode/MFC#2039). Heapsort, since a GPU run's input is unordered and a particle array carries O(10^5) ghost points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05864">5864</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05930">5930</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4013,7 +4013,7 @@ Here is the caller graph for this function:</div>
 
 <p>Surface energy residual: gas-side conduction balances heterogeneous reaction heat. Radiation and solid-side conduction are omitted. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11862">11862</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11938">11938</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -4108,7 +4108,7 @@ Here is the caller graph for this function:</div>
 
 <p>Assemble the Newton residual for Ns species, with temperature appended only when it is solved. k_bath selects which species balance the sum constraint displaces; see s_solve_surface for why it must be the most abundant one. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11898">11898</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11974">11974</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4178,7 +4178,7 @@ Here is the caller graph for this function:</div>
 
 <p>Species flux residual at a heterogeneous reacting surface. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11803">11803</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l11879">11879</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -4232,7 +4232,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07035">7035</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07101">7101</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -4255,7 +4255,7 @@ Here is the caller graph for this function:</div>
 
 <p>Send <a class="el" href="#aec06157c0c487559ea774c9c93a4d649" title="Packed (i, j, k, T_cond) per ghost for the T_cond restart file, so only these four reals per ghost cr...">gp_tc_rec(4, :)</a> to the T_cond of each ghost: a component copy, never the whole <a class="el" href="structm__derived__types_1_1ghost__point.html" title="Ghost Point for Immersed Boundaries.">ghost_point</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04473">4473</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04539">4539</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -4281,7 +4281,7 @@ Here is the caller graph for this function:</div>
 
 <p>Resets the current indexes of immersed boundaries and replaces them after updating the position of each moving immersed boundary Recalculate the moving bodies' rotation matrices from their current angles (device). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07807">7807</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07881">7881</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -4311,7 +4311,7 @@ Here is the caller graph for this function:</div>
 
 <p>Advance the temperature of each thermal_bc = 3 IB over one step, treating it as one lumped body (small Biot number). With E_solid = m c_s (T - T_ref), the step's face energy in from s_accumulate_ib_face_fluxes and the gasification rate from the surface solve, m c_s dT/dt = Q_in + c_s (T - T_ref) Mdot_out + heat_power - emissivity sigma A (T^4 - T_rad^4). Mdot_out is the solid's mass loss: the face mass sum also carries the ghost cells' non-conservation (a net inflow on a reacting cylinder). T_ref = 298.15 K is the reference of the formation enthalpies, so the gas energy the solid's lost carbon carries is consistent. The step is explicit: the body's thermal time m c_s/(h A) is many orders of magnitude longer than a flow step. For D/ib_heat.dat every body also keeps its gasification rate, face mass out and fluid heat in, Q_in (+ the c_s term for thermal_bc = 3), in patch_ibmdot, mdot_face and qdot. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04967">4967</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l05033">5033</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4335,7 +4335,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07854">7854</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07928">7928</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4363,7 +4363,7 @@ Here is the caller graph for this function:</div>
 
 <p>Wall columns (patch_ibwall_column): give each first-layer ghost of such a body its gas faces' weights, area times (<a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l(s_f)</a> - <a class="el" href="m__phase__change_8fpp_8f90.html#ae9acc6b70aad4473254a118fe7e38e72">l(s_g)</a>)/h with l the steady radial conduction coordinate (f_wc_ell) and s the signed wall distance of the face's gas cell and of the ghost. Over a circle these sum to its length to 1e-5 at 5-160 cells/R, where the face normals err by 0.3-5 %. The ghost list of fixed bodies is built once, so the columns stay with their ghosts (and ranks). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03340">3340</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03406">3406</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4403,7 +4403,7 @@ Here is the caller graph for this function:</div>
 
 <p>Conduction temperature of each active column ghost that makes its gas faces carry the column's wall flux, less a one-sided guard: sum_f G_f (T_f - T_cond) = sum_f (q w_f - cut_f), G_f = lambda_f area/h with the face conductivity the diffusion flux forms (each side at its own state, the ghost at T_w), and cut_f = g lambda (T_ext - T_f)^+ area/h. The guard stops the drain of a gas cell colder than the column over its own area: heat of gas the staircase has no room for, zero in steady state. The body still books q w_f (s_accumulate_ib_face_fluxes adds the cut back). Called after each ghost correction, so the gas values lag one stage as the image point's do. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03853">3853</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03919">3919</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4439,7 +4439,7 @@ Here is the caller graph for this function:</div>
 L0 = (d + s1)(d + s2)/(s1 s2),  L1 = -d (d + s2)/(s1 (s2 - s1)),  L2 = d (d + s1)/(s2 (s2 - s1))
 </pre><p>(d = ghost_depth, s1 = probe1_dist, s2 = probe2_dist below.) L0 + L1 + L2 = 1 and at d = 0 they reduce to (1, 0, 0), so the wall value is exact on the wall. s1 = max(h, d) bounds the weights by (3, -3, 1) at any ghost depth. Tier 1 uses both probes; tier 2 is the linear mirror where the outer probe has too little fluid around it (a narrow gap, a rim, a neighbouring body) or lies beyond the halo (a ghost several cells deep); tier 3 leaves the default treatment. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07400">7400</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l07473">7473</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4484,7 +4484,7 @@ Here is the caller graph for this function:</div>
 
 <p>A wall column's length s_m = max(3h, L) (L = wall_column_len, default 0.15 R), unit normal and wall foot. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l03942">3942</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04008">4008</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4534,7 +4534,7 @@ Here is the caller graph for this function:</div>
 
 <p>Area of the face between cells c and nb (neighbours along dir) and the distance between their centres. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04119">4119</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04185">4185</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -4557,7 +4557,7 @@ Here is the caller graph for this function:</div>
 
 <p>Wrap immersed boundary positions across periodic domain boundaries. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09043">9043</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l09119">9119</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4578,7 +4578,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write every ghost's T_cond to restart_data/ib_tcond_&lt;t_step&gt;.dat (lustre_&lt;t_step&gt;/ib_tcond_&lt;t_step&gt;_&lt;rank&gt;.dat with file_per_process). The file is a header of 64-bit integers (magic, format version, bytes per real, number of slabs n_w, then per slab its record count and the bounding box of its global cell indices) followed by one slab per writing rank, each record four reals: the global cell index (i, j, k) and T_cond of a ghost that has one. Keyed by cell, so the file does not depend on the order the ghosts were found in or on the rank count. Each rank writes its own slab at an offset from an exclusive scan of the counts: no rank holds the global records, and only 7 integers per rank reach rank 0 for the header. T_cond is formed from the primitive state at the start of the last stage, so it cannot be rebuilt from the saved conservative state. Collective. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04552">4552</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04618">4618</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4609,7 +4609,7 @@ Here is the caller graph for this function:</div>
 
 <p>Write this rank's surface records to D/ib_surface_&lt;rank&gt;_&lt;save&gt;.dat, one line per weighted ghost point. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04832">4832</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l04898">4898</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -4638,7 +4638,7 @@ Here is the caller graph for this function:</div>
 
 <p>some patch is a moving airfoil or STL, which carries a centroid_offset </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00741">741</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00752">752</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4656,7 +4656,7 @@ Here is the caller graph for this function:</div>
 
 <p>1 at ghost points whose image point reaches the fluid, 2 at those with a buried image point, 0 elsewhere. The latter average over the former, and never over each other. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00508">508</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4674,7 +4674,7 @@ Here is the caller graph for this function:</div>
 
 <p>corrected_gps in the real fields the halo exchange carries </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00714">714</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00725">725</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4690,7 +4690,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00533">533</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4708,7 +4708,7 @@ Here is the caller graph for this function:</div>
 
 <p>New primitive state per ghost point, staged so it is published only after every image-point stencil has been read (MFlowCode/MFC#1901). Writing q_prim inside the same loop that reads it at neighboring image-point stencils makes a ghost's result depend on whether its neighbors were updated first. Inverse-distance weights mask solid cells, so the race is latent there; a stencil that reads ghost cells (ib_ip_interp = 2) needs it. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00528">528</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00539">539</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4726,7 +4726,7 @@ Here is the caller graph for this function:</div>
 
 <p>per-i-slab ghost-point counts/offsets for the ordered gather (AMR) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00548">548</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4742,7 +4742,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00566">566</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4760,7 +4760,7 @@ Here is the caller graph for this function:</div>
 
 <p>Packed (i, j, k, T_cond) per ghost for the T_cond restart file, so only these four reals per ghost cross to the host. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00546">546</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00557">557</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4778,7 +4778,7 @@ Here is the caller graph for this function:</div>
 
 <p>a buried-image-point ghost exists on some rank (set with the interpolation coefficients): the fallback average then needs the corrected ghosts of the neighbouring ranks, and the halos of corrected_gps and the state are filled before it </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00712">712</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00723">723</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4796,7 +4796,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_heat is accumulated: some IB has thermal_bc = 3, ib_heat_wrt or ib_mass_relax </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00605">605</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00616">616</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4814,7 +4814,7 @@ Here is the caller graph for this function:</div>
 
 <p>Force (1:3) and torque (4:6) on each local IB from the fluid-body face fluxes of the last RHS evaluation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00753">753</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00764">764</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4830,7 +4830,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00629">629</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00640">640</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4848,7 +4848,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cells per direction in the image-point interpolation stencil: 2 (inverse distance, bilinear) or 3 (TSC). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00709">709</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00720">720</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4866,7 +4866,7 @@ Here is the caller graph for this function:</div>
 
 <p>The interpolation or the wall probes read solid cells, so ghost cells keep the last correction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00727">727</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00738">738</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4882,7 +4882,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00486">486</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4900,7 +4900,7 @@ Here is the caller graph for this function:</div>
 
 <p>Body markers in the fine-advance frame, read by s_compute_rhs's body-cell RHS zeroing while amr_in_fine_advance: the advanced block's fine markers (for a batch, every member's at its slab offset), loaded by s_ibm_load_fine_markers before each fine RHS pass. ib_markers holds the coarse markers during a fine RHS. Interior-only, sized to the allocation extents. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00492">492</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00503">503</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4916,7 +4916,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00664">664</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4934,7 +4934,7 @@ Here is the caller graph for this function:</div>
 
 <p>only the mass is accumulated, from fixed bodies without AMR (s_accumulate_ib_mass) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00606">606</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00617">617</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4958,7 +4958,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00746">746</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00757">757</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4976,7 +4976,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per patch_ib slot (the bodies this rank holds, not global ids), for the thermal_bc = 3 update, ib_heat_wrt and ib_mass_relax: (1) surface area and (4) gasification rate, from gp_surf; (2) energy into the solid and (3) mass out of it, both summed over the faces between the body's cells and fluid cells with the RK stage weights, so over a step they are exactly the energy and mass the fluid exchanged with the body; (5) the gas mass of the body's ib_mass_relax shell; (6) a copy of the body's bank (patch_ibmass_bank) and (7) the share of it released this step, for the multi-rank exchange. Rows 1:5 are this rank's partial sums until s_ib_exchange_heat adds them over the ranks that hold the body, through its owner. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00628">628</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00639">639</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -4994,7 +4994,7 @@ Here is the caller graph for this function:</div>
 
 <p>a power of two (f_ib_shard) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00647">647</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00658">658</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5012,7 +5012,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per patch_ib slot and shard: (1) energy and (2) mass from the face fluxes and (3) shell mass of ib_mass_relax, before they are summed into <a class="el" href="#ae856ec6f995d552056f7477779dd561a">ib_heat(2:3)</a> and <a class="el" href="#ae856ec6f995d552056f7477779dd561a">ib_heat(5)</a>. Every cell of a body's surface adds to the same few sums, and on AMD a device atomic on a double is a compare-and-swap loop that serializes by address, so the adds are spread over ib_nshard sums. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00646">646</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00657">657</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5038,7 +5038,7 @@ Here is the caller graph for this function:</div>
 
 <p>gbl_patch_id, force(1:3), torque(1:3) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00744">744</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00755">755</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5062,7 +5062,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00748">748</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00759">759</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5088,7 +5088,7 @@ Here is the caller graph for this function:</div>
 
 <p>s_ib_exchange_heat: bodies each neighbor sent partials of </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00747">747</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00758">758</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5112,7 +5112,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00747">747</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00758">758</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5136,7 +5136,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00746">746</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00757">757</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5160,7 +5160,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00748">748</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00759">759</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5184,7 +5184,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00746">746</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00757">757</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5202,7 +5202,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_mass_relax: the bank of a body (the gas mass it gained beyond its gasification and not yet returned) is patch_ibmass_bank, held by the owner. ib_shell: patch_ib slot of each fluid cell within ib_shell_width cells of a body, else 0 (valid until the step's handoff). ib_markers_prev: markers at the last placement of a moving body (s_add_swept_cells). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00664">664</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00675">675</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5218,7 +5218,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00665">665</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00676">676</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5236,7 +5236,7 @@ Here is the caller graph for this function:</div>
 
 <p>slots of ib_heat and ib_part: a bound on the bodies one rank holds </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00678">678</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00689">689</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5260,7 +5260,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00746">746</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00757">757</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5278,7 +5278,7 @@ Here is the caller graph for this function:</div>
 
 <p>Surface record per ghost point from the latest s_ibm_correct_state, kept when ib_surface_wrt: (1) area weight, (2) wall temperature, (3) gasified mass flux. Only ghost points within two cells of the surface carry a weight, so summing weight*flux over them integrates over the surface; see s_record_gp_surface. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00565">565</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00576">576</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5296,7 +5296,7 @@ Here is the caller graph for this function:</div>
 
 <p>Some IB has wall_column (<a class="el" href="namespacem__ib__wall__column.html" title="Sub-grid wall conduction column of an isothermal immersed wall (patch_ibwall_column): state and 1D nu...">m_ib_wall_column</a>). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00607">607</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00618">618</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5314,7 +5314,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_wall_order = 2: quadratic wall-normal ghost velocity at no-slip walls </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00728">728</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00739">739</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5330,7 +5330,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00588">588</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5346,7 +5346,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00589">589</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00600">600</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5362,7 +5362,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5380,7 +5380,7 @@ Here is the caller graph for this function:</div>
 
 <p>ib_flux_wall: per ghost point with a fluid face neighbor of a body, from its surface solve (zero for an inert body), the species mass fluxes into the gas (1:num_species), the energy flux (ibw_e), the blowing velocity (ibw_u:ibw_u + 2) and the wall area per face area, 1/sum|n_i| (ibw_a, 0 off a wall); ib_wall_theta: each fluid cell's positivity factor on its wall faces' rates </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5396,7 +5396,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5412,7 +5412,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00707">707</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00718">718</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5430,7 +5430,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ghost-point updates per fill tier and AMR level (0 = the coarse grid), summed over the run and reported at its end, because a tight packing can sit mostly in tier 2 and a second-order claim is then not true of that surface. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00474">474</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00485">485</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5454,7 +5454,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00745">745</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00756">756</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5472,7 +5472,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ghost points whose levelset distance was not positive, leaving the surface gradient (X_IP - X_s)/d undefined. Separate from the counter above because this is a grid/geometry degeneracy, not a kinetics failure. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00460">460</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00471">471</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5490,7 +5490,7 @@ Here is the caller graph for this function:</div>
 
 <p>Ghost points at which the reacting-surface Newton solve did not reach its tolerance, so the point fell back to a chemically inert wall (keeping a prescribed Twall). Counted because that fallback is otherwise indistinguishable from a surface mechanism that simply does nothing, and a run can look converged while the surface chemistry never engaged. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00467">467</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5508,7 +5508,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of ghost points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00679">679</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00690">690</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5526,7 +5526,7 @@ Here is the caller graph for this function:</div>
 
 <p>gp_surf is filled when it is written (ib_surface_wrt) or integrated (ib_exchange). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00604">604</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00615">615</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5544,7 +5544,7 @@ Here is the caller graph for this function:</div>
 
 <p>records per block read or written of an ib_tcond file </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00543">543</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00554">554</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5562,7 +5562,7 @@ Here is the caller graph for this function:</div>
 
 <p>first header word of restart_data/ib_tcond files </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00541">541</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00552">552</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5580,7 +5580,7 @@ Here is the caller graph for this function:</div>
 
 <p>format version of the ib_tcond header </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00542">542</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00553">553</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -5598,7 +5598,7 @@ Here is the caller graph for this function:</div>
 
 <p>Columns initialized (from the gas, at the first step of a run or restart). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00608">608</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__ibm_8fpp_8f90_source.html#l00619">619</a> of file <a class="el" href="m__ibm_8fpp_8f90_source.html">m_ibm.fpp.f90</a>.</p>
 
 </div>
 </div>

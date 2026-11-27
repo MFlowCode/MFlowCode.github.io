@@ -182,7 +182,8 @@ python3 examples/1D_reactive_shocktube/compare_reference.py examples/1D_reactive
 2D Conservation with AMR in a Periodic Box</h2>
 <p>A square of dense, high-pressure gas (rho = p = 2 in a background of 1, uniform flow (0.5, 0.25)) in a periodic unit box with two refined 2:1 levels that regrid every few steps. The density jump advects; the pressure jump sends shocks and rarefactions across block edges and the periodic boundaries. With periodic boundaries nothing enters or leaves, so the total mass, momentum and energy must stay at their initial values to round-off. <span class="tt">case.py</span> uses mapped WENO5, HLLC and SSP-RK3; the square's edges lie on base-grid faces, so the blocks start from exactly the level-0 state. </p><pre class="fragment">./mfc.sh run examples/2D_amr_conservation/case.py -t pre_process simulation -n 1 -- --subcycle
 python3 examples/2D_amr_conservation/check_conservation.py examples/2D_amr_conservation
-</pre><p><span class="tt">case.py</span> takes <span class="tt">-N</span> (base cells per side, default 64), <span class="tt">--levels</span> (default 2), <span class="tt">--subcycle</span>, <span class="tt">--steps</span> (default: to t = 0.4) and <span class="tt">--saves</span>. <span class="tt">check_conservation.py</span> reads the serial restart files of every save and prints the relative drift (S(t) - S(0))/S(0) of each total, summed exactly (<span class="tt">math.fsum</span>), and the gap between the level-0 totals and the totals over the composite grid (leaf cells of every level, from <span class="tt">amr_fine.dat</span>). It exits 1 if any drift exceeds <span class="tt">--tol</span> (1e-13).</p>
+</pre><p>The checkers import <span class="tt">mfc.viz</span>, so run them in MFC's Python environment (<span class="tt">source build/venv/bin/activate</span> after any <span class="tt">./mfc.sh</span> command).</p>
+<p><span class="tt">case.py</span> takes <span class="tt">-N</span> (base cells per side, default 64), <span class="tt">--levels</span> (default 2), <span class="tt">--subcycle</span>, <span class="tt">--steps</span> (default: to t = 0.4) and <span class="tt">--saves</span>. <span class="tt">check_conservation.py</span> reads the serial restart files of every save and prints the relative drift (S(t) - S(0))/S(0) of each total, summed exactly (<span class="tt">math.fsum</span>), and the gap between the level-0 totals and the totals over the composite grid (leaf cells of every level, from <span class="tt">amr_fine.dat</span>). It exits 1 if any drift exceeds <span class="tt">--tol</span> (1e-13).</p>
 <p>Measured on <span class="tt">master</span> after #2482, #2474 and #2461, AMD flang on a Frontier CPU node, double precision, 64^2 base, t = 0.4 (up to 52544 refined cells):</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -207,18 +208,18 @@ Final Condition</h3>
 Water Disk Advected in Air</h2>
 <p>A water disk (stiffened gas, pi_inf 1e9 Pa, 1000 kg/m^3) in air (1 kg/m^3), both at 1e5 Pa and u = v = 100 m/s, crosses a periodic unit box once along the diagonal with the 6-equation model. The exact solution keeps p and u uniform and returns the disk to its initial field. <span class="tt">check_advection.py</span> prints the largest pressure and velocity disturbance over all saves, the L1 error of the volume fraction per unit interface length and the width of the mixed zone, for one or several grids. </p><pre class="fragment">./mfc.sh run examples/2D_advection/case.py -t pre_process simulation post_process -n 1 -- -N 100
 python3 examples/2D_advection/check_advection.py examples/2D_advection --case-args "-N 100"
-</pre><p><span class="tt">case.py</span> takes <span class="tt">-N</span> (cells per direction, default 100), <span class="tt">--periods</span>, <span class="tt">--cfl</span> (0.4), <span class="tt">--saves</span> (20) and <span class="tt">--eps</span> (trace volume fraction, 1e-8). Measured with GNU 13.3 (CPU, one rank):</p>
+</pre><p><span class="tt">case.py</span> takes <span class="tt">-N</span> (cells per direction, default 100), <span class="tt">--periods</span>, <span class="tt">--cfl</span> (0.4), <span class="tt">--saves</span> (20) and <span class="tt">--eps</span> (trace volume fraction, 1e-8):</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">N  </th><th class="markdownTableHeadRight">max dp/p0  </th><th class="markdownTableHeadRight">max du/U  </th><th class="markdownTableHeadRight">L1 [cells]  </th><th class="markdownTableHeadRight">mixed-zone width, initial / final [cells]  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">50  </td><td class="markdownTableBodyRight">2.5e-3  </td><td class="markdownTableBodyRight">1.7e-4  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">9.17 / 9.25  </td></tr>
+<td class="markdownTableBodyRight">50  </td><td class="markdownTableBodyRight">3.7e-11  </td><td class="markdownTableBodyRight">1.1e-11  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">9.17 / 9.25  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">3.1e-6  </td><td class="markdownTableBodyRight">1.9e-9  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.18 / 9.26  </td></tr>
+<td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">2.5e-11  </td><td class="markdownTableBodyRight">5.6e-12  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.18 / 9.26  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">200  </td><td class="markdownTableBodyRight">3.2e-6  </td><td class="markdownTableBodyRight">2.2e-9  </td><td class="markdownTableBodyRight">0.142  </td><td class="markdownTableBodyRight">9.16 / 9.54  </td></tr>
+<td class="markdownTableBodyRight">200  </td><td class="markdownTableBodyRight">1.5e-10  </td><td class="markdownTableBodyRight">1.9e-10  </td><td class="markdownTableBodyRight">0.142  </td><td class="markdownTableBodyRight">9.16 / 9.54  </td></tr>
 </table>
-<p>At 100 cells and above the interface equilibrium holds to 3e-6. At 50 and 64 cells a localized pressure error of 2.5e-3 p0 appears after 0.4 flow-throughs in water cells with traces of air (open, cause not identified). An NVIDIA A100 run (NVHPC 25.11) at N = 100 agrees with the CPU values. The example is not in the test suite. See <a class="el" href="validation_multiphase_riemann.html" title="Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium">Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium</a>.</p>
+<p>The interface equilibrium holds to round-off at every grid. The deck runs with <span class="tt">mpp_lim = F</span>: the volume-fraction clip of <span class="tt">mpp_lim</span> is not matched by the energy, so where a trace fraction undershoots it shifts the water pressure (to 2.5e-3 p0 at 50 cells, 3e-6 at 100; #2476). Measured on the CPU with NVHPC 25.11 (four ranks); an NVIDIA A100 (NVHPC 25.5) gives 3.8e-11 and 3.4e-11 at N = 50 and 100. The example is not in the test suite. See <a class="el" href="validation_multiphase_riemann.html" title="Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium">Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium</a>.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md242"></a>
 2D Cylinder Wake with AMR: Drag and Strouhal Number, Re 100</h2>
 <p>A no-slip immersed cylinder in a low-Mach stream (U = 0.2, c = 1, M = 0.2, Re = 100 on the diameter D) sheds a von Karman street. One static 2:1 AMR block covers the body and the near wake (-1.5 D &lt;= x &lt;= 6 D, |y| &lt;= 2.5 D); the rest of the 36 D x 32 D domain (3.1 % blockage) stays at 16 cells per diameter. The case checks that the block reproduces the uniform 32-cells-per-diameter grid in mean drag and shedding frequency, and both against published values. It is also the body-wake row of "When AMR pays" in <span class="tt"><a class="el" href="amr_8md.html">docs/documentation/amr.md</a></span>.</p>
@@ -538,7 +539,7 @@ python3 examples/1D_acoustic_gauss_sigmatime/check_acoustic.py examples/1D_acous
 </pre><p><span class="tt">case.py</span> takes <span class="tt">-N</span> (cells; dt and the steps scale with it, c dt/dx = 0.6) and <span class="tt">--stretch a_x</span> (a stretched grid clustered on 0.3-0.6 mm). For a sweep, run copies of the directory and pass the case arguments of each run: </p><pre class="fragment">python3 check_acoustic.py run200 run400 run800 --case-args "; -N 400; -N 800"
 </pre><h3 class="doxsection"><a class="anchor" id="autotoc_md290"></a>
 Result</h3>
-<p>The amplitude converges to the linear value and the shape after the shift converges at about third order, but the pulse lags by $\Delta t/2$ at every resolution: the source is evaluated at the step-start time in all Runge-Kutta stages (<a href="https://github.com/MFlowCode/MFC/issues/2462">#2462</a>). The full tables are on <a class="el" href="validation_acoustics.html" title="Validation: Acoustic Sources">Validation: Acoustic Sources</a>.</p>
+<p>The pulse arrives on time ($|\tau| \le 0.002\,\Delta t$) and the L2 error falls at third order to a floor of about 2e-4 (round-off of the 1 Pa signal on the stiffened-gas energy). The source is evaluated at each Runge-Kutta stage's own time; with the step-start time in every stage the pulse lagged by $\Delta t/2$ and the error was first order (<a href="https://github.com/MFlowCode/MFC/issues/2462">#2462</a>). The full tables are on <a class="el" href="validation_acoustics.html" title="Validation: Acoustic Sources">Validation: Acoustic Sources</a>.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md291"></a>
 Burning Carbon Cylinder and Sphere Against a 1D Radial Reference</h2>
 <p>A fixed carbon body (D = 100 um) held at 2000 K gasifies in quiescent moist air at 10 atm and 2000 K, with a CO flame off the surface (the mechanisms of <span class="tt">2D_ibm_reacting_surface</span>: 11-species reduced GRI gas phase and the carbon surface mechanism). The body appears at t = 0 in a box of half-width 6 R with extrapolation faces; the surface chemistry runs with <span class="tt">ib_flux_wall</span> and <span class="tt">ib_heat_wrt</span> records the burn rate. <span class="tt">--ndim 2</span> is a cylinder, <span class="tt">--ndim 3</span> a sphere. The reference is a 1D transient solution of the same model (<span class="tt">ref1d.py</span>: finite volumes with geometric stretching, Cantera thermodynamics, kinetics and mixture-averaged transport, Stefan velocity from the ideal-gas constraint, the wall receiving the surface-solve fluxes); its burn rate and flame peak are tabulated in <span class="tt">ref_cylinder.txt</span> and <span class="tt">ref_sphere.txt</span> (N = 400 cells, outer radius 200 R). </p><pre class="fragment">./mfc.sh run examples/nD_ibm_carbon_burn/case.py -n 1 -t pre_process simulation post_process -- --cells_per_D 24 --tend 6e-5
@@ -695,6 +696,25 @@ Observed convergence</h3>
 <p>Second order through NX=400. The drop at NX=800 is the <span class="tt">O(dt)</span> time-splitting floor, which by then is comparable to the spatial error; refining <span class="tt">dt</span> restores second order.</p>
 <p>The result is unchanged on 2 ranks (<span class="tt">-n 2</span>), which exercises the MPI temperature halo exchange.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md302"></a>
+Cylindrical viscous operator and species diffusion: manufactured solutions</h2>
+<p>One RK3 step of a manufactured velocity field in cylindrical coordinates (x axial, y = r with the axis at r = 0, z = theta in radians), uniform density and pressure, mu = 1. The viscous rate is measured as <span class="tt">(q(dt) with viscosity - q(dt) without) / dt</span>, so every inviscid term cancels, and compared with the exact rate of the field (<span class="tt">exact_rates.py</span>, generated by <span class="tt">derive_rates.py</span> with sympy).</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><span class="tt">--case</span>  </th><th class="markdownTableHeadNone">field  </th><th class="markdownTableHeadNone">checks  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">A3</span>  </td><td class="markdownTableBodyNone"><span class="tt">u_x = A (r/R)^2 cos(theta)</span>  </td><td class="markdownTableBodyNone">theta divergence; exact <span class="tt">d(rho u_x)/dt = 3 mu A cos(theta)/R^2</span> at every r (issue #1910)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">B3</span>  </td><td class="markdownTableBodyNone"><span class="tt">u_theta = A (r + 0.5/r)</span> (Taylor-Couette)  </td><td class="markdownTableBodyNone">hoop term <span class="tt">tau_r_theta / r</span>; exact viscous force zero (rings with r &gt;= 0.5)  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">C3</span>  </td><td class="markdownTableBodyNone"><span class="tt">u_x = A r^3 cos(theta)</span>, <span class="tt">u_r = A r^2 cos(theta)</span>, <span class="tt">u_theta = A (r^3 - r^2 sin(theta))</span>  </td><td class="markdownTableBodyNone">all components, shear and bulk viscosity, both hoop terms, viscous work  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">E2</span>  </td><td class="markdownTableBodyNone"><span class="tt">u_x = A (r/R)^2</span>, <span class="tt">u_r = A (r/R)^3</span> (2D axisymmetric)  </td><td class="markdownTableBodyNone">radial flow: <span class="tt">u_r/r</span> in div u and the hoop term <span class="tt">-tau_theta_theta / r</span>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">S2</span>, <span class="tt">S3</span>  </td><td class="markdownTableBodyNone">h2o2 at rest, uniform T and p, unity Lewis: <span class="tt">Y_H2 = Y0 + eps (r/R)^2</span> (times <span class="tt">cos(theta)</span> in <span class="tt">S3</span>), N2 compensating  </td><td class="markdownTableBodyNone">species diffusion: radial term and axis cell (<span class="tt">S2</span>), theta divergence and face gradient (<span class="tt">S3</span>); exact rate of <span class="tt">rho Y_H2</span> is <span class="tt">4 rho D eps/R^2</span> (<span class="tt">3 rho D eps cos(theta)/R^2</span>) at every r  </td></tr>
+</table>
+<div class="fragment"><div class="line">python3 examples/3D_cyl_viscous_mms/run_mms.py --case A3 -N 32 64 128 -- --no-build</div>
+</div><!-- fragment --><p>The trailing flags are passed to <span class="tt">./mfc.sh run</span> (use the build flags of your build). The script writes its runs to <span class="tt">examples/3D_cyl_viscous_mms/runs/</span> and prints, per grid and component, the max-norm error relative to the largest exact rate and the distance to the rates of the operator before the fix (<span class="tt">MASTER</span> in <span class="tt">exact_rates.py</span>). For <span class="tt">S2</span>/<span class="tt">S3</span> the toggle is species diffusion (<span class="tt">chem_paramsdiffusion</span>), the state is set with Cantera, and the script prints the max-norm error of <span class="tt">c(r)</span>, the rate (3D: its <span class="tt">cos(theta)</span> coefficient) over <span class="tt">eps/R^2</span>, against its exact value with <span class="tt">rho D = k/cp</span> from Cantera (in 2D <span class="tt">4 rho D + 2 r d(rho D)/dr</span>, since <span class="tt">rho D</span> follows the local composition), relative to the exact mean. It includes the difference between Cantera's and MFC's transport fits. The species cases need a chemistry build (<span class="tt">h2o2.yaml</span>). Results: <span class="tt"><a class="el" href="validation__coordinates_8md.html">docs/documentation/validation_coordinates.md</a></span>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
 Boundary-condition patch geometry has to match the dimensionality</h2>
 <p><span class="tt">s_apply_boundary_patches</span> (<span class="tt">src/pre_process/m_boundary_conditions.fpp</span>) dispatches by dimensionality:</p>
 <div class="fragment"><div class="line"><span class="keywordflow">if</span> (p &gt; 0) <span class="keywordflow">then</span>                                  <span class="comment">! 3D</span></div>
@@ -704,7 +724,7 @@ Boundary-condition patch geometry has to match the dimensionality</h2>
 <div class="line">    <span class="keywordflow">if</span>      (patch_bc(i)%geometry == 1) <span class="keyword">call </span>s_line_segment_bc(i, bc_type)</div>
 </div><!-- fragment --><p>There is no <span class="tt">else</span>. A geometry belonging to the other dimensionality falls straight through: <b>the patch is never applied, nothing is printed, and the face silently keeps whatever <span class="tt">bc_[xyz]</span> gave it.</b></p>
 <p>That is quiet in the worst way. A nozzle cut into a no-slip wall with a 3D geometry in a 2D case simply stays a solid wall — the run completes, writes output, and the jet has a velocity of exactly zero for all time with no indication anything was ignored.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md303"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
 Running it</h3>
 <div class="fragment"><div class="line">./mfc.sh validate examples/2D_bc_patch_geometry/case.py                  # geometry 1, valid in 2D</div>
 <div class="line">GEOMETRY=3 ./mfc.sh validate examples/2D_bc_patch_geometry/case.py       # a 3D geometry in a 2D case</div>
@@ -717,32 +737,32 @@ Running it</h3>
 <td class="markdownTableBodyNone"><span class="tt">GEOMETRY=3</span>  </td><td class="markdownTableBodyNone"><b>passes, then does nothing at run time</b>  </td><td class="markdownTableBodyNone"><span class="tt">patch_bc(1)geometry must be 1 (line segment) in 2D; geometry 3 is never applied</span>  </td></tr>
 </table>
 <p>The 3D direction is symmetric: geometry 1 in a 3D case is equally ignored, and is now equally refused.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md304"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
 A second trap in the same corner</h3>
 <p>The case carries a second initial-condition patch a few cells thick at the inlet, and it is load-bearing: the Dirichlet buffer is filled by pre_process from the <b>initial condition at the boundary face</b>. A domain initialised at rest stores rest in that buffer, and the "inflow" then delivers zero for all time — again with no warning. This is not what the validator change addresses; it is noted here because the two failures look identical from the outside, and knowing that saves working out which one is in play.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md305"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
 Scope</h3>
 <p>Validator only; no source change and no golden files. All 182 example cases still validate.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md306"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
 2D Circular Blast with Two AMR Levels</h2>
 <p>A disc of gas at $(\rho, p) = (1, 1)$, radius 0.1, expands into gas at $(0.125, 0.1)$ (the 2D Sod explosion). By default the 128² grid carries two nested 2:1 levels on the shock and the contact (see <a class="el" href="amr.html" title="Adaptive Mesh Refinement">Adaptive Mesh Refinement</a>); <span class="tt">--no-amr -N &lt;N&gt;</span> runs the same blast on a uniform $N^2$ grid to the same time, $t = 0.15625$.</p>
 <p><span class="tt">check_blast.py</span> solves the radially symmetric problem on 16000 cells (second-order finite volume) and prints, per run, the L1 density error against it and the shock radius: </p><pre class="fragment">./mfc.sh run examples/2D_amr_blast_multilevel/case.py -t pre_process simulation -n 1
 python3 examples/2D_amr_blast_multilevel/check_blast.py &lt;run&gt; [&lt;run&gt; ...]
 </pre><p>The AMR run is as accurate as a uniform 512² grid (L1 5.5e-4 against 5.9e-4) and the shock radius agrees with the reference within a tenth of a cell. Results and limits (the AMR run aborts on an NVIDIA GPU, #2467): <a class="el" href="validation_blast.html" title="Validation: Circular Blast Wave">Validation: Circular Blast Wave</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md307"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
 1D Multi-Component Inert Shock Tube</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>P. J. Martínez Ferrer, R. Buttay, G. Lehnasch, and A. Mura, “A detailed verification procedure for compressible reactive multicomponent Navier–Stokes solvers”, Computers &amp; Fluids, vol. 89, pp. 88–110, Jan. 2014. Accessed: Oct. 13, 2024. [Online]. Available: <a href="https://doi.org/10.1016/j.compfluid.2013.10.014">https://doi.org/10.1016/j.compfluid.2013.10.014</a> </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md308"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
 Initial Condition</h3>
 <p><img src="initial-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md309"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
 Results</h3>
 <p><img src="result-1D_inert_shocktube-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md310"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
 3D Soft-Sphere Collision of a Heavy Sphere with a Wall</h2>
-<p>A sphere (R = 5 m, mass 1e6, heavy enough that the gas force is negligible) moves at 3.9 m/s toward the wall <span class="tt">y = 0</span> (<span class="tt">bc_ybeg = -15</span>) and rebounds under <span class="tt">collision_model = 1</span>. For a homogeneous sphere on a fixed wall with Coulomb friction coefficient mu and normal restitution e, rigid-body impact theory (Maw et al. <a class="el" href="citelist.html#CITEREF_maw1976">[53]</a>) gives, for incoming normal and tangential speeds v_n and v_t:</p>
+<p>A sphere (R = 5 m, mass 1e6, heavy enough that the gas force is negligible) moves at 3.9 m/s toward the wall <span class="tt">y = 0</span> (<span class="tt">bc_ybeg = -15</span>) and rebounds under <span class="tt">collision_model = 1</span>. For a homogeneous sphere on a fixed wall with Coulomb friction coefficient mu and normal restitution e, rigid-body impact theory (Maw et al. <a class="el" href="citelist.html#CITEREF_maw1976">[54]</a>) gives, for incoming normal and tangential speeds v_n and v_t:</p>
 <ul>
 <li>normal: <span class="tt">v_n' = -e v_n</span>;</li>
 <li>sliding throughout the contact (<span class="tt">tan(angle) &gt;= 3.5 mu (1 + e)</span>): <span class="tt">v_t' = v_t - mu (1 + e) |v_n|</span>;</li>
@@ -777,15 +797,15 @@ Results</h3>
 <td class="markdownTableBodyNone">0.8  </td><td class="markdownTableBodyNone">-1.54 %  </td><td class="markdownTableBodyNone">not run  </td><td class="markdownTableBodyNone">-0.37 %  </td></tr>
 </table>
 <p>The restitution error is first order in the steps per collision (it halves at each doubling). At the default 20 steps expect a few percent at low e. Its size and sign depend on where in a step the contact begins: an earlier run with the contact beginning on a step boundary gave +2.17 % and +0.69 % for e = 0.5 and 0.8 at 20 steps. The test registration therefore starts the contact half a step into a step, which keeps the contact timing the same on every compiler.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md311"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/3D_mibm_wall_collision/case.py -t pre_process simulation -n 1 --gpu mp
 python3 examples/3D_mibm_wall_collision/check_collision.py examples/3D_mibm_wall_collision
 </pre><p><span class="tt">case.py</span> takes <span class="tt">--angle</span>, <span class="tt">--e</span>, <span class="tt">--mu</span>, <span class="tt">--speed</span>, <span class="tt">--cells</span>, <span class="tt">--steps-per-collision</span>, <span class="tt">--lead-steps</span> and <span class="tt">--weno_order</span>. The suite registers the normal impact and the 50 degree sliding impact as <span class="tt">3D -&gt; IBM -&gt; Wall Collision -&gt; ...</span>. The sticking case is not a golden: where the contact point stops sliding, the friction direction is the sign of a velocity that goes to zero, so the rebound depends on round-off. The tests are skipped in the single-precision lane, where one-step shifts of the contact onset flip the rebound.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md312"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
 Limits</h3>
 <p>One sphere against a wall, at 3.9 m/s and three angles. Body-body collisions, spin and other speeds are not covered. The collision force is first order in the time step; this check does not separate the force evaluation from the detection. The <span class="tt">3D_mibm_sphere_head_on_collision</span> example places the start position with <span class="tt">sin(angle)</span> in both offsets, where a straight approach needs <span class="tt">cos(angle)</span> for the y offset; this example uses <span class="tt">cos</span>. See <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md313"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
 Sedov-Taylor blast with AMR</h2>
 <p>A point blast at the center of \([-0.6, 0.6]^3\): energy \(E = 1\) in a sphere of radius <span class="tt">--r0</span> = 0.04, gas at rest with \(\rho_0 = 1\), \(p_0 = 10^{-3}\), \(\gamma = 1.4\), extrapolation boundaries (the shock stays inside). The whole sphere is simulated: an AMR block must lie <span class="tt">buff_size</span> cells inside the domain, so an octant with symmetry walls through the blast cannot refine the shock where it meets them. The self-similar solution has the shock at \(R = \xi_0 (E t^2/\rho_0)^{1/5}\) with \(\xi_0 = 1.0328\), and a post-shock density of \((\gamma + 1)/(\gamma - 1) = 6\,\rho_0\).</p>
 <ul>
@@ -796,8 +816,9 @@ Sedov-Taylor blast with AMR</h2>
 <p><span class="tt">check_sedov.py</span> reads every save (<span class="tt">parallel_io = T</span>; level 0 and the fine blocks), takes the blast energy from the data (the total energy above the ambient, which is conserved), averages the density over spherical shells one finest cell thick, and takes the shock radius at the outermost half-jump between \(\rho_0\) and the peak. It integrates the similarity equations for \(\xi_0\) and prints the radius error and the peak density ratio. Save times come from <span class="tt">run_time.inf</span> (<span class="tt">run_time_info = T</span>).</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/3D_amr_sedov/case.py -t pre_process simulation -n 1 -- --N 96 --mode amr --subcycle</div>
 <div class="line">python3 examples/3D_amr_sedov/check_sedov.py examples/3D_amr_sedov</div>
-</div><!-- fragment --><p>Results and limits: the AMR section of the validation page.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md314"></a>
+</div><!-- fragment --><p>The checkers import <span class="tt">mfc.viz</span>, so run them in MFC's Python environment (<span class="tt">source build/venv/bin/activate</span> after any <span class="tt">./mfc.sh</span> command).</p>
+<p>Results and limits: the AMR section of the validation page.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
 H2/air Constant-Volume Ignition Against Cantera</h2>
 <p>A uniform periodic box (26 cells, no fluxes) of stoichiometric H2/air at 1 atm ignites at constant volume. <span class="tt">compare_cantera.py</span> advances a Cantera <span class="tt">IdealGasReactor</span> on the same mechanism (<span class="tt">h2o2.yaml</span>) and initial state and compares the ignition delay (time of max dT/dt), T(t), the end state against the UV equilibrium, and the sum of the mass fractions. </p><pre class="fragment">./mfc.sh run examples/1D_h2_air_ignition/case.py -t pre_process simulation post_process -n 1 -- --T0 1100
 python3 examples/1D_h2_air_ignition/compare_cantera.py examples/1D_h2_air_ignition --case-args "--T0 1100"
@@ -816,7 +837,7 @@ python3 examples/1D_h2_air_ignition/compare_cantera.py examples/1D_h2_air_igniti
 <p>The ignition delay is estimated from the saved samples (parabola through the maximum of dT/dt), so use many saves (<span class="tt">--nsaves 2000</span>, one save per 0.4 us) for a delay accurate to 1e-5; with 200 saves the absolute tau shifts by about 0.5 % (the MFC-Cantera difference is unaffected). The error column compares MFC and Cantera at the same sample times. The checker's default tolerances (tau 5e-5, max abs(dT) 1 K) are for dt = 1e-8 s.</p>
 <p>Time-step study at T0 = 1100 K, <span class="tt">--substeps 2</span>: dt = 2e-8 s gives tau error +6.9e-6 (200 saves) and max abs(dT) = 1.13 K, and dt = 5e-8 s gives +4.5e-5 and 6.46 K, against 0.29 K at 1e-8 s: second order in dt. With <span class="tt">--substeps 0</span> (reaction source inside the Runge-Kutta stages) and dt = 5e-10 s at T0 = 1200 K the ignition delay agrees to 2e-11 and max abs(dT) &lt; 1e-4 K. That integrator is stable only for dt below 2.51/(largest Jacobian eigenvalue), about 6e-10 s for burnt H2/air.</p>
 <p>The suite registers <span class="tt">1D -&gt; Chemistry -&gt; H2-Air Ignition -&gt; Split Reactions</span> (T0 = 1200 K, dt = 2e-8 s, 100 us). See <a class="el" href="validation_gas_chemistry.html" title="Gas-phase chemistry">Gas-phase chemistry</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md315"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
 2D Constant Acceleration of a Two-Way Immersed Circle</h2>
 <p>A circle (<span class="tt">moving_ibm = 2</span>, 1000 kg/m) in air at rest is accelerated by the body force <span class="tt">g_x = 1e5 m/s^2</span>. The gas force on it is negligible against the body force, so the centroid must follow <span class="tt">x = g t^2 / 2</span> and <span class="tt">v = g t</span>. The check is sensitive to the Runge-Kutta stage weights of the position update and to nothing else: a wrong stage velocity gives an exact velocity and a wrong position.</p>
 <p><span class="tt">check_kinematics.py</span> reads the last <span class="tt">restart_data/ib_state_*.dat</span> and prints the relative errors of the centroid and the velocity: </p><pre class="fragment">python3 examples/2D_mibm_constant_acceleration/check_kinematics.py &lt;case directory&gt; [--tol 1e-10]
@@ -829,18 +850,18 @@ python3 examples/1D_h2_air_ignition/compare_cantera.py examples/1D_h2_air_igniti
 <td class="markdownTableBodyRight">10  </td><td class="markdownTableBodyRight">200  </td><td class="markdownTableBodyRight">1.17e-6  </td><td class="markdownTableBodyRight">-2.9e-13  </td><td class="markdownTableBodyRight">-1.9e-13  </td></tr>
 </table>
 <p>Both are round-off. A build with the stage weights of the position update before the fix of #2040 gave a position error of 1.2e-3 with the same exact velocity (measured earlier, not repeated here).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md316"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_mibm_constant_acceleration/case.py -t pre_process simulation -n 1 --gpu mp
 python3 examples/2D_mibm_constant_acceleration/check_kinematics.py examples/2D_mibm_constant_acceleration
 </pre><p><span class="tt">case.py</span> takes <span class="tt">--cells_per_R</span> (default 5), <span class="tt">--steps</span> (200), <span class="tt">--g</span> (1e5) and <span class="tt">--weno_order</span> (default 1: first-order reconstruction keeps the check free of WENO weights, which amplify round-off; 5 gives WENO5 with the same kinematics). The suite registers it as <span class="tt">2D -&gt; IBM -&gt; Moving Circle -&gt; Constant Acceleration</span> with the golden <span class="tt">ib_forces.dat</span> history (force, velocity and centroid); it is skipped in the single-precision lane, where pressure round-off at 1e5 Pa moves the quiescent gas by about 1e-3 of the signal.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md317"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md318"></a>
 Limits</h3>
 <p>Only a constant acceleration is checked, not a force that varies in time. With <span class="tt">moving_ibm = 1</span> and an analytic velocity such as <span class="tt">U0 sin(w t)</span>, the velocity is evaluated at the step time rather than the stage time, and the centroid is off by about 1e-3 relative (cause not verified). See <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md318"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
 2D IBM-Walled Power-Law Poiseuille Channel</h2>
 <p>Validates the <b>immersed boundary (IBM) + non-Newtonian viscosity interaction</b>: the channel's no-slip walls are two rectangular IB slabs instead of domain boundary conditions, so the flow exercises the Herschel-Bulkley viscous fluxes at the IB walls, which <span class="tt">s_accumulate_ib_face_fluxes</span> in <span class="tt">m_ibm.fpp</span> also sums into the IB force. Companion to <span class="tt">examples/2D_poiseuille_thickening_nn</span>, which validates the same fluid against the same analytic profile with BC walls.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md319"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md320"></a>
 Geometry and parameters</h3>
 <p>Domain <span class="tt">x in [0, 0.2]</span> (periodic), <span class="tt">y in [0, 0.3]</span>, grid <span class="tt">m = 24</span>, <span class="tt">n = 95</span> (<span class="tt">dy = 0.003125</span>). Two rectangle IB slabs (<span class="tt">patch_ibgeometry = 3</span>, no-slip) bound the flow gap <span class="tt">y in [0.05, 0.25]</span> (half-height <span class="tt">H = 0.1</span>, centerline <span class="tt">y_c = 0.15</span>, 64 cells across the gap). Each slab extends beyond the domain in <span class="tt">x</span> and mostly outside the domain in <span class="tt">y</span>, so the only IB surface seen by the flow is its flat gap face; the slab centroids sit just <em>inside</em> the domain (a centroid exactly on the boundary is owned by no rank and its <span class="tt">ib_state</span> force record is never written). The domain BCs behind the slabs are no-slip walls (<span class="tt">bc_y = -16</span>), which keep the body-forced dead fluid inside the slabs benign. <span class="tt">patch_ibmass = 0</span> so the reported IB force is the fluid force alone (no <span class="tt">bf_x*mass</span> bookkeeping term); <span class="tt">ib_state_wrt = T</span> writes it at every save.</p>
 <p>Fluid and forcing match the BC-walled template (single Papanastasiou-regularized Herschel-Bulkley fluid, no yield stress):</p>
@@ -859,11 +880,11 @@ Geometry and parameters</h3>
 <td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">0.035</span>  </td><td class="markdownTableBodyNone">viscosity clamp (<span class="tt">~1.5x mu_wall = 0.0232</span>, clamp inactive)  </td></tr>
 </table>
 <p>Driven by <span class="tt">g_x = 5e-2</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span> (Mach ~3e-3); <span class="tt">cfl_adap_dt</span> with <span class="tt">cfl_target = 0.3</span> to <span class="tt">t_stop = 0.9</span> (~2 wall-viscous diffusion times).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md320"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
 Analytic solution</h3>
 <p>In the gap the steady fully-developed power-law profile is </p><pre class="fragment">u(y) = (n/(n+1)) * (rho*g/K)^(1/n) * ( H^((n+1)/n) - |y - y_c|^((n+1)/n) )
 </pre><p>and the steady x-force per wall per unit depth is <span class="tt">tau_w * L_x</span> with <span class="tt">tau_w = rho*g*H = 5e-3</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md321"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md322"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_poiseuille_nn/case.py -n 2
 ./build/venv/bin/python3 examples/2D_ibm_poiseuille_nn/compare_analytic.py
@@ -874,21 +895,21 @@ How to run</h3>
 done
 ./build/venv/bin/python3 examples/2D_ibm_poiseuille_nn/check_equivalence.py \
     build/ibm_nn_equiv/newtonian build/ibm_nn_equiv/nn1
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md322"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md323"></a>
 Validation results</h3>
 <p><b>A — n = 1 Newtonian equivalence (IBM mu_eff degeneracy).</b> A power-law fluid with <span class="tt">nn = 1, tau0 = 0, K = 0.02</span> is analytically the same fluid as a Newtonian one with <span class="tt">mu = 0.02</span>. Running both modes with the same fixed <span class="tt">dt = 6e-5</span> to <span class="tt">t = 0.3</span> gives <b>bitwise identical</b> velocity fields (max abs and rel L2 difference <span class="tt">0.0</span>) <em>and</em> bitwise identical IB wall forces — the non-Newtonian IBM path reduces exactly to the Newtonian one.</p>
 <p><b>B — analytic power-law profile (n = 1.5).</b> Relative L2 error of the steady x-averaged gap profile vs. the analytic solution: <b>5.8%</b> with the nominal <span class="tt">H = 0.1</span> (slab faces), <b>2.6%</b> with <span class="tt">H = 0.1016</span> fitted from the <span class="tt">u -&gt; 0</span> crossings (IBM walls are sharp only to ~half a cell; the fitted walls sit <span class="tt">~dy/2 = 0.0016</span> outside the faces). Steady-state drift between the last two saves 2.0e-3; profile bluntness (mean/peak) 0.640 vs. the <span class="tt">n = 1.5</span> theory 0.625 (parabola 0.667), confirming the pointed shear-thickening profile. The BC-walled template achieves 1.46% on the same fluid; the extra error is the diffuse-wall representation, not the viscosity model.</p>
 <p><b>C — IB wall force.</b> The IB force, the momentum flux the solver applies across the faces between slab and fluid cells, reaches <b>9.97e-4</b> per wall at <span class="tt">t = 0.9</span> (both walls identical by symmetry) vs. the analytic <span class="tt">tau_w*L_x = 1.0e-3</span>, a ratio of <b>0.997</b>. The earlier volume-integration estimator, which differenced ghost-cell states inside the body, gave 0.971.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md323"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md324"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md324"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md325"></a>
 Azimuthal Fourier conduction convergence (3D cylindrical)</h2>
 <p>Third member of the conduction verification set, after <span class="tt">examples/1D_conduction_convergence</span> (Cartesian) and <span class="tt">examples/2D_axisym_conduction_convergence</span> (radial, plus the axis cell). Both of those run at <span class="tt">p = 0</span> and therefore have no azimuthal direction at all. This case covers it.</p>
 <p>In 3D cylindrical mode (<span class="tt">grid_geometry == 3</span>) the third coordinate is the azimuth and <span class="tt">dz</span> is in <b>radians</b>, so the azimuthal term carries two metric factors, <span class="tt">(1/r^2) d2T/dtheta2</span>: one for the gradient and one for the divergence. <span class="tt">m_rhs.fpp</span> divides the conduction flux difference by <span class="tt">dz(l)</span> alone, so both factors have to come out of <span class="tt">grid_spacing</span> in <span class="tt">m_conduction.fpp</span>, which is why that direction uses <span class="tt">y_cc(y)**2 * (z_cc(z+1) - z_cc(z))</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md325"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md326"></a>
 Exact solution</h3>
 <p>Ideal gas, so <span class="tt">T = p / ((Gamma - 1) * rho * cv)</span>. Setting </p><pre class="fragment">rho(r, theta) = RHO0 / (1 + A (r/R)^2 cos(theta))
 </pre><p>at uniform pressure gives exactly </p><pre class="fragment">T(r, theta) = T0 (1 + A (r/R)^2 cos(theta)),   T0 = P0 / ((Gamma - 1) RHO0 cv),
@@ -897,13 +918,13 @@ Exact solution</h3>
 </pre><p>and the sum, <span class="tt">3 A T0 cos(theta) / R^2</span>, is <b>independent of <span class="tt">r</span></b>. At <span class="tt">t = 0</span> the velocity is zero and the pressure uniform, so every Euler flux and every cylindrical geometric source vanishes and the whole right-hand side is conduction: </p><pre class="fragment">(rho E(dt) - rho E(0)) / dt = k grad^2 T + O(dt).
 </pre><p>The radial half is reproduced <em>exactly</em> by the discretization: the 3D cylindrical <span class="tt">r</span>-grid is uniform (<span class="tt">m_grid.f90</span> only half-cells the axis for <span class="tt">grid_geometry == 2</span>), <span class="tt">T</span> is quadratic in <span class="tt">r</span>, and both the two-point face gradient and the two-point average of <span class="tt">F</span> are exact for that. Subtracting it therefore isolates the azimuthal half, and <span class="tt">compare_analytic.py</span> reports it ring by ring. Dropping either metric factor multiplies the azimuthal half by <span class="tt">r^2</span>, which no refinement removes.</p>
 <p>Boundaries: periodic in <span class="tt">x</span> and in <span class="tt">theta</span>, so the azimuthal direction has no boundary error at all. Excluded from the bulk error are cell <span class="tt">k = 0</span>, which reads the ghost across the axis (the documented non-converging axis error), and the two outermost cells: <span class="tt">k = NR-1</span> reads the mirrored wall ghost where <span class="tt">dT/dr</span> is not actually zero, and <span class="tt">k = NR-2</span> picks up an <span class="tt">O(dt)</span> share of that through the later Runge-Kutta stages.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md326"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md327"></a>
 Running</h3>
 <pre class="fragment">for np_ in 32 64 128 256; do
     NP=$np_ ./mfc.sh run examples/3D_cyl_azimuthal_conduction_convergence/case.py -n 1
     NP=$np_ ./build/venv/bin/python3 examples/3D_cyl_azimuthal_conduction_convergence/compare_analytic.py
 done
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md327"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md328"></a>
 Observed results</h3>
 <p><span class="tt">NR = 32</span>, <span class="tt">NX = 32</span>, exact <span class="tt">= 7.5e-01 cos(theta)</span>. The azimuthal truncation error of a centered second difference is <span class="tt">-dtheta^2/12</span> of the azimuthal half, i.e. <span class="tt">dtheta^2/36</span> of the total, and nothing else contributes:</p>
 <table class="markdownTable">
@@ -927,16 +948,16 @@ Observed results</h3>
 </table>
 <p>Flat across a 20x span in <span class="tt">r</span>, i.e. a 380x span in <span class="tt">r^2</span>. Refining <span class="tt">NR</span> at fixed <span class="tt">NP</span> leaves the bulk error unchanged (2.676e-04 at <span class="tt">NR = 32</span>, 2.656e-04 at <span class="tt">NR = 64</span>), confirming that the radial half contributes no error and that the table above is a pure azimuthal measurement.</p>
 <p>Without the <span class="tt">r^2</span> in <span class="tt">grid_spacing</span> the same <span class="tt">NP = 64</span> run gives a bulk L2 of 3.542e-01 and a ring-by-ring azimuthal ratio of 0.0088, 0.282, 1.063, 3.397 at those four radii &ndash; exactly <span class="tt">r^2</span>, and independent of resolution.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md328"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md329"></a>
 2D Orszag-Tang vortex with hyperbolic divergence cleaning</h2>
 <p>The Orszag-Tang vortex ($\gamma = 5/3$, <span class="tt">hcid = 250</span>) on a periodic unit square, 513 x 513 cells, WENO5-M, HLL, to t = 1, with <span class="tt">hyper_cleaning</span> (speed 2.5, damping time 0.004).</p>
 <p><span class="tt">check_divb.py</span> prints, for each save, the normalized divergence error $\overline{|\nabla\cdot B|}\,\Delta x/\overline{|B|}$ (second-order central differences), its maximum and the change of the total mass; given a second run of the same deck with <span class="tt">--no-clean</span>, it prints the two errors side by side. Without cleaning this deck stops with NaN at step 900 (t = 0.36), so run the control with <span class="tt">--steps 800</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md329"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md330"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_orszag_tang_hyper_cleaning/case.py -t pre_process simulation post_process -n 1
 python3 examples/2D_orszag_tang_hyper_cleaning/check_divb.py examples/2D_orszag_tang_hyper_cleaning [&lt;control run&gt;]
 </pre><p>Results: <a class="el" href="validation_mhd.html" title="Validation: Ideal MHD">Validation: Ideal MHD</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md330"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md331"></a>
 Lid-Driven Cavity Problem (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Bezgin, D. A., &amp; Buhendwa A. B., &amp; Adams N. A. (2022). JAX-FLUIDS: A fully-differentiable high-order computational fluid dynamics solver for compressible two-phase flows. arXiv:2203.13760 </p>
@@ -944,13 +965,13 @@ Lid-Driven Cavity Problem (2D)</h2>
 <blockquote class="doxtable">
 <p>Ghia, U., &amp; Ghia, K. N., &amp; Shin, C. T. (1982). High-re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. Journal of Computational Physics, 48, 387-411 </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md331"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md332"></a>
 Final Condition</h3>
 <p><img src="final_condition-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md332"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md333"></a>
 Centerline Velocities</h3>
 <p><img src="centerline_velocities-2D_lid_driven_cavity-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md333"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md334"></a>
 2D hypoelastic shear contact</h2>
 <p>A density contact (1 | 2 at x = 0.5) in a hypoelastic ideal gas ($\gamma$ = 1.4, G = 1, p = 1), periodic in y, with a uniform tangential velocity $v_0 = 1$ and a jump of the shear stress $\tau_{xy}$ = 0 | A. The jump launches shear waves at $c_S = \sqrt{G/\rho}$ = 1 and 0.707. First-order MUSCL, HLLD, forward Euler.</p>
 <p>The case serves two checks:</p>
@@ -958,19 +979,19 @@ Centerline Velocities</h3>
 <li><span class="tt">Convergence -&gt; HypoShearContact -&gt; HLLD / HLLC</span> in <span class="tt">./mfc.sh test</span> sweeps A over one step and checks the order of the pressure response (see the docstring of <span class="tt">case.py</span>);</li>
 <li><span class="tt">examples/1D_sodHypo/check_elastic.py</span> compares a longer run with the linear shear Riemann solution $v^* - v_0 = \Delta\tau_{xy}/(Z_l + Z_r)$, $\tau_{xy}^* = Z_l (v^* - v_0)$, $Z = \sqrt{\rho G}$, and the front speeds.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md334"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md335"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_hypo_shear_contact/case.py -t pre_process simulation post_process -n 1 -- -N 128 --steps 106
 python3 examples/1D_sodHypo/check_elastic.py examples/2D_hypo_shear_contact --case-args "-N 128 --steps 106"
 </pre><p><span class="tt">--steps</span> = ceil(0.8265 N) runs to t = 0.25. Results: <a class="el" href="validation_elastic_waves.html" title="Validation: Hypoelastic Wave Speeds">Validation: Hypoelastic Wave Speeds</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md335"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md336"></a>
 2D Moving Immersed Boundary: Gas-Mass Budget and Galilean Twin</h2>
 <p>A circle translates through gas at rest in a doubly periodic box (non-dimensional ideal gas, no chemistry), and the same circle is held while the gas streams past it at the same relative speed (the Galilean twin). In the closed box the gas mass is constant, so whatever the box gains is created by the body: a ghost-cell immersed boundary does not conserve mass at a moving wall, because gas flows through the faces between the fluid and the body into ghost cells whose values are then overwritten, and cells change side as the body moves. <span class="tt">ib_mass_relax</span> (default 30 for a moving body) takes that mass back. The twin checks the conducted heat and the force of the moving body against the held one. The full results and limits are on the <a class="el" href="validation_moving_body_budget.html" title="Validation: Moving-Body Mass Budget and Galilean Twin">Validation: Moving-Body Mass Budget and Galilean Twin</a> page.</p>
 <p><span class="tt">check_budget.py</span> reads the run directory: </p><pre class="fragment">check_budget.py mass RUN ...                       gas mass (cells outside the body) at every save, and the steady
                                                    rate in % of the gas per diameter travelled after the first diameter
 check_budget.py twin --moving RUN --fixed RUN      moving/fixed ratio of the conducted heat (from the temperature field) and of
                                                    F_x (ib_forces.dat), and the RMS of F_moving(t) - F_fixed(t)
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md336"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md337"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_moving_mass_budget/case.py -t pre_process simulation -n 1 --gpu -- \
     --cells_per_D 24 --mach 0.3 --box 5 --travel 6 --nsave 24 --relax 0
@@ -979,7 +1000,7 @@ python3 examples/2D_ibm_moving_mass_budget/check_budget.py mass examples/2D_ibm_
 ... -- (the same) --frame fixed
 python3 examples/2D_ibm_moving_mass_budget/check_budget.py twin --moving &lt;moving run&gt; --fixed &lt;fixed run&gt;
 </pre><p>Without arguments the case is the CI-sized test: 24 cells per diameter in a box of 5 D, 100 fixed steps (a quarter of a diameter of travel). It runs in the suite as <span class="tt">2D -&gt; IBM -&gt; Moving Circle -&gt; Mass Budget</span> (and <span class="tt">-&gt; Cold Wall</span>, the viscous isothermal twin). A build without MPI needs <span class="tt">--serial_io</span>; the checker then reads <span class="tt">p_all/</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md337"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md338"></a>
 Results</h3>
 <p>GNU 13 CPU, double precision, <span class="tt">master</span> at 0cdfdf02a. Inviscid, Mach 0.3, box 5 D, 6 D travelled, 24 saves, inverse-distance image points (<span class="tt">ib_ip_interp = 1</span>). Steady rate of the gas mass, % of the gas per diameter travelled (least squares after the first D), and the total change after 6 D:</p>
 <table class="markdownTable">
@@ -1007,23 +1028,24 @@ Results</h3>
 <td class="markdownTableBodyRight">0.2  </td><td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.894  </td><td class="markdownTableBodyRight">0.928  </td><td class="markdownTableBodyRight">0.784  </td><td class="markdownTableBodyRight">0.785  </td></tr>
 </table>
 <p>The heat of a wall close to the gas temperature agrees with its twin within 1 % with the correction; the force differs by 2 %. A cold wall (0.2 of the gas temperature) is not like for like: the conducted heat is 18 % low at 16 cells/D and 7 % at 32, and the force of the moving body differs from its twin by tens of percent with no consistent sign. See the page for the causes.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md338"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md339"></a>
 Limits</h3>
 <p>The box is closed and the body is a prescribed (kinematic) circle: this checks conservation and Galilean invariance, not a drag or heat-transfer value against a measurement. Not run here: reacting moving bodies and the 3D particle array (the examples <span class="tt">2D_ibm_wall_mass_budget</span> and <span class="tt">2D_ibm_reacting_surface</span> hold the fixed-body budget).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md339"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md340"></a>
 Freely Propagating H2/air Flame Speed Against Cantera</h2>
 <p>Stoichiometric H2/air at 300 K and 1 atm, <span class="tt">h2o2.yaml</span>, mixture-averaged transport, no Soret. <span class="tt">case.py</span> solves a Cantera <span class="tt">FreeFlame</span> (written to <span class="tt">IC/</span>, read through <span class="tt">hcid = 170</span>), shifts it to x = 6.5 mm of an 8 mm domain and starts it in the frame of the unburnt gas. The flame moves toward x = 0 (a wall); the outflow is a GRCBC subsonic boundary (<span class="tt">bc_xend = -8</span>) with the outlet pressure held at 1 atm. </p><pre class="fragment">./mfc.sh run examples/1D_h2_air_flame_speed/case.py -t pre_process simulation post_process -n 1 -- --dx_um 20
 python3 examples/1D_h2_air_flame_speed/compare_flame_speed.py examples/1D_h2_air_flame_speed --case-args "--dx_um 20"
 </pre><p>The case is not registered in the test suite (165 thousand steps at 40 um). Measured on master: dx = 40 um gives S_c = 2.3140 m/s (-0.76 % against the Cantera 2.3317), dx = 20 um gives 2.3268 m/s (-0.21 %). Results and limits: <a class="el" href="validation_gas_chemistry.html" title="Gas-phase chemistry">Gas-phase chemistry</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md340"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md341"></a>
 Rayleigh-Taylor Instability (3D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md341"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md342"></a>
 Final Condition and Linear Theory</h3>
 <p><img src="final_condition-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/> <img src="linear_theory-3D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md342"></a>
+<p><span class="tt">mpp_lim</span> is off: this case runs without it, and it breaks pressure equilibrium at material interfaces (see <span class="tt">mpp_lim</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md343"></a>
 2D General Herschel-Bulkley Poiseuille Channel</h2>
 <p>Validates the <b>combined</b> non-Newtonian terms of MFC's Herschel-Bulkley viscosity against a closed-form analytic Poiseuille profile: a shear-thinning power law (<span class="tt">nn = 0.5 &lt; 1</span>) <b>and</b> a yield stress (<span class="tt">tau0 &gt; 0</span>) acting together. The companion examples isolate each effect — <span class="tt">2D_poiseuille_nn</span> / <span class="tt">2D_poiseuille_thickening_nn</span> (power-law only, <span class="tt">tau0 = 0</span>) and <span class="tt">2D_bingham_poiseuille_nn</span> (yield only, <span class="tt">nn = 1</span>). The signature of a correct general Herschel-Bulkley model is a rigid <b>plug</b> near the centerline (where <span class="tt">|tau| &lt; tau0</span>) joined to a shear-thinning sheared profile at the walls.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md343"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md344"></a>
 Regime and parameters</h3>
 <p>Single Papanastasiou-regularized Herschel-Bulkley fluid with both a sub-unity flow index and a finite yield stress:</p>
 <table class="markdownTable">
@@ -1042,7 +1064,7 @@ Regime and parameters</h3>
 </table>
 <p>Driven by <span class="tt">g_x = 0.1</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span>, giving <span class="tt">tau_w = rho*g*H = 1e-2</span>, <span class="tt">u_plug ~ 4e-3</span> and Mach ~1e-3. Channel <span class="tt">L_y = 0.2</span>, <span class="tt">H = 0.1</span>, no-slip walls, periodic in <span class="tt">x</span>. Grid <span class="tt">m = 24</span> (x), <span class="tt">n = 63</span> (y).</p>
 <p>The plug viscosity diverges as the shear rate <span class="tt">-&gt; 0</span>, so the clamp <span class="tt">mu_max</span> sets the plug rigidity. <span class="tt">mu_max = 0.3</span> (~6x the wall effective viscosity) keeps a clear plug while keeping the explicit viscous timestep <span class="tt">dt ~ dy^2 rho/mu_max</span> tractable: <span class="tt">dt</span> scales as <span class="tt">1/mu_max</span>, so set <span class="tt">mu_max</span> just above the physical maximum required.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md344"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md345"></a>
 Governing physics and analytic solution</h3>
 <p>The shear stress is <span class="tt">tau = rho*g*(H - y)</span>; the fluid only flows where <span class="tt">|tau| &gt; tau0</span>. With <span class="tt">tau = tau0 + K*|du/dy|^n</span> and <span class="tt">tau_w = rho*g*H &gt; tau0</span>: </p><pre class="fragment">plug half-width   : y0   = tau0/(rho*g)
 sheared region    : u(y) = (n/((n+1)*rho*g)) * K^(-1/n) *
@@ -1051,29 +1073,43 @@ sheared region    : u(y) = (n/((n+1)*rho*g)) * K^(-1/n) *
 plug              : u_plug = (n/((n+1)*rho*g)) * K^(-1/n) *
                              (tau_w - tau0)^((n+1)/n)             (|y-H| &lt;  y0)
 </pre><p>(upper half mirrors about <span class="tt">y = H</span>). Requires <span class="tt">tau_w &gt; tau0</span> for any flow.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md345"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md346"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_herschel_bulkley_poiseuille_nn/case.py -n 2
 python examples/2D_herschel_bulkley_poiseuille_nn/compare_analytic.py
 </pre><p>The run reaches <span class="tt">t_stop = 0.4</span> in ~5 min on 2 CPU ranks with <span class="tt">dt ~ 1e-5</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md346"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md347"></a>
 Validation result</h3>
 <p>Relative L2 error vs. the analytic Herschel-Bulkley profile: <b>3.8%</b> (2-rank run, steady-state drift between the last two saves ~1.1%). The sheared-region momentum balance <span class="tt">K*|du/dy|^n + tau0 = rho*g*(H-y)</span> holds to ~1% near the walls. A flat plug forms at the centerline: because the Papanastasiou plug is regularized (not perfectly rigid), the strict <span class="tt">&gt;=99% u_max</span> band understates it, but the <b><span class="tt">&gt;=95% u_max</span> plug half-width = 0.0359 = 1.03 y0</b>, matching the analytic <span class="tt">y0 = tau0/(rho*g) = 0.035 = 0.35 H</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md347"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md348"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md348"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md349"></a>
+Smooth 1D waves: order of accuracy from exact cell averages</h2>
+<p>Two smooth periodic Euler problems that separate the reconstruction order from the primitive-variable conversion (<a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>):</p>
+<ul>
+<li><span class="tt">--problem advect</span>: a density wave $\rho = 1 + 0.2\sin 2\pi x$ carried at u = 1 through p = 1 ($\gamma$ = 1.4) for one period. u and p are uniform, so the primitives are linear in the conserved variables.</li>
+<li><span class="tt">--problem gamma3</span>: the isentropic $\gamma = 3$ wave $\rho_0 = 1 + 0.2\sin 2\pi x$, $u_0 = 0$, $p = \rho^3/3$, to t = 0.2. $u \pm c$ each obey Burgers' equation, so the exact solution follows from the characteristics.</li>
+</ul>
+<p><span class="tt">--ic avg</span> (default) starts from the exact conservative cell averages: <span class="tt">case.py</span> writes them to <span class="tt">IC/</span> next to itself and <span class="tt">hcid = 170</span> reads them, so each run needs its own copy of this directory. <span class="tt">--ic point</span> starts from point values. Other options: <span class="tt">-N</span>, <span class="tt">--order</span> (3, 5, 7), <span class="tt">--teno</span>, <span class="tt">--cfl</span> (0.02; use 0.005 for seventh order) and <span class="tt">--t-end</span>. </p><pre class="fragment">for N in 32 64 128 256; do
+  cp -r examples/1D_smooth_wave_order run$N
+  ./mfc.sh run run$N/case.py -t pre_process simulation post_process -n 1 -- -N $N --problem gamma3
+done
+python3 examples/1D_smooth_wave_order/check_smooth.py run32 run64 run128 run256 \
+    --case-args "-N 32 --problem gamma3;-N 64 --problem gamma3;-N 128 --problem gamma3;-N 256 --problem gamma3"
+</pre><p>The linear wave reaches the design order (5.0 for WENO5 and TENO5, 7.0 for WENO7 and TENO7). The $\gamma = 3$ wave is second order for every scheme, because MFC reconstructs primitive variables from cell averages. The tables are on <a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>. The example is not in the test suite.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md350"></a>
 3D Sphere, Re 20-300, Mach 0.2: Drag and Nusselt Number</h2>
 <p>A fixed no-slip isothermal sphere (immersed boundary, <span class="tt">thermal_bc = 1</span>) in dry air at Mach 0.2: the 3D companion of <span class="tt">2D_ibm_cylinder_drag_nu</span>. It measures the mean drag coefficient and the Nusselt number of a heated wall against the Schiller-Naumann drag correlation and the Ranz-Marshall and Whitaker Nusselt correlations. The drag is taken two ways that share no code: the face-flux force MFC writes with <span class="tt">ib_force_wrt</span> (<span class="tt">D/ib_forces.dat</span>), and a momentum balance on cubes of half-width 1 and 2 diameters around the body, from the saved fields. Chemistry is on for the thermodynamics and mixture transport only (<span class="tt">h2o2.yaml</span>, no fuel, reactions off). The full results and limits are on the <a class="el" href="validation_sphere_drag_nu.html" title="Validation: Sphere Drag and Nusselt Number">Validation: Sphere Drag and Nusselt Number</a> page.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md349"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md351"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/3D_ibm_sphere_drag_nu/case.py -t pre_process simulation post_process -n 1 --gpu -- \
     --silo --Re 100 --cells_per_D 12 --xu 3 --xd 6 --hy 3 --steps 0 --tstar 40
 python3 examples/3D_ibm_sphere_drag_nu/check_sphere.py examples/3D_ibm_sphere_drag_nu [--hot &lt;heated run&gt;]
 </pre><p><span class="tt">--tw_ratio 1.1</span> gives the heated twin whose directory goes to <span class="tt">--hot</span> (the Nusselt number uses the difference of the two, which removes the viscous heating of the wall). The output goes next to <span class="tt">case.py</span>, so copy the directory for each run. <span class="tt">--steps 0</span> selects the adaptive time step and <span class="tt">--tstar</span> the run length in <span class="tt">t U / D</span>. Without arguments the case is the CI-sized test: Re 20, 6 cells per diameter, a 4.2 D cube (25 x 25 x 25 cells), 30 fixed steps; it runs in the suite as <span class="tt">3D -&gt; Chemistry -&gt; IBM -&gt; Sphere Drag Nu</span> (golden: the force and heat histories and the conserved fields). The test is a smoke-level body 6 cells across, not a resolved sphere.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md350"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md352"></a>
 Results</h3>
 <p>A100, NVHPC 25.11, double precision, <span class="tt">master</span> at 860663835. Domain [-3 D, 6 D] x [-3 D, 3 D]^2 (2.2 % area blockage), <span class="tt">ib_ip_interp = 1</span>, adaptive step, 12 and 8 cells per diameter. Cd_IB is the face-flux force, Cd_CV the momentum balance on the cube of half-width 2 D (1 D in the page), SN Schiller-Naumann (2.610 at Re 20, 1.092 at Re 100), RM Ranz-Marshall (4.396, 7.359), W Whitaker (3.948, 6.621).</p>
 <table class="markdownTable">
@@ -1089,13 +1125,13 @@ Results</h3>
 <td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">12  </td><td class="markdownTableBodyRight">1.101  </td><td class="markdownTableBodyRight">+0.9 %  </td><td class="markdownTableBodyRight">1.100  </td><td class="markdownTableBodyRight">0.795  </td><td class="markdownTableBodyRight">6.905  </td><td class="markdownTableBodyRight">-6.2 %  </td><td class="markdownTableBodyRight">+4.3 %  </td></tr>
 </table>
 <p>L/D at Re 100: Johnson and Patel 0.88; no recirculation at Re 20 (below Re of about 24). The Nusselt number lies between the two correlations, which differ by 11 % from each other. Not run here: Re 300 (the wake needs t U/D of about 100), 20 cells per diameter (about 8 times the cost of 12), and the Mach 0.3-2 rows; the 8-cell runs stop at t U/D 12 (Re 100: not fully settled, Cd still falling by 0.2 % per two time units).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md351"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md353"></a>
 Limits</h3>
 <p>The ghost value of a no-slip wall is the wall value (first order, <a href="https://github.com/MFlowCode/MFC/issues/2389">#2389</a>), so the wake is short and the Nusselt number may drift with refinement; the 2.2 % blockage raises Cd slightly; the correlations are incompressible fits of 5 % (drag) and 11 % (between the two Nusselt correlations). A 12 cells/D run takes 2 to 3 hours on one shared A100.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md352"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md354"></a>
 3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)</h2>
 <p>A temporally-evolving supersonic reacting shear layer between a hot air stream and an N2-diluted hydrogen stream. The base state comes from Cantera-only stream mixing (or a counterflow flame with <span class="tt">--hot</span>) extruded into 3D by <span class="tt">hcid=371</span>. This is the supersonic counterpart to <span class="tt">examples/2D_reacting_mixing_layer</span>, which runs the same flamelet machinery at <span class="tt">Mc = 0.3</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md353"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md355"></a>
 Configuration</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1125,23 +1161,23 @@ Configuration</h3>
 </table>
 <p>x is streamwise, y is cross-stream (the flamelet profile axis), z is spanwise. The resolution density follows the temporal mixing-layer DNS of Wang et al. (<em>Combustion and Flame</em>, 2024), with the box reduced to a quarter of theirs in each direction.</p>
 <p>The fuel stream is diluted because pure H2's sound speed is over 4x the oxidizer's, so reaching <span class="tt">Mc = 1.5</span> would demand a velocity split of roughly 2650 m/s. <span class="tt">X_H2 = 0.5</span> brings that to about 1394 m/s and moves the stoichiometric mixture fraction off the domain edge.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md354"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md356"></a>
 Initial condition</h3>
 <p><span class="tt">case.py</span> calls <span class="tt">flamelet_ic.py</span> to solve a 1-D flamelet on the cross-stream grid and write it as <span class="tt">prim.&lt;n&gt;.00.000000.dat</span> under <span class="tt">IC/</span>. <span class="tt">hcid=370</span> would extrude those files uniformly across z and leave the flow z-invariant, so this case uses <span class="tt">hcid=371</span>: it scales the file's cross-stream velocity by <span class="tt">1 + 0.5*cos(k_z z)</span> and sets the spanwise component from the result, giving the IC 3D content at step 0. <span class="tt">k_z = 2*pi/L_z</span> is taken over the global domain, so the IC does not depend on the MPI decomposition.</p>
 <p>The in-plane <span class="tt">(x, y)</span> perturbation is baked into the files by <span class="tt">perturb_xy</span>, seeded by <span class="tt">perturb_seed</span> in <span class="tt">case.py</span>. <span class="tt">IC/</span> is gitignored and regenerated on a fresh checkout, so the fixed seed is what keeps the case reproducible. Regeneration is skipped when <span class="tt">IC/</span> already matches the grid and the physical parameters, tracked in <span class="tt">.cache_key.json</span>.</p>
 <p>The file spacing must match the run grid. A mismatch aborts in <span class="tt">pre_process</span>, so delete <span class="tt">IC/</span> and let it regenerate after changing the grid or <span class="tt">--scale</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md355"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md357"></a>
 Running</h3>
 <pre class="fragment">./mfc.sh run examples/3D_reacting_mixing_layer/case.py -n 8
 </pre><p><span class="tt">--scale</span> shrinks the grid for cheap runs; <span class="tt">--scale 0.05</span> gives 32^3. <span class="tt">--hot</span> runs the full Cantera counterflow flame solve instead of the default cold mollified profile. <span class="tt">flame_strain_rate</span> in <span class="tt">case.py</span> sets the nominal inlet strain rate (default 100/s). The hot profile is mapped by mixture fraction onto the prescribed shear layer; it replaces the former scalar-dissipation-matched flamelet initialization. See <a class="el" href="thermochemistry.html" title="Thermochemistry implementation">Thermochemistry implementation</a> for the model and validation details.</p>
 <p>The mechanism ships alongside the case as <span class="tt">sandiego.yaml</span> (UC San Diego Combustion Research Group, <a href="https://web.eng.ucsd.edu/mae/groups/combustion/mechanism.html">https://web.eng.ucsd.edu/mae/groups/combustion/mechanism.html</a>).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md356"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md358"></a>
 1D Riemann Problems Against the Exact Solution</h2>
 <p>Three ideal-gas ($\gamma = 1.4$) shock tubes on $0 \le x \le 1$ with the jump at $x = 0.5$ and outflow ends: Sod (default; $t = 0.2$), Lax (<span class="tt">--problem lax</span>; $t = 0.14$) and Toro's test 2, the "123" double rarefaction (<span class="tt">--problem 123</span>; $t = 0.15$). <span class="tt">case.py</span> also takes the grid (<span class="tt">-N</span>), the reconstruction (<span class="tt">--order</span>, <span class="tt">--muscl</span>, <span class="tt">--muscl-lim</span>, <span class="tt">--teno</span>), <span class="tt">--riemann hll|hllc|lax_friedrichs</span>, <span class="tt">--cfl</span>, and <span class="tt">--igr 3|5</span>, which runs information geometric regularization on a 2D strip 8 cells high, periodic in $y$ (IGR has no 1D path), with elliptic smoothing of the initial jump.</p>
 <p><span class="tt">check_riemann.py</span> reads one or more finished runs and prints the L1 errors of density, velocity and pressure against the exact cell averages (<span class="tt">riemann_exact.py</span>, Toro chapter 4), and the observed order between successive grids. It reads the states, the interface, $\gamma$ and the time from the run's input files, so it also checks <span class="tt">examples/1D_sodshocktube</span> and <span class="tt">examples/1D_laxshocktube</span>. </p><pre class="fragment">./mfc.sh run examples/1D_sod_convergence/case.py -t pre_process simulation -n 1 -- -N 512 --problem lax
 python3 examples/1D_sod_convergence/check_riemann.py &lt;run 128&gt; &lt;run 256&gt; &lt;run 512&gt; [--tol 1e-3]
 </pre><p>The output is written next to <span class="tt">case.py</span>, so copy the directory per run. Results (WENO1-7, TENO5, MUSCL, HLL/HLLC/Lax-Friedrichs, IGR, 128 to 2048 cells) and limits: <a class="el" href="validation_shock_tubes.html" title="Validation: Shock Tubes and the Shu-Osher Problem">Validation: Shock Tubes and the Shu-Osher Problem</a>. The suite runs the L1 self-convergence of this case for ten reconstructions (<span class="tt">Convergence -&gt; Sod</span>).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md357"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md359"></a>
 Premixed H2/Air Flame and a Vortex Ring (3D)</h2>
 <p>The 3D companion of <span class="tt">2D_flame_vortex_pair</span>: the same flame, mechanism, boundaries and fixed-dt numerics in a 3.2 mm cube, hit by a vortex ring (radius 0.4 mm, Gaussian core 0.15 mm, circulation 0.022 m^2/s, axis along x, centre at x = 0.9 mm). The ring's velocity is the exact axisymmetric Stokes stream function of its core. <span class="tt">pre_process</span> writes a uniform state and <span class="tt">ic3d.py</span> overwrites the restart file with the flame and the ring, so the run takes three commands and the case is not in the test suite. The restart file needs <span class="tt">parallel_io</span> (an MPI build). </p><pre class="fragment">./mfc.sh run examples/3D_flame_vortex_ring/case.py -n 1 -t pre_process -- --N 64
 python3 examples/3D_flame_vortex_ring/ic3d.py examples/3D_flame_vortex_ring
@@ -1150,11 +1186,12 @@ python3 examples/3D_flame_vortex_ring/analyze_fv3d.py RUN64 RUN128              
 </pre><p><span class="tt">analyze_fv3d.py</span> prints the H2O mass, the flame area (T = 1200 K isosurface) and the heat release at 40, 70 and 100 us, with the observed order and Richardson value for three grids (it needs scikit-image). <span class="tt">ic3d.py --gamma 0</span> with <span class="tt">--nyz 32</span> gives the flat-flame control.</p>
 <p>Run on an A100 at 32^3 to 20 us on <span class="tt">master</span> at 0cdfdf02a to check the three-command procedure (H2O mass 4.73474e-10 kg, flame area 1.02521e-5 m^2, heat release 59.59 W at 20 us). Convergence of the pre-merge study (64^3, 128^3, 256^3; not re-measured here) is in the page below: H2O mass orders 1.8 to 2.6, flame area order 2.0 at 70 us.</p>
 <p>Results and limits: <a class="el" href="validation_flame_vortex.html" title="Flame-vortex interaction">Flame-vortex interaction</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md358"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md360"></a>
 1D Sod Shock Tube with AMR Against the Exact Riemann Solution</h2>
 <p>The Sod problem (rho, u, p = 1, 0, 1 left and 0.125, 0, 0.1 right of x = 0.5, gamma = 1.4) run to t = 0.2 with one or two refined 2:1 levels that regrid onto the shock and the contact (<span class="tt">amr_tag_eps = 0.05</span> on the normalized density jump; the rarefaction stays at the base resolution). <span class="tt">case.py</span> uses mapped WENO5, HLLC and SSP-RK3 at CFL 0.4 on the cells that set <span class="tt">dt</span> (the finest level lock-step, the base grid subcycled), outflow ends. </p><pre class="fragment">./mfc.sh run examples/1D_amr_sod/case.py -t pre_process simulation -n 1 -- -N 200 --levels 2
 python3 examples/1D_amr_sod/check_sod.py examples/1D_amr_sod
-</pre><p><span class="tt">case.py</span> takes <span class="tt">-N</span> (base cells), <span class="tt">--levels</span> (refined levels; 0 is a uniform grid), <span class="tt">--fine</span> (a uniform grid at the finest AMR spacing, <span class="tt">N * 2**levels</span> cells), <span class="tt">--subcycle</span>, <span class="tt">--buf</span> (<span class="tt">amr_buf</span>, default 8), <span class="tt">--regrid</span> (<span class="tt">amr_regrid_int</span>), <span class="tt">--tag-eps</span>, <span class="tt">--cfl</span> and <span class="tt">--t-end</span>. <span class="tt">check_sod.py</span> takes one or more run directories and prints, from the composite solution (the finest level covering each point, read from the restart files), the L1 density error against the exact solution's cell averages and the signed contact and shock position errors (where rho crosses the middle of its exact jump). The exact solution is computed in the checker (the pressure function of Toro, ch. 4).</p>
+</pre><p>The checkers import <span class="tt">mfc.viz</span>, so run them in MFC's Python environment (<span class="tt">source build/venv/bin/activate</span> after any <span class="tt">./mfc.sh</span> command).</p>
+<p><span class="tt">case.py</span> takes <span class="tt">-N</span> (base cells), <span class="tt">--levels</span> (refined levels; 0 is a uniform grid), <span class="tt">--fine</span> (a uniform grid at the finest AMR spacing, <span class="tt">N * 2**levels</span> cells), <span class="tt">--subcycle</span>, <span class="tt">--buf</span> (<span class="tt">amr_buf</span>, default 8), <span class="tt">--regrid</span> (<span class="tt">amr_regrid_int</span>), <span class="tt">--tag-eps</span>, <span class="tt">--cfl</span> and <span class="tt">--t-end</span>. <span class="tt">check_sod.py</span> takes one or more run directories and prints, from the composite solution (the finest level covering each point, read from the restart files), the L1 density error against the exact solution's cell averages and the signed contact and shock position errors (where rho crosses the middle of its exact jump). The exact solution is computed in the checker (the pressure function of Toro, ch. 4).</p>
 <p>Measured on <span class="tt">master</span> after #2482 and #2474, AMD flang on a Frontier CPU node, double precision. L1(rho):</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1168,52 +1205,53 @@ python3 examples/1D_amr_sod/check_sod.py examples/1D_amr_sod
 </table>
 <p>With one level the error is the uniform 2N error within 1.6 %; with two levels it is within 9 % of the uniform 4N error, on 40 to 48 % of its cells. With two levels and <span class="tt">--buf 4</span>, a derived <span class="tt">amr_snap = 2</span> let the shock run ahead by 3.3e-3 at every N; #2474 derives it only for one-level runs (see the validation page).</p>
 <p>The suite registers <span class="tt">AMR -&gt; 1D -&gt; Example -&gt; Sod two levels</span> (<span class="tt">-N 32</span>, two levels, lock-step). Results and limits: <a class="el" href="validation_amr.html" title="Adaptive mesh refinement">Adaptive mesh refinement</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md359"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md361"></a>
 Shu-Osher Problem (1D, WENO5-Z)</h2>
 <p>A Mach 3 shock runs into the density wave $\rho = 1 + 0.2\sin 5x$ (Shu &amp; Osher 1989), here on $0 \le x \le 10$ with the shock at $x = 1$, to $t = 1.8$. The other <span class="tt">1D_shuosher_*</span> examples run the same problem with WENO5-JS, WENO5-M, TENO5 and TENO7. <span class="tt">-N</span> sets the cell count (default 1001; the step count scales with it).</p>
 <p><span class="tt">check_shuosher.py</span> compares one or more runs of any of these examples with a fine reference run (<span class="tt">-N 16016</span>), averaged onto each run's cells, and prints the L1 density error over the domain and over the shocked entropy waves: </p><pre class="fragment">./mfc.sh run examples/1D_shuosher_wenoz5/case.py -t pre_process simulation -n 1 -- -N 16016
 python3 examples/1D_shuosher_wenoz5/check_shuosher.py &lt;reference run&gt; &lt;run&gt; [&lt;run&gt; ...]
 </pre><p>Results (all five schemes at 1001 cells, WENO5-Z from 143 to 8008 cells, CPU and A100) and limits: <a class="el" href="validation_shock_tubes.html" title="Validation: Shock Tubes and the Shu-Osher Problem">Validation: Shock Tubes and the Shu-Osher Problem</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md360"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md362"></a>
 2D Thermally Developed Plane Channel</h2>
 <p>Laminar flow between two isothermal no-slip walls at $T_s$, periodic in $x$ and driven at a fixed bulk mass flux (<span class="tt">mean_mflux</span>, <span class="tt">mean_dpdx</span>). The gas is air (<span class="tt">h2o2.yaml</span>, reactions off, mixture-averaged transport) at 1 atm, bulk Mach number 0.1, $\mathrm{Re}_{D_h} = 150$ ($D_h = 2H$). The mean-temperature source with <span class="tt">mean_temp_wall = T_s</span> replaces the heat that the walls remove or add by the thermally developed form $T = T_s + \psi(y)\,e^{-\beta x}$ with $\psi$ periodic, and the controller holds the mixing-cup temperature $T_m$ at <span class="tt">mean_temp</span>. The developed Nusselt number of constant-property laminar flow between parallel plates at constant wall temperature is exact (7.541, Shah &amp; London 1978), so the case tests the source, its decay rate $\beta$, and the wall heat transfer together.</p>
-<p><span class="tt">check_nu.py</span> reads the finished run(s) and prints, for each: the hold error of $T_m$, $\beta H$ against the exact eigenvalue, and the Nusselt number two ways, $\mathrm{Nu}_\mathrm{src}$ from the source total (equal to the wall heat at steady state) and $\mathrm{Nu}_\mathrm{grad}$ from the wall temperature gradient of the last save, which does not use the source. With a hot and a cold run it also prints the pair value from half-differences, which cancels viscous heating and the first-order property asymmetry. The exact value includes axial conduction at the run's Peclet number ($\mathrm{Pe}_H = 53.3$ gives 7.5417). </p><pre class="fragment">python3 examples/2D_thermal_channel/check_nu.py &lt;hot run&gt; [&lt;cold run&gt;] [--tol 0.01]
-</pre><p>Measured with GNU 13.3 (CPU, one rank), 32 cells across the gap, 25 along $x$, $T_m = 300$ K, run time 0.3 $H^2/\alpha$ (14070 steps; the state is developed by about 0.1):</p>
+<p><span class="tt">check_nu.py</span> reads the finished run(s) and prints, for each: the hold error of $T_m$, $\beta H$ against the exact eigenvalue, and the Nusselt number two ways, $\mathrm{Nu}_\mathrm{src}$ from the source total (equal to the wall heat at steady state) and $\mathrm{Nu}_\mathrm{grad}$ from the wall temperature gradient of the last save, which does not use the source. With a hot and a cold run it also prints the pair value from half-differences, which cancels the first-order property asymmetry. The exact value includes axial conduction at the run's Peclet number ($\mathrm{Pe}_H = 53.3$ gives 7.5417). </p><pre class="fragment">python3 examples/2D_thermal_channel/check_nu.py &lt;hot run&gt; [&lt;cold run&gt;] [--tol 0.01]
+</pre><p>Measured with NVHPC 25.11 (CPU, one rank), 32 cells across the gap, 25 along $x$, $T_m = 300$ K, run time 0.3 $H^2/\alpha$ (14070 steps; the state is developed by about 0.1). The source removes the viscous dissipation from the energy equation, which the developed state excludes:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">run  </th><th class="markdownTableHeadRight">$T_m$ hold  </th><th class="markdownTableHeadRight">$\beta H$ (exact 0.1412)  </th><th class="markdownTableHeadRight">$\mathrm{Nu}_\mathrm{src}$  </th><th class="markdownTableHeadRight">$\mathrm{Nu}_\mathrm{grad}$  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">$T_s$ = 330 K  </td><td class="markdownTableBodyRight">2e-8  </td><td class="markdownTableBodyRight">0.1457  </td><td class="markdownTableBodyRight">7.507 (-0.46 %)  </td><td class="markdownTableBodyRight">7.141 (-5.3 %)  </td></tr>
+<td class="markdownTableBodyNone">$T_s$ = 330 K  </td><td class="markdownTableBodyRight">2e-8  </td><td class="markdownTableBodyRight">0.1432  </td><td class="markdownTableBodyRight">7.375 (-2.2 %)  </td><td class="markdownTableBodyRight">7.342 (-2.6 %)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">$T_s$ = 270 K  </td><td class="markdownTableBodyRight">4e-9  </td><td class="markdownTableBodyRight">0.1371  </td><td class="markdownTableBodyRight">7.600 (+0.77 %)  </td><td class="markdownTableBodyRight">7.998 (+6.1 %)  </td></tr>
+<td class="markdownTableBodyNone">$T_s$ = 270 K  </td><td class="markdownTableBodyRight">6e-9  </td><td class="markdownTableBodyRight">0.1397  </td><td class="markdownTableBodyRight">7.746 (+2.7 %)  </td><td class="markdownTableBodyRight">7.771 (+3.0 %)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">pair  </td><td class="markdownTableBodyRight"></td><td class="markdownTableBodyRight">0.1414 (mean)  </td><td class="markdownTableBodyRight">7.552 (+0.13 %)  </td><td class="markdownTableBodyRight">7.554 (+0.16 %)  </td></tr>
+<td class="markdownTableBodyNone">pair  </td><td class="markdownTableBodyRight"></td><td class="markdownTableBodyRight"></td><td class="markdownTableBodyRight">7.553 (+0.16 %)  </td><td class="markdownTableBodyRight">7.549 (+0.09 %)  </td></tr>
 </table>
-<p>A single run is biased by viscous heating and by the property change across the gap, with opposite signs for the hot and the cold wall; the pair cancels both. With 64 cells across the gap (run time 0.15 $H^2/\alpha$) both pair values are 7.546 (+0.05 %). The source and the gradient estimates agree within 0.1 % after pairing, so the source removes the heat that crosses the walls.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md361"></a>
+<p>A single run is biased by the property change across the gap, with opposite signs for the hot and the cold wall; the pair cancels it. The source and the gradient estimates of each run agree within 0.4 %, so the source removes the heat that crosses the walls. At Mach 0.3 the single runs stay within 3.2 % (pair 7.556 and 7.527); before the dissipation was removed they were off by 14 % and 29 %, and at Mach 0.1 the two estimates of a run differed by 5 %.</p>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md363"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_thermal_channel/case.py -t pre_process simulation -n 1 -- --ny 32 --nx 25 --tw 330 --tend 0.3
 </pre><p>(copy the directory for the second run with <span class="tt">--tw 270</span>, since the output is written next to <span class="tt">case.py</span>). <span class="tt">case.py</span> takes <span class="tt">--ny</span>, <span class="tt">--nx</span>, <span class="tt">--tw</span>, <span class="tt">--t0</span>, <span class="tt">--mach</span>, <span class="tt">--re</span>, <span class="tt">--tend</span> (in $H^2/\alpha$) and <span class="tt">--saves</span>. The suite registers the first 100 steps of the 330 K case, with non-mapped WENO3 (the golden of the default WENO5 differs by a few percent between compilers), as <span class="tt">2D -&gt; Chemistry -&gt; Thermal Channel -&gt; Wall Temperature</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md362"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md364"></a>
 Limits</h3>
 <p>Only the plane channel is verified. In periodic arrays of particles $\beta$ is not converged and the hot and cold runs disagree (see the note under <span class="tt">mean_temp_wall</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>). The streamwise velocity in the first four cells next to each wall alternates about the Poiseuille profile by up to 12 % of the bulk velocity (cause not verified; the Nusselt numbers are not affected at the 0.2 % level). See <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md363"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md365"></a>
 2D Hardcodied IC Example</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md364"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md366"></a>
 Initial Condition and Result</h3>
 <p><img src="initial-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/> <img src="result-2D_hardcoded_ic-example.png" alt="" width="45%" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md365"></a>
+<p><span class="tt">mpp_lim</span> is off: this case runs without it, and it breaks pressure equilibrium at material interfaces (see <span class="tt">mpp_lim</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md367"></a>
 Shu-Osher problem (1D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>C. W. Shu, S. Osher, Efficient implementation of essentially non-oscillatory shock-capturing schemes, Journal of Computational Physics 77 (2) (1988) 439–471. doi:10.1016/0021-9991(88)90177-5. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md366"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md368"></a>
 Initial Condition</h3>
 <p><img src="initial-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md367"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md369"></a>
 Result</h3>
 <p><img src="result-1D_shuosher_old-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md368"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md370"></a>
 Expansion Tube with Phase Change</h2>
 <p>Liquid water, water vapor and air (stiffened-gas parameters of Le Metayer et al.) at 1.175e5 Pa and the saturation temperature, pulled apart at 2 m/s from the centre, with infinitely fast pressure-temperature-Gibbs relaxation (<span class="tt">relax_model = 6</span>) after each step. <span class="tt">check_saturation.py</span> reads the relaxed state and prints, in every cell, the temperature of each phase from its own EOS (thermal equilibrium) and the distance of T from T_sat(p), the root of g_liquid = g_vapor (chemical equilibrium). </p><pre class="fragment">./mfc.sh run examples/1D_exp_tube_phasechange/case.py -t pre_process simulation post_process -n 1 -- -me 3
 python3 examples/1D_exp_tube_phasechange/check_saturation.py examples/1D_exp_tube_phasechange --case-args "-me 3"
@@ -1227,13 +1265,14 @@ python3 examples/1D_exp_tube_phasechange/check_saturation.py examples/1D_exp_tub
 <td class="markdownTableBodyNone">5-equation  </td><td class="markdownTableBodyRight">9.4e-7  </td><td class="markdownTableBodyRight">6.2e-4  </td><td class="markdownTableBodyRight">+6.76 %  </td></tr>
 </table>
 <p>The initial state lies on the saturation curve to 2.5e-7 K. The fluid parameters give T_sat(1 atm) = 373.79 K (373.12 K measured). Only the equilibrium of the relaxed state is checked, not the wave structure. See <a class="el" href="validation_multiphase_riemann.html" title="Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium">Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md369"></a>
+<p><span class="tt">mpp_lim</span> is off: this case runs without it, and it breaks pressure equilibrium at material interfaces (see <span class="tt">mpp_lim</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md371"></a>
 2D Taylor-Green Vortex (viscous decay)</h2>
 <p>$u = U_0\sin(x/L_0)\cos(y/L_0)$, $v = -U_0\cos(x/L_0)\sin(y/L_0)$ in a periodic box $[-\pi, \pi]^2$ (<span class="tt">patch_icppgeometry = 20</span>), at $U_0 L_0/\nu = 1.2\times10^{-5}$ and Mach $3\times10^{-4}$. The exact solution decays as $e^{-2\nu t/L_0^2}$, so the kinetic energy decays at the rate $4\nu/L_0^2$. <span class="tt">-N</span> sets the cells per direction (default 200).</p>
 <p><span class="tt">check_tgv.py</span> fits the decay rate of the kinetic energy over all saves and prints its error, and the error of the final kinetic energy, against the exact solution: </p><pre class="fragment">./mfc.sh run examples/2D_TaylorGreenVortex/case.py -t pre_process simulation -n 1 -- -N 64
 python3 examples/2D_TaylorGreenVortex/check_tgv.py &lt;run N=32&gt; &lt;run N=64&gt; [--tol 1e-4]
-</pre><p>The rate error is 7e-7 at 32 cells and 1e-10 at 128. Results and limits (the initial pressure of the patch is a quarter of the exact one, #2465): <a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md370"></a>
+</pre><p>The rate error is 7e-7 at 32 cells and 1e-10 at 128. Results and limits: <a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md372"></a>
 2D Plane Poiseuille Flow Between Two Flat Immersed Walls</h2>
 <p>Two static rectangle immersed boundaries at y = 0 and y = H = 1 bound a channel periodic in x and driven by a body acceleration. The gas (rho = 1, sound speed 1, constant viscosity) starts from rest and is run to steady state at peak Mach number 0.05 and Re = u_max H / nu = 1. The exact solution is u = g y (H - y) / (2 nu), with flow rate g H^3 / (12 nu), so the profile and the flow rate are known. The example measures <span class="tt">ib_wall_order = 1</span> (default) and <span class="tt">ib_wall_order = 2</span> at a flat wall, on the cell face and 0.37 cell inside it.</p>
 <p><span class="tt">check_poiseuille.py</span> reads the run directory (serial text output): </p><pre class="fragment">python3 examples/2D_ibm_plane_poiseuille/check_poiseuille.py examples/2D_ibm_plane_poiseuille [--tol X]
@@ -1249,15 +1288,15 @@ python3 examples/2D_TaylorGreenVortex/check_tgv.py &lt;run N=32&gt; &lt;run N=64
 <td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyRight">0.113  </td><td class="markdownTableBodyRight">6.7e-3  </td><td class="markdownTableBodyRight">+0.159  </td><td class="markdownTableBodyRight">+9.7e-3  </td></tr>
 </table>
 <p>With the wall 0.37 cell inside a face: 8 cells 0.474 and 7.2e-2, 16 cells 0.223 and 2.0e-2 (orders 1 and 2). The default order acts as if the no-slip sat about 0.75 cell outside the wall; order 2 removes most of it. The wall force from the face fluxes is a body-force balance and agrees within 1.2e-3 on a cell face for both orders; with the wall inside a cell the order 2 force splits unequally between the two walls (+-7 % at 8 cells, +-4 % at 16). The page <a class="el" href="validation_wall_order_couette.html" title="Wall-Normal Ghost Velocity at Viscous Walls">Wall-Normal Ghost Velocity at Viscous Walls</a> has the full tables.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md371"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md373"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_plane_poiseuille/case.py -t pre_process simulation -n 1 -- --cells 16 --ntau 12 --wall_order 2
 python3 examples/2D_ibm_plane_poiseuille/check_poiseuille.py examples/2D_ibm_plane_poiseuille
 </pre><p><span class="tt">case.py</span> defaults to a CI-sized run (8 cells across the gap, 32 x 28 cells, 300 fixed steps, far from steady state). Options: <span class="tt">--cells</span>, <span class="tt">--wall_order</span>, <span class="tt">--mach</span>, <span class="tt">--re</span>, <span class="tt">--offset</span> (wall offset from a cell face, in cells), <span class="tt">--nx</span>, <span class="tt">--steps</span>, <span class="tt">--ntau</span>. Each run writes into the example directory; remove <span class="tt">D/</span>, <span class="tt">restart_data/</span> and the <span class="tt">.inp</span> files between runs. Use one rank (serial text output). The suite registers the CI-sized run as <span class="tt">2D -&gt; IBM -&gt; Plane Poiseuille -&gt; ib_wall_order=2</span> (a regression golden).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md372"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md374"></a>
 Limits</h3>
 <p>Static walls, one Mach number and Reynolds number, 2D, one machine and compiler (NVIDIA A100, NVHPC 25.11, double precision). The shear read from the three cells nearest a wall does not converge for either order. No high-Reynolds-number boundary layer and no moving flat wall was measured.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md373"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md375"></a>
 1D Chapman-Jouguet Detonation Against the Equilibrium CJ Solution</h2>
 <p>A detonation in 2H2 + O2 + 7Ar at 100 kPa and 298 K travels down a tube from a closed end (x = 0, reflecting wall) at the speed an equilibrium Chapman-Jouguet (CJ) analysis predicts, and is followed by a Taylor-Zeldovich expansion. <span class="tt">case.py</span> runs it with the 5-equation model (one fluid), mapped WENO5 with <span class="tt">mp_weno</span>, HLLC, SSP-RK3 and the split alpha-QSS reaction integrator with adaptive substeps (<span class="tt">h2o2.yaml</span>, no diffusion or viscosity), at a fixed <span class="tt">dt = 0.3 dx / (u_vN + c_vN)</span> from the frozen von Neumann (vN) state. </p><pre class="fragment">python3 examples/1D_cj_detonation/cj_ref.py          # rewrites cj_ref.json and taylor_eq.txt (Cantera only)
 ./mfc.sh run examples/1D_cj_detonation/case.py -n 1 -t pre_process simulation post_process -- --ic tz --ppi 5 --L 0.5
@@ -1279,15 +1318,15 @@ python3 examples/1D_cj_detonation/check_cj.py examples/1D_cj_detonation --case-a
 </table>
 <p>The grids agree to 0.02 % in the front speed at the same time and the shortfall shrinks with distance (the 10 cm tubes end at 52 us, the 50 cm tubes at 264 us), so it is the approach to CJ and not discretization error. The plateau pressure is within 0.3 % and the front peak pressure reaches 0.92 to 0.99 of the vN value at 2.5 to 5 cells per Delta_i. NVHPC 25.11 on an A100 and on the CPU agree to the digits shown (10 cm, 2.5 cells per Delta_i); all runs are double precision.</p>
 <p>The suite registers <span class="tt">1D -&gt; Chemistry -&gt; CJ Detonation -&gt; Front Formation</span> (<span class="tt">--ic driver</span>, 200 cells, 300 steps). Results and limits: <a class="el" href="validation_detonation.html" title="Detonation">Detonation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md374"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md376"></a>
 Periodic Arrays of Fixed Particles: Drag, Force Spread and Nusselt Number</h2>
 <p>A random array of fixed no-slip isothermal bodies (2D cylinders, or spheres with <span class="tt">--dim 3</span>) in a periodic box, driven at a held bulk mass flux by the mean pressure gradient controller (<span class="tt">mean_mflux</span>). The case records the force on every body (<span class="tt">D/ib_forces.dat</span>), the heat it takes (<span class="tt">D/ib_heat.dat</span>) and the controller state (<span class="tt">mean_dpdx.dat</span>). <span class="tt">--thermostat</span> adds the thermally developed controller of Sun et al. (2015) (<span class="tt">mean_temp_wall</span>) for the Nusselt number. Gas: dry air with <span class="tt">h2o2.yaml</span> (thermodynamics and transport only, no reactions). Results, references and limits are on the <a class="el" href="validation_particle_array.html" title="Validation: Periodic Particle Arrays">Validation: Periodic Particle Arrays</a> page.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md375"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md377"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_periodic_array/case.py -n 2 --gpu
 python3 examples/2D_ibm_periodic_array/check_array.py examples/2D_ibm_periodic_array
 </pre><p>Without arguments the case is the CI-sized run: 12 cylinders at a solid fraction of 0.2, Re_m 20, 14 cells per diameter (96 x 96 cells), 200 fixed steps on 2 ranks, far from steady (<span class="tt">2D -&gt; Chemistry -&gt; IBM -&gt; Periodic Array</span>; its golden holds the conserved fields, the force and the heat histories). A drag run needs <span class="tt">--tstar 40</span> or more (about 12000 steps), and the 3D box <span class="tt">--dim 3 --n_bodies 20 --mach 0.3 --cfl 0.2 --cells_per_D 16 --tstar 10</span>. The placement is a seeded random sequential addition (<span class="tt">--seed</span>), identical on every Python version. <span class="tt">check_array.py</span> needs no post_process output.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md376"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md378"></a>
 Results</h3>
 <p>NVIDIA A100 80GB, NVHPC 25.11, double precision, <span class="tt">master</span> at 0cdfdf02a; 20 spheres at a solid fraction of 0.2 in a cube of 3.74 diameters, <span class="tt">ib_ip_interp = 1</span>, last 40 % of <span class="tt">tW/D</span> = 10. F/F_St is the total force per sphere over 3 pi mu D (1 - phi) W (Tenneti et al. 2011, Eqs. 33 and 38); the reference is their Eq. 43 at the realized Re_m.</p>
 <table class="markdownTable">
@@ -1305,11 +1344,11 @@ Results</h3>
 <td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">1  </td><td class="markdownTableBodyRight">24  </td><td class="markdownTableBodyRight">13.894  </td><td class="markdownTableBodyRight">12.606  </td><td class="markdownTableBodyRight">+10.2 %  </td><td class="markdownTableBodyRight">1.0000  </td></tr>
 </table>
 <p>The 2D run of the CI case to <span class="tt">tW/D</span> = 43 holds Q to 1e-6, closes the momentum balance to 1.0000 and gives a per-body force spread of 0.44 of the mean.</p>
-<p>Nusselt number (<span class="tt">--thermostat</span>, 20 spheres, Re_m 20, 16 cells/D, Mach 0.1, bodies at 290 K and 310 K, <span class="tt">tW/D</span> = 8): 6.65 (cold) and 5.04 (hot) against Gunn 5.995; the pair mean 5.84 is 2.6 % below Gunn and 1.7 times the Sun et al. (2015) value on the same basis. The hot/cold asymmetry (28 %) is an open item, so treat the values as plus or minus 15 %; see the <a class="el" href="validation_particle_array.html" title="Validation: Periodic Particle Arrays">Validation: Periodic Particle Arrays</a> page.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md377"></a>
+<p>Nusselt number (<span class="tt">--thermostat</span>, 20 spheres, Re_m 20, 16 cells/D, Mach 0.1, bodies at 290 K and 310 K, <span class="tt">tW/D</span> = 8): 6.11 (cold) and 5.71 (hot) against Gunn 5.995; the pair mean 5.91 is 1.4 % below Gunn and 1.7 times the Sun et al. (2015) value on the same basis. The hot/cold asymmetry (7 %, 28 % before the thermostat removed the viscous dissipation) is an open item, so treat the values as plus or minus 15 %; see the <a class="el" href="validation_particle_array.html" title="Validation: Periodic Particle Arrays">Validation: Periodic Particle Arrays</a> page.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md379"></a>
 Shock Through a Fixed Curtain of Particles (2D cylinders, 3D spheres, single sphere)</h2>
 <p>A planar Mach 1.66 shock in air (p1 = 82.7 kPa, T1 = 291.9 K) enters a random curtain of fixed no-slip bodies of diameter 115 um at a solid fraction of 0.2, periodic across the flow, with the post-shock state held at the inflow face. The quantity checked is the Favre-averaged gas velocity through the curtain, against the particle-resolved DNS of Sridhar, Fox and Capecelatro (2025, Case 5), whose profiles ship as <span class="tt">sridhar2025_ms166_phi02.txt</span> (values read from the published figure, binned medians). <span class="tt">--single</span> puts one body at the shock's arrival point instead (unsteady drag against Mehta et al. 2016); <span class="tt">--moving</span> frees the bodies; <span class="tt">--slip</span> and <span class="tt">--re_ps</span> select the wall model. The full results are on the <a class="el" href="validation_shock_curtain.html" title="Validation: Shock-Particle Interaction and Dense Curtains">Validation: Shock-Particle Interaction and Dense Curtains</a> page.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md378"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md380"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_shock_curtain/case.py -n 1 --gpu
 </pre><p>Without arguments this is the CI-sized run: 12 cylinders in a curtain 6 D thick and 8 D wide, 12 cells per diameter (240 x 96 cells), 300 fixed steps with the shock inside the curtain (<span class="tt">2D -&gt; IBM -&gt; Shock Curtain</span>; the golden holds the conserved fields and the force history). The comparison with the DNS is 3D and runs separately: </p><pre class="fragment">./mfc.sh run examples/2D_ibm_shock_curtain/case.py -t pre_process simulation post_process -n 1 --gpu -- \
@@ -1318,7 +1357,7 @@ python3 examples/2D_ibm_shock_curtain/check_curtain.py examples/2D_ibm_shock_cur
 </pre><p>Single-sphere drag (Ms 1.22, inviscid slip wall, 12 cells per diameter, 0.62 M cells): </p><pre class="fragment">./mfc.sh run examples/2D_ibm_shock_curtain/case.py -n 1 --gpu -- --dim 3 --single --slip --mach 1.22 \
     --xu 3 --xd 7 --width 6 --cells_per_D 12 --steps 0 --tau 8 --stride 2
 python3 examples/2D_ibm_shock_curtain/check_curtain.py examples/2D_ibm_shock_curtain --drag --mach 1.22
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md379"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md381"></a>
 Results</h3>
 <p>NVIDIA A100 80GB, NVHPC 25.11, <span class="tt">master</span> at 0cdfdf02a, double precision, inviscid no-slip spheres, 239 of them in a 17.4 D curtain across a 6 D x 6 D periodic cross-section at 10 cells per diameter (1.08 M cells), <span class="tt">ib_ip_interp = 1</span>.</p>
 <div class="image">
@@ -1326,7 +1365,7 @@ Results</h3>
 <div class="caption">
 Favre-averaged gas velocity through the curtain</div></div>
     <p>Mean absolute difference from the DNS profile in units of the post-shock velocity at the saves nearest the three panels (t/tau_L = 0.5, 1, 2): 0.047, 0.050, 0.047 (seed 1) and 0.038, 0.050, 0.052 (seed 2). A single sphere at Ms 1.22 (inviscid slip wall) gives a peak drag coefficient of 7.64 at 12 and 7.72 at 14 cells per diameter against 7.49 (Mehta et al. 2016), +1.9 % and +3.1 %; with the no-slip ghost velocity and inviscid fluxes the peak is 8.9 (+19 %).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md380"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md382"></a>
 Bubble Collapse in a Uniform Bubbly Liquid (Keller-Miksis)</h2>
 <p>A periodic, uniform bubbly mixture (<span class="tt">bubbles_euler</span>, one bubble size R0 = 50 um, void fraction 1e-5, water) is held at 1000 times the bubble's equilibrium pressure, so every cell holds the same collapsing bubble. The bubble ODE (Keller-Miksis, polytropic gas, surface tension, liquid viscosity) is sub-stepped adaptively (<span class="tt">adap_dt</span>). <span class="tt">check_collapse.py</span> integrates the same Keller-Miksis equation in Python at a constant far-field pressure, and again driven by MFC's own cell pressure, and prints the collapse time, the minimum radius and max |R_MFC - R_KM|/R0, with Rayleigh's collapse time 0.915 R0 sqrt(rho_l/(p_inf - p_v)) for scale. </p><pre class="fragment">./mfc.sh run examples/0D_bubblecollapse_adap/case.py -t pre_process simulation post_process -n 1
 python3 examples/0D_bubblecollapse_adap/check_collapse.py examples/0D_bubblecollapse_adap
@@ -1342,7 +1381,7 @@ python3 examples/0D_bubblecollapse_adap/check_collapse.py examples/0D_bubblecoll
 <td class="markdownTableBodyNone"><span class="tt">--dt 2.5e-5</span>  </td><td class="markdownTableBodyRight">1.0414  </td><td class="markdownTableBodyRight">+1.5e-4  </td><td class="markdownTableBodyRight">4.2e-3  </td><td class="markdownTableBodyRight">8.0e-5  </td></tr>
 </table>
 <p>The collapse time is the parabola through the three saves around the minimum, so it moves with the save interval for both MFC and the ODE. The 4e-3 difference from the constant-pressure ODE is the two-way coupling: as the void collapses the mixture pressure falls by 0.27 %, and the ODE driven by that pressure agrees to 9e-5 R0. An NVIDIA A100 run (NVHPC 25.11, OpenACC) gives the same numbers to the digits shown. See <a class="el" href="validation_bubbles.html" title="Validation: Bubble Dynamics">Validation: Bubble Dynamics</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md381"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md383"></a>
 Immersed-boundary force on a thin plate (issue #1849)</h2>
 <p>A 2D flat plate pitching about its leading edge, 0 → 45° on an Eldredge smoothed ramp (a = 21), K = π/8 (case C1), Re_c = 300, Ma 0.2, plate thickness 2.5 % of chord. There is a published measurement to compare against:</p>
 <blockquote class="doxtable">
@@ -1350,7 +1389,7 @@ Immersed-boundary force on a thin plate (issue #1849)</h2>
 </blockquote>
 <p><span class="tt">C_L = F_y / (½ ρ U² c) = 2 F_y</span> here, with ρ = U = c = 1 and MFC's 2D force being per unit depth.</p>
 <p>This case exists to <b>measure</b> the defect in #1849, not to fix it. Whoever does fix it needs a number to move.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md382"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md384"></a>
 Running the sweep</h3>
 <p><span class="tt">NCELL</span> sets how many cells lie across the plate thickness. The physical problem is identical at every level — same chord, same thickness, same domain, same times — so the sweep isolates the resolution requirement from any change of geometry, which a thickness sweep would confound.</p>
 <div class="fragment"><div class="line">NCELL=2  ./mfc.sh run examples/2D_ibm_thin_plate_force/case.py     # dx = 0.0125 c,   0.22 M cells</div>
@@ -1358,7 +1397,7 @@ Running the sweep</h3>
 <div class="line">NCELL=8  ./mfc.sh run examples/2D_ibm_thin_plate_force/case.py     # dx = 0.003125 c, 3.58 M cells</div>
 <div class="line">NCELL=16 ./mfc.sh run examples/2D_ibm_thin_plate_force/case.py     # dx = 0.0015625 c, 14.3 M cells</div>
 </div><!-- fragment --><p><span class="tt">SUMMARY=1 python3 case.py</span> prints the grid and step count without running anything.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md383"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md385"></a>
 What the sweep shows</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -1377,17 +1416,17 @@ What the sweep shows</h3>
 <p>Two separate readings:</p>
 <p><b>The peak converges from four cells up.</b> 4.682, 4.458 and 4.833 across a fourfold refinement — a spread of 8 % with no trend. Two cells is genuinely under-resolved and 35 % out; four is enough. So a thin body does not need ten or more cells before the immersed boundary resolves it, which is worth knowing on its own for cost estimates.</p>
 <p><b>The disagreement with the reference does not shrink.</b> The last column sits at 27–34 % at every resolution and shows no sign of falling as the grid refines. <b>That is the measurement that matters for #1849</b>: it rules out under-resolution as the explanation and points at the force computation itself.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md384"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md386"></a>
 Why a zero-reference check is not available here</h3>
 <p>The obvious cheap test — a symmetric body whose true force is exactly zero — does not apply to a pitching plate, whose lift is large and unknown. For that style of check see <span class="tt">examples/2D_ibm_force_decomposition</span> (a cylinder, whose lift must be zero) and <span class="tt">examples/3D_ibm_neighborhood_radius</span>. This case trades the exact reference for a published one.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md385"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md387"></a>
 Related</h3>
 <ul>
 <li>#1849 — the force integral over body cells on a thin plate, which this measures</li>
 <li>#1859 — an out-of-bounds coefficient read in the same force path, fixed</li>
 <li>#1863 — a spurious transverse force on multi-rank runs, open</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md386"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md388"></a>
 2D Inviscid Flow Around a Fixed Slip Cylinder: Mass Budget and Exact Vortex</h2>
 <p>An immersed-boundary cylinder with a slip wall (<span class="tt">patch_ib(1)slip = T</span>) in inviscid gas. Two checks of the ghost-cell wall, selected by <span class="tt">--mode</span>:</p>
 <ul>
@@ -1395,7 +1434,7 @@ Related</h3>
 <li><span class="tt">vortex</span>: the steady isentropic vortex u_theta = M c0 R / r (stagnation state 1e5 Pa and 1.2 kg/m^3 at infinity) is an exact Euler solution tangent to the wall. The pressure and velocity errors in the cells next to the wall measure the ghost state: the curvature term of the ghost pressure, the image-point interpolation (<span class="tt">ib_ip_interp</span>) and the isentropic ghost density with a total-enthalpy tangential speed (<span class="tt">ib_slip_ccst</span>). The initial condition is an analytic patch, so this mode compiles its own <span class="tt">pre_process</span> and <span class="tt">simulation</span> and is not in the test suite.</li>
 </ul>
 <p><span class="tt">check_slip.py</span> reads the run and prints the numbers of the tables. The results, limits and the slip-wall cases that fail are on the <a class="el" href="validation_slip_walls.html" title="Validation: Slip Immersed Walls">Validation: Slip Immersed Walls</a> page.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md387"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md389"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_slip_cylinder/case.py -t pre_process simulation post_process -n 1 -- --steps 0 --cells_per_R 16 --half 8 --mass_relax 1
 python3 examples/2D_ibm_slip_cylinder/check_slip.py examples/2D_ibm_slip_cylinder --case-args '--steps 0 --cells_per_R 16 --half 8 --mass_relax 1'
@@ -1403,7 +1442,7 @@ python3 examples/2D_ibm_slip_cylinder/check_slip.py examples/2D_ibm_slip_cylinde
 ./mfc.sh run examples/2D_ibm_slip_cylinder/case.py -t pre_process simulation post_process -n 1 -- --mode vortex --mach 0.3 --cells_per_R 20 --ip_interp 2 --ccst
 python3 examples/2D_ibm_slip_cylinder/check_slip.py examples/2D_ibm_slip_cylinder --case-args '--mode vortex --mach 0.3 --cells_per_R 20 --ip_interp 2 --ccst'
 </pre><p>Each run writes into the example directory, so check it before the next one. <span class="tt">--steps 0</span> runs one flow-through of the box in <span class="tt">leak</span> mode; the default 100 fixed steps on 8 cells per radius is the CI-sized case. The suite runs it as <span class="tt">2D -&gt; IBM -&gt; Slip Cylinder -&gt; Mass Budget</span> (the golden holds the conservative fields; skipped in the single-precision lane). On an NVIDIA A100 <span class="tt">--mass_relax 1</span> had no effect in this case (see the page); the CPU result is the one in the tables.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md388"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md390"></a>
 Results</h3>
 <p>Gas mass of the fluid cells, change relative to the first save, one flow-through of a box of side 16 R (GNU 13, one rank, <span class="tt">master</span> at 0cdfdf02a):</p>
 <table class="markdownTable">
@@ -1421,33 +1460,33 @@ Results</h3>
 <td class="markdownTableBodyRight">32  </td><td class="markdownTableBodyLeft">1  </td><td class="markdownTableBodyRight">-1.0e-13  </td><td class="markdownTableBodyRight">-2.3e-13  </td></tr>
 </table>
 <p>See the page for the exact-vortex tables (M = 0.3 and 0.6, 10 to 40 cells per R, four option sets). The first-band pressure error of the M = 0.3 vortex at 10 / 20 / 40 cells per R is 3.28e-2 / 1.58e-2 / 6.38e-3 with the defaults and 4.51e-3 / 1.22e-3 / 2.40e-4 with <span class="tt">ib_ip_interp = 2</span> and <span class="tt">ib_slip_ccst = T</span>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md389"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md391"></a>
 2D axisymmetric focused transducer</h2>
 <p>A spherical-cap transducer (<span class="tt">acoustic(1)support = 6</span>, <span class="tt">cyl_coord = T</span>) in water: radius of curvature F = 0.54 mm, aperture 0.8 mm, apex on the axis at x = 0.06 mm, one Gaussian pulse ($\sigma_t$ = 20 ns, delay 100 ns, <span class="tt">mag</span> = 1 Pa). The converging wave focuses on the axis at x = 0.6 mm, so the case tests the axisymmetric source, the geometric source terms and the axis together.</p>
 <p>On the axis the exact linear field of a cap with uniform normal velocity (O'Neil 1949) is</p>
 <p>$$ p(z, t) = \frac{F}{F - z}\left[p_0(t - z/c) - p_0(t - R_e/c)\right], \quad R_e = \sqrt{a^2 + (z - h)^2}, \quad h = F - \sqrt{F^2 - a^2}, $$</p>
 <p>which at the focus is $(h/c)\,dp_0/dt$: two peaks of $\pm\,\mathrm{mag}\,h/(c\sigma_t\sqrt{e})$ = ±3.60 Pa here. <span class="tt">check_focus.py</span> reads the pressure of a probe in the cell just past the focus (written every step with <span class="tt">--probe</span>) and prints the peak values and times against this solution and the L2 error of the signal.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md390"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md392"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_acoustic_support6_axisym/case.py -t pre_process simulation -n 1 -- --refine 4 --probe
 python3 examples/2D_acoustic_support6_axisym/check_focus.py examples/2D_acoustic_support6_axisym --case-args "--refine 4 --probe"
-</pre><p><span class="tt">--refine k</span> multiplies the 100 x 50 cells by k and divides dt by k. The peaks converge to the O'Neil value (−0.4 % at k = 8); see <a class="el" href="validation_coordinates.html" title="Validation: Axisymmetric Focusing and Stretched Grids">Validation: Axisymmetric Focusing and Stretched Grids</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md391"></a>
+</pre><p><span class="tt">--refine k</span> multiplies the 100 x 50 cells by k and divides dt by k. The peaks converge to the O'Neil value (−0.4 % at k = 8); see <a class="el" href="validation_coordinates.html" title="Validation: Cylindrical Coordinates and Stretched Grids">Validation: Cylindrical Coordinates and Stretched Grids</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md393"></a>
 Richtmyer-Meshkov Instability (2D)</h2>
 <p>Reference: See Example 4.18. </p><blockquote class="doxtable">
 <p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
 </blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md392"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md394"></a>
 Initial State</h4>
 <p><img src="figure0-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md393"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md395"></a>
 Evolved State</h4>
 <p><img src="figure1-2D_richtmyer_meshkov-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md394"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md396"></a>
 2D Lumped Cylinder Cooling in a Gas Stream</h2>
 <p>A hot, inert cylinder (an immersed boundary with <span class="tt">thermal_bc = 3</span>) sits in a cold air stream. The body is one lumped solid: a single temperature <span class="tt">Twall</span>, advanced every step by the heat the gas takes from it, </p><pre class="fragment">m c_s dT/dt = Q_in + P - eps sigma A (T^4 - T_rad^4)
 </pre><p>with <span class="tt">Q_in</span> the energy flux through the faces between the body's cells and the gas (see <span class="tt">thermal_bc</span> in the case documentation). Here <span class="tt">P</span> (<span class="tt">heat_power</span>) and the radiation term are zero and the surface is inert, so the body only cools. <span class="tt">ib_heat_wrt</span> writes the heat rate and <span class="tt">Twall</span> of every step to <span class="tt">D/ib_heat.dat</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md395"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md397"></a>
 What it shows</h3>
 <ul>
 <li><span class="tt">Twall</span> falls from 900 K toward the 300 K stream as a roughly exponential relaxation, with the heat rate largest at the start.</li>
@@ -1456,33 +1495,33 @@ What it shows</h3>
 </ul>
 <p><img src="lumped_wall-2D_ibm_lumped_wall-example.png" alt="" height="400" class="inline"/></p>
 <p>Left: the wall temperature of the lumped body (solid) against the exponential estimate (dashed). Right: the heat the body loses per unit length. The first 0.1 ms is the cylinder meeting the gas: the heat rate rises as the thermal layer and the wake develop, then decays as the body cools. Over the 2 ms run the body goes from 899.9 K to 321.8 K and loses 0.583 J/m, and the step-by-step balance <span class="tt">m c_s dT = Q dt</span> closes to a largest per-step imbalance of 2.5e-10 J/m (run on an AMD MI250X; the plot is what <span class="tt">heat_balance.py</span> writes).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md396"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md398"></a>
 Setup</h3>
 <p>Air at 1 atm and 300 K flows at 20 m/s (Re_D about 800 at the film temperature) past a cylinder of diameter 2 mm and initial temperature 900 K. The gas is the reduced 11-species mechanism shared with <span class="tt">2D_ibm_reacting_surface</span>, with transport and species diffusion on and reactions off; the flow numerics are the ones of that example. The 20-flow-through run takes about 11000 steps on a 168 x 120 grid.</p>
 <p>The heat capacity is deliberately tiny. A real metal rod of this size cools over seconds, about 10^4 flow-through times; <span class="tt">case.py</span> instead sets <span class="tt">cp_solid</span> so the thermal time is a quarter of the simulated 2 ms, using a Churchill-Bernstein Nusselt number for the film coefficient, and prints the estimate. The dashed curve in the plot is that exponential. It is an order-of-magnitude estimate: the actual coefficient is not uniform around the cylinder and changes as the wake develops, so the computed curve is not expected to lie on it.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md397"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md399"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_lumped_wall/case.py -t pre_process simulation -n 1 -g 0 --gpu acc
 cd examples/2D_ibm_lumped_wall &amp;&amp; python3 heat_balance.py
 </pre><p>Use <span class="tt">--gpu mp</span> for an OpenMP-offload build, or drop the GPU flags on a CPU build. The plot is written to <span class="tt">lumped_wall-2D_ibm_lumped_wall-example.png</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md398"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md400"></a>
 Limitations</h3>
 <p>One temperature per body is valid only while the Biot number is small; the geometry and mass are fixed (no recession); the update is explicit; the body must be a non-moving circle, sphere or cylinder; and the chemistry module is required even though no reaction occurs. The balance has been checked against first-order estimates, not an analytic solution.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md399"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md401"></a>
 Cooling in a cross flow, against the time constant of the fixed-wall Nusselt number</h3>
 <p><span class="tt">examples/2D_ibm_cylinder_drag_nu</span> runs the same lumped body (<span class="tt">--thermal_bc 3 --rho_cs &lt;J/m^3/K&gt;</span>) in the Re 20 and 40 cross flow of that example, and <span class="tt">check_lumped_cooling.py</span> compares its decay with the time constant <span class="tt">rho_s c_s D^2 / (4 Nu k_f)</span> that the Nusselt number of two fixed-wall twin runs implies. The results are on the <a class="el" href="validation_wall_thermal.html" title="Validation: Solid-Wall Thermal Models">Validation: Solid-Wall Thermal Models</a> page.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md400"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md402"></a>
 Shock Droplet (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Panchal et. al., A Seven-Equation Diffused Interface Method for Resolved Multiphase Flows, JCP, 475 (2023) </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md401"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md403"></a>
 Initial Condition</h3>
 <p><img src="initial-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md402"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md404"></a>
 Result</h3>
 <p><img src="result-2D_shockdroplet-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md403"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md405"></a>
 Premixed H2/Air Flame and a Vortex Pair (2D)</h2>
 <p>A stoichiometric H2/air flame (1 atm, 300 K, <span class="tt">h2o2.yaml</span>, mixture-averaged diffusion and conduction, viscous) in a 3.2 mm square is hit by a counter-rotating Lamb-Oseen vortex pair. The flame starts at x = 1.8 mm as the Cantera <span class="tt">FreeFlame</span> profile (<span class="tt">flame_profile.txt</span>, written by <span class="tt">make_profile.py</span>, flame speed S_L = 2.3315 m/s, thermal thickness 0.33 mm); the pair (circulation +-0.05 m^2/s, core radius 0.25 mm, centres 0.8 mm apart, y-periodic image sums, cyclostrophic pressure) starts at x = 0.9 mm and moves toward it. The boundaries are a slip wall at x = 0, the characteristic subsonic outflow at x = 3.2 mm (<span class="tt">bc_xend = -8</span>, GRCBC relaxation to 1 atm) and periodic in y. The time step is fixed (2.632e-9 s) on every grid, so the first-order error of the split chemistry is the same on all grids. <span class="tt">case.py</span> writes the initial condition for the chosen grid to <span class="tt">IC/</span> at the first run (read with <span class="tt">hcid = 274</span>). </p><pre class="fragment">./mfc.sh run examples/2D_flame_vortex_pair/case.py -n 1 -t pre_process simulation post_process -- --N 128 --tend 1e-4
 python3 examples/2D_flame_vortex_pair/analyze_fv.py RUN64 RUN128 RUN256                # convergence table: copies of this directory, one per grid
@@ -1510,37 +1549,38 @@ python3 examples/2D_flame_vortex_pair/analyze_fv.py RUN --flat                  
 <p>Observed orders from 64, 128 and 256 are not in the asymptotic range (the heat release at 40 us is non-monotone in the grid: -1.0 at 40 us, +0.6 at 70 us; the flame length at 70 us gives 1.8), as in the earlier study, where the orders 1.0 (40 us) and 2.1 (70 us) came from the three finest grids (128, 256, 512). The 512 x 512 grid was not run here.</p>
 <p>Flat flame (<span class="tt">--N 256 --ny 32 --gamma 0</span>, a 256 x 32 strip at the 256 x 256 spacing, 26.6 thousand steps to 70 us, NVIDIA A100, NVHPC 25.11): the displacement speed over 30 to 70 us (41 saves one microsecond apart, x_f fitted linearly, u_a and rho_a at T_up + 10 K) is S_d = 2.3393 m/s against the Cantera S_L = 2.3315 m/s, +0.33 % (earlier: +0.07 % over 30 to 90 us, +0.05 % in 3D).</p>
 <p>The suite registers <span class="tt">2D -&gt; Chemistry -&gt; Flame Vortex Pair</span> (64 x 64, 100 steps). Results and limits: <a class="el" href="validation_flame_vortex.html" title="Flame-vortex interaction">Flame-vortex interaction</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md404"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md406"></a>
 2D Triple Point (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Trojak, W., &amp; Dzanic, T. Positivity-preserving discoutinous spectral element method for compressible multi-species flows. arXiv:2308.02426 </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md405"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md407"></a>
 Numerical Schlieren at Final Time</h3>
 <p><img src="final-2D_triple_point-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md406"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md408"></a>
 Kelvin-Helmholtz Instability (2D)</h2>
 <p>Reference: See Example 4.8. </p><blockquote class="doxtable">
 <p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021). </p>
 </blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md407"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md409"></a>
 Initial State</h4>
 <p><img src="figure0-2D_kelvin_helmholtz-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md408"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md410"></a>
 Evolved State</h4>
 <p><img src="figure1-2D_kelvin_helmholtz-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md409"></a>
+<p><span class="tt">mpp_lim</span> is off: this case runs without it, and it breaks pressure equilibrium at material interfaces (see <span class="tt">mpp_lim</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md411"></a>
 2D Blast Wave Through a Particle Half-Ring</h2>
 <p>A Mach 10 cylindrical blast wave, released from a high-pressure driver at the origin, hits a half-ring of 1612 magnesium particles (radius 50 µm) in air. It uses the Euler-Lagrange solid-particle solver (<span class="tt">particles_lagrange</span>) with two-way coupling, Osnes quasi-steady drag, pressure-gradient force and added mass.</p>
 <p><span class="tt">gen_particles.py</span> writes the particles (seeded random placement without overlaps, radius 11.05–12.65 mm) to <span class="tt">input/particles.dat</span>; <span class="tt">case.py</span> calls it when pre_process runs, or run it yourself with <span class="tt">python3 gen_particles.py</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md410"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md412"></a>
 Result</h3>
 <p>Density-gradient schlieren |∇ρ|/ρ with the particles (white) at t = 50 µs.</p>
 <p><img src="result-2D_particle_hemisphere-example.png" alt="" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md411"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md413"></a>
 2D Bingham (Yield-Stress) Poiseuille Channel</h2>
 <p>Validates the <b>yield-stress term</b> of MFC's Herschel-Bulkley non-Newtonian viscosity against a closed-form analytic Poiseuille profile. Demonstrates the Bingham regime (<span class="tt">nn = 1</span>, <span class="tt">tau0 &gt; 0</span>): a rigid <b>plug</b> of uniform velocity forms near the centerline, where the shear stress falls below the yield stress.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md412"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md414"></a>
 Regime and parameters</h3>
 <p>Single Papanastasiou-regularized Herschel-Bulkley fluid with unit flow index, so <span class="tt">K = mu</span> is a plain Newtonian consistency and the only non-Newtonian effect is the yield stress:</p>
 <table class="markdownTable">
@@ -1558,37 +1598,38 @@ Regime and parameters</h3>
 <td class="markdownTableBodyNone"><span class="tt">fluid_pp(1)mu_min</span>/<span class="tt">mu_max</span>  </td><td class="markdownTableBodyNone"><span class="tt">1e-6</span> / <span class="tt">1.0</span>  </td><td class="markdownTableBodyNone">viscosity clamp (rigid plug)  </td></tr>
 </table>
 <p>Driven by <span class="tt">g_x = 0.1</span>, <span class="tt">rho = 1</span>, <span class="tt">pres = 10</span>, giving <span class="tt">tau_w = rho*g*H = 1e-2</span>, <span class="tt">u_plug ~ 3.6e-3</span> and Mach ~1e-3. Channel <span class="tt">L_y = 0.2</span>, <span class="tt">H = 0.1</span>, no-slip walls, periodic in <span class="tt">x</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md413"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md415"></a>
 Governing physics and analytic solution</h3>
 <p>The shear stress is <span class="tt">tau = rho*g*(H - y)</span>; the fluid only flows where <span class="tt">|tau| &gt; tau0</span>. With <span class="tt">n = 1</span>, <span class="tt">K = mu</span>, <span class="tt">tau_w = rho*g*H &gt; tau0</span>: </p><pre class="fragment">plug half-width   : y0   = tau0/(rho*g)
 sheared region    : u(y) = (1/(2*mu*rho*g)) *
                            [ (tau_w - tau0)^2 - (rho*g*(H-y) - tau0)^2 ]   (|y-H| &gt;= y0)
 plug              : u_plug = (1/(2*mu*rho*g)) * (tau_w - tau0)^2            (|y-H| &lt;  y0)
 </pre><p>The signature of a correct yield term is the flat plug of uniform velocity within <span class="tt">|y - H| &lt; y0</span>. Requires <span class="tt">tau_w &gt; tau0</span> for any flow.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md414"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md416"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_bingham_poiseuille_nn/case.py -n 2
 python examples/2D_bingham_poiseuille_nn/compare_analytic.py
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md415"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md417"></a>
 Validation result</h3>
 <p>Relative L2 error vs. the analytic Bingham profile: <b>2.5%</b> (2-rank run, steady state confirmed). A plug forms at the centerline with half-width matching the analytic <span class="tt">y0 = tau0/(rho*g) = 0.4 H</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md416"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md418"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md417"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md419"></a>
 Viscous Shock Tube (2D)</h2>
 <p>Reference: See Example 4.13. </p><blockquote class="doxtable">
 <p>A.S. Chamarthi, S.H. Frankel, A. Chintagunta, Implicit gradients based novel finite volume scheme for compressible single and multi-component flows, arXiv preprint arXiv:2106.01738 (2021)., see Example 4.13 </p>
 </blockquote>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md418"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md420"></a>
 Initial State</h4>
 <p><img src="figure0-2D_viscous_shock_tube-example.png" alt="" height="400" class="inline"/></p>
-<h4 class="doxsection"><a class="anchor" id="autotoc_md419"></a>
+<h4 class="doxsection"><a class="anchor" id="autotoc_md421"></a>
 Evolved State</h4>
 <p><img src="figure1-2D_viscous_shock_tube-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md420"></a>
+<p><span class="tt">mpp_lim</span> is off: this case runs without it, and it breaks pressure equilibrium at material interfaces (see <span class="tt">mpp_lim</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md422"></a>
 Isentropic vortex through AMR blocks</h2>
 <p>Shu's isentropic vortex ( \(\epsilon = 5\), \(\gamma = 1.4\)) carried by a uniform stream \(u = 1\) across a periodic \([-10, 10]^2\), from \(x = -3\) to \(x = 3\) at \(t = 6\). The exact solution is the initial vortex translated, so the density error at the end measures the accuracy of the coarse/fine coupling for a smooth flow. Every level starts from the exact cell averages of the conserved variables (3x3-point Gauss in the patch expressions, which use <span class="tt">dx</span>, <span class="tt">dy</span>).</p>
 <ul>
@@ -1601,11 +1642,12 @@ Isentropic vortex through AMR blocks</h2>
 <p><span class="tt">check_vortex.py</span> reads the last save (<span class="tt">restart_data/lustre_&lt;step&gt;.dat</span> and the fine blocks in <span class="tt">restart_data/lustre_amr_&lt;step&gt;.dat</span>; <span class="tt">parallel_io = T</span>) and compares the density with the exact cell averages (4x4-point Gauss) on the composite grid: the fine cells where a block covers a point, level 0 elsewhere. It prints L1 (area mean) and Linf, the largest error within 3 level-0 cells of a block edge ("seam") and elsewhere ("away"), the refined share of the domain, and the observed order between successive <span class="tt">--N</span> of one kind.</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_amr_isentropic_vortex/case.py -t pre_process simulation -n 1 -- --N 128 --mode static --prolong 2</div>
 <div class="line">python3 examples/2D_amr_isentropic_vortex/check_vortex.py &lt;run directories in increasing N&gt;</div>
-</div><!-- fragment --><p>Each run writes next to <span class="tt">case.py</span>: copy the directory per run. Results and limits: the AMR section of the validation page.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md421"></a>
+</div><!-- fragment --><p>The checkers import <span class="tt">mfc.viz</span>, so run them in MFC's Python environment (<span class="tt">source build/venv/bin/activate</span> after any <span class="tt">./mfc.sh</span> command).</p>
+<p>Each run writes next to <span class="tt">case.py</span>: copy the directory per run. Results and limits: the AMR section of the validation page.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md423"></a>
 2D Shear-Thinning Lid-Driven Cavity</h2>
 <p>Qualitative demonstration of MFC's Herschel-Bulkley non-Newtonian viscosity in a recirculating flow. A shear-thinning fluid fills a unit square cavity driven by a moving top lid. Unlike the Poiseuille examples, <b>this case has no closed-form analytic solution</b> — it is a qualitative demonstration of the expected shear-thinning trend (a primary vortex center shifted toward the moving lid, with stronger near-wall velocity gradients relative to the Newtonian case).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md422"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md424"></a>
 Regime and parameters</h3>
 <p>Two identical Papanastasiou-regularized Herschel-Bulkley fluids (a two-fluid setup sharing one rheology), pure power law (<span class="tt">tau0 = 0</span>):</p>
 <table class="markdownTable">
@@ -1624,30 +1666,30 @@ Regime and parameters</h3>
 </table>
 <p>Unit square <span class="tt">[0,1]^2</span>, <span class="tt">m = n = 99</span> (coarse smoke-run grid), all walls no-slip with the top lid moving at <span class="tt">bc_yve1 = 0.5</span>. Effective Reynolds number <span class="tt">Re_eff = 1/K = 100</span> at unit shear rate; the conventional lid-based Reynolds number <span class="tt">rho*U*L/mu(1) = 0.5/1e-2 = 50</span> with <span class="tt">U = 0.5</span> and <span class="tt">mu(1) = K</span>.</p>
 <p>The auto-registered CI test of this example is truncated to 50 time steps and serves as smoke coverage only, not a physics anchor.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md423"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md425"></a>
 Governing physics</h3>
 <p>Incompressible recirculating cavity flow with the shear-dependent power-law viscosity <span class="tt">mu = K*gamma_dot^(n-1)</span>. With <span class="tt">n &lt; 1</span> the fluid thins under the strong shear beneath the lid and in the corner boundary layers, while the slow cavity core stays comparatively viscous.</p>
 <p><b>What to look for</b> (qualitative, no analytic match): a primary recirculating vortex whose center, relative to a Newtonian cavity at the same Reynolds number, is shifted toward the moving lid, with stronger near-wall velocity gradients — the expected shear-thinning trend. Do not expect a quantitative error; the committed grid (<span class="tt">m = n = 99</span>) is intentionally coarse. For quantitative comparison use <span class="tt">m = n = 499</span> or finer with a longer <span class="tt">t_step_stop</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md424"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md426"></a>
 How to run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_lid_driven_cavity_nn/case.py -n 2
 </pre><p>Post-process and inspect the velocity / vorticity (<span class="tt">omega_wrt(3)</span>) fields; there is no <span class="tt">compare_analytic.py</span> for this qualitative case.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md425"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md427"></a>
 References</h3>
 <ul>
 <li>Papanastasiou, T. C. (1987). Flows of materials with yield. <em>J. Rheol.</em> 31, 385.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md426"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md428"></a>
 Bow-Shock Stand-Off of a Cylinder and a Sphere, Mach 1.5-3</h2>
 <p>A fixed no-slip body (immersed boundary) in supersonic flow, an impulsive start with extrapolation on every face, inviscid. The detached bow shock settles at a stand-off distance from the body that depends on the Mach number and the body shape, and the resolution needed to place it is high. <span class="tt">standoff.py</span> measures the distance on the stagnation line (where the pressure first reaches the mean of the free-stream and post-shock pressures, scanning inward from the inflow) and compares it with Billig's correlation. <span class="tt">bodyfitted_sphere.py</span> is an independent reference: an axisymmetric Euler solver on a body-fitted polar mesh around the sphere (NumPy, no immersed boundary). The full results and limits are on the <a class="el" href="validation_standoff.html" title="Validation: Bow-Shock Stand-Off of a Cylinder and a Sphere">Validation: Bow-Shock Stand-Off of a Cylinder and a Sphere</a> page.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md427"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md429"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_cylinder_standoff/case.py -t pre_process simulation -n 1 --gpu -- \
     --dim 3 --cells_per_D 40 --steps 0 --tstar 40 --frames 8
 python3 examples/2D_ibm_cylinder_standoff/standoff.py examples/2D_ibm_cylinder_standoff
 python3 examples/2D_ibm_cylinder_standoff/bodyfitted_sphere.py --mach 2 --nr 160 --nphi 160
 </pre><p><span class="tt">--dim 2</span> is the cylinder (the default), <span class="tt">--dim 3</span> the sphere; <span class="tt">--mach</span>, <span class="tt">--xu</span>, <span class="tt">--xd</span> and <span class="tt">--hy</span> set the Mach number and the domain (a cylinder at Mach 1.5 needs <span class="tt">--xu 3.5</span>, because its shock stands about 1.5 D from the body). The output goes next to <span class="tt">case.py</span>: copy the directory for each run. A build without MPI adds <span class="tt">--serial_io</span>. Without arguments the case is the CI-sized test: the cylinder at Mach 2 with 16 cells per diameter in a 4 D box and 150 fixed steps, before the shock has settled; it runs in the suite as <span class="tt">2D -&gt; IBM -&gt; Bow Shock Standoff</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md428"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md430"></a>
 Results</h3>
 <p>NVIDIA A100, NVHPC 25.11, double precision, <span class="tt">master</span> at 0cdfdf02a. Sphere, inviscid, no-slip, <span class="tt">ib_ip_interp = 1</span>, domain [-1.5 D, 2.5 D] x [-2 D, 2 D]^2, run to t u/R = 40, the stand-off \(\Delta/R\) averaged over the last three of eight saves. The shock position oscillates by 0.003-0.008 R between saves at every grid. "Body-fitted" is <span class="tt">bodyfitted_sphere.py</span> at 160 x 160 cells (M 1.5: 0.6131, M 2: 0.3498, M 3: 0.2179).</p>
 <table class="markdownTable">
@@ -1672,60 +1714,60 @@ Results</h3>
 </table>
 <p>The body-fitted solver gives 0.3489 and 0.3498 R at M 2 on 80 and 160 cells (Billig is 8.8 % lower), 0.6130 and 0.6131 at M 1.5, and 0.2153 and 0.2179 at M 3 (not converged to better than about 1 %).</p>
 <p>The cylinder (<span class="tt">--dim 2</span>, GNU 13 CPU, run to t u/R = 60) does not settle in that time: at Mach 2 the stand-off is 1.414 R at 20 cells/D (Billig 1.241 R, +14.0 %), 1.464 R at 40 cells/D, still rising (1.425, 1.458, 1.508 R over the last three saves), and 1.377 R at 80 cells/D (+11.0 %, also still rising). The sphere is the validated quantity; the cylinder is the CI-sized regression case and a slower, larger-subsonic-region problem.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md429"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md431"></a>
 Limits</h3>
 <p>Resolution-limited, not a measurement problem: the shock stands 4-12 cells from the sphere at these grids. Mach 3 is unsteady (the stand-off oscillates by 0.007-0.036 R) and was not examined further. Inviscid only; no reacting variant (see <span class="tt">2D_ibm_reacting_surface</span>).</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md430"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md432"></a>
 Forward Facing Step (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Woodward, P. <em>(1984). The numerical simulation of two-dimensional fluid flow with strong shocks. Journal of Computational Physics, 54(1), 115–173. <a href="https://doi.org/10.1016/0021-9991(84)90140-2">https://doi.org/10.1016/0021-9991(84)90140-2</a></em> </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md431"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md433"></a>
 Final Condition (Density)</h3>
 <p><img src="final-2D_forward_facing_step-example.png" alt="" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md432"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md434"></a>
 Isentropic vortex problem (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Coralic, V., &amp; Colonius, T. (2014). Finite-volume Weno scheme for viscous compressible multicomponent flows. Journal of Computational Physics, 274, 95–121. <a href="https://doi.org/10.1016/j.jcp.2014.06.003">https://doi.org/10.1016/j.jcp.2014.06.003</a> </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md433"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md435"></a>
 Density</h3>
 <p><img src="alpha_rho1-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md434"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md436"></a>
 Density Norms</h3>
 <p><img src="density_norms-2D_isentropicvortex-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md435"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md437"></a>
 Order of accuracy (<span class="tt">--convect</span>)</h3>
 <p><span class="tt">case.py --convect</span> translates the vortex at (1, 0.5) through a periodic box $[-5, 5]^2$ on a uniform $N \times N$ grid, started from exact conservative cell averages (<span class="tt">hcid = 283</span>); it takes <span class="tt">-N</span>, <span class="tt">--order</span>, <span class="tt">--scheme wenojs|wenom|wenoz|teno</span>, <span class="tt">--cfl</span>, <span class="tt">--t-end</span> and <span class="tt">--time-stepper</span>. <span class="tt">check_vortex.py</span> prints the density error against the exact translated vortex and the observed order: </p><pre class="fragment">./mfc.sh run examples/2D_isentropicvortex/case.py -t pre_process simulation -n 1 -- --convect -N 128 --order 5
 python3 examples/2D_isentropicvortex/check_vortex.py &lt;run N=64&gt; &lt;run N=128&gt; &lt;run N=256&gt;
-</pre><p>Every WENO and TENO order converges at second order on this flow (L1 1.37e-5 at N = 256 for WENO5 and WENO7 alike, #2464). Results and limits: <a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md436"></a>
+</pre><p>Every WENO and TENO order converges at second order on this flow (L1 1.37e-5 at N = 256 for WENO5 and WENO7 alike). That is the expected order: MFC reconstructs primitive variables from cell averages, and its dimension-by-dimension fluxes use one point per face; both limit nonlinear smooth flows to second order (#2464). Results and limits: <a class="el" href="validation_vortex_order.html" title="Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay">Validation: Isentropic Vortex Order of Accuracy and Taylor-Green Decay</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md438"></a>
 2D Shock–Particle Curtain Interaction</h2>
 <p>A Mach 1.66 planar shock, held by a Dirichlet inflow, hits a 2 mm thick curtain of glass particles (radius 57.5 µm, volume fraction 0.21) in 82.7 kPa air between slip walls. It uses the Euler-Lagrange solid-particle solver (<span class="tt">particles_lagrange</span>) with two-way coupling, Osnes quasi-steady drag, pressure-gradient force and added mass.</p>
 <p>The setup follows the multiphase shock tube experiment of Wagner et al. (2012): </p><blockquote class="doxtable">
 <p>J. L. Wagner, S. J. Beresh, S. P. Kearney, W. M. Trott, J. N. Castaneda, B. O. Pruett, and M. R. Baer, "A multiphase shock tube for shock wave interactions with dense particle fields", Experiments in Fluids, vol. 52, no. 6, pp. 1507–1517, 2012. <a href="https://doi.org/10.1007/s00348-012-1272-x">https://doi.org/10.1007/s00348-012-1272-x</a> </p>
 </blockquote>
 <p><span class="tt">gen_particles.py</span> writes the particles (seeded, uniform in the curtain band) to <span class="tt">input/particles.dat</span>; <span class="tt">case.py</span> calls it when pre_process runs, or run it yourself with <span class="tt">python3 gen_particles.py</span>. In 2D each particle stands for a slab of depth <span class="tt">charwidth</span>, so projected particles may overlap.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md437"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md439"></a>
 Result</h3>
 <p>Density-gradient schlieren |∇ρ|/ρ with the particles (white) at t = 500 µs.</p>
 <p><img src="result-2D_particle_curtain-example.png" alt="" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md438"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md440"></a>
 2D Riemann Test (2D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>Chamarthi, A., &amp; Hoffmann, N., &amp; Nishikawa, H., &amp; Frankel S. (2023). Implicit gradients based conservative numerical scheme for compressible flows. arXiv:2110.05461 </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md439"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md441"></a>
 Density Initial and Final Conditions</h3>
 <p><img src="alpha_rho1_initial-2D_riemann_test-example.png" alt="" width="45%" class="inline"/> <img src="alpha_rho1_final-2D_riemann_test-example.png" alt="" width="45%" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md440"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md442"></a>
 2D Gas-Mass Budget of a Reacting Immersed Boundary</h2>
 <p>A hot carbon cylinder (<span class="tt">surface_reaction = 1</span>, the surface solve of <span class="tt">2D_ibm_reacting_surface</span>) sits in quiescent air in a fully periodic box of side 6 D. No gas can enter or leave, so the box gains mass only through the cylinder's surface, and the mass it gains must equal the mass the surface gasifies. The inert species (N2) must not change at all.</p>
 <p><span class="tt">mass_budget.py</span> closes that budget from the run's output: </p><pre class="fragment">gain   = M(t) - M(t_1)       gas mass in the fluid cells
 gasif  = integral of sum(area * mdot) over the body's surface records (ib_surface_wrt), trapezoid rule
 defect = (gain - gasif) / gasif
 leak   = (M_N2(t) - M_N2(t_1)) / gasif
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md441"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md443"></a>
 What it shows</h3>
 <p><img src="mass_budget-2D_ibm_wall_mass_budget-example.png" alt="" height="400" class="inline"/></p>
 <p>Left: the gas mass gained (solid) and the mass gasified (dashed), for the default ghost-cell wall (blue) and with <span class="tt">ib_flux_wall = T</span> (orange). Right: the defect and the N2 leak as fractions of the gasified mass (the axis is linear below 1e-2 and logarithmic above).</p>
@@ -1745,7 +1787,7 @@ What it shows</h3>
 <td class="markdownTableBodyRight">300  </td><td class="markdownTableBodyRight">9.7e-9  </td><td class="markdownTableBodyRight">2.9e-9  </td><td class="markdownTableBodyRight">2.3  </td><td class="markdownTableBodyRight">2.2  </td><td class="markdownTableBodyRight">-1.8e-3  </td><td class="markdownTableBodyRight">-1e-11  </td></tr>
 </table>
 <p>The default-wall column is the behavior of the solver without the option, which was also run on an unmodified build of master and gives the same table to all printed digits. Run on an AMD MI250X; an NVIDIA A100 gives the same table to the digits shown, and 1 and 2 ranks (the rank seam through the cylinder) agree too.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md442"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md444"></a>
 Run</h3>
 <p>Each run writes into the example directory, so save the table after each one: </p><pre class="fragment">./mfc.sh run examples/2D_ibm_wall_mass_budget/case.py -t pre_process simulation -n 1 --gpu mp
 python3 examples/2D_ibm_wall_mass_budget/mass_budget.py examples/2D_ibm_wall_mass_budget --csv off.csv
@@ -1755,26 +1797,26 @@ python3 examples/2D_ibm_wall_mass_budget/mass_budget.py examples/2D_ibm_wall_mas
 
 python3 examples/2D_ibm_wall_mass_budget/plot_budget.py ghost_cell=off.csv flux_wall=on.csv -o mass_budget-2D_ibm_wall_mass_budget-example.png
 </pre><p>Use <span class="tt">--gpu acc</span> for an OpenACC build, or drop the GPU flags on a CPU build. <span class="tt">case.py</span> takes <span class="tt">--cells_per_D</span> (default 16), <span class="tt">--t_end</span> (3e-4 s) and <span class="tt">--n_save</span> (40). <span class="tt">mass_budget.py --tol X</span> exits with an error if the final defect exceeds X, which makes it usable as a check.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md443"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
 Limits</h3>
 <p>The cylinder is fixed and the box is closed and quiescent: this is a conservation check on one geometry, not a validation of the burn rate against measurements. The momentum treatment of a wall in tangential flow is not exercised here (the gas is nearly at rest). The example is skipped in the test suite; the suite's <span class="tt">Flux Wall</span> test runs the option on the <span class="tt">2D_ibm_reacting_surface</span> example.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md444"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
 Lax shock tube problem (1D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>P. D. Lax, Weak solutions of nonlinear hyperbolic equations and their numerical computation, Communications on pure and applied mathematics 7 (1) (1954) 159–193. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md445"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md447"></a>
 Initial Condition</h3>
 <p><img src="initial-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md446"></a>
-Result</h3>
-<p><img src="result-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md447"></a>
-2D IBM CFL dt (2D)</h2>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md448"></a>
 Result</h3>
-<p><img src="result-2D_ibm_cfl_dt-example.png" alt="" height="400" class="inline"/></p>
+<p><img src="result-1D_laxshocktube-example.png" alt="" height="400" class="inline"/></p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md449"></a>
+2D IBM CFL dt (2D)</h2>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md450"></a>
+Result</h3>
+<p><img src="result-2D_ibm_cfl_dt-example.png" alt="" height="400" class="inline"/></p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md451"></a>
 2D Taylor-Couette Flow Between Two Immersed Walls</h2>
 <p>A circle of radius R = 1 turns at a prescribed rate (<span class="tt">moving_ibm = 1</span>) inside a fixed no-slip ring (an STL immersed boundary with inner radius 2 R). The gas (rho = 1, sound speed 1, constant viscosity) starts from rest and is run to steady state at tip Mach number 0.05 and Re = Omega R^2 / nu = 10. The steady incompressible solution is u_theta = A r + B / r, so the velocity profile, the torque on each wall and the wall speed are known exactly. The example measures what <span class="tt">ib_wall_order = 1</span> (mirror ghost velocity, default) and <span class="tt">ib_wall_order = 2</span> (two-probe quadratic) do at a curved, rotating wall.</p>
 <p><span class="tt">check_couette.py</span> reads the run directory (serial text output) and prints the errors: </p><pre class="fragment">python3 examples/2D_ibm_taylor_couette/check_couette.py examples/2D_ibm_taylor_couette [--tol X]
@@ -1795,21 +1837,21 @@ Result</h3>
 <td class="markdownTableBodyRight">40  </td><td class="markdownTableBodyRight">2  </td><td class="markdownTableBodyRight">9.6e-5  </td><td class="markdownTableBodyRight">1.0e-4  </td><td class="markdownTableBodyRight">+1.4e-4  </td><td class="markdownTableBodyRight">-4.4e-5  </td><td class="markdownTableBodyRight">-7.2e-4  </td></tr>
 </table>
 <p>Order 2 converges at about second order (observed 2.0 and 1.8) and is 11 to 60 times below order 1, which converges at 0.5 to 0.9 order and keeps a 4 to 6 % wall-speed deficit. The wall shear from local near-wall fits stays near 2 % with order 2 and the default image points and viscous gradient; it is a near-wall discretization error, not compressibility (<span class="tt">ref1d.py</span>, a 1D compressible solution of the same case, changes the shear by about 3e-5 relative), and TSC image points with <span class="tt">--visc_compact 1</span> bring it to 0.1 % at 40 cells per R. The measurement, its limits and the rotating-wall variants are on the page <a class="el" href="validation_wall_order_couette.html" title="Wall-Normal Ghost Velocity at Viscous Walls">Wall-Normal Ghost Velocity at Viscous Walls</a>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md450"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md452"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/2D_ibm_taylor_couette/case.py -t pre_process simulation -n 1 -- --cells_per_R 20 --ntau 12 --wall_order 2
 python3 examples/2D_ibm_taylor_couette/check_couette.py examples/2D_ibm_taylor_couette
 python3 examples/2D_ibm_taylor_couette/ref1d.py --mach 0.05 --re 10 --ntau 12 --N 200   # 1D compressible reference, about 1 min
 </pre><p><span class="tt">case.py</span> defaults to a CI-sized run (12 cells per radius, 64 x 64 cells, 300 fixed steps, far from steady state). Options: <span class="tt">--cells_per_R</span>, <span class="tt">--wall_order</span>, <span class="tt">--ip_interp</span> (1 inverse distance, 2 TSC), <span class="tt">--visc_compact</span> (compact viscous gradients next to a body), <span class="tt">--mach</span>, <span class="tt">--re</span>, <span class="tt">--sign</span>, <span class="tt">--shift</span> (grid shift in cells), <span class="tt">--steps</span>, <span class="tt">--ntau</span> (run this many slowest viscous times instead of <span class="tt">--steps</span>) and <span class="tt">--stl</span>. Each run writes into the example directory; remove <span class="tt">D/</span>, <span class="tt">restart_data/</span> and the <span class="tt">.inp</span> files between runs. The output is serial text, so use one rank. <span class="tt">ring_stl.py</span> writes the ring STL (<span class="tt">ring.stl</span> is <span class="tt">ring_stl.py ring.stl 2 5 512</span>). The suite registers the CI-sized run as <span class="tt">2D -&gt; IBM -&gt; Taylor-Couette -&gt; ib_wall_order=2</span> (a regression golden; the accuracy is what the checker measures).</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md451"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md453"></a>
 Limits</h3>
 <p>2D only, two Mach numbers, one machine and compiler for the table (NVIDIA A100, NVHPC 25.11, double precision). The tables use <span class="tt">master</span> with #2383 (a rotating body's ghost-cell wall velocity at the wall point). The wall shear read from the near-wall cells does not converge with order 1, and stays near 1.3 to 2 % with order 2 and the default image points and gradient (Mach 0.01 and 0.05). Mean density rises by up to 2 % over the run because the immersed boundary does not conserve mass; this is not quantified here.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md452"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md454"></a>
 Rayleigh-Taylor Instability (2D)</h2>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md453"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md455"></a>
 Final Condition and Linear Theory</h3>
 <p><img src="result-2D_rayleigh_taylor-example.png" alt="" height="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md454"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md456"></a>
 Linear growth rate</h3>
 <p><span class="tt">check_rt.py</span> measures the cos(k x) amplitude of the interface (the light-fluid column height) at each save, fits a = A exp(n t) + B exp(-m t) over the saves with k a &lt;= 0.25, and compares n with the growth rate of the linearized incompressible Navier-Stokes equations for the same density and viscosity profiles (a quadratic eigenproblem solved in the script; 6.507 1/s, against sqrt(A g k) = 12.41 1/s without viscosity). </p><pre class="fragment">./mfc.sh run examples/2D_rayleigh_taylor/case.py -t pre_process simulation post_process -n 1 --gpu --case-optimization -- -N 100 --tend 0.6 --saves 60
 python3 examples/2D_rayleigh_taylor/check_rt.py examples/2D_rayleigh_taylor --case-args "-N 100 --tend 0.6 --saves 60"
@@ -1827,30 +1869,43 @@ python3 examples/2D_rayleigh_taylor/check_rt.py examples/2D_rayleigh_taylor --ca
 <td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyNone">NVIDIA A100  </td><td class="markdownTableBodyRight">6.4611  </td><td class="markdownTableBodyRight">-0.70 %  </td></tr>
 </table>
 <p>The 32-cell CPU run takes 66 minutes; the 100-cell GPU run about 1.5 hours. On NVIDIA GPUs use <span class="tt">--case-optimization</span> (<a href="https://github.com/MFlowCode/MFC/issues/2466">#2466</a>). See <a class="el" href="validation_interface_instabilities.html" title="Validation: Interface Instabilities">Validation: Interface Instabilities</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md455"></a>
+<p><span class="tt">mpp_lim</span> is off: this case runs without it, and it breaks pressure equilibrium at material interfaces (see <span class="tt">mpp_lim</span> in <a class="el" href="case.html" title="Case Files">Case Files</a>).</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md457"></a>
 1D circularly polarized Alfven wave</h2>
 <p>The smooth Alfven wave of Tóth (2000, section 6.3.1): $\rho = 1$, $p = 0.1$, $\gamma = 5/3$, $B_x = 1$, $v_\perp = B_\perp = 0.1(\sin 2\pi x, \cos 2\pi x)$ in a periodic unit box (<span class="tt">hcid = 150</span>), HLLD. It is an exact nonlinear solution of ideal MHD: the wave travels at the Alfven speed $B_x/\sqrt{\rho} = 1$ in $-x$ with $\rho$, $p$ and $|B_\perp|$ constant, so at t = 1 the state equals the initial one.</p>
 <p><span class="tt">check_alfven.py</span> compares the last save of each run with the initial state shifted by $-t$ and prints the L1 errors of $v_y$, $v_z$, $B_y$, $B_z$, the largest deviation of $\rho$ and $p$, and the observed order of the $B_y$ error over a sweep.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md456"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md458"></a>
 Run</h3>
 <pre class="fragment">./mfc.sh run examples/1D_mhd_smooth_alfven_wave/case.py -t pre_process simulation post_process -n 1
 python3 examples/1D_mhd_smooth_alfven_wave/check_alfven.py examples/1D_mhd_smooth_alfven_wave
 </pre><p>The default is the original deck (1024 cells, WENO3, dt = 1e-5, 100000 steps). <span class="tt">case.py</span> also takes <span class="tt">-N</span> (cells), <span class="tt">--cfl</span> (fast-wave CFL number, which sets dt to end exactly at t = 1) and <span class="tt">--weno</span> (<span class="tt">weno_order</span>); the sweep on <a class="el" href="validation_mhd.html" title="Validation: Ideal MHD">Validation: Ideal MHD</a> uses <span class="tt">-N 32 ... 512 --cfl 0.4</span> with <span class="tt">--weno 3</span> and <span class="tt">--weno 5</span>, one copy of the directory per run.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md457"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md459"></a>
+Near-vacuum collapse</h2>
+<p>A disc of radius 0.3 centred at (0.48, 0.53) in the unit square holds gas at 1/1000 of the ambient density and pressure, so both regions have the same temperature. The ambient gas ( \(\rho = p = 1\), \(\gamma = 1.4\), at rest) rushes into the disc, converges on its centre at t ≈ 0.07 and rebounds as a strong shock. This is the 2D analogue of the blast-centre collapse of <a href="https://github.com/MFlowCode/MFC/issues/2469">#2469</a>: unlimited WENO5 sets a negative face pressure at the collapse and the sound speed becomes NaN. <span class="tt">face_bound = 2</span> (the default here) scales each cell's face states toward the cell state only as far as positivity needs, which carries the run through.</p>
+<ul>
+<li><span class="tt">--fluids 2</span>: the disc holds a second gas ( \(\gamma = 5/3\)); <span class="tt">--model 6eq</span> runs it with the 6-equation model.</li>
+<li><span class="tt">--face-bound 0</span> reproduces the failure; <span class="tt">--face-bound 1</span> is the primitive bound (5-equation model only).</li>
+</ul>
+<p>Mapped WENO5, HLLC, SSP-RK3, fixed \(\Delta t\) at CFL 0.25 on |u| + c ≤ 8, extrapolation boundaries, <span class="tt">-N</span> = 128 cells per direction to <span class="tt">--t-end</span> = 0.12.</p>
+<p><span class="tt">check_collapse.py</span> reads every save (<span class="tt">parallel_io = T</span>) and prints the minimum density and pressure and the drift of total mass and energy. It passes when both minima are positive at every save and the drift stays below 1e-4. The limiter itself is conservative; the drift is the weak outer rarefaction leaving through the boundaries.</p>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_vacuum_collapse/case.py -t pre_process simulation -n 8 -- --fluids 2 --model 6eq</div>
+<div class="line">python3 examples/2D_vacuum_collapse/check_collapse.py examples/2D_vacuum_collapse --fluids 2 --model 6eq</div>
+</div><!-- fragment --><p>Results and limits: <a class="el" href="validation_positivity.html" title="Validation: Positivity of Face States at a Near-Vacuum Collapse">Validation: Positivity of Face States at a Near-Vacuum Collapse</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
 Titarev-Toro problem (1D)</h2>
 <p>Reference: </p><blockquote class="doxtable">
 <p>V. A. Titarev, E. F. Toro, Finite-volume WENO schemes for three-dimensional conservation laws, Journal of Computational Physics 201 (1) (2004) 238–260. </p>
 </blockquote>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md458"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md461"></a>
 Initial Condition</h3>
 <p><img src="initial-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md459"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
 Result</h3>
 <p><img src="result-1D_titarevtorro-example.png" alt="" heiht="400" class="inline"/></p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md460"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md463"></a>
 Axisymmetric Fourier conduction convergence</h2>
 <p>Axisymmetric twin of <span class="tt">examples/1D_conduction_convergence</span>. It verifies the radial part of <span class="tt">div(k grad T)</span> on a cylindrical grid, and in particular the axis cell <span class="tt">k = 0</span>, which has no face pair and is therefore the one cell fed by <span class="tt">s_compute_conduction_axis_source</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md461"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md464"></a>
 Exact solution</h3>
 <p>Ideal gas, so <span class="tt">T = p / ((Gamma - 1) * rho * cv)</span>. Setting </p><pre class="fragment">rho(r) = RHO0 / (1 + A (1 - r^2/R^2) + B (1 - r^4/R^4))
 </pre><p>at uniform pressure gives exactly </p><pre class="fragment">T(r) = T0 (1 + A (1 - r^2/R^2) + B (1 - r^4/R^4)),   T0 = P0 / ((Gamma - 1) RHO0 cv),
@@ -1858,14 +1913,14 @@ Exact solution</h3>
 </pre><p>At <span class="tt">t = 0</span> the velocity is zero and the pressure is uniform, so every Euler flux and every cylindrical geometric source vanishes and the entire right-hand side is conduction: </p><pre class="fragment">d(rho E)/dt = k (1/r) d/dr (r dT/dr).
 </pre><p><span class="tt">compare_analytic.py</span> forms <span class="tt">(rho E(dt) - rho E(0)) / dt</span> from <span class="tt">restart_data/lustre_{0,1}.dat</span> and compares it to that expression.</p>
 <p><span class="tt">B = 0</span> (the default) makes the exact answer a <b>constant</b>: every radial cell, axis included, must return the same number. That is the point of the profile — a sign error or a stray factor in the axis cell is unmissable against a flat field, where a sinusoid would hide it. <span class="tt">B &gt; 0</span> makes the answer vary with <span class="tt">r</span> and turns the same case into an ordinary convergence test.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md462"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
 The grid at the axis</h3>
 <p><span class="tt">src/pre_process/m_grid.f90</span> gives the axisymmetric grid a <b>half-width cell at <span class="tt">r = 0</span></b>: cell 0 spans <span class="tt">[0, h/2]</span> with center <span class="tt">h/4</span>, and every cell above it has width <span class="tt">h</span>. Two cells therefore behave differently from the bulk:</p>
 <ul>
 <li><b>Cell 0</b>, the axis cell. <span class="tt">s_compute_conduction_axis_source</span> uses a distance-weighted central difference rather than <span class="tt">(T(k+1) - T(k-1)) / (y_cc(k+1) - y_cc(k-1))</span>; on a uniform grid the two are identical, but over this stencil the plain form loses an order and lands 35% high. The weighted form is exact for a quadratic and converges at second order below.</li>
 <li><b>Cell 1</b>, whose inner face lies on that half-width cell. The two-point face gradient <span class="tt">(T(k+1) - T(k)) / (y_cc(k+1) - y_cc(k))</span> evaluates the gradient at the midpoint of the two cell centers, which is the face only on a uniform grid. This face flux is shared by every MFC diffusive term (<span class="tt">m_chemistry.fpp</span> uses the same expression), so the resulting 1.2% error at this one cell is a property of that shared discretization, not of the axis source. It does not shrink with <span class="tt">NR</span>, and it is reported separately below.</li>
 </ul>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md463"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
 Running</h3>
 <pre class="fragment"># constant exact answer: the axis-cell check
 for nr in 25 50 100 200 400; do
@@ -1878,7 +1933,7 @@ for nr in 25 50 100 200; do
     NR=$nr BAMP=0.4 ./mfc.sh run examples/2D_axisym_conduction_convergence/case.py -n 1
     NR=$nr BAMP=0.4 ./build/venv/bin/python3 examples/2D_axisym_conduction_convergence/compare_analytic.py
 done
-</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md464"></a>
+</pre><h3 class="doxsection"><a class="anchor" id="autotoc_md467"></a>
 Observed results</h3>
 <p>Constant exact answer (<span class="tt">B = 0</span>, exact <span class="tt">= -4.000000e-02</span> in every cell):</p>
 <table class="markdownTable">
@@ -1910,7 +1965,7 @@ Observed results</h3>
 <td class="markdownTableBodyNone">200  </td><td class="markdownTableBodyNone">1.757e-05  </td><td class="markdownTableBodyNone">2.01  </td><td class="markdownTableBodyNone">1.448e-05  </td><td class="markdownTableBodyNone">2.00  </td></tr>
 </table>
 <p>The axis cell converges at the same second order as the bulk. Cell 1 sits at 1.19e-02 at every resolution, as expected from the shared face-gradient form described above.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md465"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
 Automatic <span class="tt">ib_neighborhood_radius</span> when ranks are not cubes</h2>
 <p><span class="tt">ib_neighborhood_radius</span> is a count of <b>rank hops</b>. A rank keeps an immersed-boundary patch only while the patch's centroid lies inside its own subdomain grown outward by that many hops (<span class="tt">s_get_neighbor_bounds</span>, <span class="tt">f_neighborhood_ranks_own_location</span>), and drops it otherwise. So the radius has to be large enough that the body is reachable within that many hops <b>in every direction</b> — and the hop that needs the most is the one stepping across the <em>thinnest</em> rank.</p>
 <p>When the radius is not set in the case file, MFC chooses it from the body's half-extent divided by a rank width. The width it used was assembled the wrong way round:</p>
@@ -1919,7 +1974,7 @@ Automatic <span class="tt">ib_neighborhood_radius</span> when ranks are not cube
 <div class="line">    local_rank_width = max(local_rank_width, &lt;this rank<span class="stringliteral">&#39;s extent in that direction&gt;)</span></div>
 <div class="line"><span class="stringliteral"></span> </div>
 </div><!-- fragment --><p>Each rank reports its <b>widest</b> extent, and the minimum is taken over ranks. On a decomposition where every rank is long in one direction and thin in another, the reported width is the long one, the radius comes out too small, and ranks that should have kept the patch drop it.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md466"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md469"></a>
 The case</h3>
 <p>A thin plate in a long, narrow channel: 20 chords by 8 by 6, with 400 x 50 x 50 cells chosen so MFC's topology search settles on <b>16 x 2 x 2</b> at 64 ranks. That is an ordinary shape for a wake, a jet or a channel — the flow direction resolved far more finely than the cross-stream ones — and it makes the ranks strongly anisotropic:</p>
 <table class="markdownTable">
@@ -1933,7 +1988,7 @@ The case</h3>
 <td class="markdownTableBodyNone">z  </td><td class="markdownTableBodyNone">2  </td><td class="markdownTableBodyNone">3.000  </td></tr>
 </table>
 <p>The plate is 1.0 x 2.4 x 0.1, so <span class="tt">s_get_ib_bound</span> (geometry 9, the cuboid's half-diagonal) returns <b>1.3010</b>. Crossing that at 1.250 per hop needs <span class="tt">ceil(1.1 * 1.3010 / 1.250) = 2</span> hops. The old width of 4.000 gives <span class="tt">ceil(1.1 * 1.3010 / 4.000) = 1</span>.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md467"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
 Running it</h3>
 <div class="fragment"><div class="line">./mfc.sh run examples/3D_ibm_neighborhood_radius/case.py -n 64</div>
 </div><!-- fragment --><p>and read the line MFC prints at start-up:</p>
@@ -1948,7 +2003,7 @@ Running it</h3>
 </table>
 <p>Both runs complete; the case is 1 M cells and takes a few minutes on two CPU nodes. <span class="tt">SUMMARY=1 python3
 case.py</span> prints the half-extent, the rank extents and the arithmetic above without running anything.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md468"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md471"></a>
 It is not only this case</h3>
 <p>The same two production grids that motivated the fix, measured from their own <span class="tt">lustre_*_cb.dat</span>:</p>
 <table class="markdownTable">
@@ -1960,10 +2015,10 @@ It is not only this case</h3>
 <td class="markdownTableBodyNone">flapping wing, 128 ranks  </td><td class="markdownTableBodyNone">8 x 4 x 4  </td><td class="markdownTableBodyNone">1.745  </td><td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">1.027  </td><td class="markdownTableBodyNone"><b>2</b>  </td></tr>
 </table>
 <p>Both pick 1 where 2 is required.</p>
-<h3 class="doxsection"><a class="anchor" id="autotoc_md469"></a>
+<h3 class="doxsection"><a class="anchor" id="autotoc_md472"></a>
 Scope</h3>
 <p>The new width is never larger than the old one, so the chosen radius never decreases: the change can only make the neighbourhood more conservative, at the cost of more hops in the force reduction. Cases that set <span class="tt">ib_neighborhood_radius</span> explicitly are untouched, and so is any decomposition whose ranks are close to cubic, where the widest and narrowest extents coincide — which is why a uniform grid with a balanced topology shows no difference.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md470"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md473"></a>
 Laplace Pressure Jump of a 2D Drop</h2>
 <p>A quarter of a 2D water drop (r0 = 0.15 m, sigma = 8 N/m) in air at rest, with symmetry planes at x = 0 and y = 0, relaxes to equilibrium under surface tension (6-equation model with <span class="tt">surface_tension</span>). <span class="tt">check_laplace.py</span> averages the pressure inside and outside the drop over the last 20 % of the saves and compares the jump with sigma/R, R the equivalent radius of the water area, and prints the largest residual velocity (spurious currents). </p><pre class="fragment">./mfc.sh run examples/2D_laplace_pressure_jump/case.py -t pre_process simulation post_process -n 1 -- -N 50
 python3 examples/2D_laplace_pressure_jump/check_laplace.py examples/2D_laplace_pressure_jump --case-args "-N 50"
@@ -1982,7 +2037,7 @@ python3 examples/2D_laplace_pressure_jump/check_laplace.py examples/2D_laplace_p
 </table>
 <p>At 100 cells the jump still varies by 0.9 % over the averaging window. The residual velocity (spurious currents) is about 20 % of the capillary speed sqrt(sigma/(rho_l R)) = 0.23 m/s on every grid.</p>
 <p>See <a class="el" href="validation_surface_tension.html" title="Validation: Surface Tension">Validation: Surface Tension</a>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-27</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

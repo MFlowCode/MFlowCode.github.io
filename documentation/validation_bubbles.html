@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_bubbles.html','',''); });
   <div class="headertitle"><div class="title">Validation: Bubble Dynamics </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md819"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md823"></a>
 Bubble dynamics: Keller-Miksis collapse in a uniform bubbly liquid</h1>
 <p><b>Status:</b> validated (Euler-Euler bubbles, one bubble size, polytropic gas). <b>Code:</b> <span class="tt">master</span> at 5838b641c. <b>Example:</b> <span class="tt">examples/0D_bubblecollapse_adap</span>. <b>Last run:</b> 2026-11-24. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md820"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md824"></a>
 Purpose</h2>
-<p>The Euler-Euler bubble model (<span class="tt">bubbles_euler</span>) carries a bubble radius and wall velocity per cell and advances them with a bubble ODE, here Keller-Miksis Keller and Miksis <a class="el" href="citelist.html#CITEREF_keller80">[39]</a>, sub-stepped adaptively (<span class="tt">adap_dt</span>). In a uniform periodic mixture every cell holds the same bubble, so the radius history can be compared with the ODE integrated on its own. This checks the ODE, the adaptive sub-steps and the coupling to the mixture pressure, and measures the collapse time against Rayleigh's Lord Rayleigh <a class="el" href="citelist.html#CITEREF_rayleigh17">[45]</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md821"></a>
+<p>The Euler-Euler bubble model (<span class="tt">bubbles_euler</span>) carries a bubble radius and wall velocity per cell and advances them with a bubble ODE, here Keller-Miksis Keller and Miksis <a class="el" href="citelist.html#CITEREF_keller80">[40]</a>, sub-stepped adaptively (<span class="tt">adap_dt</span>). In a uniform periodic mixture every cell holds the same bubble, so the radius history can be compared with the ODE integrated on its own. This checks the ODE, the adaptive sub-steps and the coupling to the mixture pressure, and measures the collapse time against Rayleigh's Lord Rayleigh <a class="el" href="citelist.html#CITEREF_rayleigh17">[46]</a>.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md825"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -183,7 +183,7 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft">R = nR001/n from the saves, by <span class="tt">check_collapse.py</span>  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md822"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md826"></a>
 Results</h2>
 <p>Rayleigh time \(t_c = 0.915 R_0\sqrt{\rho_l/(p_\infty - p_v)}\) = 0.02894 t0 (0.504 us). GNU 13.3 (CPU, one rank):</p>
 <table class="markdownTable">
@@ -197,20 +197,20 @@ Results</h2>
 <td class="markdownTableBodyLeft"><span class="tt">--dt 2.5e-5</span>  </td><td class="markdownTableBodyRight">1.0414  </td><td class="markdownTableBodyRight">+1.5e-4  </td><td class="markdownTableBodyRight">4.2e-3  </td><td class="markdownTableBodyRight">8.0e-5  </td></tr>
 </table>
 <p>An NVIDIA A100 (NVHPC 25.11, OpenACC, not case-optimized) gives the same values to the digits shown.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md823"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md827"></a>
 Assessment</h2>
 <ul>
 <li>Driven by its own cell pressure, the ODE reproduces MFC's radius to 9e-5 R0 through the collapse and rebound (1.7 t_c), and the result does not move with the sub-step tolerance or the time step. The bubble ODE and its adaptive integration are verified.</li>
 <li>Against the constant-pressure ODE the radius differs by 4e-3 R0. This is the two-way coupling, not an error: the mixture pressure falls by 0.27 % as the void fraction collapses from 1e-5 to 3e-8 (stiff liquid, fixed mixture density), and the bubble sees the lower pressure.</li>
 <li>The collapse takes 1.041 to 1.043 Rayleigh times: the gas, surface tension, viscosity and liquid compressibility of Keller-Miksis lengthen it by 4 % over the empty-cavity value. The time of the minimum is a parabola through the three saves around it and moves by 0.1 % with the save interval; the sampled minimum radius (0.04 to 0.05 R0) is not resolved by the saves.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md824"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md828"></a>
 Known limitations</h2>
 <ul>
 <li>One bubble size, polytropic gas, no wave propagation. Polydisperse and QBMM closures (<span class="tt">examples/1D_qbmm</span>), the non-polytropic thermal model, bubble screens with acoustic coupling and the Lagrangian sub-grid bubbles (<span class="tt">bubbles_lagrange</span>) are not checked here. The Lagrangian model requires <span class="tt">thermal = 3</span> with the non-polytropic gas model, so the polytropic ODE above does not apply to it.</li>
 <li>Only the Keller-Miksis model is run; Rayleigh-Plesset and Gilmore are not.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md825"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md829"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/0D_bubblecollapse_adap/case.py -t pre_process simulation post_process -n 1</div>
 <div class="line">python3 examples/0D_bubblecollapse_adap/check_collapse.py examples/0D_bubblecollapse_adap</div>

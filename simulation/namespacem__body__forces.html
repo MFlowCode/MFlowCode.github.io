@@ -182,6 +182,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a5b334b27d585d11c6f7a45291271bef0" id="r_a5b334b27d585d11c6f7a45291271bef0"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a5b334b27d585d11c6f7a45291271bef0">s_compute_mts_terms</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_t_sf)</td></tr>
 <tr class="memdesc:a5b334b27d585d11c6f7a45291271bef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source terms of the thermally developed state, psi = T - T_s, central in x: g1 = rho cp u psi - d(lam psi)/dx - lam dpsi/dx, g2 = lam psi, for every cell. The applied source S = beta (g1 + beta g2) and the controller's A1 = sum(g1 dV), A2 = sum(g2
 dV) share them.  <br /></td></tr>
+<tr class="memitem:a5e32691a145c9153e9e088af725cb1eb" id="r_a5e32691a145c9153e9e088af725cb1eb"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a5e32691a145c9153e9e088af725cb1eb">s_remove_mts_dissipation</a> (q_prim_vf, q_t_sf, rhs_vf, dqx_vf, dqy_vf, dqz_vf)</td></tr>
+<tr class="memdesc:a5e32691a145c9153e9e088af725cb1eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">With mean_temp_wall, remove the viscous dissipation Phi = tau : grad u (cell-centre gradients of the viscous stresses) from the energy of each fluid cell: the developed state T_s + psi exp(-beta x) excludes it (Patankar et al. 1977), and the controller would otherwise remove it through the mode, biasing Nu and cooling a fast core without bound (#2418). The shear viscosity is the one the viscous fluxes use: Cantera's mixture average at the cell's T and Y with chemistry.  <br /></td></tr>
 <tr class="memitem:ad30d63d19e73248a6a01a62f2ce39c3e" id="r_ad30d63d19e73248a6a01a62f2ce39c3e"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ad30d63d19e73248a6a01a62f2ce39c3e">s_apply_bodyforces</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt, q_t_sf)</td></tr>
 <tr class="memdesc:ad30d63d19e73248a6a01a62f2ce39c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the body forces source term at each Runge-Kutta stage.  <br /></td></tr>
 <tr class="memitem:a50eae5fd4940e011039d3ec6e9e5bd18" id="r_a50eae5fd4940e011039d3ec6e9e5bd18"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a50eae5fd4940e011039d3ec6e9e5bd18">s_apply_synthetic_turbulence_force</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#a6d2af1366163bbea81771912d405abfa">q_cons_vf</a>, q_prim_vf_in, rhs_vf_in, ldt)</td></tr>
@@ -282,7 +284,7 @@ Variables</h2></td></tr>
 
 <p>Volume of the fluid in cell (j, k, l): zero inside an immersed boundary. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00499">499</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00500">500</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -341,11 +343,11 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00471">471</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_ae5e3477dc5dd198879fbbd3e1b44d957_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_ae5e3477dc5dd198879fbbd3e1b44d957_icgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -393,7 +395,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02005">2005</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02170">2170</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -444,7 +446,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02066">2066</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02231">2231</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -483,7 +485,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the acceleration at time t. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01340">1340</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01341">1341</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -521,7 +523,7 @@ Here is the caller graph for this function:</div>
 
 <p>Apply the body force of Wei &amp; Freund (JFM, 2005). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01380">1380</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01381">1381</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -566,7 +568,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the body force source terms for momentum and energy equations. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01555">1555</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01556">1556</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -609,7 +611,7 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the mixture density at each cell center. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01499">1499</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01500">1500</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -648,7 +650,7 @@ Here is the caller graph for this function:</div>
 <p>Source terms of the thermally developed state, psi = T - T_s, central in x: g1 = rho cp u psi - d(lam psi)/dx - lam dpsi/dx, g2 = lam psi, for every cell. The applied source S = beta (g1 + beta g2) and the controller's A1 = sum(g1 dV), A2 = sum(g2
 dV) share them. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01909">1909</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01910">1910</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -684,7 +686,7 @@ Here is the caller graph for this function:</div>
 <p>Compute the synthetic turbulence RHS contribution. </p>
 <p>Each Fourier mode m has wave vector k_m and a pre-computed solenoidal (divergence-free) direction e_m perpendicular to k_m. The force field is F = rho * (sum_m A_m * cos(k_m.(x-U*t*xhat) + phi_m) * e_m) * (U/Lx) * G. This excites all velocity components correctly and is zero outside the bounding box of the Gaussian window. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02372">2372</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02537">2537</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -707,7 +709,7 @@ Here is the caller graph for this function:</div>
 
 <p>Finalize the body forces module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02549">2549</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02713">2713</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -733,7 +735,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize a body force with spatial support presented in Wei &amp; Freund (JFM, 2005). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01154">1154</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l01155">1155</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -756,7 +758,7 @@ Here is the caller graph for this function:</div>
 
 <p>Initialize the body forces module. When synthetic_turbulence is enabled, generates random wave vectors for each energy shell on rank 0, then broadcasts to all MPI ranks and copies to GPU. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00532">532</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00533">533</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -819,7 +821,7 @@ Here is the caller graph for this function:</div>
 
 <p>Integral (deadbeat for G = 1 and a constant load) update of a mean source s holding a fluid-mean quantity y at y_target: s += (G/dt) c (y_target - 2y^n + y^(n-1)), c the source-to-y capacity. y_old carries y^(n-1) between steps. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02142">2142</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02307">2307</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -857,11 +859,61 @@ Here is the caller graph for this function:</div>
 
 <p>Rank 0 opens a per-step history file in case_dir, appending on restart. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02126">2126</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02291">2291</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a9593ac2c8bd70031af48de04fea5f6d8_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a5e32691a145c9153e9e088af725cb1eb" name="a5e32691a145c9153e9e088af725cb1eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e32691a145c9153e9e088af725cb1eb">&#9670;&#160;</a></span>s_remove_mts_dissipation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_body_forces::s_remove_mts_dissipation </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_prim_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>q_t_sf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>rhs_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dqx_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dqy_vf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1scalar__field.html">scalar_field</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a24989ab8aea70a422ebcd4053412dcd2">sys_size</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>dqz_vf</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>With mean_temp_wall, remove the viscous dissipation Phi = tau : grad u (cell-centre gradients of the viscous stresses) from the energy of each fluid cell: the developed state T_s + psi exp(-beta x) excludes it (Patankar et al. 1977), and the controller would otherwise remove it through the mode, biasing Nu and cooling a fast core without bound (#2418). The shear viscosity is the one the viscous fluxes use: Cantera's mixture average at the cell's T and Y with chemistry. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02009">2009</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__body__forces_a5e32691a145c9153e9e088af725cb1eb_cgraph.svg" width="403" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -893,7 +945,7 @@ Here is the caller graph for this function:</div>
 <p>Once per step, fluid-cell averages driving the mean sources (sums over fluid cells). Mean pressure gradient: bulk mass flux Q_i = sum(rho u_i dV)/sum(dV), controlled to <a class="el" href="namespacem__global__parameters__common.html#aa2b9a473f29904ba40aed6049284d18c">mean_mflux(i)</a> by -dP/dx; logged to mean_dpdx.dat. Thermostat: mass-averaged temperature T_b = sum(rho T dV)/sum(rho dV), controlled to mean_temp by the heat source with capacity rho c_v (fluid mean); logged to mean_temp.dat with the mixing-cup T_m = sum(rho u_1 T dV)/sum(rho u_1 dV) and the fluid volume. With mean_temp_wall, the controller holds T_m instead and beta solves source total = beta (A1 + beta A2), A1 = sum(rho cp u_1 psi
 dV), A2 = sum(lam psi dV), psi = T - T_s, with A1 including the discrete conduction terms of the applied source; beta, A1, A2 are logged too. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02161">2161</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l02326">2326</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -923,7 +975,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -949,7 +1001,7 @@ Here is the call graph for this function:</div>
 
 <p>Previous-step bulk mass flux, for the controller. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -975,7 +1027,7 @@ Here is the call graph for this function:</div>
 
 <p>Mean pressure gradient active in this direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00390">390</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1053,7 @@ Here is the call graph for this function:</div>
 
 <p>mean_dpdx.dat history file unit </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00391">391</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1027,7 +1079,7 @@ Here is the call graph for this function:</div>
 
 <p>Its streamwise decay rate beta [1/m]. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1053,7 +1105,7 @@ Here is the call graph for this function:</div>
 
 <p>Self-similar source terms of each cell (s_compute_mts_terms). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1129,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1103,7 +1155,7 @@ Here is the call graph for this function:</div>
 
 <p>Mean gas heat source (thermostat) active. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00392">392</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1129,7 +1181,7 @@ Here is the call graph for this function:</div>
 
 <p>Self-similar thermostat (mean_temp_wall set). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00395">395</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1155,7 +1207,7 @@ Here is the call graph for this function:</div>
 
 <p>mean_temp.dat history file unit </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00396">396</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1181,7 +1233,7 @@ Here is the call graph for this function:</div>
 
 <p>The beta quadratic had no real root (reported once). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00397">397</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1205,7 +1257,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1229,7 +1281,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1305,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00405">405</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00406">406</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1277,7 +1329,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1301,7 +1353,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1325,7 +1377,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00398">398</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00399">399</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1349,7 +1401,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00404">404</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1373,7 +1425,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00400">400</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1397,7 +1449,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1421,7 +1473,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1445,7 +1497,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00441">441</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00442">442</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1469,7 +1521,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00441">441</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00442">442</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1545,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00441">441</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00442">442</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1517,7 +1569,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00435">435</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1593,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00435">435</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1565,7 +1617,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00435">435</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1589,7 +1641,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00436">436</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00437">437</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1615,7 +1667,7 @@ Here is the call graph for this function:</div>
 
 <p>Previous-step bulk temperature, for the controller. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__body__forces_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__body__forces_8fpp_8f90_source.html">m_body_forces.fpp.f90</a>.</p>
 
 </div>
 </div>

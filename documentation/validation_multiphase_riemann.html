@@ -157,10 +157,10 @@ $(function(){initNavTree('validation_multiphase_riemann.html','',''); });
   <div class="headertitle"><div class="title">Validation: Two-Fluid Shock Tube, Interface Advection and Phase-Change Equilibrium </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md860"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md864"></a>
 Two-fluid flows: shock tube, interface advection, phase-change equilibrium</h1>
-<p><b>Status:</b> water-air shock tube: validated. Interface advection: partially validated (open: a localized pressure error on coarse grids). Phase-change equilibrium: partially validated (equilibrium of the relaxed state only). <b>Code:</b> <span class="tt">master</span> at 5838b641c. <b>Examples:</b> <span class="tt">examples/1D_kapilashocktube</span>, <span class="tt">examples/2D_advection</span>, <span class="tt">examples/1D_exp_tube_phasechange</span>. <b>Last run:</b> 2026-11-24. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
-<p>All tables were measured with GNU 13.3 (CPU, one rank, double precision); the A100 rows used NVHPC 25.11 (OpenACC, one GPU).</p>
+<p><b>Status:</b> water-air shock tube: validated. Interface advection: validated (pressure equilibrium to round-off at every grid). Phase-change equilibrium: partially validated (equilibrium of the relaxed state only). <b>Code:</b> <span class="tt">master</span> at 5838b641c (interface advection: 3e4c53258). <b>Examples:</b> <span class="tt">examples/1D_kapilashocktube</span>, <span class="tt">examples/2D_advection</span>, <span class="tt">examples/1D_exp_tube_phasechange</span>. <b>Last run:</b> 2026-11-24. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
+<p>Except for the interface-advection table, all tables were measured with GNU 13.3 (CPU, one rank, double precision) and the A100 rows with NVHPC 25.11 (OpenACC, one GPU); the interface-advection table states its own compilers.</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-mp-riemann"></a>
 Water-air shock tube</h2>
 <table class="markdownTable">
@@ -171,9 +171,9 @@ Water-air shock tube</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Fluids  </td><td class="markdownTableBodyLeft">left: water, stiffened gas gamma 4.4, pi_inf 6e8 Pa, 1000 kg/m^3, 1e9 Pa; right: air, gamma 1.4, 50 kg/m^3, 1e5 Pa; both at rest, pure (volume fractions 0 and 1)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">5-equation model Kapila et al. <a class="el" href="citelist.html#CITEREF_kapila01">[38]</a> with <span class="tt">alt_soundspeed</span>, WENO5-M, HLLC, SSP-RK3, dt = 4e-8 s at N = 1000 (CFL about 0.2), scaled with 1/N; t = 241 us  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">5-equation model Kapila et al. <a class="el" href="citelist.html#CITEREF_kapila01">[39]</a> with <span class="tt">alt_soundspeed</span>, WENO5-M, HLLC, SSP-RK3, dt = 4e-8 s at N = 1000 (CFL about 0.2), scaled with 1/N; t = 241 us  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">exact Riemann solution of two stiffened gases (Toro's iterative solver Toro <a class="el" href="citelist.html#CITEREF_toro09">[97]</a> with p + pi_inf in each material), sampled at the cell centres  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">exact Riemann solution of two stiffened gases (Toro's iterative solver Toro <a class="el" href="citelist.html#CITEREF_toro09">[99]</a> with p + pi_inf in each material), sampled at the cell centres  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft">L1 of rho, u, p over the tube (normalized by the left-right jump of each), the alpha_1 = 1/2 crossing against the contact, the mean over the middle fifth of each star region; <span class="tt">check_riemann.py</span>  </td></tr>
 </table>
@@ -208,7 +208,7 @@ Interface advection</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">State  </td><td class="markdownTableBodyLeft">p = 1e5 Pa, u = v = 100 m/s everywhere  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">6-equation model with <span class="tt">mpp_lim</span>, WENO5-M, HLLC, SSP-RK3, acoustic CFL 0.4; one flow-through along the diagonal (t = 0.01 s, the disk returns to its initial position)  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">6-equation model, <span class="tt">mpp_lim = F</span>, WENO5-M, HLLC, SSP-RK3, acoustic CFL 0.4; one flow-through along the diagonal (t = 0.01 s, the disk returns to its initial position)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">exact: p and u stay uniform, the volume fraction translates; after one flow-through it equals the initial field  </td></tr>
 <tr class="markdownTableRowEven">
@@ -218,24 +218,29 @@ Interface advection</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadRight">N  </th><th class="markdownTableHeadRight">max dp/p0  </th><th class="markdownTableHeadRight">max du/U  </th><th class="markdownTableHeadRight">L1 [cells]  </th><th class="markdownTableHeadRight">L1 [m]  </th><th class="markdownTableHeadRight">width, initial [cells]  </th><th class="markdownTableHeadRight">width, final [cells]  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">50  </td><td class="markdownTableBodyRight">2.5e-3  </td><td class="markdownTableBodyRight">1.7e-4  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">1.3e-3  </td><td class="markdownTableBodyRight">9.17  </td><td class="markdownTableBodyRight">9.25  </td></tr>
+<td class="markdownTableBodyRight">50  </td><td class="markdownTableBodyRight">3.7e-11  </td><td class="markdownTableBodyRight">1.1e-11  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">1.3e-3  </td><td class="markdownTableBodyRight">9.17  </td><td class="markdownTableBodyRight">9.25  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">64  </td><td class="markdownTableBodyRight">2.5e-3  </td><td class="markdownTableBodyRight">7.2e-7  </td><td class="markdownTableBodyRight">0.075  </td><td class="markdownTableBodyRight">1.2e-3  </td><td class="markdownTableBodyRight">9.21  </td><td class="markdownTableBodyRight">9.26  </td></tr>
+<td class="markdownTableBodyRight">64  </td><td class="markdownTableBodyRight">2.5e-11  </td><td class="markdownTableBodyRight">1.4e-12  </td><td class="markdownTableBodyRight">0.075  </td><td class="markdownTableBodyRight">1.2e-3  </td><td class="markdownTableBodyRight">9.21  </td><td class="markdownTableBodyRight">9.26  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">80  </td><td class="markdownTableBodyRight">1.2e-4  </td><td class="markdownTableBodyRight">5.0e-8  </td><td class="markdownTableBodyRight">0.084  </td><td class="markdownTableBodyRight">1.0e-3  </td><td class="markdownTableBodyRight">9.26  </td><td class="markdownTableBodyRight">9.24  </td></tr>
+<td class="markdownTableBodyRight">80  </td><td class="markdownTableBodyRight">2.4e-11  </td><td class="markdownTableBodyRight">2.1e-12  </td><td class="markdownTableBodyRight">0.084  </td><td class="markdownTableBodyRight">1.0e-3  </td><td class="markdownTableBodyRight">9.26  </td><td class="markdownTableBodyRight">9.24  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">3.1e-6  </td><td class="markdownTableBodyRight">1.9e-9  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.5e-4  </td><td class="markdownTableBodyRight">9.18  </td><td class="markdownTableBodyRight">9.26  </td></tr>
+<td class="markdownTableBodyRight">100  </td><td class="markdownTableBodyRight">2.5e-11  </td><td class="markdownTableBodyRight">5.6e-12  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.5e-4  </td><td class="markdownTableBodyRight">9.18  </td><td class="markdownTableBodyRight">9.26  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">200  </td><td class="markdownTableBodyRight">3.2e-6  </td><td class="markdownTableBodyRight">2.2e-9  </td><td class="markdownTableBodyRight">0.142  </td><td class="markdownTableBodyRight">7.1e-4  </td><td class="markdownTableBodyRight">9.16  </td><td class="markdownTableBodyRight">9.54  </td></tr>
+<td class="markdownTableBodyRight">200  </td><td class="markdownTableBodyRight">1.5e-10  </td><td class="markdownTableBodyRight">1.9e-10  </td><td class="markdownTableBodyRight">0.142  </td><td class="markdownTableBodyRight">7.1e-4  </td><td class="markdownTableBodyRight">9.16  </td><td class="markdownTableBodyRight">9.54  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyRight">50, A100  </td><td class="markdownTableBodyRight">2.5e-3  </td><td class="markdownTableBodyRight">1.7e-4  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">1.3e-3  </td><td class="markdownTableBodyRight">9.17  </td><td class="markdownTableBodyRight">9.25  </td></tr>
+<td class="markdownTableBodyRight">50, <span class="tt">model_eqns = 2</span>  </td><td class="markdownTableBodyRight">1.9e-11  </td><td class="markdownTableBodyRight">9.4e-14  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">1.3e-3  </td><td class="markdownTableBodyRight">9.17  </td><td class="markdownTableBodyRight">9.25  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyRight">100, A100  </td><td class="markdownTableBodyRight">2.9e-6  </td><td class="markdownTableBodyRight">1.8e-9  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.5e-4  </td><td class="markdownTableBodyRight">9.18  </td><td class="markdownTableBodyRight">9.26  </td></tr>
+<td class="markdownTableBodyRight">100, <span class="tt">model_eqns = 2</span>  </td><td class="markdownTableBodyRight">2.9e-11  </td><td class="markdownTableBodyRight">3.9e-13  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.5e-4  </td><td class="markdownTableBodyRight">9.18  </td><td class="markdownTableBodyRight">9.26  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyRight">50, A100  </td><td class="markdownTableBodyRight">3.8e-11  </td><td class="markdownTableBodyRight">1.1e-11  </td><td class="markdownTableBodyRight">0.066  </td><td class="markdownTableBodyRight">1.3e-3  </td><td class="markdownTableBodyRight">9.17  </td><td class="markdownTableBodyRight">9.25  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyRight">100, A100  </td><td class="markdownTableBodyRight">3.4e-11  </td><td class="markdownTableBodyRight">2.1e-12  </td><td class="markdownTableBodyRight">0.095  </td><td class="markdownTableBodyRight">9.5e-4  </td><td class="markdownTableBodyRight">9.18  </td><td class="markdownTableBodyRight">9.26  </td></tr>
 </table>
+<p>This table was measured at 3e4c53258 on the CPU with NVHPC 25.11 (four ranks) and on the A100 with NVHPC 25.5 (OpenACC, one GPU).</p>
 <ul>
-<li>At 100 and 200 cells the uniform pressure and velocity hold to 3e-6 and 2e-9 across a density ratio of 1000 and a pi_inf contrast of 1e4 p0 over the whole flow-through: the scheme keeps the interface equilibrium.</li>
+<li>The uniform pressure and velocity hold to round-off (1e-11 to 1e-10) at every grid, across a density ratio of 1000 and a pi_inf contrast of 1e4 p0, over the whole flow-through and with either model: the scheme keeps the interface equilibrium.</li>
 <li>The interface is not diffused beyond its initial smoothing: the mixed zone widens by 0.1 cells or less per flow-through up to 100 cells (0.4 cells at 200, where the disk travels 200 cells in each direction). The L1 error per unit interface length is about a tenth of a cell and falls as N^-0.4 in physical units; the initial profile is a fixed number of cells wide, so this is not the convergence of one solution.</li>
-<li><b>Open: localized pressure error on coarse grids.</b> At 50 and 64 cells the pressure error stays below 3e-6 for 0.4 flow-throughs and then jumps to 2.5e-3 p0 (250 Pa) in a patch of about 30 water cells that hold 1e-6 to 1e-4 of air, and travels with the disk. The onset coincides with a cell where a volume fraction undershoots to zero (6-equation) or below zero (the same case with the 5-equation model, where the error reaches 2.5e-2 p0 at 50 cells and stays at 2e-11 at 100). It does not change with the CFL number (0.2), the trace fraction (1e-6 to 1e-10), <span class="tt">mp_weno</span> (1.7e-3) or a disk path that avoids the box corner, and the A100 reproduces it to the digits shown. Relative to the water stiffness p0 + pi_inf the error is 2.5e-7. Cause not identified.</li>
+<li><b><span class="tt">mpp_lim</span> must stay off here</b> (<a href="https://github.com/MFlowCode/MFC/issues/2476">#2476</a>). With <span class="tt">mpp_lim = T</span>, which the deck used before, the pressure error is 3e-6 at 100 and 200 cells. At 50 and 64 cells it jumps after 0.4 flow-throughs to 2.5e-3 p0 (250 Pa; 2.7e-2 p0 with <span class="tt">model_eqns = 2</span>) in a patch of water cells that hold traces of air. <span class="tt">mpp_lim</span> clips each volume fraction to [0, 1] and renormalizes the set before it forms the mixture \(\Gamma\) and \(\Pi_\infty\), in the conversion to primitives and on the Riemann-solver face states. The energy is not changed with them, so where alpha_air undershoots by \(\delta\) the clip moves the water pressure by about \(\delta\,\gamma\pi_\infty\) = 2.35e9 \(\delta\) Pa: \(\delta\) = 1e-7 gives the 250 Pa. Without the clip the volume fractions do undershoot at 50 cells (min alpha_air = −2.7e-5, min alpha_water = −3.4e-7, partial densities down to −3.4e-4 kg/m³; none at 100 and 200 cells), but the equation of state stays consistent with the advected alpha and energy, and the run is stable. <span class="tt">face_bound = 1</span> (bounds on the face density and p + pi_inf, <span class="tt">model_eqns = 2</span>) does not change the result with or without <span class="tt">mpp_lim</span>.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-mp-phase-change"></a>
 Phase-change equilibrium</h2>
@@ -245,11 +250,11 @@ Phase-change equilibrium</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Geometry  </td><td class="markdownTableBodyLeft">1D, x in [0, 1] m, 201 cells, transmissive ends  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Fluids  </td><td class="markdownTableBodyLeft">liquid water, water vapor, air (stiffened gas with <span class="tt">cv</span>, <span class="tt">qv</span>, <span class="tt">qvp</span> of Le Metayer et al. <a class="el" href="citelist.html#CITEREF_lemetayer04">[42]</a>); volume fractions 0.850, 0.029, 0.121  </td></tr>
+<td class="markdownTableBodyLeft">Fluids  </td><td class="markdownTableBodyLeft">liquid water, water vapor, air (stiffened gas with <span class="tt">cv</span>, <span class="tt">qv</span>, <span class="tt">qvp</span> of Le Metayer et al. <a class="el" href="citelist.html#CITEREF_lemetayer04">[43]</a>); volume fractions 0.850, 0.029, 0.121  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">State  </td><td class="markdownTableBodyLeft">1.175e5 Pa and 378.146 K, on the saturation curve of the parameters; u = -2 m/s for x &lt; 0.5, +2 m/s for x &gt; 0.5  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">6-equation (<span class="tt">-me 3</span>) or 5-equation (<span class="tt">-me 2</span>) model, <span class="tt">relax_model = 6</span> (infinitely fast p-T-Gibbs relaxation Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel08">[74]</a> after each step), WENO3-M, HLLC, SSP-RK3; t = 511 us  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">6-equation (<span class="tt">-me 3</span>) or 5-equation (<span class="tt">-me 2</span>) model, <span class="tt">relax_model = 6</span> (infinitely fast p-T-Gibbs relaxation Saurel et al. <a class="el" href="citelist.html#CITEREF_saurel08">[76]</a> after each step), WENO3-M, HLLC, SSP-RK3; t = 511 us  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">equilibrium conditions: T of each phase from its own EOS equal, and T = T_sat(p) where liquid and vapor coexist, T_sat the root of g_liquid(p, T) = g_vapor(p, T)  </td></tr>
 <tr class="markdownTableRowEven">
@@ -281,7 +286,7 @@ Reproduce</h2>
 <div class="line">./mfc.sh run examples/1D_exp_tube_phasechange/case.py -t pre_process simulation post_process -n 1 -- -me 3</div>
 <div class="line">python3 examples/1D_exp_tube_phasechange/check_saturation.py examples/1D_exp_tube_phasechange --case-args &quot;-me 3&quot;</div>
 </div><!-- fragment --><p>The checkers take several run directories (and <span class="tt">--case-args</span> for each) to print the observed order. The shock tube and the expansion tube run in the test suite at a reduced size, as every registered example does; <span class="tt">2D_advection</span> is on the skip list. No test was added.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -157,7 +157,7 @@ $(function(){initNavTree('validation_gas_chemistry.html','',''); });
   <div class="headertitle"><div class="title">Gas-phase chemistry </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md842"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md846"></a>
 Gas-phase chemistry validation</h1>
 <p><b>Status:</b> 0D ignition and equilibrium: validated. 1D H2/air flame speed: validated at the resolutions run. Reactive shock tube: partially validated (shock structure agrees, reactive features differ by the amount a 0D comparison of the two mechanisms predicts). <b>Code:</b> <span class="tt">master</span> at dd9778b26. <b>Examples:</b> <span class="tt">examples/1D_h2_air_ignition</span>, <span class="tt">examples/1D_h2_air_flame_speed</span>, <span class="tt">examples/1D_reactive_shocktube</span>. See also <a class="el" href="validation.html" title="Validation">Validation</a>.</p>
 <p>Gas-phase kinetics, thermodynamics and mixture-averaged transport are checked against Cantera on the same mechanism file (<span class="tt">h2o2.yaml</span>, 10 species, 29 reactions), so that later results can be attributed to the flow and boundary models and not to the chemistry. Both reaction integrators are covered: the source inside the Runge-Kutta stages (<span class="tt">chem_params%reaction_substeps = 0</span>) and the operator-split alpha-QSS integrator (<span class="tt">reaction_substeps &gt; 0</span>).</p>
@@ -222,7 +222,7 @@ One-dimensional premixed flame speed</h2>
 <p>Limits: the domain ends inside the recombination zone (burnt \(T_\text{max}\) 2294 K against 2382 K at 2 cm), so a thermal thickness measured on the MFC profile does not compare with the Cantera value. Not covered: Soret, multicomponent transport, pressures other than 1 atm, the unity-Lewis model, GPU builds.</p>
 <h2 class="doxsection"><a class="anchor" id="sec-validation-gas-chemistry-shocktube"></a>
 Reactive shock tube</h2>
-<p>A shock reflects from a closed end and the reflected shock ignites the gas; the reaction wave catches the shock and merges with it. Case of Martinez Ferrer et al. Ferrer <a class="el" href="citelist.html#CITEREF_martinezferrer2014">[51]</a> (section 4.7), <span class="tt">examples/1D_reactive_shocktube</span>.</p>
+<p>A shock reflects from a closed end and the reflected shock ignites the gas; the reaction wave catches the shock and merges with it. Case of Martinez Ferrer et al. Ferrer <a class="el" href="citelist.html#CITEREF_martinezferrer2014">[52]</a> (section 4.7), <span class="tt">examples/1D_reactive_shocktube</span>.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
@@ -235,7 +235,7 @@ Reactive shock tube</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft"><span class="tt">model_eqns = 2</span>, mapped WENO5 with <span class="tt">mp_weno</span>, HLLC, SSP-RK3, \(\Delta t\) = 1.2285e-8 s at 401 cells (acoustic CFL 0.07), chemistry <span class="tt">h2o2.yaml</span>, <span class="tt">reaction_substeps = 4</span> as shipped (also 2)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">temperature curves at 170, 190 and 230 µs of Fig. 4.9 of the thesis Ferrer <a class="el" href="citelist.html#CITEREF_martinezferrer2013">[52]</a>, which treats the same case (the 2014 paper is paywalled and was not read). The polyline vertices were read from the vector figure with the axes fitted to the tick labels (quantization 0.035 mm in \(x\), 0.9 K in \(T\)) and are in <span class="tt">ref_T.txt</span>. The thesis mechanism is Kee et al. (1993), 9 species and 18 reactions, not <span class="tt">h2o2.yaml</span>; the curves match the markers of a later replot of the 2014 data by eye (not a fit)  </td></tr>
+<td class="markdownTableBodyLeft">Reference  </td><td class="markdownTableBodyLeft">temperature curves at 170, 190 and 230 µs of Fig. 4.9 of the thesis Ferrer <a class="el" href="citelist.html#CITEREF_martinezferrer2013">[53]</a>, which treats the same case (the 2014 paper is paywalled and was not read). The polyline vertices were read from the vector figure with the axes fitted to the tick labels (quantization 0.035 mm in \(x\), 0.9 K in \(T\)) and are in <span class="tt">ref_T.txt</span>. The thesis mechanism is Kee et al. (1993), 9 species and 18 reactions, not <span class="tt">h2o2.yaml</span>; the curves match the markers of a later replot of the 2014 data by eye (not a fit)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Measured  </td><td class="markdownTableBodyLeft"><span class="tt">compare_reference.py</span>: leading-shock position (rightmost crossing of 975 K), reaction front (1600 K), L1 difference of \(T\) in percent of a 2400 K range, wall temperature, mean offset in the burnt gas (1 to 5 cm at 190 µs, 2 to 8 cm at 230 µs)  </td></tr>
 </table>

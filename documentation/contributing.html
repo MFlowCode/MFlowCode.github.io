@@ -804,8 +804,10 @@ Build and Test Matrix</h3>
 <ul>
 <li><b>GitHub-hosted:</b> Ubuntu and macOS, GNU and Intel (Ubuntu only), MPI, <span class="tt">reldebug</span> and no-debug, plus one single-precision lane</li>
 <li><b>NVHPC containers:</b> CPU build and test, GPU build only. PRs build the oldest and newest version in the matrix (currently 25.5 and 26.3); pushes to master build every version from 25.5 to 26.3</li>
-<li><b>HPC runners:</b> Frontier (GPU only: Cray ftn OpenACC/OpenMP, AMD flang OpenMP) and Phoenix (NVHPC GPU with OpenACC and OpenMP; the test suite is sharded in two per interface, plus a case-optimization job) on non-draft PRs and on pushes to master; Frontier is non-blocking. While Phoenix fails on master, an issue titled "Phoenix CI failing on master" lists the failed and no-result (cancelled or timed out) jobs and the merges since the last green run, and closes on the next green run. HPC and case-optimization jobs skip draft PRs</li>
+<li><b>HPC runners:</b> Frontier (GPU only: Cray ftn OpenACC/OpenMP, AMD flang OpenMP) and Phoenix (NVHPC GPU with OpenACC and OpenMP). Each lane builds once and runs the suite as two concurrent shards (<span class="tt">.github/scripts/cluster-lane.sh</span>). What runs depends on the event (<span class="tt">.github/scripts/cluster-mode.sh</span>): draft PRs and pushes to master run nothing on the clusters; a ready PR runs a smoke pass (Frontier Cray OpenACC and Phoenix NVHPC OpenMP each build, then run up to 120 of the tests the change selects), or nothing if no cluster job reads what it changed; a ready PR that carries the <span class="tt">ci:clusters</span> label, touches GPU macros, MPI, the build system or the cluster CI scripts, or adds or changes a line with a <span class="tt">GPU_*</span> macro, a manual run, and the 6-hourly scheduled run on master (skipped once the commit has passed, or failed twice) run every lane, the whole suite, case-optimization and the benchmarks. Frontier is non-blocking. While a cluster fails in the scheduled master run, an issue titled "Phoenix CI failing on master" or "Frontier CI failing on master" lists the failed and no-result (cancelled or timed out) jobs and the merges since the last green run, and closes on the next green run. When a lane that passed in its last scheduled run fails with more than one merge since, the Cluster Bisect workflow first reruns the failed tests on the red commit; if they fail again it rebuilds the lane on the commits in between and comments the first bad commit on the issue, and if they pass it says the failure did not reproduce</li>
 <li><b>Retries:</b> Tests get up to 3 attempts before failing</li>
+<li><b>Benchmark comment:</b> when a PR's benchmarks finish, one comment on the PR (updated in place) lists each case's grind time against master and marks a change beyond the lane's usual run-to-run noise</li>
+<li><b>Weekly runs on master:</b> weak and strong scaling on Frontier (<span class="tt">scaling.yml</span>; an issue opens when efficiency or grind time leaves the tolerances in <span class="tt">.github/scripts/scaling-check.py</span>), and the suite with the compilers' runtime checks on (<span class="tt">checks.yml</span>: AMD flang on Frontier, NVHPC on a hosted runner; each keeps an issue listing the tests that trap)</li>
 <li><b>Cleanliness check:</b> Compiler warnings are compared against master and reported, not enforced</li>
 </ul>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md137"></a>
@@ -848,7 +850,7 @@ Code Review and Merge</h2>
 <li>A maintainer will merge your PR once all reviews are approved and CI is green</li>
 </ul>
 <p>If your PR is large or architectural, consider opening an issue first to discuss the approach.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-22</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

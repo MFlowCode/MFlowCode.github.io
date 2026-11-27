@@ -157,13 +157,13 @@ $(function(){initNavTree('ib_accuracy_limits.html','',''); });
   <div class="headertitle"><div class="title">Accuracy Limits of the Ghost-Cell Immersed Boundary </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md538"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md541"></a>
 Accuracy limits of the ghost-cell immersed boundary</h1>
 <p><b>Status:</b> open discrepancy (every item below is a limitation by construction; none is a bug report). <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Last update:</b> 2026-11-22. No example or test belongs to this page: it collects measured limits, and the pages it links hold the examples.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md539"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md542"></a>
 Purpose</h2>
 <p>A sharp ghost-cell immersed boundary (IB) enforces a wall value (velocity or temperature) through the state of its ghost cells. Field-wide errors and global integrals (drag, total wall heat) converge faster than the two quantities the wall actually sets: the wall value and the wall-normal gradient (wall shear, heat flux). This page states what is known about their order, which options help, and what does not.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md540"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md543"></a>
 Measured orders</h2>
 <p>Orders are observed orders between successive grids (cells per radius, R). "Pre-merge" means measured earlier on a development build with the options named, not repeated on <span class="tt">master</span>; the options exist on <span class="tt">master</span> under the same names but their merged form may differ in detail.</p>
 <table class="markdownTable">
@@ -200,7 +200,7 @@ Measured orders</h2>
 <li><b>Curved isothermal walls</b>: the max-norm temperature error was first order and the total wall heat about order 1.3 (0.06 % of \(T_1-T_2\) and 0.01 % of the exact heat at 80 cells/R). These were measured before the unbounded mirror temperature of <a href="https://github.com/MFlowCode/MFC/pull/2248">#2248</a> and with the default weights; they were not repeated on <span class="tt">master</span>.</li>
 <li>Wall values that look converged do not imply a converged wall flux: the wall heat of a closed conduction problem is fixed by conservation and agrees between the two bodies to five digits, so it is a global integral, not a measure of the local gradient.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md541"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md544"></a>
 What to set</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -214,20 +214,20 @@ What to set</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Gas mass of a closed box with a body  </td><td class="markdownTableBodyLeft"><span class="tt">ib_flux_wall = T</span> (reacting or inert fixed no-slip body); <span class="tt">ib_mass_relax</span> for slip or moving bodies  </td><td class="markdownTableBodyLeft"><span class="tt">examples/2D_ibm_wall_mass_budget</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">A body in contact with a no-slip or moving wall differing between CPU and GPU builds (about 1e-5)  </td><td class="markdownTableBodyLeft">no setting closes it: <span class="tt">ib_smooth_contact = T</span> (HLLC) removes one cause but the measured A100-against-CPU difference stays (<a href="https://github.com/MFlowCode/MFC/issues/2419">#2419</a>); budget the tolerance  </td><td class="markdownTableBodyLeft">the <span class="tt">ib_smooth_contact</span> entry of the case documentation  </td></tr>
+<td class="markdownTableBodyLeft">A body in contact with a no-slip or moving wall differing between CPU and GPU builds (about 1e-5)  </td><td class="markdownTableBodyLeft">no setting closes it: the central tangential velocity of the HLLC viscous work (always on) removed one cause, but the measured A100-against-CPU difference stays (<a href="https://github.com/MFlowCode/MFC/issues/2419">#2419</a>); budget the tolerance  </td><td class="markdownTableBodyLeft">the <span class="tt">riemann_solver</span> entry of the case documentation  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Wall shear or local heat flux  </td><td class="markdownTableBodyLeft">read an integrated force or total wall heat instead  </td><td class="markdownTableBodyLeft">a local fit through the near-wall cells does not converge for any option above  </td></tr>
 </table>
 <p>The options are described in <a class="el" href="ibm.html" title="Immersed Boundaries">the immersed-boundary overview</a>. Resolution is the remaining lever: the gradient errors above fall by about a factor of 2 per grid doubling.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md542"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md545"></a>
 What does not help</h2>
 <ul>
 <li><b>A larger minimum image-point distance</b> (<span class="tt">ib_ip_min_dist = 1.5</span>) is no better than TSC for the wall value (errors 2 to 3 times those of TSC in the annulus) and 5 to 7 % worse for the rotating-wall shear.</li>
 <li><b>The quadratic wall fill for a rotating wall</b>: the shear plateau near 2 % is unchanged (pre-merge).</li>
 <li><b>The mirror-weight cap, as a cure.</b> The pre-merge ghost-temperature rule capped the mirror weight at 1. A steady discrete reference solver of the same equations (a prototype in Python, not shipped) that removed the cap converged at second order on the curved wall, which would explain the first-order curved-wall error. This was <em>not verified in MFC</em>: the ghost rule changed with <a href="https://github.com/MFlowCode/MFC/pull/2248">#2248</a>, and no <span class="tt">master</span> run isolates the cap. Treat the cause of the curved-wall first-order error as open.</li>
-<li><b>A conservation-only volume-fraction approach for moving bodies</b> (cut-cell volume fractions that book the displaced gas once, after Seo and Mittal <a class="el" href="citelist.html#CITEREF_seomittal2011">[79]</a>) was investigated and is not part of MFC. The variants tried did not keep a uniform free stream exact and the claimed heat gain on a moving twin (a cylinder translating through still gas against the same cylinder fixed in the same relative flow) was not reproduced. Exact free stream together with local conservation with level-set fractions would need face apertures, i.e. a full cut-cell method, which this IB does not have. No code ships.</li>
+<li><b>A conservation-only volume-fraction approach for moving bodies</b> (cut-cell volume fractions that book the displaced gas once, after Seo and Mittal <a class="el" href="citelist.html#CITEREF_seomittal2011">[81]</a>) was investigated and is not part of MFC. The variants tried did not keep a uniform free stream exact and the claimed heat gain on a moving twin (a cylinder translating through still gas against the same cylinder fixed in the same relative flow) was not reproduced. Exact free stream together with local conservation with level-set fractions would need face apertures, i.e. a full cut-cell method, which this IB does not have. No code ships.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md543"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md546"></a>
 Known limitations of the measurements</h2>
 <ul>
 <li>The Taylor-Couette runs stop at 30 cells/R: at 40 cells/R every scheme, the default included, aborted with an image-point bounds error (cause not investigated). TSC has no 30 cells/R point for the same reason.</li>
@@ -236,13 +236,13 @@ Known limitations of the measurements</h2>
 <li>Slab orders at 26.6 and 45 degrees scatter because the wall-to-cell-centre offsets change with each grid; no single order is claimed.</li>
 <li>Thermal runs used quiescent moist air with mixture-averaged transport and an exact Kirchhoff solution; velocity and temperature were never coupled in these measurements.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md544"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md547"></a>
 Reproduce</h2>
 <p>No script is shipped for the pre-merge tables: they came from analysis tools tied to run directories of a development build. The <span class="tt">master</span> rows reproduce with</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_conduction_annulus/case.py -n 1 -- --cells_per_R 20 --interp 2</div>
 <div class="line">python3 examples/2D_ibm_conduction_annulus/check_annulus.py examples/2D_ibm_conduction_annulus</div>
 </div><!-- fragment --><p>Open items to repeat on <span class="tt">master</span>: the annulus \(L_\infty\), \(L_1\) and total heat orders with <span class="tt">ib_ip_interp</span> 1 and 2 at 10 to 80 cells/R; the Taylor-Couette shear with <span class="tt">ib_wall_order</span> 1 and 2 (and the 40 cells/R abort).</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -1,7 +1,6 @@
 var m__riemann__state_8fpp_8f90 =
 [
     [ "m_riemann_state::f_compute_hllc_star_momentum_flux", "namespacem__riemann__state.html#a8d5b7b8cbf28974e9eaf3f16f5fea941", null ],
-    [ "m_riemann_state::f_contact_weight", "namespacem__riemann__state.html#a277780cf915bd0e0437152cf3d533025", null ],
     [ "m_riemann_state::f_elastic_signal_speed", "namespacem__riemann__state.html#a0d3789c7ee1ade852bfe386bd26ddafe", null ],
     [ "m_riemann_state::f_low_mach_pcorr_hll", "namespacem__riemann__state.html#a5a2606d00e72a61ee46328e0a26e52b4", null ],
     [ "m_riemann_state::f_low_mach_pcorr_hllc", "namespacem__riemann__state.html#a3dac9cf413b6e391a68b3ec504ecb95a", null ],
@@ -12,10 +11,10 @@ var m__riemann__state_8fpp_8f90 =
     [ "m_riemann_state::s_compute_average_state", "namespacem__riemann__state.html#a0b03f285a50462632204bed71addd8ce", null ],
     [ "m_riemann_state::s_compute_cartesian_viscous_source_flux", "namespacem__riemann__state.html#a9f1526cb8d1444238752e4918ae44947", null ],
     [ "m_riemann_state::s_compute_chemistry_average_state", "namespacem__riemann__state.html#a39ee13aee376074d7c9e9f8a1ee404af", null ],
-    [ "m_riemann_state::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__state.html#a3c154c3bc77a1f6ba64aaf2817d54159", null ],
+    [ "m_riemann_state::s_compute_cylindrical_viscous_source_flux", "namespacem__riemann__state.html#a75bf2b3fc38b2539f3505401caff0b2c", null ],
     [ "m_riemann_state::s_compute_hypoelastic_interface_energy", "namespacem__riemann__state.html#a79c11408c7da3bd3f351beefbf93cf36", null ],
     [ "m_riemann_state::s_compute_interface_reynolds", "namespacem__riemann__state.html#a1374bf25872e527e0db938ff2b6b6482", null ],
-    [ "m_riemann_state::s_compute_viscous_source_flux", "namespacem__riemann__state.html#a9cc8596e17c57c53b5acddadf22b6e8b", null ],
+    [ "m_riemann_state::s_compute_viscous_source_flux", "namespacem__riemann__state.html#ab8496bf5a3857e392a7b61b46c25fd1b", null ],
     [ "m_riemann_state::s_finalize_riemann_solver", "namespacem__riemann__state.html#aa4a8e893633d8b7c01435f5e20b32de3", null ],
     [ "m_riemann_state::s_finalize_riemann_solver_hatr", "namespacem__riemann__state.html#a2282bce6eb265cbaf74c8d8dba0d5db6", null ],
     [ "m_riemann_state::s_initialize_riemann_solver", "namespacem__riemann__state.html#a6ebf8da5dce7538019dc2c0840799ba9", null ],

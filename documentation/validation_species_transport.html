@@ -157,13 +157,13 @@ $(function(){initNavTree('validation_species_transport.html','',''); });
   <div class="headertitle"><div class="title">Validation: Species Diffusion, Heat Conduction and the Transport Time Step </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md902"></a>
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md914"></a>
 1D species diffusion, conduction and <span class="tt">chem_params%transport_dt</span></h1>
 <p><b>Status:</b> partially validated. <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Example:</b> <span class="tt">examples/1D_diffusion_verification</span>. <b>Last run:</b> 2026-11-23.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md903"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md915"></a>
 Purpose</h2>
 <p>Fuel, oxidizer and heat reach a reacting surface by mixture-averaged species diffusion (with the correction velocity), Fourier conduction with the species-enthalpy flux, and the explicit transport time-step limit. This checks each against an exact or an independent solution: the erfc solution of a step for trace-species diffusion and for conduction (order of accuracy), an independent 1D solver for a multicomponent mixing layer (the face composition of the correction flux was made second order in <a href="https://github.com/MFlowCode/MFC/pull/2205">#2205</a>), and the stability threshold of <span class="tt">chem_params%transport_dt</span> for both transport models.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md904"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md916"></a>
 Setup</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -183,21 +183,21 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">GNU 13, CPU, one rank, double precision  </td></tr>
 </table>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md905"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md917"></a>
 Reference data</h2>
 <ul>
 <li><b>Erfc solution.</b> A step of height A diffusing with a constant coefficient: \((A/2)\,\mathrm{erfc}((x-x_0)/\sqrt{4Dt})\) Crank <a class="el" href="citelist.html#CITEREF_crank1975">[20]</a>, averaged over each cell with the antiderivative of erfc. D is Cantera's mixture-averaged value for H2 in the N2 state (7.790e-5 m^2/s; the mixture-averaged and binary values agree in the trace limit) or the thermal diffusivity \(\lambda/(\rho c_p)\) of N2 (2.241e-5 m^2/s).</li>
 <li><b>Mixing-layer reference.</b> <span class="tt">examples/1D_diffusion_verification/ref_mixing_layer.py</span> is an independent solver for isobaric multicomponent diffusion in the Lagrangian mass coordinate \(\psi = \int \rho\,dx\): \(dY_k/dt = -\partial j_k/\partial\psi\) and \(c_p\,dT/dt = -\partial q/\partial\psi + \sum_k h_k\,\partial j_k/\partial\psi\), with \(j_k = -\rho D_k (W_k/W)\,\partial X_k/\partial x + Y_k \sum_j \rho D_j (W_j/W)\,\partial X_j/\partial x\) and \(q = -\lambda\,\partial T/\partial x + \sum_k h_k j_k\), Cantera mixture-averaged properties (Soret off), fixed-mass finite volumes with central face averages and SSP-RK3. It shares no code with MFC.</li>
 <li><b>Time-step limit.</b> The explicit SSP-RK3 stability region on the negative real axis is \(|z| \le 2.513\), and the two-point diffusion operator has the largest eigenvalue \(4D/\Delta x^2\), so the diffusion number \(D\,\Delta t/\Delta x^2\) must stay below 0.628. With <span class="tt">chem_params%transport_dt</span> the <span class="tt">cfl_target</span> is that number on \(D_\mathrm{max}\), so the threshold is expected at 0.628. Derived, not measured.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md906"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md918"></a>
 Quantities</h2>
 <ul>
 <li><b>L1, Linf (erf).</b> \(L_1 = \sum |e_i|\,\Delta x/(A s)\) and \(L_\infty = \max|e_i|/A\) at the last save, with e the MFC cell value minus the exact cell average, A the step (1e-6 in Y or 0.01 K) and \(s = \sqrt{4Dt}\) (<span class="tt">check_diffusion.py</span>).</li>
 <li><b>Mixing layer.</b> Errors at 10 and 20 us in the mass coordinate (the MFC \(\psi_i = \sum_{j&lt;i}\rho_j\Delta x + \rho_i\Delta x/2\)), reference interpolated linearly in \(\psi\): \(L_1 = \overline{|e|}\,(3\ \mathrm{mm})/(|\Delta Y_k|\,(1\ \mathrm{mm}))\) for each species and for T (jump 700 K). MFC's T is first corrected isentropically to the reference pressure, because the extrapolation outflow leaves its pressure up to 3.4e-4 above 1 atm (<span class="tt">check_mixing_layer.py</span>).</li>
 <li><b>Growth.</b> The amplitude of the grid-scale (Nyquist) mode of T, \(|\sum_i (-1)^i (T_i - \bar T)|/N\), at the end over its first value; above 1 is unstable.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md907"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md919"></a>
 Results</h2>
 <p><b>Trace H2 and conduction against the erfc solution</b> (front 1.6 to 25.6 cells wide):</p>
 <table class="markdownTable">
@@ -249,7 +249,7 @@ Results</h2>
 </table>
 <p>An A100 (NVHPC 25.11, OpenACC) gives the same growth to four digits in the seven cases run there (N2 under unity Lewis at 0.5, 0.6 and 0.65, N2 mixture-averaged at 0.65, the mixture under unity Lewis at 0.6 and 0.65 and mixture-averaged at 0.7).</p>
 <p>The mixture was run at 1050 K: at 1000 K, the switch temperature of the NASA-7 fits, a grid-scale temperature sawtooth is not damped and lowers the threshold.</p>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md908"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md920"></a>
 Assessment</h2>
 <ul>
 <li>Trace-species diffusion and conduction converge to the erfc solutions at second order (2.0 to 2.2 between 32 and 512 cells), with an L1 of 9.6e-4 of the step at 12.8 cells per front width.</li>
@@ -257,7 +257,7 @@ Assessment</h2>
 <li><span class="tt">chem_params%transport_dt</span> is stable at its default <span class="tt">cfl_target</span> 0.5 for both transport models and goes unstable between 0.6 and 0.65, the SSP-RK3 limit 0.628, whenever conduction sets the step: N2 under both models (a single species has no diffusion term, so the two models are the same) and the mixture under unity Lewis. For the mixture-averaged mixture, \(D_{H_2}\) (7.6e-4 m^2/s) is twice \(\lambda/(\rho c_v)\) (3.7e-4), so the step is half the conduction limit and the temperature-spike test stays stable to 0.7; it perturbs T only, so it does not excite the species mode that \(D_{H_2}\) limits and does not test it.</li>
 <li>Partially validated: the transport limit was confirmed on the CPU and on an NVIDIA A100 (NVHPC); the order study of the mixing layer is on one grid family and one reference solver.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md909"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md921"></a>
 Known limitations</h2>
 <ul>
 <li>The step initial condition makes the first steps of the mixing layer an under-resolved start; the errors above include it and converge as the grid is refined.</li>
@@ -266,7 +266,7 @@ Known limitations</h2>
 <li>Viscous transport ( \(\mu/\rho\) in the limit) was not tested here; the trace and small- \(\Delta T\) cases use amplitudes of 1e-6 and 0.01 K so the variable-property terms are below the discretization error, and the variable-coefficient part is covered by the mixing layer only.</li>
 <li>The mixing layer does not reach second order for the species, and its temperature error stalls beyond 600 cells (L1 1.2e-5, Linf 7e-5). Three causes are candidates and were not separated: the first-order start of the step, the pressure drift of the outflow (the isentropic temperature correction removes the uniform part), and the species-enthalpy flux, which uses the same limited face composition. Earlier, with the upwind face composition, the species stalled at first order and the stall of T was attributed to it; here both are better but the stall of T remains.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md910"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md922"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/1D_diffusion_verification/case.py -t pre_process simulation post_process -n 1 -- --mode erf_species --n 256</div>
 <div class="line">python3 examples/1D_diffusion_verification/check_diffusion.py examples/1D_diffusion_verification --case-args &#39;--mode erf_species --n 256&#39;</div>

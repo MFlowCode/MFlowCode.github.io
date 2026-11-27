@@ -230,7 +230,7 @@ build</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-t</span>, <span class="tt">--targets</span>  </td><td class="markdownTableBodyNone">Space-separated list of targets to act upon.  </td><td class="markdownTableBodyNone"><span class="tt">pre_process, simulation, post_process</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -279,7 +279,7 @@ run</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-t</span>, <span class="tt">--targets</span>  </td><td class="markdownTableBodyNone">Space-separated list of targets to act upon.  </td><td class="markdownTableBodyNone"><span class="tt">pre_process, simulation, post_process</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -372,7 +372,7 @@ test</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Default  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -392,44 +392,46 @@ test</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-%</span>, <span class="tt">--percent</span>  </td><td class="markdownTableBodyNone">Percentage of tests to run.  </td><td class="markdownTableBodyNone"><span class="tt">100</span>  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">--max-tests</span>  </td><td class="markdownTableBodyNone">Cap the run at this many tests, evenly spaced through the selected ones (0: no limit). The canary tests and any test whose own files changed run beyond the cap.  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-m</span>, <span class="tt">--max-attempts</span>  </td><td class="markdownTableBodyNone">Maximum number of attempts to run a test.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--rdma-mpi</span>  </td><td class="markdownTableBodyNone">Run tests with RDMA MPI enabled  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--no-build</span>  </td><td class="markdownTableBodyNone">(Testing) Do not rebuild MFC.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--no-examples</span>  </td><td class="markdownTableBodyNone">Do not test example cases.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--no-chemistry</span>  </td><td class="markdownTableBodyNone">Do not test cases that use chemistry (chemistry = T).  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--case-optimization</span>  </td><td class="markdownTableBodyNone">(GPU Optimization) Compile MFC targets with some case parameters hard-coded.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--dry-run</span>  </td><td class="markdownTableBodyNone">Build and generate case files but do not run tests.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--shard</span>  </td><td class="markdownTableBodyNone">Run only a subset of tests (e.g., '1/2' for first half, '2/2' for second half).  </td><td class="markdownTableBodyNone">-  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--build-coverage-map</span>  </td><td class="markdownTableBodyNone">Build the gcov coverage map (requires a prior &ndash;gcov build). Master-side only.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--only-changes</span>  </td><td class="markdownTableBodyNone">Shadow mode: compute and print the coverage-based test selection but still run the full suite. Use &ndash;select-enforce to actually prune.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--select-enforce</span>  </td><td class="markdownTableBodyNone">Run only the coverage-selected tests (implies selection; skips unselected tests). Without it, &ndash;only-changes is shadow-only.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--changed-files</span>  </td><td class="markdownTableBodyNone">Changed-file list (newline-, space-, or comma-separated; from CI paths-filter). Overrides git detection.  </td><td class="markdownTableBodyNone">-  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--changes-branch</span>  </td><td class="markdownTableBodyNone">Branch to diff against for &ndash;only-changes.  </td><td class="markdownTableBodyNone"><span class="tt">master</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--generate</span>  </td><td class="markdownTableBodyNone">(Test Generation) Generate golden files.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--add-new-variables</span>  </td><td class="markdownTableBodyNone">(Test Generation) If new variables are found in D/ when running tests, add them to the golden files.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowEven">
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--remove-old-tests</span>  </td><td class="markdownTableBodyNone">(Test Generation) Delete test directories that are no longer needed.  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
-<tr class="markdownTableRowOdd">
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">--mpi</span>, <span class="tt">--no-mpi</span>  </td><td class="markdownTableBodyNone">Enable/disable MPI  </td><td class="markdownTableBodyNone"><span class="tt">true</span>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">--gpu [acc/mp]</span>, <span class="tt">--no-gpu</span>  </td><td class="markdownTableBodyNone">Enable GPU (OpenACC/OpenMP)  </td><td class="markdownTableBodyNone"><span class="tt">no</span>  </td></tr>
 <tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">--debug</span>, <span class="tt">--no-debug</span>  </td><td class="markdownTableBodyNone">Build with full debug compiler flags  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
+<tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">--reldebug</span>, <span class="tt">--no-reldebug</span>  </td><td class="markdownTableBodyNone">Build with lightweight debug flags (CI)  </td><td class="markdownTableBodyNone"><span class="tt">false</span>  </td></tr>
 </table>
 <p><b>Examples:</b></p>
@@ -457,7 +459,7 @@ clean</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-t</span>, <span class="tt">--targets</span>  </td><td class="markdownTableBodyNone">Space-separated list of targets to act upon.  </td><td class="markdownTableBodyNone"><span class="tt">pre_process, simulation, post_process</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -622,7 +624,7 @@ viz</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="params"></a>
 params</h3>
-<p>Search, list, and get information about MFC's ~3,300 case parameters.</p>
+<p>Search, list, and get information about MFC's case parameters.</p>
 <p><b>Usage:</b> <span class="tt">./mfc.sh params [QUERY] [OPTIONS]</span></p>
 <p><b>Arguments:</b></p>
 <ul>
@@ -845,7 +847,7 @@ count</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-t</span>, <span class="tt">--targets</span>  </td><td class="markdownTableBodyNone">Space-separated list of targets to act upon.  </td><td class="markdownTableBodyNone"><span class="tt">pre_process, simulation, post_process</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -879,7 +881,7 @@ count_diff</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-t</span>, <span class="tt">--targets</span>  </td><td class="markdownTableBodyNone">Space-separated list of targets to act upon.  </td><td class="markdownTableBodyNone"><span class="tt">pre_process, simulation, post_process</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -912,7 +914,7 @@ bench</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-t</span>, <span class="tt">--targets</span>  </td><td class="markdownTableBodyNone">Space-separated list of targets to act upon.  </td><td class="markdownTableBodyNone"><span class="tt">pre_process, simulation, post_process</span>  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowEven">
@@ -950,7 +952,7 @@ bench_diff</h3>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Option  </th><th class="markdownTableHeadNone">Description  </th><th class="markdownTableHeadNone">Default  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Allows for JOBS concurrent jobs.  </td><td class="markdownTableBodyNone"><span class="tt">1</span>  </td></tr>
+<td class="markdownTableBodyNone"><span class="tt">-j</span>, <span class="tt">--jobs</span>  </td><td class="markdownTableBodyNone">Concurrent jobs. Builds default to min(cores, 16); test cases run one at a time unless -j is given.  </td><td class="markdownTableBodyNone">-  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone"><span class="tt">-v</span>, <span class="tt">--verbose</span>  </td><td class="markdownTableBodyNone">Increase output verbosity (-v, -vv, -vvv for more detail).  </td><td class="markdownTableBodyNone"><span class="tt">0</span>  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -1021,7 +1023,7 @@ Verbosity (<span class="tt">-v, --verbose</span>)</h3>
 <h3 class="doxsection"><a class="anchor" id="autotoc_md96"></a>
 Debug Logging (<span class="tt">-d, --debug-log</span>)</h3>
 <p>Enables debug logging for the Python toolchain (mfc.sh internals). This is for troubleshooting the build system, not the MFC simulation code.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-27</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
