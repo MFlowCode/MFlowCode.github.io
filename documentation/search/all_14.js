@@ -2,11 +2,11 @@ var searchData=
 [
   ['k_5ftherm_0',['4a. Fourier Heat Conduction (&lt;span class=&quot;tt&quot;&gt;fluid_pp(i)%k_therm&lt;/span&gt;)',['../equations.html#autotoc_md172',1,'']]],
   ['keeping_20the_20goldens_20current_1',['Keeping the goldens current',['../validation.html#autotoc_md811',1,'']]],
-  ['keller_20miksis_2',['Bubble Collapse in a Uniform Bubbly Liquid (Keller-Miksis)',['../examples.html#autotoc_md382',1,'']]],
+  ['keller_20miksis_2',['Bubble Collapse in a Uniform Bubbly Liquid (Keller-Miksis)',['../examples.html#autotoc_md278',1,'']]],
   ['keller_20miksis_20bubble_5fmodel_202_20keller80_3',['6.1.3 Keller-Miksis (&lt;span class=&quot;tt&quot;&gt;bubble_model = 2&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_keller80&quot;&gt;[40]&lt;/a&gt;)',['../equations.html#autotoc_md180',1,'']]],
   ['keller_20miksis_20collapse_20in_20a_20uniform_20bubbly_20liquid_4',['Bubble dynamics: Keller-Miksis collapse in a uniform bubbly liquid',['../validation_bubbles.html#autotoc_md823',1,'']]],
   ['keller80_5',['6.1.3 Keller-Miksis (&lt;span class=&quot;tt&quot;&gt;bubble_model = 2&lt;/span&gt;) (&lt;a class=&quot;el&quot; href=&quot;citelist.html#CITEREF_keller80&quot;&gt;[40]&lt;/a&gt;)',['../equations.html#autotoc_md180',1,'']]],
-  ['kelvin_20helmholtz_20instability_202d_6',['Kelvin-Helmholtz Instability (2D)',['../examples.html#autotoc_md408',1,'']]],
+  ['kelvin_20helmholtz_20instability_202d_6',['Kelvin-Helmholtz Instability (2D)',['../examples.html#autotoc_md247',1,'']]],
   ['key_20data_20structures_7',['Key Data Structures',['../architecture.html#autotoc_md13',1,'']]],
   ['kinematics_8',['Moving-body kinematics',['../validation.html#sec-validation-moving-kinematics',1,'']]],
   ['known_20issues_9',['AMD flang (amdflang) Known Issues',['../gpuParallelization.html#autotoc_md535',1,'']]],

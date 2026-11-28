@@ -159,7 +159,7 @@ $(function(){initNavTree('ib_accuracy_limits.html','',''); });
 <div class="contents">
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md541"></a>
 Accuracy limits of the ghost-cell immersed boundary</h1>
-<p><b>Status:</b> open discrepancy (every item below is a limitation by construction; none is a bug report). <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Last update:</b> 2026-11-22. No example or test belongs to this page: it collects measured limits, and the pages it links hold the examples.</p>
+<p><b>Status:</b> open discrepancy (every item below is a limitation by construction; none is a bug report). <b>Code:</b> <span class="tt">master</span> at 0cdfdf02a. <b>Last update:</b> 2026-11-22. Its examples are <span class="tt">examples/2D_ibm_conduction_annulus</span> (wall temperature, image-point weights) and <span class="tt">examples/2D_ibm_taylor_couette</span> (wall velocity, torque and wall shear, <span class="tt">ib_wall_order</span>); both are registered tests, and their READMEs hold the <span class="tt">master</span> tables.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md542"></a>
 Purpose</h2>
 <p>A sharp ghost-cell immersed boundary (IB) enforces a wall value (velocity or temperature) through the state of its ghost cells. Field-wide errors and global integrals (drag, total wall heat) converge faster than the two quantities the wall actually sets: the wall value and the wall-normal gradient (wall shear, heat flux). This page states what is known about their order, which options help, and what does not.</p>
@@ -170,23 +170,23 @@ Measured orders</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Quantity  </th><th class="markdownTableHeadLeft">Setup  </th><th class="markdownTableHeadLeft">Order (finest pairs)  </th><th class="markdownTableHeadLeft">Provenance  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Wall temperature, inverse-distance image point (<span class="tt">ib_ip_interp = 1</span>, default)  </td><td class="markdownTableBodyLeft">annulus, exact conduction solution  </td><td class="markdownTableBodyLeft">0.6 then 1.2 (idw), error 5.0e-3 of \(T_2-T_1\) at 40 cells/R  </td><td class="markdownTableBodyLeft"><span class="tt">master</span>, <a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal Conduction Annulus: Image-Point Interpolation</a>  </td></tr>
+<td class="markdownTableBodyLeft">Wall temperature, inverse-distance image point (<span class="tt">ib_ip_interp = 1</span>, the default before TSC)  </td><td class="markdownTableBodyLeft">annulus, exact conduction solution  </td><td class="markdownTableBodyLeft">0.6 then 1.2 (idw), error 5.0e-3 of \(T_2-T_1\) at 40 cells/R  </td><td class="markdownTableBodyLeft"><span class="tt">master</span>, <a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal Conduction Annulus: Image-Point Interpolation</a>  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Wall temperature, TSC (<span class="tt">ib_ip_interp = 2</span>)  </td><td class="markdownTableBodyLeft">same  </td><td class="markdownTableBodyLeft">2.3 then 2.0 (inner wall), 1.1 then 1.0 (outer wall)  </td><td class="markdownTableBodyLeft"><span class="tt">master</span>, <a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal Conduction Annulus: Image-Point Interpolation</a>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Wall velocity, default  </td><td class="markdownTableBodyLeft">Taylor-Couette, 10-30 cells/R  </td><td class="markdownTableBodyLeft">about 1 to 2, not monotonic at the outer wall  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
+<td class="markdownTableBodyLeft">Wall velocity, <span class="tt">ib_wall_order = 1</span>  </td><td class="markdownTableBodyLeft">Taylor-Couette, 10-30 cells/R  </td><td class="markdownTableBodyLeft">about 1 to 2, not monotonic at the outer wall  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Wall shear, static curved wall, default  </td><td class="markdownTableBodyLeft">same  </td><td class="markdownTableBodyLeft">0.7 to 1 or worse, 1.4 % error at 30 cells/R  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
+<td class="markdownTableBodyLeft">Wall shear, static curved wall, <span class="tt">ib_wall_order = 1</span>  </td><td class="markdownTableBodyLeft">same  </td><td class="markdownTableBodyLeft">0.7 to 1 or worse, 1.4 % error at 30 cells/R  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Wall shear, static curved wall, <span class="tt">ib_wall_order = 2</span>  </td><td class="markdownTableBodyLeft">same  </td><td class="markdownTableBodyLeft">2.8 then 2.4, 0.065 % at 30 cells/R  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Wall shear, rotating wall, any option  </td><td class="markdownTableBodyLeft">same  </td><td class="markdownTableBodyLeft">below 0.5, plateau near 2 %  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Thermal wall gradient (fit through the first cells), default  </td><td class="markdownTableBodyLeft">annulus, 10-40 cells/R  </td><td class="markdownTableBodyLeft">0.4 to 1.4  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
+<td class="markdownTableBodyLeft">Thermal wall gradient (fit through the first cells), inverse distance  </td><td class="markdownTableBodyLeft">annulus, 10-40 cells/R  </td><td class="markdownTableBodyLeft">0.4 to 1.4  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Thermal wall gradient, TSC  </td><td class="markdownTableBodyLeft">same  </td><td class="markdownTableBodyLeft">1.4 to 1.6, error about 0.1 % at 40 cells/R  </td><td class="markdownTableBodyLeft">pre-merge  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Curved isothermal wall, temperature \(L_\infty\), \(L_1\), total heat, default weights  </td><td class="markdownTableBodyLeft">annulus, 600/300 K, 10-80 cells/R  </td><td class="markdownTableBodyLeft">0.85, 1.1-1.4, 0.9-1.3 between 40 and 80 cells/R  </td><td class="markdownTableBodyLeft">pre-merge, before #2248  </td></tr>
+<td class="markdownTableBodyLeft">Curved isothermal wall, temperature \(L_\infty\), \(L_1\), total heat, inverse-distance weights  </td><td class="markdownTableBodyLeft">annulus, 600/300 K, 10-80 cells/R  </td><td class="markdownTableBodyLeft">0.85, 1.1-1.4, 0.9-1.3 between 40 and 80 cells/R  </td><td class="markdownTableBodyLeft">pre-merge, before #2248  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Flat isothermal wall at 0 degrees to the grid  </td><td class="markdownTableBodyLeft">slab, 10-80 cells per gap  </td><td class="markdownTableBodyLeft">2.0 in all norms  </td><td class="markdownTableBodyLeft">pre-merge, before #2248  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -194,10 +194,10 @@ Measured orders</h2>
 </table>
 <p>Reading the table:</p>
 <ul>
-<li><b>The wall value is about second order</b> once the grid is fine enough with TSC or <span class="tt">ib_wall_order = 2</span>. With the default weights it is first order on the annulus.</li>
+<li><b>The wall value is about second order</b> once the grid is fine enough with TSC or <span class="tt">ib_wall_order = 2</span>. With inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>) it is first order on the annulus.</li>
 <li><b>The wall-normal gradient is first order or worse</b> with every option tried. TSC lowers its error about fourfold in the thermal annulus (order 1.4 to 1.6); none of the options reaches second order at 40 cells/R.</li>
 <li><b>A rotating wall keeps a shear error of about 2 % for every option</b> (rms over angle, 10-30 cells/R, orders below 0.5). The wall value there is right to 0.1 %, and the azimuthal-mean velocity error is 0.05 % of the wall speed, so the cause is not an interpolation effect. Not explained.</li>
-<li><b>Curved isothermal walls</b>: the max-norm temperature error was first order and the total wall heat about order 1.3 (0.06 % of \(T_1-T_2\) and 0.01 % of the exact heat at 80 cells/R). These were measured before the unbounded mirror temperature of <a href="https://github.com/MFlowCode/MFC/pull/2248">#2248</a> and with the default weights; they were not repeated on <span class="tt">master</span>.</li>
+<li><b>Curved isothermal walls</b>: the max-norm temperature error was first order and the total wall heat about order 1.3 (0.06 % of \(T_1-T_2\) and 0.01 % of the exact heat at 80 cells/R). These were measured before the unbounded mirror temperature of <a href="https://github.com/MFlowCode/MFC/pull/2248">#2248</a> and with inverse-distance weights; they were not repeated on <span class="tt">master</span>.</li>
 <li>Wall values that look converged do not imply a converged wall flux: the wall heat of a closed conduction problem is fixed by conservation and agrees between the two bodies to five digits, so it is a global integral, not a measure of the local gradient.</li>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md544"></a>
@@ -230,7 +230,7 @@ What does not help</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md546"></a>
 Known limitations of the measurements</h2>
 <ul>
-<li>The Taylor-Couette runs stop at 30 cells/R: at 40 cells/R every scheme, the default included, aborted with an image-point bounds error (cause not investigated). TSC has no 30 cells/R point for the same reason.</li>
+<li>The Taylor-Couette runs stop at 30 cells/R: at 40 cells/R every scheme, order 1 with inverse distance included, aborted with an image-point bounds error (cause not investigated). TSC has no 30 cells/R point for the same reason.</li>
 <li>Orders come from three grids; the measurement floor is not negligible on the coarsest (inner-wall gradient floor 1.4 % at 10 cells/R). Coarse-pair orders (10 to 20 cells/R) were flattered by being pre-asymptotic and fell on refinement, so only the finest pairs are quoted.</li>
 <li>The wall gradient here is a cubic or quadratic fit through the fluid cells near the wall, not the ghost-cell gradient (ghost cells are never used); it measures what the solution holds at the wall.</li>
 <li>Slab orders at 26.6 and 45 degrees scatter because the wall-to-cell-centre offsets change with each grid; no single order is claimed.</li>
@@ -241,8 +241,12 @@ Reproduce</h2>
 <p>No script is shipped for the pre-merge tables: they came from analysis tools tied to run directories of a development build. The <span class="tt">master</span> rows reproduce with</p>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_conduction_annulus/case.py -n 1 -- --cells_per_R 20 --interp 2</div>
 <div class="line">python3 examples/2D_ibm_conduction_annulus/check_annulus.py examples/2D_ibm_conduction_annulus</div>
-</div><!-- fragment --><p>Open items to repeat on <span class="tt">master</span>: the annulus \(L_\infty\), \(L_1\) and total heat orders with <span class="tt">ib_ip_interp</span> 1 and 2 at 10 to 80 cells/R; the Taylor-Couette shear with <span class="tt">ib_wall_order</span> 1 and 2 (and the 40 cells/R abort).</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
+</div><!-- fragment --><p>The Taylor-Couette rows reproduce with</p>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_taylor_couette/case.py -t pre_process simulation -n 1 -- --cells_per_R 20 --ntau 12 --wall_order 2</div>
+<div class="line">python3 examples/2D_ibm_taylor_couette/check_couette.py examples/2D_ibm_taylor_couette</div>
+</div><!-- fragment --><p>Its README measures on <span class="tt">master</span> (with #2383) the wall velocity of <span class="tt">ib_wall_order = 1</span> and <span class="tt">2</span> at 10, 20 and 40 cells/R: order 2 converges at about second order and order 1 at 0.5 to 0.9; TSC image points with <span class="tt">ib_visc_compact</span> bring the near-wall shear to 0.1 % at 40 cells/R, below the 2 % plateau of the pre-merge rows above.</p>
+<p>Open items to repeat on <span class="tt">master</span>: the annulus \(L_\infty\), \(L_1\) and total heat orders with <span class="tt">ib_ip_interp</span> 1 and 2 at 10 to 80 cells/R; the Taylor-Couette shear with <span class="tt">ib_wall_order</span> 1 and 2 (and the 40 cells/R abort).</p>
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-27</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

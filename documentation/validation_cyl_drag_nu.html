@@ -179,7 +179,7 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Wall  </td><td class="markdownTableBodyLeft">fixed, no slip, <span class="tt">thermal_bc = 1</span>, Twall = T_inf (drag runs) or 1.1 T_inf (heat runs)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">weno_Re_flux</span>, <span class="tt">fd_order = 4</span>, adaptive step with CFL min(0.5, 0.4 Re/N) and <span class="tt">chem_params%transport_dt</span>; <span class="tt">ib_ip_interp = 1</span> (the default)  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">weno_Re_flux</span>, <span class="tt">fd_order = 4</span>, adaptive step with CFL min(0.5, 0.4 Re/N) and <span class="tt">chem_params%transport_dt</span>; <span class="tt">ib_ip_interp = 1</span>; these runs used <span class="tt">ib_wall_order = 1</span> and <span class="tt">ib_visc_compact = F</span>, the defaults then (the Reproduce commands pass <span class="tt">--wall_order 1 --visc_compact 0</span>; the example now follows the solver defaults 2 and T)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Length  </td><td class="markdownTableBodyLeft">\(t U/D\) = 50 (Re 20, 40), 120 (Re 100); averages over the last 20 %  </td></tr>
 <tr class="markdownTableRowEven">
@@ -240,7 +240,7 @@ Assessment</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md841"></a>
 Known limitations</h2>
 <ul>
-<li><b>L/D is first order and low</b> (0.818 against 0.94 at Re 20, 2.064 against 2.35 at Re 40: 13 % and 12 % low at 20 cells/D, 23 % and 18 % low at 10). The no-slip ghost value is the wall value, not a reflection, so the effective wall sits up to a cell inside the surface (<a href="https://github.com/MFlowCode/MFC/issues/2014">#2014</a>); <span class="tt">ib_wall_order = 2</span> is the option for it and was not run here.</li>
+<li><b>L/D is first order and low</b> (0.818 against 0.94 at Re 20, 2.064 against 2.35 at Re 40: 13 % and 12 % low at 20 cells/D, 23 % and 18 % low at 10). These runs used the wall-value ghost (<span class="tt">ib_wall_order = 1</span>), not a reflection, so the effective wall sits up to a cell inside the surface (<a href="https://github.com/MFlowCode/MFC/issues/2014">#2014</a>). The quadratic fill, <span class="tt">ib_wall_order = 2</span>, is now the default; these tables were not repeated with it.</li>
 <li>Not re-measured (cost, about 5 GPU-hours per run on the 40 D x 32 D domain): 40 cells per diameter, and Re 100 on the domain of Re 20 and 40.</li>
 <li>Re 100 uses a 6.25 % blockage; Cd_CV depends on the box there (1.302 for 4 D, which comes within 4 D of the inflow and lateral faces).</li>
 <li>Nu varies by 2-4 % between correlations. The face-heat Nu carries no wall-gradient fit: an earlier drift of Nu with refinement at Re 40 came from fitting the wall gradient of the temperature field, not from the solver.</li>
@@ -249,12 +249,12 @@ Known limitations</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md842"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_cylinder_drag_nu/case.py -t pre_process simulation post_process -n 1 --gpu -- \</div>
-<div class="line">    --silo --Re 40 --cells_per_D 20 --xu 15 --xd 25 --hy 16 --steps 0 --tstar 50</div>
+<div class="line">    --silo --Re 40 --cells_per_D 20 --xu 15 --xd 25 --hy 16 --steps 0 --tstar 50 --wall_order 1 --visc_compact 0</div>
 <div class="line">./mfc.sh run examples/2D_ibm_cylinder_drag_nu/case.py -t pre_process simulation post_process -n 1 --gpu -- \</div>
-<div class="line">    --silo --Re 40 --cells_per_D 20 --xu 15 --xd 25 --hy 16 --steps 0 --tstar 50 --tw_ratio 1.1</div>
+<div class="line">    --silo --Re 40 --cells_per_D 20 --xu 15 --xd 25 --hy 16 --steps 0 --tstar 50 --tw_ratio 1.1 --wall_order 1 --visc_compact 0</div>
 <div class="line">python3 examples/2D_ibm_cylinder_drag_nu/check_cylinder.py &lt;cold run&gt; --hot &lt;hot run&gt;</div>
 </div><!-- fragment --><p>Re 100: <span class="tt">--Re 100 --tstar 120 --xu 8 --xd 16 --hy 8</span>. A 20 cells/D run at Re 40 takes about 40 minutes on one MI300A (four runs ran concurrently on four GPUs). The test suite runs the CI-sized case (<span class="tt">--tw_ratio 1.1</span>, 16 cells/D, 200 steps) as <span class="tt">2D -&gt; Chemistry -&gt; IBM -&gt; Cylinder Drag Nu</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-22</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

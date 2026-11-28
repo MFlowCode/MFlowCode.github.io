@@ -181,7 +181,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:acd9de9c89fd8e78eea15d7eb1f6a6b68" id="r_acd9de9c89fd8e78eea15d7eb1f6a6b68"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#acd9de9c89fd8e78eea15d7eb1f6a6b68">s_compute_fd_gradient</a> (var, grad_x, grad_y, grad_z)</td></tr>
 <tr class="memdesc:acd9de9c89fd8e78eea15d7eb1f6a6b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the scalar gradient fields via finite differences.  <br /></td></tr>
 <tr class="memitem:a0ef32d94dfd7c0d2001d7497e16450f7" id="r_a0ef32d94dfd7c0d2001d7497e16450f7"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a0ef32d94dfd7c0d2001d7497e16450f7">s_compact_ib_viscous_gradients</a> (q_prim_vf, markers, id, dql_x, dqr_x, dql_y, dqr_y, dql_z, dqr_z)</td></tr>
-<tr class="memdesc:a0ef32d94dfd7c0d2001d7497e16450f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">With weno_Re_flux next to an immersed body, replace the WENO velocity gradient on the faces of direction id within ib_visc_band cells of a body cell by the compact one of weno_Re_flux = F: the normal difference across the face, and the mean of the two cells' central tangential differences. Ghost values extend the flow only a layer or two deep (the mirror leaves a kink at the wall), and the gradient stencil of weno_Re_flux, about five cells wide, carries that into the fluid faces next to the wall. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set.  <br /></td></tr>
+<tr class="memdesc:a0ef32d94dfd7c0d2001d7497e16450f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">With weno_Re_flux next to an immersed body, replace the WENO velocity gradient on the faces of direction id within ib_visc_band cells of a body cell by the compact one of weno_Re_flux = F: the normal difference across the face, and the mean of the two cells' central tangential differences. Ghost values extend the flow only a layer or two deep (the mirror leaves a kink at the wall), and the gradient stencil of weno_Re_flux, about five cells wide, carries that into the fluid faces next to the wall. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set. On an AMR fine frame the markers (ib_markers_fine) hold the frame's interior only; cells outside it read as fluid (bodies sit inside their blocks).  <br /></td></tr>
 <tr class="memitem:aa9b8a10a477811a3837b264917face0c" id="r_aa9b8a10a477811a3837b264917face0c"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa9b8a10a477811a3837b264917face0c">s_compact_ib_viscous_gradient</a> (q, markers, id, dql_x, dqr_x, dql_y, dqr_y, dql_z, dqr_z)</td></tr>
 <tr class="memdesc:aa9b8a10a477811a3837b264917face0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">One velocity component of s_compact_ib_viscous_gradients. The differences are written out per direction so that a coordinate array that does not exist (z_cc in 2D) is never touched.  <br /></td></tr>
 <tr class="memitem:aef113dd9981ad652e157451f8d425216" id="r_aef113dd9981ad652e157451f8d425216"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aef113dd9981ad652e157451f8d425216">s_compact_normal_viscous_gradients</a> (q_prim_vf, id, dql_x, dqr_x, dql_y, dqr_y, dql_z, dqr_z)</td></tr>
@@ -335,7 +335,7 @@ Here is the caller graph for this function:</div>
 
 <p>One velocity component of s_compact_ib_viscous_gradients. The differences are written out per direction so that a coordinate array that does not exist (z_cc in 2D) is never touched. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03704">3704</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03705">3705</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -398,9 +398,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>With weno_Re_flux next to an immersed body, replace the WENO velocity gradient on the faces of direction id within ib_visc_band cells of a body cell by the compact one of weno_Re_flux = F: the normal difference across the face, and the mean of the two cells' central tangential differences. Ghost values extend the flow only a layer or two deep (the mirror leaves a kink at the wall), and the gradient stencil of weno_Re_flux, about five cells wide, carries that into the fluid faces next to the wall. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set. </p>
+<p>With weno_Re_flux next to an immersed body, replace the WENO velocity gradient on the faces of direction id within ib_visc_band cells of a body cell by the compact one of weno_Re_flux = F: the normal difference across the face, and the mean of the two cells' central tangential differences. Ghost values extend the flow only a layer or two deep (the mirror leaves a kink at the wall), and the gradient stencil of weno_Re_flux, about five cells wide, carries that into the fluid faces next to the wall. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set. On an AMR fine frame the markers (ib_markers_fine) hold the frame's interior only; cells outside it read as fluid (bodies sit inside their blocks). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03687">3687</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03688">3688</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -445,7 +445,7 @@ Here is the call graph for this function:</div>
 
 <p>One velocity component of s_compact_normal_viscous_gradients; cc holds the cell centres along id. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03884">3884</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03893">3893</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -505,7 +505,7 @@ Here is the caller graph for this function:</div>
 
 <p>weno_Re_flux_compact: set the face-normal velocity gradient (direction id) on every face to the difference across the face. The WENO chain (face values, cell gradient, reconstructed gradient, face mean) has zero damping at the checkerboard wavenumber, which leaves a no-slip wall's odd-mirror forcing undamped. The face j+1/2 is read by the viscous flux from dqR(j) and dqL(j+1), so both are set. Tangential gradients are unchanged. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03868">3868</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03877">3877</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -734,7 +734,7 @@ Here is the call graph for this function:</div>
 
 <p>Finalize the viscous module. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03945">3945</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__viscous_8fpp_8f90_source.html#l03954">3954</a> of file <a class="el" href="m__viscous_8fpp_8f90_source.html">m_viscous.fpp.f90</a>.</p>
 
 </div>
 </div>

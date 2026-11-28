@@ -172,7 +172,7 @@ Motion</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">moving_ibm = 2</span>  </td><td class="markdownTableBodyLeft">two-way coupling: the body moves under pressure, viscous and body forces (<span class="tt">bf_x</span>, <span class="tt">bf_y</span>, <span class="tt">bf_z</span>)  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">collision_model = 1</span>  </td><td class="markdownTableBodyLeft">soft-sphere collisions between circles or spheres and with walls; <span class="tt">coefficient_of_restitution</span>, <span class="tt">collision_time</span>, <span class="tt">collision_temporal_resolution</span>, <span class="tt">ib_coefficient_of_friction</span>  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">collision_model = 1</span>  </td><td class="markdownTableBodyLeft">soft-sphere collisions between circles or spheres and with walls; <span class="tt">coefficient_of_restitution</span>, <span class="tt">collision_time</span>, <span class="tt">collision_temporal_resolution</span>, <span class="tt">coefficient_of_friction</span>  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">ib_friction_slip_eps</span>  </td><td class="markdownTableBodyLeft">regularises the friction direction at small slip speed, so contacts split across MPI ranks agree with a single rank  </td></tr>
 </table>
@@ -185,17 +185,17 @@ Wall treatment</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft"><span class="tt">ib_second_order_vel</span>, <span class="tt">ib_ip_min_dist</span>  </td><td class="markdownTableBodyLeft">linear ghost-velocity extrapolation; minimum image-point distance  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">ib_ip_interp = 2</span>  </td><td class="markdownTableBodyLeft">triangular-shaped-cloud image-point interpolation instead of inverse-distance weights  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">ib_ip_interp</span>  </td><td class="markdownTableBodyLeft">2 (default): triangular-shaped-cloud image-point weights; 1: inverse-distance weights  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><span class="tt">ib_wall_order = 2</span>  </td><td class="markdownTableBodyLeft">two-probe quadratic wall-normal ghost velocity at no-slip walls  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">ib_wall_order</span>  </td><td class="markdownTableBodyLeft">2 (default): two-probe quadratic wall-normal ghost velocity at no-slip walls; 1: the wall value  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><span class="tt">ib_slip_ccst</span>, <span class="tt">ib_uncover_fill</span>  </td><td class="markdownTableBodyLeft">slip-wall ghost state, fill of cells a moving body uncovers (<span class="tt">ib_smooth_contact</span> no longer has an effect)  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">ib_slip_ccst</span>, <span class="tt">ib_uncover_fill</span>  </td><td class="markdownTableBodyLeft">slip-wall ghost state, fill of cells a moving body uncovers  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><span class="tt">weno_Re_flux</span>, <span class="tt">weno_Re_flux_compact</span>, <span class="tt">ib_visc_compact</span>  </td><td class="markdownTableBodyLeft">the face-normal viscous gradient as a face difference (on by default) and the compact velocity gradient on the viscous faces within two cells of a body  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">weno_Re_flux</span>, <span class="tt">weno_Re_flux_compact</span>, <span class="tt">ib_visc_compact</span>  </td><td class="markdownTableBodyLeft">the face-normal viscous gradient as a face difference and the compact velocity gradient on the viscous faces within two cells of a body (both on by default)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">ib_mass_relax</span>  </td><td class="markdownTableBodyLeft">returns the spurious gas mass of a body over about N steps; the default resolves at start-up (see the parameter entry)  </td></tr>
 </table>
-<p>Each option has a default that leaves existing results unchanged, except <span class="tt">ib_mass_relax</span>, whose default depends on whether a body moves, and <span class="tt">weno_Re_flux_compact</span>, which is on by default. Drag and Nusselt number of a cylinder: <a class="el" href="validation_cyl_drag_nu.html" title="Validation: Circular Cylinder Drag and Nusselt Number">Validation: Circular Cylinder Drag and Nusselt Number</a>. Interpolation against an exact conduction solution: <a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal Conduction Annulus: Image-Point Interpolation</a>. Slip walls (mass budget, exact vortex, known failures): <a class="el" href="validation_slip_walls.html" title="Validation: Slip Immersed Walls">Validation: Slip Immersed Walls</a>. Lumped cooling and the wall conduction column: <a class="el" href="validation_wall_thermal.html" title="Validation: Solid-Wall Thermal Models">Validation: Solid-Wall Thermal Models</a>.</p>
+<p><span class="tt">ib_ip_interp = 2</span> and <span class="tt">ib_wall_order = 2</span> are the defaults (both resolve to 1 with <span class="tt">ib_second_order_vel</span>); set them to 1 for the earlier behaviour. <span class="tt">weno_Re_flux_compact</span> is on by default, and so is <span class="tt">ib_visc_compact</span> with <span class="tt">weno_Re_flux</span> (set it to F for the earlier gradient). <span class="tt">ib_mass_relax</span> resolves at start-up from whether a body moves. The other options default to off. Drag and Nusselt number of a cylinder: <a class="el" href="validation_cyl_drag_nu.html" title="Validation: Circular Cylinder Drag and Nusselt Number">Validation: Circular Cylinder Drag and Nusselt Number</a>. Interpolation against an exact conduction solution: <a class="el" href="validation_tsc_annulus.html" title="Isothermal Conduction Annulus: Image-Point Interpolation">Isothermal Conduction Annulus: Image-Point Interpolation</a>. Slip walls (mass budget, exact vortex, known failures): <a class="el" href="validation_slip_walls.html" title="Validation: Slip Immersed Walls">Validation: Slip Immersed Walls</a>. Lumped cooling and the wall conduction column: <a class="el" href="validation_wall_thermal.html" title="Validation: Solid-Wall Thermal Models">Validation: Solid-Wall Thermal Models</a>.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md551"></a>
 Heat transfer and chemistry</h2>
 <p><span class="tt">thermal_bc</span> selects the wall condition: zero-gradient (0), prescribed <span class="tt">Twall</span> (1), reacting-surface energy balance (2), lumped solid with an evolving temperature (3). <span class="tt">wall_column</span> adds a sub-grid conduction column to a fixed isothermal circle or sphere, and <span class="tt">ib_flux_wall</span> sets the face fluxes of a reacting wall from its surface solve. Examples: <span class="tt">examples/2D_ibm_lumped_wall</span>, <span class="tt">examples/2D_ibm_wall_mass_budget</span>, <span class="tt">examples/2D_ibm_conduction_annulus</span>.</p>
@@ -206,7 +206,7 @@ Output and restart</h2>
 <li><span class="tt">ib_state_wrt</span> writes the IB state as a point mesh in post-processing.</li>
 <li>The IB state is saved under <span class="tt">restart_data/</span> (<span class="tt">ib_state_*.dat</span>; the conduction temperature of ghost points in <span class="tt">ib_tcond_&lt;step&gt;.dat</span>).</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-27</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

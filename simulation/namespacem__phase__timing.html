@@ -169,8 +169,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a09a01be4e8889c99b647bd528eb8a1d0" id="r_a09a01be4e8889c99b647bd528eb8a1d0"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a09a01be4e8889c99b647bd528eb8a1d0">s_phase_step_toc</a> ()</td></tr>
 <tr class="memitem:a3414519429d7df89d2309fffe5416549" id="r_a3414519429d7df89d2309fffe5416549"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a3414519429d7df89d2309fffe5416549">s_phase_report</a> ()</td></tr>
 <tr class="memdesc:a3414519429d7df89d2309fffe5416549"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mean and max over ranks per phase, share of the step-loop wall, imbalance (max/mean) and calls; the residual is the wall minus the sum of the means.  <br /></td></tr>
-<tr class="memitem:a9e10835a453918d4238bb7a6376f5a12" id="r_a9e10835a453918d4238bb7a6376f5a12"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a9e10835a453918d4238bb7a6376f5a12">s_mem_note_level</a> (lev, nmax, fill, col_bytes)</td></tr>
-<tr class="memdesc:a9e10835a453918d4238bb7a6376f5a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note one regrid's level lev for the per-level table: nmax blocks on the busiest rank, fill(:) the column share of each block's interior, col_bytes one block's store column.  <br /></td></tr>
+<tr class="memitem:aca2ff9bfb5ae18bc055ce29c466daeeb" id="r_aca2ff9bfb5ae18bc055ce29c466daeeb"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aca2ff9bfb5ae18bc055ce29c466daeeb">s_mem_note_level</a> (lev, nmax, fill, col_bytes, ghost_frac)</td></tr>
+<tr class="memdesc:aca2ff9bfb5ae18bc055ce29c466daeeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Note one regrid's level lev for the per-level table: nmax blocks on the busiest rank, fill(:) the column share of each block's interior, col_bytes one block's store column.  <br /></td></tr>
+<tr class="memitem:ace5c6701207024a206d0dd2708fec98c" id="r_ace5c6701207024a206d0dd2708fec98c"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ace5c6701207024a206d0dd2708fec98c">s_mem_note_reg_slot</a> (bytes)</td></tr>
+<tr class="memdesc:ace5c6701207024a206d0dd2708fec98c"><td class="mdescLeft">&#160;</td><td class="mdescRight">One block's flux-register slot (every direction, coarse and fine sides), for the per-level table.  <br /></td></tr>
 <tr class="memitem:afeed6d0b465dd27fc9f7423711c25355" id="r_afeed6d0b465dd27fc9f7423711c25355"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#afeed6d0b465dd27fc9f7423711c25355">s_mem_reset_levels</a> ()</td></tr>
 <tr class="memdesc:afeed6d0b465dd27fc9f7423711c25355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forget the per-level notes so far (a restart replaces the initial layout before the first step).  <br /></td></tr>
 <tr class="memitem:a1bf040c83b61741e6e298ed0eba57164" id="r_a1bf040c83b61741e6e298ed0eba57164"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a1bf040c83b61741e6e298ed0eba57164">s_mem_note</a> (id, bytes)</td></tr>
@@ -252,6 +254,9 @@ Variables</h2></td></tr>
 <tr class="memitem:abec4b97a9575bd802bccfe47852967df" id="r_abec4b97a9575bd802bccfe47852967df"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#abec4b97a9575bd802bccfe47852967df">mem_fill_sum</a></td></tr>
 <tr class="memitem:aca6ebe84d370db752065872c56774795" id="r_aca6ebe84d370db752065872c56774795"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#aca6ebe84d370db752065872c56774795">mem_fill_n</a></td></tr>
 <tr class="memitem:a35fc38dbd7ad4bf1ff85c5c207e216f5" id="r_a35fc38dbd7ad4bf1ff85c5c207e216f5"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a35fc38dbd7ad4bf1ff85c5c207e216f5">mem_col_mib</a> = 0._wp</td></tr>
+<tr class="memitem:a086fb31d32aeed248c33bd44ebac2d75" id="r_a086fb31d32aeed248c33bd44ebac2d75"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#a086fb31d32aeed248c33bd44ebac2d75">mem_ghost_frac</a> = 0._wp</td></tr>
+<tr class="memdesc:a086fb31d32aeed248c33bd44ebac2d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ghost-layer share of one store column (s_mem_note_level) and one block's flux-register slot (s_mem_note_reg_slot).  <br /></td></tr>
+<tr class="memitem:ab772c18a7dce1fd251e1379615d9734d" id="r_ab772c18a7dce1fd251e1379615d9734d"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>)&#160;</td><td class="memItemRight"><a class="el" href="#ab772c18a7dce1fd251e1379615d9734d">mem_reg_slot_mib</a> = 0._wp</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Per-phase wall-time budget of the AMR step, reported when rank_time_wrt is on. Brackets are disjoint (regrid sub-phases nest inside regrid) and drain the device first, so a phase's time includes the GPU work it launched. </p>
@@ -277,7 +282,7 @@ Variables</h2></td></tr>
 
 <p>Add bytes to group id of the end-of-run AMR memory table. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00577">577</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00595">595</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -307,7 +312,7 @@ Here is the caller graph for this function:</div>
 
 <p>s_mem_note for the fields of f that are allocated. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00587">587</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00605">605</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -316,8 +321,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a9e10835a453918d4238bb7a6376f5a12" name="a9e10835a453918d4238bb7a6376f5a12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e10835a453918d4238bb7a6376f5a12">&#9670;&#160;</a></span>s_mem_note_level()</h2>
+<a id="aca2ff9bfb5ae18bc055ce29c466daeeb" name="aca2ff9bfb5ae18bc055ce29c466daeeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca2ff9bfb5ae18bc055ce29c466daeeb">&#9670;&#160;</a></span>s_mem_note_level()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,19 +345,45 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>col_bytes</em></span>&#160;)</td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>col_bytes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ghost_frac</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Note one regrid's level lev for the per-level table: nmax blocks on the busiest rank, fill(:) the column share of each block's interior, col_bytes one block's store column. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00550">550</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00559">559</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__timing_a9e10835a453918d4238bb7a6376f5a12_icgraph.svg" width="412" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__phase__timing_aca2ff9bfb5ae18bc055ce29c466daeeb_icgraph.svg" width="412" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="ace5c6701207024a206d0dd2708fec98c" name="ace5c6701207024a206d0dd2708fec98c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace5c6701207024a206d0dd2708fec98c">&#9670;&#160;</a></span>s_mem_note_reg_slot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_phase_timing::s_mem_note_reg_slot </td>
+          <td>(</td>
+          <td class="paramtype">integer(kind=8), intent(in)</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>One block's flux-register slot (every direction, coarse and fine sides), for the per-level table. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00579">579</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -370,7 +401,7 @@ Here is the caller graph for this function:</div>
 
 <p>Forget the per-level notes so far (a restart replaces the initial layout before the first step). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00570">570</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00588">588</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -393,7 +424,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mean and max over ranks per phase, share of the step-loop wall, imbalance (max/mean) and calls; the residual is the wall minus the sum of the means. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00500">500</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00502">502</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -414,7 +445,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00482">482</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00484">484</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -435,7 +466,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00488">488</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00490">490</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -459,7 +490,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00433">433</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00435">435</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -483,7 +514,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00456">456</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00458">458</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -663,6 +694,32 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a086fb31d32aeed248c33bd44ebac2d75" name="a086fb31d32aeed248c33bd44ebac2d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a086fb31d32aeed248c33bd44ebac2d75">&#9670;&#160;</a></span>mem_ghost_frac</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_phase_timing::mem_ghost_frac = 0._wp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ghost-layer share of one store column (s_mem_note_level) and one block's flux-register slot (s_mem_note_reg_slot). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
 <a id="a40a8be43105f36a2eac2f26706b5d90c" name="a40a8be43105f36a2eac2f26706b5d90c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a40a8be43105f36a2eac2f26706b5d90c">&#9670;&#160;</a></span>mem_ib</h2>
 
@@ -830,6 +887,30 @@ Here is the caller graph for this function:</div>
 <p>flux registers </p>
 
 <p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ab772c18a7dce1fd251e1379615d9734d" name="ab772c18a7dce1fd251e1379615d9734d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab772c18a7dce1fd251e1379615d9734d">&#9670;&#160;</a></span>mem_reg_slot_mib</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) m_phase_timing::mem_reg_slot_mib = 0._wp</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__phase__timing_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__phase__timing_8fpp_8f90_source.html">m_phase_timing.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -189,6 +189,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a200a4304b8e3ba1f5667c3699d1eb747"><td class="mdescLeft">&#160;</td><td class="mdescRight">One TVD RK stage in the Shu-Osher form of <a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>, from stage value u_cur, step start u_n and stage RHS rhs.  <br /></td></tr>
 <tr class="memitem:adab097f69c7d20587069adfd0b75fd10" id="r_adab097f69c7d20587069adfd0b75fd10"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#adab097f69c7d20587069adfd0b75fd10">s_apply_lag_entity_domain_bc</a> (dir, pos, pos_prev, offset, keep, wrap_loc)</td></tr>
 <tr class="memdesc:adab097f69c7d20587069adfd0b75fd10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply this rank's domain boundary in direction dir to one Lagrangian entity at stage position pos (pos_prev before the stage): clamp it offset inside a wall, flag a periodic crossing in wrap_loc (-1 beg, 1 end, else 0), or clear keep once it leaves the domain.  <br /></td></tr>
+<tr class="memitem:ac5fbc977789d9a2780dcc4ec0e389e18" id="r_ac5fbc977789d9a2780dcc4ec0e389e18"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ac5fbc977789d9a2780dcc4ec0e389e18">s_reflect_lag_entity_at_wall</a> (dir, pos, vel)</td></tr>
+<tr class="memdesc:ac5fbc977789d9a2780dcc4ec0e389e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirror an entity whose center crossed a wall back inside along dir and point its velocity away from the wall (host data).  <br /></td></tr>
 <tr class="memitem:a7a164bada064b1ecb585e58345847283" id="r_a7a164bada064b1ecb585e58345847283"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a7a164bada064b1ecb585e58345847283">f_is_lag_entity_wall</a> (<a class="el" href="namespacem__global__parameters.html#aeda2e543f9510f3d5836fa9398d3b0b0">bc</a>)</td></tr>
 <tr class="memdesc:a7a164bada064b1ecb585e58345847283"><td class="mdescLeft">&#160;</td><td class="mdescRight">True for the boundary types a Lagrangian entity cannot cross.  <br /></td></tr>
 <tr class="memitem:a47af949badf0364d54439cbfb0c2c923" id="r_a47af949badf0364d54439cbfb0c2c923"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a47af949badf0364d54439cbfb0c2c923">s_wrap_lag_entities_periodic</a> (n_loc, wrap_loc, pos, pos_prev)</td></tr>
@@ -235,11 +237,11 @@ Variables</h2></td></tr>
 
 <p>True for the boundary types a Lagrangian entity cannot cross. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01353">1353</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01379">1379</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__euler__lagrange_a7a164bada064b1ecb585e58345847283_icgraph.svg" width="424" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__euler__lagrange_a7a164bada064b1ecb585e58345847283_icgraph.svg" width="424" height="211"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -261,7 +263,7 @@ Here is the caller graph for this function:</div>
 
 <p>True if pos lies in this rank's physical domain (ghost cells excluded). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00542">542</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00543">543</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -287,7 +289,7 @@ Here is the caller graph for this function:</div>
 
 <p>True if cell is a ghost cell beyond one of this rank's wall or symmetry boundaries. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00572">572</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00573">573</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -327,7 +329,7 @@ Here is the call graph for this function:</div>
 
 <p>One TVD RK stage in the Shu-Osher form of <a class="el" href="namespacem__time__steppers.html" title="Total-variation-diminishing (TVD) Runge–Kutta time integrators (1st-, 2nd-, and 3rd-order SSP).">m_time_steppers</a>, from stage value u_cur, step start u_n and stage RHS rhs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01250">1250</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01251">1251</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -372,7 +374,7 @@ Here is the call graph for this function:</div>
 
 <p>Apply this rank's domain boundary in direction dir to one Lagrangian entity at stage position pos (pos_prev before the stage): clamp it offset inside a wall, flag a periodic crossing in wrap_loc (-1 beg, 1 end, else 0), or clear keep once it leaves the domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01280">1280</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01281">1281</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -406,7 +408,7 @@ Here is the call graph for this function:</div>
 
 <p>Fornberg first-derivative weights at every cell center in each direction, computed once on the host and copied to the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01112">1112</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01113">1113</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -446,7 +448,7 @@ Here is the caller graph for this function:</div>
 
 <p>Sum the local count n_loc over the ranks into n_glb and abort if no entity lies in the domain. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00475">475</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00476">476</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -469,7 +471,7 @@ Here is the call graph for this function:</div>
 
 <p>Deallocate the Fornberg first-derivative weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00862">862</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00863">863</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -517,7 +519,7 @@ Here is the call graph for this function:</div>
 
 <p>Fornberg (1988) finite-difference weights at x0 on the given stencil, for derivatives up to m_order. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01189">1189</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01190">1190</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -547,7 +549,7 @@ Here is the caller graph for this function:</div>
 
 <p>Convert computational (real) cell coordinates to integer cell indices. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00491">491</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00492">492</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -592,7 +594,7 @@ Here is the caller graph for this function:</div>
 
 <p>Volume of cell (cellx, celly, cellz); in planar 2D the cell has depth charwidth. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01400">1400</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01426">1426</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -622,7 +624,7 @@ Here is the caller graph for this function:</div>
 
 <p>Save index and time the run starts from: zero on a fresh start, the restart point otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00407">407</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00408">408</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -648,7 +650,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate the Fornberg first-derivative weights for an n_weights-point stencil and compute them on this rank's grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00584">584</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00585">585</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -688,7 +690,42 @@ Here is the caller graph for this function:</div>
 
 <p>Derivative of a cell-centered field along dir with the precomputed Fornberg finite-difference weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00936">936</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00937">937</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="ac5fbc977789d9a2780dcc4ec0e389e18" name="ac5fbc977789d9a2780dcc4ec0e389e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5fbc977789d9a2780dcc4ec0e389e18">&#9670;&#160;</a></span>s_reflect_lag_entity_at_wall()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine, public m_euler_lagrange::s_reflect_lag_entity_at_wall </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mirror an entity whose center crossed a wall back inside along dir and point its velocity away from the wall (host data). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01354">1354</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__euler__lagrange_ac5fbc977789d9a2780dcc4ec0e389e18_cgraph.svg" width="364" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -706,7 +743,7 @@ Here is the caller graph for this function:</div>
 
 <p>Physical coordinates for triggering MPI communication of a Lagrangian entity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00424">424</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -746,7 +783,7 @@ Here is the caller graph for this function:</div>
 
 <p>Shift the entities flagged by s_apply_lag_entity_domain_bc across the periodic domain, both time levels (host data). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01379">1379</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l01405">1405</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -773,7 +810,7 @@ Here is the caller graph for this function:</div>
 
 <p>Number of stencil points. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00389">389</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -799,7 +836,7 @@ Here is the caller graph for this function:</div>
 
 <p>Lagrangian volume fraction above which a cell counts in the cloud statistics. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -825,7 +862,7 @@ Here is the caller graph for this function:</div>
 
 <p>Fornberg first-derivative weights at each cell center along x, y and z, one field per stencil point. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -849,7 +886,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -873,7 +910,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00387">387</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html#l00388">388</a> of file <a class="el" href="m__euler__lagrange_8fpp_8f90_source.html">m_euler_lagrange.fpp.f90</a>.</p>
 
 </div>
 </div>

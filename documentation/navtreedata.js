@@ -345,303 +345,303 @@ var NAVTREE =
     ] ],
     [ "Example Cases", "examples.html", [
       [ "Example Cases", "examples.html#autotoc_md233", [
-        [ "1D Multi-Component Reactive Shock Tube", "examples.html#autotoc_md234", [
-          [ "Initial Condition", "examples.html#autotoc_md235", null ],
-          [ "Results", "examples.html#autotoc_md236", null ],
-          [ "Comparison with the reference", "examples.html#autotoc_md237", null ]
+        [ "Freely Propagating H2/air Flame Speed Against Cantera", "examples.html#autotoc_md234", null ],
+        [ "Scaling and Performance test", "examples.html#autotoc_md235", [
+          [ "Weak Scaling", "examples.html#autotoc_md236", null ],
+          [ "Strong Scaling", "examples.html#autotoc_md237", null ],
+          [ "Example", "examples.html#autotoc_md238", null ]
         ] ],
-        [ "2D Conservation with AMR in a Periodic Box", "examples.html#autotoc_md238", null ],
-        [ "Taylor-Green Vortex (3D)", "examples.html#autotoc_md239", [
-          [ "Final Condition", "examples.html#autotoc_md240", null ]
+        [ "1D Species Diffusion and Heat Conduction Verification", "examples.html#autotoc_md239", [
+          [ "Run", "examples.html#autotoc_md240", null ],
+          [ "Results", "examples.html#autotoc_md241", null ]
         ] ],
-        [ "Water Disk Advected in Air", "examples.html#autotoc_md241", null ],
-        [ "2D Cylinder Wake with AMR: Drag and Strouhal Number, Re 100", "examples.html#autotoc_md242", [
-          [ "Run", "examples.html#autotoc_md243", null ],
-          [ "Results", "examples.html#autotoc_md244", null ]
+        [ "2D Conservation with AMR in a Periodic Box", "examples.html#autotoc_md242", null ],
+        [ "Boundary-condition patch geometry has to match the dimensionality", "examples.html#autotoc_md243", [
+          [ "Running it", "examples.html#autotoc_md244", null ],
+          [ "A second trap in the same corner", "examples.html#autotoc_md245", null ],
+          [ "Scope", "examples.html#autotoc_md246", null ]
         ] ],
-        [ "Probe files across a re-run", "examples.html#autotoc_md245", [
-          [ "Reproducing", "examples.html#autotoc_md246", null ],
-          [ "The fix", "examples.html#autotoc_md247", null ],
-          [ "Why it matters beyond tidiness", "examples.html#autotoc_md248", null ]
+        [ "Kelvin-Helmholtz Instability (2D)", "examples.html#autotoc_md247", null ],
+        [ "Immersed-boundary force on a thin plate (issue #1849)", "examples.html#autotoc_md250", [
+          [ "Running the sweep", "examples.html#autotoc_md251", null ],
+          [ "What the sweep shows", "examples.html#autotoc_md252", null ],
+          [ "Why a zero-reference check is not available here", "examples.html#autotoc_md253", null ],
+          [ "Related", "examples.html#autotoc_md254", null ]
         ] ],
-        [ "2D Power-Law (Shear-Thickening) Poiseuille Channel", "examples.html#autotoc_md249", [
-          [ "Regime and parameters", "examples.html#autotoc_md250", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md251", null ],
-          [ "How to run", "examples.html#autotoc_md252", null ],
-          [ "Validation result", "examples.html#autotoc_md253", null ],
-          [ "References", "examples.html#autotoc_md254", null ]
+        [ "Titarev-Toro problem (1D)", "examples.html#autotoc_md255", [
+          [ "Initial Condition", "examples.html#autotoc_md256", null ],
+          [ "Result", "examples.html#autotoc_md257", null ]
         ] ],
-        [ "IBM Bow Shock (3D)", "examples.html#autotoc_md255", [
-          [ "Final Condition", "examples.html#autotoc_md256", null ]
+        [ "1D Fourier conduction convergence", "examples.html#autotoc_md258", [
+          [ "Exact solution", "examples.html#autotoc_md259", null ],
+          [ "Running", "examples.html#autotoc_md260", null ],
+          [ "Observed convergence", "examples.html#autotoc_md261", null ]
         ] ],
-        [ "Backward Facing Step (2D)", "examples.html#autotoc_md257", [
-          [ "Final Condition (Density)", "examples.html#autotoc_md258", null ]
+        [ "Gas Jet (2D)", "examples.html#autotoc_md262", [
+          [ "Final Condition", "examples.html#autotoc_md263", null ]
         ] ],
-        [ "Gas Jet (2D)", "examples.html#autotoc_md259", [
-          [ "Final Condition", "examples.html#autotoc_md260", null ]
+        [ "Near-vacuum collapse", "examples.html#autotoc_md264", null ],
+        [ "Backward Facing Step (2D)", "examples.html#autotoc_md265", [
+          [ "Final Condition (Density)", "examples.html#autotoc_md266", null ]
         ] ],
-        [ "2D Isothermal Conduction Annulus: Image-Point Interpolation", "examples.html#autotoc_md261", [
-          [ "Results", "examples.html#autotoc_md262", null ],
-          [ "Run", "examples.html#autotoc_md263", null ],
-          [ "Limits", "examples.html#autotoc_md264", null ]
+        [ "1D Gaussian acoustic pulse from a planar source", "examples.html#autotoc_md267", [
+          [ "Run", "examples.html#autotoc_md268", null ],
+          [ "Result", "examples.html#autotoc_md269", null ]
         ] ],
-        [ "2D Cold Cylinder in Hot Gas: Heat Absorbed with the Wall Conduction Column", "examples.html#autotoc_md265", [
-          [ "Run", "examples.html#autotoc_md266", null ],
-          [ "Results", "examples.html#autotoc_md267", null ]
+        [ "Sedov-Taylor blast with AMR", "examples.html#autotoc_md270", null ],
+        [ "2D Cold Cylinder in Hot Gas: Heat Absorbed with the Wall Conduction Column", "examples.html#autotoc_md271", [
+          [ "Run", "examples.html#autotoc_md272", null ],
+          [ "Results", "examples.html#autotoc_md273", null ]
         ] ],
-        [ "1D Brio-Wu MHD shock tube (HLLD)", "examples.html#autotoc_md268", [
-          [ "Run", "examples.html#autotoc_md269", null ]
-        ] ],
-        [ "Scaling and Performance test", "examples.html#autotoc_md270", [
-          [ "Weak Scaling", "examples.html#autotoc_md271", null ],
-          [ "Strong Scaling", "examples.html#autotoc_md272", null ],
-          [ "Example", "examples.html#autotoc_md273", null ]
-        ] ],
-        [ "2D Circular Cylinder, Re 20-100: Drag, Wake, Shedding and Nusselt Number", "examples.html#autotoc_md274", [
+        [ "2D Thermally Developed Plane Channel", "examples.html#autotoc_md274", [
           [ "Run", "examples.html#autotoc_md275", null ],
-          [ "Results", "examples.html#autotoc_md276", null ],
-          [ "Lumped-temperature cooling", "examples.html#autotoc_md277", null ]
+          [ "Limits", "examples.html#autotoc_md276", null ]
         ] ],
-        [ "3D Turbulent Mixing layer (3D)", "examples.html#autotoc_md278", [
-          [ "Liutex visualization at transitional state", "examples.html#autotoc_md279", null ]
+        [ "Laplace Pressure Jump of a 2D Drop", "examples.html#autotoc_md277", null ],
+        [ "Bubble Collapse in a Uniform Bubbly Liquid (Keller-Miksis)", "examples.html#autotoc_md278", null ],
+        [ "2D Cylinder Wake with AMR: Drag and Strouhal Number, Re 100", "examples.html#autotoc_md279", [
+          [ "Run", "examples.html#autotoc_md280", null ],
+          [ "Results", "examples.html#autotoc_md281", null ]
         ] ],
-        [ "Perfectly Stirred Reactor", "examples.html#autotoc_md280", [
-          [ "Validation", "examples.html#autotoc_md281", null ]
+        [ "Rayleigh-Taylor Instability (2D)", "examples.html#autotoc_md282", [
+          [ "Final Condition and Linear Theory", "examples.html#autotoc_md283", null ],
+          [ "Linear growth rate", "examples.html#autotoc_md284", null ]
         ] ],
-        [ "2D Power-Law (Shear-Thinning) Poiseuille Channel", "examples.html#autotoc_md282", [
-          [ "Regime and parameters", "examples.html#autotoc_md283", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md284", null ],
-          [ "How to run", "examples.html#autotoc_md285", null ],
-          [ "Validation result", "examples.html#autotoc_md286", null ],
-          [ "References", "examples.html#autotoc_md287", null ]
+        [ "3D Sphere, Re 20-300, Mach 0.2: Drag and Nusselt Number", "examples.html#autotoc_md285", [
+          [ "Run", "examples.html#autotoc_md286", null ],
+          [ "Results", "examples.html#autotoc_md287", null ],
+          [ "Limits", "examples.html#autotoc_md288", null ]
         ] ],
-        [ "1D Gaussian acoustic pulse from a planar source", "examples.html#autotoc_md288", [
-          [ "Run", "examples.html#autotoc_md289", null ],
-          [ "Result", "examples.html#autotoc_md290", null ]
+        [ "Premixed H2/Air Flame and a Vortex Pair (2D)", "examples.html#autotoc_md289", null ],
+        [ "2D hypoelastic shear contact", "examples.html#autotoc_md290", [
+          [ "Run", "examples.html#autotoc_md291", null ]
         ] ],
-        [ "Burning Carbon Cylinder and Sphere Against a 1D Radial Reference", "examples.html#autotoc_md291", null ],
-        [ "1D hypoelastic water shock tube", "examples.html#autotoc_md292", [
-          [ "Run", "examples.html#autotoc_md293", null ]
+        [ "3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)", "examples.html#autotoc_md292", [
+          [ "Configuration", "examples.html#autotoc_md293", null ],
+          [ "Initial condition", "examples.html#autotoc_md294", null ],
+          [ "Running", "examples.html#autotoc_md295", null ]
         ] ],
-        [ "Water-Air Shock Tube", "examples.html#autotoc_md294", null ],
-        [ "1D Species Diffusion and Heat Conduction Verification", "examples.html#autotoc_md295", [
-          [ "Run", "examples.html#autotoc_md296", null ],
-          [ "Results", "examples.html#autotoc_md297", null ]
+        [ "Axisymmetric Fourier conduction convergence", "examples.html#autotoc_md296", [
+          [ "Exact solution", "examples.html#autotoc_md297", null ],
+          [ "The grid at the axis", "examples.html#autotoc_md298", null ],
+          [ "Running", "examples.html#autotoc_md299", null ],
+          [ "Observed results", "examples.html#autotoc_md300", null ]
         ] ],
-        [ "1D Fourier conduction convergence", "examples.html#autotoc_md298", [
-          [ "Exact solution", "examples.html#autotoc_md299", null ],
-          [ "Running", "examples.html#autotoc_md300", null ],
-          [ "Observed convergence", "examples.html#autotoc_md301", null ]
+        [ "Isentropic vortex problem (2D)", "examples.html#autotoc_md301", [
+          [ "Density", "examples.html#autotoc_md302", null ],
+          [ "Density Norms", "examples.html#autotoc_md303", null ],
+          [ "Order of accuracy (<span class=\"tt\">--convect</span>)", "examples.html#autotoc_md304", null ]
         ] ],
-        [ "Cylindrical viscous operator and species diffusion: manufactured solutions", "examples.html#autotoc_md302", null ],
-        [ "Boundary-condition patch geometry has to match the dimensionality", "examples.html#autotoc_md303", [
-          [ "Running it", "examples.html#autotoc_md304", null ],
-          [ "A second trap in the same corner", "examples.html#autotoc_md305", null ],
-          [ "Scope", "examples.html#autotoc_md306", null ]
+        [ "Expansion Tube with Phase Change", "examples.html#autotoc_md305", null ],
+        [ "Shock Droplet (2D)", "examples.html#autotoc_md306", [
+          [ "Initial Condition", "examples.html#autotoc_md307", null ],
+          [ "Result", "examples.html#autotoc_md308", null ]
         ] ],
-        [ "2D Circular Blast with Two AMR Levels", "examples.html#autotoc_md307", null ],
-        [ "1D Multi-Component Inert Shock Tube", "examples.html#autotoc_md308", [
-          [ "Initial Condition", "examples.html#autotoc_md309", null ],
-          [ "Results", "examples.html#autotoc_md310", null ]
+        [ "1D Sod Shock Tube with AMR Against the Exact Riemann Solution", "examples.html#autotoc_md309", null ],
+        [ "2D Constant Acceleration of a Two-Way Immersed Circle", "examples.html#autotoc_md310", [
+          [ "Run", "examples.html#autotoc_md311", null ],
+          [ "Limits", "examples.html#autotoc_md312", null ]
         ] ],
-        [ "3D Soft-Sphere Collision of a Heavy Sphere with a Wall", "examples.html#autotoc_md311", [
-          [ "Run", "examples.html#autotoc_md312", null ],
-          [ "Limits", "examples.html#autotoc_md313", null ]
+        [ "2D Taylor-Green Vortex (viscous decay)", "examples.html#autotoc_md313", null ],
+        [ "Periodic Arrays of Fixed Particles: Drag, Force Spread and Nusselt Number", "examples.html#autotoc_md314", [
+          [ "Run", "examples.html#autotoc_md315", null ],
+          [ "Results", "examples.html#autotoc_md316", null ]
         ] ],
-        [ "Sedov-Taylor blast with AMR", "examples.html#autotoc_md314", null ],
-        [ "H2/air Constant-Volume Ignition Against Cantera", "examples.html#autotoc_md315", null ],
-        [ "2D Constant Acceleration of a Two-Way Immersed Circle", "examples.html#autotoc_md316", [
-          [ "Run", "examples.html#autotoc_md317", null ],
-          [ "Limits", "examples.html#autotoc_md318", null ]
+        [ "1D Brio-Wu MHD shock tube (HLLD)", "examples.html#autotoc_md317", [
+          [ "Run", "examples.html#autotoc_md318", null ]
         ] ],
-        [ "2D IBM-Walled Power-Law Poiseuille Channel", "examples.html#autotoc_md319", [
-          [ "Geometry and parameters", "examples.html#autotoc_md320", null ],
-          [ "Analytic solution", "examples.html#autotoc_md321", null ],
+        [ "2D Bingham (Yield-Stress) Poiseuille Channel", "examples.html#autotoc_md319", [
+          [ "Regime and parameters", "examples.html#autotoc_md320", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md321", null ],
           [ "How to run", "examples.html#autotoc_md322", null ],
-          [ "Validation results", "examples.html#autotoc_md323", null ],
+          [ "Validation result", "examples.html#autotoc_md323", null ],
           [ "References", "examples.html#autotoc_md324", null ]
         ] ],
-        [ "Azimuthal Fourier conduction convergence (3D cylindrical)", "examples.html#autotoc_md325", [
-          [ "Exact solution", "examples.html#autotoc_md326", null ],
-          [ "Running", "examples.html#autotoc_md327", null ],
-          [ "Observed results", "examples.html#autotoc_md328", null ]
+        [ "2D Plane Poiseuille Flow Between Two Flat Immersed Walls", "examples.html#autotoc_md325", [
+          [ "Run", "examples.html#autotoc_md326", null ],
+          [ "Limits", "examples.html#autotoc_md327", null ]
         ] ],
-        [ "2D Orszag-Tang vortex with hyperbolic divergence cleaning", "examples.html#autotoc_md329", [
-          [ "Run", "examples.html#autotoc_md330", null ]
+        [ "1D Riemann Problems Against the Exact Solution", "examples.html#autotoc_md328", null ],
+        [ "2D Hardcodied IC Example", "examples.html#autotoc_md329", [
+          [ "Initial Condition and Result", "examples.html#autotoc_md330", null ]
         ] ],
-        [ "Lid-Driven Cavity Problem (2D)", "examples.html#autotoc_md331", [
-          [ "Final Condition", "examples.html#autotoc_md332", null ],
-          [ "Centerline Velocities", "examples.html#autotoc_md333", null ]
+        [ "2D Gas-Mass Budget of a Reacting Immersed Boundary", "examples.html#autotoc_md331", [
+          [ "What it shows", "examples.html#autotoc_md332", null ],
+          [ "Run", "examples.html#autotoc_md333", null ],
+          [ "Limits", "examples.html#autotoc_md334", null ]
         ] ],
-        [ "2D hypoelastic shear contact", "examples.html#autotoc_md334", [
-          [ "Run", "examples.html#autotoc_md335", null ]
+        [ "Taylor-Green Vortex (3D)", "examples.html#autotoc_md335", [
+          [ "Final Condition", "examples.html#autotoc_md336", null ]
         ] ],
-        [ "2D Moving Immersed Boundary: Gas-Mass Budget and Galilean Twin", "examples.html#autotoc_md336", [
-          [ "Run", "examples.html#autotoc_md337", null ],
-          [ "Results", "examples.html#autotoc_md338", null ],
-          [ "Limits", "examples.html#autotoc_md339", null ]
+        [ "3D Turbulent Mixing layer (3D)", "examples.html#autotoc_md337", [
+          [ "Liutex visualization at transitional state", "examples.html#autotoc_md338", null ]
         ] ],
-        [ "Freely Propagating H2/air Flame Speed Against Cantera", "examples.html#autotoc_md340", null ],
-        [ "Rayleigh-Taylor Instability (3D)", "examples.html#autotoc_md341", [
-          [ "Final Condition and Linear Theory", "examples.html#autotoc_md342", null ]
+        [ "2D Blast Wave Through a Particle Half-Ring", "examples.html#autotoc_md339", [
+          [ "Result", "examples.html#autotoc_md340", null ]
         ] ],
-        [ "2D General Herschel-Bulkley Poiseuille Channel", "examples.html#autotoc_md343", [
-          [ "Regime and parameters", "examples.html#autotoc_md344", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md345", null ],
-          [ "How to run", "examples.html#autotoc_md346", null ],
-          [ "Validation result", "examples.html#autotoc_md347", null ],
-          [ "References", "examples.html#autotoc_md348", null ]
+        [ "1D hypoelastic water shock tube", "examples.html#autotoc_md341", [
+          [ "Run", "examples.html#autotoc_md342", null ]
         ] ],
-        [ "Smooth 1D waves: order of accuracy from exact cell averages", "examples.html#autotoc_md349", null ],
-        [ "3D Sphere, Re 20-300, Mach 0.2: Drag and Nusselt Number", "examples.html#autotoc_md350", [
-          [ "Run", "examples.html#autotoc_md351", null ],
-          [ "Results", "examples.html#autotoc_md352", null ],
-          [ "Limits", "examples.html#autotoc_md353", null ]
+        [ "Water Disk Advected in Air", "examples.html#autotoc_md343", null ],
+        [ "Shock Through a Fixed Curtain of Particles (2D cylinders, 3D spheres, single sphere)", "examples.html#autotoc_md344", [
+          [ "Run", "examples.html#autotoc_md345", null ],
+          [ "Results", "examples.html#autotoc_md346", null ]
         ] ],
-        [ "3D Temporal Reacting Mixing Layer (H2/N2 - air, Mc = 1.5)", "examples.html#autotoc_md354", [
-          [ "Configuration", "examples.html#autotoc_md355", null ],
-          [ "Initial condition", "examples.html#autotoc_md356", null ],
-          [ "Running", "examples.html#autotoc_md357", null ]
+        [ "2D Power-Law (Shear-Thickening) Poiseuille Channel", "examples.html#autotoc_md347", [
+          [ "Regime and parameters", "examples.html#autotoc_md348", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md349", null ],
+          [ "How to run", "examples.html#autotoc_md350", null ],
+          [ "Validation result", "examples.html#autotoc_md351", null ],
+          [ "References", "examples.html#autotoc_md352", null ]
         ] ],
-        [ "1D Riemann Problems Against the Exact Solution", "examples.html#autotoc_md358", null ],
-        [ "Premixed H2/Air Flame and a Vortex Ring (3D)", "examples.html#autotoc_md359", null ],
-        [ "1D Sod Shock Tube with AMR Against the Exact Riemann Solution", "examples.html#autotoc_md360", null ],
-        [ "Shu-Osher Problem (1D, WENO5-Z)", "examples.html#autotoc_md361", null ],
-        [ "2D Thermally Developed Plane Channel", "examples.html#autotoc_md362", [
-          [ "Run", "examples.html#autotoc_md363", null ],
-          [ "Limits", "examples.html#autotoc_md364", null ]
+        [ "2D Orszag-Tang vortex with hyperbolic divergence cleaning", "examples.html#autotoc_md353", [
+          [ "Run", "examples.html#autotoc_md354", null ]
         ] ],
-        [ "2D Hardcodied IC Example", "examples.html#autotoc_md365", [
-          [ "Initial Condition and Result", "examples.html#autotoc_md366", null ]
+        [ "2D Triple Point (2D)", "examples.html#autotoc_md355", [
+          [ "Numerical Schlieren at Final Time", "examples.html#autotoc_md356", null ]
         ] ],
-        [ "Shu-Osher problem (1D)", "examples.html#autotoc_md367", [
-          [ "Initial Condition", "examples.html#autotoc_md368", null ],
-          [ "Result", "examples.html#autotoc_md369", null ]
+        [ "2D Circular Cylinder, Re 20-100: Drag, Wake, Shedding and Nusselt Number", "examples.html#autotoc_md357", [
+          [ "Run", "examples.html#autotoc_md358", null ],
+          [ "Results", "examples.html#autotoc_md359", null ],
+          [ "Lumped-temperature cooling", "examples.html#autotoc_md360", null ]
         ] ],
-        [ "Expansion Tube with Phase Change", "examples.html#autotoc_md370", null ],
-        [ "2D Taylor-Green Vortex (viscous decay)", "examples.html#autotoc_md371", null ],
-        [ "2D Plane Poiseuille Flow Between Two Flat Immersed Walls", "examples.html#autotoc_md372", [
-          [ "Run", "examples.html#autotoc_md373", null ],
-          [ "Limits", "examples.html#autotoc_md374", null ]
+        [ "Cylindrical viscous operator and species diffusion: manufactured solutions", "examples.html#autotoc_md361", null ],
+        [ "Forward Facing Step (2D)", "examples.html#autotoc_md362", [
+          [ "Final Condition (Density)", "examples.html#autotoc_md363", null ]
         ] ],
-        [ "1D Chapman-Jouguet Detonation Against the Equilibrium CJ Solution", "examples.html#autotoc_md375", null ],
-        [ "Periodic Arrays of Fixed Particles: Drag, Force Spread and Nusselt Number", "examples.html#autotoc_md376", [
-          [ "Run", "examples.html#autotoc_md377", null ],
-          [ "Results", "examples.html#autotoc_md378", null ]
+        [ "2D IBM CFL dt (2D)", "examples.html#autotoc_md364", [
+          [ "Result", "examples.html#autotoc_md365", null ]
         ] ],
-        [ "Shock Through a Fixed Curtain of Particles (2D cylinders, 3D spheres, single sphere)", "examples.html#autotoc_md379", [
-          [ "Run", "examples.html#autotoc_md380", null ],
-          [ "Results", "examples.html#autotoc_md381", null ]
+        [ "Viscous Shock Tube (2D)", "examples.html#autotoc_md366", null ],
+        [ "H2/air Constant-Volume Ignition Against Cantera", "examples.html#autotoc_md369", null ],
+        [ "1D circularly polarized Alfven wave", "examples.html#autotoc_md370", [
+          [ "Run", "examples.html#autotoc_md371", null ]
         ] ],
-        [ "Bubble Collapse in a Uniform Bubbly Liquid (Keller-Miksis)", "examples.html#autotoc_md382", null ],
-        [ "Immersed-boundary force on a thin plate (issue #1849)", "examples.html#autotoc_md383", [
-          [ "Running the sweep", "examples.html#autotoc_md384", null ],
-          [ "What the sweep shows", "examples.html#autotoc_md385", null ],
-          [ "Why a zero-reference check is not available here", "examples.html#autotoc_md386", null ],
-          [ "Related", "examples.html#autotoc_md387", null ]
+        [ "Shu-Osher Problem (1D, WENO5-Z)", "examples.html#autotoc_md372", null ],
+        [ "2D General Herschel-Bulkley Poiseuille Channel", "examples.html#autotoc_md373", [
+          [ "Regime and parameters", "examples.html#autotoc_md374", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md375", null ],
+          [ "How to run", "examples.html#autotoc_md376", null ],
+          [ "Validation result", "examples.html#autotoc_md377", null ],
+          [ "References", "examples.html#autotoc_md378", null ]
         ] ],
-        [ "2D Inviscid Flow Around a Fixed Slip Cylinder: Mass Budget and Exact Vortex", "examples.html#autotoc_md388", [
-          [ "Run", "examples.html#autotoc_md389", null ],
-          [ "Results", "examples.html#autotoc_md390", null ]
+        [ "2D Isothermal Conduction Annulus: Image-Point Interpolation", "examples.html#autotoc_md379", [
+          [ "Results", "examples.html#autotoc_md380", null ],
+          [ "Run", "examples.html#autotoc_md381", null ],
+          [ "Limits", "examples.html#autotoc_md382", null ]
         ] ],
-        [ "2D axisymmetric focused transducer", "examples.html#autotoc_md391", [
-          [ "Run", "examples.html#autotoc_md392", null ]
+        [ "Lid-Driven Cavity Problem (2D)", "examples.html#autotoc_md383", [
+          [ "Final Condition", "examples.html#autotoc_md384", null ],
+          [ "Centerline Velocities", "examples.html#autotoc_md385", null ]
         ] ],
-        [ "Richtmyer-Meshkov Instability (2D)", "examples.html#autotoc_md393", null ],
-        [ "2D Lumped Cylinder Cooling in a Gas Stream", "examples.html#autotoc_md396", [
-          [ "What it shows", "examples.html#autotoc_md397", null ],
-          [ "Setup", "examples.html#autotoc_md398", null ],
-          [ "Run", "examples.html#autotoc_md399", null ],
-          [ "Limitations", "examples.html#autotoc_md400", null ],
-          [ "Cooling in a cross flow, against the time constant of the fixed-wall Nusselt number", "examples.html#autotoc_md401", null ]
+        [ "Water-Air Shock Tube", "examples.html#autotoc_md386", null ],
+        [ "Probe files across a re-run", "examples.html#autotoc_md387", [
+          [ "Reproducing", "examples.html#autotoc_md388", null ],
+          [ "The fix", "examples.html#autotoc_md389", null ],
+          [ "Why it matters beyond tidiness", "examples.html#autotoc_md390", null ]
         ] ],
-        [ "Shock Droplet (2D)", "examples.html#autotoc_md402", [
-          [ "Initial Condition", "examples.html#autotoc_md403", null ],
-          [ "Result", "examples.html#autotoc_md404", null ]
+        [ "2D Taylor-Couette Flow Between Two Immersed Walls", "examples.html#autotoc_md391", [
+          [ "Run", "examples.html#autotoc_md392", null ],
+          [ "Limits", "examples.html#autotoc_md393", null ]
         ] ],
-        [ "Premixed H2/Air Flame and a Vortex Pair (2D)", "examples.html#autotoc_md405", null ],
-        [ "2D Triple Point (2D)", "examples.html#autotoc_md406", [
-          [ "Numerical Schlieren at Final Time", "examples.html#autotoc_md407", null ]
+        [ "Burning Carbon Cylinder and Sphere Against a 1D Radial Reference", "examples.html#autotoc_md394", null ],
+        [ "Smooth 1D waves: order of accuracy from exact cell averages", "examples.html#autotoc_md395", null ],
+        [ "2D Shear-Thinning Lid-Driven Cavity", "examples.html#autotoc_md396", [
+          [ "Regime and parameters", "examples.html#autotoc_md397", null ],
+          [ "Governing physics", "examples.html#autotoc_md398", null ],
+          [ "How to run", "examples.html#autotoc_md399", null ],
+          [ "References", "examples.html#autotoc_md400", null ]
         ] ],
-        [ "Kelvin-Helmholtz Instability (2D)", "examples.html#autotoc_md408", null ],
-        [ "2D Blast Wave Through a Particle Half-Ring", "examples.html#autotoc_md411", [
-          [ "Result", "examples.html#autotoc_md412", null ]
+        [ "Automatic <span class=\"tt\">ib_neighborhood_radius</span> when ranks are not cubes", "examples.html#autotoc_md401", [
+          [ "The case", "examples.html#autotoc_md402", null ],
+          [ "Running it", "examples.html#autotoc_md403", null ],
+          [ "It is not only this case", "examples.html#autotoc_md404", null ],
+          [ "Scope", "examples.html#autotoc_md405", null ]
         ] ],
-        [ "2D Bingham (Yield-Stress) Poiseuille Channel", "examples.html#autotoc_md413", [
-          [ "Regime and parameters", "examples.html#autotoc_md414", null ],
-          [ "Governing physics and analytic solution", "examples.html#autotoc_md415", null ],
-          [ "How to run", "examples.html#autotoc_md416", null ],
-          [ "Validation result", "examples.html#autotoc_md417", null ],
-          [ "References", "examples.html#autotoc_md418", null ]
+        [ "2D IBM-Walled Power-Law Poiseuille Channel", "examples.html#autotoc_md406", [
+          [ "Geometry and parameters", "examples.html#autotoc_md407", null ],
+          [ "Analytic solution", "examples.html#autotoc_md408", null ],
+          [ "How to run", "examples.html#autotoc_md409", null ],
+          [ "Validation results", "examples.html#autotoc_md410", null ],
+          [ "References", "examples.html#autotoc_md411", null ]
         ] ],
-        [ "Viscous Shock Tube (2D)", "examples.html#autotoc_md419", null ],
-        [ "Isentropic vortex through AMR blocks", "examples.html#autotoc_md422", null ],
-        [ "2D Shear-Thinning Lid-Driven Cavity", "examples.html#autotoc_md423", [
-          [ "Regime and parameters", "examples.html#autotoc_md424", null ],
-          [ "Governing physics", "examples.html#autotoc_md425", null ],
-          [ "How to run", "examples.html#autotoc_md426", null ],
-          [ "References", "examples.html#autotoc_md427", null ]
+        [ "1D Chapman-Jouguet Detonation Against the Equilibrium CJ Solution", "examples.html#autotoc_md412", null ],
+        [ "2D axisymmetric focused transducer", "examples.html#autotoc_md413", [
+          [ "Run", "examples.html#autotoc_md414", null ]
         ] ],
-        [ "Bow-Shock Stand-Off of a Cylinder and a Sphere, Mach 1.5-3", "examples.html#autotoc_md428", [
-          [ "Run", "examples.html#autotoc_md429", null ],
-          [ "Results", "examples.html#autotoc_md430", null ],
-          [ "Limits", "examples.html#autotoc_md431", null ]
+        [ "2D Riemann Test (2D)", "examples.html#autotoc_md415", [
+          [ "Density Initial and Final Conditions", "examples.html#autotoc_md416", null ]
         ] ],
-        [ "Forward Facing Step (2D)", "examples.html#autotoc_md432", [
-          [ "Final Condition (Density)", "examples.html#autotoc_md433", null ]
+        [ "1D Multi-Component Reactive Shock Tube", "examples.html#autotoc_md417", [
+          [ "Initial Condition", "examples.html#autotoc_md418", null ],
+          [ "Results", "examples.html#autotoc_md419", null ],
+          [ "Comparison with the reference", "examples.html#autotoc_md420", null ]
         ] ],
-        [ "Isentropic vortex problem (2D)", "examples.html#autotoc_md434", [
-          [ "Density", "examples.html#autotoc_md435", null ],
-          [ "Density Norms", "examples.html#autotoc_md436", null ],
-          [ "Order of accuracy (<span class=\"tt\">--convect</span>)", "examples.html#autotoc_md437", null ]
+        [ "Richtmyer-Meshkov Instability (2D)", "examples.html#autotoc_md421", null ],
+        [ "Lax shock tube problem (1D)", "examples.html#autotoc_md424", [
+          [ "Initial Condition", "examples.html#autotoc_md425", null ],
+          [ "Result", "examples.html#autotoc_md426", null ]
         ] ],
-        [ "2D Shock–Particle Curtain Interaction", "examples.html#autotoc_md438", [
-          [ "Result", "examples.html#autotoc_md439", null ]
+        [ "2D Circular Blast with Two AMR Levels", "examples.html#autotoc_md427", null ],
+        [ "Azimuthal Fourier conduction convergence (3D cylindrical)", "examples.html#autotoc_md428", [
+          [ "Exact solution", "examples.html#autotoc_md429", null ],
+          [ "Running", "examples.html#autotoc_md430", null ],
+          [ "Observed results", "examples.html#autotoc_md431", null ]
         ] ],
-        [ "2D Riemann Test (2D)", "examples.html#autotoc_md440", [
-          [ "Density Initial and Final Conditions", "examples.html#autotoc_md441", null ]
+        [ "Premixed H2/Air Flame and a Vortex Ring (3D)", "examples.html#autotoc_md432", null ],
+        [ "2D Inviscid Flow Around a Fixed Slip Cylinder: Mass Budget and Exact Vortex", "examples.html#autotoc_md433", [
+          [ "Run", "examples.html#autotoc_md434", null ],
+          [ "Results", "examples.html#autotoc_md435", null ]
         ] ],
-        [ "2D Gas-Mass Budget of a Reacting Immersed Boundary", "examples.html#autotoc_md442", [
-          [ "What it shows", "examples.html#autotoc_md443", null ],
-          [ "Run", "examples.html#autotoc_md444", null ],
-          [ "Limits", "examples.html#autotoc_md445", null ]
+        [ "2D Lumped Cylinder Cooling in a Gas Stream", "examples.html#autotoc_md436", [
+          [ "What it shows", "examples.html#autotoc_md437", null ],
+          [ "Setup", "examples.html#autotoc_md438", null ],
+          [ "Run", "examples.html#autotoc_md439", null ],
+          [ "Limitations", "examples.html#autotoc_md440", null ],
+          [ "Cooling in a cross flow, against the time constant of the fixed-wall Nusselt number", "examples.html#autotoc_md441", null ]
         ] ],
-        [ "Lax shock tube problem (1D)", "examples.html#autotoc_md446", [
-          [ "Initial Condition", "examples.html#autotoc_md447", null ],
-          [ "Result", "examples.html#autotoc_md448", null ]
+        [ "1D Multi-Component Inert Shock Tube", "examples.html#autotoc_md442", [
+          [ "Initial Condition", "examples.html#autotoc_md443", null ],
+          [ "Results", "examples.html#autotoc_md444", null ]
         ] ],
-        [ "2D IBM CFL dt (2D)", "examples.html#autotoc_md449", [
-          [ "Result", "examples.html#autotoc_md450", null ]
+        [ "Bow-Shock Stand-Off of a Cylinder and a Sphere, Mach 1.5-3", "examples.html#autotoc_md445", [
+          [ "Run", "examples.html#autotoc_md446", null ],
+          [ "Results", "examples.html#autotoc_md447", null ],
+          [ "Limits", "examples.html#autotoc_md448", null ]
         ] ],
-        [ "2D Taylor-Couette Flow Between Two Immersed Walls", "examples.html#autotoc_md451", [
-          [ "Run", "examples.html#autotoc_md452", null ],
-          [ "Limits", "examples.html#autotoc_md453", null ]
+        [ "2D Power-Law (Shear-Thinning) Poiseuille Channel", "examples.html#autotoc_md449", [
+          [ "Regime and parameters", "examples.html#autotoc_md450", null ],
+          [ "Governing physics and analytic solution", "examples.html#autotoc_md451", null ],
+          [ "How to run", "examples.html#autotoc_md452", null ],
+          [ "Validation result", "examples.html#autotoc_md453", null ],
+          [ "References", "examples.html#autotoc_md454", null ]
         ] ],
-        [ "Rayleigh-Taylor Instability (2D)", "examples.html#autotoc_md454", [
-          [ "Final Condition and Linear Theory", "examples.html#autotoc_md455", null ],
-          [ "Linear growth rate", "examples.html#autotoc_md456", null ]
+        [ "2D Moving Immersed Boundary: Gas-Mass Budget and Galilean Twin", "examples.html#autotoc_md455", [
+          [ "Run", "examples.html#autotoc_md456", null ],
+          [ "Results", "examples.html#autotoc_md457", null ],
+          [ "Limits", "examples.html#autotoc_md458", null ]
         ] ],
-        [ "1D circularly polarized Alfven wave", "examples.html#autotoc_md457", [
-          [ "Run", "examples.html#autotoc_md458", null ]
+        [ "3D Soft-Sphere Collision of a Heavy Sphere with a Wall", "examples.html#autotoc_md459", [
+          [ "Run", "examples.html#autotoc_md460", null ],
+          [ "Limits", "examples.html#autotoc_md461", null ]
         ] ],
-        [ "Near-vacuum collapse", "examples.html#autotoc_md459", null ],
-        [ "Titarev-Toro problem (1D)", "examples.html#autotoc_md460", [
-          [ "Initial Condition", "examples.html#autotoc_md461", null ],
-          [ "Result", "examples.html#autotoc_md462", null ]
+        [ "IBM Bow Shock (3D)", "examples.html#autotoc_md462", [
+          [ "Final Condition", "examples.html#autotoc_md463", null ]
         ] ],
-        [ "Axisymmetric Fourier conduction convergence", "examples.html#autotoc_md463", [
-          [ "Exact solution", "examples.html#autotoc_md464", null ],
-          [ "The grid at the axis", "examples.html#autotoc_md465", null ],
-          [ "Running", "examples.html#autotoc_md466", null ],
-          [ "Observed results", "examples.html#autotoc_md467", null ]
+        [ "Rayleigh-Taylor Instability (3D)", "examples.html#autotoc_md464", [
+          [ "Final Condition and Linear Theory", "examples.html#autotoc_md465", null ]
         ] ],
-        [ "Automatic <span class=\"tt\">ib_neighborhood_radius</span> when ranks are not cubes", "examples.html#autotoc_md468", [
-          [ "The case", "examples.html#autotoc_md469", null ],
-          [ "Running it", "examples.html#autotoc_md470", null ],
-          [ "It is not only this case", "examples.html#autotoc_md471", null ],
-          [ "Scope", "examples.html#autotoc_md472", null ]
+        [ "Shu-Osher problem (1D)", "examples.html#autotoc_md466", [
+          [ "Initial Condition", "examples.html#autotoc_md467", null ],
+          [ "Result", "examples.html#autotoc_md468", null ]
         ] ],
-        [ "Laplace Pressure Jump of a 2D Drop", "examples.html#autotoc_md473", null ]
+        [ "Perfectly Stirred Reactor", "examples.html#autotoc_md469", [
+          [ "Validation", "examples.html#autotoc_md470", null ]
+        ] ],
+        [ "Isentropic vortex through AMR blocks", "examples.html#autotoc_md471", null ],
+        [ "2D Shock–Particle Curtain Interaction", "examples.html#autotoc_md472", [
+          [ "Result", "examples.html#autotoc_md473", null ]
+        ] ]
       ] ]
     ] ],
     [ "Performance", "expectedPerformance.html", [

@@ -14,6 +14,7 @@ var structm__derived__types_1_1ib__patch__parameters =
     [ "gbl_patch_id", "structm__derived__types_1_1ib__patch__parameters.html#af7516ecceaa9ef868284466aa5e7cca4", null ],
     [ "geometry", "structm__derived__types_1_1ib__patch__parameters.html#a1f6b2f17dbe349203141acfd3e71fd4f", null ],
     [ "heat_power", "structm__derived__types_1_1ib__patch__parameters.html#a9cf1cd30fac6b5342e9ecd8ea5bb83b5", null ],
+    [ "inertia_b", "structm__derived__types_1_1ib__patch__parameters.html#a925554ff2d8f9a69c3f98b667d9557ec", null ],
     [ "inj_species", "structm__derived__types_1_1ib__patch__parameters.html#aa99beb9f60685c7cc45a3ac6e1414d2f", null ],
     [ "kin_freq", "structm__derived__types_1_1ib__patch__parameters.html#a359f1ecb386bef4493dd2f343d9b0b35", null ],
     [ "kin_hinge", "structm__derived__types_1_1ib__patch__parameters.html#a275af4651fa481eff5ba3c9698b26bb9", null ],

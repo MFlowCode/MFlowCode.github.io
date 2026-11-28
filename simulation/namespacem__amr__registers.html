@@ -209,6 +209,10 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a6a28dde0554e50a76dc71e514e5fb24d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero register slots slo..shi of freg (fine) or creg in every active direction.  <br /></td></tr>
 <tr class="memitem:a8d81ef7731ffbd40ab004c3b5496317d" id="r_a8d81ef7731ffbd40ab004c3b5496317d"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a8d81ef7731ffbd40ab004c3b5496317d">s_amr_reflux_apply_faces</a> (q, islot, rr, dtl, olo, ohi, glo, ghi, woff, w_lo, w_hi, mlo, mhi)</td></tr>
 <tr class="memdesc:a8d81ef7731ffbd40ab004c3b5496317d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Berger-Colella state reflux: q(outside) += w*dtl*(F_coarse - Fbar_fine)/m on the low face and the negative on the high face, per active dim, with F_coarse = creg and Fbar_fine = freg averaged over the rr**(ndim-1) covering fine faces; the volume fractions also take their alpha*div(u) correction (s_amr_apply_reflux), alpha from q at the outside cell. Framing is caller-passed: islot dense register slot; olo/ohi outside coarse-cell index below/above the face; glo/ghi creg-local loop range; woff transverse write origin; w_lo/w_hi per-face weight; mlo/mhi outside-cell width. A zero weight skips the write because the outside index may be out of bounds on an unowned face.  <br /></td></tr>
+<tr class="memitem:a53b991449445d61cc91beb531db98cf9" id="r_a53b991449445d61cc91beb531db98cf9"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a53b991449445d61cc91beb531db98cf9">s_amr_usrc_ranges</a> (iu, ab, ae, <a class="el" href="namespacem__global__parameters__common.html#a06c9c48d4766469a722a0e37bbb0e6d1">ib</a>, ie, ext)</td></tr>
+<tr class="memdesc:a53b991449445d61cc91beb531db98cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equations whose rhs carries a face-velocity term the reflux corrects (s_amr_capture_total's amr_reg_u channel): the volume fractions [ab:ae], and with the 6-equation model the internal energies [ib:ie] (empty ranges otherwise). ext: some of those coefficients need the cell's pressure (alt_soundspeed's K, the internal energies' alpha_k*p), not alpha alone.  <br /></td></tr>
+<tr class="memitem:a239f7a286d87a12d6480218d659f2e2f" id="r_a239f7a286d87a12d6480218d659f2e2f"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a239f7a286d87a12d6480218d659f2e2f">f_amr_usrc_coef</a> (arho, alf, ke, en, eq, altss)</td></tr>
+<tr class="memdesc:a239f7a286d87a12d6480218d659f2e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coefficient s of the face velocity in equation eq's rhs at one cell, which carries s*(u_r - u_l)/dx (<a class="el" href="namespacem__rhs.html" title="Assemble the right-hand side of the governing equations using finite-volume flux differencing,...">m_rhs</a>), from the cell's partial densities arho, volume fractions alf, kinetic energy ke and total energy en: alpha_j for a volume fraction, plus K on the first and minus K on the last with alt_soundspeed (K = a1 a2 (B2 - B1)/(a1 B2 + a2 B1)), and -alpha_k*p for a 6-equation internal energy. p is the mixture pressure of the cell, as the conversion computes it (no chemistry).  <br /></td></tr>
 <tr class="memitem:a5a00a35837a60bfa69b90a3048a91cff" id="r_a5a00a35837a60bfa69b90a3048a91cff"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a5a00a35837a60bfa69b90a3048a91cff">s_amr_set_rk_table</a> (coef, c)</td></tr>
 <tr class="memdesc:a5a00a35837a60bfa69b90a3048a91cff"><td class="mdescLeft">&#160;</td><td class="mdescRight">amr_rk_w from the rows (c1, c2, c3, c4) of q &lt;- (c1*q + c2*q^n + c3*dt*L(q))/c4, one per stage; amr_rk_c are the stage times c(1:ns) of the stepper.  <br /></td></tr>
 <tr class="memitem:a09c1462d663e0232915ad46089601729" id="r_a09c1462d663e0232915ad46089601729"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a09c1462d663e0232915ad46089601729">s_finalize_amr_registers</a> ()</td></tr>
@@ -226,8 +230,9 @@ Variables</h2></td></tr>
 <tr class="memdesc:a4299ac40aafa64aa9456a5d9be575525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slot capacity the registers are sized for (grows geometrically; amr_max_blocks is only a cap) and the transverse extents.  <br /></td></tr>
 <tr class="memitem:ae5d373cba70e0c4a30152c48dd7e9f71" id="r_ae5d373cba70e0c4a30152c48dd7e9f71"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#ae5d373cba70e0c4a30152c48dd7e9f71">amr_reg_cap</a> = 0</td></tr>
 <tr class="memitem:a9e8f9df5cf24edabc030ee039b058bee" id="r_a9e8f9df5cf24edabc030ee039b058bee"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a9e8f9df5cf24edabc030ee039b058bee">amr_nreg</a> = 0</td></tr>
-<tr class="memdesc:a9e8f9df5cf24edabc030ee039b058bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register channels: sys_size fluxes, plus the face-normal interface velocity when the volume fractions carry an alpha*div(u) source (adv_src_mode_vel_iface) and vary (num_fluids &gt; 1), so their reflux can correct that source too (amr_reg_u).  <br /></td></tr>
+<tr class="memdesc:a9e8f9df5cf24edabc030ee039b058bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register channels: sys_size fluxes, then from amr_reg_u the quantity the volume fractions' source rides on, so their reflux can correct that source too (two or more fluids): the face-normal interface velocity (adv_src_mode_vel_iface, one channel) or each fluid's interface alpha (adv_src_mode_alpha_iface, HLL Method 1, num_fluids channels; amr_reg_amode).  <br /></td></tr>
 <tr class="memitem:a5aa8e43f973ff32dfc82e22b842e751f" id="r_a5aa8e43f973ff32dfc82e22b842e751f"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#a5aa8e43f973ff32dfc82e22b842e751f">amr_reg_u</a> = 0</td></tr>
+<tr class="memitem:a604c75cbb6acedc7f4d02628af03a2b3" id="r_a604c75cbb6acedc7f4d02628af03a2b3"><td class="memItemLeft">logical&#160;</td><td class="memItemRight"><a class="el" href="#a604c75cbb6acedc7f4d02628af03a2b3">amr_reg_amode</a> = .false.</td></tr>
 <tr class="memitem:aeaef5156c56150951ef70ea7e5e066cd" id="r_aeaef5156c56150951ef70ea7e5e066cd"><td class="memItemLeft">integer, dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#aeaef5156c56150951ef70ea7e5e066cd">rc</a></td></tr>
 <tr class="memitem:ada3af4f7887217e463e1a7e9c7b98a6e" id="r_ada3af4f7887217e463e1a7e9c7b98a6e"><td class="memItemLeft">integer, dimension(3)&#160;</td><td class="memItemRight"><a class="el" href="#ada3af4f7887217e463e1a7e9c7b98a6e">rf</a></td></tr>
 <tr class="memdesc:ada3af4f7887217e463e1a7e9c7b98a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">coarse / fine transverse extents (creg is 0:rc-1, freg is 0:rf)  <br /></td></tr>
@@ -275,7 +280,7 @@ Variables</h2></td></tr>
 
 <p>False only if block k's region widened by its outside face layer misses the coarse subdomain [sidx, sidx + ext]. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05155">5155</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05111">5111</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -305,7 +310,7 @@ Here is the caller graph for this function:</div>
 
 <p>True iff the current block's face on <span class="tt">side</span> (+1 high / -1 low) in dim d abuts an adjacent block with matching transverse extents (a fine-fine seam, not a c/f boundary). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05179">5179</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05135">5135</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -335,11 +340,61 @@ Here is the caller graph for this function:</div>
 
 <p>Block kc is a level+1 child of block g: one level finer with an overlapping region box. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05717">5717</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05677">5677</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__registers_ac4d0f4555b96c9872a98e299dac4ba59_icgraph.svg" width="100%" height="550"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a239f7a286d87a12d6480218d659f2e2f" name="a239f7a286d87a12d6480218d659f2e2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a239f7a286d87a12d6480218d659f2e2f">&#9670;&#160;</a></span>f_amr_usrc_coef()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function m_amr_registers::f_amr_usrc_coef </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>arho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#a92ed90a601a0e63cd976795f540f8b7a">num_fluids</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>alf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ke</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>en</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>eq</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(in)</td>          <td class="paramname"><span class="paramname"><em>altss</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Coefficient s of the face velocity in equation eq's rhs at one cell, which carries s*(u_r - u_l)/dx (<a class="el" href="namespacem__rhs.html" title="Assemble the right-hand side of the governing equations using finite-volume flux differencing,...">m_rhs</a>), from the cell's partial densities arho, volume fractions alf, kinetic energy ke and total energy en: alpha_j for a volume fraction, plus K on the first and minus K on the last with alt_soundspeed (K = a1 a2 (B2 - B1)/(a1 B2 + a2 B1)), and -alpha_k*p for a 6-equation internal energy. p is the mixture pressure of the cell, as the conversion computes it (no chemistry). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l07157">7157</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__registers_a239f7a286d87a12d6480218d659f2e2f_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -365,7 +420,7 @@ Here is the caller graph for this function:</div>
 
 <p>Correct the coarse rhs in the first cell outside each block face so the update sees the child-averaged fine flux: the low face is the outside cell's right face (rhs += (F_coarse - Fbar_fine)/dx), the high face its left face (rhs += (Fbar_fine - F_coarse)/dx). A volume fraction's rhs also has +alpha*u on its right face and -alpha*u on its left (alpha*div(u)), so with amr_reg_u it gets alpha*(ubar_fine - u_coarse)/dx on the low face and the negative on the high face, alpha from q_src at the outside cell: zero for uniform alpha, and material interfaces stay in p/u equilibrium. c1/c2 are relative 0-based coarse transverse indices. CCE 19.0.0: two or more of the per-direction loop nests in one procedure fail (ftn-7991 on offload, bad code on CPU), so each lives in its own procedure (s_amr_apply_reflux_d1/d2/d3); keep them separate. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06077">6077</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06038">6038</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -400,7 +455,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reflux correction for the faces normal to direction 1. Called only when <a class="el" href="namespacem__global__parameters.html#a8d1f16a40bf624e4814417729572b42c" title="The active dimensions, and this rank&#39;s coarse subdomain origin and extent padded to 3-vectors (0 in c...">amr_dim(1)</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06104">6104</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06065">6065</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -435,7 +490,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reflux correction for the faces normal to direction 2. Called only when <a class="el" href="namespacem__global__parameters.html#a8d1f16a40bf624e4814417729572b42c" title="The active dimensions, and this rank&#39;s coarse subdomain origin and extent padded to 3-vectors (0 in c...">amr_dim(2)</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06229">6229</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06220">6220</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -470,7 +525,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reflux correction for the faces normal to direction 3. Called only when <a class="el" href="namespacem__global__parameters.html#a8d1f16a40bf624e4814417729572b42c" title="The active dimensions, and this rank&#39;s coarse subdomain origin and extent padded to 3-vectors (0 in c...">amr_dim(3)</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06354">6354</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06375">6375</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -510,7 +565,7 @@ Here is the caller graph for this function:</div>
 
 <p>Select batch member ibm's slot; returns its offset ko in the batch slab and its extents ext (ko = 0 outside a batch). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05741">5741</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05701">5701</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -590,7 +645,7 @@ Here is the caller graph for this function:</div>
 
 <p>Batched boundary-flux capture: reg(id)lo/hi(eq + doff, t1, t2, slot) [+=/=] cf * flux(eq) over each slot's window (bcap rows 5:8) for eq in [eqb:eqe]; reg is freg (fine) or creg. acc selects accumulate vs overwrite; advective selects flux_rsx_vf vs flux_src_rsx_vf. Inactive slots and out-of-window cells are cycled. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05776">5776</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05736">5736</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -620,7 +675,7 @@ Here is the caller graph for this function:</div>
 
 <p>Capture c/f boundary-face fluxes for direction id from the finalized flux array, inside s_compute_rhs. The coarse call fills creg at block faces; the fine call (amr_in_fine_advance, globals swapped to the fine block) fills freg at the fine faces. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05940">5940</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05901">5901</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -685,7 +740,7 @@ Here is the call graph for this function:</div>
 
 <p>Fill capture table <span class="tt">set</span>, slot sreg, for one block's face pair along id: blo/bhi is the block box in local flux indices (faces at blo(id)-1 and bhi(id)), wlo/whi the transverse window, clo/chi the per-face gates. Transverse indices are 0-based from blo, aligned across the coarse and fine registers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05760">5760</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05720">5720</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -735,7 +790,7 @@ Here is the caller graph for this function:</div>
 
 <p>Capture the filled slots (s_amr_capture_slot) into freg (fine) or creg: advective, viscous (mom..E), chemistry diffusion (species, plus the energy flux only when not viscous, since the viscous pass already captured it), and the interface velocity into channel amr_reg_u. Coarse and fine share this routine so the reflux subtracts matching quantities. Set 0 is pushed here and cleared after. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05892">5892</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05852">5852</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -763,7 +818,7 @@ Here is the caller graph for this function:</div>
 
 <p>Build the coarse per-direction capture tables (bcap sets 1:3) and reflux apply tables (aint/areal) once per topology change and push them to the device. Each face is captured by the rank owning the coarse cells just outside it, over its owned transverse overlap [tlo:thi] in the block-relative frame. Called only on the coarse grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05998">5998</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05959">5959</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -808,7 +863,7 @@ Here is the caller graph for this function:</div>
 
 <p>Parent-fine footprint of block k inside its parent pblk from replicated metadata, so every rank gets the same box (the block's own amr_isect_lo/hi is empty on non-owners). Lives here because "use m_amr" would cycle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05728">5728</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05688">5688</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -893,7 +948,12 @@ Here is the caller graph for this function:</div>
 
 <p>Berger-Colella state reflux: q(outside) += w*dtl*(F_coarse - Fbar_fine)/m on the low face and the negative on the high face, per active dim, with F_coarse = creg and Fbar_fine = freg averaged over the rr**(ndim-1) covering fine faces; the volume fractions also take their alpha*div(u) correction (s_amr_apply_reflux), alpha from q at the outside cell. Framing is caller-passed: islot dense register slot; olo/ohi outside coarse-cell index below/above the face; glo/ghi creg-local loop range; woff transverse write origin; w_lo/w_hi per-face weight; mlo/mhi outside-cell width. A zero weight skips the write because the outside index may be out of bounds on an unowned face. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06549">6549</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06600">6600</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__registers_a8d81ef7731ffbd40ab004c3b5496317d_cgraph.svg" width="388" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -943,7 +1003,7 @@ Here is the caller graph for this function:</div>
 
 <p>This rank's seam-clipped reflux faces and the global transverse overlap [tlo, thi], in the block-relative frame of the owner's freg. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05165">5165</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05121">5121</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -993,7 +1053,7 @@ Here is the caller graph for this function:</div>
 
 <p>Faces of the current block whose outside coarse layer lies in the coarse subdomain [sidx, sidx + ext] with transverse overlap (the faces that rank refluxes). With clip, fine-fine seam faces are dropped. Every reflux participant test derives from this. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05127">5127</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05083">5083</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1021,7 +1081,7 @@ Here is the caller graph for this function:</div>
 
 <p>Build the dense participation-local register index (amr_reg_of/amr_reg_n) and size and zero the registers. Keyed on the mesh epoch (block-count change is the tripwire). Block g maps iff this rank owns g or g's parent, or reflux-face-participates in g per s_amr_reflux_faces, so the map covers every capture, receive and apply that indexes g's slot. Dense slots alias across rebuilds, hence the zeroing; contents are dead at a rebuild because stage 1 overwrites them. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05084">5084</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05040">5040</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1053,7 +1113,7 @@ Here is the caller graph for this function:</div>
 <p>Grow the registers to at least nslot slots (doubling, never shrinking), preserving contents: freg accumulates across RK stages. Growth stages through a device temporary like the store, so the host mirror is undefined afterwards. </p>
 <p>slot count above which growth uses the host round trip instead of device staging</p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00473">473</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1083,7 +1143,57 @@ Here is the caller graph for this function:</div>
 
 <p>amr_rk_w from the rows (c1, c2, c3, c4) of q &lt;- (c1*q + c2*q^n + c3*dt*L(q))/c4, one per stage; amr_rk_c are the stage times c(1:ns) of the stepper. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06831">6831</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l07226">7226</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a53b991449445d61cc91beb531db98cf9" name="a53b991449445d61cc91beb531db98cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b991449445d61cc91beb531db98cf9">&#9670;&#160;</a></span>s_amr_usrc_ranges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_amr_registers::s_amr_usrc_ranges </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>iu</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ab</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ae</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ib</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ie</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">logical, intent(out)</td>          <td class="paramname"><span class="paramname"><em>ext</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Equations whose rhs carries a face-velocity term the reflux corrects (s_amr_capture_total's amr_reg_u channel): the volume fractions [ab:ae], and with the 6-equation model the internal energies [ib:ie] (empty ranges otherwise). ext: some of those coefficients need the cell's pressure (alt_soundspeed's K, the internal energies' alpha_k*p), not alpha alone. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l07140">7140</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__amr__registers_a53b991449445d61cc91beb531db98cf9_icgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
 
 </div>
 </div>
@@ -1113,7 +1223,7 @@ Here is the caller graph for this function:</div>
 
 <p>Zero register slots slo..shi of freg (fine) or creg in every active direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06479">6479</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06530">6530</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1134,7 +1244,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l06848">6848</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l07243">7243</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1159,7 +1269,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05203">5203</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l05159">5159</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1181,7 +1291,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00450">450</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1197,7 +1307,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00450">450</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1215,7 +1325,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-slot reflux apply tables, built with the coarse capture tables. aint rows: 1:2 outside coarse-cell index in the face dim (low, high), 3:4 transverse origins, 5:8 transverse windows, 9:10 per-face applies, 11 slot gate; areal rows 1:2 outside-cell widths. a_n/a_m hold each direction's active count and caps. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00448">448</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00451">451</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1233,7 +1343,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mesh-epoch and block-count keys of the last coarse-table build. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00464">464</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00467">467</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1249,7 +1359,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00465">465</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00468">468</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1265,9 +1375,25 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Register channels: sys_size fluxes, plus the face-normal interface velocity when the volume fractions carry an alpha*div(u) source (adv_src_mode_vel_iface) and vary (num_fluids &gt; 1), so their reflux can correct that source too (amr_reg_u). </p>
+<p>Register channels: sys_size fluxes, then from amr_reg_u the quantity the volume fractions' source rides on, so their reflux can correct that source too (two or more fluids): the face-normal interface velocity (adv_src_mode_vel_iface, one channel) or each fluid's interface alpha (adv_src_mode_alpha_iface, HLL Method 1, num_fluids channels; amr_reg_amode). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="a604c75cbb6acedc7f4d02628af03a2b3" name="a604c75cbb6acedc7f4d02628af03a2b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a604c75cbb6acedc7f4d02628af03a2b3">&#9670;&#160;</a></span>amr_reg_amode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">logical m_amr_registers::amr_reg_amode = .false.</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00424">424</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1283,7 +1409,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00418">418</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00419">419</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1301,7 +1427,7 @@ Here is the caller graph for this function:</div>
 
 <p>Mesh-epoch and block-count keys of the last s_amr_reg_prepare build. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00424">424</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00427">427</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1320,7 +1446,7 @@ Here is the caller graph for this function:</div>
 <p>Slot capacity the registers are sized for (grows geometrically; amr_max_blocks is only a cap) and the transverse extents. </p>
 <p>initial slot capacity; growth doubles from here </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00417">417</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00418">418</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1336,7 +1462,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00425">425</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00428">428</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1352,7 +1478,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00421">421</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00423">423</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1368,7 +1494,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1386,7 +1512,7 @@ Here is the caller graph for this function:</div>
 
 <p>The SSP-RK scheme's per-stage effective flux weights (the step is q^n + dt*sum_s <a class="el" href="#a850e7202556ee6ccce8e7ddfc40f13d4" title="The SSP-RK scheme&#39;s per-stage effective flux weights (the step is q^n + dt*sum_s amr_rk_w(s)*L(q^(s-1...">amr_rk_w(s)</a>*L(q^(s-1))) and stage-entry times in units of the step; s_amr_set_rk_table derives the weights from the stage coefficients and copies the times from the stepper's rk_c. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00393">393</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00394">394</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1402,7 +1528,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00449">449</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1420,7 +1546,7 @@ Here is the caller graph for this function:</div>
 
 <p>Per-slot capture tables, host-filled then GPU_UPDATE'd once. Rows: 1:2 normal-face flux indices (jlo, jhi), 3:4 transverse origins, 5:8 transverse window (t1lo, t1hi, t2lo, t2hi), 9:10 low/high face gates, 11 slot gate. Set 0 is the fine side's per-call table; sets 1:3 are the coarse per-direction tables (s_amr_coarse_tables). <a class="el" href="#acc299ada9f3a825b7d6d5d992a7f5ce6">bmax(:, set)</a> holds each set's caps. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00430">430</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00433">433</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1436,7 +1562,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00431">431</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00434">434</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1454,7 +1580,7 @@ Here is the caller graph for this function:</div>
 
 <p>coarse flux at block boundary faces (relative 0-based transverse) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00401">401</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1472,7 +1598,7 @@ Here is the caller graph for this function:</div>
 
 <p>fine flux at covering fine faces (0-based fine transverse) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00402">402</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00403">403</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1488,7 +1614,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00425">425</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1506,7 +1632,7 @@ Here is the caller graph for this function:</div>
 
 <p>coarse / fine transverse extents (creg is 0:rc-1, freg is 0:rf) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00422">422</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__amr__registers_8fpp_8f90_source.html#l00425">425</a> of file <a class="el" href="m__amr__registers_8fpp_8f90_source.html">m_amr_registers.fpp.f90</a>.</p>
 
 </div>
 </div>

@@ -57,23 +57,23 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"m__riemann__solver__hlld_8fpp_8f90.html",
-"namespacem__amr__registers.html#a7eb9aa0ed37040dc2c1e00173b3e233e",
-"namespacem__amr__store.html",
-"namespacem__bubbles__el.html#aa4bdbbf940ed35ed831bb1004bdcaf0f",
-"namespacem__constants.html#a79212f446c43b2109e73c33f34c82ac1",
-"namespacem__global__parameters.html#a1804817873f1c404176d4514de590e38",
-"namespacem__global__parameters__common.html#a2ae6303180cc452bd87e6671d582a7d2",
-"namespacem__helper.html#aecbc09f75a05e777b407d4437148d8fc",
-"namespacem__ibm.html#aedcf091e85436ac352846a2ecffbbdc8",
-"namespacem__particles__el.html#aea8bba0dd9c3cf2df5be4f7f9c5adcef",
-"namespacem__sim__helpers.html#aa641aecbabcfd37456c476ac6d8549a8",
-"namespacemembers_vars_i.html",
-"structm__derived__types_1_1bubbles__lagrange__parameters.html#ad9dddbe01a1c922bf2b5d5bc7486cd5e",
-"structm__derived__types_1_1ib__patch__parameters.html#a8ee5100dc887219f927f276c47af5d42",
-"structm__derived__types_1_1int__bounds__info.html#ab54d00643d6c3799bf9297672e2d9e4f",
-"structm__derived__types_1_1physical__parameters.html#abc8a596ac9fab6be78584cf78c8e3704",
-"structm__nvtx_1_1nvtxeventattributes.html#a28114f0de57d3cd7d1dd54b7a9a6cb99"
+"m__riemann__solver__hlld_8fpp_8f90_source.html",
+"namespacem__amr__registers.html#a7056c0af512634bd68cec04c4c42ce01",
+"namespacem__amr__state.html#af28ef3d36b027f9320bb7517ed51e791",
+"namespacem__bubbles__el.html#a80f1497a3f0d298f579b0284c2609bbc",
+"namespacem__constants.html#a5977204ca05f8658b8e0e6641c19fef8",
+"namespacem__fftw.html#a5ec1a65aeb900c5fc0c437c04a15bb1c",
+"namespacem__global__parameters__common.html#a0dc4b8583da878db56d598da02ccd221",
+"namespacem__global__parameters__common.html#afd19941d4e6671d30ec5feff9291606d",
+"namespacem__ibm.html#aaa3a4c06fb97bbc60fea63239e872ebd",
+"namespacem__muscl.html#ae540ebf51b87d1fa181162a9c053d1c1",
+"namespacem__riemann__solver__hll.html#acac05b9a3126de9ea38b7f9ccc2520ed",
+"namespacem__weno.html#a4261ed794afb067b2e0e1226af20512d",
+"structm__derived__types_1_1bc__patch__parameters.html#ad3f9f5a3ca7e50ead115ffbd9c85deaa",
+"structm__derived__types_1_1ib__patch__parameters.html#a067b8bdf34ad93b27971e36a6c570efb",
+"structm__derived__types_1_1ic__patch__parameters.html#a93eff0715d7d3ae3f7aa74222c43c243",
+"structm__derived__types_1_1particle__lagrange__parameters.html#a7329c66e713877714e3ba7982947a2f5",
+"structm__derived__types_1_1t__box.html#acbfa22aad7701f8b514d8bb7e8afb28d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

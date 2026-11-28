@@ -177,7 +177,7 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Boundaries  </td><td class="markdownTableBodyLeft">subsonic characteristic inflow, characteristic outflow holding the free-stream pressure, extrapolated lateral faces  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Wall  </td><td class="markdownTableBodyLeft">fixed, no slip, <span class="tt">thermal_bc = 1</span>, Twall = T_inf (drag runs) or 1.1 T_inf (heat runs); <span class="tt">ib_ip_interp = 1</span>  </td></tr>
+<td class="markdownTableBodyLeft">Wall  </td><td class="markdownTableBodyLeft">fixed, no slip, <span class="tt">thermal_bc = 1</span>, Twall = T_inf (drag runs) or 1.1 T_inf (heat runs); <span class="tt">ib_ip_interp = 1</span>, <span class="tt">ib_wall_order = 1</span> and <span class="tt">ib_visc_compact = F</span>, the defaults then (the Reproduce commands pass <span class="tt">--wall_order 1 --visc_compact 0</span>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">weno_Re_flux</span>, <span class="tt">fd_order = 4</span>, adaptive step with CFL 0.5 and <span class="tt">chem_params%transport_dt</span>  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -227,7 +227,7 @@ Assessment</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md930"></a>
 Known limitations</h2>
 <ul>
-<li><b>First-order wall.</b> The no-slip ghost value is the wall value, so the effective wall sits up to a cell inside the surface (<a href="https://github.com/MFlowCode/MFC/issues/2389">#2389</a>); the wake length is low and the Nusselt number may drift with refinement (not verified).</li>
+<li><b>First-order wall.</b> In these runs the no-slip ghost value is the wall value (<span class="tt">ib_wall_order = 1</span>; the quadratic fill is now the default and was not run here), so the effective wall sits up to a cell inside the surface (<a href="https://github.com/MFlowCode/MFC/issues/2389">#2389</a>); the wake length is low and the Nusselt number may drift with refinement (not verified).</li>
 <li><b>Domain.</b> The 2.2 % blockage of the 6 D x 6 D cross-section raises Cd; not measured here.</li>
 <li>Not re-run on master: Re 300 (the sphere sheds late and needs t U/D of about 100), the Mach 0.3-2 rows, and 20 and 40 cells/D. Earlier measurements of this configuration at 20 cells/D on a pre-merge build gave Cd within -1.6 to +3.9 % of Schiller-Naumann and Nu between Ranz-Marshall and Whitaker, the same bands; they are not repeated here.</li>
 <li>Schiller-Naumann is itself a fit of about 5 %, and the references are incompressible; Whitaker's and Ranz-Marshall's fits differ by 11 %, so Nu is a consistency check, not a validation to better than that.</li>
@@ -236,12 +236,12 @@ Known limitations</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md931"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/3D_ibm_sphere_drag_nu/case.py -t pre_process simulation post_process -n 1 --gpu -- \</div>
-<div class="line">    --silo --Re 100 --cells_per_D 12 --xu 3 --xd 6 --hy 3 --steps 0 --tstar 20 --frames 5</div>
+<div class="line">    --silo --Re 100 --cells_per_D 12 --xu 3 --xd 6 --hy 3 --steps 0 --tstar 20 --frames 5 --wall_order 1 --visc_compact 0</div>
 <div class="line">./mfc.sh run examples/3D_ibm_sphere_drag_nu/case.py -t pre_process simulation post_process -n 1 --gpu -- \</div>
-<div class="line">    --silo --Re 100 --cells_per_D 12 --xu 3 --xd 6 --hy 3 --steps 0 --tstar 20 --frames 5 --tw_ratio 1.1</div>
+<div class="line">    --silo --Re 100 --cells_per_D 12 --xu 3 --xd 6 --hy 3 --steps 0 --tstar 20 --frames 5 --tw_ratio 1.1 --wall_order 1 --visc_compact 0</div>
 <div class="line">python3 examples/3D_ibm_sphere_drag_nu/check_sphere.py &lt;cold run&gt; --hot &lt;hot run&gt;</div>
 </div><!-- fragment --><p>Re 20: <span class="tt">--Re 20 --tstar 15 --frames 5</span>. The runs were stopped after their last save of interest, so give <span class="tt">--tstar</span> and <span class="tt">--frames</span> of the saves you keep. Each run writes next to <span class="tt">case.py</span>, so copy the directory for each. A 12 cells/D run takes about 2-3 hours on one A100 shared with other jobs. The test suite runs the CI-sized case (<span class="tt">--tw_ratio 1.1</span>, 6 cells/D, 30 steps) as <span class="tt">3D -&gt; Chemistry -&gt; IBM -&gt; Sphere Drag Nu</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

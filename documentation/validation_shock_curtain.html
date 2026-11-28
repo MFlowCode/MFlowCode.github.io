@@ -177,7 +177,7 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Grid  </td><td class="markdownTableBodyLeft">sphere: 12 and 14 cells/D in [-3 D, 7 D] x [-3 D, 3 D]^2; curtain: 10 cells/D, 30 D x 6 D x 6 D (1.08 M cells, 239 spheres, curtain 17.4 D thick, \(\phi\) = 0.2)  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">fd_order = 4</span>, adaptive step at CFL 0.4, <span class="tt">ib_ip_interp = 1</span> (the default)  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">fd_order = 4</span>, adaptive step at CFL 0.4, <span class="tt">ib_ip_interp = 1</span> and <span class="tt">ib_wall_order = 1</span>, the defaults when these runs were made (the Reproduce commands pass <span class="tt">--wall_order 1</span>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Hardware  </td><td class="markdownTableBodyLeft">sphere runs: GNU 13 on an x86 CPU, one rank; curtain: NVIDIA A100 80GB, NVHPC 25.11; double precision  </td></tr>
 </table>
@@ -245,14 +245,14 @@ Known limitations</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md892"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_shock_curtain/case.py -n 1 --gpu -- --dim 3 --single --slip --mach 1.22 --xu 3 --xd 7 \</div>
-<div class="line">    --width 6 --cells_per_D 12 --steps 0 --tau 8</div>
+<div class="line">    --width 6 --cells_per_D 12 --steps 0 --tau 8 --wall_order 1</div>
 <div class="line">python3 examples/2D_ibm_shock_curtain/check_curtain.py examples/2D_ibm_shock_curtain --drag --mach 1.22</div>
 <div class="line"> </div>
 <div class="line">./mfc.sh run examples/2D_ibm_shock_curtain/case.py -t pre_process simulation post_process -n 1 --gpu -- --dim 3 --h 17.4 \</div>
-<div class="line">    --width 6 --xu 7 --xd 23 --cells_per_D 10 --steps 0 --tau 2 --frames 20 --silo</div>
+<div class="line">    --width 6 --xu 7 --xd 23 --cells_per_D 10 --steps 0 --tau 2 --frames 20 --silo --wall_order 1</div>
 <div class="line">python3 examples/2D_ibm_shock_curtain/check_curtain.py examples/2D_ibm_shock_curtain</div>
 </div><!-- fragment --><p>The suite runs the CI-sized 2D case (12 cylinders, 240 x 96 cells, 300 steps, one rank) as <span class="tt">2D -&gt; IBM -&gt; Shock Curtain</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-23</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

@@ -290,7 +290,7 @@ Debug Builds</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">Cray ftn  </td><td class="markdownTableBodyNone"><span class="tt">-O0 -K trap=fp</span>  </td><td class="markdownTableBodyNone"><span class="tt">-O1 -K trap=fp</span>  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">AMD flang (CPU)  </td><td class="markdownTableBodyNone"><span class="tt">-O1</span>, plus <span class="tt">-ffpe-trap=invalid,zero,overflow -finit-local=0xff</span> where the compiler has them  </td><td class="markdownTableBodyNone">the same  </td></tr>
+<td class="markdownTableBodyNone">AMD flang (CPU)  </td><td class="markdownTableBodyNone"><span class="tt">-O0</span>, plus <span class="tt">-ffpe-trap=invalid,zero,overflow -finit-local=0xff</span> where the compiler has them  </td><td class="markdownTableBodyNone">the same  </td></tr>
 </table>
 <p>The floating-point traps of NVHPC and AMD flang on CPU stop some of the suite's own tests on <span class="tt">master</span> today. They are known and not yet triaged: some may be values computed and then discarded, others real bugs. The weekly Runtime Checks workflow lists them in the issues "Runtime checks fail
 with AMD flang on CPU" and "Runtime checks fail with NVHPC on CPU"; if a test of yours traps and is listed there, compare with <span class="tt">master</span> before assuming your change is at fault or innocent.</p>

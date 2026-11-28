@@ -167,24 +167,30 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aed3e19b2965c3de508bbcd1e5b7f1d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">the point that decides which rank owns a body pair: the contact point built from the lower global id's own centroid and the minimum-image offset to the other, so every rank holding the pair computes the same bits whichever periodic images it found the pair through  <br /></td></tr>
 <tr class="memitem:a161312fb1d33486f55b0fbf3e2250cc2" id="r_a161312fb1d33486f55b0fbf3e2250cc2"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>) function&#160;</td><td class="memItemRight"><a class="el" href="#a161312fb1d33486f55b0fbf3e2250cc2">f_inv_tangential_mass</a> (patch)</td></tr>
 <tr class="memdesc:a161312fb1d33486f55b0fbf3e2250cc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">inverse effective tangential mass of a sphere or circle at its contact point: 1/m + r^2/I  <br /></td></tr>
-<tr class="memitem:a4c866b49418ade6e7ab7c72145cdc8b8" id="r_a4c866b49418ade6e7ab7c72145cdc8b8"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a4c866b49418ade6e7ab7c72145cdc8b8">s_ib_friction_direction</a> (tangential_vector, normal_force_mag, inv_mass_t)</td></tr>
-<tr class="memdesc:a4c866b49418ade6e7ab7c72145cdc8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales the slip velocity into the friction direction, -F_t = mu*|F_n|*v_t/max(|v_t|, eps). With ib_friction_slip_eps &gt; 0, eps is floored at the stick limit mu*|F_n|*dt/m_t, which keeps the explicit update stable. With 0 it is v_t/|v_t|, left unscaled at exactly zero slip.  <br /></td></tr>
+<tr class="memitem:a53e6c9d6efb87045bbac1ac9b5b1e653" id="r_a53e6c9d6efb87045bbac1ac9b5b1e653"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a53e6c9d6efb87045bbac1ac9b5b1e653">s_friction_direction</a> (tangential_vector, normal_force_mag, inv_mass_t)</td></tr>
+<tr class="memdesc:a53e6c9d6efb87045bbac1ac9b5b1e653"><td class="mdescLeft">&#160;</td><td class="mdescRight">scales the slip velocity into the friction direction, -F_t = mu*|F_n|*v_t/max(|v_t|, eps). With ib_friction_slip_eps &gt; 0, eps is floored at the stick limit mu*|F_n|*dt/m_t, which keeps the explicit update stable. With 0 it is v_t/|v_t|, left unscaled at exactly zero slip.  <br /></td></tr>
 <tr class="memitem:ab75b5d1e5a69e4f989675e0ba2c868ed" id="r_ab75b5d1e5a69e4f989675e0ba2c868ed"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ab75b5d1e5a69e4f989675e0ba2c868ed">s_initialize_collisions_module</a> ()</td></tr>
+<tr class="memitem:a6caca0ba0cf252422d544033454d070b" id="r_a6caca0ba0cf252422d544033454d070b"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a6caca0ba0cf252422d544033454d070b">s_resize_collision_lookup</a> (num_pairs)</td></tr>
+<tr class="memdesc:a6caca0ba0cf252422d544033454d070b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make collision_lookup hold the IB pair bound (when ib) and twice num_pairs EL pairs; it only grows. Contents are rebuilt by every detection, so they are not kept.  <br /></td></tr>
 <tr class="memitem:ab750f22e14980b7cc220243746f4e5e0" id="r_ab750f22e14980b7cc220243746f4e5e0"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab750f22e14980b7cc220243746f4e5e0">s_resize_pair_bits</a> (num_bodies)</td></tr>
 <tr class="memdesc:ab750f22e14980b7cc220243746f4e5e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size the pair bitset for num_bodies IBs, doubled so a growing body count does not reallocate every step (empty on exit).  <br /></td></tr>
-<tr class="memitem:ae2dd53a11be648ef6360131ed58b37f7" id="r_ae2dd53a11be648ef6360131ed58b37f7"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#ae2dd53a11be648ef6360131ed58b37f7">s_apply_collision_forces</a> (ghost_points, num_gps, ib_markers, forces, torques)</td></tr>
-<tr class="memitem:ab9608ec22b9d2f89741faa0a9582dc7a" id="r_ab9608ec22b9d2f89741faa0a9582dc7a"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab9608ec22b9d2f89741faa0a9582dc7a">s_apply_ib_collision_forces_soft_sphere</a> (num_considered_collisions, forces, torques)</td></tr>
-<tr class="memdesc:ab9608ec22b9d2f89741faa0a9582dc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres)  <br /></td></tr>
-<tr class="memitem:af40a32d6d0e4db1d0dd7030d2639a915" id="r_af40a32d6d0e4db1d0dd7030d2639a915"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#af40a32d6d0e4db1d0dd7030d2639a915">s_apply_wall_collision_forces_soft_sphere</a> (forces, torques)</td></tr>
-<tr class="memdesc:af40a32d6d0e4db1d0dd7030d2639a915"><td class="mdescLeft">&#160;</td><td class="mdescRight">applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres)  <br /></td></tr>
+<tr class="memitem:a085665035a61126d7d87c6ffb24111f3" id="r_a085665035a61126d7d87c6ffb24111f3"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a085665035a61126d7d87c6ffb24111f3">s_apply_ib_collisions</a> (ghost_points, num_gps, ib_markers, forces, torques)</td></tr>
+<tr class="memitem:a46e428182049a7f36388768bbcd677cb" id="r_a46e428182049a7f36388768bbcd677cb"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a46e428182049a7f36388768bbcd677cb">s_apply_el_collisions</a> (num_particles, num_halo, positions, velocities, radii, masses, added_masses, accelerations)</td></tr>
+<tr class="memdesc:a46e428182049a7f36388768bbcd677cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add the wall and particle-particle contact accelerations of the num_particles owned EL particles to accelerations, dividing by the same inertia as the hydrodynamic force (mass plus added mass). The num_halo copies stored after them are partners only: the rank owning each copy computes the same pair and applies the opposite force itself.  <br /></td></tr>
+<tr class="memitem:a184678f3bde755f6f1b38bb083681a53" id="r_a184678f3bde755f6f1b38bb083681a53"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a184678f3bde755f6f1b38bb083681a53">s_perform_soft_sphere_collision</a> (pos_1, vel_1, radius_1, mass_1, pos_2, vel_2, radius_2, mass_2, inv_mass_t, force_1, angular_vel_1, angular_vel_2, torque_1, torque_2)</td></tr>
+<tr class="memdesc:a184678f3bde755f6f1b38bb083681a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear spring-dashpot with Coulomb friction (Cundall &amp; Strack, Geotechnique 29(1), 1979) between two overlapping spheres or circles. Body 2 receives -force_1. Rotation and torques are included only when they are passed.  <br /></td></tr>
+<tr class="memitem:a8d6858c8e1c75b3f4d28a9a2ddbb4ef8" id="r_a8d6858c8e1c75b3f4d28a9a2ddbb4ef8"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8d6858c8e1c75b3f4d28a9a2ddbb4ef8">s_soft_sphere_wall_force</a> (pos, vel, radius, mass, inv_mass_t, wall_overlaps, force, angular_vel, torque)</td></tr>
+<tr class="memdesc:a8d6858c8e1c75b3f4d28a9a2ddbb4ef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Soft-sphere contact between one sphere or circle and every domain wall it overlaps.  <br /></td></tr>
 <tr class="memitem:a12529992083ba196683a2ca71ce8da50" id="r_a12529992083ba196683a2ca71ce8da50"><td class="memItemLeft">pure integer(kind=8) function&#160;</td><td class="memItemRight"><a class="el" href="#a12529992083ba196683a2ca71ce8da50">f_pair_bit_index</a> (a, b, num_bodies)</td></tr>
 <tr class="memdesc:a12529992083ba196683a2ca71ce8da50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triangular index (0-based) of the unordered pair a &lt; b, both in 1 to num_bodies.  <br /></td></tr>
 <tr class="memitem:a8dac6fb2b3da2ea0e6d3df93df7c9e94" id="r_a8dac6fb2b3da2ea0e6d3df93df7c9e94"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a8dac6fb2b3da2ea0e6d3df93df7c9e94">s_detect_ib_collisions</a> (gps, ib_markers, num_gps, num_considered_collisions)</td></tr>
 <tr class="memdesc:a8dac6fb2b3da2ea0e6d3df93df7c9e94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses ghost-point information to find IB pairs that may be colliding, effectively an optimized nearest-neighbor search: every ghost point with another patch's marker within 2 cells gives a candidate pair. Both patches record it: the rank that owns the contact point may hold interior ghost points of only one of them, so one-sided detection can leave that rank blind to a contact within a cell of its boundary. The many duplicate candidates are dropped on the GPU: each candidate is mapped to its sorted neighborhood pair (a, b) and claims that pair's bit in pair_bits with an atomic OR, and only the thread that flips the bit appends the pair. Bits are cleared by s_clear_pair_bits after the forces. A pair's periodic image is taken from the claiming candidate; two different images of one pair would need a domain about two particles across.  <br /></td></tr>
 <tr class="memitem:a847d6d17bb00c9078f23285071db1533" id="r_a847d6d17bb00c9078f23285071db1533"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a847d6d17bb00c9078f23285071db1533">s_clear_pair_bits</a> (num_considered_collisions)</td></tr>
 <tr class="memdesc:a847d6d17bb00c9078f23285071db1533"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the bits the last s_detect_ib_collisions set (every set bit belongs to a recorded pair, so whole words can be zeroed).  <br /></td></tr>
-<tr class="memitem:a9c5fd0d2e3e996b6ddea38af036c75d1" id="r_a9c5fd0d2e3e996b6ddea38af036c75d1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9c5fd0d2e3e996b6ddea38af036c75d1">s_detect_wall_collisions</a> (any_wall_collision)</td></tr>
-<tr class="memdesc:a9c5fd0d2e3e996b6ddea38af036c75d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">uses boundary conditions and particle locations to check for wall conditions  <br /></td></tr>
+<tr class="memitem:aebdb5eb128ce1ee1f4c8408c5e23bb34" id="r_aebdb5eb128ce1ee1f4c8408c5e23bb34"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aebdb5eb128ce1ee1f4c8408c5e23bb34">s_detect_el_collisions</a> (num_particles, num_halo, positions, radii, num_considered_collisions)</td></tr>
+<tr class="memdesc:aebdb5eb128ce1ee1f4c8408c5e23bb34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Naive O(N^2) search pairing each owned EL particle i with every later owned particle or halo copy j; appends every overlapping pair to collision_lookup. Returns the full count, which exceeds the lookup size when pairs were dropped.  <br /></td></tr>
+<tr class="memitem:a83d00dc2ceed62b00e15df8bc6b2d993" id="r_a83d00dc2ceed62b00e15df8bc6b2d993"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a83d00dc2ceed62b00e15df8bc6b2d993">s_detect_wall_overlaps</a> (centroid, radius, wall_overlaps)</td></tr>
+<tr class="memdesc:a83d00dc2ceed62b00e15df8bc6b2d993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Distance a sphere or circle extends past each slip or no-slip domain wall (1/2: x beg/end, 3/4: y, 5/6: z); 0 if none.  <br /></td></tr>
 <tr class="memitem:a6f78efa6a42123b9b5122de43e21733a" id="r_a6f78efa6a42123b9b5122de43e21733a"><td class="memItemLeft">logical function, public&#160;</td><td class="memItemRight"><a class="el" href="#a6f78efa6a42123b9b5122de43e21733a">f_neighborhood_ranks_own_location</a> (location)</td></tr>
 <tr class="memdesc:a6f78efa6a42123b9b5122de43e21733a"><td class="mdescLeft">&#160;</td><td class="mdescRight">function checks if this local MPI processor owns this specific collision  <br /></td></tr>
 <tr class="memitem:a6da9569c8e2a07f8609c8a706bbf1849" id="r_a6da9569c8e2a07f8609c8a706bbf1849"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a6da9569c8e2a07f8609c8a706bbf1849">s_finalize_collisions_module</a> ()</td></tr>
@@ -226,7 +232,7 @@ Variables</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a161312fb1d33486f55b0fbf3e2250cc2_icgraph.svg" width="574" height="158"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a161312fb1d33486f55b0fbf3e2250cc2_icgraph.svg" width="362" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -248,7 +254,7 @@ Here is the caller graph for this function:</div>
 
 <p>function checks if this local MPI processor owns this specific collision </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01510">1510</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01896">1896</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -278,23 +284,89 @@ Here is the caller graph for this function:</div>
 
 <p>Triangular index (0-based) of the unordered pair a &lt; b, both in 1 to num_bodies. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01107">1107</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01486">1486</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a12529992083ba196683a2ca71ce8da50_icgraph.svg" width="600" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a12529992083ba196683a2ca71ce8da50_icgraph.svg" width="100%" height="446"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
 </div>
-<a id="ae2dd53a11be648ef6360131ed58b37f7" name="ae2dd53a11be648ef6360131ed58b37f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2dd53a11be648ef6360131ed58b37f7">&#9670;&#160;</a></span>s_apply_collision_forces()</h2>
+<a id="a46e428182049a7f36388768bbcd677cb" name="a46e428182049a7f36388768bbcd677cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46e428182049a7f36388768bbcd677cb">&#9670;&#160;</a></span>s_apply_el_collisions()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine, public m_collisions::s_apply_collision_forces </td>
+          <td class="memname">subroutine, public m_collisions::s_apply_el_collisions </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_particles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_halo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>positions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>velocities</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>radii</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>masses</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>added_masses</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>accelerations</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add the wall and particle-particle contact accelerations of the num_particles owned EL particles to accelerations, dividing by the same inertia as the hydrodynamic force (mass plus added mass). The num_halo copies stored after them are partners only: the rank owning each copy computes the same pair and applies the opposite force itself. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">velocities</td><td>(particle, component, RK level); level 2 is current </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01141">1141</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a46e428182049a7f36388768bbcd677cb_cgraph.svg" width="100%" height="550"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a085665035a61126d7d87c6ffb24111f3" name="a085665035a61126d7d87c6ffb24111f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a085665035a61126d7d87c6ffb24111f3">&#9670;&#160;</a></span>s_apply_ib_collisions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine, public m_collisions::s_apply_ib_collisions </td>
           <td>(</td>
           <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1ghost__point.html">ghost_point</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>ghost_points</em></span>, </td>
         </tr>
@@ -321,86 +393,11 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00778">778</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00854">854</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ae2dd53a11be648ef6360131ed58b37f7_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
-</div>
-
-</div>
-</div>
-<a id="ab9608ec22b9d2f89741faa0a9582dc7a" name="ab9608ec22b9d2f89741faa0a9582dc7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9608ec22b9d2f89741faa0a9582dc7a">&#9670;&#160;</a></span>s_apply_ib_collision_forces_soft_sphere()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_collisions::s_apply_ib_collision_forces_soft_sphere </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_considered_collisions</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a">num_ibs</a>, 3), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>forces</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a">num_ibs</a>, 3), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>torques</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres) </p>
-
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00812">812</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab9608ec22b9d2f89741faa0a9582dc7a_cgraph.svg" width="606" height="195"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab9608ec22b9d2f89741faa0a9582dc7a_icgraph.svg" width="380" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af40a32d6d0e4db1d0dd7030d2639a915" name="af40a32d6d0e4db1d0dd7030d2639a915"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af40a32d6d0e4db1d0dd7030d2639a915">&#9670;&#160;</a></span>s_apply_wall_collision_forces_soft_sphere()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine m_collisions::s_apply_wall_collision_forces_soft_sphere </td>
-          <td>(</td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a">num_ibs</a>, 3), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>forces</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(<a class="el" href="namespacem__global__parameters__common.html#aae68e919d3011b35da6bf4e33929dd2a">num_ibs</a>, 3), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>torques</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>applies collision forces to IBs assuming a soft-sphere collision model (all IBs are circles or spheres) </p>
-
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00981">981</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_af40a32d6d0e4db1d0dd7030d2639a915_cgraph.svg" width="602" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_af40a32d6d0e4db1d0dd7030d2639a915_icgraph.svg" width="383" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a085665035a61126d7d87c6ffb24111f3_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -422,7 +419,7 @@ Here is the caller graph for this function:</div>
 
 <p>Clear the bits the last s_detect_ib_collisions set (every set bit belongs to a recorded pair, so whole words can be zeroed). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01303">1303</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01682">1682</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -432,6 +429,57 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a847d6d17bb00c9078f23285071db1533_icgraph.svg" width="376" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aebdb5eb128ce1ee1f4c8408c5e23bb34" name="aebdb5eb128ce1ee1f4c8408c5e23bb34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebdb5eb128ce1ee1f4c8408c5e23bb34">&#9670;&#160;</a></span>s_detect_el_collisions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_collisions::s_detect_el_collisions </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_particles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_halo</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:,:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>positions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:), intent(in)</td>          <td class="paramname"><span class="paramname"><em>radii</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>num_considered_collisions</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Naive O(N^2) search pairing each owned EL particle i with every later owned particle or halo copy j; appends every overlapping pair to collision_lookup. Returns the full count, which exceeds the lookup size when pairs were dropped. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">positions</td><td>(particle, component, RK level); level 2 is current </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01730">1730</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_aebdb5eb128ce1ee1f4c8408c5e23bb34_icgraph.svg" width="384" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -467,7 +515,7 @@ Here is the caller graph for this function:</div>
 
 <p>Uses ghost-point information to find IB pairs that may be colliding, effectively an optimized nearest-neighbor search: every ghost point with another patch's marker within 2 cells gives a candidate pair. Both patches record it: the rank that owns the contact point may hold interior ghost points of only one of them, so one-sided detection can leave that rank blind to a contact within a cell of its boundary. The many duplicate candidates are dropped on the GPU: each candidate is mapped to its sorted neighborhood pair (a, b) and claims that pair's bit in pair_bits with an atomic OR, and only the thread that flips the bit appends the pair. Bits are cleared by s_clear_pair_bits after the forces. A pair's periodic image is taken from the claiming candidate; two different images of one pair would need a domain about two particles across. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01139">1139</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01518">1518</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -481,28 +529,37 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9c5fd0d2e3e996b6ddea38af036c75d1" name="a9c5fd0d2e3e996b6ddea38af036c75d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c5fd0d2e3e996b6ddea38af036c75d1">&#9670;&#160;</a></span>s_detect_wall_collisions()</h2>
+<a id="a83d00dc2ceed62b00e15df8bc6b2d993" name="a83d00dc2ceed62b00e15df8bc6b2d993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d00dc2ceed62b00e15df8bc6b2d993">&#9670;&#160;</a></span>s_detect_wall_overlaps()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine m_collisions::s_detect_wall_collisions </td>
+          <td class="memname">subroutine m_collisions::s_detect_wall_overlaps </td>
           <td>(</td>
-          <td class="paramtype">logical, intent(out)</td>          <td class="paramname"><span class="paramname"><em>any_wall_collision</em></span></td><td>)</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>centroid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(6), intent(out)</td>          <td class="paramname"><span class="paramname"><em>wall_overlaps</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>uses boundary conditions and particle locations to check for wall conditions </p>
+<p>Distance a sphere or circle extends past each slip or no-slip domain wall (1/2: x beg/end, 3/4: y, 5/6: z); 0 if none. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01350">1350</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01825">1825</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a9c5fd0d2e3e996b6ddea38af036c75d1_icgraph.svg" width="384" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a83d00dc2ceed62b00e15df8bc6b2d993_icgraph.svg" width="384" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -519,18 +576,18 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01607">1607</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01993">1993</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 
 </div>
 </div>
-<a id="a4c866b49418ade6e7ab7c72145cdc8b8" name="a4c866b49418ade6e7ab7c72145cdc8b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c866b49418ade6e7ab7c72145cdc8b8">&#9670;&#160;</a></span>s_ib_friction_direction()</h2>
+<a id="a53e6c9d6efb87045bbac1ac9b5b1e653" name="a53e6c9d6efb87045bbac1ac9b5b1e653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53e6c9d6efb87045bbac1ac9b5b1e653">&#9670;&#160;</a></span>s_friction_direction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">subroutine m_collisions::s_ib_friction_direction </td>
+          <td class="memname">subroutine m_collisions::s_friction_direction </td>
           <td>(</td>
           <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(inout)</td>          <td class="paramname"><span class="paramname"><em>tangential_vector</em></span>, </td>
         </tr>
@@ -553,12 +610,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a4c866b49418ade6e7ab7c72145cdc8b8_cgraph.svg" width="386" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a53e6c9d6efb87045bbac1ac9b5b1e653_cgraph.svg" width="418" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a4c866b49418ade6e7ab7c72145cdc8b8_icgraph.svg" width="570" height="158"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a53e6c9d6efb87045bbac1ac9b5b1e653_icgraph.svg" width="614" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -579,7 +636,12 @@ Here is the caller graph for this function:</div>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab75b5d1e5a69e4f989675e0ba2c868ed_cgraph.svg" width="598" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab75b5d1e5a69e4f989675e0ba2c868ed_cgraph.svg" width="598" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab75b5d1e5a69e4f989675e0ba2c868ed_icgraph.svg" width="530" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -614,7 +676,134 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_aed3e19b2965c3de508bbcd1e5b7f1d42_icgraph.svg" width="578" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_aed3e19b2965c3de508bbcd1e5b7f1d42_icgraph.svg" width="368" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a184678f3bde755f6f1b38bb083681a53" name="a184678f3bde755f6f1b38bb083681a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a184678f3bde755f6f1b38bb083681a53">&#9670;&#160;</a></span>s_perform_soft_sphere_collision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_collisions::s_perform_soft_sphere_collision </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pos_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>radius_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mass_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pos_2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel_2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>radius_2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mass_2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>inv_mass_t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>force_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>angular_vel_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>angular_vel_2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>torque_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>torque_2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Linear spring-dashpot with Coulomb friction (Cundall &amp; Strack, Geotechnique 29(1), 1979) between two overlapping spheres or circles. Body 2 receives -force_1. Rotation and torques are included only when they are passed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">inv_mass_t</td><td>inverse effective tangential mass of the contact, for the friction stick limit </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01322">1322</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a184678f3bde755f6f1b38bb083681a53_cgraph.svg" width="642" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a184678f3bde755f6f1b38bb083681a53_icgraph.svg" width="396" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6caca0ba0cf252422d544033454d070b" name="a6caca0ba0cf252422d544033454d070b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6caca0ba0cf252422d544033454d070b">&#9670;&#160;</a></span>s_resize_collision_lookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_collisions::s_resize_collision_lookup </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>num_pairs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Make collision_lookup hold the IB pair bound (when ib) and twice num_pairs EL pairs; it only grows. Contents are rebuilt by every detection, so they are not kept. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00671">671</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a6caca0ba0cf252422d544033454d070b_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -636,7 +825,7 @@ Here is the caller graph for this function:</div>
 
 <p>Size the pair bitset for num_bodies IBs, doubled so a growing body count does not reallocate every step (empty on exit). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00688">688</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l00764">764</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -645,7 +834,83 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab750f22e14980b7cc220243746f4e5e0_icgraph.svg" width="403" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_ab750f22e14980b7cc220243746f4e5e0_icgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a8d6858c8e1c75b3f4d28a9a2ddbb4ef8" name="a8d6858c8e1c75b3f4d28a9a2ddbb4ef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6858c8e1c75b3f4d28a9a2ddbb4ef8">&#9670;&#160;</a></span>s_soft_sphere_wall_force()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_collisions::s_soft_sphere_wall_force </td>
+          <td>(</td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>pos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in)</td>          <td class="paramname"><span class="paramname"><em>vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mass</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>inv_mass_t</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(6), intent(in)</td>          <td class="paramname"><span class="paramname"><em>wall_overlaps</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(out)</td>          <td class="paramname"><span class="paramname"><em>force</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>angular_vel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(3), intent(out), optional</td>          <td class="paramname"><span class="paramname"><em>torque</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Soft-sphere contact between one sphere or circle and every domain wall it overlaps. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">inv_mass_t</td><td>inverse effective tangential mass, for the friction stick limit </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="m__collisions_8fpp_8f90_source.html#l01400">1400</a> of file <a class="el" href="m__collisions_8fpp_8f90_source.html">m_collisions.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a8d6858c8e1c75b3f4d28a9a2ddbb4ef8_cgraph.svg" width="614" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__collisions_a8d6858c8e1c75b3f4d28a9a2ddbb4ef8_icgraph.svg" width="368" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

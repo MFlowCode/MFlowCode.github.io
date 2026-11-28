@@ -179,8 +179,8 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:aca848e4b699c913e2e59d31cd1479b92"><td class="mdescLeft">&#160;</td><td class="mdescRight">True when val is neither NaN nor infinite, without ieee_arithmetic so it is callable on the device.  <br /></td></tr>
 <tr class="memitem:a3c1aec484d3a42e286175589f263bf6a" id="r_a3c1aec484d3a42e286175589f263bf6a"><td class="memItemLeft">pure integer function, public&#160;</td><td class="memItemRight"><a class="el" href="#a3c1aec484d3a42e286175589f263bf6a">f_save_index</a> (t_step, cfl_mode, t_step_save)</td></tr>
 <tr class="memdesc:a3c1aec484d3a42e286175589f263bf6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the save written at t_step: t_step itself under CFL-based stepping (the caller passes the save count), else t_step/t_step_save.  <br /></td></tr>
-<tr class="memitem:a52d428e094b06923296886952382a20e" id="r_a52d428e094b06923296886952382a20e"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a52d428e094b06923296886952382a20e">s_configure_coordinate_bounds</a> (recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, euler_lagrange, m, n, p, num_dims, igr, ib, fd_number)</td></tr>
-<tr class="memdesc:a52d428e094b06923296886952382a20e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.  <br /></td></tr>
+<tr class="memitem:aadc25f0ee76cda73dcd93110453b6e99" id="r_aadc25f0ee76cda73dcd93110453b6e99"><td class="memItemLeft">subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aadc25f0ee76cda73dcd93110453b6e99">s_configure_coordinate_bounds</a> (recon_type, weno_polyn, muscl_polyn, igr_order, buff_size, idwint, idwbuff, viscous, euler_lagrange, m, n, p, num_dims, igr, ib, fd_number, gp_layers)</td></tr>
+<tr class="memdesc:aadc25f0ee76cda73dcd93110453b6e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute ghost-cell buffer size and set interior/buffered coordinate index bounds.  <br /></td></tr>
 <tr class="memitem:a44b315932234aba936169db4c58e6ce6" id="r_a44b315932234aba936169db4c58e6ce6"><td class="memItemLeft">elemental subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a44b315932234aba936169db4c58e6ce6">s_update_cell_bounds</a> (bounds, m, n, p)</td></tr>
 <tr class="memdesc:a44b315932234aba936169db4c58e6ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the min and max number of cells in each set of axes.  <br /></td></tr>
 </table>
@@ -434,8 +434,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a52d428e094b06923296886952382a20e" name="a52d428e094b06923296886952382a20e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52d428e094b06923296886952382a20e">&#9670;&#160;</a></span>s_configure_coordinate_bounds()</h2>
+<a id="aadc25f0ee76cda73dcd93110453b6e99" name="aadc25f0ee76cda73dcd93110453b6e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadc25f0ee76cda73dcd93110453b6e99">&#9670;&#160;</a></span>s_configure_coordinate_bounds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -518,12 +518,23 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>fd_number</em></span>&#160;)</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>fd_number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in), optional</td>          <td class="paramname"><span class="paramname"><em>gp_layers</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Compute ghost-cell buffer size and set interior/buffered coordinate index bounds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">gp_layers</td><td>IB ghost-point shell depth (simulation) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00602">602</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 
@@ -566,7 +577,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00652">652</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__helper__basic_8fpp_8f90_source.html#l00655">655</a> of file <a class="el" href="m__helper__basic_8fpp_8f90_source.html">m_helper_basic.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

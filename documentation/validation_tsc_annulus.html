@@ -159,10 +159,10 @@ $(function(){initNavTree('validation_tsc_annulus.html','',''); });
 <div class="contents">
 <div class="textblock"><h1 class="doxsection"><a class="anchor" id="autotoc_md948"></a>
 Isothermal Conduction Annulus: Image-Point Interpolation</h1>
-<p><b>Status:</b> partially validated (wall temperature and whole-gap error validated at three resolutions; wall gradient measured only as a fit estimate). <b>Code:</b> <span class="tt">master</span> at d1e6852c1, with <span class="tt">ib_ip_interp</span> (<a href="https://github.com/MFlowCode/MFC/pull/2165">#2165</a>). TSC is opt-in; no default change is planned. <b>Example:</b> <span class="tt">examples/2D_ibm_conduction_annulus</span>. <b>Last run:</b> 2026-11-21.</p>
+<p><b>Status:</b> partially validated (wall temperature and whole-gap error validated at three resolutions; wall gradient measured only as a fit estimate). <b>Code:</b> <span class="tt">master</span> at d1e6852c1, with <span class="tt">ib_ip_interp</span> (<a href="https://github.com/MFlowCode/MFC/pull/2165">#2165</a>). TSC was opt-in when this page was written; it is now the default (<span class="tt">ib_ip_interp = 1</span> gives the inverse-distance weights). <b>Example:</b> <span class="tt">examples/2D_ibm_conduction_annulus</span>. <b>Last run:</b> 2026-11-21.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md949"></a>
 Purpose</h2>
-<p>The ghost-cell immersed boundary method imposes an isothermal wall temperature through the state interpolated at an image point inside the gas. The weights of that interpolation set the accuracy of the imposed wall temperature. This page compares the inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>, the default) with the triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>; the kernel is described by Ezra, Peles and Kozak, Int. J. Heat Mass Transf. 252:127314, 2025) against the exact conduction solution of an annulus.</p>
+<p>The ghost-cell immersed boundary method imposes an isothermal wall temperature through the state interpolated at an image point inside the gas. The weights of that interpolation set the accuracy of the imposed wall temperature. This page compares the inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>, the default when this page was written) with the triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>; the kernel is described by Ezra, Peles and Kozak, Int. J. Heat Mass Transf. 252:127314, 2025) against the exact conduction solution of an annulus.</p>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md950"></a>
 Setup</h2>
 <table class="markdownTable">
@@ -241,7 +241,7 @@ Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_conduction_annulus/case.py -n 1 -- --cells_per_R 20 --interp 2</div>
 <div class="line">python3 examples/2D_ibm_conduction_annulus/check_annulus.py examples/2D_ibm_conduction_annulus</div>
 </div><!-- fragment --><p>The suite runs <span class="tt">2D -&gt; IBM -&gt; Conduction Annulus -&gt; Inverse Distance</span> and <span class="tt">-&gt; TSC</span> at 12 cells/R and 300 steps; the goldens are regression guards and the checker validates the physics.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-21</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

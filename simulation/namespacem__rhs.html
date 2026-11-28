@@ -185,8 +185,9 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:acad656f0645129138d4a85729f65fa34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform first-order (piecewise constant) reconstruction of left and right cell-boundary values.  <br /></td></tr>
 <tr class="memitem:aeefd0e45989eb229ad465d3f56cda6f9" id="r_aeefd0e45989eb229ad465d3f56cda6f9"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#aeefd0e45989eb229ad465d3f56cda6f9">s_finalize_rhs_module</a></td></tr>
 <tr class="memdesc:aeefd0e45989eb229ad465d3f56cda6f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module deallocation and/or disassociation procedures.  <br /></td></tr>
+<tr class="memitem:a26371faddeb049804be0e360fca1c9fa" id="r_a26371faddeb049804be0e360fca1c9fa"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a26371faddeb049804be0e360fca1c9fa">s_body_faces_take_cell_states</a> (mk, id)</td></tr>
+<tr class="memdesc:a26371faddeb049804be0e360fca1c9fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero the RHS at the body cells of the installed grid frame (marker /= 0). A face between two body cells takes its cells' own states. Only body cells see it, and s_zero_rhs_at_body discards their RHS, but a reconstruction across a thin body can give unphysical states there (a negative WENO density, #2510).  <br /></td></tr>
 <tr class="memitem:a1a2666c4902782accc020201cb21ad98" id="r_a1a2666c4902782accc020201cb21ad98"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1a2666c4902782accc020201cb21ad98">s_zero_rhs_at_body</a> (mk, rhs_vf)</td></tr>
-<tr class="memdesc:a1a2666c4902782accc020201cb21ad98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero the RHS at the body cells of the installed grid frame (marker /= 0).  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -286,11 +287,41 @@ Variables</h2></td></tr>
 
 <p>Batched fine advance: in the ghost band between two stacked members, stencils along the stacked dim span both members' ghosts and sweeps across it run on ghost rows, which can give unphysical faces (negative pressure). No member's interior reads those faces, so they take the cell state instead: the whole band for a transverse sweep id, all but each member's first ghost on either side for the stacked one. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08956">8956</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08973">8973</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a065e99a12f3bb0255e3338dd40f126aa_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a26371faddeb049804be0e360fca1c9fa" name="a26371faddeb049804be0e360fca1c9fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26371faddeb049804be0e360fca1c9fa">&#9670;&#160;</a></span>s_body_faces_take_cell_states()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">subroutine m_rhs::s_body_faces_take_cell_states </td>
+          <td>(</td>
+          <td class="paramtype">type(<a class="el" href="structm__derived__types_1_1integer__field.html">integer_field</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>mk</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>id</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zero the RHS at the body cells of the installed grid frame (marker /= 0). A face between two body cells takes its cells' own states. Only body cells see it, and s_zero_rhs_at_body discards their RHS, but a reconstruction across a thin body can give unphysical states there (a negative WENO density, #2510). </p>
+
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l14449">14449</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a26371faddeb049804be0e360fca1c9fa_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -341,7 +372,7 @@ Here is the caller graph for this function:</div>
 
 <p>Add viscous, surface-tension, species-diffusion, and heat-conduction source flux contributions to the RHS for a direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11034">11034</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11059">11059</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -386,7 +417,7 @@ Here is the caller graph for this function:</div>
 
 <p>Accumulate advection source contributions from a given coordinate direction into the RHS. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09069">9069</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09094">9094</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -426,11 +457,11 @@ Here is the caller graph for this function:</div>
 
 <p>Computes one sweep direction's contribution to the RHS: the Riemann solve on the reconstructed cell-boundary states followed by the advection source term. For dual-pass HLLD the fused solve computes BOTH anchored flux sets in one call; this routine assembles the hat_L (is_hat_L=.true.) partial RHS, and the caller finalizes + assembles the hat_R set afterwards. is_hat_L selects which one-sided flux difference the advection source applies into rhs_vf. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09025">9025</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l09042">9042</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a5e194557c7d28a9ee7962f2eb9032710_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a5e194557c7d28a9ee7962f2eb9032710_cgraph.svg" width="100%" height="394"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -506,11 +537,11 @@ Here is the caller graph for this function:</div>
 
 <p>Compute the right-hand side of the semi-discrete governing equations for a single time stage. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08084">8084</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08087">8087</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a37d36d411217c838e6a9fbef27ccc70e_cgraph.svg" width="100%" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__rhs_a37d36d411217c838e6a9fbef27ccc70e_cgraph.svg" width="100%" height="593"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -534,7 +565,7 @@ Here is the caller graph for this function:</div>
 
 <p>Module deallocation and/or disassociation procedures. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l12256">12256</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l12340">12340</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -552,7 +583,7 @@ Here is the caller graph for this function:</div>
 
 <p>Select the q_cons_qp components the per-RHS copy fills: only those q_prim_qp aliases need it (ghost layers); otherwise the conversion reads q_cons_vf directly. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08025">8025</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08028">8028</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -631,7 +662,7 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l11933">11933</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l12017">12017</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -671,7 +702,7 @@ Here is the caller graph for this function:</div>
 
 <p>Perform first-order (piecewise constant) reconstruction of left and right cell-boundary values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l12032">12032</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l12116">12116</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -697,7 +728,7 @@ Here is the caller graph for this function:</div>
 
 <p>Reconstructs the left/right Riemann states (cell-boundary values) for one sweep direction into the module face buffers (qL/qR_rs*_vf and, for WENO-reconstructed viscous fluxes, dqL/dqR_rs*_vf). Depends only on q_prim_qp, so it runs once per sweep direction; both anchored passes of the fused dual-pass HLLD solve in that direction reuse these buffers. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08750">8750</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l08758">8758</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -730,9 +761,7 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Zero the RHS at the body cells of the installed grid frame (marker /= 0). </p>
-
-<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l14363">14363</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__rhs_8fpp_8f90_source.html#l14521">14521</a> of file <a class="el" href="m__rhs_8fpp_8f90_source.html">m_rhs.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

@@ -1,9 +1,11 @@
 var m__mpi__proxy_8fpp_8f90 =
 [
     [ "f_crosses_boundary", "m__mpi__proxy_8fpp_8f90.html#a062eb34eb5810bbd84a755229514365a", null ],
+    [ "m_mpi_proxy::f_within_cell_of_face", "namespacem__mpi__proxy.html#a7c557eb249febc5fae881e7303a077a1", null ],
     [ "m_mpi_proxy::neighbor_tag", "namespacem__mpi__proxy.html#a072585363c335d4221160641749d1dc3", null ],
+    [ "m_mpi_proxy::s_add_lag_entities_to_halo_list", "namespacem__mpi__proxy.html#a2827a131646b4674948c1019abacb1b0", null ],
     [ "m_mpi_proxy::s_add_lag_entities_to_transfer_list", "namespacem__mpi__proxy.html#ac6f7626f03c5e592ad1a0d5139a7a4f0", null ],
-    [ "s_add_lag_entity_to_direction", "m__mpi__proxy_8fpp_8f90.html#a1aadef4d20389b2d8d27bffc229c8ffb", null ],
+    [ "m_mpi_proxy::s_add_lag_entity_to_direction", "namespacem__mpi__proxy.html#a4ee1012e4c51f7de522ba00653c7efc1", null ],
     [ "m_mpi_proxy::s_allocate_lag_entity_comm", "namespacem__mpi__proxy.html#a5a004abc70b5b29f18ed326902c0e797", null ],
     [ "m_mpi_proxy::s_begin_lag_entity_exchange", "namespacem__mpi__proxy.html#abb79d4fa1370579fb1b6be104bd7330f", null ],
     [ "m_mpi_proxy::s_exchange_lag_entities", "namespacem__mpi__proxy.html#a72565a44477ceede1efd3c5981b0138f", null ],
@@ -14,6 +16,7 @@ var m__mpi__proxy_8fpp_8f90 =
     [ "m_mpi_proxy::s_mpi_bcast_user_inputs", "namespacem__mpi__proxy.html#af90ff0c1a1201411176602946199f96c", null ],
     [ "m_mpi_proxy::s_mpi_send_random_number", "namespacem__mpi__proxy.html#a7fd7006df83da0fe282503cd5f126870", null ],
     [ "m_mpi_proxy::s_reserve_lag_send_list", "namespacem__mpi__proxy.html#a3492d3ae6a68515e69b3d50c0a9fddd8", null ],
+    [ "m_mpi_proxy::s_reserve_lag_send_slots", "namespacem__mpi__proxy.html#ad8b7258cf71721ebd400caa2fe39dc8f", null ],
     [ "m_mpi_proxy::s_wrap_lag_entity_positions", "namespacem__mpi__proxy.html#a79e7558659cf3a342038ff6ba2a26b19", null ],
     [ "m_mpi_proxy::i_halo_size", "namespacem__mpi__proxy.html#a27c37570263b75dbeada1687d5990d08", null ],
     [ "m_mpi_proxy::ib_buff_recv", "namespacem__mpi__proxy.html#a54e5acdc9f00af88eb577debcb5e354b", null ],

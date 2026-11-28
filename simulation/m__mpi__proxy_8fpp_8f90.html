@@ -177,13 +177,19 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a5a004abc70b5b29f18ed326902c0e797" id="r_a5a004abc70b5b29f18ed326902c0e797"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#a5a004abc70b5b29f18ed326902c0e797">m_mpi_proxy::s_allocate_lag_entity_comm</a> (<a class="el" href="namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2">n</a>)</td></tr>
 <tr class="memdesc:a5a004abc70b5b29f18ed326902c0e797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate the send/receive buffers (sized by p_buff_size) and transfer lists for n entities, and build the list of neighbor ranks.  <br /></td></tr>
 <tr class="memitem:a3492d3ae6a68515e69b3d50c0a9fddd8" id="r_a3492d3ae6a68515e69b3d50c0a9fddd8"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#a3492d3ae6a68515e69b3d50c0a9fddd8">m_mpi_proxy::s_reserve_lag_send_list</a> (<a class="el" href="namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2">n</a>)</td></tr>
-<tr class="memdesc:a3492d3ae6a68515e69b3d50c0a9fddd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the send lists hold n entities; their contents are rebuilt for every exchange, so they are not kept.  <br /></td></tr>
+<tr class="memdesc:a3492d3ae6a68515e69b3d50c0a9fddd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the per-neighbor send lists hold n entities each; their contents are rebuilt for every exchange, so they are not kept.  <br /></td></tr>
+<tr class="memitem:ad8b7258cf71721ebd400caa2fe39dc8f" id="r_ad8b7258cf71721ebd400caa2fe39dc8f"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#ad8b7258cf71721ebd400caa2fe39dc8f">m_mpi_proxy::s_reserve_lag_send_slots</a> (<a class="el" href="namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2">n</a>)</td></tr>
+<tr class="memdesc:ad8b7258cf71721ebd400caa2fe39dc8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the slot-ordered send list hold n slots; a halo entity goes to up to 7 neighbors, so this can exceed the entity count.  <br /></td></tr>
 <tr class="memitem:af90ff0c1a1201411176602946199f96c" id="r_af90ff0c1a1201411176602946199f96c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#af90ff0c1a1201411176602946199f96c">m_mpi_proxy::s_mpi_bcast_user_inputs</a> ()</td></tr>
 <tr class="memdesc:af90ff0c1a1201411176602946199f96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Since only the processor with rank 0 reads and verifies the consistency of user inputs, these are initially not available to the other processors. Then, the purpose of this subroutine is to distribute the user inputs to the remaining processors in the communicator.  <br /></td></tr>
 <tr class="memitem:ac6f7626f03c5e592ad1a0d5139a7a4f0" id="r_ac6f7626f03c5e592ad1a0d5139a7a4f0"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#ac6f7626f03c5e592ad1a0d5139a7a4f0">m_mpi_proxy::s_add_lag_entities_to_transfer_list</a> (nbub, pos, posprev)</td></tr>
 <tr class="memdesc:ac6f7626f03c5e592ad1a0d5139a7a4f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds particles to the transfer list for the MPI communication.  <br /></td></tr>
 <tr class="memitem:a062eb34eb5810bbd84a755229514365a" id="r_a062eb34eb5810bbd84a755229514365a"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="#a062eb34eb5810bbd84a755229514365a">f_crosses_boundary</a> (particle_id, dir, loc, pos, posprev)</td></tr>
-<tr class="memitem:a1aadef4d20389b2d8d27bffc229c8ffb" id="r_a1aadef4d20389b2d8d27bffc229c8ffb"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a1aadef4d20389b2d8d27bffc229c8ffb">s_add_lag_entity_to_direction</a> (particle_id, dir_x, dir_y, dir_z)</td></tr>
+<tr class="memitem:a2827a131646b4674948c1019abacb1b0" id="r_a2827a131646b4674948c1019abacb1b0"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#a2827a131646b4674948c1019abacb1b0">m_mpi_proxy::s_add_lag_entities_to_halo_list</a> (n_loc, pos)</td></tr>
+<tr class="memdesc:a2827a131646b4674948c1019abacb1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds every entity within one cell of a face shared with a neighbor rank to the send list of each neighbor sharing that face, including edge and corner neighbors. Builds the four-way collision halo.  <br /></td></tr>
+<tr class="memitem:a7c557eb249febc5fae881e7303a077a1" id="r_a7c557eb249febc5fae881e7303a077a1"><td class="memItemLeft">logical function&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#a7c557eb249febc5fae881e7303a077a1">m_mpi_proxy::f_within_cell_of_face</a> (x, dir, side)</td></tr>
+<tr class="memdesc:a7c557eb249febc5fae881e7303a077a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if coordinate x along dir lies in this rank's first (side = -1) or last (side = 1) cell.  <br /></td></tr>
+<tr class="memitem:a4ee1012e4c51f7de522ba00653c7efc1" id="r_a4ee1012e4c51f7de522ba00653c7efc1"><td class="memItemLeft">subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#a4ee1012e4c51f7de522ba00653c7efc1">m_mpi_proxy::s_add_lag_entity_to_direction</a> (particle_id, dir_x, dir_y, dir_z)</td></tr>
 <tr class="memitem:afd8bf3df01fec89a14810f3c27aefb8f" id="r_afd8bf3df01fec89a14810f3c27aefb8f"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#afd8bf3df01fec89a14810f3c27aefb8f">m_mpi_proxy::s_exchange_lag_entity_counts</a> ()</td></tr>
 <tr class="memdesc:afd8bf3df01fec89a14810f3c27aefb8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exchange the number of particles to send/receive with every neighbor rank (p_send_counts -&gt; p_recv_counts).  <br /></td></tr>
 <tr class="memitem:abb79d4fa1370579fb1b6be104bd7330f" id="r_abb79d4fa1370579fb1b6be104bd7330f"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="namespacem__mpi__proxy.html#abb79d4fa1370579fb1b6be104bd7330f">m_mpi_proxy::s_begin_lag_entity_exchange</a> (n_send, n_recv)</td></tr>
@@ -268,7 +274,7 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01571">1571</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01584">1584</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -278,52 +284,6 @@ Here is the call graph for this function:</div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__mpi__proxy_8fpp_8f90_a062eb34eb5810bbd84a755229514365a_icgraph.svg" width="419" height="71"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1aadef4d20389b2d8d27bffc229c8ffb" name="a1aadef4d20389b2d8d27bffc229c8ffb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1aadef4d20389b2d8d27bffc229c8ffb">&#9670;&#160;</a></span>s_add_lag_entity_to_direction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">subroutine s_add_lag_entities_to_transfer_list::s_add_lag_entity_to_direction </td>
-          <td>(</td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>particle_id</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir_x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir_y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir_z</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html#l01597">1597</a> of file <a class="el" href="m__mpi__proxy_8fpp_8f90_source.html">m_mpi_proxy.fpp.f90</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="m__mpi__proxy_8fpp_8f90_a1aadef4d20389b2d8d27bffc229c8ffb_icgraph.svg" width="420" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

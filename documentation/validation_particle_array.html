@@ -179,7 +179,7 @@ Setup</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Wall  </td><td class="markdownTableBodyLeft">fixed, no slip, <span class="tt">thermal_bc = 1</span> at the free-stream temperature (they absorb the heat the driving force dissipates); <span class="tt">mass = 0</span> keeps a body-force term out of the force record  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">weno_Re_flux</span>, <span class="tt">fd_order = 4</span>, fixed step at acoustic CFL 0.2 (3D) or 0.3 (2D) because the controller needs a constant <span class="tt">dt</span>; <span class="tt">ib_ip_interp = 1</span> (the default)  </td></tr>
+<td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, <span class="tt">weno_Re_flux</span>, <span class="tt">fd_order = 4</span>, fixed step at acoustic CFL 0.2 (3D) or 0.3 (2D) because the controller needs a constant <span class="tt">dt</span>; <span class="tt">ib_ip_interp = 1</span>; these runs used <span class="tt">ib_wall_order = 1</span> and <span class="tt">ib_visc_compact = F</span>, the defaults then (the Reproduce commands pass <span class="tt">--wall_order 1 --visc_compact 0</span>; the example now follows the solver defaults 2 and T)  </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyLeft">Length  </td><td class="markdownTableBodyLeft">\(t W/D\) = 10 (3D), 43 (2D), averages over the last 40 %  </td></tr>
 <tr class="markdownTableRowEven">
@@ -264,12 +264,12 @@ Known limitations</h2>
 </ul>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md875"></a>
 Reproduce</h2>
-<div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_periodic_array/case.py -n 1 --gpu -- --tstar 40 --stride 20</div>
+<div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_periodic_array/case.py -n 1 --gpu -- --tstar 40 --stride 20 --wall_order 1 --visc_compact 0</div>
 <div class="line">python3 examples/2D_ibm_periodic_array/check_array.py examples/2D_ibm_periodic_array</div>
 <div class="line">./mfc.sh run examples/2D_ibm_periodic_array/case.py -n 1 --gpu -- --dim 3 --n_bodies 20 --phi 0.2 --mach 0.3 \</div>
-<div class="line">    --Re 100 --cells_per_D 16 --tstar 10 --stride 50 --cfl 0.2 --seed 1</div>
+<div class="line">    --Re 100 --cells_per_D 16 --tstar 10 --stride 50 --cfl 0.2 --seed 1 --wall_order 1 --visc_compact 0</div>
 </div><!-- fragment --><p>The suite runs the CI-sized case (12 cylinders, 96 x 96 cells, 200 steps, 2 ranks) as <span class="tt">2D -&gt; Chemistry -&gt; IBM -&gt; Periodic Array</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

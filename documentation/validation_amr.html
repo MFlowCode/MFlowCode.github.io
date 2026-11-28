@@ -368,7 +368,7 @@ Sedov-Taylor blast</h2>
 <p>Limits:</p><ul>
 <li><b>Early times.</b> The energy sits in a finite sphere (0.04, 3-13 cells) with a staircase surface, which shifts the virtual origin; the first save (t = 0.02, R = 5.4 r0) carries that and the startup transient. The patch stair-step loses 0.9 % of the energy at 96³/192³ and 0.5 % at 384³; the reference uses the measured energy.</li>
 <li><b>Counter-pressure.</b> \(p_0 = 10^{-3}\) leaves the shock at Mach 33 at the end ( \(\dot R = 0.4 R/t\) against \(c_0 = \sqrt{\gamma p_0/\rho_0}\)); the strong-shock solution ignores \(p_0\) (an effect of order \(1/M^2\), about 0.1 %, not separated from the discretization error here).</li>
-<li><b>Scheme.</b> WENO5 with <span class="tt">mp_weno = T</span> went NaN next to the blast at t = 0.004 on a uniform 256³ octant (no AMR), so the check uses MUSCL with minmod. An octant with symmetry walls cannot be refined at the walls (a block must lie <span class="tt">buff_size</span> cells inside the domain), so the whole sphere is simulated.</li>
+<li><b>Scheme.</b> On a uniform 256³ octant (no AMR), WENO5 with <span class="tt">mp_weno = T</span> goes NaN at t = 0.0024, at the collapsing centre in the reflective corner: WENO5 has no positivity safeguard there (#2502, as in #2469). With <span class="tt">face_bound = 1</span> or <span class="tt">2</span> (see <a class="el" href="validation__positivity_8md.html" title="/home/runner/work/MFC/MFC/docs/documentation/validation_positivity.md">Positivity</a>) the same run reaches t = 0.02. The check uses MUSCL with minmod. An octant with symmetry walls cannot be refined at the walls (a block must lie <span class="tt">buff_size</span> cells inside the domain), so the whole sphere is simulated.</li>
 <li>Save times come from <span class="tt">run_time.inf</span>, which has four significant digits (0.04 % in R).</li>
 <li>Only the radius and the peak density are checked; the interior profiles are not compared.</li>
 </ul>
@@ -390,7 +390,7 @@ Cylinder wake</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Flow  </td><td class="markdownTableBodyLeft">ideal gas, \(\gamma\) = 1.4, U = 0.2, c = 1 (M = 0.2), Re = 100; a transverse-velocity patch (0.2 U, 2 D x 1 D) behind the body seeds shedding  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Domain  </td><td class="markdownTableBodyLeft">[-12 D, 24 D] x [-16 D, 16 D] (3.1 % blockage); Dirichlet inflow (<span class="tt">-17</span>), extrapolation elsewhere (<span class="tt">-3</span>; AMR rejects characteristic boundaries)  </td></tr>
+<td class="markdownTableBodyLeft">Domain  </td><td class="markdownTableBodyLeft">[-12 D, 24 D] x [-16 D, 16 D] (3.1 % blockage); Dirichlet inflow (<span class="tt">-17</span>), extrapolation elsewhere (<span class="tt">-3</span>)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Grids  </td><td class="markdownTableBodyLeft">uniform 16 and 32 cells/D; AMR: 16 cells/D base and one static 2:1 block over -1.5 D &lt;= x &lt;= 6 D, |y| &lt;= 2.5 D (3.3 % of the 32 cells/D grid), lock-step and <span class="tt">amr_subcycle</span>  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -430,7 +430,7 @@ Reproduce</h3>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_amr_cylinder_wake/case.py -t pre_process simulation -n 1 --gpu</div>
 <div class="line">python3 examples/2D_amr_cylinder_wake/check_wake.py examples/2D_amr_cylinder_wake [&lt;uniform 32 cells/D run&gt;]</div>
 </div><!-- fragment --><p>The uniform and subcycled runs are edits at the top of <span class="tt">case.py</span> in a copy of the directory (<span class="tt">amr = False</span> with <span class="tt">N = 32</span> or <span class="tt">N = 16</span>; <span class="tt">subcycle = True</span>). Measured on one MI250X GCD, amdflang with OpenMP offload, double precision.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-27</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

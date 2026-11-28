@@ -210,7 +210,7 @@ Cylinder</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">master</span>, <span class="tt">ib_ip_interp = 2</span> (TSC image points)  </td><td class="markdownTableBodyRight">+1.39 %  </td><td class="markdownTableBodyRight">+0.80 %  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><span class="tt">master</span>, <span class="tt">ib_smooth_contact = T</span>  </td><td class="markdownTableBodyRight">+1.87 %  </td><td class="markdownTableBodyRight">not run  </td></tr>
+<td class="markdownTableBodyLeft"><span class="tt">master</span>, <span class="tt">ib_smooth_contact = T</span> (an option since removed)  </td><td class="markdownTableBodyRight">+1.87 %  </td><td class="markdownTableBodyRight">not run  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">master</span>, <span class="tt">ib_mass_relax = 30</span> or <span class="tt">1</span>  </td><td class="markdownTableBodyRight">+1.86 %  </td><td class="markdownTableBodyRight">not run  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -218,7 +218,7 @@ Cylinder</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft"><span class="tt">master</span> before #2248 (wall conduction through the unbounded mirror temperature)  </td><td class="markdownTableBodyRight">burn rate equal to <span class="tt">master</span> to 5 digits through 5 us  </td><td class="markdownTableBodyRight"></td></tr>
 </table>
-<p>The earlier study's build reproduces its numbers exactly with this case file, so the case and the reference are not the difference. The default that moves the burn rate is the image-point interpolation: the earlier build used triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>), <span class="tt">master</span> uses inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>). Setting it recovers about half of the gap at 12 cells per diameter and nearly all of it at 24 (below). The other options of the earlier build do not matter here (<span class="tt">ib_smooth_contact</span>, <span class="tt">ib_mass_relax</span>, which the flux wall makes redundant, <span class="tt">weno_Re_flux_compact</span>). What remained at 12 cells per diameter (+0.5 and +0.7 percentage points at 10 and 20 us) is the species ghost (next section). The recommended setting for these cases is <span class="tt">--set ib_ip_interp=2</span>.</p>
+<p>The earlier study's build reproduces its numbers exactly with this case file, so the case and the reference are not the difference. The default that moves the burn rate is the image-point interpolation: the earlier build used triangular-shaped-cloud weights (<span class="tt">ib_ip_interp = 2</span>), <span class="tt">master</span> then used inverse-distance weights (<span class="tt">ib_ip_interp = 1</span>; TSC is now the default). Setting it recovers about half of the gap at 12 cells per diameter and nearly all of it at 24 (below). The other options of the earlier build do not matter here (<span class="tt">ib_smooth_contact</span>, <span class="tt">ib_mass_relax</span>, which the flux wall makes redundant, <span class="tt">weno_Re_flux_compact</span>). What remained at 12 cells per diameter (+0.5 and +0.7 percentage points at 10 and 20 us) is the species ghost (next section). The recommended setting for these cases, <span class="tt">ib_ip_interp = 2</span>, is now the default.</p>
 <p>With <span class="tt">ib_ip_interp = 2</span> (A100, NVHPC 25.11):</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -275,7 +275,7 @@ Known limitations</h2>
 <li>Element conservation of the flux wall (closed-box O, H and N inventories to round-off) is checked by <span class="tt">2D_ibm_wall_mass_budget</span> (see <a class="el" href="validation.html" title="Validation">Validation</a>); the 64-particle array budget of the earlier study is not repeated here.</li>
 <li>The film-theory series and the stagnation-flow comparisons (Makino and co-workers) of the earlier study are not part of this page: they need the stagnation reference of a separate study and were not re-measured.</li>
 </ul>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

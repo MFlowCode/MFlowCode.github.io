@@ -197,8 +197,14 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memdesc:a25d1a88156408031c14b8ad2d7a194c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Barycentric Lagrange interpolation weights at every cell in each direction, computed once.  <br /></td></tr>
 <tr class="memitem:af9b4e8d052ca0e0c595143ae38a247fe" id="r_af9b4e8d052ca0e0c595143ae38a247fe"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#af9b4e8d052ca0e0c595143ae38a247fe">s_sync_particles_for_save</a> ()</td></tr>
 <tr class="memdesc:af9b4e8d052ca0e0c595143ae38a247fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the particle state and projected volume fraction to the host before a save, and abort if any particle position or velocity is NaN.  <br /></td></tr>
-<tr class="memitem:a9006d700833474e2ca5ed608dc40eb70" id="r_a9006d700833474e2ca5ed608dc40eb70"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a9006d700833474e2ca5ed608dc40eb70">s_mpi_sendrecv_lag_particles</a> ()</td></tr>
-<tr class="memdesc:a9006d700833474e2ca5ed608dc40eb70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the particles on the transfer list to their new ranks and append the particles received from the neighbors (host data).  <br /></td></tr>
+<tr class="memitem:ab9dc1cb7d0529f4fbfa3b45e75c60684" id="r_ab9dc1cb7d0529f4fbfa3b45e75c60684"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#ab9dc1cb7d0529f4fbfa3b45e75c60684">s_mpi_sendrecv_lag_particles</a> (n_stored, n_recv)</td></tr>
+<tr class="memdesc:ab9dc1cb7d0529f4fbfa3b45e75c60684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send the particles on the send list to the neighbor ranks and store the n_recv particles received from them after the first n_stored (host data).  <br /></td></tr>
+<tr class="memitem:a302a35bf359588b103691f667d1801c0" id="r_a302a35bf359588b103691f667d1801c0"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a302a35bf359588b103691f667d1801c0">s_build_halo_particles</a> ()</td></tr>
+<tr class="memdesc:a302a35bf359588b103691f667d1801c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Four-way coupling: store copies of the particles within one cell of this rank's faces after the owned particles (host data). Neighbor ranks send theirs the same way as particles changing rank; across a periodic direction this rank spans alone, the copies are shifted by the domain length, and at a reflective boundary they are mirrored about it.  <br /></td></tr>
+<tr class="memitem:a0391301b00c0b81790604c789368c5c5" id="r_a0391301b00c0b81790604c789368c5c5"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a0391301b00c0b81790604c789368c5c5">s_append_halo_image</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, dir, flip, offset)</td></tr>
+<tr class="memdesc:a0391301b00c0b81790604c789368c5c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append a halo copy of particle k whose position along dir is flip*x + offset and velocity along dir is flip*u: a periodic image for flip = 1, a mirror image about the plane at offset/2 for flip = -1.  <br /></td></tr>
+<tr class="memitem:a3fd44f9563b3e352ccffa6de17e2c61c" id="r_a3fd44f9563b3e352ccffa6de17e2c61c"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a3fd44f9563b3e352ccffa6de17e2c61c">s_check_halo_width</a> ()</td></tr>
+<tr class="memdesc:a3fd44f9563b3e352ccffa6de17e2c61c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abort if a contact could reach past the one-cell halo: the largest particle diameter must fit in every cell at a rank face.  <br /></td></tr>
 <tr class="memitem:aa1e8a0b339cef95b49cc3e54cc579c96" id="r_aa1e8a0b339cef95b49cc3e54cc579c96"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#aa1e8a0b339cef95b49cc3e54cc579c96">s_pack_lag_particle</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, q)</td></tr>
 <tr class="memdesc:aa1e8a0b339cef95b49cc3e54cc579c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pack particle k into MPI send slot q, in the field order of s_unpack_lag_particle.  <br /></td></tr>
 <tr class="memitem:a7eed7f86b31a989543df649eb64bfdaa" id="r_a7eed7f86b31a989543df649eb64bfdaa"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a7eed7f86b31a989543df649eb64bfdaa">s_unpack_lag_particle</a> (<a class="el" href="m__phase__change_8fpp_8f90.html#ab59687ec5969af6d5b7b9ba5cf2835aa">k</a>, q)</td></tr>
@@ -212,7 +218,7 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:a2a3876bdd8a08bbf1d4306ef24cad492" id="r_a2a3876bdd8a08bbf1d4306ef24cad492"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a2a3876bdd8a08bbf1d4306ef24cad492">s_deallocate_particle_arrays</a> ()</td></tr>
 <tr class="memdesc:a2a3876bdd8a08bbf1d4306ef24cad492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate the per-particle arrays (host and device).  <br /></td></tr>
 <tr class="memitem:a18c383d2f134270e5aeaed12723fb10b" id="r_a18c383d2f134270e5aeaed12723fb10b"><td class="memItemLeft">impure subroutine&#160;</td><td class="memItemRight"><a class="el" href="#a18c383d2f134270e5aeaed12723fb10b">s_grow_particle_arrays</a> (<a class="el" href="namespacem__global__parameters__common.html#adab5f545b60570ef641e3e7044830ca2">n</a>)</td></tr>
-<tr class="memdesc:a18c383d2f134270e5aeaed12723fb10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reallocate the per-particle arrays with room for n particles, keeping the state of the first n_el_particles_loc. Host data: the caller updates the device.  <br /></td></tr>
+<tr class="memdesc:a18c383d2f134270e5aeaed12723fb10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reallocate the per-particle arrays with room for n particles, keeping the state of the owned and halo particles. Host data: the caller updates the device.  <br /></td></tr>
 <tr class="memitem:a7a0c37af7d62d6b6ccc63ec792b4c61e" id="r_a7a0c37af7d62d6b6ccc63ec792b4c61e"><td class="memItemLeft">impure subroutine, public&#160;</td><td class="memItemRight"><a class="el" href="#a7a0c37af7d62d6b6ccc63ec792b4c61e">s_finalize_particles_el_module</a> ()</td></tr>
 <tr class="memdesc:a7a0c37af7d62d6b6ccc63ec792b4c61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocate the particle arrays.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -273,6 +279,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:a8355a811a334964b64aaf48d297844d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">First non-finite force term of each particle (0 if none).  <br /></td></tr>
 <tr class="memitem:a9fb4bf0dd969a4d7b7be180bea491558" id="r_a9fb4bf0dd969a4d7b7be180bea491558"><td class="memItemLeft">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), dimension(:,:), allocatable&#160;</td><td class="memItemRight"><a class="el" href="#a9fb4bf0dd969a4d7b7be180bea491558">force_re_mach</a></td></tr>
 <tr class="memdesc:a9fb4bf0dd969a4d7b7be180bea491558"><td class="mdescLeft">&#160;</td><td class="mdescRight">Particle Reynolds and Mach numbers, reported with force_status.  <br /></td></tr>
+<tr class="memitem:aa65d7a6740b48e273eb5119d2fe60932" id="r_aa65d7a6740b48e273eb5119d2fe60932"><td class="memItemLeft">integer&#160;</td><td class="memItemRight"><a class="el" href="#aa65d7a6740b48e273eb5119d2fe60932">n_halo_particles</a> = 0</td></tr>
+<tr class="memdesc:aa65d7a6740b48e273eb5119d2fe60932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Four-way coupling halo: neighbor-rank copies within one cell of this rank's faces, stored after the owned particles.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Real fields of a particle MPI slot, as (names, indices, count) in pack order. Used by both pack and unpack routines to ensure. </p>
@@ -305,11 +313,11 @@ Variables</h2></td></tr>
 
 <p>Array length for n particles: headroom for arrivals from neighbor ranks, capped at the global count. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03079">3079</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03224">3224</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a18e4c1332967c6dce2a6a7aa68335491_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a18e4c1332967c6dce2a6a7aa68335491_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -336,7 +344,7 @@ Here is the caller graph for this function:</div>
 
 <p>Report every particle whose force is not finite (position, velocities, fluid state, Re, Ma and the force term that failed first) and abort the run. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01925">1925</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01967">1967</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -379,7 +387,7 @@ Here is the caller graph for this function:</div>
 
 <p>Store one particle from the input file: position, velocity, radius, mass from particle_pprho0ref_particle, and its fluctuation-model seed. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01669">1669</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01705">1705</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -413,7 +421,7 @@ Here is the caller graph for this function:</div>
 
 <p>rhs -= (alpha_p/alpha_f)*field_vars(part_field_idxdsrc_tmp). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02396">2396</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02438">2438</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -447,7 +455,7 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate the per-particle arrays (host and device) with room for n particles. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03088">3088</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03233">3233</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -456,7 +464,127 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_aeb93705c5ba8c6de2229247e97030527_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_aeb93705c5ba8c6de2229247e97030527_icgraph.svg" width="100%" height="461"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a0391301b00c0b81790604c789368c5c5" name="a0391301b00c0b81790604c789368c5c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0391301b00c0b81790604c789368c5c5">&#9670;&#160;</a></span>s_append_halo_image()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_particles_el::s_append_halo_image </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>k</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>dir</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>flip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">real(<a class="el" href="namespacem__precision__select.html#a5c61bc246bcd3d3239269c38473c000a">wp</a>), intent(in)</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Append a halo copy of particle k whose position along dir is flip*x + offset and velocity along dir is flip*u: a periodic image for flip = 1, a mirror image about the plane at offset/2 for flip = -1. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03051">3051</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a0391301b00c0b81790604c789368c5c5_cgraph.svg" width="100%" height="420"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a0391301b00c0b81790604c789368c5c5_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a302a35bf359588b103691f667d1801c0" name="a302a35bf359588b103691f667d1801c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302a35bf359588b103691f667d1801c0">&#9670;&#160;</a></span>s_build_halo_particles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_particles_el::s_build_halo_particles</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Four-way coupling: store copies of the particles within one cell of this rank's faces after the owned particles (host data). Neighbor ranks send theirs the same way as particles changing rank; across a periodic direction this rank spans alone, the copies are shifted by the domain length, and at a reflective boundary they are mirrored about it. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03010">3010</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a302a35bf359588b103691f667d1801c0_cgraph.svg" width="100%" height="498"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a302a35bf359588b103691f667d1801c0_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+</div>
+
+</div>
+</div>
+<a id="a3fd44f9563b3e352ccffa6de17e2c61c" name="a3fd44f9563b3e352ccffa6de17e2c61c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fd44f9563b3e352ccffa6de17e2c61c">&#9670;&#160;</a></span>s_check_halo_width()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">impure subroutine m_particles_el::s_check_halo_width</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Abort if a contact could reach past the one-cell halo: the largest particle diameter must fit in every cell at a rank face. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03070">3070</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a3fd44f9563b3e352ccffa6de17e2c61c_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -486,7 +614,7 @@ Here is the caller graph for this function:</div>
 
 <p>Barycentric Lagrange interpolation weights at every cell in each direction, computed once. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02729">2729</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02788">2788</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -521,7 +649,7 @@ Here is the caller graph for this function:</div>
 
 <p>Store the particle field gradients along dir (pressure, velocity, and density with added mass) from this sweep's reconstructed face states. Called inside the RHS direction loop, so the face states need no extra copy. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02640">2640</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02699">2699</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -556,7 +684,7 @@ Here is the call graph for this function:</div>
 
 <p>Interpolate the fluid state to each particle, compute the drag, pressure-gradient, added-mass and fluctuating forces, and store the particle RHS for this RK stage. With two-way coupling, also project the forces onto the grid. Particles advance in lockstep with the fluid, using the same TVD RK stages (s_update_lagrange_particles_tdv_rk). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01738">1738</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01774">1774</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -591,7 +719,7 @@ Here is the call graph for this function:</div>
 
 <p>Add the two-way coupling source terms to the fluid RHS: volume-fraction terms and the projected particle forces (Maeda and Colonius, 2018). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02251">2251</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02293">2293</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -629,11 +757,11 @@ Here is the call graph for this function:</div>
 
 <p>Copy particle src's state into slot dest, to compact the particle arrays after removals. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03039">3039</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03184">3184</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_ad86fbaa447e42ec5c4b0c180972d983b_icgraph.svg" width="660" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_ad86fbaa447e42ec5c4b0c180972d983b_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -667,7 +795,7 @@ Here is the caller graph for this function:</div>
 
 <p>Copy time level src into dest (1: committed u^n, 2: stage value). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02587">2587</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02646">2646</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -698,11 +826,11 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate the per-particle arrays (host and device). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03763">3763</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03908">3908</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a2a3876bdd8a08bbf1d4306ef24cad492_icgraph.svg" width="100%" height="400"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a2a3876bdd8a08bbf1d4306ef24cad492_icgraph.svg" width="100%" height="445"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -732,11 +860,11 @@ Here is the caller graph for this function:</div>
 
 <p>Enforce boundary conditions on Lagrangian particles. Phases: (1) GPU-&gt;host transfer, (2) MPI particle exchange with neighbors, (3) per-particle BC (clamp at walls, remove outside the domain) and compaction on the host, (4) host-&gt;GPU transfer, (5) re-smear onto Eulerian grid. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02517">2517</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02559">2559</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a28dfe8dfcea850b76777da8e7eb60b67_cgraph.svg" width="100%" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a28dfe8dfcea850b76777da8e7eb60b67_cgraph.svg" width="100%" height="514"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -760,7 +888,7 @@ Here is the caller graph for this function:</div>
 
 <p>Deallocate the particle arrays. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04504">4504</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04649">4649</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -838,7 +966,7 @@ Here is the call graph for this function:</div>
 
 <p>Fluid viscosity for the drag correlations: from the mixture Reynolds number when viscous, from the mixture model with chemistry, otherwise mu_ref with an optional Sutherland correction. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01985">1985</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02027">2027</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -896,7 +1024,7 @@ Here is the caller graph for this function:</div>
 
 <p>Cell-centered derivative along dir of the sum of components fbeg:fend: the difference of the right and left reconstructed face states over the cell width. The face states are stored in (x, y, z) order for every sweep direction, so dq shares their (i, j, k) indexing. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02663">2663</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02722">2722</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -928,9 +1056,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Reallocate the per-particle arrays with room for n particles, keeping the state of the first n_el_particles_loc. Host data: the caller updates the device. </p>
+<p>Reallocate the per-particle arrays with room for n particles, keeping the state of the owned and halo particles. Host data: the caller updates the device. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04398">4398</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l04543">4543</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -939,7 +1067,7 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a18c383d2f134270e5aeaed12723fb10b_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a18c383d2f134270e5aeaed12723fb10b_icgraph.svg" width="100%" height="438"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -975,11 +1103,11 @@ Here is the caller graph for this function:</div>
 
 <p>Allocate the particle and projected-field arrays, load this rank's n_loc particles from rows (input file, with global IDs ids, or restart), project them onto the grid, and precompute the interpolation and finite-difference weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00630">630</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00634">634</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a75f9452fd94e8265a9c8074f4f783304_cgraph.svg" width="100%" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a75f9452fd94e8265a9c8074f4f783304_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
@@ -1023,7 +1151,7 @@ Here is the caller graph for this function:</div>
 
 <p>Store this rank's n_loc particles: on a fresh start rows hold x, y, z, u, v, w, radius with global IDs ids, on a restart the restart-file columns. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01598">1598</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01634">1634</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1037,8 +1165,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a9006d700833474e2ca5ed608dc40eb70" name="a9006d700833474e2ca5ed608dc40eb70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9006d700833474e2ca5ed608dc40eb70">&#9670;&#160;</a></span>s_mpi_sendrecv_lag_particles()</h2>
+<a id="ab9dc1cb7d0529f4fbfa3b45e75c60684" name="ab9dc1cb7d0529f4fbfa3b45e75c60684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9dc1cb7d0529f4fbfa3b45e75c60684">&#9670;&#160;</a></span>s_mpi_sendrecv_lag_particles()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1047,7 +1175,14 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">impure subroutine m_particles_el::s_mpi_sendrecv_lag_particles</td>
+          <td class="memname">impure subroutine m_particles_el::s_mpi_sendrecv_lag_particles </td>
+          <td>(</td>
+          <td class="paramtype">integer, intent(in)</td>          <td class="paramname"><span class="paramname"><em>n_stored</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">integer, intent(out)</td>          <td class="paramname"><span class="paramname"><em>n_recv</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1057,18 +1192,18 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Send the particles on the transfer list to their new ranks and append the particles received from the neighbors (host data). </p>
+<p>Send the particles on the send list to the neighbor ranks and store the n_recv particles received from them after the first n_stored (host data). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02926">2926</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02986">2986</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a9006d700833474e2ca5ed608dc40eb70_cgraph.svg" width="100%" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_ab9dc1cb7d0529f4fbfa3b45e75c60684_cgraph.svg" width="100%" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a9006d700833474e2ca5ed608dc40eb70_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_ab9dc1cb7d0529f4fbfa3b45e75c60684_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1102,11 +1237,11 @@ Here is the caller graph for this function:</div>
 
 <p>Pack particle k into MPI send slot q, in the field order of s_unpack_lag_particle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02947">2947</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03092">3092</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_aa1e8a0b339cef95b49cc3e54cc579c96_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_aa1e8a0b339cef95b49cc3e54cc579c96_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1140,7 +1275,7 @@ Here is the caller graph for this function:</div>
 
 <p>Store this rank's n_loc particles from the restart file columns io_data. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01711">1711</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l01747">1747</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1188,7 +1323,7 @@ Here is the caller graph for this function:</div>
 
 <p>Project the particle quantities ind_start:ind_end onto the grid with the Gaussian kernel (Maeda and Colonius, 2018), exchange them across rank boundaries, and turn the projected particle volume fraction into the fluid volume fraction. recompute_gSum relocates the particles and recomputes the kernel normalization. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02070">2070</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02112">2112</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1211,7 +1346,7 @@ Here is the caller graph for this function:</div>
 
 <p>Copy the particle state and projected volume fraction to the host before a save, and abort if any particle position or velocity is NaN. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02888">2888</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02947">2947</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1249,11 +1384,11 @@ Here is the caller graph for this function:</div>
 
 <p>Unpack particle k from MPI receive slot q, in the field order of s_pack_lag_particle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02993">2993</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l03138">3138</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a7eed7f86b31a989543df649eb64bfdaa_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a7eed7f86b31a989543df649eb64bfdaa_icgraph.svg" width="100%" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1284,11 +1419,11 @@ Here is the caller graph for this function:</div>
 
 <p>Advance particle positions and velocities by one TVD RK stage with the stage coefficients coef (a row of rk_coef), then apply boundary conditions and rank handover. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02452">2452</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l02494">2494</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a0e2d78803015b312024ed56dbacebc46_cgraph.svg" width="100%" height="472"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" loading="lazy" frameborder="0" src="namespacem__particles__el_a0e2d78803015b312024ed56dbacebc46_cgraph.svg" width="100%" height="514"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
 
 </div>
@@ -1308,7 +1443,7 @@ Here is the call graph for this function:</div>
 
 <p>density at each particle </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1326,7 +1461,7 @@ Here is the call graph for this function:</div>
 
 <p>force on each particle </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00554">554</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00555">555</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1353,7 +1488,7 @@ Here is the call graph for this function:</div>
 <p>Interpolated Eulerian field gradients at particle locations. </p>
 <p>For cell quantities (field gradients, etc.) </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00521">521</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1371,7 +1506,7 @@ Here is the call graph for this function:</div>
 
 <p>fluid velocity at each particle </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00596">596</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00597">597</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1397,7 +1532,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle Reynolds and Mach numbers, reported with force_status. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00612">612</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00613">613</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1423,7 +1558,7 @@ Here is the call graph for this function:</div>
 
 <p>First non-finite force term of each particle (0 if none). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00611">611</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00612">612</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1441,7 +1576,7 @@ Here is the call graph for this function:</div>
 
 <p>QS fluctuation force on each particle. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00568">568</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00569">569</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1467,7 +1602,7 @@ Here is the call graph for this function:</div>
 
 <p>gaussian sum for each particle </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00582">582</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00583">583</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1493,7 +1628,7 @@ Here is the call graph for this function:</div>
 
 <p>Kahan compensation for q_particles accumulation. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00519">519</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1511,7 +1646,33 @@ Here is the call graph for this function:</div>
 
 <p>Global and local IDs. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00412">412</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+
+</div>
+</div>
+<a id="aa65d7a6740b48e273eb5119d2fe60932" name="aa65d7a6740b48e273eb5119d2fe60932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65d7a6740b48e273eb5119d2fe60932">&#9670;&#160;</a></span>n_halo_particles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer m_particles_el::n_halo_particles = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Four-way coupling halo: neighbor-rank copies within one cell of this rank's faces, stored after the owned particles. </p>
+
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00628">628</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1535,7 +1696,7 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00526">526</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00527">527</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1561,7 +1722,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle Added Mass. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00438">438</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00439">439</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1587,7 +1748,7 @@ Here is the call graph for this function:</div>
 
 <p>Allocated length of the per-particle arrays. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00410">410</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00411">411</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1613,7 +1774,7 @@ Here is the call graph for this function:</div>
 
 <p>Time derivative of the particle's position. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00501">501</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00502">502</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1639,7 +1800,7 @@ Here is the call graph for this function:</div>
 
 <p>Time derivative of the particle's velocity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00502">502</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00503">503</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1657,7 +1818,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle Mass. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00425">425</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00426">426</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1675,7 +1836,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle's position. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00484">484</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00485">485</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1693,7 +1854,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle's previous position. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00485">485</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00486">486</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1711,7 +1872,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle radius (constant: particles are rigid). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00469">469</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00470">470</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1737,7 +1898,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle's computational cell position in real format. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00487">487</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00488">488</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1755,7 +1916,7 @@ Here is the call graph for this function:</div>
 
 <p>State of the particle's fluctuation-model RNG. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00452">452</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00453">453</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1773,7 +1934,7 @@ Here is the call graph for this function:</div>
 
 <p>Particle's velocity. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00486">486</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00487">487</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1799,7 +1960,7 @@ Here is the call graph for this function:</div>
 
 <p>fluid pressure at each particle </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00598">598</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00599">599</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1817,7 +1978,7 @@ Here is the call graph for this function:</div>
 
 <p>Eulerian projection of particle data (volume fraction, momentum, sources). </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00517">517</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00518">518</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1843,7 +2004,7 @@ Here is the call graph for this function:</div>
 
 <p>For previous rhs values. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00522">522</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00523">523</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1869,7 +2030,7 @@ Here is the call graph for this function:</div>
 
 <p>For precomputing weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00523">523</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1895,7 +2056,7 @@ Here is the call graph for this function:</div>
 
 <p>For precomputing weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00524">524</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>
@@ -1921,7 +2082,7 @@ Here is the call graph for this function:</div>
 
 <p>For precomputing weights. </p>
 
-<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00525">525</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
+<p class="definition">Definition at line <a class="el" href="m__particles__EL_8fpp_8f90_source.html#l00526">526</a> of file <a class="el" href="m__particles__EL_8fpp_8f90_source.html">m_particles_EL.fpp.f90</a>.</p>
 
 </div>
 </div>

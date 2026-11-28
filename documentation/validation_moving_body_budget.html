@@ -169,7 +169,7 @@ Setup</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadLeft">Item  </th><th class="markdownTableHeadLeft">Value  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Geometry  </td><td class="markdownTableBodyLeft">one circle, D = 1, centre off the grid lines by (dx/3, dx/5), in a doubly periodic square box  </td></tr>
+<td class="markdownTableBodyLeft">Geometry  </td><td class="markdownTableBodyLeft">one circle, D = 1, centre off the grid lines by (dx/3, dx/5) in these runs (the example now starts at (0.1371 dx, dx/5): with dx/3, the default Mach and CFL put the centre on a cell-centre line at some Runge-Kutta stages), in a doubly periodic square box  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Gas  </td><td class="markdownTableBodyLeft">ideal gas, \(\gamma\) = 1.4, \(\rho\) = 1, p = 1/1.4 (sound speed 1), no chemistry  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -177,7 +177,7 @@ Setup</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Mass runs  </td><td class="markdownTableBodyLeft">inviscid, box 5 D, 16, 24 and 32 cells/D, 6 D travelled, 24 saves, no-slip wall  </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Twin runs  </td><td class="markdownTableBodyLeft">Re = U D/ \(\nu\) = 40, Pr 0.7, isothermal wall (<span class="tt">thermal_bc = 1</span>), wall/gas temperature 0.9 and 0.2, box 8 D, 16 and 32 cells/D, 6 D travelled, <span class="tt">ib_ip_interp = 2</span>  </td></tr>
+<td class="markdownTableBodyLeft">Twin runs  </td><td class="markdownTableBodyLeft">Re = U D/ \(\nu\) = 40, Pr 0.7, isothermal wall (<span class="tt">thermal_bc = 1</span>), wall/gas temperature 0.9 and 0.2, box 8 D, 16 and 32 cells/D, 6 D travelled, <span class="tt">ib_ip_interp = 2</span>, <span class="tt">ib_wall_order = 1</span>, <span class="tt">ib_visc_compact = F</span> (the defaults then; <span class="tt">--wall_order 1 --visc_compact 0</span> repeats them)  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyLeft">Numerics  </td><td class="markdownTableBodyLeft">WENO5-M, HLLC, SSP-RK3, fixed step from an acoustic CFL of 0.4, <span class="tt">fd_order</span> 4, <span class="tt">weno_Re_flux</span> and <span class="tt">weno_avg</span> when viscous  </td></tr>
 <tr class="markdownTableRowOdd">
@@ -248,10 +248,10 @@ Known limitations</h2>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md863"></a>
 Reproduce</h2>
 <div class="fragment"><div class="line">./mfc.sh run examples/2D_ibm_moving_mass_budget/case.py -t pre_process simulation -n 1 --gpu -- \</div>
-<div class="line">    --cells_per_D 24 --mach 0.3 --box 5 --travel 6 --nsave 24 --relax 0</div>
+<div class="line">    --cells_per_D 24 --mach 0.3 --box 5 --travel 6 --nsave 24 --relax 0 --wall_order 1</div>
 <div class="line">python3 examples/2D_ibm_moving_mass_budget/check_budget.py mass &lt;run directory&gt;</div>
 </div><!-- fragment --><p>Twin: run the same case with <span class="tt">--cells_per_D 16 --mach 0.3 --box 8 --Re 40 --Twall 0.2 --ip_interp 2 --travel 6 --nsave 12 --stride 1</span> once with <span class="tt">--relax 0</span>, once with <span class="tt">--relax 30</span>, and once with <span class="tt">--frame fixed</span>, then <span class="tt">check_budget.py twin --moving &lt;moving run&gt; --fixed &lt;fixed run&gt;</span>. A build without MPI adds <span class="tt">--serial_io</span>. The suite runs the CI-sized case as <span class="tt">2D -&gt; IBM -&gt; Moving Circle -&gt; Mass Budget</span> and <span class="tt">... -&gt; Cold Wall</span>.</p>
-<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-25</div> </div></div><!-- contents -->
+<div style="text-align:center; font-size:0.75rem; color:#888; padding:16px 0 0;">Page last updated: 2026-11-26</div> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
